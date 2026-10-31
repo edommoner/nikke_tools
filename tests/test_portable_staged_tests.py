@@ -94,4 +94,65 @@ class StagedTestGroupsTests(unittest.TestCase):
         self.assertFalse(packet.verified_staged(dict(r,all_cpu_tests_verified=True),'preflight-test-group','owned'))
 
 
+    def split_begin(self):
+        name=self.names[1];p=self.testroot/name
+        p.write_text('import unittest\nclass TestOwned(unittest.TestCase):\n @classmethod\n def setUpClass(cls):cls.entered=True\n'+''.join(' def test_'+str(i)+'(self):self.assertTrue(self.entered)\n' for i in range(5)))
+        self.f.m['files']=cli.file_records(self.f.pkg,['tests/'+n for n in self.names]);cli.write(self.f.pkg/'gpu-package.json',self.f.m)
+        return flow.begin(self.f.c,self.f.tx,'metal',self.f.gpu,2,test_group_size=1,split_test_pattern=name,test_case_group_size=2)
+    def test_case_plan_discovers_without_fixtures_and_executes_every_original_id(self):
+        self.split_begin();c=cli.load(self.f.tx/'transaction.json');name=self.names[1]
+        module=sys.modules[name[:-3]];self.assertFalse(hasattr(module.TestOwned,'entered'))
+        self.assertEqual(c['test_groups'],[[self.names[0]],[name],[name],[name],[self.names[2]]])
+        ids=[case.id() for case in worker.discovered_cases(self.f.pkg,name)]
+        self.assertEqual(c['test_case_groups'],[None,{name:ids[:2]},{name:ids[2:4]},{name:ids[4:]},None])
+        for index in range(5):self.run_group(index)
+        stages=staged.admit_tests(self.f.c,self.f.m,c);self.assertEqual(len(stages),5)
+        rows=[row for index in range(5) for row in cli.load(self.f.root/('tests'+str(index))/'cpu-tests.json')]
+        self.assertEqual(sum(r['tests'] for r in rows),7)
+        self.assertEqual([v for r in rows for v in r.get('case_ids',[])],ids)
+        self.assertEqual(self.f.calls,[])
+    def test_case_plan_rejects_missing_duplicated_reordered_or_partial_ids(self):
+        self.split_begin();c=cli.load(self.f.tx/'transaction.json');name=self.names[1]
+        for change in ('missing','duplicate','reverse','partial','unknown'):
+            bad=copy.deepcopy(c)
+            if change=='partial':del bad['test_case_group_size']
+            elif change=='unknown':bad['split_test_pattern']='test_unknown.py'
+            else:
+                ids=bad['test_case_groups'][1][name]
+                if change=='missing':ids.pop()
+                elif change=='duplicate':ids.append(ids[0])
+                else:ids.reverse()
+            with self.subTest(change=change),self.assertRaises(ValueError):staged.validate_plan(self.f.c,self.f.m,bad)
+        for size in (0,True,3):
+            with self.subTest(size=size),self.assertRaises(ValueError):staged.case_plan(self.f.c,self.f.m,size,name,2)
+    def test_selected_receipts_cannot_admit_partial_or_forged_ids(self):
+        self.split_begin();c=cli.load(self.f.tx/'transaction.json');name=self.names[1]
+        for index in range(5):self.run_group(index)
+        p=self.f.root/'tests1';original=cli.load(p/'cpu-tests.json')
+        for change in ('missing','duplicate','reverse','no_ids','count'):
+            rows=copy.deepcopy(original)
+            if change=='missing':rows[0]['case_ids'].pop()
+            elif change=='duplicate':rows[0]['case_ids'].append(rows[0]['case_ids'][0])
+            elif change=='reverse':rows[0]['case_ids'].reverse()
+            elif change=='no_ids':del rows[0]['case_ids']
+            else:rows[0]['tests']-=1
+            cli.write(p/'cpu-tests.json',rows);cli.collect(p,p/'artifacts.json')
+            with self.subTest(change=change),self.assertRaises(ValueError):staged.admit_tests(self.f.c,self.f.m,c)
+        cli.write(p/'cpu-tests.json',original);result=cli.load(p/'result.json');result['selected_cases'][name].reverse();cli.write(p/'result.json',result);cli.collect(p,p/'artifacts.json')
+        with self.assertRaises(ValueError):staged.admit_tests(self.f.c,self.f.m,c)
+    def test_case_wrapper_requires_exact_optional_pair_and_canonical_size(self):
+        request=dict(gpu_capture=str(self.f.gpu),group_size='10',test_group_size='1',split_test_pattern=self.names[1],test_case_group_size='3')
+        p=packet.recipe('owned','preflight-plan','cuda',self.f.root/'split',self.f.root/'original',180,request)
+        args=packet.proof_arguments(p)
+        self.assertEqual(args[-4:],['--split-test-pattern',self.names[1],'--test-case-group-size','3'])
+        self.assertEqual(p['memory_limit_mb'],2048)
+        for key in ('split_test_pattern','test_case_group_size'):
+            bad=dict(request);del bad[key]
+            with self.subTest(key=key),self.assertRaises(ValueError):packet.object_request('preflight-plan',bad)
+        for value in ('0','01',True,'-1','65537'):
+            with self.subTest(value=value),self.assertRaises(ValueError):packet.object_request('preflight-plan',dict(request,test_case_group_size=value))
+        for value in ('../test_x.py','/test_x.py','test_x.py --gpu'):
+            with self.subTest(value=value),self.assertRaises(ValueError):packet.object_request('preflight-plan',dict(request,split_test_pattern=value))
+
+
 if __name__=='__main__':unittest.main()

@@ -3815,6 +3815,7 @@ def main(argv=None):
     for name in ('capture','parent-transaction'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('preflight-plan');a.add_argument('--backend',choices=('metal','cuda'),required=True)
     a.add_argument('--group-size',type=int,required=True);a.add_argument('--test-group-size',type=int,required=True)
+    a.add_argument('--split-test-pattern');a.add_argument('--test-case-group-size',type=int)
     for name in ('capture','gpu-capture'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('preflight-test-group');a.add_argument('--group-index',type=int,required=True)
     for name in ('transaction','capture'):a.add_argument('--'+name,type=Path,required=True)
@@ -4247,7 +4248,8 @@ def main(argv=None):
         with forbid_gpu():result=resume(SimpleNamespace(**globals()),a.capture,a.parent_transaction,a.group_size,a.backend,**(dict(reject_group_size=a.reject_group_size) if a.reject_group_size is not None else {}))
     elif a.command=='preflight-plan':
         from portable_staged_preflight import begin
-        with forbid_gpu():result=begin(SimpleNamespace(**globals()),a.capture,a.backend,a.gpu_capture,a.group_size,test_group_size=a.test_group_size)
+        case_options=dict(split_test_pattern=a.split_test_pattern,test_case_group_size=a.test_case_group_size) if a.split_test_pattern is not None or a.test_case_group_size is not None else {}
+        with forbid_gpu():result=begin(SimpleNamespace(**globals()),a.capture,a.backend,a.gpu_capture,a.group_size,test_group_size=a.test_group_size,**case_options)
     elif a.command=='preflight-test-group':
         from portable_staged_tests import run_group
         with forbid_gpu():result=run_group(SimpleNamespace(**globals()),a.transaction,a.group_index,a.capture)

@@ -111,6 +111,8 @@ def object_request(stage,value):
     fields=PREPARE_FIELDS if stage==PREPARE_STAGE else REUSE_AUDIT_FIELDS if stage==REUSE_AUDIT_STAGE else PTX_PROBE_FIELDS if stage==PTX_PROBE_STAGE else CACHED_GPU_FIELDS if stage==CACHED_GPU_STAGE else STAGED_FIELDS[stage] if stage in STAGED_FIELDS else FAILURE_FIELDS if stage in (FAILURE_STAGE,ORIGIN_STAGE) else NATIVE_GROUP_FIELDS if stage==NATIVE_GROUP_STAGE else RECOVERY_FIELDS if stage==RECOVERY_STAGE else LINKED_FIELDS if stage==LINKED_STAGE else OBJECT_STAGES[stage]
     if stage in (LINKED_STAGE,'staged-gpu-linked') and type(value) is dict and set(value)==set(fields)|{'producer_package','producer_capture'}:
         fields=(*fields,'producer_package','producer_capture')
+    if stage=='preflight-plan' and type(value) is dict and {'split_test_pattern','test_case_group_size'}&set(value):
+        fields=(*fields,'split_test_pattern','test_case_group_size')
     if stage==REUSE_AUDIT_STAGE and type(value) is dict and set(value)==set(fields)|{'historical_link_observation'}:
         fields=(*fields,'historical_link_observation')
     if stage=='preflight-resume' and type(value) is dict and set(value)==set(fields)|{'reject_group_size'}:
@@ -122,9 +124,13 @@ def object_request(stage,value):
     for key in fields:
         item=value[key]
         if not isinstance(item,str) or not item or any(c in item for c in ('\x00','\r','\n')):raise ValueError('Invalid saved-object request value')
-        if key in ('group_index','group_size','test_group_size','reject_group_size'):
+        if key in ('group_index','group_size','test_group_size','reject_group_size','test_case_group_size'):
             if not item.isascii() or not item.isdigit() or str(int(item))!=item or not (0 if key=='group_index' else 1)<=int(item)<=65536:
                 raise ValueError('Canonical bounded native group integer required')
+            result[key]=item
+        elif key=='split_test_pattern':
+            import re
+            if not re.fullmatch(r'test_[A-Za-z0-9_]+\.py',item):raise ValueError('Registered test file name required')
             result[key]=item
         elif key in ('object_sha256','output_sha256','expected_package_id','expected_owner_id','case_groups_sha256'):
             if len(item)!=64 or any(c not in '0123456789abcdef' for c in item):raise ValueError('Exact saved-object SHA256 required')
@@ -402,7 +408,7 @@ def proof_arguments(plan):
         stage=plan['stage'];request=object_request(stage,plan['object_request'])
         if stage=='preflight-recover':return [stage,'--capture',plan['proof_capture'],*[v for k,value in request.items() for v in ('--'+k.replace('_','-'),value)]]
         if stage=='preflight-resume':return [stage,'--capture',plan['proof_capture'],'--backend',plan['backend'],'--parent-transaction',request['parent_transaction'],'--group-size',request['group_size'],*(['--reject-group-size',request['reject_group_size']] if 'reject_group_size' in request else [])]
-        if stage=='preflight-plan':return [stage,'--capture',plan['proof_capture'],'--backend',plan['backend'],'--gpu-capture',request['gpu_capture'],'--group-size',request['group_size'],'--test-group-size',request['test_group_size']]
+        if stage=='preflight-plan':return [stage,'--capture',plan['proof_capture'],'--backend',plan['backend'],'--gpu-capture',request['gpu_capture'],'--group-size',request['group_size'],'--test-group-size',request['test_group_size'],*([arg for key in ('split_test_pattern','test_case_group_size') for arg in ('--'+key.replace('_','-'),request[key])] if 'split_test_pattern' in request else [])]
         if stage=='preflight-test-group':return [stage,'--capture',plan['proof_capture'],'--transaction',request['transaction'],'--group-index',request['group_index']]
         if stage=='preflight-begin':return [stage,'--capture',plan['proof_capture'],'--backend',plan['backend'],'--gpu-capture',request['gpu_capture'],'--group-size',request['group_size']]
         if stage=='preflight-native-group':return [stage,'--capture',plan['proof_capture'],'--transaction',request['transaction'],'--group-index',request['group_index']]

@@ -96,13 +96,17 @@ def terminal_cpu_stage(cli,proof,m,stage):
         outer_files=cli.file_records(outer,['recipe.json','execution.json','job.json','observation.json']))
 
 
-def begin(cli,capture,backend,gpu_capture,group_size,*,test_group_size=None):
+def begin(cli,capture,backend,gpu_capture,group_size,*,test_group_size=None,split_test_pattern=None,test_case_group_size=None):
     from portable_phase_audit import Journal
     if backend not in ('metal','cuda'):raise ValueError('Explicit staged backend required')
     partition(1,group_size)
     m=cli.verify_package(cli.ROOT)
     if cli.is_development(m) or cli.compiler_only(m):raise ValueError('Staged preflight requires a sealed battle')
     if test_group_size is not None:partition(len(product_configuration(cli.SUITES,m)['tests']),test_group_size)
+    split=split_test_pattern is not None or test_case_group_size is not None
+    if split:
+        from portable_staged_tests import case_plan
+        with cli.forbid_gpu():test_groups,test_cases=case_plan(cli,m,test_group_size,split_test_pattern,test_case_group_size)
     capture=outside(capture,[cli.ROOT]);gpu_capture=outside(gpu_capture,[cli.ROOT,capture])
     if gpu_capture.exists():raise FileExistsError(gpu_capture)
     capture.mkdir(parents=True,exist_ok=False);nonce=uuid.uuid4().hex
@@ -121,7 +125,8 @@ def begin(cli,capture,backend,gpu_capture,group_size,*,test_group_size=None):
             host=host(cli),group_size=group_size,case_groups=partition(len(entries),group_size),native_indices=native_indices,input=receipt)
         if test_group_size is not None:
             from portable_staged_tests import plan
-            c.update(test_group_size=test_group_size,test_groups=plan(cli,m,test_group_size))
+            c.update(test_group_size=test_group_size,test_groups=test_groups if split else plan(cli,m,test_group_size))
+        if split:c.update(split_test_pattern=split_test_pattern,test_case_group_size=test_case_group_size,test_case_groups=test_cases)
         exclusive(capture/'transaction.json',c)
         if cli.verify_package(cli.ROOT)!=m:raise ValueError('Staged package changed during begin')
         j.emit('staged_begin_complete','returned')

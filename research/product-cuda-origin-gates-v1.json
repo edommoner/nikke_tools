@@ -165,6 +165,16 @@
     "outer_cpu_guard_weakened": false,
     "numeric_or_backend_code_changed": false,
     "expectations_or_assertions_weakened": false,
-    "old_failed_owner_and_claims_preserved": true
+    "old_failed_owner_and_claims_preserved": true,
+    "source_commit": "304e20b6",
+    "owner": "ebb2bfce6cf965a8fc5b5f525dc1af2daa988cf892f3393483a9bd8554c3f443",
+    "transport_commit": "45432092",
+    "archive_sha256": "e127100dfaab13c6e60ab8704932c505bf026449000cfbcf5c76a0340ef765da",
+    "mac_staged_tests": 100,
+    "mac_staged_groups": 4,
+    "mac_staged_native": 1,
+    "mac_staged_gpu_calls": 0,
+    "all_non_test_bytes_and_golden_identical_to_failed_59160": true,
+    "ptx_plan_threads2_passed": true
   }
 }

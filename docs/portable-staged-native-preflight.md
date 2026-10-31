@@ -107,3 +107,13 @@ Windows wrapperは`--stage preflight-resume --backend cuda`、requestは`parent_
 修正対象は偽SDKのPOSIX/Windows名、抽出監査の3行append-audit inverse、履歴監査へ既に復元された完全な入力を渡す処理。生成/transport/計算関数やGPU/native入力・全goldenは変えない。元の失敗stageとclaimsは保持し、新schema`controller-continuation-reviewed-controls-v1`でlineageを検査する。省略時は従来のcapsule経路を維持する。
 
 固定1e54383d…自身で実元ownerとのlineage・保持した旧control bytes・関連97検査と、全69制御群719検査が成功。実Slang/GPU/nativeは0。Windowsの実smoke/resumeは別途必要であり、このCPU検査をCUDA計算成功へ昇格しない。小記録`research/portable-continuation-reviewed-controls-v1.json`。
+
+### 単一ファイル内のテストID分割
+
+登録ファイル全体が時間枠に収まらない場合は、`preflight-plan` に
+`--test-group-size 1 --split-test-pattern test_product_reference_models.py --test-case-group-size 3`
+を指定できる。packet wrapperのrequestには同名のsnake_caseキーを両方追加し、サイズは正規の十進文字列で渡す。
+この指定は既存ファイルをunittestの発見順で分割する。fixture・テスト本文・比較値・実行時間上限は変更しない。
+計画時には本文を実行せず、各段階のreceiptへ実行した元IDを保存する。
+独立取り込みでは、登録ファイル・ID順序・各群の件数とreceiptを再検査し、元IDの欠落・重複・並び替えを拒否する。
+全群が成功するまでnative/GPU段階へ進めない。従来のファイル単位計画はそのまま利用できる。

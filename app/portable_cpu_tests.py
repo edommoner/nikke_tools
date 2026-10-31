@@ -126,9 +126,27 @@ def validate_groups(root,patterns):
     validate_dependency_files(root,patterns)
 
 
-def run_groups(root,capture,patterns,write):
+def discovered_cases(root,pattern):
+    """Discover original test IDs without executing fixtures or test bodies."""
+    validate_groups(Path(root),[pattern]);before=list(sys.path)
+    def flatten(suite):
+        for item in suite:
+            if isinstance(item,unittest.TestSuite):yield from flatten(item)
+            else:yield item
+    try:
+        cases=list(flatten(unittest.TestLoader().discover(str(Path(root)/'tests'),pattern=pattern)))
+    finally:sys.path[:]=before
+    ids=[case.id() for case in cases]
+    if not ids or len(ids)!=len(set(ids)) or any(type(case).__name__=='_FailedTest' for case in cases):
+        raise ValueError('CPU test discovery incomplete or ambiguous')
+    return cases
+
+
+def run_groups(root,capture,patterns,write,*,selected_cases=None):
     """Execute in registry order; failure stops before any later group or GPU."""
     root=Path(root);capture=Path(capture);validate_groups(root,patterns)
+    if selected_cases is not None and (type(selected_cases) is not dict or set(selected_cases)!=set(patterns)):
+        raise ValueError('Exact selected CPU test patterns required')
     if (capture/'cpu-tests.json').exists():raise FileExistsError('Fresh CPU test receipt required')
     for pattern in patterns:
         for suffix in ('.stdout.log','.stderr.log'):
@@ -138,12 +156,21 @@ def run_groups(root,capture,patterns,write):
         for pattern in patterns:
             started=time.perf_counter()
             with (capture/(pattern+'.stdout.log')).open('x',encoding='utf-8') as stdout,(capture/(pattern+'.stderr.log')).open('x',encoding='utf-8') as stderr,contextlib.redirect_stdout(stdout),contextlib.redirect_stderr(stderr):
-                suite=loader.discover(str(root/'tests'),pattern=pattern)
+                selected=None
+                if selected_cases is None:suite=loader.discover(str(root/'tests'),pattern=pattern)
+                else:
+                    selected=selected_cases[pattern];cases=discovered_cases(root,pattern);available={case.id():case for case in cases}
+                    if (type(selected) is not list or not selected or any(type(x) is not str for x in selected)
+                        or len(selected)!=len(set(selected)) or any(x not in available for x in selected)
+                        or selected!=[case.id() for case in cases if case.id() in selected]):
+                        raise ValueError('Selected CPU test IDs missing, duplicated or reordered')
+                    suite=unittest.TestSuite([available[x] for x in selected])
                 result=unittest.TextTestRunner(stream=stderr,verbosity=1).run(suite)
-                success=result.wasSuccessful() and result.testsRun>0
+                success=result.wasSuccessful() and result.testsRun>0 and (selected is None or result.testsRun==len(selected))
                 if result.testsRun==0:stderr.write('Required CPU group discovered zero tests\n')
             rows.append(dict(pattern=pattern,exit_code=0 if success else 1,elapsed_seconds=time.perf_counter()-started,
                 tests=result.testsRun,failures=len(result.failures),errors=len(result.errors),skipped=len(result.skipped),runner_pid=os.getpid()))
+            if selected is not None:rows[-1]['case_ids']=list(selected)
             write(capture/'cpu-tests.json',rows)
             if not success:break
         if not patterns:write(capture/'cpu-tests.json',rows)

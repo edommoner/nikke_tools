@@ -2,7 +2,7 @@
 from portable_product_programs import configuration as product_configuration
 import os
 from pathlib import Path
-from portable_cpu_tests import complete,run_groups,validate_groups,validate_dependency_files
+from portable_cpu_tests import complete,run_groups,validate_groups,validate_dependency_files,discovered_cases
 from portable_comparison_groups import partition
 from portable_staged_preflight import context,exclusive,outside,terminal_cpu_stage
 
@@ -14,12 +14,42 @@ def plan(cli,m,size):
     return [[names[i] for i in indices] for indices in partition(len(names),size)]
 
 
+def case_plan(cli,m,size,split_pattern,case_group_size):
+    groups=plan(cli,m,size)
+    if size!=1 or split_pattern not in product_configuration(cli.SUITES,m)['tests']:
+        raise ValueError('Case partition requires one registered test file per group')
+    ids=[case.id() for case in discovered_cases(cli.ROOT,split_pattern)]
+    chunks=[[ids[i] for i in indices] for indices in partition(len(ids),case_group_size)]
+    expanded=[];selections=[]
+    for group in groups:
+        if group==[split_pattern]:
+            for chunk in chunks:expanded.append(group);selections.append({split_pattern:chunk})
+        else:expanded.append(group);selections.append(None)
+    return expanded,selections
+
+
 def validate_plan(cli,m,c):
     if 'test_groups' not in c:
-        if 'test_group_size' in c:raise ValueError('Incomplete staged test plan')
+        if {'test_group_size','test_case_groups','split_test_pattern','test_case_group_size'}&set(c):raise ValueError('Incomplete staged test plan')
         return
-    if c['test_groups']!=plan(cli,m,c.get('test_group_size')):
+    keys={'split_test_pattern','test_case_group_size','test_case_groups'}
+    if keys&set(c):
+        if not keys<=set(c):raise ValueError('Incomplete staged test case plan')
+        expected,selections=case_plan(cli,m,c.get('test_group_size'),c['split_test_pattern'],c['test_case_group_size'])
+        if c['test_case_groups']!=selections:raise ValueError('Staged test case coverage changed')
+    else:expected=plan(cli,m,c.get('test_group_size'))
+    if c['test_groups']!=expected:
         raise ValueError('Staged test registry/partition changed')
+
+
+def case_selection(c,index):
+    return c['test_case_groups'][index] if 'test_case_groups' in c else None
+
+
+def selected_coverage(rows,selection):
+    if selection is None:return all('case_ids' not in row for row in rows)
+    return (set(selection)=={row['pattern'] for row in rows}
+            and all(row.get('case_ids')==selection[row['pattern']] and row['tests']==len(row['case_ids']) for row in rows))
 
 
 def run_group(cli,transaction,index,capture):
@@ -42,13 +72,15 @@ def run_group(cli,transaction,index,capture):
         if not deps['passed']:raise ValueError('Staged test dependencies unavailable')
         # This CLI process is already the wrapper's fresh bounded Job child.
         # Unit tests retain their original group runner, logs and assertions.
-        rows=j.invoke('staged_test_group',run_groups,cli.ROOT,capture,patterns,cli.write)
-        if not complete(rows,patterns):raise ValueError('Staged test group incomplete or failed')
+        selection=case_selection(c,index)
+        rows=j.invoke('staged_test_group',run_groups,cli.ROOT,capture,patterns,cli.write,**(dict(selected_cases=selection) if selection is not None else {}))
+        if not complete(rows,patterns) or not selected_coverage(rows,selection):raise ValueError('Staged test group incomplete or failed')
         context(cli,transaction)
         result=dict(mode='staged-preflight-test-group-only',package_id=m['package_id'],
             transaction_nonce=c['nonce'],transaction_sha256=cli.sha((transaction/'transaction.json').read_bytes()),
             group_index=index,patterns=patterns,child_pid=os.getpid(),tests=sum(r['tests'] for r in rows),
             test_group_verified=True,all_cpu_tests_verified=False,calculation_verified=False,gpu_calls=0,driver_load_calls=0)
+        if selection is not None:result['selected_cases']=selection
         exclusive(capture/'result.json',result);return result
     except BaseException as error:
         exclusive(capture/'failure.json',dict(error=type(error).__name__+': '+str(error),gpu_calls=0));raise
@@ -82,10 +114,18 @@ def admit_tests(cli,m,c):
             or type(r.get('tests')) is not int or r['tests']!=sum(row['tests'] for row in rows)
             or cli.load(proof/'python-dependencies.json').get('passed') is not True):
             raise ValueError('Staged test group identity/coverage mismatch')
+        selection=case_selection(c,index)
+        if not selected_coverage(rows,selection) or (r.get('selected_cases')!=selection if selection is not None else 'selected_cases' in r):
+            raise ValueError('Staged test case receipt coverage mismatch')
         envelope=terminal_cpu_stage(cli,proof,m,'preflight-test-group')
         if envelope.get('containment_verified') is True and envelope['child_pid']!=pid:
             raise ValueError('Staged test Job PID mismatch')
         stages.append(dict(capture=str(proof),**envelope,test_files=cli.file_records(proof,names|{'artifacts.json'})))
         pids.append(pid);all_rows.extend(rows)
-    if not complete(all_rows,product_configuration(cli.SUITES,m)['tests']):raise ValueError('Staged test coverage incomplete')
+    if 'test_case_groups' not in c:
+        if not complete(all_rows,product_configuration(cli.SUITES,m)['tests']):raise ValueError('Staged test coverage incomplete')
+    else:
+        ids=[test for row in all_rows if row['pattern']==c['split_test_pattern'] for test in row.get('case_ids',[])]
+        if ids!=[case.id() for case in discovered_cases(cli.ROOT,c['split_test_pattern'])]:
+            raise ValueError('Staged original test IDs not covered exactly once')
     return stages
