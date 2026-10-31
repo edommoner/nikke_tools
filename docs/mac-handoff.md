@@ -1,3 +1,19 @@
+# 2026-10-31 serial NVRTCはtimeoutのまま保持、bounded2-thread候補を追加
+
+Windows a37 own70は54.037秒で全成功、保存14file/owner/complete/Job直GetProcessTimesのpre/post一致を追加read-only監査で確認。外側missing7（Python/node）は検証系列へ帰属できずunknown/preservation=falseを保持。CIMの3tick差を同じprecisionの完全一致とはしない。再unitなしでdeps/PTXplanを各1回通し、generation標準Job/snapshotを明示許可してofficial stage成功（24.437秒/peak541,224,960bytes、指定CUDA/MSL指紋一致）。
+
+新serial key26e5657bは未消費確認後PTX1回だけを試し、外側60秒timeout（後始末込み62.325秒/peak224,788,480bytes）。NVRTC entered1回/戻りなし/PTXなし/最終result・artifactsなし、内側postも未完了。object/link/driver/GPU/API0。native監督67.315秒/peak254,193,664bytes、今回missing/観測操作/cleanup error0、外側と監督Jobsは閉鎖。旧claim/失敗を保持し、SDK再実行・timeout延長なし。
+
+保存同時計ではouter stage呼出→NVRTC entered27.281秒（child verify8.550秒、Slang build/cache3.461秒は包含）、呼出基準60秒との差32.719秒。実タイマー開始未記録なので真のdeadline残秒/NVRTC本体elapsedはunknown。ロード名nvrtc64_120_0.dll/builtins64_124.dll、既存隔離SDK metadata12.4.127であり、実nvrtcVersionは旧試行で未測定。既知inventoryには他はsystem11.3だけ。広い検索・SDKロードによる診断なし。
+
+NVIDIA NVRTC12.4資料のsplit-compileを根拠に、NIKKE_CUDA_SPLIT_COMPILE=2という独立した並列最適化候補を追加。既定1のargv/key不変、0/3以上は禁止、cold開始前の版APIで12.4..12.xだけを許可。cache hit/required missではDLL/版APIをロードしない。compile-planが全compiler_optionsを記録し、cacheも既存のexact optionsを含むkeyで分離する。数値規約/fmad=false/GPU source/Metal基準/60秒2GiB BelowNormalは不変。source ledgerはbackendの厳密な旧88cda preimageを維持した。15 artifact/12 cache/14 compile CLI/16 compiler-diagnostic、CLI/diagnosticのthreads2設定も全成功。Windowsでの並列化成功・高速化・CUDA計算一致はまだ未確認。serial26eへの再試行ではなく、最大2workerの具体的仮説として新optionの未消費keyへ1回だけ検証する。失敗時にthreads4やtimeout延長で追わない。以下は履歴。
+
+# 2026-10-31 通常HTTPの武器運用5profile/12条件が実Metal・CPU一致
+
+source46d972efの通常HTTP/APIで、元Snow White/Red Hood/Modernia/Snow White Innocent Days各30秒×fixed/accumulateの8条件をweapon_mode_swap=trueで実M5 Metal確認。加えて既存manual-swap real-roster factoryのCinderella Crystal Waveをfixed/accumulate×ON/OFF4条件で確認。全12がCPU全製品payload一致、API cache hit/error/fallback/mismatch0。全raw/input/source/既存decoder再投影監査も追加native/GPU0。原本product-weapon-mode-current-v1-20261031とproduct-weapon-mode-ready-v1-20261031。後者のcaptureは前者のcaptures rootにある。専用server4383を終了、通常4317/4327に変更なし。
+
+同一Cinderella accumulate ON bodyを既存native observer/contractで追加CPU1回だけ観測し、ready16.483333秒1件、実mode後のsquad_ammo_consume_as8件/各40、物理射撃1425を確認。保存GPUの全5人shot合計も1425。ON/OFFでprimary射撃1353→698、全damageも変化し、両方ともCPU一致。単にflagを受付した証明ではない。他4profileのうちInnocent Daysはweapon_change宣言なしの対照であり、実mode発火profileに加算しない。5件は既存catalogue profileで、歴史255に足して260とはしない。小記録research/product-weapon-mode-v1.json。以下は履歴。
+
 # 2026-10-31 compact v2はMac全70成功、Windowsの既存turnを観測する
 
 現source5f0af26cから既存CLI --compactでsealed owner a37b8330f6e95a24dd2d2c36e47ae8552c2196ef215f9c2049c71fb5dcec6b8cを作成。全2698file/11,847,063bytes/ZIP SHAbb6c4f86…。ac35の全4187fileとの検査で、新規payload0、保持内容の変更はtests/test_weighted_source_contract.pyだけ、未選択Python1489file省略。GPU全payload/CPU計算コード/golden全体は完全一致。旧unit失敗は保持。Mac packet自身のunit3群70件、deps、PTX60秒2GiB compile-plan、sealed generation必須cache hitが全成功、追加native戦闘/GPU0。原本product-current-reload-cuda-v1-20261031/compact-packet-v2とcompact-retention-v2.json。

@@ -864,3 +864,9 @@ packet自身の `compile-plan --artifact-kind cubin --ptxas-level 1 --memory-lim
 ### 元キャラ運用の弾丸補充時リロード取消
 
 通常製品のshooting_policy=characterで、紅蓮：ブラックシャドウ等の元CharStateが持つreload.cancel_on_full booleanを既存WEAPON_QUANTITY+3へ渡す。取消は既存CUDA/Metal共通applyAmmoInstantが実行し、full_reload通知や追加装填を行わない。時刻指定reload/cover等は別consumerが必要なため拒否を維持する。実Metalの製品確認範囲はresearch/product-reload-cancel-v1.json参照。新suite/数値goldenの追加は不要。
+
+### NVRTCの最適化を2スレッドに限定する候補
+
+`NIKKE_CUDA_SPLIT_COMPILE=2`は、NVRTC12.4..12.xの`--split-compile=2`を明示選択する。既定1は従来と完全同じargv/cache keyで、0（全core自動）や3以上を拒否する。cold compile前にnvrtcVersionで対応版を検査し、cache hit/require-cache missではDLLをロードしない。compiler_optionsは既存compile-planへ保存され、通常のexact option cache keyにも入る。fmad=false/数値規約/Slang/Metal基準と60秒・2GiB・BelowNormalは維持する。
+
+これはNVRTC最適化passの並列化という具体的な性能仮説であり、旧serialの失敗key26e5657bの再実行ではない。[NVIDIA NVRTC12.4資料](https://docs.nvidia.com/cuda/archive/12.4.1/nvrtc/index.html)を根拠にする。実時間改善・PTX成功・CUDA計算一致はまだ未確認で、新optionは未使用keyに対して1回だけbounded検証し、失敗時にthread数やtimeoutを上げない。

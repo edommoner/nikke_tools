@@ -1,0 +1,406 @@
+{
+  "schema": 1,
+  "scope": "Ordinary HTTP product API; existing shared weapon-mode handlers, not a new private suite",
+  "source_commit": "46d972ef",
+  "metal_primary_profiles": [
+    "스노우 화이트",
+    "스노우 화이트 : 이노센트 데이즈",
+    "모더니아",
+    "레드 후드",
+    "신데렐라 : 크리스탈 웨이브"
+  ],
+  "metal_primary_profile_count": 5,
+  "http_conditions": 12,
+  "full_cpu_payload_matches": 12,
+  "api_cache_hits": 0,
+  "errors": 0,
+  "fallbacks": 0,
+  "cuda_current_profiles": 0,
+  "all_profiles_and_effects_complete": false,
+  "source_changes_needed_for_these_cases": false,
+  "static_scope": {
+    "rows": [
+      {
+        "index": 0,
+        "weapon_change_definitions": [
+          {
+            "name": "세븐스 드워프 : I",
+            "owner": "스노우 화이트",
+            "trigger": {
+              "timing": [
+                "burst_cast"
+              ],
+              "condition": []
+            }
+          }
+        ],
+        "has_weapon_change": true,
+        "full_payload_cpu_match": true
+      },
+      {
+        "index": 1,
+        "weapon_change_definitions": [
+          {
+            "name": "세븐스 드워프 : I",
+            "owner": "스노우 화이트",
+            "trigger": {
+              "timing": [
+                "burst_cast"
+              ],
+              "condition": []
+            }
+          }
+        ],
+        "has_weapon_change": true,
+        "full_payload_cpu_match": true
+      },
+      {
+        "index": 2,
+        "weapon_change_definitions": [],
+        "has_weapon_change": false,
+        "full_payload_cpu_match": true
+      },
+      {
+        "index": 3,
+        "weapon_change_definitions": [],
+        "has_weapon_change": false,
+        "full_payload_cpu_match": true
+      },
+      {
+        "index": 4,
+        "weapon_change_definitions": [
+          {
+            "name": "섬멸 모드",
+            "owner": "모더니아",
+            "trigger": {
+              "timing": [
+                "burst_cast"
+              ],
+              "condition": []
+            }
+          }
+        ],
+        "has_weapon_change": true,
+        "full_payload_cpu_match": true
+      },
+      {
+        "index": 5,
+        "weapon_change_definitions": [
+          {
+            "name": "섬멸 모드",
+            "owner": "모더니아",
+            "trigger": {
+              "timing": [
+                "burst_cast"
+              ],
+              "condition": []
+            }
+          }
+        ],
+        "has_weapon_change": true,
+        "full_payload_cpu_match": true
+      },
+      {
+        "index": 6,
+        "weapon_change_definitions": [
+          {
+            "name": "레드 울프",
+            "owner": "레드 후드",
+            "trigger": {
+              "timing": [
+                "squad_burst_cast:3"
+              ],
+              "condition": []
+            }
+          }
+        ],
+        "has_weapon_change": true,
+        "full_payload_cpu_match": true
+      },
+      {
+        "index": 7,
+        "weapon_change_definitions": [
+          {
+            "name": "레드 울프",
+            "owner": "레드 후드",
+            "trigger": {
+              "timing": [
+                "squad_burst_cast:3"
+              ],
+              "condition": []
+            }
+          }
+        ],
+        "has_weapon_change": true,
+        "full_payload_cpu_match": true
+      }
+    ],
+    "scope": "Original weapon mode declarations and complete CPU response; manual readiness itself is exercised by separate Cinderella positive/negative case",
+    "additional_gpu_calls": 0,
+    "additional_native_battles": 0
+  },
+  "causal": {
+    "native_witness": {
+      "verified": true,
+      "reference_model_gap": false,
+      "ready_true": 1,
+      "catalogue_dispatches": 8,
+      "physical_shots": 1425,
+      "gpu_supported": false
+    },
+    "observed": {
+      "ready": [
+        16.48333333333368
+      ],
+      "calls": [
+        {
+          "time": 20.516666666666783,
+          "caster": "신데렐라 : 크리스탈 웨이브",
+          "name": "저격 모드 탄 소비 집계",
+          "value": 40.0
+        },
+        {
+          "time": 21.750000000000046,
+          "caster": "신데렐라 : 크리스탈 웨이브",
+          "name": "저격 모드 탄 소비 집계",
+          "value": 40.0
+        },
+        {
+          "time": 22.98333333333331,
+          "caster": "신데렐라 : 크리스탈 웨이브",
+          "name": "저격 모드 탄 소비 집계",
+          "value": 40.0
+        },
+        {
+          "time": 24.216666666666573,
+          "caster": "신데렐라 : 크리스탈 웨이브",
+          "name": "저격 모드 탄 소비 집계",
+          "value": 40.0
+        },
+        {
+          "time": 25.449999999999836,
+          "caster": "신데렐라 : 크리스탈 웨이브",
+          "name": "저격 모드 탄 소비 집계",
+          "value": 40.0
+        },
+        {
+          "time": 26.6833333333331,
+          "caster": "신데렐라 : 크리스탈 웨이브",
+          "name": "저격 모드 탄 소비 집계",
+          "value": 40.0
+        },
+        {
+          "time": 27.916666666666362,
+          "caster": "신데렐라 : 크리스탈 웨이브",
+          "name": "저격 모드 탄 소비 집계",
+          "value": 40.0
+        },
+        {
+          "time": 29.149999999999626,
+          "caster": "신데렐라 : 크리스탈 웨이브",
+          "name": "저격 모드 탄 소비 집계",
+          "value": 40.0
+        }
+      ],
+      "physical_shots": 1425
+    },
+    "gpu_readbacks": [
+      {
+        "index": 0,
+        "mode": "fixed",
+        "enabled": false,
+        "total_damage": 215434662,
+        "primary_shots": 1353,
+        "reloads": [
+          {
+            "kind": 1,
+            "owner": 0,
+            "time": 13.96666666666694,
+            "until": 16.46666666666694
+          },
+          {
+            "kind": 2,
+            "owner": 0,
+            "time": 16.466666666667013,
+            "until": -1.0
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "mode": "fixed",
+        "enabled": true,
+        "total_damage": 197670283,
+        "primary_shots": 698,
+        "reloads": [
+          {
+            "kind": 1,
+            "owner": 0,
+            "time": 13.96666666666694,
+            "until": 16.46666666666694
+          },
+          {
+            "kind": 2,
+            "owner": 0,
+            "time": 16.466666666667013,
+            "until": -1.0
+          },
+          {
+            "kind": 1,
+            "owner": 0,
+            "time": 16.48333333333368,
+            "until": 19.48333333333368
+          },
+          {
+            "kind": 2,
+            "owner": 0,
+            "time": 19.500000000000174,
+            "until": -1.0
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "mode": "accumulate",
+        "enabled": false,
+        "total_damage": 213875775,
+        "primary_shots": 1353,
+        "reloads": [
+          {
+            "kind": 1,
+            "owner": 0,
+            "time": 13.96666666666694,
+            "until": 16.46666666666694
+          },
+          {
+            "kind": 2,
+            "owner": 0,
+            "time": 16.466666666667013,
+            "until": -1.0
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "mode": "accumulate",
+        "enabled": true,
+        "total_damage": 196518965,
+        "primary_shots": 698,
+        "reloads": [
+          {
+            "kind": 1,
+            "owner": 0,
+            "time": 13.96666666666694,
+            "until": 16.46666666666694
+          },
+          {
+            "kind": 2,
+            "owner": 0,
+            "time": 16.466666666667013,
+            "until": -1.0
+          },
+          {
+            "kind": 1,
+            "owner": 0,
+            "time": 16.48333333333368,
+            "until": 19.48333333333368
+          },
+          {
+            "kind": 2,
+            "owner": 0,
+            "time": 19.500000000000174,
+            "until": -1.0
+          }
+        ]
+      }
+    ],
+    "additional_cpu_battles": 1,
+    "additional_gpu_calls": 0,
+    "same_body_verified": true,
+    "gpu_total_physical_shots": 1425,
+    "gpu_native_physical_shots_exact": true
+  },
+  "additional_gpu_calls_in_saved_audits": 0,
+  "additional_cpu_battles_for_causal_observation": 1,
+  "coverage_caution": "Five existing catalogue profiles; do not add5 to historical255. Snow White Innocent Days has no weapon_change definition and is the non-mode control. Only Cinderella is the positive manual readiness/ON-OFF witness.",
+  "records": [
+    {
+      "proof_directory": "product-weapon-mode-current-v1-20261031",
+      "conditions": 8,
+      "requests_sha256": "c77cc76f00aed6b6b5e17e64e44bd49805dd227115c1873fe5f2c6ad254b2d0d",
+      "source_inventory_sha256": "1657ffba2ba2ec39100f679914ba126646ebb3dd350f080c416faa79e4a995ee",
+      "audit_sha256": "7674f133589f43edce4c923dc9c7402db722764f01be4488a8745300db3ba947",
+      "rows": [
+        {
+          "profile": "스노우 화이트 weapon-mode-swap fixed",
+          "capture": "078019154cbd418cbcefbbd6c4bd5582",
+          "backend": "metal_detail"
+        },
+        {
+          "profile": "스노우 화이트 weapon-mode-swap accumulate",
+          "capture": "3ae04c1f7f174404898985cab2b6c784",
+          "backend": "metal_detail"
+        },
+        {
+          "profile": "스노우 화이트 : 이노센트 데이즈 weapon-mode-swap fixed",
+          "capture": "171ec918264949d883e105f1ff48e612",
+          "backend": "metal_detail"
+        },
+        {
+          "profile": "스노우 화이트 : 이노센트 데이즈 weapon-mode-swap accumulate",
+          "capture": "82683bafc65943a18ae273d58361ae5d",
+          "backend": "metal_detail"
+        },
+        {
+          "profile": "모더니아 weapon-mode-swap fixed",
+          "capture": "51ea37958b5f4c6283caf6ecf5f25d45",
+          "backend": "metal_detail"
+        },
+        {
+          "profile": "모더니아 weapon-mode-swap accumulate",
+          "capture": "50ec8543556743baae764699c48b8dc9",
+          "backend": "metal_detail"
+        },
+        {
+          "profile": "레드 후드 weapon-mode-swap fixed",
+          "capture": "ef49d3642821448b8ec414802fa79486",
+          "backend": "metal_detail"
+        },
+        {
+          "profile": "레드 후드 weapon-mode-swap accumulate",
+          "capture": "4f1e29cf26b547f5bd128c234d3aaf54",
+          "backend": "metal_detail"
+        }
+      ]
+    },
+    {
+      "proof_directory": "product-weapon-mode-ready-v1-20261031",
+      "conditions": 4,
+      "requests_sha256": "e76426f4dd1aa77a16c2083cc427e8229871067a206dc4881c55d8c1c35b0055",
+      "source_inventory_sha256": "1657ffba2ba2ec39100f679914ba126646ebb3dd350f080c416faa79e4a995ee",
+      "audit_sha256": "1db32857dcdb42169b148e2fbc81bccde0864ecf2d8173faff1516575526ddd1",
+      "rows": [
+        {
+          "profile": "신데렐라 : 크리스탈 웨이브 mode-swap False fixed",
+          "capture": "ecd6606744e6413c9c2df9fcc59587b1",
+          "backend": "metal_detail"
+        },
+        {
+          "profile": "신데렐라 : 크리스탈 웨이브 mode-swap True fixed",
+          "capture": "2028a269f3964313a172e4923865f732",
+          "backend": "metal_detail"
+        },
+        {
+          "profile": "신데렐라 : 크리스탈 웨이브 mode-swap False accumulate",
+          "capture": "d0a5f1b5238d4bf58dcca99ea21a2dbc",
+          "backend": "metal_detail"
+        },
+        {
+          "profile": "신데렐라 : 크리스탈 웨이브 mode-swap True accumulate",
+          "capture": "97f4cdb532ac4cdd8350187212e6dbcb",
+          "backend": "metal_detail"
+        }
+      ]
+    }
+  ]
+}

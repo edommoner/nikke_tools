@@ -14,6 +14,8 @@ from portable_backend import compile_cuda_artifact,cuda_compile_options
 
 class NVRTC:
     def __init__(self):self.calls=[];self.options=[];self.payload=b'\x7fELF\x00binary\x00tail\x00'
+    def nvrtcVersion(self,major,minor):
+        self.calls.append('version');C.cast(major,C.POINTER(C.c_int))[0]=12;C.cast(minor,C.POINTER(C.c_int))[0]=4;return 0
     def nvrtcCreateProgram(self,out,*args):self.calls.append('create');C.cast(out,C.POINTER(C.c_void_p))[0]=C.c_void_p(1);return 0
     def nvrtcCompileProgram(self,program,count,options):self.calls.append('compile');self.options=list(options[:count]);return 0
     def nvrtcGetProgramLogSize(self,p,out):C.cast(out,C.POINTER(C.c_size_t))[0]=1;return 0
@@ -25,6 +27,44 @@ class NVRTC:
     def nvrtcDestroyProgram(self,p):self.calls.append('destroy');return 0
 
 class ArtifactTests(unittest.TestCase):
+    def test_split_compile_is_bounded_and_keeps_default_options_exact(self):
+        with patch.dict(os.environ,{'NIKKE_CUDA_SPLIT_COMPILE':'1'}):
+            self.assertEqual(cuda_compile_options('ptx'),['--std=c++17','--gpu-architecture=compute_86','--fmad=false'])
+        with patch.dict(os.environ,{'NIKKE_CUDA_SPLIT_COMPILE':'2'}):
+            self.assertEqual(cuda_compile_options('ptx'),['--std=c++17','--gpu-architecture=compute_86','--fmad=false','--split-compile=2'])
+        for invalid in ('0','3','-1','','02','2.0','all'):
+            with self.subTest(invalid=invalid),patch.dict(os.environ,{'NIKKE_CUDA_SPLIT_COMPILE':invalid}),self.assertRaises(ValueError):
+                cuda_compile_options('ptx')
+
+    def test_split_compile_has_separate_cache_and_warm_hit_never_loads_compiler(self):
+        with tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,{'NIKKE_CUDA_COMPILE_CACHE':folder,'NIKKE_CUDA_CACHE_REQUIRED':'0','NIKKE_CUDA_PTXAS_OPT_LEVEL':'','NIKKE_CUDA_SPLIT_COMPILE':'1'}):
+            dll=Path(folder)/'nvrtc.dll';dll.write_bytes(b'compiler');lib=NVRTC()
+            _,serial=compile_cuda_artifact(lib,b'cuda',[dll],artifact_kind='ptx')
+            self.assertNotIn('version',lib.calls)
+            with patch.dict(os.environ,{'NIKKE_CUDA_SPLIT_COMPILE':'2'}):
+                _,parallel=compile_cuda_artifact(lib,b'cuda',[dll],artifact_kind='ptx')
+                self.assertNotEqual(serial['key'],parallel['key'])
+                self.assertIn('--split-compile=2',parallel['identity']['options'])
+                self.assertIn(b'--fmad=false',lib.options)
+                self.assertEqual(lib.calls.count('version'),1)
+                with patch.dict(os.environ,{'NIKKE_CUDA_CACHE_REQUIRED':'1'}):
+                    _,warm=compile_cuda_artifact(None,b'cuda',[dll],artifact_kind='ptx',library_factory=lambda:self.fail('No compiler load on a cache hit'))
+                self.assertTrue(warm['hit']);self.assertEqual(warm['key'],parallel['key'])
+
+    def test_split_compile_rejects_unvalidated_versions_before_program_creation(self):
+        for version in ((11,3),(12,3),(13,4)):
+            class Other(NVRTC):
+                def nvrtcVersion(self,major,minor):
+                    self.calls.append('version')
+                    C.cast(major,C.POINTER(C.c_int))[0]=version[0]
+                    C.cast(minor,C.POINTER(C.c_int))[0]=version[1]
+                    return 0
+            with self.subTest(version=version),tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,{'NIKKE_CUDA_COMPILE_CACHE':folder,'NIKKE_CUDA_CACHE_REQUIRED':'0','NIKKE_CUDA_PTXAS_OPT_LEVEL':'','NIKKE_CUDA_SPLIT_COMPILE':'2'}):
+                dll=Path(folder)/'nvrtc.dll';dll.write_bytes(b'compiler');lib=Other()
+                with self.assertRaisesRegex(ValueError,'requires verified NVRTC12.4'):
+                    compile_cuda_artifact(lib,b'cuda',[dll],artifact_kind='ptx')
+                self.assertEqual(lib.calls,['version'])
+
     def test_source_cache_hit_required_miss_and_corruption_do_not_load_nvrtc(self):
         import portable_backend as backend
         import json

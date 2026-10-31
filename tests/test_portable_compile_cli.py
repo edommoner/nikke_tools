@@ -19,6 +19,18 @@ from test_portable_cuda_artifact import NVRTC
 
 
 class CompileCLITests(unittest.TestCase):
+    def test_plan_binds_two_thread_options_and_rejects_unbounded_setting(self):
+        normal=dict(package_id='plan-fixture',suite='coordinate-resident-arc',purpose='sealed')
+        with patch.object(cli,'verify_package',return_value=normal),patch.object(cli.subprocess,'run',side_effect=AssertionError('No process')),patch.object(backend,'compile_cuda_source',side_effect=AssertionError('No compiler')):
+            with patch.dict(os.environ,{'NIKKE_CUDA_SPLIT_COMPILE':'2'}):
+                result=cli.compile_plan(self.root/'parallel-plan.json','ptx',None,2048,60)
+                self.assertTrue(result['passed']);self.assertIn('--split-compile=2',result['compiler_options'])
+                self.assertIn('--fmad=false',result['compiler_options']);self.assertFalse(result['claim_created'])
+            with patch.dict(os.environ,{'NIKKE_CUDA_SPLIT_COMPILE':'0'}):
+                result=cli.compile_plan(self.root/'unbounded-plan.json','ptx',None,2048,60)
+                self.assertFalse(result['passed']);self.assertIsNone(result['compiler_options'])
+                self.assertFalse(result['claim_created']);self.assertTrue(result['execution_claim_available'])
+
     def test_compile_plan_uses_diagnostic_policy_without_compiler_or_process(self):
         normal=dict(package_id='plan-fixture',suite='coordinate-resident-arc',purpose='sealed')
         with patch.object(cli,'verify_package',return_value=normal),patch.object(cli.subprocess,'run',side_effect=AssertionError('No process')),patch.object(backend,'compile_cuda_source',side_effect=AssertionError('No compiler')):

@@ -459,6 +459,8 @@ def compile_cuda_source(source, *, artifact_kind=None):
                           nvrtcDestroyProgram=[C.POINTER(C.c_void_p)])
             if artifact_kind=='cubin':
                 signatures.update(nvrtcGetCUBINSize=[C.c_void_p,C.POINTER(C.c_size_t)],nvrtcGetCUBIN=[C.c_void_p,C.c_void_p])
+            if cuda_split_compile_threads()==2:
+                signatures['nvrtcVersion']=[C.POINTER(C.c_int),C.POINTER(C.c_int)]
             for name, signature in signatures.items():
                 getattr(lib,name).argtypes=signature; getattr(lib,name).restype=C.c_int
             return lib
@@ -554,11 +556,23 @@ def cuda_artifact_kind():
     return kind
 
 
-def cuda_compile_options(kind, ptxas_level=None):
+def cuda_split_compile_threads():
+    value=os.environ.get('NIKKE_CUDA_SPLIT_COMPILE','1')
+    if value not in ('1','2'):
+        raise ValueError('NIKKE_CUDA_SPLIT_COMPILE must be1 or2; automatic/all-core compilation is forbidden')
+    return int(value)
+
+
+def cuda_compile_options(kind, ptxas_level=None, *, split_compile=None):
     if kind not in ('ptx','cubin'):raise ValueError('Invalid CUDA artifact kind')
     if ptxas_level is not None and (kind!='cubin' or type(ptxas_level) is not int or ptxas_level not in range(4)):
         raise ValueError('ptxas optimization level requires CUBIN and integer0..3')
     options=['--std=c++17','--gpu-architecture='+('sm_86' if kind=='cubin' else 'compute_86'),'--fmad=false']
+    threads=cuda_split_compile_threads() if split_compile is None else split_compile
+    if type(threads) is not int or threads not in (1,2):raise ValueError('NVRTC compiler threads must be1 or2')
+    # Opt-in only: default argv/cache identities stay byte-identical. The
+    # parallel optimizer count participates in the ordinary exact cache key.
+    if threads==2:options.append('--split-compile=2')
     # NVRTC11.3 accepts the forwarding option and payload as separate argv
     # strings. Its parser rejects the joined '= -O' form before compilation.
     if ptxas_level is not None:options.extend(['--ptxas-options','-O'+str(ptxas_level)])
@@ -570,7 +584,8 @@ def compile_cuda_artifact(lib, source, compiler_files, *, artifact_kind=None, li
     artifact_kind=cuda_artifact_kind() if artifact_kind is None else artifact_kind
     level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL')
     if level not in (None,'','0','1','2','3'):raise ValueError('Invalid NIKKE_CUDA_PTXAS_OPT_LEVEL')
-    options = cuda_compile_options(artifact_kind,None if level in (None,'') else int(level))
+    threads=cuda_split_compile_threads()
+    options = cuda_compile_options(artifact_kind,None if level in (None,'') else int(level),split_compile=threads)
     required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0')
     if required not in ('0','1'):raise ValueError('NIKKE_CUDA_CACHE_REQUIRED must be0 or1')
     directory=os.environ.get('NIKKE_CUDA_COMPILE_CACHE') or None
@@ -581,6 +596,11 @@ def compile_cuda_artifact(lib, source, compiler_files, *, artifact_kind=None, li
         if lib is None:lib=library_factory()
         def check(code):
             if code: raise RuntimeError(f'NVRTC error {code}')
+        if threads==2:
+            major,minor=C.c_int(),C.c_int()
+            check(lib.nvrtcVersion(C.byref(major),C.byref(minor)))
+            if major.value!=12 or minor.value<4:
+                raise ValueError('Two-thread NVRTC compilation requires verified NVRTC12.4..12.x')
         program=C.c_void_p()
         try:
             check(lib.nvrtcCreateProgram(C.byref(program),source,b'portable.cu',0,None,None))

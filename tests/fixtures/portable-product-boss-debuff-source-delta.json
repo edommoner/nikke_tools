@@ -678,13 +678,43 @@
     },
     "app/portable_backend.py": {
       "before_sha256": "56d708fa4162b19d35cb2ec16498380f762e11dea17162c57ceb37c651c9f8ac",
-      "after_sha256": "c4e77550989e741d82c57e087ab8e6d4fb6f97249f97268db40ab35f408db64e",
+      "after_sha256": "f90210aacae91c02f30b3ceac2d2f9a30d43c56ce77f8f453264f8511580249d",
       "hunks": [
         {
           "start": 3841,
           "end": 4702,
           "before": "",
           "after": "    if source in ('gpu/product_add_battle_entry.slang','gpu/product_add_group_battle_entry.slang',\n                  'gpu/product_add_fixed_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang',\n                  'gpu/product_add_target_battle_entry.slang','gpu/product_add_fixed_target_battle_entry.slang',\n                  'gpu/product_add_group_target_battle_entry.slang','gpu/product_add_fixed_group_target_battle_entry.slang'):\n        from portable_add_attack_battle_wire import check_schema,LAYOUT\n        from portable_add_self_destruct_wire import check_schema as check_retirement\n        check_schema(ROOT);check_retirement(ROOT)\n        if (input_words,output_words)!=(LAYOUT['INPUT_WORDS'],LAYOUT['OUTPUT_WORDS']):\n            raise ValueError('Product ADD attacks require the complete shared source/retirement wire')\n        return\n"
+        },
+        {
+          "start": 34248,
+          "end": 34379,
+          "before": "",
+          "after": "            if cuda_split_compile_threads()==2:\n                signatures['nvrtcVersion']=[C.POINTER(C.c_int),C.POINTER(C.c_int)]\n"
+        },
+        {
+          "start": 41136,
+          "end": 41466,
+          "before": "def cuda_compile_options(kind, ptxas_level=None):\n",
+          "after": "def cuda_split_compile_threads():\n    value=os.environ.get('NIKKE_CUDA_SPLIT_COMPILE','1')\n    if value not in ('1','2'):\n        raise ValueError('NIKKE_CUDA_SPLIT_COMPILE must be1 or2; automatic/all-core compilation is forbidden')\n    return int(value)\n\n\ndef cuda_compile_options(kind, ptxas_level=None, *, split_compile=None):\n"
+        },
+        {
+          "start": 41857,
+          "end": 42259,
+          "before": "",
+          "after": "    threads=cuda_split_compile_threads() if split_compile is None else split_compile\n    if type(threads) is not int or threads not in (1,2):raise ValueError('NVRTC compiler threads must be1 or2')\n    # Opt-in only: default argv/cache identities stay byte-identical. The\n    # parallel optimizer count participates in the ordinary exact cache key.\n    if threads==2:options.append('--split-compile=2')\n"
+        },
+        {
+          "start": 42930,
+          "end": 43086,
+          "before": "    options = cuda_compile_options(artifact_kind,None if level in (None,'') else int(level))\n",
+          "after": "    threads=cuda_split_compile_threads()\n    options = cuda_compile_options(artifact_kind,None if level in (None,'') else int(level),split_compile=threads)\n"
+        },
+        {
+          "start": 43685,
+          "end": 43967,
+          "before": "",
+          "after": "        if threads==2:\n            major,minor=C.c_int(),C.c_int()\n            check(lib.nvrtcVersion(C.byref(major),C.byref(minor)))\n            if major.value!=12 or minor.value<4:\n                raise ValueError('Two-thread NVRTC compilation requires verified NVRTC12.4..12.x')\n"
         }
       ]
     },
