@@ -41,5 +41,88 @@
     "No new suite or execution engine",
     "Historical failures and claims preserved",
     "Dedicated port4401 stopped after saved captures; user servers untouched"
+  ],
+  "sealed_release": {
+    "movement": {
+      "package_id": "bc57f0d3b8875cef6d2f8e6f673f3e7990e60453e0d18ae22750157517da9a70",
+      "source_commit": "24a36a118d053c5301dca414cf448ed088699748",
+      "unit_tests": 109,
+      "fresh_native_cases": 1,
+      "gpu_calls": 0,
+      "compile_plan": {
+        "schema": "compile-plan-v1",
+        "passed": true,
+        "package_id": "bc57f0d3b8875cef6d2f8e6f673f3e7990e60453e0d18ae22750157517da9a70",
+        "suite": "product-detail",
+        "purpose": "sealed",
+        "artifact_kind": "ptx",
+        "ptxas_level": null,
+        "memory_limit_mb": 2048,
+        "timeout_seconds": 60,
+        "error": null,
+        "compiler_options": [
+          "--std=c++17",
+          "--gpu-architecture=compute_86",
+          "--fmad=false",
+          "--split-compile=2"
+        ],
+        "policy": "sealed-battle compile-only transport",
+        "gpu_calls": 0,
+        "compiler_calls": 0,
+        "claim_created": false,
+        "execution_claim_available": true,
+        "calculation_verified": false,
+        "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+      }
+    },
+    "range": {
+      "package_id": "954a9cd1e315b8bf7f40f214683d47747beb6c7bb1bcba484112b52423f71775",
+      "source_commit": "24a36a118d053c5301dca414cf448ed088699748",
+      "unit_tests": 109,
+      "fresh_native_cases": 1,
+      "gpu_calls": 0,
+      "compile_plan": {
+        "schema": "compile-plan-v1",
+        "passed": true,
+        "package_id": "954a9cd1e315b8bf7f40f214683d47747beb6c7bb1bcba484112b52423f71775",
+        "suite": "product-detail",
+        "purpose": "sealed",
+        "artifact_kind": "ptx",
+        "ptxas_level": null,
+        "memory_limit_mb": 2048,
+        "timeout_seconds": 60,
+        "error": null,
+        "compiler_options": [
+          "--std=c++17",
+          "--gpu-architecture=compute_86",
+          "--fmad=false",
+          "--split-compile=2"
+        ],
+        "policy": "sealed-battle compile-only transport",
+        "gpu_calls": 0,
+        "compiler_calls": 0,
+        "claim_created": false,
+        "execution_claim_available": true,
+        "calculation_verified": false,
+        "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+      }
+    }
+  },
+  "transport": {
+    "branch": "codex/product-cuda-origin-gates-v1-packet",
+    "commit": "31d99419",
+    "artifacts": [
+      "resident-frames-movement-v1.zip",
+      "resident-frames-range-v1.zip",
+      "resident-frames-v1-transport.json"
+    ]
+  },
+  "windows_request": {
+    "turn_id": "01a19317-e8b7-7af3-9f3a-2c53836fd58b",
+    "last_cursor": "4b3eff0d-96af-48be-b3ad-b6609ae33ca8:442",
+    "scope": "paired generation and first PTX only for two new source owners; pending, no object/link/GPU requested"
+  },
+  "pre_device_plan_notes": [
+    "An unsupported --split-count argument was rejected by argparse before claim/compiler/device work. The successful v2 plans use the actual NIKKE_CUDA_SPLIT_COMPILE=2 environment; earlier v1 single-thread plans remain saved."
   ]
 }

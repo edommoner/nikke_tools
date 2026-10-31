@@ -1,3 +1,13 @@
+## 2026-11-01 固定移動・範囲で既存resident dispatch frameを接続
+
+前turnはWindows保存結果取得とMetal11条件の全byte保持監査で進捗。共通GPU本文は新規実行器を作らず、既存PORTABLE_RESIDENT_FRAME_STACKをfixed movement/rangeのwrapper2個だけで有効化した（fc92b5fd）。他programのsource closureは変更なし。各32frameを既存Runtimeの4096byte bankへ移す。Runtime stride163584→167680byte。数値/CPU正本/normalizer/tolerance不変。配列の境界・全bit保存の既存5検査成功。
+
+各packet自身109unit/fresh native1/実M5とfresh GPU禁止独立seal成功。以前のinput/output/native entries全一致、通常API9条件と同じ短4秒2条件も実M5/CPU全製品payload一致。保存source/input/raw/全payload監査11件と、以前の全input/readback byte比較も追加native/GPU0で一致。v16は実sealの2memberだけ更新し歴史14member全内容を保持、現source全14認定とはしない。登録とledger14検査成功。専用4401停止済み。
+
+sealed release source24a36a11、movement ownerbc57f0d3…/range954a9cd1…、各自身109unit/fresh native1/GPU0。NIKKE_CUDA_SPLIT_COMPILE=2のPTX60秒/2GiB plan成功。誤った--split-count CLI指定はargparseでclaim/SDK前に拒否、成功v2 planと以前のsingle-thread v1 planを両方保持。輸送31d99419のresident-frames ZIP2個/metadataを既存codex/product-cuda-origin-gates-v1-packetへ共有、Windows turn01a19317-e8b7-7af3-9f3a-2c53836fd58bがactive（既読cursor末尾442）。paired生成と初回PTX各1回だけ依頼済み、object/link/driver/GPU未依頼。成功したら既存正式origin/containmentを確認して短いobject/link、その保存stackを比較後、同じ4秒APIの実メモリを測る。旧claim/失敗を再試行しない。メモリ削減はまだ未証明。
+
+標準profile最新全件Metal262/266、今回新standard profile0、新CUDA0。宣言条件11の最適化保持をprofile数へ加算しない。model-check CPU-onlyも残consumer5/公開sampling・混合条件・全原定義の未対応を再確認、全goal未完了。小記録research/product-resident-frames-v1.json、proofs/product-resident-frames-v1-20261101。以下は履歴。
+
 ## 2026-11-01 通常画面の宣言モデル入力とCUDA短条件2編成が一致
 
 部隊別のreference_modelsと任意のenemy.patternsを通常「詳細条件」からJSONで適用できる。7つの接続済みモデル名/有限JSON/1MBと敵行動の基本形だけを画面で検査し、mechanicsは既存Python consumerが最終検査する。育成/編成/時間/敵DEFはJSONで上書き不可。部隊/敵画面scopeで分離し、preset変更で解除、モデルを変えたらscore/reference条件キーも変わる。owner固定モデルのおすすめ探索は理由付きで止め、黙ってモデルを捨てない。実ゲーム未確認の宣言であることを結果欄にも常時表示する。
