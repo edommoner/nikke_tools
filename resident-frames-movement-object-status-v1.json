@@ -1,0 +1,210 @@
+{
+  "schema": "resident-frames-movement-object-status-v1",
+  "owner": "bc57f0d3b8875cef6d2f8e6f673f3e7990e60453e0d18ae22750157517da9a70",
+  "source_commit": "24a36a118d053c5301dca414cf448ed088699748",
+  "cpu_origin_admission": {
+    "passed": true,
+    "sdk_driver_gpu_calls": 0,
+    "owner": "bc57f0d3b8875cef6d2f8e6f673f3e7990e60453e0d18ae22750157517da9a70",
+    "verify_package": true,
+    "assembly_origin": true,
+    "module_origin": true,
+    "ptx_bytes": 13133645,
+    "ptx_sha256": "bf4e273cc253916a47a7b19ec8c958a921a1c616027091722b2f7c6a0fead572",
+    "original_inner_outer_missing": 0,
+    "original_preservation": false,
+    "original_service": "unverified",
+    "seconds": 10.192536599934101
+  },
+  "cpu_admission_job": {
+    "seconds": 15.392673499882221,
+    "peak_bytes": 93798400,
+    "missing": 0,
+    "timeout": false,
+    "job_empty": true,
+    "service": "unverified",
+    "preservation_verified": false,
+    "exit_code": 0
+  },
+  "path_base": "Documents/Codex",
+  "source_capture": "resident-frames-movement-v1/compile-ptx-v2/proof",
+  "ptx": {
+    "bytes": 13133645,
+    "sha256": "bf4e273cc253916a47a7b19ec8c958a921a1c616027091722b2f7c6a0fead572"
+  },
+  "stages": {
+    "object": {
+      "capture": "resident-frames-movement-v1/module-object-v2/proof",
+      "verified": true,
+      "containment_verified": true,
+      "strict_origin_post_audit": true,
+      "passed": false,
+      "preservation_verified": false,
+      "error": null,
+      "artifact": {
+        "bytes": 7358704,
+        "sha256": "0f2b43cda1f94012b9ebe9d92e4d18a674c3704193568a89221360039666b487"
+      },
+      "options": [
+        "--gpu-name=sm_86",
+        "--opt-level=1",
+        "--fmad=false",
+        "--verbose",
+        "--compile-only"
+      ],
+      "child": {
+        "seconds": 22.644470400176942,
+        "peak_bytes": 480280576,
+        "missing": 0,
+        "timeout": false,
+        "job_empty": true,
+        "service": "unverified",
+        "preservation_verified": false,
+        "exit_code": 0
+      },
+      "outer": {
+        "seconds": 36.87771619996056,
+        "peak_bytes": 528429056,
+        "missing": 0,
+        "timeout": false,
+        "job_empty": true,
+        "service": "unverified",
+        "preservation_verified": false,
+        "exit_code": 2
+      },
+      "receipt": {
+        "bytes": 65983,
+        "sha256": "b9b4fdf7548bfd830ed42a9782be2f3f028ecf705edcb88823c8394bf0752d2f"
+      }
+    },
+    "link": {
+      "capture": "resident-frames-movement-v1/jit-link-v2/proof",
+      "verified": true,
+      "containment_verified": true,
+      "strict_origin_post_audit": true,
+      "passed": false,
+      "preservation_verified": false,
+      "error": null,
+      "artifact": {
+        "bytes": 6816912,
+        "sha256": "c521673105e3d1b71996cd8c3e7fd6bb5b95b503aa97267178f826b4d1f03cb6"
+      },
+      "options": [
+        "-arch=sm_86",
+        "-verbose"
+      ],
+      "child": {
+        "seconds": 19.142877500038594,
+        "peak_bytes": 123314176,
+        "missing": 0,
+        "timeout": false,
+        "job_empty": true,
+        "service": "unverified",
+        "preservation_verified": false,
+        "exit_code": 0
+      },
+      "outer": {
+        "seconds": 47.28922999976203,
+        "peak_bytes": 239226880,
+        "missing": 0,
+        "timeout": false,
+        "job_empty": true,
+        "service": "unverified",
+        "preservation_verified": false,
+        "exit_code": 2
+      },
+      "receipt": {
+        "bytes": 76629,
+        "sha256": "00d833d10786c89ebad35523d26b776bc08d9999a5e3d418d60376f8045c1cf4"
+      }
+    }
+  },
+  "requested_stages_completed": true,
+  "passed": false,
+  "preservation_verified": false,
+  "calculation_verified": false,
+  "physical_memory_reduction_verified": false,
+  "additional_calls": {
+    "ptxas": 1,
+    "jit_link_transactions": 1,
+    "jit_api_calls": 9,
+    "nvrtc": 0,
+    "paired_generation": 0,
+    "native_battle": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0,
+    "retry": 0
+  },
+  "old_records_unchanged": true,
+  "old_records_checked": 638,
+  "range_failure_retained": {
+    "inner_missing": 7,
+    "outer_missing": 7,
+    "cause": "unknown",
+    "preservation_verified": false,
+    "reexecuted": false
+  },
+  "resources": {
+    "dispatch_function": "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f610dispatch_0Ejjjjiyjyj",
+    "object_dispatch": {
+      "registers": null,
+      "lmem_bytes": null,
+      "stack_frame_bytes": 1984,
+      "spill_store_bytes": 180,
+      "spill_load_bytes": 180
+    },
+    "object_entry": {
+      "registers": 24,
+      "stack_frame_bytes": 0,
+      "spill_store_bytes": 0,
+      "spill_load_bytes": 0,
+      "lmem_bytes": null
+    },
+    "linked_entry": {
+      "registers": 254,
+      "stack_bytes": 14936,
+      "lmem_bytes": 0,
+      "spill_store_bytes": null,
+      "spill_load_bytes": null
+    },
+    "unknown_fields": "Null means not recorded in saved logs",
+    "log_fingerprints": {
+      "ptxas_stdout": {
+        "bytes": 55360,
+        "sha256": "19de5fc676abc3906620e84de3f7f4513f670c8bfcd4ec80157d66b419c968d5"
+      },
+      "ptxas_stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "link_stderr": {
+        "bytes": 205,
+        "sha256": "c44b2be9d9c79e805daf58e4cbad363be4a133fa28f642cecc33463cfcbcc1af"
+      }
+    }
+  },
+  "comparison": {
+    "old_linked_entry": {
+      "registers": 254,
+      "stack_bytes": 22848,
+      "lmem_bytes": 0
+    },
+    "new_linked_entry": {
+      "registers": 254,
+      "stack_bytes": 14936,
+      "lmem_bytes": 0,
+      "spill_store_bytes": null,
+      "spill_load_bytes": null
+    },
+    "linked_entry_stack_delta_bytes": -7912,
+    "old_dispatch": {
+      "stack_frame_bytes": 9912,
+      "spill_store_bytes": 172,
+      "spill_load_bytes": 172
+    },
+    "dispatch_stack_delta_bytes": -7928,
+    "scope": "Saved compiler resources only; no physical-memory or GPU-execution claim"
+  }
+}
