@@ -1,3 +1,11 @@
+## 2026-10-31 Windows事前検査のguard内cache fixtureを修正
+
+transport abf46f5f／owner59160ddb…は標準観測付き展開とpreflight-planを通過したが、最初の登録59件で58成功／1失敗となり停止。約34.915秒・peak133,365,760bytes、missing0／Job empty、service未確認／preservation=false。残3群・fresh native・generation・SDK/driver/GPU/APIは0。旧2195の失敗／claimを保持。小summary＋manifestを既存report branchから取得しbyte/SHAを照合済み、original rawはMac未読。
+
+Macでもfreshプロセスで同じforbid_gpu→test import順を使い、同じcache miss assertion失敗を再現した。原因は本物のcache前段へ到達する前に、import時にcapturedされた外側stop関数がテストへ渡ること。fixture内だけを検証済みsourceの独立namespaceから実transport／generation前段へ接続し、偽SDK・失敗するgenerator/DLL/driver境界を維持。外側CPU guard／production code／数値／許容差／期待文字列assertionは変更0。guard有無×generation/cubinの4条件を検査し、guard下59全件が成功。新suite0。
+
+これはunit fixture修正で、CUDA実コンパイルや製品profileの進捗には数えない。失敗owner／全claimを残し、新しいsealed packageの既存group経路で全100件を再確認してから、未実行のWindows工程を新ownerで1回だけ進める。旧テストを同じclaimで再試行しない。
+
 ## 2026-10-31 CUDA module-objectの同一gate内検証重複を解消
 
 最終追補：f029d109のcompact normal owner 59160ddb81ae…（2724file／11910901bytes）は、packet自身のown100＋fresh native1／CPU-only、PTX60秒2GiB compile-planが成功。packet内SDK模擬202も成功。開発ownerの実M5／独立sealとは別の最終登録確認。Windows SDK／GPU／通常APIの追加profileは0。次はこのsealed ownerを既存Windows chatへ共有する段階で、新PTXのcold compileが必要になる（旧Mac計算コードと異なるため、旧PTXcache必須hitは依頼しない）。旧2195のclaimを再使用しない。

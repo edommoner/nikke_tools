@@ -826,10 +826,19 @@ class PortableDetail(unittest.TestCase):
                 self.assertIn(error,result['compute']['unsupported'][0]['reason'])
                 self.assertEqual(dispatch.call_count,int(platform_name=='Windows' and configured))
     def test_actual_backend_cache_misses_do_not_reach_generators_compilers_or_driver(self):
-        import portable_backend as backend
+        import importlib.util
+        def isolated(name,path):
+            spec=importlib.util.spec_from_file_location(name,ROOT/path)
+            module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+        # Keep the outer CPU-stage guards installed. Only this fake-SDK fixture
+        # gets an isolated copy of the real transport/cache-prefix functions;
+        # every native generator/library/driver boundary below still fails.
+        backend=isolated('product_cache_miss_backend','app/portable_backend.py')
+        generation_code=isolated('product_cache_miss_generation','app/portable_slang_generation.py')
+        cli=isolated('product_cache_miss_cli','scripts/nikke_gpu.py')
         body={**self.fixture['body'],'compute_backend':'cuda_shared_detail'}
-        for stage in ('generation','cubin'):
-            with tempfile.TemporaryDirectory() as folder:
+        for guarded,stage in ((g,s) for g in (False,True) for s in ('generation','cubin')):
+            with self.subTest(guarded=guarded,stage=stage),(cli.forbid_gpu() if guarded else nullcontext()),tempfile.TemporaryDirectory() as folder:
                 root=Path(folder);sdk=root/'sdk';(sdk/'bin').mkdir(parents=True)
                 for name in ('slangc','slangc.exe','nvrtc64_test.dll','nvrtc-builtins64_test.dll'):
                     (sdk/'bin'/name).write_bytes(b'identity only; must never execute')
@@ -839,13 +848,15 @@ class PortableDetail(unittest.TestCase):
                     NIKKE_SLANG_GENERATION_CACHE=str(generation),NIKKE_CUDA_COMPILE_CACHE=str(cache),
                     NIKKE_CUDA_CACHE_REQUIRED='0',NIKKE_SLANG_GENERATION_REQUIRED='0')
                 windows=SimpleNamespace(name='nt',environ=os.environ,add_dll_directory=lambda _:nullcontext())
-                build=patch.object(backend,'build',return_value=({'cuda':cuda},backend.source_hashes(product.SOURCE))) if stage=='cubin' else nullcontext()
+                build=(patch.object(backend,'build',return_value=({'cuda':cuda},backend.source_hashes(product.SOURCE))) if stage=='cubin'
+                       else patch.object(backend,'build',side_effect=lambda source,entry:generation_code.build(ROOT,source,entry)))
                 clean={k:v for k,v in os.environ.items() if not k.startswith('SLANG_') and k not in ('LD_LIBRARY_PATH','DYLD_LIBRARY_PATH','DYLD_FRAMEWORK_PATH')}
                 clean.update(env)
                 with patch.dict(os.environ,clean,clear=True),patch.object(product.platform,'system',return_value='Windows'),\
+                    patch.object(product,'execute',backend.execute),\
                     patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
                     patch.object(product.engine_worker,'evaluate',return_value=copy.deepcopy(self.fixture['cpu_payload'])),\
-                    patch.object(backend,'_build_resident',side_effect=AssertionError('No Slang')) as generator,\
+                    patch.object(generation_code,'_build_resident',side_effect=AssertionError('No Slang')) as generator,\
                     patch.object(backend,'_cuda_module',side_effect=AssertionError('No CUDA driver')) as driver,\
                     patch.object(backend.C,'WinDLL',create=True,side_effect=AssertionError('No NVRTC DLL')) as compiler,\
                     patch.object(backend,'resident_plan',return_value=None),patch.object(backend,'os',windows),build:

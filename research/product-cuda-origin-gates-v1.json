@@ -95,5 +95,76 @@
     "timeout_seconds": 60,
     "memory_limit_mb": 2048,
     "sdk_calls": 0
+  },
+  "windows_v1": {
+    "report_commit": "3fe463dd8d09766ec5fb888bf5b6c17859dc4e29",
+    "manifest_hashes_verified": true,
+    "original_raw_read_on_mac": false,
+    "owner": "59160ddb81ae0e13ffd9393f584837220c89c30a5a9814ecc3b9284e834316fd",
+    "tests": {
+      "planned_total": 100,
+      "groups_planned": 4,
+      "groups_attempted": 1,
+      "tests_attempted": 59,
+      "successes": 58,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "test_group_verified": false,
+      "stage_verified": false,
+      "scope": {
+        "seconds": 34.91465830011293,
+        "timeout_seconds": 59.82800000021234,
+        "timed_out": false,
+        "execution_passed": false,
+        "peak_bytes": 133365760,
+        "job_empty_after": true,
+        "missing_count": 0,
+        "termination_cause": null,
+        "service_status": "unverified",
+        "preservation_verified": false,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "group_elapsed_seconds": 21.09602200007066,
+      "failure": {
+        "test": "test_portable_detail.PortableDetail.test_actual_backend_cache_misses_do_not_reach_generators_compilers_or_driver",
+        "source": "tests/test_portable_detail.py",
+        "line": 854,
+        "expected_reason_contains": "cache miss",
+        "actual_reason": "GPU build/execute forbidden in CPU/audit stage",
+        "assertion": "'cache miss' not found in 'gpu build/execute forbidden in cpu/audit stage'",
+        "analysis": "Existing staged CLI wraps run_group in forbid_gpu, which patches backend build/execute before this test exercises the actual cache-miss path. The outer guard reason reaches its assertion. This identifies a staged-runner/test interaction; no numerical or GPU result was evaluated. No guard or test changed."
+      }
+    },
+    "stop_reason": "preflight-test-group 0 failed one test; no retry and all later stages stopped",
+    "sdk_loads": 0,
+    "gpu_calls": 0,
+    "remaining_groups_run": 0,
+    "fresh_native_preflight": {
+      "planned": 1,
+      "executed": 0
+    },
+    "preservation_verified": false,
+    "claims": {
+      "gpu_claim_reserved_by_cpu_preflight": true,
+      "preflight_plan_stage_claim": true,
+      "test_group_0_claim": true,
+      "test_group_1_claim": false,
+      "compile_claim": false,
+      "module_object_claim": false,
+      "jit_link_claim": false,
+      "deleted": false
+    }
+  },
+  "guarded_test_repair": {
+    "scope": "Test fixture only; real transport/cache-prefix functions isolated under fake SDK with failing generator/DLL/driver boundaries",
+    "mac_failure_reproduced": true,
+    "guarded_group_after_tests": 59,
+    "guarded_group_after_passed": true,
+    "outer_cpu_guard_weakened": false,
+    "numeric_or_backend_code_changed": false,
+    "expectations_or_assertions_weakened": false,
+    "old_failed_owner_and_claims_preserved": true
   }
 }
