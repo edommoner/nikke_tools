@@ -487,6 +487,36 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertFalse(meta['product_fixed_burst']['CPU_state_or_schedule_as_input'])
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(before['effects']))))
 
+    def test_manual_cover_without_cover_effect_routes_to_existing_product_consumer(self):
+        import portable_detail as product
+        from portable_product_programs import body_for_program
+        from portable_specs import LIMITS as L
+        from portable_cover_defense_wire import LAYOUT as C,MAGIC
+        from portable_runtime import UnsupportedPortable
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,mode)
+            owner=body['squad'][0]
+            body['manual_cover_sequences']={owner:[dict(action='cover',t=.5,duration=.25)]}
+            prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+            self.assertFalse(any(r['effect'].get('stat')=='cover_def_pct' for r in prepared['effects']))
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle in preparation')):
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,before)
+            self.assertEqual(source,'gpu/product_cover_'+('fixed_' if mode=='fixed' else '')+'battle_entry.slang')
+            self.assertEqual((iw,ow),(115704,2048912))
+            self.assertEqual(meta['product_manual_cover_owners'],[0])
+            self.assertTrue(meta['product_cover_defense']['unspecified_quantities'])
+            self.assertEqual(meta['product_cover_defense']['definition_indices'],[])
+            self.assertEqual(words[C['BASE']:C['BASE']+4],[MAGIC,1,5,1])
+            self.assertEqual(words[L['WORLD_CONTROL_INPUT_BASE']+1],6 if mode=='fixed' else 3)
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+            # An authored attack still requires independent declared DEF;
+            # the routing change must never manufacture a defense value.
+            body['enemy']['patterns']=[dict(id='incoming',kind='attack',spec=dict(atk=100,coeff=100,hits=1,target='all'))]
+            incoming,_=product.prepare(body)
+            with self.assertRaisesRegex(UnsupportedPortable,'explicit.*cover_defense'):
+                product.compile_product(incoming)
+
     def test_fixed_cover_header_conversion_rejects_invalid_tap_masks_and_reserved_words(self):
         import portable_detail as product
         from portable_product_cover import compile_product

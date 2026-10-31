@@ -5,7 +5,9 @@ from portable_runtime import UnsupportedPortable
 
 def required(prepared):
     return ('cover_defense' in prepared.get('reference_models',{}) or
-        any(r['effect'].get('stat')=='cover_def_pct' for r in prepared['effects']))
+        any(r['effect'].get('stat')=='cover_def_pct' for r in prepared['effects']) or
+        any(a.get('action')=='cover' for c in prepared['chars']
+            for a in c.get('control',{}).get('sequence',[])))
 
 def compile_product(prepared,producer):
     from portable_specs import LIMITS as L,FIELDS as F
