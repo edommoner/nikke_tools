@@ -1,0 +1,241 @@
+{
+  "schema": 1,
+  "scope": "Saved equipment-carriers validation only; no new compiler, driver or GPU execution",
+  "owner": "68e212dc954e7582c5849587702de2e5d101fc349e1d171cbf08d9aba422d743",
+  "source_commit": "1f36fcbac895e1b27ef398c55cdbb9a879406ac4",
+  "transport_archive": {
+    "bytes": 11858507,
+    "sha256": "b1f4c2a2b16e0d933d96aa2c12d736fbb342a81afce617d7df010b395274e488"
+  },
+  "unit": {
+    "tests": 77,
+    "passed": true,
+    "scope": {
+      "seconds": 52.68328730016947,
+      "peak_bytes": 197185536,
+      "timed_out": false,
+      "execution_passed": true,
+      "missing_count": 0,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "preservation_verified": false,
+      "service_status": "unverified"
+    }
+  },
+  "controls": {
+    "discovered": 45,
+    "succeeded": 44,
+    "original_windows_skip": 1,
+    "failures": 0,
+    "errors": 0,
+    "standard_complete_verified": true,
+    "original_agent_wrapper_false_retained": true,
+    "original_false_reason": "Extra skip==0 condition beyond existing complete policy",
+    "scope": {
+      "seconds": 10.722200400196016,
+      "peak_bytes": 57188352,
+      "timed_out": false,
+      "execution_passed": false,
+      "missing_count": 0,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "preservation_verified": false,
+      "service_status": "unverified"
+    }
+  },
+  "deps": {
+    "passed": true,
+    "scope": {
+      "seconds": 11.178901200182736,
+      "peak_bytes": 66801664,
+      "timed_out": false,
+      "execution_passed": true,
+      "missing_count": 0,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "preservation_verified": false,
+      "service_status": "unverified"
+    }
+  },
+  "plan": {
+    "passed": true,
+    "options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "scope": {
+      "seconds": 11.08463740022853,
+      "peak_bytes": 66584576,
+      "timed_out": false,
+      "execution_passed": true,
+      "missing_count": 0,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "preservation_verified": false,
+      "service_status": "unverified"
+    }
+  },
+  "generation": {
+    "official_stage_verified": true,
+    "scope": {
+      "seconds": 22.843258100096136,
+      "peak_bytes": 542998528,
+      "timed_out": false,
+      "execution_passed": true,
+      "missing_count": 0,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "preservation_verified": false,
+      "service_status": "unverified"
+    },
+    "normalized": {
+      "cuda": "ed9c7d23f26e864e0fca0b97d42cb58a2c6dad71cc6904864e731573e06f2e9e",
+      "metal": "8e1d2b8b6157644f76d7d71cefc4e058f251daf04694d1ef73de9f9042da54f3"
+    }
+  },
+  "generated_artifacts": {
+    "cuda": {
+      "bytes": 2343603,
+      "sha256": "6d939dde9f2250dcacdd9f5cc27c14e132df8f61ca442ff1e3aa0634ad33c0ea"
+    },
+    "metal": {
+      "bytes": 2478112,
+      "sha256": "7a2fc8f6122798dcff73433ecc8cce4fbc8fe11cf45931b7745aa14587e04117"
+    }
+  },
+  "ptx": {
+    "native_generated": true,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "compile_key": "9e89e737dac41a55d09b648f27ad7e5e6f73c1635f45b853ef84f4e0e761b1e2",
+    "cache_hit": false,
+    "nvrtc_seconds": 34.5110569,
+    "nvrtc_return_code": 0,
+    "nvrtcVersion_return_code": 0,
+    "nvrtcVersion_bounds_passed": "12.4..12.x",
+    "nvrtcVersion_major_minor_values": "not persisted by current observer",
+    "generation_cache_hit": true,
+    "additional_slang_invocations": 0,
+    "outer": {
+      "seconds": 62.591010299976915,
+      "peak_bytes": 327294976,
+      "timed_out": true,
+      "execution_passed": false,
+      "missing_count": 0,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "preservation_verified": false,
+      "service_status": "unverified"
+    },
+    "inner_pre_gate_verified": true,
+    "inner_post_wait_recorded": false,
+    "inner_after_snapshot_present": false,
+    "inner_execution_present": false,
+    "final_result_present": false,
+    "artifacts_inventory_present": false,
+    "stage_verified": false,
+    "image_admitted_for_execution": false,
+    "cache_artifact_present": true,
+    "cache_claim_present": false
+  },
+  "ptx_artifact": {
+    "bytes": 9866019,
+    "sha256": "850523c731971156bc8111fb9dbb1575cad68dececd099fb826b8ca0f341a0e4"
+  },
+  "cache_probe": {
+    "passed": true,
+    "hit": true,
+    "key": "9e89e737dac41a55d09b648f27ad7e5e6f73c1635f45b853ef84f4e0e761b1e2",
+    "full_cache_bytes_equal_saved_ptx": true,
+    "source_sha256": "6d939dde9f2250dcacdd9f5cc27c14e132df8f61ca442ff1e3aa0634ad33c0ea",
+    "options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "compiler_files": {
+      "nvrtc-builtins64_124.dll": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43",
+      "nvrtc64_120_0.dll": "3aa3cd8aa10437e212760c0e1ed730807811ec3bc330216dbfde4b26211d2243"
+    },
+    "header_sha256": [
+      "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
+    ],
+    "elapsed_seconds": 0.17421599989756942,
+    "native_library_loads": 0,
+    "nvrtc_compile_calls": 0,
+    "gpu_calls": 0
+  },
+  "timing": {
+    "scope": "Overlapping nested scopes must not be summed. Timeline is relative to saved outer journal entry, not exact timeout timer start.",
+    "nvrtc_api_seconds": 34.5110569,
+    "shared_compile_including_nvrtc_seconds": 34.9710637,
+    "timeline_seconds": {
+      "outer_journal_entry": 0.0,
+      "outer_before_snapshot_completed": 2.3771511,
+      "inner_before_snapshot_entered": 11.0502561,
+      "inner_before_snapshot_completed": 13.3157175,
+      "child_package_verification_entered": 13.3486624,
+      "child_package_verification_completed": 21.0681884,
+      "nvrtc_compile_entered": 24.9249079,
+      "nvrtc_compile_returned": 59.4364591,
+      "cache_publication_observed_verified": 59.7202223,
+      "shared_compile_returned": 59.7284934,
+      "outer_after_snapshot_entered": 60.0557877,
+      "outer_after_snapshot_completed": 62.5897438
+    },
+    "cache_publication_note": "Verified publication observed in saved phase log; exact file write instant was not journaled.",
+    "cpu_user_seconds": null,
+    "cpu_kernel_seconds": null,
+    "cpu_time_status": "Not recorded in saved execution/job records"
+  },
+  "supervisor": {
+    "seconds": 67.33409859985113,
+    "peak_bytes": 358481920,
+    "timed_out": false,
+    "execution_passed": false,
+    "missing_count": 0,
+    "cleanup_error": null,
+    "observation_error": null,
+    "job_empty_after": true,
+    "preservation_verified": false,
+    "service_status": "unverified"
+  },
+  "object": {
+    "executed": false
+  },
+  "jit_link": {
+    "executed": false
+  },
+  "current_claims": {
+    "compile-claimed-cuda.json": true,
+    "module-object-claimed-cuda.json": false,
+    "jit-link-object-claimed-cuda.json": false
+  },
+  "prior_failures_claims_and_old_serial_unchanged": true,
+  "historical_missing_process_count": 7,
+  "historical_missing_cause": "unknown; retained without reclassification",
+  "preservation_verified": false,
+  "service_status": "unverified",
+  "calculation_verified": false,
+  "stage_verified": false,
+  "image_admitted_for_execution": false,
+  "driver_calls": 0,
+  "module_load_calls": 0,
+  "gpu_calls": 0,
+  "http_requests": 0,
+  "retries": 0,
+  "stop_reason": "PTX native generation completed, but outer command60s timeout left inner termination/environment/final capture receipts incomplete. No object/link."
+}

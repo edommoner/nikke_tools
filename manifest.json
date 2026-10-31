@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "source_commit": "1f36fcbac895e1b27ef398c55cdbb9a879406ac4",
+  "owner": "68e212dc954e7582c5849587702de2e5d101fc349e1d171cbf08d9aba422d743",
+  "files": [
+    {
+      "name": "equipment-carriers-summary.json",
+      "bytes": 7823,
+      "sha256": "bcea43fde2efba50babad2f38293791c358eee34d3d1a382e5ec58fb4cb7f5bb"
+    }
+  ],
+  "excluded": "Raw binaries, SDK, process snapshots, private paths, credentials, environment and personal settings"
+}
