@@ -2148,7 +2148,7 @@
     },
     "app/portable_product_programs.py": {
       "before_sha256": "51d18a2191c24ef3b68f2d1cf71d792cdb9e8e01ed209e5c793827ce5b7d056d",
-      "after_sha256": "3e889ce975db26f216d1c292785d74d48fd2f1a408117412c468d85614166c1e",
+      "after_sha256": "37cab426713f2100e2b419ff1c1e7c51a7c6b8393e8eede21374880607b3dad8",
       "hunks": [
         {
           "start": 364,
@@ -2182,13 +2182,13 @@
         },
         {
           "start": 4976,
-          "end": 9055,
+          "end": 9518,
           "before": "",
-          "after": "name is not None and name.startswith('lock-'):\n        import engine_worker\n        from portable_heavyarms_lock_cases import fixtures,NAME,source_definitions\n        from product_lock_model import ORDER,MARKER,DELIVERY_MODEL\n        body=copy.deepcopy(fixtures()[1]['body'])\n        body['reference_models']={'lock_on':dict(owner=NAME,marker=MARKER,packet_skill=source_definitions()[8]['name'],candidate_order=ORDER,delivery=DELIVERY_MODEL,typed_bindings=[])}\n    elif name is not None and name.startswith('named-range-cover-'):\n        body=body_for_program(root,'named-range-'+program['mode'])\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('named-range-'):\n        from portable_named_range_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'named_range':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),rules=copy.deepcopy(case['named_range_rules']))}\n    elif name is not None and name.startswith('movement-cover-'):\n        body=body_for_program(root,'movement-'+program['mode'])\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('movement-'):\n        import engine_worker\n        from portable_enemy_movement_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'enemy_movement':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),motion=copy.deepcopy(case['enemy_movement']))}\n    elif name is not None and name.startswith('ammo-cover-'):\n        from detail_coverage import body_for\n        body=body_for(['벨벳','솔져 O.W.','미란다','도라','드레이크'],30)\n        body['manual_cover_sequences']={body['squad'][1]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('ammo-'):\n        if program['mode']=='fixed':\n            from portable_original_identity_inventory import selected_profile_bodies\n            body=selected_profile_bodies(['벨벳'],0)[0][2]\n        else:\n            import engine_worker\n            from portable_enemy_ammo_cases import fixtures\n            case=fixtures()[0];body=copy.deepcopy(case['body'])\n            body['reference_models']={'enemy_ammo':copy.deepcopy(case['enemy_ammo'])}\n    elif name is not None and name.startswith('default-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['베이' if name.startswith('default-weighted-') else '솔져 O.W.'],0)[0][2]\n    elif name is not None and name.startswith('cover-') and program['kind']:\n        body=body_for_program(root,program['mode']+'-'+program['kind'])\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('cover-'):\n        from portable_cover_defense_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'cover_defense':copy.deepcopy(case['cover_defense'])}\n        body['manual_cover_sequences']=copy.deepcopy(case['declared_manual_sequences'])\n    elif name is not None and name.startswith('weighted-'):\n        from portable_weighted_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}\n    elif name is not None and name.startswith('healing-cover-'):\n        from detail_coverage import body_for\n        body=body_for(['앤 : 미라클 페어리','솔져 O.W.','미란다','도라','드레이크'],30)\n        body['manual_cover_sequences']={body['squad'][1]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('healing-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]\n    elif "
+          "after": "name is not None and name.startswith('lock-'):\n        import engine_worker\n        from portable_heavyarms_lock_cases import fixtures,NAME,source_definitions\n        from product_lock_model import ORDER,MARKER,DELIVERY_MODEL\n        body=copy.deepcopy(fixtures()[1]['body'])\n        body['reference_models']={'lock_on':dict(owner=NAME,marker=MARKER,packet_skill=source_definitions()[8]['name'],candidate_order=ORDER,delivery=DELIVERY_MODEL,typed_bindings=[])}\n    elif name is not None and name.startswith('named-range-cover-'):\n        from detail_coverage import body_for\n        body=body_for_program(root,'named-range-'+program['mode'])\n        roster=body['squad'][:-1]+['솔져 O.W.'];literal=body_for(roster,body['duration'])\n        body['squad']=roster;body['profile']=literal['profile']\n        body['reference_models']['cover_defense']=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(roster)]\n        body['manual_cover_sequences']={roster[0]:[dict(action='cover',t=10,duration=2)]}\n        body['enemy']['patterns'].append(dict(id='declared-incoming',kind='attack',delay=10.25,spec=dict(atk=1000,coeff=100,target='all',hits=5,interval=.5)))\n    elif name is not None and name.startswith('named-range-'):\n        from portable_named_range_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'named_range':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),rules=copy.deepcopy(case['named_range_rules']))}\n    elif name is not None and name.startswith('movement-cover-'):\n        body=body_for_program(root,'movement-'+program['mode'])\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('movement-'):\n        import engine_worker\n        from portable_enemy_movement_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'enemy_movement':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),motion=copy.deepcopy(case['enemy_movement']))}\n    elif name is not None and name.startswith('ammo-cover-'):\n        from detail_coverage import body_for\n        body=body_for(['벨벳','솔져 O.W.','미란다','도라','드레이크'],30)\n        body['manual_cover_sequences']={body['squad'][1]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('ammo-'):\n        if program['mode']=='fixed':\n            from portable_original_identity_inventory import selected_profile_bodies\n            body=selected_profile_bodies(['벨벳'],0)[0][2]\n        else:\n            import engine_worker\n            from portable_enemy_ammo_cases import fixtures\n            case=fixtures()[0];body=copy.deepcopy(case['body'])\n            body['reference_models']={'enemy_ammo':copy.deepcopy(case['enemy_ammo'])}\n    elif name is not None and name.startswith('default-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['베이' if name.startswith('default-weighted-') else '솔져 O.W.'],0)[0][2]\n    elif name is not None and name.startswith('cover-') and program['kind']:\n        body=body_for_program(root,program['mode']+'-'+program['kind'])\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('cover-'):\n        from portable_cover_defense_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'cover_defense':copy.deepcopy(case['cover_defense'])}\n        body['manual_cover_sequences']=copy.deepcopy(case['declared_manual_sequences'])\n    elif name is not None and name.startswith('weighted-'):\n        from portable_weighted_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}\n    elif name is not None and name.startswith('healing-cover-'):\n        from detail_coverage import body_for\n        body=body_for(['앤 : 미라클 페어리','솔져 O.W.','미란다','도라','드레이크'],30)\n        body['manual_cover_sequences']={body['squad'][1]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('healing-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]\n    elif "
         },
         {
-          "start": 9677,
-          "end": 10110,
+          "start": 10140,
+          "end": 10573,
           "before": "",
           "after": "if name is not None and name.startswith('add-'):\n        body['enemy']['patterns']=[dict(id='product-escort',kind='summon',until=dict(targets_cleared=True),spec=dict(\n            name='Escort',count=2,hp=1e12,attack_at=.25,self_destruct=True,\n            attack=dict(atk=1000,coeff=100,hits=2,interval=.5,target='all',debuffs=[\n                dict(stat='atk_pct',value=-10),dict(stat='dot',coeff=10,interval=.5,duration=1)])))]\n    "
         }
@@ -2665,6 +2665,72 @@
           "end": 6856,
           "before": "",
           "after": "#if defined(PORTABLE_PRODUCT_COVER_MOVEMENT) || defined(PORTABLE_PRODUCT_COVER_NAMED_RANGE)\n    for(uint i=0;i<CDF_DEPTH*CDF_SNAPSHOT_WORDS;i++)results[output+CDF_OUTPUT_BASE+CDF_SNAPSHOT_BASE+i]=0;\n#endif\n"
+        }
+      ]
+    },
+    "gpu/cover_defense_layout.slang": {
+      "before_sha256": "28c27bb566c2e2345ba618c6c2a15f21c1e71bc12859cc956741eb9fa4599a20",
+      "after_sha256": "a24edada261f4f430ac0353fd366aaede9f515502688fee810794e4abd5d0826",
+      "hunks": [
+        {
+          "start": 129,
+          "end": 226,
+          "before": "",
+          "after": "#ifdef PORTABLE_COVER_DEFENSE_STAT\nstatic const uint CDF_STAT=PORTABLE_COVER_DEFENSE_STAT;\n#else\n"
+        },
+        {
+          "start": 257,
+          "end": 264,
+          "before": "",
+          "after": "\n#endif"
+        }
+      ]
+    },
+    "app/portable_cover_defense_wire.py": {
+      "before_sha256": "cbd16030dcb998e972f0bd0fe71ff7e4502d4404f59b9d4a0e4003f6beca0ef4",
+      "after_sha256": "2ee1c6e2aaea7d6ec34083f4fb0f4f7af1e85d64d478e56935b1a04e9a7e027d",
+      "hunks": [
+        {
+          "start": 279,
+          "end": 351,
+          "before": "",
+          "after": "\nNAMED_RANGE_STAT=96  # Disjoint from named target count93 and radius94."
+        },
+        {
+          "start": 778,
+          "end": 943,
+          "before": "",
+          "after": "(f'#ifdef PORTABLE_COVER_DEFENSE_STAT\\nstatic const uint CDF_STAT=PORTABLE_COVER_DEFENSE_STAT;\\n#else\\nstatic const uint CDF_STAT={v}U;\\n#endif\\n' if k=='STAT' else "
+        },
+        {
+          "start": 979,
+          "end": 980,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1847,
+          "end": 1856,
+          "before": "",
+          "after": "PORTABLE_"
+        },
+        {
+          "start": 1857,
+          "end": 1862,
+          "before": "",
+          "after": "OVER_"
+        },
+        {
+          "start": 1863,
+          "end": 1864,
+          "before": "",
+          "after": "E"
+        },
+        {
+          "start": 1865,
+          "end": 1875,
+          "before": "",
+          "after": "ENSE_INPUT"
         }
       ]
     }

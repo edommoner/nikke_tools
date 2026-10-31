@@ -1,6 +1,10 @@
 // Generated from portable_cover_defense_wire; declarations and receipt ownership only.
 static const uint CDF_MAGIC=1128546865U;
+#ifdef PORTABLE_COVER_DEFENSE_STAT
+static const uint CDF_STAT=PORTABLE_COVER_DEFENSE_STAT;
+#else
 static const uint CDF_STAT=93U;
+#endif
 static const uint CDF_BASE=115680U;
 static const uint CDF_WORDS=24U;
 static const uint CDF_INPUT_WORDS=115704U;

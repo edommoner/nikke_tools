@@ -65,13 +65,21 @@ class ProductReferenceModels(unittest.TestCase):
                 source,iw,ow,words,meta=product.compile_product(prepared)
             self.assertEqual(prepared,before);validate_composed_stride(source,iw,ow)
             self.assertEqual((iw,ow,len(words)),(M+24,2048912,M+24))
-            self.assertEqual(words[M:M+4],[MAGIC,1,5,1])
+            self.assertEqual(words[M:M+4],[MAGIC,1,5,0])
             self.assertEqual(words[L['WORLD_CONTROL_INPUT_BASE']+1],6 if mode=='fixed' else 3)
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
             self.assertTrue(meta['product_named_range_cover'])
             self.assertEqual(meta['product_manual_cover_owners'],[0])
             for bad in [(iw-24,ow),(iw,MO)]:
                 with self.assertRaises(ValueError):validate_composed_stride(source,*bad)
+            from portable_cover_defense_wire import NAMED_RANGE_STAT
+            from portable_specs import FIELDS as F
+            self.assertIn('PORTABLE_COVER_DEFENSE_STAT '+str(NAMED_RANGE_STAT)+'U',(ROOT/'gpu/product_named_range_cover_battle_entry.slang').read_text())
+            self.assertNotEqual(NAMED_RANGE_STAT,93)
+            for index in meta['product_cover_defense']['definition_indices']:
+                row=meta['binding_source_indices'].index(index)
+                self.assertEqual(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['STAT']],NAMED_RANGE_STAT)
+            body['reference_models'].pop('cover_defense')
             body['duration']=15
             body['manual_cover_sequences']={body['squad'][1]:[dict(action='cover',t=0,duration=15)]}
             body['enemy']['patterns'].append(dict(id='body-attacks',kind='attack',spec=dict(atk=1000,coeff=100,target='all',hits=3,interval=1.)))

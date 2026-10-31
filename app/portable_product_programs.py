@@ -72,8 +72,13 @@ def body_for_program(root, name=None):
         body=copy.deepcopy(fixtures()[1]['body'])
         body['reference_models']={'lock_on':dict(owner=NAME,marker=MARKER,packet_skill=source_definitions()[8]['name'],candidate_order=ORDER,delivery=DELIVERY_MODEL,typed_bindings=[])}
     elif name is not None and name.startswith('named-range-cover-'):
+        from detail_coverage import body_for
         body=body_for_program(root,'named-range-'+program['mode'])
-        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}
+        roster=body['squad'][:-1]+['솔져 O.W.'];literal=body_for(roster,body['duration'])
+        body['squad']=roster;body['profile']=literal['profile']
+        body['reference_models']['cover_defense']=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(roster)]
+        body['manual_cover_sequences']={roster[0]:[dict(action='cover',t=10,duration=2)]}
+        body['enemy']['patterns'].append(dict(id='declared-incoming',kind='attack',delay=10.25,spec=dict(atk=1000,coeff=100,target='all',hits=5,interval=.5)))
     elif name is not None and name.startswith('named-range-'):
         from portable_named_range_battle_cases import fixtures
         case=fixtures()[0];body=copy.deepcopy(case['body'])

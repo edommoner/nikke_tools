@@ -6,11 +6,12 @@ from unittest.mock import patch
 from cover_defense_battle_model import normalize
 MAGIC=0x43444231
 STAT=93
+NAMED_RANGE_STAT=96  # Disjoint from named target count93 and radius94.
 SOURCE='gpu/world_cover_defense_entry.slang'
 LAYOUT=dict(BASE=115680,WORDS=24,INPUT_WORDS=115704,OUTPUT_BASE=2032000,HEADER=16,SNAPSHOT_BASE=16,SNAPSHOT_WORDS=16,DEPTH=32,RECEIPT_BASE=528,RECEIPTS=512,RECEIPT_WORDS=32,OUTPUT_WORDS=2048912)
 INPUT=LAYOUT['INPUT_WORDS'];OUTPUT=LAYOUT['OUTPUT_WORDS']
 
-def shader_schema():return '// Generated from portable_cover_defense_wire; declarations and receipt ownership only.\n'+''.join(f'static const uint CDF_{k}={v}U;\n' for k,v in dict(MAGIC=MAGIC,STAT=STAT,**LAYOUT).items())
+def shader_schema():return '// Generated from portable_cover_defense_wire; declarations and receipt ownership only.\n'+''.join((f'#ifdef PORTABLE_COVER_DEFENSE_STAT\nstatic const uint CDF_STAT=PORTABLE_COVER_DEFENSE_STAT;\n#else\nstatic const uint CDF_STAT={v}U;\n#endif\n' if k=='STAT' else f'static const uint CDF_{k}={v}U;\n') for k,v in dict(MAGIC=MAGIC,STAT=STAT,**LAYOUT).items())
 def check_schema(root=None):
     root=Path(root or Path(__file__).resolve().parents[1])
     if (root/'gpu/cover_defense_layout.slang').read_text()!=shader_schema():raise ValueError('Cover DEF declaration schema drift')
