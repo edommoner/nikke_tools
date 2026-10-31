@@ -1,3 +1,13 @@
+## 2026-10-31 compile-onlyの重複preflightを除き実NVRTCへ到達
+
+source1f2608d9／sealed owner7a396439…／transport69dfe62c。共通CLIの実compile-only childが戦闘テスト・native戦闘・GPU claimを呼ばない回帰検査を追加し、compiler/object/link/Jobの関連113検査が成功。実行gate・数値・source normalizer・60秒/2GiB上限は変更なし。run/staged-runの全登録検査と製品APIのGPU後fresh CPU全field照合は維持する。
+
+normal current owner fce3bfec…自身の107unit＋fresh native1＋実M5＋独立sealが成功。既存v12 accumulate goldenの全内容が完全同一で、新profile追加には数えない。最終7a packetとの差はcompile制御テスト1ファイルだけで、計算payload全byte保持。最終packet自身のPTX compile-planも成功。最終packetで107を再実行したという主張ではない。
+
+Windows peer報告：展開43.322秒、generation27.902秒、NVRTC child52.678秒／peak297,791,488bytesでreturn0、compiler_verified=true。外側64.989秒／peak332,902,400bytes、timeoutなし、Job empty、missing0。ただしservice unverified／preservation=falseで標準CLI exit2、stage_verified=false。object/JITlink/driver/context/GPU/API0、再試行0。これはMacがraw artifactを独立監査した結果ではなく、小さいpeer最終報告。原保存summary6,436bytes／SHA4e65e4b7…、GitHub結果pushなし。詳細research/product-cuda-compile-only-v1.json。
+
+全目標は未完了。今回メモリ上限到達ではなくサービス識別未確認で停止した。停止判定を緩めず、同Windows chatへ今回の保存観測と識別コードだけのCPU診断を依頼済み。再snapshot／SDK／GPU／サービス設定変更は依頼なし。保存資料診断も終了（cursor422／idle）：前後・外側/SDK内ともservice_candidate10個体がworkspace/listener/識別済み親へ結び付かず、nikke_service_pids空／service_status unverified。observation_error/comparison_errorはnull、権限拒否や識別情報欠落の記録なし。候補の実所属・対象サービス非稼働・条件不一致のいずれかは未確定。次はこの所属確認に必要な最小観測を設計し、SDK再実行やgate緩和で回避しない。未確定のHeavy Arms距離規則や旧missing7/14原因を確定へ置き換えない。
+
 ## 2026-10-31 Heavy Armsの宣言Lock Onを通常製品へ接続
 
 最終追補：c0530f71のsealed owner a96b8d80…自身で全107unit／fresh native1／CPU-onlyが成功。独立sealとgolden全内容が同一で、追加GPU0。旧監査の否定テストもpacket自身で成功。専用4386を停止し、ユーザー4317／4327は未操作。

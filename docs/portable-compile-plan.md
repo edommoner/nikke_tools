@@ -42,7 +42,7 @@ CLIのmodule-objectが同じsealed producer自身を処理する場合、親でv
 sealed Metal基準・全package byte・現在source・生成CUDA/MSL・compiler options・artifact出所・Job/観測をそれぞれの既存gateで検査する。
 生成段階を先に一度だけ完了し、後段はpaired generation cacheを必須にしてSlangの重複生成を防ぐ。
 コンパイルだけを調べるWindows依頼に全戦闘テストやnative戦闘計算を前置きする必要はない。
-これはGPU起動の免除ではなく、`run`/`staged-run`/製品APIのfresh CPU照合・全登録テスト・native admissionは従来どおり。
+これはGPU起動の免除ではなく、`run`/`staged-run`の全登録テストとnative admission、製品APIのGPU後fresh CPU全応答比較は従来どおり。
 
 CLI childの実dispatchをfake NVRTCへ接続し、cpu_test_groups/open_suite/prepare_entries/native_value/compare_readbackを呼ばないことを回帰検査した。
 実driver/GPU禁止、計算認定false、GPU claim未消費を検査し、既存compiler/module/object/link/Job/packetの計113検査も維持した。
