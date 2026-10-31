@@ -699,6 +699,30 @@
           "after": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n        if(commands[p+6]==0x42444631U)\n        {if(!worldBossAddDebuffPayload(s,node))return false;}\n        else\n#endif\n"
         }
       ]
+    },
+    "app/portable_weapon_input.py": {
+      "before_sha256": "78ee1f380ed81d7dc3f5513a747c02b425c5ee1f99fda8a5d11af533c56ac203",
+      "after_sha256": "304121de25ae051c6903693a0357d6903e4579576752fc36abf1192a40cc49dc",
+      "hunks": [
+        {
+          "start": 2010,
+          "end": 2180,
+          "before": "                post_reload_delay=state.post_reload_delay,cover_during_delay=state.cover_during_delay)\n",
+          "after": "                post_reload_delay=state.post_reload_delay,cover_during_delay=state.cover_during_delay,\n                reload_cancel_on_full=state.reload_cancel_on_full)\n"
+        }
+      ]
+    },
+    "app/portable_charge_control_specs.py": {
+      "before_sha256": "a168f3701f9b5d499cc9cefb8fd764e7eb19f853863e2ba534e847f9613305e8",
+      "after_sha256": "9a92a1ef8b386063ce4d645758c426c5b45d37cc6931c437f93034298fae1d6d",
+      "hunks": [
+        {
+          "start": 1439,
+          "end": 1749,
+          "before": "  if any(control.get(k) for k in ('cover','reload','aim','burst')):raise ValueError('Cover/reload/aim/burst controls require their own common adapters')\n",
+          "after": "  reload=control.get('reload') or {}\n  if (any(control.get(k) for k in ('cover','aim','burst')) or\n      set(reload)-{'cancel_on_full'} or\n      'cancel_on_full' in reload and type(reload['cancel_on_full']) is not bool):\n   raise ValueError('Cover/reload/aim/burst controls require their own common adapters')\n"
+        }
+      ]
     }
   }
 }

@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "primary_profiles": [
+    "홍련 : 흑영"
+  ],
+  "metal_primary_profile_count": 1,
+  "ordinary_http_conditions": 5,
+  "additional_python_product_conditions": 2,
+  "cpu_full_payload_matches": 7,
+  "cuda_current_profile_count": 0,
+  "scope": "Character default reload cancel_on_full control, fixed/accumulate, real growth and declared hypothetical charge-speed boundary",
+  "implementation": "Native CharState literal reload_cancel_on_full goes to existing WEAPON_QUANTITY +3 and existing shared applyAmmoInstant; no new clock/Slang/runtime fields",
+  "unchanged": [
+    "CPU reference",
+    "pinned upstream",
+    "GPU source",
+    "numerical rules",
+    "strict normalizer",
+    "old goldens",
+    "old captures"
+  ],
+  "tests": {
+    "portable_detail": 56,
+    "weighted_source_contract": 7,
+    "product_detail_packet": 7,
+    "portable_gpu_cli": 52
+  },
+  "additional_native_gpu_calls_in_saved_audits": 0,
+  "causal": {
+    "native_cancellations": [
+      {
+        "name": "홍련 : 흑영",
+        "time": 41.76666666666558,
+        "ammo": 17,
+        "reload_until": 43.21666666666561
+      }
+    ],
+    "gpu_reload_trace": [
+      {
+        "kind": 1,
+        "time": 13.600000000000255,
+        "deadline": 15.600000000000255,
+        "ammo": 0
+      },
+      {
+        "kind": 2,
+        "time": 15.600000000000355,
+        "deadline": -1.0,
+        "ammo": 12
+      },
+      {
+        "kind": 1,
+        "time": 22.78333333333332,
+        "deadline": 24.78333333333332,
+        "ammo": 0
+      },
+      {
+        "kind": 2,
+        "time": 24.799999999999873,
+        "deadline": -1.0,
+        "ammo": 12
+      },
+      {
+        "kind": 1,
+        "time": 31.999999999999464,
+        "deadline": 33.99999999999946,
+        "ammo": 0
+      },
+      {
+        "kind": 2,
+        "time": 34.01666666666602,
+        "deadline": -1.0,
+        "ammo": 12
+      },
+      {
+        "kind": 1,
+        "time": 41.21666666666561,
+        "deadline": 43.21666666666561,
+        "ammo": 0
+      }
+    ],
+    "independent_native_payload_exact": true,
+    "gpu_begin_precedes_cancellation": true,
+    "no_false_full_reload_completion": true,
+    "native_battles_in_saved_audit": 0,
+    "gpu_calls_in_saved_audit": 0
+  },
+  "non_exercising_boundaries": "The two charge30% growth boundary captures matched but had no native cancellation. Kept separately; only charge60% input exercises cancellation.",
+  "abandoned_probe": "Explicit authored cover requests are absent from current product API. Exploratory edits were restored before any GPU execution; no cover product support claim.",
+  "coverage_limit": "Existing catalogue profile, new character-default operation. Do not add 1 to historical 255 distinct profiles. Current full catalogue revalidation and CUDA product completion remain pending.",
+  "records": [
+    {
+      "proof_directory": "product-reload-cancel-v1-20261031",
+      "cases": 4,
+      "kind": "ordinary-http-api",
+      "audit_sha256": "32d8d7c556a5ea1cb2b336929bfce62635b30e8bb275694c577cfa7d97f51c3b",
+      "captures": [
+        "247ba4f5e8864429bea015800c4533ee",
+        "9091af2092564537809716b7db2166f5",
+        "c76347b93b684912bf78fe24c58f8aef",
+        "dc1b72afaee4499ab20416aeea3cde14"
+      ],
+      "source_inventory_sha256": "1657ffba2ba2ec39100f679914ba126646ebb3dd350f080c416faa79e4a995ee"
+    },
+    {
+      "proof_directory": "product-reload-cancel-boundary-v1-20261031",
+      "cases": 2,
+      "kind": "product-python-api",
+      "audit_sha256": "6193a6ee1ad47f993372572370e14488c13cca71f77e3a249bd6390d2e8ae754",
+      "captures": [
+        "7fb226a031d84a149be8b5dc5d497807",
+        "523c1e56d93b4652b85284e02943a73d"
+      ],
+      "source_inventory_sha256": "a9e5c56982fabc6d40e420c306df25c12ceec7db581ff32d4a30170026590e12"
+    },
+    {
+      "proof_directory": "product-reload-cancel-active-v1-20261031",
+      "cases": 1,
+      "kind": "ordinary-http-api",
+      "audit_sha256": "73c3147436a4b9b991509c74688709e4c03868d1124a2a338a95d536942ca670",
+      "captures": [
+        "86ce4b2af58445ea9e62c35f9d6a9828"
+      ],
+      "source_inventory_sha256": "1657ffba2ba2ec39100f679914ba126646ebb3dd350f080c416faa79e4a995ee"
+    }
+  ]
+}

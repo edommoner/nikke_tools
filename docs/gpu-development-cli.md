@@ -860,3 +860,7 @@ packet自身の `compile-plan --artifact-kind cubin --ptxas-level 1 --memory-lim
 ### 2026-10-31 許可済み敵DoT時計の正本改訂
 
 敵DoT時計は、ユーザーの限定許可に基づきlive carrierの予定を保持する規約へCPU/共通Slangを同時改訂した。持続5秒/間隔3秒の旧121tickは1tickとなる。旧golden/失敗captureは保持する。現在のMetal製品12条件一致はCLI独立sealやCUDA実機認定の代用ではなく、次のimmutable packetは改訂したCPU契約に対するfresh preflight/独立sealを必要とする。旧ownerの消費claimや保存CUBINを再利用して新コードの成功を主張しない。検証範囲とfixtureの制約はresearch/product-dot-clock-correction-v1.json、引き継ぎ冒頭を参照。
+
+### 元キャラ運用の弾丸補充時リロード取消
+
+通常製品のshooting_policy=characterで、紅蓮：ブラックシャドウ等の元CharStateが持つreload.cancel_on_full booleanを既存WEAPON_QUANTITY+3へ渡す。取消は既存CUDA/Metal共通applyAmmoInstantが実行し、full_reload通知や追加装填を行わない。時刻指定reload/cover等は別consumerが必要なため拒否を維持する。実Metalの製品確認範囲はresearch/product-reload-cancel-v1.json参照。新suite/数値goldenの追加は不要。

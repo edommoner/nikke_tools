@@ -10,6 +10,24 @@ import portable_product_artifact as artifacts
 from portable_projectile_roster_input import compile_projectile_battle
 
 class PortableDetail(unittest.TestCase):
+    def test_original_reload_cancel_policy_reaches_existing_ammo_executor(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_specs import LIMITS as L
+        body=selected_profile_bodies(['홍련 : 흑영'],0)[0][2]
+        body.update(duration=20,shooting_policy='character',burst_gauge_mode='accumulate')
+        with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU schedule')):
+            prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+            _,_,_,words,meta=product.compile_product(prepared)
+        self.assertEqual(prepared,before)
+        flags=[words[L['WEAPON_QUANTITY_BASE']+who*L['WEAPON_QUANTITY_WORDS']+3] for who in range(5)]
+        owners=[c['name'] for c in prepared['chars']]
+        self.assertEqual(flags,[int(n=='홍련 : 흑영') for n in owners])
+        self.assertEqual(meta['real_prepared_input']['policy']['controls'],prepared['policies']['controls'])
+        for invalid in [dict(cancel_on_full=1),dict(cancel_on_full=True,when='combat_start')]:
+            changed=copy.deepcopy(prepared);changed['chars'][0]['control']={'reload':invalid}
+            changed['policies']['controls'][changed['chars'][0]['name']]=changed['chars'][0]['control']
+            with self.subTest(invalid=invalid),self.assertRaises(ValueError):product.compile_product(changed)
+
     def test_add_debuffs_reuse_external_definitions_and_exact_firing_descriptor(self):
         from portable_product_programs import PROGRAMS,body_for_program
         from portable_add_attack_battle_wire import LAYOUT as A

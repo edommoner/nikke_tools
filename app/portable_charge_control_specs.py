@@ -28,7 +28,11 @@ def normalize_static_controls(chars,attacks,enemy,control_mode='solo'):
  owners=[]
  for char,attack in zip(chars,attacks):
   state=CharState(char,attack,enemy.get('code'));control=char.get('control') or {}
-  if any(control.get(k) for k in ('cover','reload','aim','burst')):raise ValueError('Cover/reload/aim/burst controls require their own common adapters')
+  reload=control.get('reload') or {}
+  if (any(control.get(k) for k in ('cover','aim','burst')) or
+      set(reload)-{'cancel_on_full'} or
+      'cancel_on_full' in reload and type(reload['cancel_on_full']) is not bool):
+   raise ValueError('Cover/reload/aim/burst controls require their own common adapters')
   clicks=[]
   for entry in state._click_sched:
    if entry.get('anchor') is not None:raise ValueError('Anchored click controls require common anchor clocks')
