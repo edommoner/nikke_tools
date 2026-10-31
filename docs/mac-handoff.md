@@ -1,3 +1,15 @@
+## 2026-11-01 通常APIの共通8候補バッチをM5実証・Windows保存診断回収
+
+ce38f2f5で単発と複数要求の準備・GPU・変換・全CPU照合を共通化した。互換source/wire/backend/policy/artifactのみ最大8件を既存executeへまとめる。Nodeは8件ずつ（legacy CUDA32は従来通り）、停止後の未表示結果はjob内に保持し再開時に再実行しない。入力変更は拒否。親は物理全転送証拠、子は同じevidenceと正確なslice/member関係を保持し、単発証拠へ偽装しない。入力＋親子readback＋reserveを実行前に容量検査。新suite0、CPU正本/数値演算/normalizer/期待値変更0。
+
+owner865cdca8…の通常項目探索でPoli3の30秒8候補（攻撃力差0..700）を実M5 1dispatchで計算し全CPU製品payload一致。全体9.193秒、GPU1.802秒、runtime8要素/1,341,440bytes、入力3,340,804bytes/出力25,165,824bytes。先頭は旧単発Poli3の全input/readback SHA不変。保存独立監査は親全SHA・候補slice・静的再pack・source・raw再投影・CPU/GPU/API全一致、追加GPU/native0。単発8回との制御された速度比較ではない。
+
+敵回復＋遮蔽の2候補も同じ共有経路を実行。初回は仮ステータス候補のapp_warnings順序だけがCPUと異なり、その1件をCPU切替して停止、失敗保持。eeea5606でGPU結果変換の宣言注意文をCPUの既存位置へ挿入するよう修正。CPU正本0、shader511ファイル不変、順序比較を緩和しない。新不変ownerc90de4db…で127CPU事前検査成功後、同じ2候補を通常APIで1dispatch/全CPU一致（全体5.614秒/GPU2.633秒）。元失敗の2候補と新結果はinput/readback全bytes不変。保存独立監査2件も成功。67detail/43reference/7歴史保持検査、Node21はbatch実装時成功。新ownerでの全profile再認定やCUDAbatch成功とはしない。
+
+Windowsは復旧連絡後e2332647の保存診断を取得。v1CPUguard誤呼出しは93bbfb56でfile-only helperへ分離し、v2cadeb8d8…のCPU17/PTX16.556秒/object8.912秒は成功。ただしobject内側missing7/外側missing0でlink/GPU停止。7件はouter-before不在・inner-before存在・両after不在、原因/所有不明、丸めやPIDだけの同一視なし。既存JIT admissionはこの元観測を明示拒否するため継続依頼しない。元preservationfalse/claims/1350records保持、診断追加snapshot/SDK/GPU/CPU戦闘0。既存chatへ取得済みと追加実行なしの待機を連絡。停止の原因は未解明。
+
+最後の全標準Metal262/266、厳格CUDA3/266、新標準profile加算0、全goal未完了。未対応4profileの幾何/配送、他合成、CUDA実製品拡大と実バッチ確認が残る。小記録research/product-api-batch-v1.json、product-removal-snapshot-{cpu-stop-v1,object-stop-v2,object-observation-diagnosis-v1}.json。原本proofs/product-api-batch-v1-20261101。専用server1413/28569は停止exit130、常用サーバー不操作。以下は履歴。
+
 ## 2026-11-01 CUDA標準3profile・Poli終了通知の生成不具合を特定して共通修正
 
 前turnはtarget/group/cover合成の通常4条件Metal一致とWindows依頼で進捗。今回Windows d0d833f2を取得し、Rapi0/AnisStar0は旧owner1ea8/sourcea466の実RTX3070Ti/CPU全製品payload/M5全input/readback一致、missing0/ownedserver停止/SDK追加0。Mirandaと合わせ厳格CUDA標準3/266。Poli3はCPU製品payload/damage127,814,213一致だが全readback不一致で停止、未認定、D0未実行。単に全CPU一致と呼んで4件目へ加算しない。

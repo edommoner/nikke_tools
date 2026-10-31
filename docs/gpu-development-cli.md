@@ -8,6 +8,14 @@
 
 `cover-fixed` は宣言した独立遮蔽DEFと元の手動遮蔽操作を、既存version6ヘッダーと固定バースト実行器へ接続する。`package --suite product-detail --product-program cover-fixed --out NEW.zip`を使う。元の敵攻撃なし条件は`default-cover-fixed`。通常APIの宣言4条件とdefault1条件が実M5/CPU全payload一致、GPU禁止独立seal済みv17。他15memberの履歴を保持し、標準profile数の増加やCUDA成功とは数えない。[製品経路と範囲](../research/product-fixed-cover-v1.json)。
 
+## 通常製品の共通バッチ実行
+
+部隊計算・項目探索・比較・最適化は、`metal_detail` / `cuda_shared_detail` の互換要求を最大8件ずつ同じ `portable_detail.evaluate_many` へ渡す。GPU入口・wire・backend・実行方針・artifact設定が同じ要求だけを1回の転送へまとめ、CPU照合と不一致時の切替は候補ごとに行う。異なるprogramは別転送になる。単発計算も同じ準備・実行・変換経路を使う。Windowsの実バッチ検証は未完了。
+
+`compute.batch` は親capture、候補index、件数、logical single-case input SHA、exact readback slice SHA、実際の全転送input/output SHAを区別する。候補captureの `input.bin` は `[1, *case]`、親は `[N, *case0, ...]`。各候補の `evidence.json` も実際の親転送（`transport.cases=N`）を保持し、単発実行の証拠へ書き換えない。保存監査では親全hash・完全な候補slice・静的再pack・再投影・保存CPU/APIの全結果を照合する。GPU時間は全候補に共通する1回分で、候補数を掛けない。
+
+空き容量は全入力と親・子の無圧縮readback、reserveを含めて実行前に検査する。容量不足時は件数を勝手に減らして再試行しない。一時停止では計算済みの未表示候補をjob内に保持し、再開しても再実行しない。保留中の入力変更は拒否する。新suiteは追加せず、既存 `product-detail` の不変packetと通常APIで確認する。[実証と失敗保持](../research/product-api-batch-v1.json)。
+
 ## 製品プログラムを同じCLIで選択する
 
 `movement-fixed` / `named-range-fixed` は、明示した移動/範囲モデルへ同じ固定バーストreadyを適用する。`package --suite product-detail --product-program movement-fixed --out NEW.zip`（範囲は`named-range-fixed`）で通常の不変package/run経路を使う。version6はtap mask/cover tagを保持し、first/regenリテラルを別slotへ置く。CPU時刻表は渡さない。両programはM5/fresh seal済みv15、旧14member保持。標準profile数や現CUDAの確認とは分ける。[範囲と失敗保持](../research/product-coordinate-fixed-v1.json)。
