@@ -73,7 +73,7 @@ def compile_product(prepared):
 
 def read_result(block,meta,duration):
     """Read full lock/typed histories from GPU counts, without a CPU oracle."""
-    import math,importlib.util
+    import math
     from portable_specs import LIMITS as L
     import portable_physical_lock_layout as physical
     import portable_lock_packet_layout as packet
@@ -154,7 +154,7 @@ def read_result(block,meta,duration):
     for start,capacity,head,events in ((banks.FRACTIONS,banks.FRACTION_CAPACITY,L['WORLD_FRACTION_HEAD_BASE'],(22,23)),(banks.TEAMS,banks.TEAM_CAPACITY,L['WORLD_TEAM_HEAD_BASE'],(44,45))):
         rows=bank(start,8,block[head+1],capacity)
         for i,row in enumerate(rows):
-            if row[0] not in events or row[1]>31 or row[1]&7>=5:fail()
+            if row[0] not in events or row[1]>31 or (row[1]&7)>=5:fail()
             time(start+i*8+2)
             if number(start+i*8+4)<0 or number(start+i*8+6)<0:fail()
     if any(block[banks.END:]):fail()
@@ -162,8 +162,8 @@ def read_result(block,meta,duration):
     if skill_count>fates.CAPACITY:fail()
     flags=list(block[fates.FLAGS:fates.FLAGS+skill_count]);suppressed=sum(flags)
     if any(v not in (0,1) for v in flags) or list(block[fates.HEAD:fates.FLAGS])!=[fates.MAGIC,suppressed,suppressed,suppressed]+[0]*12 or any(block[fates.FLAGS+skill_count:fates.END]):fail()
-    path=Path(__file__).resolve().parents[1]/'research/verify-destructible-battle-short.py'
-    loader=importlib.util.spec_from_file_location('product_lock_gpu_typed_reader',path);reader=importlib.util.module_from_spec(loader);loader.loader.exec_module(reader)
+    from product_lock_model import typed_reader
+    reader=typed_reader()
     try:typed=reader.decode(block,(info['typed_case'],meta,bindings))
     except (AssertionError,ValueError,IndexError,struct.error):fail()
     if not 0<=typed['time']<=duration or typed['finished'] is not True:fail()

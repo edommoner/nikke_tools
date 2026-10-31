@@ -49,6 +49,16 @@ class ProductReferenceModels(unittest.TestCase):
         self.assertEqual(len(result['typed']['state']),1);self.assertTrue(all(r['completed'] for r in result['typed']['attacks']))
         self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
 
+    def test_lock_on_standalone_cpu_worker_resolves_providers_before_checked_rewrites(self):
+        import json,subprocess
+        for typed in (False,True):
+            body=self.lock_body(3,typed);body['action']='evaluate'
+            process=subprocess.run([sys.executable,str(ROOT/'app/engine_worker.py')],input=json.dumps(body),text=True,capture_output=True,cwd=ROOT,timeout=30)
+            self.assertEqual(process.returncode,0,process.stderr+process.stdout)
+            result=json.loads(process.stdout);self.assertNotIn('error',result)
+            self.assertEqual(len(result['reference_models']['lock_on']['shots']),2)
+            self.assertEqual(len(result['reference_models']['lock_on']['typed']['state']),int(typed))
+
     def test_lock_on_invalid_policies_bindings_composition_and_source_fail_closed(self):
         import portable_detail as product
         from portable_runtime import UnsupportedPortable

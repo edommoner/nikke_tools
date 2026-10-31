@@ -4,7 +4,8 @@ The shared lock policies own target selection. Original damage, HP, carrier and
 weapon arithmetic remain in the checked reference executor. No global profiler
 or CPU-computed schedule is needed by this product adapter.
 """
-import ast,copy
+import ast,copy,sys
+from pathlib import Path
 from contextlib import contextmanager,ExitStack
 from dataclasses import replace
 from unittest.mock import patch
@@ -42,7 +43,8 @@ def validate_effects(effects,owners,spec):
     if len(marker)!=1 or owners[marker[0]]!=spec['owner'] or effects[marker[0]].get('name')!=MARKER:
         raise ValueError('Exact original Lock On owner/marker binding required')
     # The existing physical adapter consumes this exact original definition.
-    from portable_heavyarms_lock_cases import source_definitions
+    with patch.object(sys,'path',[str(Path(__file__).resolve().parents[1]/p) for p in ('research','scripts')]+sys.path):
+        from portable_heavyarms_lock_cases import source_definitions
     if effects[marker[0]]!=source_definitions()[0]:raise ValueError('Unchanged original Lock On acquisition definition required')
     packets=[i for i,e in enumerate(effects) if e.get('name')==spec['packet_skill'] and owners[i]==spec['owner']]
     if len(packets)!=1 or effects[packets[0]]!=source_definitions()[8]:
@@ -83,6 +85,16 @@ def public(data,typed):
         clears=len(data['lock_clears']),shot_quotas=copy.deepcopy(data['target_count_shots']),typed=copy.deepcopy(typed))
 
 
+def typed_reader():
+    """Load the existing projection with the app worker's import path restored."""
+    import importlib.util
+    root=Path(__file__).resolve().parents[1]
+    loader=importlib.util.spec_from_file_location('product_lock_typed_reader',root/'research/verify-destructible-battle-short.py')
+    reader=importlib.util.module_from_spec(loader)
+    with patch.object(sys,'path',[str(root/p) for p in ('research','scripts')]+sys.path):loader.loader.exec_module(reader)
+    return reader
+
+
 @contextmanager
 def execution(value,names):
     import engine_worker  # Resolve aliases and private reader before rewriting.
@@ -90,15 +102,11 @@ def execution(value,names):
     from calculator.buff_manager import BuffManager
     from runner import sim
     from effect_runtime import state
-    from world_physical_locks_native import capture
-    from world_actor_pool_native import actor_bindings
+    with patch.object(sys,'path',[str(Path(__file__).resolve().parents[1]/p) for p in ('research','scripts')]+sys.path):
+        from world_physical_locks_native import capture
+        from world_actor_pool_native import actor_bindings
     from destructible_battle_runtime import typed_battle
-    import importlib.util
-    from pathlib import Path
-    # Reuse the existing independent typed observation projection, not its
-    # authored fixtures, schedules, damage or weapon metadata.
-    path=Path(__file__).resolve().parents[1]/'research/verify-destructible-battle-short.py'
-    loader=importlib.util.spec_from_file_location('product_lock_typed_reader',path);reader=importlib.util.module_from_spec(loader);loader.loader.exec_module(reader)
+    reader=typed_reader()
     spec=normalize(value)
     if spec['owner'] not in names:raise ValueError('Lock On owner must be in the original roster')
     case=dict(names=list(names),lock_owner=names.index(spec['owner']))
