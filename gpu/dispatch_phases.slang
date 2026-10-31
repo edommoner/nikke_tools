@@ -143,13 +143,13 @@ void advanceIncomingFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inout 
         {
             // Selection is part of this event frame:sourceTime and HP edges
             // are current before choosing the frozen,ordered victim list.
-            WORLD_ENEMY_ATTACK_CAPTURE(s,frames,depth,f) if(f.mode==8 && commands[at]==32 && f.cursor==0)
+            WORLD_ENEMY_ATTACK_CAPTURE(s,frames,depth,f) if(f.mode==8 && (commands[at]==32||commands[at]==33) && f.cursor==0)
             {
                 chooseEnemyVictims(s,uint(f.argument),f.time);
                 if(s.error!=0) break;
             }
             uint who;
-            if(commands[at]==32)
+            if(commands[at]==32||commands[at]==33)
             {
                 uint order=results[enemyQueryAddress(s,uint(f.argument))+1],cursor=frames[depth].cursor,encoded=0;
                 while(cursor<5)
@@ -168,6 +168,12 @@ void advanceIncomingFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inout 
                 frames[depth].cursor=who+1;
             }
             frames[depth].owner=who;
+            if(commands[at]==33)
+            {
+                // Native standalone debuff casts apply to selected live actors
+                // without damage, protection layers or received_hit notices.
+                frames[depth].event=7;frames[depth].repeatLeft=0;continue;
+            }
             uint input = incomingDamageAddress(s,uint(f.argument));
 #ifdef PORTABLE_COVER_DEFENSE
             uint64_t coverAttack=WORLD_ENEMY_ATTACK_VALUE(s,frames,depth,f,loadNumber(input)),coverReceived=0;
@@ -259,6 +265,7 @@ void advanceIncomingFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inout 
                 frames[depth].repeatLeft++;
                 pushFrame(s,frames,depth,19,0,5,int(first+f.repeatLeft-1),f.time,uint64_t(1U<<f.owner)|(uint64_t(f.owner+1)<<32));continue;
             }
+            if(commands[at]==33) { frames[depth].event=0;continue; }
             frames[depth].event=3;pushFrame(s,frames,depth,0,32,f.owner,0,f.time);continue;
         }
         if(f.event==3 && f64Less(0,f.healthPrevious))

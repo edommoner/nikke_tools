@@ -14,7 +14,7 @@ bool worldBossDebuffDefinition(inout Runtime s,uint row)
     for(uint node=0;node<count;node++)
     {
         uint p=s.inputBase+WF_PAYLOAD+node*16,first=commands[p+4],n=commands[p+5];
-        if(commands[p]==32&&commands[p+6]==0x42444631U&&first>0&&n>0&&n<=32&&first-1+n<=s.count&&row>=first-1&&row<first-1+n) return true;
+        if((commands[p]==32||commands[p]==33)&&commands[p+6]==0x42444631U&&first>0&&n>0&&n<=32&&first-1+n<=s.count&&row>=first-1&&row<first-1+n) return true;
     }
 #endif
     return false;
@@ -88,7 +88,8 @@ bool initializeWorldFrame(inout Runtime s)
     {
         uint p=s.inputBase+WF_PAYLOAD+n*16,d=start+16+n*64;
         if(n>=w.count || commands[d+6]==0) { for(uint j=0;j<16;j++) if(commands[p+j]!=0) return false;continue; }
-        if((commands[d+1]&2)!=0 || commands[p]!=32 || commands[p+1]!=0 || commands[p+2]!=0 || commands[p+3]>1) return false;
+        if((commands[d+1]&2)!=0 || (commands[p]!=32&&commands[p]!=33) || commands[p+1]!=0 || commands[p+2]!=0 || commands[p+3]>1) return false;
+        if(commands[p]==33&&(commands[p+3]!=0||commands[p+4]==0||commands[p+8]!=0||commands[p+9]!=0||commands[p+10]!=0||commands[p+11]!=0)) return false;
         if(commands[p+4]!=0||commands[p+5]!=0||commands[p+6]!=0||commands[p+7]!=0)
         {
             uint first=commands[p+4],n=commands[p+5],bound=commands[p+7];

@@ -46,6 +46,25 @@ class PortableDetail(unittest.TestCase):
             prepared,_=product.prepare(body)
             with self.assertRaisesRegex(ValueError,'Boss damage-over-time carrier is not connected'):product.compile_product(prepared)
 
+    def test_standalone_boss_debuff_uses_the_same_external_definitions_without_damage(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_specs import LIMITS as L
+        body=selected_profile_bodies(['미란다'],0)[0][2]
+        body.update(duration=4,burst_gauge_mode='fixed')
+        body['enemy']['patterns']=[dict(id='cast',kind='debuff',delay=.5,
+            spec=dict(target='slot:2',hits=3,interval=.5,
+                debuffs=[dict(stat='atk_pct',value=-20,duration=1)]))]
+        with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('Static input only')):
+            prepared,_=product.prepare(body);original=copy.deepcopy(prepared)
+            source,_,_,words,meta=product.compile_product(prepared)
+        self.assertEqual(prepared,original)
+        self.assertEqual(source,'gpu/product_fixed_battle_entry.slang')
+        at=L['WORLD_FRAME_PAYLOAD_BASE']
+        self.assertEqual(words[at:at+4],[33,0,0,0])
+        self.assertEqual(words[at+8:at+12],[0,0,0,0])
+        self.assertEqual(words[at+5:at+7],[1,0x42444631])
+        self.assertEqual(meta['effects'][meta['boss_debuffs']['definitions'][0]],'cast·atk_pct')
+
     def test_boss_debuffs_compose_with_all_product_binding_families(self):
         from portable_original_identity_inventory import selected_profile_bodies
         from portable_specs import LIMITS as L,FIELDS as F
@@ -817,5 +836,72 @@ class PortableDetail(unittest.TestCase):
         for target in ['target_and_nearby:0','target_and_nearby:1.5','target_and_nearby:128']:
             case=copy.deepcopy(prepared);case['effects'][1]['effect']['target']=target
             with self.subTest(target=target),self.assertRaisesRegex(ValueError,'recipient count'):product.compile_product(case)
+
+class BossDotNativeContract(unittest.TestCase):
+    """Observed CPU product rules for the pending shared boss-DoT consumer.
+
+    These are native comparisons, not GPU coverage. In particular the last
+    case retains a reference-clock defect rather than silently fixing the CPU.
+    """
+    def native_case(self, *, character='미란다', sim_duration=3, until=None,
+                    attack=None, **dot):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from calculator.buff_manager import BuffManager
+        body=selected_profile_bodies([character],0)[0][2]
+        body.update(duration=sim_duration,burst_gauge_mode='fixed')
+        pattern=dict(id='boss-dot',kind='attack',delay=.5,
+            spec=dict(atk=150000,coeff=10,target='slot:1',
+                debuffs=[dict(stat='dot',name='native-dot',coeff=10,**dot)],**(attack or {})))
+        if until is not None:pattern['until']=dict(time=until)
+        body['enemy']['patterns']=[pattern]
+        _,run=product.prepare(body)
+        notices=[];native_notify=BuffManager.notify
+        def observe(manager,event,t,*args,**kwargs):
+            if event=='received_hit':notices.append(round(t,6))
+            return native_notify(manager,event,t,*args,**kwargs)
+        with patch.object(BuffManager,'notify',observe):
+            result=product.engine_worker.sim.execute(run)
+        return result,notices
+
+    def test_native_finite_dot_includes_expiry_tick_without_received_hit(self):
+        result,notices=self.native_case(interval=.5,duration=1)
+        self.assertEqual([round(h.t,6) for h in result.squad_hits],[.5,1.,1.5])
+        self.assertEqual([h.damage for h in result.squad_hits],[13212.3]*3)
+        self.assertEqual(notices,[.5])
+        for hit in result.squad_hits:
+            self.assertEqual((hit.hp,hit.shield,hit.cover,hit.decoy),(hit.damage,0,0,0))
+
+    def test_native_refresh_ticks_before_reapplication_and_stacks_in_order(self):
+        result,notices=self.native_case(interval=.5,duration=1,max_stack=3,
+            attack=dict(hits=3,interval=.5))
+        self.assertEqual([round(h.t,6) for h in result.squad_hits],[.5,1.,1.,1.5,1.5,2.,2.5])
+        unit=13212.3
+        self.assertEqual([h.damage for h in result.squad_hits],
+            [unit,unit,unit,unit*2,unit,unit*3,unit*3])
+        self.assertEqual(notices,[.5,1.,1.5])
+
+    def test_native_pattern_close_precedes_dot_on_the_same_frame(self):
+        result,notices=self.native_case(interval=.5,until=.5)
+        self.assertEqual([round(h.t,6) for h in result.squad_hits],[.5])
+        self.assertEqual([(round(e.t,6),e.event,e.outcome) for e in result.boss_log],
+            [(.5,'start',''),(1.,'end','expired')])
+        self.assertEqual(notices,[.5])
+
+    def test_native_subframe_dot_drains_every_due_tick_at_current_frame(self):
+        result,notices=self.native_case(interval=.01,duration=.05)
+        self.assertEqual([round(h.t,6) for h in result.squad_hits],
+            [.5,.516667,.533333,.533333,.55,.55])
+        self.assertEqual([h.damage for h in result.squad_hits],[13212.3]*6)
+        self.assertEqual(notices,[.5])
+
+    def test_native_clock_rearms_each_frame_after_its_last_scheduled_tick(self):
+        # Current _boss_dots deletes the schedule when next_t > expires even
+        # while its carrier is live; the following frame recreates it. Preserve
+        # this observed defect until a canonical CPU correction is authorized.
+        result,notices=self.native_case(character='노아',sim_duration=6,interval=3,duration=5)
+        self.assertEqual([round(h.t,6) for h in result.squad_hits[1:]],
+            [round(3.5+i/60,6) for i in range(121)])
+        self.assertTrue(all(h.damage>0 and h.hp==0 for h in result.squad_hits[1:]))
+        self.assertEqual(notices,[.5])
 
 if __name__=='__main__':unittest.main()

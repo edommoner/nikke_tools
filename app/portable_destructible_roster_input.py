@@ -38,7 +38,7 @@ def product_body_world(prepared):
     from portable_actor_specs import compile_registry
     raw=enemy.get('patterns') or [dict(id='portable-empty-world',kind='idle')]
     patterns=validate(copy.deepcopy(raw))
-    if any(p.kind not in ('idle','attack','buff','core','parts') for p in patterns):
+    if any(p.kind not in ('idle','attack','debuff','buff','core','parts') for p in patterns):
         raise ValueError('Product target modifiers require a plain body with no typed targets')
     _,bindings=compile_registry(patterns,pools=True)
     if not bindings or int(bindings[0].kind)!=0 or any(int(b.kind)!=1 for b in bindings[1:]):

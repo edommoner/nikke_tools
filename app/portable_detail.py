@@ -80,7 +80,7 @@ def compile_product(prepared):
         prepared=copy.deepcopy(prepared)
         prepared['policies']['config']['burst_gauge_mode']='accumulate'
     prepared,nearby=lower_single_body_nearby(prepared)
-    if any(p.get('kind')=='attack' and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):
+    if any(p.get('kind') in ('attack','debuff') and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):
         prepared=dict(prepared,_product_boss_debuffs=True)
     def finish(source,iw,ow,words,metadata):
         if any(c.get('control') for c in original['chars']):

@@ -9,9 +9,10 @@ def boss_debuff_effects(patterns, owner):
  """Literal native descriptors; the GPU chooses hit recipients and lifetime."""
  effects=[];nodes={}
  for p in patterns:
-  if p.attack is None or not p.attack.debuffs:continue
+  shots=p.shots
+  if shots is None or not shots.debuffs:continue
   start=len(effects);bound=0
-  for i,d in enumerate(p.attack.debuffs):
+  for i,d in enumerate(shots.debuffs):
    if d.stat=='dot':raise ValueError('Boss damage-over-time carrier is not connected')
    e=copy.deepcopy(d.effect)
    for key in ('_boss_pattern','_boss_bound'):e.pop(key,None)
@@ -45,9 +46,11 @@ def pack_boss_debuffs(words,metadata,source_start,nodes,L):
 
 def pack_attacks(words,patterns,authored,L):
  for p in patterns:
-  if p.attack is None:continue
+  shots=p.shots
+  if shots is None:continue
   raw=authored[p.idx]['spec'];at=L['WORLD_FRAME_PAYLOAD_BASE']+p.idx*16
   if raw.get('debuffs') and not any(words[at+4:at+8]):raise ValueError('Attack debuff payload is not connected')
   descriptor=words[at+4:at+8]
-  words[at:at+16]=[32,0,0,int(p.attack.pierce),0,0,0,0,*number(p.attack.atk or 114344),*number(p.attack.coeff),*target_rule({k:raw[k] for k in ('target','ignore_taunt') if k in raw})]
+  cast=p.kind=='debuff'
+  words[at:at+16]=[33 if cast else 32,0,0,0 if cast else int(shots.pierce),0,0,0,0,*number(0 if cast else shots.atk or 114344),*number(0 if cast else shots.coeff),*target_rule({k:raw[k] for k in ('target','ignore_taunt') if k in raw})]
   words[at+4:at+8]=descriptor
