@@ -137,5 +137,16 @@
   "previous_product_goldens_historical_after_common_source_observer_change": [
     "gpu/coordinate_manual_control_runtime.slang",
     "gpu/incoming_runtime.slang"
-  ]
+  ],
+  "independent_cli_seal": {
+    "owner": "3397d554ff24aefc20aa67520076e0e6a8f81736a52849a910c1e347c9686aaa",
+    "source_commit": "676b0e94d0b98e88b776a425d11e92666ef5d1b6",
+    "own_tests": 86,
+    "fresh_native_inputs": 1,
+    "extra_gpu_calls": 0,
+    "live_parent_reuse": false,
+    "program": "cover-accumulate",
+    "golden": "research/portable-product-programs-v5-expected.json",
+    "old_registered_goldens_retained": 18
+  }
 }

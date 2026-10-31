@@ -4380,3 +4380,14 @@ Windows continuation終了（cursor351）：承認経路で新preflightが通り
 Windows保存report c065f5ef（既存codex/product-equipment-v1-report）のwarm-current-summary-v1.json＋manifestを取得し、bytes/SHA／owner2195／raw CUDA sourceとPTXの既存anchorを照合。raw SDK/Job全ログやobject本体はMac未読。ptxas15.021秒、inner36.348秒／outer62.406秒で未完了。外側journal開始からnative開始まで約35.7秒、native後も観測・receipt処理が続き上限へ達した（正確なtimer開始未保存、重複時刻を加算しない）。PTX compiler_verified=trueとoriginal passed=false、object image未admit、missing14原因不明、service未確認／preservation=falseを不変保持。新SDK／GPU依頼0、peer現在idle cursor354。再実行ではなく、準備・検証・観測の重複を既存gateを維持して減らす設計が次のCUDA課題。Mac専用4384は停止、ユーザー4317／4327は未操作。
 
 最終追補：74309d9eからsealed packet b4d40911…を作成、packet自身のCLIでown82＋fresh native1／GPU0が成功。CUBIN O1／2GiB／60秒のcompile-planもpolicy成功、SDK／GPU0、Windows追加依頼なし。現在のmodel-checkもsource/dependency監査成功で、未対応canonical stat5とpublic numeric／compositionの未完了を保持。新programの基準GPUを繰り返さず、旧17goldenを保持した。個人設定／rawを共有せず、実装と小証跡のみ既存codex/runtime-residentへ共有。全キャラ・全特殊効果の目標は未完了で維持する。
+
+
+## 2026-10-31 製品の独立遮蔽DEF／manual coverを接続
+
+676b0e94の実装は通常API `reference_models.cover_defense` の5人独立基礎値と、`manual_cover_sequences` の既存checked literalを共通CPU／Slangへ渡す。元Soldier O.W.の定義・値を保持。元のentry/exit/down境界に観測hookだけを追加し、GPUの実制御時刻を既存control traceから正本formatterへ渡す。新数値演算／suite／pinned変更0。
+
+public-api-v1（7件snapshot未cleanup）、v2（6件control/control_detail不一致・指定なし1成功）、v3（6件manual init marker不足・指定なし1成功）を保持。v4aの先頭1件で全一致を確かめてからv4b残6件へ展開し、通常HTTP計7がM5／CPU全応答一致。raw再投影7件もnative/GPU追加0。v4b/capturesはv4a/capturesへの同じ保存raw参照。専用4384終了、ユーザー4317／4327未操作。
+
+owner3397d554…（676b0e94）のproduct-detail/cover-accumulateはown86／fresh native1／M5実GPU1が成功。別fresh GPU禁止sealも成功し、旧18memberの期待値を保持したv5へcover-accumulateだけ追加。共通manual/incomingの2sourceに観測hookが増えたため、旧通常／Ann／Bay等のgoldenは歴史的証拠で現sourceのsealには未更新。source historyは88cdaの完全preimageへ復元するexact ledgerを追加し、strict normalizer／数値期待値変更0。新cover以外のregistered program再sealは未完了。
+
+今回の通常製品確認は宣言独立coverモデルのMetal1profile／7条件・CUDA0。未知のlevel curveを補わないため、既定残10を9へ減らさない。fixed burst＋manualは結合header未実装、複数consumer／group-target／ADD attack合成も未対応で理由付きCPUへ戻す。次は残consumerまたはこの合成を接続し、最終的には既定profileとUI入力、全special-effect条件の完成を確認する。Windowsは追加依頼なし。旧owner2195 object未完了／missing14原因不明／preservation=falseを維持し、SDKを再実行しない。

@@ -60,3 +60,14 @@ Windowsのowner68e212dc…はNVRTC34.511秒で戻り値0、PTX9,866,019byteを�
 Bay favorite0〜3の30秒、65秒の遮蔽破壊後と2回目burst、3秒の効果発動前、固定周期の計7条件が通常HTTP→実Apple M5 Metal→全CPU製品応答一致。65秒では実際に遮蔽が破壊され、以後のsnapshotはcoverを含まず、元carrierの2回目burst更新も確認。保存input／readback再投影7件が成功し、追加native／GPU0。CLI登録後の再監査も全input byte・GPU source closure・計算応答が一致、VCS evaluator stampだけはcommitの変化として分離した。元の即時監査はevaluatorを含む全応答を照合済み。
 
 既存product-detail familyへweighted-accumulate／weighted-fixedを追加。固定owner087904c1…はown82＋fresh native1＋M5実GPU1を通り、別fresh GPU禁止sealも成功。旧programの期待値を保持したv4へweighted-accumulateのみ追加した。fixedはHTTP実証済みだがCLI golden未登録。最初のpacketは登録数18固定のunitでGPU前停止し、その失敗を保持、登録20への修正後の別ownerで検証した。小証跡は `research/product-weighted-incoming-v1.json`。今回の製品確認は**宣言配分を使うMetal4profile／7条件、CUDA0**。ゲーム比率の認定、既定profileの完成、全効果の合成完成とは区別する。
+
+
+## 2026-10-31 独立遮蔽DEFと明示手動遮蔽を製品へ接続
+
+`reference_models.cover_defense` は5人の `[{"name":"元の編成名","base_defense":1000}, ...]`。body DEFから推測せず、各ownerの独立した基礎値を既存checked CPU adapterと共有Slang cover consumerへ渡す。通常APIの `manual_cover_sequences` は `{ "元の編成名": [{"action":"cover","t":7.4,"duration":0.25}] }`。既存のliteral validator（1人8操作以内）と共通のmanual controlを使用し、CPUとGPUで同じ操作を実行する。CPUの決定時刻・配分・生存状態はGPU入力にしない。制御区間はGPUの実entry/exit/down境界から既存traceへ出力し、CPU正本のformatterで製品表示へ変換する。時刻を入力から再構成しない。
+
+ソルジャーO.W.の元定義を保持し、通常HTTP7条件が実M5／全CPU応答一致。top ATK3人の倍率・期限切れ、貫通、実遮蔽5件破壊、均等配分＋shield、Noahの確率による実被ダメージ倍率、manual指定なしを含む。操作表示も照合対象。保存input／readback再投影7件はnative／GPU追加0。明示基礎DEFのモデルであり、ゲームの基礎量／レベル曲線を認定していないため、既定profile対応数へ加算しない。固定周期＋manualは結合header未実装で明示拒否。複数consumerやgroup／target／ADD攻撃specializationとの合成も未完了。
+
+初期3版は順に一時snapshotの終了処理不足、操作表示未接続、manual初期化不足を検出してCPUへ戻した。元captureと失敗を保持し、検査・許容差・CPU期待値を緩めていない。同じ不具合を全条件へ展開した重複を受け、最終版は先頭1件の全応答一致後に残6件を検証した。新suite／数値演算／pinned upstream変更0。固定owner3397d554…のown86＋fresh native1＋実Metal1、別fresh GPU禁止sealも成功。v5へcover-accumulateだけを追加し、旧18goldenは保存した。
+
+共通source2ファイルへ観測hookを追加したため、旧通常／Ann／Bay等のgoldenは現在ソースの証拠に読み替えない。完全な旧source inverseとstrict normalizerを保持する。各旧programの現ソース再sealは未完了。今回の製品確認数は**宣言モデルのMetal1profile／7条件、CUDA0**。既定profile残10／全キャラ・全効果の未完了を維持。小証跡は `research/product-cover-defense-v1.json`。
