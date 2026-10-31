@@ -4,7 +4,7 @@ CLIのmodule-objectが同じsealed producer自身を処理する場合、親でv
 
 既存compiler18群202テスト成功。親/子dispatchの実flag、同rootで1回のfresh検証、別root/manifest変化/実行後変化の拒否、post audit維持を回帰検査。PTXAS O1/fmad、60秒/2GiB、Job/pre/post観測、排他claim、旧失敗の扱いは不変。preparation journalにoriginとpost auditの実測区間を追加し、既存厳密phases列は変えない。GPU/数値code変更0、実SDK/GPU/新Metal/CUDA製品profile0。Windowsでの短縮は未測定。
 
-旧owner2195のptxas15.021秒／outer62.406秒、object未admit、missing14原因不明／preservation=falseを保持する。修正は旧claimの再実行許可ではない。次は現行normal製品ownerの固定・生成4file保持・必須PTXcache同一性の確認を行い、条件が通った場合だけ新ownerの短い差分工程をWindowsへ依頼する。証跡research/product-cuda-origin-gates-v1.json。
+旧owner2195のptxas15.021秒／outer62.406秒、object未admit、missing14原因不明／preservation=falseを保持する。修正は旧claimの再実行許可ではない。続いてd73ca08dのnormal開発ownerf3deae04…を固定し、own100unit／202 SDK模擬／fresh native1／実M5／GPU禁止独立sealが成功。旧accumulateのinput/output/native entriesは全一致だが、Mac生成CUDA/MSLは旧2195と異なりreflection2fileだけ一致した。旧PTXcache再利用はadmitしない。旧v9を保持したv10でaccumulateのsource/generated identityだけを実証済み現行版へ更新し、他24memberは不変。次は最終sealed current ownerでWindows preflight後、新コードの短いcompileを1回だけ計画する。証跡research/product-cuda-origin-gates-v1.json。
 
 ## 2026-10-31 製品の名前付き範囲・対象数を接続
 

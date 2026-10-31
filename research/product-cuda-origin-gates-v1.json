@@ -25,5 +25,55 @@
   "windows_shortening_measured": false,
   "original_environment_preservation_verified": false,
   "original_missing_process_cause": "unknown",
-  "next_action": "Prepare a current normal product immutable owner; verify exact generated PTX-cache identity before any bounded Windows difference-only SDK request. Never retry consumed original claims."
+  "next_action": "Use current independently sealed normal owner. Old Mac CUDA/Metal code differs; do not request mandatory reuse of the old Windows PTX. Plan one bounded new-code compile after current Windows preflight; no retry of consumed old claims.",
+  "normal_current_preparation": {
+    "source_commit": "d73ca08d",
+    "development_package_id": "f3deae043c352edcd2114cd6710ddd05c13141de4c025012f33e0d0af5aa79b8",
+    "own_unit_tests": 100,
+    "packet_sdk_fake_tests": 202,
+    "fresh_native_cases": 1,
+    "metal_cli_calculation_verified": true,
+    "metal_independent_seal_verified": true,
+    "independent_seal_gpu_calls": 0,
+    "prior_registered_input_output_native_entries_identical": true,
+    "registered_gpu_source_and_generated_code_changed": true,
+    "golden": "research/portable-product-programs-v10-expected.json",
+    "other_24_golden_entries_unchanged": true,
+    "mac_generated_retention": {
+      "rows": [
+        {
+          "file": "generated.cu",
+          "bytes": 2263790,
+          "old_sha256": "e9bf2a8ab70fa185efd4b53c4a05d5faa9ea7190ac159cb4b51f85680c46098b",
+          "new_sha256": "499069b60f69e994e2cc6056b8b1f3737be3fe6ee432a4ed99647555ccd86ec1",
+          "byte_identical": false
+        },
+        {
+          "file": "generated.metal",
+          "bytes": 2397262,
+          "old_sha256": "8e1d2b8b6157644f76d7d71cefc4e058f251daf04694d1ef73de9f9042da54f3",
+          "new_sha256": "5a25a0212fcd790e4c7e7c5fbfbe625ccfdc4d82f81db6cf009c0ad3aecfa22f",
+          "byte_identical": false
+        },
+        {
+          "file": "generated.cu.reflection.json",
+          "bytes": 438368,
+          "old_sha256": "a1ce5a4073076312b92bd63e5a400ea175be2415bb5f0884afa3fa9a697f852d",
+          "new_sha256": "a1ce5a4073076312b92bd63e5a400ea175be2415bb5f0884afa3fa9a697f852d",
+          "byte_identical": true
+        },
+        {
+          "file": "generated.metal.reflection.json",
+          "bytes": 437905,
+          "old_sha256": "36c17024acb6d038874b4e536851b8c0ff6d74249f5929ec2e096f37e9452bfa",
+          "new_sha256": "36c17024acb6d038874b4e536851b8c0ff6d74249f5929ec2e096f37e9452bfa",
+          "byte_identical": true
+        }
+      ],
+      "scope": "Mac raw generated outputs only; Windows exact cache identity still requires its own byte checks",
+      "gpu_calls": 0
+    },
+    "old_ptx_cache_reuse_admitted": false,
+    "scope": "CLI normal corpus only, not a new ordinary API profile or current CUDA proof"
+  }
 }
