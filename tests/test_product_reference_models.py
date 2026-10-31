@@ -12,7 +12,8 @@ class ProductReferenceModels(unittest.TestCase):
     def lock_body(self,duration=3,typed=False):
         from portable_heavyarms_lock_cases import fixtures,NAME,source_definitions
         from product_lock_model import ORDER,MARKER,DELIVERY_MODEL
-        body=copy.deepcopy(fixtures()[0]['body']);body['duration']=duration
+        with patch.object(sys,'path',list(sys.path)):body=copy.deepcopy(fixtures()[0]['body'])
+        body['duration']=duration
         bindings=[]
         if typed:
             body['enemy']['patterns']=[dict(id='declared-projectiles',kind='idle',until=dict(time=duration))]
