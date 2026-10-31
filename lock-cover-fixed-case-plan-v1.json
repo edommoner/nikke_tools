@@ -1,0 +1,199 @@
+{
+  "schema": "existing-staged-case-plan-v1",
+  "package_id": "0873541259c310e6d305f114233166e2208c3d611378cb8b47e7efafa77dc99c",
+  "test_groups": [
+    [
+      "test_portable_detail.py"
+    ],
+    [
+      "test_product_detail_packet.py"
+    ],
+    [
+      "test_weighted_source_contract.py"
+    ],
+    [
+      "test_product_reference_models.py"
+    ],
+    [
+      "test_product_reference_models.py"
+    ],
+    [
+      "test_product_reference_models.py"
+    ],
+    [
+      "test_product_reference_models.py"
+    ],
+    [
+      "test_product_reference_models.py"
+    ],
+    [
+      "test_product_reference_models.py"
+    ],
+    [
+      "test_product_reference_models.py"
+    ],
+    [
+      "test_product_reference_models.py"
+    ],
+    [
+      "test_product_reference_models.py"
+    ],
+    [
+      "test_product_reference_models.py"
+    ]
+  ],
+  "test_case_groups": [
+    null,
+    null,
+    null,
+    {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_adapter_unwinds_after_execution_error_and_default_installs_nothing",
+        "test_product_reference_models.ProductReferenceModels.test_complete_skill_pages_keep_129_and_2048_rows_and_reject_extra_words",
+        "test_product_reference_models.ProductReferenceModels.test_composed_stat_alias_is_rejected_before_gpu_even_without_incoming",
+        "test_product_reference_models.ProductReferenceModels.test_cover_and_original_group_listeners_share_one_product_input",
+        "test_product_reference_models.ProductReferenceModels.test_cover_composes_original_target_modifiers_and_optional_groups"
+      ]
+    },
+    {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_cover_malformed_or_unknown_roster_fails_closed",
+        "test_product_reference_models.ProductReferenceModels.test_cover_product_keeps_literal_operations_and_independent_bases",
+        "test_product_reference_models.ProductReferenceModels.test_cover_readback_rejects_overflow_and_stale_depth_state",
+        "test_product_reference_models.ProductReferenceModels.test_default_world_preserves_all_original_carriers_without_inventing_incoming_quantities",
+        "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_cover_preserves_complete_banks_and_requires_each_literal_model"
+      ]
+    },
+    {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_enemy_healing_and_cover_keep_both_banks_and_original_effects",
+        "test_product_reference_models.ProductReferenceModels.test_enemy_magazine_default_has_no_fabricated_capacity_and_attack_requires_declaration",
+        "test_product_reference_models.ProductReferenceModels.test_extended_resource_history_is_complete_and_cannot_use_a_short_prefix",
+        "test_product_reference_models.ProductReferenceModels.test_fixed_coordinate_header_rejects_noncanonical_and_preserves_literal_fields",
+        "test_product_reference_models.ProductReferenceModels.test_fixed_cover_header_conversion_rejects_invalid_tap_masks_and_reserved_words"
+      ]
+    },
+    {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_fixed_cover_keeps_posture_controls_literal_and_restores_fixed_policy",
+        "test_product_reference_models.ProductReferenceModels.test_fixed_lock_uses_shared_literal_header_and_preserves_all_effects",
+        "test_product_reference_models.ProductReferenceModels.test_gpu_healing_projection_preserves_hp_credit_and_rejects_incomplete_receipts",
+        "test_product_reference_models.ProductReferenceModels.test_independent_public_models_merge_losslessly_and_reject_overwrite",
+        "test_product_reference_models.ProductReferenceModels.test_invalid_or_unknown_models_fail_before_simulation"
+      ]
+    },
+    {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_lock_and_cover_keep_all_original_effects_and_independent_arenas",
+        "test_product_reference_models.ProductReferenceModels.test_lock_on_actual_projectile_consumer_uses_literal_binding_and_restores_aliases",
+        "test_product_reference_models.ProductReferenceModels.test_lock_on_decoder_checks_complete_arenas_and_reserved_words",
+        "test_product_reference_models.ProductReferenceModels.test_lock_on_invalid_policies_bindings_composition_and_source_fail_closed",
+        "test_product_reference_models.ProductReferenceModels.test_lock_on_manual_control_projection_reads_its_relocated_owned_bank"
+      ]
+    },
+    {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_lock_on_original_product_keeps_all_definitions_and_empty_typed_world",
+        "test_product_reference_models.ProductReferenceModels.test_lock_on_standalone_cpu_worker_resolves_providers_before_checked_rewrites",
+        "test_product_reference_models.ProductReferenceModels.test_lock_on_typed_no_expiry_sentinel_is_exact_and_bound_to_declared_target",
+        "test_product_reference_models.ProductReferenceModels.test_magazine_blocked_attempt_requires_matching_source_generation_and_no_query",
+        "test_product_reference_models.ProductReferenceModels.test_manual_cover_control_intervals_require_gpu_open_close_and_marker"
+      ]
+    },
+    {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_manual_cover_without_cover_effect_routes_to_existing_product_consumer",
+        "test_product_reference_models.ProductReferenceModels.test_missing_sources_reject_before_shared_dispatch_and_legacy_stays_closed",
+        "test_product_reference_models.ProductReferenceModels.test_movement_and_manual_cover_share_literal_banks_and_restore_native_contexts",
+        "test_product_reference_models.ProductReferenceModels.test_movement_declarations_reject_unknown_geometry_or_composition_before_battle",
+        "test_product_reference_models.ProductReferenceModels.test_movement_product_uses_checked_native_clock_and_literal_shared_input"
+      ]
+    },
+    {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_movement_readback_rejects_partial_identity_reserved_and_segment_discontinuity",
+        "test_product_reference_models.ProductReferenceModels.test_movement_standalone_cpu_worker_resolves_provider_before_checked_rewrites",
+        "test_product_reference_models.ProductReferenceModels.test_named_range_and_manual_cover_share_literal_banks_and_restore_native_contexts",
+        "test_product_reference_models.ProductReferenceModels.test_named_range_decoder_rejects_reserved_partial_and_capacity_corruption",
+        "test_product_reference_models.ProductReferenceModels.test_named_range_product_consumes_original_count_and_range_modifiers"
+      ]
+    },
+    {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_named_range_standalone_cpu_worker_uses_shared_coordinate_context",
+        "test_product_reference_models.ProductReferenceModels.test_named_range_unknown_binding_and_composition_fail_and_restore_native",
+        "test_product_reference_models.ProductReferenceModels.test_no_incoming_contract_checks_every_attack_node_without_predicting_schedule",
+        "test_product_reference_models.ProductReferenceModels.test_original_anne_reduction_reaches_actual_product_healing_and_restores_aliases",
+        "test_product_reference_models.ProductReferenceModels.test_original_enemy_magazine_product_uses_literal_state_and_restores_native_operator"
+      ]
+    },
+    {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_static_original_anne_connects_the_same_consumer_with_or_without_healing_sources",
+        "test_product_reference_models.ProductReferenceModels.test_weighted_missing_weights_and_unsupported_composition_fail_before_dispatch",
+        "test_product_reference_models.ProductReferenceModels.test_weighted_original_product_consumes_real_markers_and_preserves_definitions",
+        "test_product_reference_models.ProductReferenceModels.test_weighted_readback_rejects_overflow_scratch_and_unaccounted_cover_receipts"
+      ]
+    }
+  ],
+  "own_tests": 133,
+  "extra_windows_job_tests": 8,
+  "extra_device_linker_tests": 15,
+  "reference_ids": [
+    "test_product_reference_models.ProductReferenceModels.test_adapter_unwinds_after_execution_error_and_default_installs_nothing",
+    "test_product_reference_models.ProductReferenceModels.test_complete_skill_pages_keep_129_and_2048_rows_and_reject_extra_words",
+    "test_product_reference_models.ProductReferenceModels.test_composed_stat_alias_is_rejected_before_gpu_even_without_incoming",
+    "test_product_reference_models.ProductReferenceModels.test_cover_and_original_group_listeners_share_one_product_input",
+    "test_product_reference_models.ProductReferenceModels.test_cover_composes_original_target_modifiers_and_optional_groups",
+    "test_product_reference_models.ProductReferenceModels.test_cover_malformed_or_unknown_roster_fails_closed",
+    "test_product_reference_models.ProductReferenceModels.test_cover_product_keeps_literal_operations_and_independent_bases",
+    "test_product_reference_models.ProductReferenceModels.test_cover_readback_rejects_overflow_and_stale_depth_state",
+    "test_product_reference_models.ProductReferenceModels.test_default_world_preserves_all_original_carriers_without_inventing_incoming_quantities",
+    "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_cover_preserves_complete_banks_and_requires_each_literal_model",
+    "test_product_reference_models.ProductReferenceModels.test_enemy_healing_and_cover_keep_both_banks_and_original_effects",
+    "test_product_reference_models.ProductReferenceModels.test_enemy_magazine_default_has_no_fabricated_capacity_and_attack_requires_declaration",
+    "test_product_reference_models.ProductReferenceModels.test_extended_resource_history_is_complete_and_cannot_use_a_short_prefix",
+    "test_product_reference_models.ProductReferenceModels.test_fixed_coordinate_header_rejects_noncanonical_and_preserves_literal_fields",
+    "test_product_reference_models.ProductReferenceModels.test_fixed_cover_header_conversion_rejects_invalid_tap_masks_and_reserved_words",
+    "test_product_reference_models.ProductReferenceModels.test_fixed_cover_keeps_posture_controls_literal_and_restores_fixed_policy",
+    "test_product_reference_models.ProductReferenceModels.test_fixed_lock_uses_shared_literal_header_and_preserves_all_effects",
+    "test_product_reference_models.ProductReferenceModels.test_gpu_healing_projection_preserves_hp_credit_and_rejects_incomplete_receipts",
+    "test_product_reference_models.ProductReferenceModels.test_independent_public_models_merge_losslessly_and_reject_overwrite",
+    "test_product_reference_models.ProductReferenceModels.test_invalid_or_unknown_models_fail_before_simulation",
+    "test_product_reference_models.ProductReferenceModels.test_lock_and_cover_keep_all_original_effects_and_independent_arenas",
+    "test_product_reference_models.ProductReferenceModels.test_lock_on_actual_projectile_consumer_uses_literal_binding_and_restores_aliases",
+    "test_product_reference_models.ProductReferenceModels.test_lock_on_decoder_checks_complete_arenas_and_reserved_words",
+    "test_product_reference_models.ProductReferenceModels.test_lock_on_invalid_policies_bindings_composition_and_source_fail_closed",
+    "test_product_reference_models.ProductReferenceModels.test_lock_on_manual_control_projection_reads_its_relocated_owned_bank",
+    "test_product_reference_models.ProductReferenceModels.test_lock_on_original_product_keeps_all_definitions_and_empty_typed_world",
+    "test_product_reference_models.ProductReferenceModels.test_lock_on_standalone_cpu_worker_resolves_providers_before_checked_rewrites",
+    "test_product_reference_models.ProductReferenceModels.test_lock_on_typed_no_expiry_sentinel_is_exact_and_bound_to_declared_target",
+    "test_product_reference_models.ProductReferenceModels.test_magazine_blocked_attempt_requires_matching_source_generation_and_no_query",
+    "test_product_reference_models.ProductReferenceModels.test_manual_cover_control_intervals_require_gpu_open_close_and_marker",
+    "test_product_reference_models.ProductReferenceModels.test_manual_cover_without_cover_effect_routes_to_existing_product_consumer",
+    "test_product_reference_models.ProductReferenceModels.test_missing_sources_reject_before_shared_dispatch_and_legacy_stays_closed",
+    "test_product_reference_models.ProductReferenceModels.test_movement_and_manual_cover_share_literal_banks_and_restore_native_contexts",
+    "test_product_reference_models.ProductReferenceModels.test_movement_declarations_reject_unknown_geometry_or_composition_before_battle",
+    "test_product_reference_models.ProductReferenceModels.test_movement_product_uses_checked_native_clock_and_literal_shared_input",
+    "test_product_reference_models.ProductReferenceModels.test_movement_readback_rejects_partial_identity_reserved_and_segment_discontinuity",
+    "test_product_reference_models.ProductReferenceModels.test_movement_standalone_cpu_worker_resolves_provider_before_checked_rewrites",
+    "test_product_reference_models.ProductReferenceModels.test_named_range_and_manual_cover_share_literal_banks_and_restore_native_contexts",
+    "test_product_reference_models.ProductReferenceModels.test_named_range_decoder_rejects_reserved_partial_and_capacity_corruption",
+    "test_product_reference_models.ProductReferenceModels.test_named_range_product_consumes_original_count_and_range_modifiers",
+    "test_product_reference_models.ProductReferenceModels.test_named_range_standalone_cpu_worker_uses_shared_coordinate_context",
+    "test_product_reference_models.ProductReferenceModels.test_named_range_unknown_binding_and_composition_fail_and_restore_native",
+    "test_product_reference_models.ProductReferenceModels.test_no_incoming_contract_checks_every_attack_node_without_predicting_schedule",
+    "test_product_reference_models.ProductReferenceModels.test_original_anne_reduction_reaches_actual_product_healing_and_restores_aliases",
+    "test_product_reference_models.ProductReferenceModels.test_original_enemy_magazine_product_uses_literal_state_and_restores_native_operator",
+    "test_product_reference_models.ProductReferenceModels.test_static_original_anne_connects_the_same_consumer_with_or_without_healing_sources",
+    "test_product_reference_models.ProductReferenceModels.test_weighted_missing_weights_and_unsupported_composition_fail_before_dispatch",
+    "test_product_reference_models.ProductReferenceModels.test_weighted_original_product_consumes_real_markers_and_preserves_definitions",
+    "test_product_reference_models.ProductReferenceModels.test_weighted_readback_rejects_overflow_scratch_and_unaccounted_cover_receipts"
+  ],
+  "missing": 0,
+  "duplicate": 0,
+  "unit_tests_executed": 0,
+  "native_battles": 0,
+  "slang_sdk_gpu_calls": 0,
+  "claims_created": 0
+}

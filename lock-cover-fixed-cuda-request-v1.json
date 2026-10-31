@@ -1,0 +1,41 @@
+{
+  "schema": "product-lock-cover-cuda-request-v1",
+  "source_commit": "765628df87c29cdf7836f3ec8b305181539bd7cf",
+  "package_id": "0873541259c310e6d305f114233166e2208c3d611378cb8b47e7efafa77dc99c",
+  "archive": "lock-cover-fixed-sealed-v1.zip",
+  "archive_bytes": 14490867,
+  "archive_sha256": "7760c5ccbc0dfb33b47c76a701db808c169614bac8c1e8c78c1f3ca4ad141868",
+  "scope": "New genuine lock-cover calculation source, not a retry of stopped movement-cover v3. No link, driver, context, GPU or HTTP authorized by this request.",
+  "cpu": {
+    "own_tests": 133,
+    "test_groups": 13,
+    "extra_cleanup_tests": 8,
+    "extra_mock_device_linker_tests": 15,
+    "pattern": "test_product_reference_models.py",
+    "test_case_group_size": 5,
+    "all_receipts_required": true
+  },
+  "limits": {
+    "child_seconds": 60,
+    "outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated"
+  },
+  "conditional_sdk": [
+    "compile-ptx once",
+    "module-object O1 once from this PTX only"
+  ],
+  "stops": [
+    "timeout",
+    "missing identities",
+    "observation error",
+    "cleanup error",
+    "incomplete Job membership or limit query",
+    "source or artifact origin mismatch",
+    "incomplete CPU receipt"
+  ],
+  "preservation": "Keep old claims/failures. service unverified remains unverified, preservation false; no missing/cause exception.",
+  "report": "lock-cover-fixed-cuda-status-v1.json"
+}
