@@ -73,7 +73,8 @@ def body_for_program(root, name=None):
     body = copy.deepcopy(body)
     body['burst_gauge_mode'] = program['mode']
     if name is not None and name.startswith('add-'):
-        body['enemy']['patterns']=[dict(id='product-escort',kind='summon',spec=dict(
+        body['enemy']['patterns']=[dict(id='product-escort',kind='summon',until=dict(targets_cleared=True),spec=dict(
             name='Escort',count=2,hp=1e12,attack_at=.25,self_destruct=True,
-            attack=dict(atk=1000,coeff=100,hits=2,interval=.5,target='all')))]
+            attack=dict(atk=1000,coeff=100,hits=2,interval=.5,target='all',debuffs=[
+                dict(stat='atk_pct',value=-10),dict(stat='dot',coeff=10,interval=.5,duration=1)])))]
     return body

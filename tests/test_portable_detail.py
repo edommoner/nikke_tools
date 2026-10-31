@@ -10,6 +10,33 @@ import portable_product_artifact as artifacts
 from portable_projectile_roster_input import compile_projectile_battle
 
 class PortableDetail(unittest.TestCase):
+    def test_add_debuffs_reuse_external_definitions_and_exact_firing_descriptor(self):
+        from portable_product_programs import PROGRAMS,body_for_program
+        from portable_add_attack_battle_wire import LAYOUT as A
+        from portable_specs import LIMITS as L,FIELDS as F
+        import struct
+        for program in (n for n in PROGRAMS if n.startswith('add-')):
+            body=body_for_program(ROOT,program)
+            spec=body['enemy']['patterns'][0]['spec'];spec['atk']=1234
+            spec['attack'].update(atk=3456,debuffs=[dict(stat='atk_pct',value=-20),
+                dict(stat='dot',coeff=25,interval=.125,duration=1)])
+            with self.subTest(program=program),patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle')):
+                prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+                source,_,_,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,before)
+            self.assertEqual(source,PROGRAMS[program]['source'])
+            anchor=L['WORLD_FRAME_PAYLOAD_BASE'];firing=A['BASE']+A['ROW_BASE']+8
+            self.assertEqual(words[anchor:anchor+16],words[firing:firing+16])
+            self.assertEqual(words[L['WORLD_FRAME_INPUT_BASE']+16+6],0,'The anchor must not schedule a BODY shot')
+            rows=meta['boss_debuffs']['definitions'];self.assertEqual(len(rows),2)
+            self.assertEqual(words[anchor+4:anchor+8],[rows[0]+1,2,0x42444631,1])
+            self.assertTrue(all(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['OWNER']]==5 for row in rows))
+            row=rows[1];at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
+            self.assertEqual(words[at+F['STAT']],95)
+            fixed=L['DEFINITION_EXTRA_BASE']+row*L['DEFINITION_EXTRA_WORDS']+4
+            self.assertEqual(struct.unpack('<d',struct.pack('<II',*words[fixed:fixed+2]))[0],3456)
+            self.assertFalse(meta['boss_debuffs']['cpu_recipients_or_schedule_supplied'])
+
     def test_add_product_reuses_existing_prefix_and_literal_attack_retirement_wire(self):
         from portable_original_identity_inventory import selected_profile_bodies
         from portable_product_add_attack import lower

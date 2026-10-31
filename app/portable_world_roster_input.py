@@ -96,7 +96,11 @@ def compile_world_battle(prepared, *, trace='burst', allow_physical_interrupt=Fa
     boss_nodes={}
     if prepared.get('_product_boss_debuffs'):
         from portable_world_attack_specs import boss_debuff_effects
-        boss_effects,boss_nodes=boss_debuff_effects(patterns,names[0],enemy.get('atk',DEFAULT_BOSS_ATK))
+        effect_patterns=patterns
+        if '_product_add_debuff_patterns' in prepared:
+            from calculator.boss_pattern import validate
+            effect_patterns=validate(copy.deepcopy(prepared['_product_add_debuff_patterns']),squad_size=5)
+        boss_effects,boss_nodes=boss_debuff_effects(effect_patterns,names[0],enemy.get('atk',DEFAULT_BOSS_ATK))
         original.extend(boss_effects)
     lowered = [(compiler_effect(e), owner) for e, owner in original]
     compiled = list(zip(compiler_effects([e for e, _ in lowered]), [owner for _, owner in original]))

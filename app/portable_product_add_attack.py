@@ -13,11 +13,14 @@ def lower(prepared):
     patterns = validate(copy.deepcopy(raw), squad_size=5)
     lowered = copy.deepcopy(prepared)
     lowered['_product_add_attacks'] = True
+    if any(p.summon and p.summon.attack and p.summon.attack.debuffs for p in patterns):
+        # Original declarations only. The ordinary graph/pool compiler still
+        # sees the lowered lifecycle; the shared boss compiler owns effects.
+        lowered['_product_add_debuff_patterns'] = copy.deepcopy(raw)
+        lowered['_product_boss_debuffs'] = True
     for p, row in zip(patterns, lowered['enemy']['patterns'], strict=True):
         if p.summon is None or p.summon.attack is None:
             continue
-        if p.summon.attack.debuffs:
-            raise ValueError('Product ADD attack debuffs are not connected')
         if p.summon.self_destruct and p.summon.attack.hits == 0:
             raise ValueError('Finite self-destruct shot count required')
         for key in ('attack', 'attack_at', 'self_destruct'):
@@ -51,7 +54,8 @@ def attach(source, words, metadata, prepared, patterns, authored):
     check_schema(); check_retirement()
     _, bindings = compile_registry(validate(copy.deepcopy(prepared['enemy']['patterns'])), pools=True)
     # Reuse the common packer; retirement/delay occupy its declared extension.
-    plain = [replace(p, summon=replace(p.summon, self_destruct=False))
+    plain = [replace(p, summon=replace(p.summon, self_destruct=False,
+                     attack=replace(p.summon.attack, debuffs=()) if p.summon.attack else None))
              if p.summon is not None else p for p in patterns]
     bank = pack(plain, bindings, authored)
     labels = [''] * len(bindings)
@@ -64,6 +68,17 @@ def attach(source, words, metadata, prepared, patterns, authored):
         at = A['ROW_BASE'] + p.idx * A['ROW_WORDS']
         bank[at + 4] = int(p.summon.self_destruct)
         bank[at + 5:at + 7] = number(p.summon.attack_at)
+        if p.summon.attack.debuffs:
+            from portable_specs import LIMITS as L
+            anchor = L['WORLD_FRAME_PAYLOAD_BASE'] + p.idx * 16
+            descriptor = words[anchor + 4:anchor + 8]
+            if descriptor[0] == 0 or descriptor[1] != len(p.summon.attack.debuffs) or descriptor[2] != 0x42444631:
+                raise ValueError('Product ADD debuff definitions were not compiled')
+            bank[at + 12:at + 16] = descriptor
+            # The common external-definition and bound-lifetime registry uses
+            # WF_PAYLOAD. This literal mirror is never a second firing source:
+            # WS has zero shots, and GPU admission requires all16 words equal.
+            words[anchor:anchor + 16] = bank[at + 8:at + 24]
     words.extend([0] * (A['BASE'] - len(words)))
     words.extend(bank)
     metadata['product_add_attacks'] = dict(

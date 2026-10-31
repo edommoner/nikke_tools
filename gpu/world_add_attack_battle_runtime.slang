@@ -23,6 +23,11 @@ bool initializeAddAttackBattle(inout Runtime s)
 #endif
         uint p=row+8;
         if(commands[p]!=32||commands[p+1]!=0||commands[p+2]!=0||commands[p+3]>1)return false;
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+        if(commands[p+6]==0x42444631U)
+        {if(!worldBossAddDebuffPayload(s,node))return false;}
+        else
+#endif
         for(uint i=4;i<8;i++)if(commands[p+i]!=0)return false;
         uint64_t attack=loadNumber(p+8),coeff=loadNumber(p+10);
         if(!f64Finite(attack)||f64Less(attack,0)||!f64Finite(coeff)||f64Less(coeff,0)||f64Less(f64FromI64(1000000),coeff))return false;

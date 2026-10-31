@@ -10,7 +10,7 @@ def boss_debuff_effects(patterns, owner, boss_atk=114344):
  """Literal native descriptors; the GPU chooses hit recipients and lifetime."""
  effects=[];nodes={}
  for p in patterns:
-  shots=p.shots
+  shots=p.shots or (p.summon.attack if p.summon else None)
   if shots is None or not shots.debuffs:continue
   start=len(effects);bound=0;dots={}
   for i,d in enumerate(shots.debuffs):

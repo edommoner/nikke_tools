@@ -4,6 +4,20 @@ static const uint WF_INPUT=P_WORLD_FRAME_INPUT_BASE, WF_PAYLOAD=P_WORLD_FRAME_PA
 static const uint WF_TARGETS=P_WORLD_FRAME_TARGET_BASE, WF_HITS=P_WORLD_FRAME_HIT_BASE;
 bool worldFrameEnabled(inout Runtime s) { return commands[s.inputBase+WF_INPUT]!=0; }
 bool scheduledArgument(uint arg) { return (arg&0x80000000U)!=0; }
+bool worldBossAddDebuffPayload(inout Runtime s,uint node)
+{
+#if defined(PORTABLE_ADD_ATTACK_BATTLE) && defined(PORTABLE_PRODUCT_OUTLINED_HELPERS)
+    uint bank=s.inputBase+ADB_BASE,row=bank+ADB_ROW_BASE+node*ADB_ROW_WORDS;
+    uint actor=s.inputBase+P_WORLD_ACTOR_NODE_BASE+node*4;
+    if(commands[bank]!=ADB_MAGIC||commands[bank+1]!=1||commands[bank+2]!=commands[s.inputBase+WF_INPUT+1]
+       ||commands[row]==0||commands[actor]!=2||commands[actor+1]!=commands[row]||commands[row+14]!=0x42444631U)return false;
+    uint anchor=s.inputBase+WF_PAYLOAD+node*16;
+    for(uint i=0;i<16;i++)if(commands[anchor+i]!=commands[row+8+i])return false;
+    return true;
+#else
+    return false;
+#endif
+}
 // Only product entries admit native external-caster definitions. All recipients
 // are selected by an actual incoming landing, never by a CPU hit schedule.
 bool worldBossDebuffDefinition(inout Runtime s,uint row)
@@ -100,8 +114,14 @@ bool initializeWorldFrame(inout Runtime s)
     for(uint n=0;n<32;n++)
     {
         uint p=s.inputBase+WF_PAYLOAD+n*16,d=start+16+n*64;
+#if defined(PORTABLE_ADD_ATTACK_BATTLE) && defined(PORTABLE_PRODUCT_OUTLINED_HELPERS)
+        bool addDebuff=n<w.count&&worldBossAddDebuffPayload(s,n);
+        if(n>=w.count || commands[d+6]==0&&!addDebuff) { for(uint j=0;j<16;j++) if(commands[p+j]!=0) return false;continue; }
+        if(((commands[d+1]&2)!=0&&!addDebuff) || (commands[p]!=32&&commands[p]!=33) || commands[p+1]!=0 || commands[p+2]!=0 || commands[p+3]>1) return false;
+#else
         if(n>=w.count || commands[d+6]==0) { for(uint j=0;j<16;j++) if(commands[p+j]!=0) return false;continue; }
         if((commands[d+1]&2)!=0 || (commands[p]!=32&&commands[p]!=33) || commands[p+1]!=0 || commands[p+2]!=0 || commands[p+3]>1) return false;
+#endif
         if(commands[p]==33&&(commands[p+3]!=0||commands[p+4]==0||commands[p+8]!=0||commands[p+9]!=0||commands[p+10]!=0||commands[p+11]!=0)) return false;
         if(commands[p+4]!=0||commands[p+5]!=0||commands[p+6]!=0||commands[p+7]!=0)
         {
