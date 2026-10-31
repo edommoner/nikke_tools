@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "package_id": "15339b2480276cce62507b8ec476b5efc0dd85ee45feb79ed134480133a16ca4",
+  "source_commit": "f80a7cac4bcd3853437038685edc149845dd8709",
+  "archive": {
+    "path": "product-reload-clock-parallel-v3.zip",
+    "bytes": 11848696,
+    "sha256": "139a09d1bdffbdf72d07e137bd0026c898bd6d1a9141233090e47699c690b463"
+  },
+  "program": "accumulate",
+  "source": "gpu/product_battle_entry.slang",
+  "environment": {
+    "NIKKE_CUDA_SPLIT_COMPILE": "2"
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "15339b2480276cce62507b8ec476b5efc0dd85ee45feb79ed134480133a16ca4",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "selected_runtime": "NVRTC12.4..12.x verified by nvrtcVersion before cold program creation",
+  "hypothesis": "Parallelize optimization passes with at most2 compiler threads under existing BelowNormal/2GiB/60s stage; do not retry old serial26e key",
+  "official_source": "https://docs.nvidia.com/cuda/archive/12.4.1/nvrtc/index.html",
+  "all_gpu_source_and_golden_identical": true,
+  "generated_pair_and_reflections_exact": true,
+  "changed_payload_files": [
+    "app/portable_backend.py",
+    "app/portable_weighted_incoming_source_contract.py",
+    "scripts/nikke_gpu.py",
+    "tests/fixtures/portable-product-boss-debuff-source-delta.json",
+    "tests/test_portable_compile_cli.py",
+    "tests/test_portable_cuda_artifact.py"
+  ],
+  "mac_own_tests": 70,
+  "mac_extra_control_tests": {
+    "cuda_artifact": 15,
+    "compile_cli": 14,
+    "compiler_diagnostic": 16,
+    "compile_cache": 12
+  },
+  "mac_extra_gpu_or_native_calls": 0,
+  "requests": "reload-clock-api-requests.json",
+  "old_serial_failure_claim_retained": true,
+  "windows_compile_not_yet_run": true,
+  "personal_settings_included": false,
+  "raw_included": false
+}
