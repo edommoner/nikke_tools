@@ -1,5 +1,7 @@
 ## 2026-10-31 製品の名前付き範囲・対象数を接続
 
+最終追補：3b02411aからsealed最終packet becf355f4ef9…を作り、packet自身の100unit／fresh native1／CPU-onlyが成功（追加GPU0）。Windows既存chatはcursor354のidleを確認し、追加SDK／GPUは依頼していない。次はClaudeレビューで優先されたCUDA製品compileの未admit／外側timeoutについて、既存gateを保ち準備・観測重複を減らす実装を検討する。旧object・失敗receipt・missing14原因不明／preservation=falseは保持し、同条件再試行はしない。Heavy Arms／fixed／全合成も引き続き未完了。
+
 Rei variant（레이 (가칭)）とAsuka WILLEを含む1編成の宣言モデルを通常APIへ接続した。既存NamedRangeBattle・range/count reader・凍結queue・ActorPoolを共通CUDA/Metal入口から再利用し、元の＋500%／＋1を実cast生成時に読む。基礎半径・BODY/ADD形状はliteral宣言で、CPUの選択結果・capacity・damage・予定時刻をGPU入力にしない。ユニ／ヤンとproduct_coordinate_modelの座標・group・sampling contextを共有し、数値provider／pinned upstreamは変更0。単独CPU workerと例外復元も検査する。
 
 通常HTTP→実M5のexpanded／small-base-control／late-spawn／retirementの4条件が全CPU payload一致。各54cast中52で500%／capacity3を読み、半径対照と退場で実選択数が変わった。保存raw再投影4もnative／GPU追加0。publicはcast全数量・BODY位置・ADD数を返し、private observerの候補距離／landing観測全体を返したとは主張しない。元private比較器・期待値は保持する。共有helper化後の旧移動5条件もinput全byte／GPU source／raw SHA／計算応答を保存結果から照合し、VCS evaluator stampだけを別記した。これは新GPU証明への読み替えではない。

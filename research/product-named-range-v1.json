@@ -148,5 +148,15 @@
     "previous_registered_programs": 26,
     "previous_sealed_golden_entries": 11,
     "previous_golden_entries_preserved": true
+  },
+  "final_registered_packet_preflight": {
+    "source_commit": "3b02411a",
+    "package_id": "becf355f4ef9551e1a6da84937325ff31ba6dc570a81e08afdbee50d114f9fce",
+    "own_tests": 100,
+    "fresh_native_cases": 1,
+    "cpu_verified": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "scope": "Final registered CPU-only preflight; real Metal and independent seal retained separately"
   }
 }
