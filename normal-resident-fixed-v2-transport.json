@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "source_commit": "a4663e4716f46ba88460531ebfbc017375f242ae",
+  "artifact": "normal-resident-fixed-v2.zip",
+  "package_id": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+  "bytes": 12011407,
+  "sha256": "3d3715d36e742b5d4b426004f27f6a5754905409fe391f3b8cf992dba7d48234",
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "cpu_tests": 112,
+  "fresh_native_cases": 1,
+  "gpu_calls": 0,
+  "payload_preservation": {
+    "passed": true,
+    "source_package_id": "e398f26377f9f2234548b8c55eae9c451dfdb85535d0344487cbd099ec772a58",
+    "package_id": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+    "changed_metadata_and_test_files": [
+      "scripts/nikke_gpu.py",
+      "tests/test_product_detail_packet.py"
+    ],
+    "added_historical_test_dependencies": [
+      "research/portable-compiler-full--coordinate-resident-frames-v2-source-certificate.json",
+      "research/portable-coordinate-resident-frames-short-expected.json",
+      "research/portable-coordinate-resident-frames-short-v2-expected.json"
+    ],
+    "all_other_payload_bytes_unchanged": true,
+    "full_golden_unchanged": true,
+    "selected_module_dependency_gate_passed": true,
+    "gpu_calls": 0,
+    "native_battle_calls": 0
+  },
+  "scope": "Packaging dependency fix only; all calculation bytes/full golden preserved; existing product CLI support uses declared audit registry",
+  "personal_settings": false,
+  "raw_buffers": false
+}
