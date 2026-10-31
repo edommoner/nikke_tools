@@ -1,8 +1,12 @@
+# 2026-10-31 固定バースト4秒も通常APIでCUDA/Metal一致
+
+現runtime03e166bcのfixed4秒が実CUDAでCPU全製品payload一致し、全読戻しSHAも実M5保存結果と同一。damage16,415,516、burst I3.0/II3.1/III3.2/full3.583秒。通常HTTP14.2125秒、launch/sync/readback0.3737秒、compiler/JIT0、kernel1回。現CUDA確認は同じprofileの蓄積1秒/固定4秒で、標準固定30秒や全編成の確認ではない。Job peak1,989,357,568bytes/missing0/post空、service未確認/保全false。8点のメモリ観測はJob query取得自体は成功したが上限field不足により完全性false。明示buffer要求合計3.73MBに対し、launch前後でprocess private約1.55GB増/GPU free約1.45GB減を観測した。増加の具体的内訳や原因は未認定、Windows処理は終了。[範囲と測定](../research/product-cubin-admission-gate-v1.json)。以下は経過。
+
 # 2026-10-31 現共通runtimeで短い通常APIのCUDA/Metal一致
 
 共通CLIの同一CPU admissionでowner全payloadの重複読取を削減した。初回全byte確認、manifest完全一致、GPU直前の最終全byte確認、別owner/artifact検査、独立監査を維持し、request間cacheは持たない。旧ownerのbaselineはSHA固定sourceのliteralをASTで読む。計算本体/数値/期待値/normalizerは不変。Mac関連145検査とWindows artifact37検査が成功。
 
-新runtime03e166bc…の通常蓄積1秒がRTX3070Ti/Apple M5でCPU全製品payload一致し、入力と全読戻しSHAも両backendで同一。CUDAはこの1profile/元編成/1秒の範囲だけで、標準fixed30秒は0。Windows Job40.930秒・peak1,984,475,136bytes・missing0、service未識別/保全falseと過去link missing7/原因unknownを保持する。別条件fixed4秒はMetal/CPU一致済み。fixed専用PTXは展開前launcher誤りを修正して初回生成を依頼中で、GPUは未依頼。[検証範囲と原記録](../research/product-cubin-admission-gate-v1.json)。以下は履歴。
+新runtime03e166bc…の通常蓄積1秒がRTX3070Ti/Apple M5でCPU全製品payload一致し、入力と全読戻しSHAも両backendで同一。CUDAはこの1profile/元編成/1秒の範囲だけで、標準fixed30秒は0。Windows Job40.930秒・peak1,984,475,136bytes・missing0、service未識別/保全falseと過去link missing7/原因unknownを保持する。別条件fixed4秒はMetal/CPU一致済み。fixed専用PTXは展開前launcher誤りを保持・修正して初回生成成功（NVRTC17.788秒、内外missing0）。service未確認により保全falseのまま、未実施objectと条件付きlinkを依頼済み。その後のfixed4秒成功は冒頭に記録。[検証範囲と原記録](../research/product-cubin-admission-gate-v1.json)。以下は履歴。
 
 # 2026-10-31 全266標準profileを現共通GPU sourceで確認
 

@@ -36,6 +36,76 @@
     "transport_branch": "codex/product-cuda-origin-gates-v1-packet",
     "transport_commit": "0e742dda",
     "archive": "normal-fixed-current-v1.zip",
-    "windows_execution_requested": false
+    "windows_execution_requested": true
+  },
+  "windows_ptx": {
+    "ptx_compiler_verified": true,
+    "ptx_containment": true,
+    "ptx_bytes": 9869786,
+    "ptx_sha256": "a200432f0b7a10ecfa1b38365b0e8dcd0b077f94903b793e93626d950710ddfd",
+    "nvrtc_calls": 1,
+    "nvrtc_return": 0,
+    "nvrtc_seconds": 17.788262,
+    "inner_outer_missing": 0,
+    "service": "unverified",
+    "preservation_verified": false,
+    "original_stage_passed": false,
+    "evidence_scope": "Windows peer terminal report; original raw observations/artifacts remain on Windows"
+  },
+  "windows_object_and_link": {
+    "object": {
+      "verified": true,
+      "containment": true,
+      "post_audit_complete": true,
+      "bytes": 5688176,
+      "sha256": "eea26f64561c0ad9f9d35eaa1560319864bc280b5ea80f0abbab6fb9e6ec9dbe",
+      "outer_seconds": 33.111799,
+      "outer_peak_bytes": 403931136,
+      "child_seconds": 18.584622,
+      "child_peak_bytes": 360087552,
+      "inner_outer_missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "service": "unverified",
+      "preservation_verified": false,
+      "stage_passed": false
+    },
+    "link": {
+      "verified": true,
+      "containment": true,
+      "post_audit_complete": true,
+      "bytes": 5297488,
+      "sha256": "a89d28455de0c35e994351d4b59010a09a9a4ca566bf6576c2616ea0ba08a6d3",
+      "outer_seconds": 51.874708,
+      "outer_peak_bytes": 230891520,
+      "child_seconds": 20.389049,
+      "child_peak_bytes": 112578560,
+      "inner_outer_missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "service": "unverified",
+      "preservation_verified": false,
+      "stage_passed": false
+    },
+    "evidence_scope": "Windows peer terminal summaries; original raw observations and private identities retained on Windows"
+  },
+  "windows_fixed_api_4s": {
+    "passed": true,
+    "full_cpu_payload_match": true,
+    "full_readback_sha_matches_saved_metal": true,
+    "output_sha256": "b41ac3b6face46f5e396b6547696db67eacda1726a085c6676dbf9c0f256a4ce",
+    "duration_seconds": 4,
+    "capture_id": "0db9676e96ba4ca0bf9cbb0766b37188",
+    "total_damage": 16415516,
+    "http_seconds": 14.2125,
+    "new_character_profiles": 0,
+    "not_standard_fixed_30s": true,
+    "environment_preservation_verified": false,
+    "original_raw_on_mac": false,
+    "input_sha256": "a1ce5abf5d87e41efb58acb93a384e5f07cab71b53735b77b6c2c19b25e7b6d5",
+    "gpu_execution_verified": true,
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "job_wall_seconds": 19.3924822001718,
+    "owned_server_stopped": true
   }
 }

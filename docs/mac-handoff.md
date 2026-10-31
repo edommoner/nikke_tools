@@ -1,3 +1,11 @@
+## 2026-10-31 現ソースの固定バースト4秒が実CUDA/Metal/CPU一致
+
+最適化runtime03e166bc…＋fixed owner0f199f45…の保存CUBINで通常/api/jobsを1回。capture0db9676e96ba4ca0bf9cbb0766b37188、全readback SHA b41ac3b6…、damage16,415,516、burst I3.0/II3.1/III3.2/full3.583秒が保存M5と一致し、全CPU製品payloadも一致。通常HTTP14.2125秒、launch+sync+readback0.3737秒（純device時間ではない）。owner3.9604/admission4.8290/warm generation1.4510/CUBIN read0.0254秒、gate初回1/再利用4/最終1。compile/JIT0、GPU/同期/読戻し各1、再送0。profileは同じ1件の方式追加であって2profileとしない。標準fixed30秒/全編成のCUDA完了ではない。
+
+Job peak1,989,357,568bytes、post empty/missing0、サービス未識別/保全falseを保持。メモリ観測8点は採取、計算process private概数385→1,932MB/GPU空き7.44→5.99GBだが、子からのJob情報取得不足により観測完全性false、外側2GiB確認と区別。原因未認定。保存journal境界値の最小CPU読取も完了、追加driver/GPU/HTTP0、専用server停止/Job19.392秒/Windows pending0。子Job query自体は全8点available=trueだが上限field不足で観測完全性false、reasonはunknown。3明示allocationの合計3,726,916bytesに対しlaunch前後でprocess private385,286,144→1,931,808,768bytes、GPU free7,441,743,872→5,988,417,536bytes。入力bufferだけでは説明できない増加区間を確認したが、context/module/stack等の原因内訳や正確peakは未認定。元失敗/claims/観測不変。Windows raw/個人identityはWindows保持、Macはpeer小要約と自己保存M5を照合している。
+
+共通CLI model-check --summaryもCPU-onlyで成功。残canonical consumerはeffect_range_pct/effect_target_count_add/enemy_movement_disable/force_move/lock_on。宣言モデル実装済みの証拠と、通常入口で未指定の座標/数値方針、public sampling RNG、未確認mixed scenes、元定義全体の受付を区別する。private sampled battle/skill/parentの旧sealは現sourceと一致せず、現実行成功へ付替えない。次の実装優先は通常入口の残モデル/合成、Windows全profile総当たりの追加ではない。全goalは未完了。詳細research/product-cubin-admission-gate-v1.json。以下は経過。
+
 ## 2026-10-31 同一admission検証を共通化し通常APIでCUDA/Metal全readback一致
 
 実装d2b0163e。共通CLIのpackage byte検証を同一CPU admission内だけ再利用し、初回全byte・manifest全byte一致・GPU直前の最終全byte検査を必須にした。別owner/artifactと独立post auditは毎回検査、request間cacheなし。古いsealed ownerのgoldenは、そのSHA固定source内の単一literalをASTで読む（旧コード実行/別baseline探索なし）。数値本体・入力・期待値・normalizer・Job/時間上限は変更なし。Mac関連145検査、実file改変/manifest変更/復旧を含むartifact37検査とWindows同37検査に成功。
@@ -6,7 +14,7 @@
 
 通常/api/jobsの蓄積1秒が実RTX3070Tiで成功し、CPU全製品payload一致。現CUDA確認は1profile/元編成/蓄積1秒だけ、fixed30秒は0。全input SHA e26cf2bb…と全readback SHA647c3081…は同runtimeの実M5と完全一致。Windows Job40.930秒/peak1,984,475,136bytes/missing0/timeoutなし/empty、実launch+sync0.203秒（純device時間ではない）。service未識別/保全falseと元link履歴は保持。新compile0、GPU1回。Mac保存2条件のsource/input/raw/全CPU/GPU/API再投影も追加native/GPU0で一致した。Windows原rawのMac独立読取ではなく、Windows peer成功報告とMac保存監査の照合である。
 
-次のfixed4秒は実M5/CPU全payload一致、damage16,415,516、burst I3.0/II3.1/III3.2/full3.583秒を準備済み。GPU条件追加であってMetal262profileへ重複加算しない。Windowsのfixed ZIPは照合済みだが、未展開targetをbootstrap importに使うlauncher誤りでJob/claim/展開/生成/compile前に停止した。失敗logを保持し、既存展開済みbootstrapとtargetを分離する新launcherだけを依頼済み。fixed PTX生成成功後に未実施object/linkを検討する。30秒GPU/上限増量/OS変更は依頼なし。小記録research/product-cubin-admission-gate-v1.json。全目標は未完了。以下は履歴。
+次のfixed4秒は実M5/CPU全payload一致、damage16,415,516、burst I3.0/II3.1/III3.2/full3.583秒を準備済み。GPU条件追加であってMetal262profileへ重複加算しない。Windowsのfixed ZIPは照合済みだが、未展開targetをbootstrap importに使うlauncher誤りでJob/claim/展開/生成/compile前に停止した。失敗logを保持し、既存展開済みbootstrapとtargetを分離する新launcherだけを依頼済み。修正launcherで展開44.812秒・strict paired生成19.296秒、初回fixed PTX生成も成功（9,869,786bytes/SHA a200432f…、NVRTC17.788秒、SDK child32.164秒、outer44.686秒）。内外missing0/Job empty/timeoutなし、compiler_verified/containment=true、service unverifiedによりpassed/preservation=falseは不変。保存PTXからobjectとlink各1回も個別監査/containment成功（object outer33.112秒/child18.585秒、link outer51.875秒/child20.389秒）。いずれも内外missing0/Job empty、service未確認によりpassed/preservation=falseは保持。fixed CUBIN5,297,488bytes/SHA a89d2845…。最適化runtime03の通常API fixed4秒だけを1回依頼済み、既存メモリ観測を同runへ付与し追加kernelなし。結果待ちは再送しない。30秒GPU/上限増量/OS変更は依頼なし。小記録research/product-cubin-admission-gate-v1.json。全目標は未完了。以下は履歴。
 
 ## 2026-10-31 現共通GPU sourceで全266製品profileを確認：Metal262一致／CPU4
 

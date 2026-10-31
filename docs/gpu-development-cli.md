@@ -36,7 +36,7 @@ requestへ任意の`historical_link_observation`を追加できる。これは�
 Windowsの最初の実GPU確認は通常HTTP APIの1秒sceneだけを予定し、実driver/GPU/CPU全応答一致を確認する。30秒profile/全profile認定へ加算しない。Job/timeout/TDR/OS設定は変更せず、1回で停止し、新しいprocess消失があれば後続へ進まない。
 
 
-`cuda_shared_detail`は既定では従来どおりpaired生成cacheとCUBIN/O1 cacheを必須にする。別の明示設定`NIKKE_SHARED_CUDA_ARTIFACTS`へ絶対JSONファイルパスを渡すと、既存CLIの保存PTX/object/JIT-link監査と同じproviderを使う。NVRTC cacheとして偽装せず、実行時のNVRTCは禁止。現時点の登録対象は通常body入口だけで、group/target入口は理由付きCPU fallbackとなる。
+`cuda_shared_detail`は既定では従来どおりpaired生成cacheとCUBIN/O1 cacheを必須にする。別の明示設定`NIKKE_SHARED_CUDA_ARTIFACTS`へ絶対JSONファイルパスを渡すと、既存CLIの保存PTX/object/JIT-link監査と同じproviderを使う。NVRTC cacheとして偽装せず、実行時のNVRTCは禁止。設定にない入口は理由付きCPU fallbackとなる。選択可能sourceは共通`PROGRAMS`由来だが、登録可能であることと実際の各sourceのCUBIN準備・実GPU確認は別である。通常body蓄積1秒とfixed body4秒は現runtimeで実GPU/CPU全応答・M5全readback一致済み。group/target/全設定のCUDA確認へ一般化しない。
 
 次はパス形状の例であり、現在のWindows保存物を実行許可する設定ではない。
 
