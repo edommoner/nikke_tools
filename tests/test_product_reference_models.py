@@ -23,7 +23,7 @@ class ProductReferenceModels(unittest.TestCase):
     def test_lock_on_original_product_keeps_all_definitions_and_empty_typed_world(self):
         import portable_detail as product
         from portable_backend import validate_composed_stride
-        aliases=(timeline.simulate,sim.simulate,timeline.random.getstate());body=self.lock_body();original=copy.deepcopy(body)
+        aliases=(timeline.simulate,sim.simulate,timeline.random.getstate());paths=list(sys.path);body=self.lock_body();original=copy.deepcopy(body)
         with patch.object(sim,'execute',side_effect=AssertionError('No CPU lock selection before GPU')):
             prepared,run=product.prepare(body);before=copy.deepcopy(prepared);source,iw,ow,words,meta=product.compile_product(prepared)
         self.assertEqual((source,iw,ow,len(words)),('gpu/product_lock_battle_entry.slang',109536,1310720,109536))
@@ -38,7 +38,7 @@ class ProductReferenceModels(unittest.TestCase):
             result=engine_worker.evaluate(body)
         locks=result['reference_models']['lock_on'];self.assertEqual(len(locks['pulses']),12);self.assertEqual(len(locks['shots']),2)
         self.assertEqual(locks['typed'],dict(time=3,finished=True,state=[],attacks=[]));self.assertTrue(all(r['handles']==[[0,0,1]] for r in locks['shots']))
-        self.assertEqual(body,original);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
+        self.assertEqual(body,original);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()));self.assertEqual(sys.path,paths)
 
     def test_lock_on_actual_projectile_consumer_uses_literal_binding_and_restores_aliases(self):
         import portable_detail as product
@@ -58,6 +58,10 @@ class ProductReferenceModels(unittest.TestCase):
             result=json.loads(process.stdout);self.assertNotIn('error',result)
             self.assertEqual(len(result['reference_models']['lock_on']['shots']),2)
             self.assertEqual(len(result['reference_models']['lock_on']['typed']['state']),int(typed))
+            script="import sys,json;sys.path.insert(0,'app');import portable_detail as p;from unittest.mock import patch;body=json.load(sys.stdin)\nwith patch.object(p.engine_worker.sim,'execute',side_effect=AssertionError('No native input')):prepared,run=p.prepare(body);source,iw,ow,words,meta=p.compile_product(prepared)\nprint(json.dumps(dict(source=source,words=len(words),iw=iw)))"
+            process=subprocess.run([sys.executable,'-c',script],input=json.dumps(body),text=True,capture_output=True,cwd=ROOT,timeout=30)
+            self.assertEqual(process.returncode,0,process.stderr+process.stdout)
+            self.assertEqual(json.loads(process.stdout),dict(source='gpu/product_lock_battle_entry.slang',words=109536,iw=109536))
 
     def test_lock_on_invalid_policies_bindings_composition_and_source_fail_closed(self):
         import portable_detail as product

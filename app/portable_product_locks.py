@@ -1,5 +1,6 @@
 """Literal product lock binding to the existing shared original/typed executor."""
-import copy,struct
+import copy,struct,sys
+from unittest.mock import patch
 from pathlib import Path
 from types import SimpleNamespace
 from portable_runtime import UnsupportedPortable
@@ -52,7 +53,8 @@ def compile_product(prepared):
         if any(a.get('action')=='cover' for ch in prepared['chars'] for a in ch.get('control',{}).get('sequence',[])):lowered['_product_manual_cover']=True
         words,meta=compile_projectile_battle(lowered,trace='full')
         return words,meta,bindings
-    words,meta,bindings=pack_count(SimpleNamespace(compile_case=world),case,model=MODEL)
+    with patch.object(sys,'path',[str(root/p) for p in ('research','scripts')]+sys.path):
+        words,meta,bindings=pack_count(SimpleNamespace(compile_case=world),case,model=MODEL)
     pulse_rows=[i for i,source in enumerate(meta['binding_source_indices']) if source==pulse]
     typed_bound=[i for i,source in enumerate(meta['binding_source_indices']) if source==typed]
     if len(pulse_rows)!=1 or len(typed_bound)!=1:raise UnsupportedPortable('Unique statically bound original lock/projectile rows required')
