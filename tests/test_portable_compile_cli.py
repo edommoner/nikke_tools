@@ -129,6 +129,19 @@ class CompileCLITests(unittest.TestCase):
         with patch.object(cli,'module',return_value=types.SimpleNamespace(normalized=cli.sha)):
             return cli.audit_compile_capture(self.m,self.capture,verify_artifacts=False)
 
+    def test_compile_child_dispatch_never_executes_battle_oracles_or_gpu_claim(self):
+        cli.write(self.capture/'start.json',{})
+        guards={name:Mock(side_effect=AssertionError('No battle work in compile-only')) for name in
+                ('cpu_test_groups','open_suite','prepare_entries','native_value','compare_readback')}
+        with self.context(),patch.object(cli,'verify_package',return_value=self.m),patch.multiple(cli,**guards):
+            cli.child(self.capture,'cuda',compile_only=True)
+        for guard in guards.values():guard.assert_not_called()
+        self.assertEqual(self.native.calls.count('compile'),1)
+        proof=cli.load(self.capture/'compiler.json');self.assertFalse(proof['calculation_verified'])
+        self.assertEqual((proof['gpu_calls'],proof['driver_load_calls']),(0,0))
+        self.assertFalse((self.root/'gpu-claimed-cuda.json').exists())
+        self.assertFalse((self.capture/'cpu-tests.json').exists());self.assertFalse((self.capture/'cpu.json').exists())
+
     def test_compiler_success_requires_job_and_stays_calculation_false(self):
         self.proof();r=self.audit()
         self.assertTrue(r['compiler_verified']);self.assertTrue(r['containment_verified'])

@@ -35,3 +35,16 @@ CLIのmodule-objectが同じsealed producer自身を処理する場合、親でv
 既存compiler18群202テスト成功。親/子dispatchの実flag、同rootで1回のfresh検証、別root/manifest変化/実行後変化の拒否、post audit維持を回帰検査。PTXAS O1/fmad、60秒/2GiB、Job/pre/post観測、排他claim、旧失敗の扱いは不変。preparation journalにoriginとpost auditの実測区間を追加し、既存厳密phases列は変えない。GPU/数値code変更0、実SDK/GPU/新Metal/CUDA製品profile0。Windowsでの短縮は未測定。
 
 旧owner2195のptxas15.021秒／outer62.406秒、object未admit、missing14原因不明／preservation=falseを保持する。修正は旧claimの再実行許可ではない。続いてd73ca08dのnormal開発ownerf3deae04…を固定し、own100unit／202 SDK模擬／fresh native1／実M5／GPU禁止独立sealが成功。旧accumulateのinput/output/native entriesは全一致だが、Mac生成CUDA/MSLは旧2195と異なりreflection2fileだけ一致した。旧PTXcache再利用はadmitしない。旧v9を保持したv10でaccumulateのsource/generated identityだけを実証済み現行版へ更新し、他24memberは不変。次は最終sealed current ownerでWindows preflight後、新コードの短いcompileを1回だけ計画する。証跡research/product-cuda-origin-gates-v1.json。
+
+## コンパイル専用の事前検査と戦闘起動の事前検査
+
+`compile` / `compile-ptx` / `module-object` / `jit-link-object` はコンパイル・保存artifactの検査だけを行い、戦闘のnative計算や全選択unit群を暗黙には実行しない。
+sealed Metal基準・全package byte・現在source・生成CUDA/MSL・compiler options・artifact出所・Job/観測をそれぞれの既存gateで検査する。
+生成段階を先に一度だけ完了し、後段はpaired generation cacheを必須にしてSlangの重複生成を防ぐ。
+コンパイルだけを調べるWindows依頼に全戦闘テストやnative戦闘計算を前置きする必要はない。
+これはGPU起動の免除ではなく、`run`/`staged-run`/製品APIのfresh CPU照合・全登録テスト・native admissionは従来どおり。
+
+CLI childの実dispatchをfake NVRTCへ接続し、cpu_test_groups/open_suite/prepare_entries/native_value/compare_readbackを呼ばないことを回帰検査した。
+実driver/GPU禁止、計算認定false、GPU claim未消費を検査し、既存compiler/module/object/link/Job/packetの計113検査も維持した。
+SDK childは60秒・2GiB、外側wrapperは既存の最大180秒。複数のnative工程を依頼する場合も合計予算を別に明示し、欠落process・timeout・未admit artifactがあれば停止する。
+サービス未識別とprocess欠落0を混同せず、過去の失敗・claimは保持する。
