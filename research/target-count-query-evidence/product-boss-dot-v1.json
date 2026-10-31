@@ -1,0 +1,674 @@
+{
+  "schema": "product-boss-dot-evidence-v1",
+  "implementation_commit": "a76c0f31c62e43cd4965ed84241af23e06a178cf",
+  "scope": "Native boss attack-attached and standalone DoT through the normal product API; eight shared program variants, exact existing product output comparison",
+  "metal_current_primary_profiles": [
+    "노아",
+    "라이",
+    "마키마",
+    "목단",
+    "미란다",
+    "미카 : 스노우 버디",
+    "벨로타",
+    "아스카",
+    "킬로"
+  ],
+  "metal_current_primary_profile_count": 9,
+  "metal_conditions": 23,
+  "cuda_current_source_profile_count": 0,
+  "cuda_current_source_conditions": 0,
+  "historical_previous_cuda": {
+    "source": "bb1f338b93e51b176b8197f52f5320005bef5c2d",
+    "profiles": 1,
+    "conditions": 2,
+    "evidence": "product-boss-current-cuda-v1.json"
+  },
+  "api_evidence": [
+    {
+      "proof": "product-boss-dot-final-v1-20261031",
+      "conditions": 19,
+      "source_snapshot_sha256": "7fb0d295980e0dafc7000b526dfe6e59d2880aa8bba3e2330e5fa27d9aba92e6",
+      "saved_audit": {
+        "rows": [
+          {
+            "index": 0,
+            "profile": "DoT accumulate normal",
+            "favorite_stage": 0,
+            "capture": "550691a0657e4802a15c2052d2cb2f55",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 1,
+            "profile": "DoT accumulate group",
+            "favorite_stage": 0,
+            "capture": "3694935d8602499eaf17ac24959d06af",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 2,
+            "profile": "DoT accumulate target",
+            "favorite_stage": 0,
+            "capture": "524d1851281543e3a006e70680eb911d",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 3,
+            "profile": "DoT accumulate group-target",
+            "favorite_stage": 0,
+            "capture": "086bf41e0a964ddbba3c258fbb845f07",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 4,
+            "profile": "DoT fixed normal",
+            "favorite_stage": 0,
+            "capture": "5432585e6450467d88ea7ea636d2d752",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 5,
+            "profile": "DoT fixed group",
+            "favorite_stage": 0,
+            "capture": "a7e565c332484010ab4945125262ce35",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 6,
+            "profile": "DoT fixed target",
+            "favorite_stage": 0,
+            "capture": "d11d9d41c5e04f15b001e2685639108e",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 7,
+            "profile": "DoT fixed group-target",
+            "favorite_stage": 0,
+            "capture": "ac070ab93a384c28b9fa29149f327a91",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 8,
+            "profile": "Miranda refresh",
+            "favorite_stage": 0,
+            "capture": "34c4ebc0a72d492cbfc8913746dab704",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 9,
+            "profile": "Miranda bound-close",
+            "favorite_stage": 0,
+            "capture": "56d20cd4908b442dbe3488ebdc855898",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 10,
+            "profile": "Miranda subframe",
+            "favorite_stage": 0,
+            "capture": "121f1d6d94c44cd2b327ef25020759b0",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 11,
+            "profile": "Miranda fatal",
+            "favorite_stage": 0,
+            "capture": "ab0a045dfeaa4ec5a8300df24d877e3f",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 12,
+            "profile": "Miranda minimum1",
+            "favorite_stage": 0,
+            "capture": "02361c46071940c49ecbb47cd7a83582",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 13,
+            "profile": "DoT cleanse-before-reapply",
+            "favorite_stage": 0,
+            "capture": "50d6ad4f2228484ea301d29f69b4caa8",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 14,
+            "profile": "DoT irremovable",
+            "favorite_stage": 0,
+            "capture": "9087dce179014ddd907342fb8094579f",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 15,
+            "profile": "노아 legacy-live-rearm",
+            "favorite_stage": 0,
+            "capture": "ad09dac24533403d9818146908cf7607",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 16,
+            "profile": "노아 Biscuit heal",
+            "favorite_stage": 0,
+            "capture": "3e16abceb0fa4225bcf75c1dcb3de614",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 17,
+            "profile": "목단 self maxHP grant",
+            "favorite_stage": 0,
+            "capture": "dcd6fc644440422190c52ffe01a4423e",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 18,
+            "profile": "same-name-list",
+            "favorite_stage": 0,
+            "capture": "e6888ab187d14db697e3307cc186dcc1",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          }
+        ],
+        "audited": 19,
+        "native_battle_calls": 0,
+        "gpu_calls": 0
+      }
+    },
+    {
+      "proof": "product-boss-dot-protection-v1-20261031",
+      "conditions": 4,
+      "source_snapshot_sha256": "7fb0d295980e0dafc7000b526dfe6e59d2880aa8bba3e2330e5fa27d9aba92e6",
+      "saved_audit": {
+        "rows": [
+          {
+            "index": 0,
+            "profile": "킬로 shield bypass",
+            "favorite_stage": 0,
+            "capture": "461e6f6ff74f41658ba6d05c8896a88b",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 1,
+            "profile": "라이 decoy bypass",
+            "favorite_stage": 0,
+            "capture": "355553cc85e8481194b74b6c4454c4e0",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 2,
+            "profile": "마키마 already undying",
+            "favorite_stage": 0,
+            "capture": "a78437cfa53c4df4bf48149186811379",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 3,
+            "profile": "Miranda distinct same-name Dot",
+            "favorite_stage": 0,
+            "capture": "2ae6a99b5aef4dcfa0d0188a0f0551b1",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          }
+        ],
+        "audited": 4,
+        "native_battle_calls": 0,
+        "gpu_calls": 0
+      }
+    }
+  ],
+  "current_host_saved_audit": {
+    "changed_host_files": [
+      "app/portable_weighted_incoming_source_contract.py",
+      "app/portable_world_result.py"
+    ],
+    "current_host_sha256": {
+      "app/portable_weighted_incoming_source_contract.py": "44a59860c924de945a9d650b3d0c097874c1583d27d4c90dd1a1826eae56b862",
+      "app/portable_world_result.py": "41acf1f0f0932fa5cbd2f829a9f85259df8181ec2568a7c05de37487512dff98"
+    },
+    "rows": [
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 0,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 1,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 2,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 3,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 4,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 5,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 6,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 7,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 8,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 9,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 10,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 11,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 12,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 13,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 14,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 15,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 16,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 17,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-final-v1-20261031",
+        "index": 18,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-protection-v1-20261031",
+        "index": 0,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-protection-v1-20261031",
+        "index": 1,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-protection-v1-20261031",
+        "index": 2,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      },
+      {
+        "proof": "product-boss-dot-protection-v1-20261031",
+        "index": 3,
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_saved_cpu_gpu_api": true
+      }
+    ],
+    "native_battle_calls": 0,
+    "gpu_calls": 0
+  },
+  "protection_and_same_name": [
+    {
+      "index": 0,
+      "label": "킬로 shield bypass",
+      "hit_count": 2,
+      "hp_positive": 2,
+      "shield_positive": 0,
+      "decoy_positive": 0,
+      "hp_after_min": 3265714.6,
+      "all_nonfatal": true,
+      "damage_values": [
+        9530.2,
+        9530.2
+      ]
+    },
+    {
+      "index": 1,
+      "label": "라이 decoy bypass",
+      "hit_count": 2,
+      "hp_positive": 2,
+      "shield_positive": 0,
+      "decoy_positive": 0,
+      "hp_after_min": 3265801,
+      "all_nonfatal": true,
+      "damage_values": [
+        9487,
+        9487
+      ]
+    },
+    {
+      "index": 2,
+      "label": "마키마 already undying",
+      "hit_count": 3,
+      "hp_positive": 1,
+      "shield_positive": 0,
+      "decoy_positive": 0,
+      "hp_after_min": 1,
+      "all_nonfatal": true,
+      "damage_values": [
+        130526000,
+        130526000,
+        130526000
+      ]
+    },
+    {
+      "index": 3,
+      "label": "Miranda distinct same-name Dot",
+      "hit_count": 5,
+      "hp_positive": 5,
+      "shield_positive": 0,
+      "decoy_positive": 0,
+      "hp_after_min": 2907773.3,
+      "all_nonfatal": true,
+      "damage_values": [
+        13220.1,
+        13220.1,
+        26440.2,
+        13220.1,
+        26440.2
+      ]
+    }
+  ],
+  "common_cpu": {
+    "passed": true,
+    "groups": 77,
+    "tests": 858,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "gpu_typed_negatives": {
+    "cases": [
+      {
+        "name": "positive",
+        "status": 0
+      },
+      {
+        "name": "ordinary-owner",
+        "status": 64
+      },
+      {
+        "name": "owner6",
+        "status": 64
+      },
+      {
+        "name": "wrong-magic",
+        "status": 64
+      },
+      {
+        "name": "zero-coefficient",
+        "status": 64
+      },
+      {
+        "name": "zero-interval",
+        "status": 64
+      },
+      {
+        "name": "nan-interval",
+        "status": 64
+      },
+      {
+        "name": "negative-attack",
+        "status": 64
+      },
+      {
+        "name": "untyped-stat94",
+        "status": 64
+      }
+    ],
+    "gpu_dispatches": 1,
+    "cpu_battles": 0,
+    "positive_all_words_match_normal_api": true
+  },
+  "normal_30s_numerical_retention": {
+    "accumulate": {
+      "package_id": "4523d4e48f46b0948f60e31e7c01d0858f794a54f7ef0a44f02487512c4ae6ce",
+      "input_sha256": "291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18",
+      "output_sha256": "bc19e1324c7f293c24367148ec8d050a506d3779ba283983641f2f53d3fb01fc",
+      "all_old_entries_native_exact": true,
+      "fresh_independent_seal": true,
+      "seal_gpu_calls": 0
+    },
+    "fixed": {
+      "package_id": "3ac385c0c62608769f17f889dc9abf2a3fbfb846b0e4ac870551fb2018d4cb7a",
+      "input_sha256": "b534ebb2f7abcf613ea7b052f0ad8b9f9bcb48ec5ece9e0c766422871ba06a6f",
+      "output_sha256": "9c72bd03cc18453a9f8c6a9cdfebd6fe126e3e0b8e5889e6668cf158c4698be2",
+      "all_old_entries_native_exact": true,
+      "fresh_independent_seal": true,
+      "seal_gpu_calls": 0
+    }
+  },
+  "numerics": {
+    "shared_software_binary64": true,
+    "ordered_formula": "max(max(atk-effective_def,0)*coeff/100*stack*max(0,1+incoming_pct/100),1)",
+    "deadline_epsilon": 1e-09,
+    "first_tick": "activation+interval",
+    "refresh": "new activation marker resets phase",
+    "terminal_tick": "retained after ordinary carrier expiry; canceled by early removal",
+    "known_cpu_rearm_defect": "Retained exactly: live5s/interval3s Noah yields121 ticks, including invincible HP0; canonical fix permission unanswered",
+    "canonical_reference_changed": false,
+    "tolerance_changed": false,
+    "strict_normalizer_changed": false,
+    "cpu_battle_or_recipients_used_as_gpu_input": false
+  },
+  "memory": {
+    "old_normal_resident_stride_bytes": 138992,
+    "new_normal_resident_stride_bytes": 163576,
+    "delta_bytes": 24584,
+    "clock_capacity": 512,
+    "shared_incoming_history_capacity": 2048,
+    "clock_scan_skipped_without_dot": true
+  },
+  "failures_retained": [
+    "Initial v1 used generic periodic registration and returned status64 at first tick; current typed DoT bypasses that registration",
+    "Typed stat moved to95 to avoid private cover-defense/target-count93 and named-range94 identities",
+    "HP threshold comparison exposed exactly one Moran hp_after difference; snapshot moved after threshold children; original mismatch and saved reprojection retained",
+    "Initial Noah/Biscuit fixture requested unowned Dolla; corrected squad to original owned members before successful GPU request"
+  ],
+  "source_history": {
+    "ledger_sha256": "a7cfb0545c9efe2e3939886121f6ede8c2dbd49a2f4607a7b507e839e21335ab",
+    "exact_inverse_files": 19,
+    "older_product_baselines_accepted_only_by_separately_pinned_full_file_hash": true,
+    "current_equivalence_not_inferred_from_historical_inverse": true
+  },
+  "limits": [
+    "Current whole266 standard30s catalogue sweep not repeated",
+    "11 original canonical model-gap profiles remain CPU fallbacks",
+    "New DoT source has paired CUDA generation, not CUDA device proof",
+    "Bounded clocks/history/work overflow remains explicit CPU fallback",
+    "No game-device equality claim"
+  ]
+}

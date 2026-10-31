@@ -1,3 +1,19 @@
+# 2026-10-31 敵DoTを通常製品へ接続、Metal9profile/23条件がCPU全一致
+
+実装a76c0f31。元attack/debuffのdotをtyped stat95・外部enemy owner5として共通Slangへ接続。CPUの受け手/戦闘/発動予定表を入力にせず、既存の対象選択と個別carrier、免疫/解除/stack/期限を再利用する。別UID時計512件で再付与の位相・期限ちょうどの最終tick・早期解除・carrier slot再利用を扱い、HPのみへ適用する。shield/cover/decoy・received_hit・被弾集計を通さず、無敵/既存不屈と死亡処理を接続。HP低下の子イベント（回復/最大HP増加）が完了してからhp_afterを記録する。
+
+通常HTTP APIの最終19条件と保護4条件が実M5 Metal・CPU全製品payload一致、fallback/error/cache hit0。実蓄積/固定周期×normal/group/target/group-target、再付与/stack、bound解放、subframe複数tick、minimum1、fatal、Mika解除/解除不可、Noah無敵、Biscuit回復、Moran最大HP増加、Kilo shieldとライdecoyの迂回、Makima発動済み不屈、同名別Dot時計と既存scalar同名保持を含む。主役profileはMiranda/Belorta/Asuka/Mika Snow Buddy/Noah/Moran/Kilo/ライ/Makimaの9。BiscuitはNoah編成内の原スキル発動確認で主役数へ重複加算しない。現source全catalogue266/標準30秒の再認定ではない。
+
+全23保存input/raw SHA・既存decoder再投影がCPU/GPU/API全一致、追加battle/GPU0。最後のhost-only修正（overlay変換でDot down kind8を除外、同file source逆変換pin更新）後も、変更2hostだけ・GPU閉包全byte同一・静的input全byte同一・全23再投影一致を検査した。追加GPUやCPU戦闘は0。GPU9入力1batchも正例が通常API全raw一致、不正owner/型/数値8件がstatus64。共通CPU77群858検査、失敗/error0、既存skip1。
+
+初期失敗を保持：v1はd.intervalが一般周期へ登録され、外部casterを味方dispatchへ渡すため最初のtickでstatus64。typed DoTは一般timerから分離した。stat93はprivate cover-defense/target-countと衝突するため95へ専用化。Moran HP閾値caseはhp_after1項目だけ不一致を再現し、子処理後snapshotへ修正、失敗原本とGPU追加0の再投影を保存。Noah/Biscuitの最初のfixtureは未所持Dollaを含みCPU準備で拒否、所持済み元memberへ訂正した。CPU正本/pinned/許容差/strict normalizerは不変。元の時計欠陥（Noah持続5/interval3で121tick）も現CPU規約として完全一致を維持し、許可なく修正しない。
+
+通常No-Dot30秒の実蓄積/固定周期も不変packetで実Metal→fresh独立seal成功。旧input/全output/全entry/native指紋をassert完全保持し、program基準はsource/generatedだけ更新。旧保存captureやgoldenは変更せず、新packet payloadは一致ファイルをhardlink再利用。source履歴19fileを完全SHA・正確hunkで逆変換し、旧product baseline復元済みの場合も別の固定ledgerが認める全file SHAだけを受理する。旧歴史数値を現source証明に流用しない。
+
+normal resident strideは138992→163576bytes（+24584/1case）。DoT未使用時は時計走査をしない。時計512・全incoming履歴2048・drain作業上限は明示CPU切替で、無制限対応とはしない。詳細proofはproduct-boss-dot-final-v1-20261031/product-boss-dot-protection-v1-20261031、小記録product-boss-dot-v1.json。専用4370..4374を終了、通常4317/4327変更なし。
+
+新DoT sourceのCUDA実機確認0。旧bb1f338bのCUDA1profile/2条件、旧9a6のCUDA3、旧4e86のMetal255/266は歴史として分離。今回Windows追加実行0。次は現在のclean sealed packetを準備し、同じaccumulate programのDoT複数時計とHP閾値を短くCUDA確認する（Moran fixed2.5秒をaccumulateへ変えるなら先にMacで同入力確認）。既知11 canonical model gapも残り、全目標未完了。以下は履歴。
+
 # 2026-10-31 新共通デバフの通常CUDA製品2条件がMetal全raw一致、現ソースMetal6/CUDA1profile
 
 実装source bb1f338b93e51b176b8197f52f5320005bef5c2d不変。元Mirandaの実蓄積1.5秒で、攻撃付随と独立詠唱のatk_pctデバフ各1条件を通常HTTP APIからM5 Metal/RTX3070Ti CUDAで実行。いずれもCPU全製品payload一致、fallback/cache hit/差分0。attack input ce298eab…→readback8384a7e7…、cast input24c119ee…→readbackf32e585a…で、Windows報告の全raw SHAがMac原本に両方一致。Windows内でもCPU戦闘禁止の静的input全byte再生成・元decoder再投影が保存GPU/CPU/API全一致。Windows原本は未転送で、peer報告とMac原本のhash照合を区別する。小記録product-boss-current-cuda-v1.json。
