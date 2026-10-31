@@ -1,0 +1,27 @@
+{
+  "package_id": "4b19cd588d2bd32911e496bbbba838a7608e18a067d0d9784d4e25db6b229ef9",
+  "source_commit": "44c81f24d2b9230152a8c6c4c69f108d7e3ac085",
+  "implementation_commit": "0a2285d1e34130f6b57f2c278bfc5ee926497b7a",
+  "archive": "product-add-debuff-v1.zip",
+  "archive_bytes": 14278293,
+  "archive_sha256": "417e6885dea92e0e2b601f6c777f1216405e2aef4691b42e163bc33dc3cdb9c4",
+  "api_requests": "add-debuff-api-requests.json",
+  "api_requests_sha256": "ea72fe4f66693c9cb010a3be7e249e03f74e974bfb56788e66f6613ecda95cfc",
+  "planned_api_cases": 2,
+  "compile_stage_policy": {
+    "priority": "BelowNormal",
+    "memory_limit_mb": 2048,
+    "each_stage_timeout_seconds": 60,
+    "total_supervisor_seconds": 180,
+    "stop_before_driver_gpu": true
+  },
+  "mac_own_tests": 64,
+  "mac_deps_passed": true,
+  "mac_compile_plan_sha256": "3e44b625cf0702b5cee962c3c6396e53df81b487fa123610f9f7f243b773c2bc",
+  "mac_sealed_generation_sha256": "e094facc94824e870e0aec238bb70c994d50d023a9e4baccd0327a99b4af2cef",
+  "mac_independent_seal_sha256": "9f0e727be36c1f0cbb43bad1ca99a606cfba666eb16b9a1037b7269a1ea70eee",
+  "mac_reference_preflight_native_battle_calls": 0,
+  "mac_reference_preflight_gpu_calls": 0,
+  "excluded": "personal sessions/settings/authentication, raw GPU buffers and SDK binaries",
+  "old_failed_claims_retained": true
+}
