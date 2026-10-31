@@ -1,0 +1,250 @@
+{
+  "schema": "normal-origin-gates-summary-v1",
+  "passed": false,
+  "owner": "59160ddb81ae0e13ffd9393f584837220c89c30a5a9814ecc3b9284e834316fd",
+  "source_commit": "f029d109a4a2f69e6deded7e68cc51999d770141",
+  "transport_commit": "abf46f5fbea42409748deeb1d77591b928de0f35",
+  "archive": {
+    "present": true,
+    "bytes": 11910901,
+    "sha256": "7e8f604cdec777dd017b95a8268c51b17797dd326d382e941b8421ad2107085f"
+  },
+  "owner_manifest": {
+    "present": true,
+    "bytes": 576879,
+    "sha256": "02afde616a9f4e24be5930b7d84e0dfb36e177071ba6162c69e3dd2cef3547e0"
+  },
+  "scope": "Windows saved preflight only; stopped on first registered test failure. Original raw GPU buffers not read. No compiler, object, link, driver, GPU or API executed.",
+  "stop_reason": "preflight-test-group 0 failed one test; no retry and all later stages stopped",
+  "unpack": {
+    "seconds": 45.953389700036496,
+    "timeout_seconds": 60,
+    "timed_out": false,
+    "execution_passed": true,
+    "peak_bytes": 73048064,
+    "job_empty_after": true,
+    "missing_count": 0,
+    "termination_cause": null,
+    "service_status": "unverified",
+    "preservation_verified": false,
+    "cleanup_error": null,
+    "observation_error": null
+  },
+  "preflight_plan": {
+    "stage_verified": true,
+    "scope": {
+      "seconds": 30.673446899745613,
+      "timeout_seconds": 59.78099999995902,
+      "timed_out": false,
+      "execution_passed": true,
+      "peak_bytes": 133009408,
+      "job_empty_after": true,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false,
+      "cleanup_error": null,
+      "observation_error": null
+    },
+    "group_size": 1,
+    "test_group_size": 1,
+    "registered_test_groups": [
+      [
+        "test_portable_detail.py"
+      ],
+      [
+        "test_product_detail_packet.py"
+      ],
+      [
+        "test_weighted_source_contract.py"
+      ],
+      [
+        "test_product_reference_models.py"
+      ]
+    ],
+    "input": {
+      "input_bytes": 417604,
+      "input_count": 1,
+      "input_sha256": "291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18",
+      "input_words": 104400,
+      "package_id": "59160ddb81ae0e13ffd9393f584837220c89c30a5a9814ecc3b9284e834316fd",
+      "schema": 1
+    }
+  },
+  "tests": {
+    "planned_total": 100,
+    "groups_planned": 4,
+    "groups_attempted": 1,
+    "tests_attempted": 59,
+    "successes": 58,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "test_group_verified": false,
+    "stage_verified": false,
+    "scope": {
+      "seconds": 34.91465830011293,
+      "timeout_seconds": 59.82800000021234,
+      "timed_out": false,
+      "execution_passed": false,
+      "peak_bytes": 133365760,
+      "job_empty_after": true,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false,
+      "cleanup_error": null,
+      "observation_error": null
+    },
+    "group_elapsed_seconds": 21.09602200007066,
+    "failure": {
+      "test": "test_portable_detail.PortableDetail.test_actual_backend_cache_misses_do_not_reach_generators_compilers_or_driver",
+      "source": "tests/test_portable_detail.py",
+      "line": 854,
+      "expected_reason_contains": "cache miss",
+      "actual_reason": "GPU build/execute forbidden in CPU/audit stage",
+      "assertion": "'cache miss' not found in 'gpu build/execute forbidden in cpu/audit stage'",
+      "analysis": "Existing staged CLI wraps run_group in forbid_gpu, which patches backend build/execute before this test exercises the actual cache-miss path. The outer guard reason reaches its assertion. This identifies a staged-runner/test interaction; no numerical or GPU result was evaluated. No guard or test changed."
+    }
+  },
+  "remaining_test_groups_run": 0,
+  "fresh_native_preflight": {
+    "planned": 1,
+    "executed": 0
+  },
+  "additional_sdk_fake_controls": {
+    "executed": false
+  },
+  "deps": {
+    "executed": false
+  },
+  "compile_plan": {
+    "executed": false
+  },
+  "generation": {
+    "executed": false,
+    "generated_hash": null
+  },
+  "ptx": {
+    "executed": false,
+    "compiler_verified": false,
+    "artifact": null,
+    "cache_key": null
+  },
+  "object": {
+    "executed": false,
+    "object_verified": false,
+    "artifact": null
+  },
+  "jit_link": {
+    "executed": false,
+    "link_verified": false,
+    "artifact": null
+  },
+  "claims": {
+    "gpu_claim_reserved_by_cpu_preflight": true,
+    "preflight_plan_stage_claim": true,
+    "test_group_0_claim": true,
+    "test_group_1_claim": false,
+    "compile_claim": false,
+    "module_object_claim": false,
+    "jit_link_claim": false,
+    "deleted": false
+  },
+  "historical": {
+    "owner2195_timeout_retained": true,
+    "owner2195_object_unadmitted": true,
+    "owner2195_missing_count": 14,
+    "owner2195_preservation_verified": false,
+    "older_missing_count": 7,
+    "termination_cause": "unknown",
+    "saved_failure_fingerprints_match": {
+      "warm-ptx-terminal-v1.json": true,
+      "module-object-v1/execution.json": true,
+      "module-object-v1/proof/job.json": true,
+      "module-object-v1/proof/observation.json": true,
+      "native-supervisor-v1/observation.json": true
+    },
+    "old_claims_mutated": false
+  },
+  "preservation_verified": false,
+  "service_status": "unverified",
+  "sdk_loads": 0,
+  "nvrtc_compile_calls": 0,
+  "ptxas_calls": 0,
+  "jit_link_calls": 0,
+  "driver_calls": 0,
+  "gpu_calls": 0,
+  "api_calls": 0,
+  "retries": 0,
+  "timing_note": "Durations copied from saved execution and test records. No native stage or native timing exists. No CPU user/kernel duration recorded. No retrospective timer boundary added.",
+  "cpu_user_seconds": null,
+  "cpu_kernel_seconds": null,
+  "receipts": {
+    "unpack-v1/result.json": {
+      "present": true,
+      "bytes": 188,
+      "sha256": "831843dc7a2b1db6faa87c10e66e68013d3bc3fedfe46323cb29037a3f3048ae"
+    },
+    "unpack-v1/execution.json": {
+      "present": true,
+      "bytes": 1092,
+      "sha256": "d749693ff705552f8f4f7d050cbd2be21c8d4d8d14d33cd230e97e3c0c4f6e10"
+    },
+    "preflight-plan-v1/stage-result.json": {
+      "present": true,
+      "bytes": 1079,
+      "sha256": "11beb13407b0baf945998f4c9d575abc790d8f30c38a0ead3f2e6bbe002a2a10"
+    },
+    "preflight-plan-v1/proof/transaction.json": {
+      "present": true,
+      "bytes": 1280,
+      "sha256": "efddcbb07057724be09a8b66c93e50acbb67fe2bbe1c60d2e75dc434a0d2f4c9"
+    },
+    "preflight-test-0-v1/stage-result.json": {
+      "present": true,
+      "bytes": 581,
+      "sha256": "b6358242b683dfbb46fd0151e8dc2149e4c60ddb6bfc6b28c0e8777be9c7ff2d"
+    },
+    "preflight-test-0-v1/execution.json": {
+      "present": true,
+      "bytes": 1107,
+      "sha256": "f55a8f732d629c1757212f058a28ae637385dd70b1a55a5d3a4de912d1cdb2f6"
+    },
+    "preflight-test-0-v1/job.json": {
+      "present": true,
+      "bytes": 1090,
+      "sha256": "cc59ab654aee755bf144a7edeb2a301b8d838aa0adf86d947f761c27997b9c59"
+    },
+    "preflight-test-0-v1/observation.json": {
+      "present": true,
+      "bytes": 37275,
+      "sha256": "58ea883d1d86aa213efd2364d39c7923f3a8d8f2da5ed8cdb22044b54c59f9d0"
+    },
+    "preflight-test-0-v1/stderr.log": {
+      "present": true,
+      "bytes": 1515,
+      "sha256": "623e2cf5edc4b2d5e2d73c379cde5fb0f072e6189b437ab5a6d392255858fb84"
+    },
+    "preflight-test-0-v1/proof/failure.json": {
+      "present": true,
+      "bytes": 81,
+      "sha256": "5a89be7e7ad698531ea88c1bb87def47bc42425fc111616d4abdf5287d5ddb6e"
+    },
+    "preflight-test-0-v1/proof/artifacts.json": {
+      "present": true,
+      "bytes": 1009,
+      "sha256": "83f4731641347f89eebafbd1e350007f60ab948326d3ab801aa4e29f23fbc353"
+    },
+    "preflight-test-0-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 211,
+      "sha256": "14c581068f79794f73a7418a94bc127d10d119f46a056872af8fc609c5fac25a"
+    },
+    "preflight-test-0-v1/proof/test_portable_detail.py.stderr.log": {
+      "present": true,
+      "bytes": 933,
+      "sha256": "332261cea1c0b8d0e56562b3f892ea7b42fc3c0f0fc19148082d888944595088"
+    }
+  }
+}
