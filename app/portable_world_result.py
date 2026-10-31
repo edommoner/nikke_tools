@@ -252,4 +252,3 @@ def read_typed_battle(block,domain,*,sampled_coefficients=None,sampled_rows=None
         attacks.append(dict(attack_id=block[at],owner=block[at+2],time=number(block,at+4),damage=number(block,at+8),completed=bool(block[at+10]),receipts=receipts))
     assert not any(block[790000+count*1040:790000+128*1040]),'Unused typed attacks'
     return dict(time=number(block,header),finished=bool(block[header+3]),state=state,attacks=attacks)
-

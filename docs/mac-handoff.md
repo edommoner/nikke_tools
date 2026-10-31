@@ -1,3 +1,21 @@
+## 2026-11-01 Lock On・typed対象・遮蔽の製品合成と全履歴の保持
+
+前turnはWindows停止の切り分け/実行器修正で進捗。今回はce18f302でHeavyarmsの元Lock On/shot quota/typed landingとSOWの独立cover DEF/手動遮蔽を同じ既存実行器へ接続。元lock prefix109536語＋cover24語、input109560/output2048912。count93とcover96を分離、固定は既存version6 literal control。未指定距離/配送を推定せず、明示lock_on＋cover_defenseだけを合成。全元効果保持、CPU正本/数値/normalizer/新suite変更0。
+
+初回owner634a3d76…は132CPU/fresh native後、元30秒がstatus8で停止。world skill trace128件・次129件目で容量に達したため。入力/期待値/時間を変えず、bcc58da5で既存ページ方式の全履歴2048件を未使用1310720..1402880へ、packet fateの残1920語を1402880..1404800へ保持。cover始端2032000とのgapもzero検査。元prefix/旧容量を変更せず新合成だけで拡張。初回raw/claim/失敗保持、履歴削除や短時間化で回避0。
+
+修正ownerfa9315c8…自身の133CPU/fresh native/実M5/fresh GPU禁止seal成功。元入力SHA/native SHAは初回と同じ。不変packetの通常HTTP APIで、召喚敵2体/手動遮蔽/敵攻撃、さらにtyped projectile1体を加えた各固定/実蓄積の4条件が全M5/CPU製品payload一致。2物理dispatch、wall25.086秒。実履歴168〜169件を全保持、Lockpulse104/shot14/quota1323、typed追加2条件はtyped attack1/receipt1。全条件incoming25/cover8/非ゼロDEF6、Heavyarms DEF100→228.57を確認。これは宣言モデル実証で、距離など実ゲーム規則の確認ではない。
+
+保存監査で、旧skill/typedデコーダが検証entry全体を動的importしCWDに依存する問題も発見。4e2c710bで既存関数本体をAST同一のままapp/portable_skill_history.decode_prefix・portable_world_result.read_typed_battleへ抽出し、製品と旧検証を同じ関数へ統一。保存4件の旧packet全フィールド監査と、新3デコーダだけを元の不変計算/出所文脈へ差し替えた全フィールド監査が成功（追加GPU/native0）。作業tree全体の文脈へ替える試行ではevaluator.commitだけが環境のGit親repo差で変わった。pinned CPU metadataは変更せず、比較除外もせず、元engine文脈を保持したcomponent互換確認として区別する。延長recipient/skill/fate/gapの破損と誤suppression20件をrawコピーだけで拒否。実trace169件、parser境界129/2048件の合成検査を区別。
+
+共通デコーダを確認する追加検査で、歴史transport inverseのcurrent-file overrideが新しい厳密投影を隠していた問題も修正。実currentfileだけは全チェック付きchainへ任せ、別string/改変sourceは従来通り拒否。旧期待値/normalizer変更0。reference49/shared-history8/typed21/登録10/歴史7が成功。
+
+作業中に固定packetのデコーダ1ファイルを誤編集したが、該当auditはsource hash gateで停止し戦闘/GPU0。誤変更をprivate退避し、SHA46b512a5…の元archiveからmanifest期待SHAへ全bytes復元、全payload再検証成功。raw/capture/claim変更0。復元後に独立保存監査を完了した。復元記録は原本v2/accidental-edit-restoration.json。packetの計算をやり直していない。
+
+既定266の静的再packは262入力全bytes同一/4fallback同一。7標準入口の生成CUDA/MSLも5e1fの保存sourceと全bytes同一（Slangのみ、CUDA SDK/GPU/native0）。旧実績を新ownerへ付替えず、全266戦闘を再計算しない。固定の独立sealだけv24へ登録、旧21member保持、accumulate未登録。Windows追加依頼/SDK/GPU0、元missing14/unknownの停止保持。標準Metal262/266、CUDA旧厳格3/266・現source0、新標準profile0。全goal未完了、未指定4profile/残合成/現CUDA製品実証が残る。
+
+小記録research/product-lock-cover-v1.json、原本proofs/product-lock-cover-v1-20261101。全専用server停止（52542）、ユーザー4317/4327不操作。以下は履歴。
+
 ## 2026-11-01 CUDA前CPU一括予算の停止を特定、Claude再レビューと既存分割計画
 
 前turnはWindows観測modeの実証と事前alias拒否で進捗。今回wait/readが復旧し、9a0e77eeのv3最終statusと保存CPU内訳を取得。archive/immutable/owner＋展開成功、missing0/Job2GiB実測。ただしCPU1childへdevice-linker15＋own129を一括した60秒予算が61.993秒で停止。完了receiptはlinker15(9.445秒)、detail67(9.106秒)、packet10(2.848秒)、歴史7(3.491秒)の99件。reference45は35dotのみ/最終receiptなし。35件を合格部分集合へ昇格しない。Job peak206,557,184bytes≒197MiBで2GiB未達、全OSメモリ不足を否定する証拠ではない。Slang/NVRTC/PTXAS/link/driver/GPU/HTTP0、原claim/1540旧records保持。
