@@ -1,0 +1,84 @@
+{
+  "schema": "movement-cover-compile-only-v1",
+  "source_commit": "70e68113864923eaa3c5281b0d5f20deef1cbb3d",
+  "package_id": "de7eae326ff99ab4da1c28b0dca653e01da2c5abbc4ad8d1e6a9bf1d6211b988",
+  "archive": {
+    "name": "movement-cover-fixed-v1.zip",
+    "bytes": 12047589,
+    "sha256": "fb1d767a5995ff23854e4a1189b175b15ded31c96cb4c99c67db046a8a027086"
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "de7eae326ff99ab4da1c28b0dca653e01da2c5abbc4ad8d1e6a9bf1d6211b988",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "scope": "Only the new shared movement/manual-cover entry; never retry the old removal-snapshot object",
+  "bounds": {
+    "sdk_child_seconds": 60,
+    "outer_each_seconds": 180,
+    "memory_limit_mb": 2048,
+    "priority": "BelowNormal",
+    "nvrtc_split_compile": 2,
+    "ptxas_opt_level": 1
+  },
+  "sequence": [
+    "verify archive and immutable payload",
+    "own strict CPU preflight and paired CUDA/Metal generation",
+    "NVRTC PTX once",
+    "only if previous gates have zero missing and verified compiler/origin/Job: PTXAS module object once"
+  ],
+  "maximum_calls": {
+    "slang_generation_pair": 1,
+    "nvrtc": 1,
+    "ptxas": 1,
+    "link": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0
+  },
+  "stop": {
+    "no_retries": true,
+    "retain_all_failures_and_claims": true,
+    "process_missing_or_unknown_inspection": true,
+    "timeout": true,
+    "origin_mismatch": true,
+    "resource_limit": true
+  },
+  "report": {
+    "name": "movement-cover-fixed-compile-status-v1.json",
+    "include": [
+      "raw/normalized generation hashes",
+      "PTX/object byte hashes",
+      "tool/phase times and memory/Job limits",
+      "inner and outer missing/service/cleanup status",
+      "saved verbose PTXAS portableEvents kernel resource properties if available"
+    ],
+    "exclude": [
+      "raw CUDA/PTX/object binaries",
+      "raw process paths/PIDs/commands",
+      "personal settings/auth"
+    ],
+    "no_new_diagnostic_tools": true
+  },
+  "gpu_execution_authorized_by_this_request": false
+}
