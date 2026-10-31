@@ -40,7 +40,7 @@ SUITES = {
             'web/index.html','web/app.js','web/style.css','web/exporter.js','web/parts-model.mjs','web/phase-model.mjs',
             'web/enemy-model.mjs','web/roster-model.mjs','web/board-model.mjs',
             'tests/server.test.mjs','tests/evaluation-queue.test.mjs','tests/python-runtime.test.mjs','tests/portable-http-policy.test.mjs'],
-        development_only=False,parent_oracle_reuse=True,tests=['test_portable_detail.py','test_product_detail_packet.py','test_weighted_source_contract.py']),
+        development_only=False,parent_oracle_reuse=True,tests=['test_portable_detail.py','test_product_detail_packet.py','test_weighted_source_contract.py','test_product_reference_models.py']),
     'original-projectile-weapons':dict(script='research/verify-original-projectile-weapons.py',
         golden='research/portable-original-projectile-weapons-v1-expected.json',source='gpu/world_coordinate_typed_owner_entry.slang',
         inputs=13,native=8,input_words=115680,output_words=2032000,development_only=False,parent_oracle_reuse=True,cpu_test_timeout=120,entry_inventory_input_policy='body-owned-projectile-v1',

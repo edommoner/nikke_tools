@@ -34,7 +34,13 @@ void initializeCombat(inout Runtime s, uint input)
         s.weaponEnabled[who] = commands[at]; s.weaponMode[who] = commands[at+1];
         s.capacity[who] = commands[at+2]; s.ammo[who] = s.capacity[who]; s.stage[who] = commands[at+3]&7U; s.currentStage[who] = s.stage[who]; s.physicalModeIndex[who] = -1;
         uint stageWord=commands[at+3];
-        if((stageWord&~0x707U)!=0 || s.stage[who]>4 || ((stageWord>>8)&3U)!=0 && (s.stage[who]!=4 || (stageWord&1024U)!=0)) { s.error=64;return; }
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+        uint stageMask=0xffffff07U;
+        if(!validProductBurstPatternWord(stageWord)){s.error=64;return;}
+#else
+        uint stageMask=0x707U;
+#endif
+        if((stageWord&~stageMask)!=0 || s.stage[who]>4 || ((stageWord>>8)&3U)!=0 && (s.stage[who]!=4 || (stageWord&1024U)!=0)) { s.error=64;return; }
         s.coefficient[who] = loadNumber(at+4); s.interval[who] = loadNumber(at+6);
         s.reloadTime[who] = loadNumber(at+8); s.chargeTime[who] = loadNumber(at+10);
         s.gain[who] = loadNumber(at+12); s.cooldown[who] = loadNumber(at+14);
@@ -203,6 +209,9 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
 #endif
     if (s.phase == 5 && reached(when,s.fullEnd))
     { s.phase = 0; invalidateNativeNumeric(s); teamNotify(s,2,when,output); s.castMask = 0; logBurst(s,5,0xffffffff,when,output);
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+      finishProductBurstPatternCycle(s);
+#endif
 #ifdef PORTABLE_PRODUCT_FIXED_BURST
       s.fixedGaugeReadyAt = f64Add(when,loadNumber(s.inputBase+P_WORLD_CONTROL_INPUT_BASE+8));
       if (!f64Finite(s.fixedGaugeReadyAt)) { s.error=64;return; }
@@ -236,6 +245,10 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
     {
         uint picked = 5, candidates = 0; uint64_t earliest = FOREVER; s.cooldownWaitMask = 0;
         if (s.reentrySlot != 0) enterStage(s,s.phase,when,output);
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+        if(productBurstPatterns(s))chooseProductBurstPattern(s,when,stages,picked);
+        else
+#endif
 #ifdef PORTABLE_COORDINATE_BURST_CONTROLS
         if(burstControls(s))chooseBurstControl(s,when,picked);
         else

@@ -72,7 +72,7 @@ class ArtifactTests(unittest.TestCase):
             root=Path(folder);(root/'bin').mkdir();dll=root/'bin/nvrtc64_dummy.dll';dll.write_bytes(b'compiler')
             builtins=root/'bin/nvrtc-builtins64_dummy.dll';builtins.write_bytes(b'companion')
             source=root/'generated.cu';source.write_bytes(b'cuda');cache=root/'cache'
-            env=dict(CUDA_PATH=str(root),NIKKE_CUDA_COMPILE_CACHE=str(cache),NIKKE_CUDA_CACHE_REQUIRED='0',NIKKE_CUDA_PTXAS_OPT_LEVEL='')
+            env=dict(CUDA_PATH=str(root),NIKKE_CUDA_COMPILE_CACHE=str(cache),NIKKE_CUDA_CACHE_REQUIRED='0',NIKKE_CUDA_PTXAS_OPT_LEVEL='',NIKKE_CUDA_SPLIT_COMPILE=os.environ.get('NIKKE_CUDA_SPLIT_COMPILE','1'))
             fake_os=types.SimpleNamespace(name='nt',environ=env,add_dll_directory=lambda path:contextlib.nullcontext())
             with patch.dict(os.environ,env):
                 artifact,receipt=compile_cuda_artifact(NVRTC(),b'cuda',[dll,builtins],artifact_kind='cubin')

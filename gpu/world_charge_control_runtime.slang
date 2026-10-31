@@ -18,6 +18,64 @@ uint controlThreshold(inout Runtime s,uint index) { return controlInput(s)+1016+
 #endif
 // Product operator intervals reuse the bounded common control trace.
 #ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+#define PORTABLE_BURST_CONTROL_SHARED_BINARY64
+#include "burst_control_policy.slang"
+// Only literal priorities occupy the spare upper weapon-stage bits. The
+// completed-cycle counter is produced by this GPU battle, never by a CPU run.
+bool validProductBurstPatternWord(uint word)
+{
+    uint kind=(word>>11)&3U,value=word>>13;
+    return (word&0xf8U)==0 && (kind==1?value!=0:kind==2||value==0);
+}
+BurstControlPolicy loadProductBurstPatternPolicy(inout Runtime s)
+{
+    BurstControlPolicy p;for(uint i=0;i<176;i++)p.words[i]=0;
+    p.words[0]=0x42435631U;p.words[1]=1;p.words[2]=1;p.words[4]=5;p.words[5]=24;p.words[6]=16;
+    for(uint who=0;who<5;who++)
+    {
+        uint word=commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3],kind=(word>>11)&3U,at=8+who*24;
+        p.words[at+4]=kind==3?0:kind;p.words[at+22]=kind!=0?1:0;
+        if(kind==1)p.words[at+5]=word>>13;
+        if(kind==2)p.words[at+6]=word>>13;
+    }
+    return p;
+}
+bool productBurstPatterns(inout Runtime s){return results[controlHead(s)+15]==0x50425031U;}
+void initializeProductBurstPatterns(inout Runtime s)
+{
+    bool active=false;
+    for(uint who=0;who<5;who++)
+    {
+        uint word=commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3];
+        if(!validProductBurstPatternWord(word)){s.error=64;return;}
+        if(((word>>11)&3U)!=0)active=true;
+    }
+    if(active)
+    {
+        BurstControlPolicy p=loadProductBurstPatternPolicy(s);
+        if(!burstControlValid(p)){s.error=64;return;}
+        results[controlHead(s)+15]=0x50425031U;
+    }
+}
+void finishProductBurstPatternCycle(inout Runtime s)
+{
+    if(!productBurstPatterns(s))return;
+    uint at=controlHead(s)+14;if(results[at]==0xffffffffU){s.error=2;return;}results[at]++;
+}
+void chooseProductBurstPattern(inout Runtime s,uint64_t when,uint stages[5],out uint picked)
+{
+    BurstControlPolicy p=loadProductBurstPatternPolicy(s);BurstControlState b;
+    b.stage=s.phase;b.cycle=results[controlHead(s)+14];b.reentry=s.reentrySlot;
+    b.unavailable=s.downMask;b.explicitStage=0;b.when=when;b.opened=when;b.action=s.action;
+    for(uint who=0;who<5;who++)
+    {
+        b.stages[who]=stages[who];b.ready[who]=s.ready[who];
+        if(statusStunned(s,who))b.unavailable|=1U<<who;
+        if((commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3]&1024U)!=0)b.explicitStage|=1U<<who;
+    }
+    BurstControlDecision d=burstControlChoose(p,b,burstControlCandidates(p,b,s.phase,true));
+    picked=d.owner;s.action=d.action;s.cooldownWaitMask=d.waitMask;
+}
 void productCloseControl(inout Runtime s,uint who,uint64_t when,uint reason)
 {
     uint a=controlState(s,who),row=results[a+20];if(row==0)return;
@@ -132,6 +190,9 @@ void initializeChargeControl(inout Runtime s)
     {
         uint a=controlState(s,who);for(uint j=2;j<=12;j+=2) storeNumber(a+j,ONE|F64_SIGN);results[a+14]=0xffffffff;
     } WORLD_RELOAD_INIT(s)
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+    initializeProductBurstPatterns(s);
+#endif
 }
 bool controlWindow(inout Runtime s,uint who,uint row)
 {

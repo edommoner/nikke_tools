@@ -49,6 +49,7 @@ def compile_world_battle(prepared, *, trace='burst', allow_physical_interrupt=Fa
     allowed = {'duration', 'rng_mode', 'burst_gauge_mode', 'first_burst_time',
                'allow_unparsed', 'aim_interrupt', 'camera', 'camera_mode', 'control_mode'}
     if coordinate:allowed|={'burst_delay','burst_pattern','burst_sequence'}
+    if prepared.get('_product_burst_patterns'):allowed|={'burst_pattern'}
     if set(cfg) - allowed or cfg.get('rng_mode') != 'expected' or cfg.get('burst_gauge_mode') != 'accumulate' or policies.get('expected') is not True:
         raise UnsupportedPortable('Real world requires expected RNG and accumulated burst gauge')
     if cfg.get('allow_unparsed') or (cfg.get('aim_interrupt') and not allow_physical_interrupt) or set(policies['auto']) != set(names):
@@ -89,6 +90,13 @@ def compile_world_battle(prepared, *, trace='burst', allow_physical_interrupt=Fa
         for c in control_chars:
             for axis in ('aim','cover','reload','burst'):c.get('control',{}).pop(axis,None)
         controls=normalize_controls(control_chars,attacks,literal_enemy,cfg.get('control_mode','solo'))
+    elif prepared.get('_product_burst_patterns'):
+        control_chars=copy.deepcopy(chars)
+        for c in control_chars:
+            burst=c.get('control',{}).get('burst')
+            if burst and set(burst)-{'pattern'}:raise UnsupportedPortable('Product burst delays/waits require their own literal policy producer')
+            c.get('control',{}).pop('burst',None)
+        controls=normalize_static_controls(control_chars,attacks,enemy,cfg.get('control_mode','solo'))
     else:controls = normalize_static_controls(chars, attacks, enemy, cfg.get('control_mode', 'solo'))
     delays = normalize_static_clock(chars, attacks, enemy)
     original = [(copy.deepcopy(x['effect']), x['owner']) for x in prepared['effects']]

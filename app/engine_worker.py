@@ -256,6 +256,10 @@ def detail_demo():
 
 
 def evaluate(body):
+    from product_reference_models import normalize as reference_models,execution as reference_execution,WARNING as reference_warning
+    declared_models=reference_models(body.get('reference_models'))
+    if declared_models and (body.get('_compile_gpu_detail') or body.get('_compile_gpu')):
+        raise ValueError('Declared reference consumer has no legacy GPU producer; CPU execution is required')
     profile = copy.deepcopy(body['profile'])
     squad = body['squad']
     if not isinstance(squad, list) or len(squad) != 5 or len(set(squad)) != 5:
@@ -344,7 +348,9 @@ def evaluate(body):
                 char['cube'] = {'name': '__none__', 'level': 1}
         if body.get('_portable_static_inputs'):
             from portable_roster_input import prepare_static_inputs
-            return prepare_static_inputs(run, changed)
+            static=prepare_static_inputs(run, changed)
+            if declared_models:static['reference_models']=copy.deepcopy(declared_models)
+            return static
         if body.get('_audit_portable'):
             from portable_catalog import audit_prepared
             return audit_prepared(run, changed, body)
@@ -354,8 +360,10 @@ def evaluate(body):
         if body.get('_compile_gpu'):
             from gpu_combat import compile_run
             return compile_run(run, changed, body)
-        executed = sim.execute(run)
+        with reference_execution(declared_models) as model_result:
+            executed = sim.execute(run)
         result = sim.payload(run, executed)
+        if model_result is not None:result['reference_models']=model_result
         if parts:result['parts_state']=cpu_parts_state(parts,executed)
         if body.get('enemy',{}).get('patterns'):
             result['boss_patterns']=copy.deepcopy(body['enemy']['patterns'])
@@ -379,6 +387,7 @@ def evaluate(body):
     result['engine_revision'] = REVISION
     result['app_warnings'] = ['固定条件の静止ボスを仮定した参考値です。ボス固有パターンと生存は未検証です。']
     result['app_warnings'].extend(getattr(executed,'effect_model_warnings',[]))
+    if declared_models:result['app_warnings'].append(reference_warning)
     if body.get('enemy',{}).get('patterns'):result['app_warnings'][0]='設定したボス行動で計算した参考値です。実機のギミックや生存の再現は未検証です。'
     if result['requested_burst_policy']=='mast3' and result['burst_policy']=='auto':
         result['app_warnings'].append('マスト：ロマンチックメイドがいないため、3の倍数指定は適用せず全員オートで計算しました。')

@@ -1,0 +1,242 @@
+{
+  "schema": 1,
+  "feature": "product-burst-patterns-v1",
+  "reference_scope_changed": false,
+  "shared_policy": "gpu/burst_control_policy.slang",
+  "input_stride_changed": false,
+  "output_stride_changed": false,
+  "literals": {
+    "every_max": 524287,
+    "list_cycle_max": 19,
+    "none_presence": true
+  },
+  "public_metal_cases": [
+    {
+      "name": "public-priority-fixed-auto",
+      "backend": "metal_detail",
+      "device": "Apple M5",
+      "gpu_seconds": 15.199124625010882,
+      "cpu_payload_exact": true,
+      "api_cache_hit": false,
+      "burst_stage2": [
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 41.283,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 77.267,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        }
+      ]
+    },
+    {
+      "name": "public-priority-fixed-mast3",
+      "backend": "metal_detail",
+      "device": "Apple M5",
+      "gpu_seconds": 16.578633291646838,
+      "cpu_payload_exact": true,
+      "api_cache_hit": false,
+      "burst_stage2": [
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "도라"
+        },
+        {
+          "time": 21.283,
+          "event": "stage:2 사용",
+          "character": "도라"
+        },
+        {
+          "time": 38.867,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 52.25,
+          "event": "stage:2 사용",
+          "character": "도라"
+        },
+        {
+          "time": 69.833,
+          "event": "stage:2 사용",
+          "character": "도라"
+        },
+        {
+          "time": 83.217,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        }
+      ]
+    },
+    {
+      "name": "public-priority-accumulate-auto",
+      "backend": "metal_detail",
+      "device": "Apple M5",
+      "gpu_seconds": 15.252368791669142,
+      "cpu_payload_exact": true,
+      "api_cache_hit": false,
+      "burst_stage2": [
+        {
+          "time": 3.25,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 41.433,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 77.417,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        }
+      ]
+    },
+    {
+      "name": "public-priority-accumulate-mast3",
+      "backend": "metal_detail",
+      "device": "Apple M5",
+      "gpu_seconds": 16.58681962499395,
+      "cpu_payload_exact": true,
+      "api_cache_hit": false,
+      "burst_stage2": [
+        {
+          "time": 3.25,
+          "event": "stage:2 사용",
+          "character": "도라"
+        },
+        {
+          "time": 21.433,
+          "event": "stage:2 사용",
+          "character": "도라"
+        },
+        {
+          "time": 39.433,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 52.9,
+          "event": "stage:2 사용",
+          "character": "도라"
+        },
+        {
+          "time": 70.467,
+          "event": "stage:2 사용",
+          "character": "도라"
+        },
+        {
+          "time": 83.85,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        }
+      ]
+    },
+    {
+      "name": "public-second-b2",
+      "backend": "metal_detail",
+      "device": "Apple M5",
+      "gpu_seconds": 16.756626999995206,
+      "cpu_payload_exact": true,
+      "api_cache_hit": false,
+      "burst_stage2": [
+        {
+          "time": 3.583,
+          "event": "stage:2 사용",
+          "character": "도라"
+        },
+        {
+          "time": 21.767,
+          "event": "stage:2 사용",
+          "character": "도라"
+        },
+        {
+          "time": 39.867,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 53.567,
+          "event": "stage:2 사용",
+          "character": "도라"
+        },
+        {
+          "time": 71.717,
+          "event": "stage:2 사용",
+          "character": "도라"
+        },
+        {
+          "time": 85.333,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        }
+      ]
+    },
+    {
+      "name": "public-single-b2-off-cycle",
+      "backend": "metal_detail",
+      "device": "Apple M5",
+      "gpu_seconds": 5.381583166657947,
+      "cpu_payload_exact": true,
+      "api_cache_hit": false,
+      "burst_stage2": [
+        {
+          "time": 3.533,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        }
+      ]
+    }
+  ],
+  "public_saved_audits": {
+    "cases": 6,
+    "additional_native_calls": 0,
+    "additional_gpu_calls": 0
+  },
+  "normal_accumulate": {
+    "package_id": "92f39c13e4831d94bc012ced523b9d3611478464e224921219b58c2d98b5fe33",
+    "calculation_verified": true,
+    "independent_seal": true,
+    "input_output_native_entries_unchanged": true,
+    "golden": "research/portable-product-programs-v2-expected.json"
+  },
+  "private_settings_status": {
+    "kept_local": true,
+    "gpu_dispatched": true,
+    "cpu_check_matched": false,
+    "burst_timeline_matched": true,
+    "differing_fields": [
+      "members",
+      "total_damage"
+    ],
+    "gpu_result_rejected": true
+  },
+  "cuda_current_verified": false,
+  "complete_profile_count_not_changed": true,
+  "final_packet": {
+    "package_id": "cddcbaaeb26eb280b66fda98490e2b47132b6803ffa1c948936be6eaf230bc46",
+    "unit_tests": 76,
+    "native_oracles": 1,
+    "cpu_preflight_passed": true,
+    "gpu_calls": 0,
+    "scope": "CPU-only validation of final coordinator; original Metal/seal provenance retained"
+  },
+  "product_reference_consumer": {
+    "name": "enemy_healing",
+    "cpu_api_connected": true,
+    "gpu_product_connected": false,
+    "original_definitions": 69,
+    "reference_units": 4,
+    "existing_model_units": 12,
+    "pinned_upstream_changed": false
+  }
+}

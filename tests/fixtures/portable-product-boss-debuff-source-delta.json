@@ -24,67 +24,61 @@
     },
     "app/portable_detail.py": {
       "before_sha256": "085c7ccdcebfa6641bf124d95e6c320c337405202e4b148ae64dca08cb11db06",
-      "after_sha256": "ad8825d1b6a4daa5b00522894c49b28b164c27f8f952850608576af1ab4c1a69",
+      "after_sha256": "0abf03fa00cdd5d69d21d4a9019952849f95350cc1ab977da6836c5d98f30e36",
       "hunks": [
         {
-          "start": 3778,
-          "end": 3903,
+          "start": 2824,
+          "end": 3014,
           "before": "",
-          "after": "from portable_product_add_attack import lower as lower_add_attacks\n    prepared,add_patterns=lower_add_attacks(prepared)\n    "
+          "after": "    if prepared.get('reference_models'):\n        raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared GPU product wire; no model may be silently omitted')\n"
         },
         {
-          "start": 3952,
-          "end": 4143,
+          "start": 3964,
+          "end": 4208,
           "before": "",
-          "after": ")\n    if any(p.get('kind') in ('attack','debuff') and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):\n        prepared=dict(prepared,_product_boss_debuffs=True"
+          "after": "    from portable_product_add_attack import lower as lower_add_attacks\n    prepared,add_patterns=lower_add_attacks(prepared)\n    if 'burst_pattern' in prepared['policies']['config']:\n        prepared=dict(prepared,_product_burst_patterns=True)\n"
         },
         {
-          "start": 5178,
-          "end": 5299,
+          "start": 4263,
+          "end": 4454,
           "before": "",
-          "after": "registry_nodes=validate(copy.deepcopy(prepared['enemy']['patterns'])) if add_patterns is not None else nodes\n            "
+          "after": "    if any(p.get('kind') in ('attack','debuff') and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):\n        prepared=dict(prepared,_product_boss_debuffs=True)\n"
         },
         {
-          "start": 5327,
-          "end": 5336,
-          "before": "",
-          "after": "registry_"
+          "start": 5475,
+          "end": 5663,
+          "before": "            _,bindings=compile_registry(nodes,pools=True)\n",
+          "after": "            registry_nodes=validate(copy.deepcopy(prepared['enemy']['patterns'])) if add_patterns is not None else nodes\n            _,bindings=compile_registry(registry_nodes,pools=True)\n"
         },
         {
-          "start": 6873,
-          "end": 7070,
+          "start": 7184,
+          "end": 8019,
           "before": "",
-          "after": ")\n        if add_patterns is not None:\n            from portable_product_add_attack import attach\n            return attach(source,words,metadata,prepared,add_patterns,original['enemy']['patterns']"
+          "after": "        if prepared.get('_product_burst_patterns'):\n            from portable_burst_control_specs import product_patterns\n            from portable_specs import LIMITS as limits\n            names=[c['name'] for c in prepared['chars']]\n            patterns=prepared['policies']['config']['burst_pattern']\n            packed=product_patterns(names,patterns)\n            for who,value in enumerate(packed):\n                words[limits['WEAPON_BASE']+who*limits['WEAPON_WORDS']+3]|=value\n            if any(packed):metadata['product_burst_patterns']=dict(patterns=copy.deepcopy(patterns),encoded=packed,cpu_schedule_or_state_supplied=False)\n        if add_patterns is not None:\n            from portable_product_add_attack import attach\n            return attach(source,words,metadata,prepared,add_patterns,original['enemy']['patterns'])\n"
         },
         {
-          "start": 14023,
-          "end": 14025,
-          "before": "",
-          "after": ",8"
+          "start": 11122,
+          "end": 11240,
+          "before": "    control_log=read_product_control_log(block,metadata,names,run.config['duration'])\n",
+          "after": "    control_log=read_product_control_log(block,metadata,names,run.config['duration'],burst_trace=view['burst_trace'])\n"
         },
         {
-          "start": 14301,
-          "end": 14409,
-          "before": "",
-          "after": "from portable_product_add_attack import query_sources\n        sources=query_sources(block,metadata)\n        "
+          "start": 14961,
+          "end": 15056,
+          "before": "            if kind not in (1,2,3,4,5,6,7) or node>=(len(names) if kind==6 else len(nodes)):\n",
+          "after": "            if kind not in (1,2,3,4,5,6,7,8) or node>=(len(names) if kind==6 else len(nodes)):\n"
         },
         {
-          "start": 14439,
-          "end": 14462,
-          "before": "",
-          "after": "es,attack_sources=sourc"
+          "start": 15272,
+          "end": 15445,
+          "before": "        world=read_histories(block,nodes)\n",
+          "after": "        from portable_product_add_attack import query_sources\n        sources=query_sources(block,metadata)\n        world=read_histories(block,nodes,attack_sources=sources)\n"
         },
         {
-          "start": 15884,
-          "end": 15897,
-          "before": "",
-          "after": "hit.get('by',"
-        },
-        {
-          "start": 15899,
-          "end": 15900,
-          "before": "",
-          "after": ")"
+          "start": 16743,
+          "end": 16881,
+          "before": "                cover=round(hit['cover'],6),hp=round(hit['hp'],6),hp_after=round(hit['hp_after'],6),down=hit['down'],by='')\n",
+          "after": "                cover=round(hit['cover'],6),hp=round(hit['hp'],6),hp_after=round(hit['hp_after'],6),down=hit['down'],by=hit.get('by',''))\n"
         }
       ]
     },
@@ -114,23 +108,35 @@
     },
     "app/portable_world_roster_input.py": {
       "before_sha256": "7d1f753d975c887fa0e206873f9aeeb629ba6486108c226d4654ac4d96d86b35",
-      "after_sha256": "046da3232f19f5b9db55eb32d397c419733636ac7e4249c5363d10b85e8f2a1a",
+      "after_sha256": "48a3889f8d48e7d3da6115c8881ee825e25049fd07005f0bf5b67966026a1be0",
       "hunks": [
         {
-          "start": 6040,
-          "end": 6610,
+          "start": 2882,
+          "end": 2956,
+          "before": "",
+          "after": "    if prepared.get('_product_burst_patterns'):allowed|={'burst_pattern'}\n"
+        },
+        {
+          "start": 5866,
+          "end": 6341,
+          "before": "",
+          "after": "    elif prepared.get('_product_burst_patterns'):\n        control_chars=copy.deepcopy(chars)\n        for c in control_chars:\n            burst=c.get('control',{}).get('burst')\n            if burst and set(burst)-{'pattern'}:raise UnsupportedPortable('Product burst delays/waits require their own literal policy producer')\n            c.get('control',{}).pop('burst',None)\n        controls=normalize_static_controls(control_chars,attacks,enemy,cfg.get('control_mode','solo'))\n"
+        },
+        {
+          "start": 6589,
+          "end": 7159,
           "before": "",
           "after": "    character_effects=len(original)\n    boss_nodes={}\n    if prepared.get('_product_boss_debuffs'):\n        from portable_world_attack_specs import boss_debuff_effects\n        effect_patterns=patterns\n        if '_product_add_debuff_patterns' in prepared:\n            from calculator.boss_pattern import validate\n            effect_patterns=validate(copy.deepcopy(prepared['_product_add_debuff_patterns']),squad_size=5)\n        boss_effects,boss_nodes=boss_debuff_effects(effect_patterns,names[0],enemy.get('atk',DEFAULT_BOSS_ATK))\n        original.extend(boss_effects)\n"
         },
         {
-          "start": 8484,
-          "end": 8638,
+          "start": 9033,
+          "end": 9187,
           "before": "",
           "after": "    if boss_nodes:\n        from portable_world_attack_specs import pack_boss_debuffs\n        pack_boss_debuffs(words,meta,character_effects,boss_nodes,L)\n"
         },
         {
-          "start": 11625,
-          "end": 11719,
+          "start": 12174,
+          "end": 12268,
           "before": "        prepared_effects=len(original), bound_effects=len(bound), camera=sorted(cameras),\n",
           "after": "        prepared_effects=character_effects, bound_effects=len(bound), camera=sorted(cameras),\n"
         }
@@ -432,73 +438,61 @@
     },
     "app/portable_world_result.py": {
       "before_sha256": "14b75458d6d90058523c1bd63bdfc5ba23b4842b690bd2d64cc64ba0f4101fec",
-      "after_sha256": "922a01822821badddc1366836dee1153e14f83902c753cd9bd1f8922ada48973",
+      "after_sha256": "84edd81758ce206c9dba1337d95a280e6e8fe64d5937d1483255d59915df2c84",
       "hunks": [
         {
-          "start": 471,
-          "end": 493,
+          "start": 438,
+          "end": 496,
+          "before": "def read_histories(block,patterns):\n",
+          "after": "def read_histories(block,patterns,*,attack_sources=None):\n"
+        },
+        {
+          "start": 736,
+          "end": 868,
           "before": "",
-          "after": ",*,attack_sources=None"
+          "after": "  if kind==8:\n   plan.append(dict(time=time,pattern=patterns[node]['id'],event='down',outcome='',direct_downs_before=arg));continue\n"
         },
         {
-          "start": 735,
-          "end": 867,
+          "start": 1651,
+          "end": 2177,
+          "before": "  hits.append(dict(time=num(at),pattern=query_pattern[tag>>5],owner=(flags>>3)&7,damage=num(at+4),pierce=bool(flags&1),shield=num(at+6),cover=num(at+8),decoy=num(at+10),hp=num(at+12),hp_after=num(at+14),down=bool(flags&4)))\n  if flags&4:down_by_query.setdefault(tag>>5,[]).append(dict(time=num(at),pattern=query_pattern[tag>>5],event='down',outcome=''))\n",
+          "after": "  dot=bool(tag&0x80000000)\n  pattern=patterns[(tag>>5)&31]['id'] if dot else query_pattern[tag>>5]\n  hits.append(dict(time=num(at),pattern=pattern,owner=(flags>>3)&7,damage=num(at+4),pierce=bool(flags&1),shield=num(at+6),cover=num(at+8),decoy=num(at+10),hp=num(at+12),hp_after=num(at+14),down=bool(flags&4)))\n  if attack_sources is not None:\n   hits[-1]['by']='' if dot else attack_sources[tag>>5]\n  if flags&4 and not dot:down_by_query.setdefault(tag>>5,[]).append(dict(time=num(at),pattern=pattern,event='down',outcome=''))\n"
+        },
+        {
+          "start": 3597,
+          "end": 3855,
           "before": "",
-          "after": "\n  if kind==8:\n   plan.append(dict(time=time,pattern=patterns[node]['id'],event='down',outcome='',direct_downs_before=arg));continue"
+          "after": "  if 'direct_downs_before' in item:\n   drain(item['direct_downs_before']);assert delivered_downs==item['direct_downs_before'],'Invalid direct down ordinal'\n   logs.append({k:v for k,v in item.items() if k!='direct_downs_before'});delivered_downs+=1;continue\n"
         },
         {
-          "start": 1653,
-          "end": 1752,
+          "start": 4476,
+          "end": 4506,
+          "before": "  if kind in (3,6):continue\n",
+          "after": "  if kind in (3,6,8):continue\n"
+        },
+        {
+          "start": 4800,
+          "end": 4880,
+          "before": "def read_product_control_log(block,metadata,names,duration):\n",
+          "after": "def read_product_control_log(block,metadata,names,duration,*,burst_trace=None):\n"
+        },
+        {
+          "start": 5417,
+          "end": 5537,
+          "before": "    if not labels or not any(labels):return None\n",
+          "after": "    patterns=metadata.get('product_burst_patterns')\n    if not patterns and (not labels or not any(labels)):return None\n"
+        },
+        {
+          "start": 5739,
+          "end": 6014,
           "before": "",
-          "after": "dot=bool(tag&0x80000000)\n  pattern=patterns[(tag>>5)&31]['id'] if dot else query_pattern[tag>>5]\n  "
+          "after": "    if patterns:\n        if len(block)<=h+15 or block[h]!=0x57434831 or block[h+15]!=0x50425031 or block[h+14]>block[8]:fail()\n        if burst_trace is not None and block[h+14]!=sum(e['event']==5 for e in burst_trace):fail()\n    if not labels or not any(labels):return None\n"
         },
         {
-          "start": 1790,
-          "end": 1790,
-          "before": "query_",
-          "after": ""
-        },
-        {
-          "start": 1797,
-          "end": 1797,
-          "before": "[tag>>5]",
-          "after": ""
-        },
-        {
-          "start": 1965,
-          "end": 2054,
-          "before": "",
-          "after": "attack_sources is not None:\n   hits[-1]['by']='' if dot else attack_sources[tag>>5]\n  if "
-        },
-        {
-          "start": 2061,
-          "end": 2073,
-          "before": "",
-          "after": " and not dot"
-        },
-        {
-          "start": 2143,
-          "end": 2143,
-          "before": "query_",
-          "after": ""
-        },
-        {
-          "start": 2150,
-          "end": 2150,
-          "before": "[tag>>5]",
-          "after": ""
-        },
-        {
-          "start": 3603,
-          "end": 3861,
-          "before": "",
-          "after": "direct_downs_before' in item:\n   drain(item['direct_downs_before']);assert delivered_downs==item['direct_downs_before'],'Invalid direct down ordinal'\n   logs.append({k:v for k,v in item.items() if k!='direct_downs_before'});delivered_downs+=1;continue\n  if '"
-        },
-        {
-          "start": 4493,
-          "end": 4495,
-          "before": "",
-          "after": ",8"
+          "start": 6208,
+          "end": 6284,
+          "before": "    if any(block[h+k] for k in (7,9,14,15)):fail()\n",
+          "after": "    if any(block[h+k] for k in ((7,9) if patterns else (7,9,14,15))):fail()\n"
         }
       ]
     },
@@ -751,6 +745,78 @@
           "end": 1749,
           "before": "  if any(control.get(k) for k in ('cover','reload','aim','burst')):raise ValueError('Cover/reload/aim/burst controls require their own common adapters')\n",
           "after": "  reload=control.get('reload') or {}\n  if (any(control.get(k) for k in ('cover','aim','burst')) or\n      set(reload)-{'cancel_on_full'} or\n      'cancel_on_full' in reload and type(reload['cancel_on_full']) is not bool):\n   raise ValueError('Cover/reload/aim/burst controls require their own common adapters')\n"
+        }
+      ]
+    },
+    "app/portable_burst_control_specs.py": {
+      "before_sha256": "9008f31067eea935f70058ef9902c1a5a59d4bd13e683bef07c840b08c45696c",
+      "after_sha256": "a493ffcb5138929cdc3bc227dbcad59a198ce3bd92b3c3bb8ad6f88e95cbfb42",
+      "hunks": [
+        {
+          "start": 303,
+          "end": 1345,
+          "before": "",
+          "after": "\n\ndef product_patterns(names, patterns):\n    \"\"\"Compact literal priorities in the existing product weapon stage word.\n\n    Reuse the shared policy producer/selector. Current public character presets\n    use every:N and short cycle lists; larger lists fail closed, never truncate.\n    No counter, selected owner or predicted time is a CPU input.\n    \"\"\"\n    policy=pack(names,patterns=patterns)\n    result=[]\n    for who,name in enumerate(names):\n        at=8+who*ROW_WORDS\n        if name not in patterns:kind=value=0\n        elif patterns[name] is None:kind,value=3,0\n        elif policy[at+4]==1:\n            kind,value=1,policy[at+5]\n            if value>0x7ffff:raise ValueError('Product every:N exceeds its literal uint19 capacity')\n        else:\n            if any(policy[at+7:at+22]) or policy[at+6]>>19:\n                raise ValueError('Product cycle-list patterns require cycles1..19; larger lists need the explicit policy bank')\n            kind,value=2,policy[at+6]\n        result.append((kind<<11)|(value<<13))\n    return result\n"
+        }
+      ]
+    },
+    "gpu/world_charge_control_runtime.slang": {
+      "before_sha256": "7ac4a981dcefff85b44293b8ba05a8058778c92972cc64a437f643b04f4bcaf8",
+      "after_sha256": "9df5a7ceaab324134aaea77d2b9218afcad486b6b0c3dc67dc7853de236245e6",
+      "hunks": [
+        {
+          "start": 1232,
+          "end": 3732,
+          "before": "",
+          "after": "#define PORTABLE_BURST_CONTROL_SHARED_BINARY64\n#include \"burst_control_policy.slang\"\n// Only literal priorities occupy the spare upper weapon-stage bits. The\n// completed-cycle counter is produced by this GPU battle, never by a CPU run.\nbool validProductBurstPatternWord(uint word)\n{\n    uint kind=(word>>11)&3U,value=word>>13;\n    return (word&0xf8U)==0 && (kind==1?value!=0:kind==2||value==0);\n}\nBurstControlPolicy loadProductBurstPatternPolicy(inout Runtime s)\n{\n    BurstControlPolicy p;for(uint i=0;i<176;i++)p.words[i]=0;\n    p.words[0]=0x42435631U;p.words[1]=1;p.words[2]=1;p.words[4]=5;p.words[5]=24;p.words[6]=16;\n    for(uint who=0;who<5;who++)\n    {\n        uint word=commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3],kind=(word>>11)&3U,at=8+who*24;\n        p.words[at+4]=kind==3?0:kind;p.words[at+22]=kind!=0?1:0;\n        if(kind==1)p.words[at+5]=word>>13;\n        if(kind==2)p.words[at+6]=word>>13;\n    }\n    return p;\n}\nbool productBurstPatterns(inout Runtime s){return results[controlHead(s)+15]==0x50425031U;}\nvoid initializeProductBurstPatterns(inout Runtime s)\n{\n    bool active=false;\n    for(uint who=0;who<5;who++)\n    {\n        uint word=commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3];\n        if(!validProductBurstPatternWord(word)){s.error=64;return;}\n        if(((word>>11)&3U)!=0)active=true;\n    }\n    if(active)\n    {\n        BurstControlPolicy p=loadProductBurstPatternPolicy(s);\n        if(!burstControlValid(p)){s.error=64;return;}\n        results[controlHead(s)+15]=0x50425031U;\n    }\n}\nvoid finishProductBurstPatternCycle(inout Runtime s)\n{\n    if(!productBurstPatterns(s))return;\n    uint at=controlHead(s)+14;if(results[at]==0xffffffffU){s.error=2;return;}results[at]++;\n}\nvoid chooseProductBurstPattern(inout Runtime s,uint64_t when,uint stages[5],out uint picked)\n{\n    BurstControlPolicy p=loadProductBurstPatternPolicy(s);BurstControlState b;\n    b.stage=s.phase;b.cycle=results[controlHead(s)+14];b.reentry=s.reentrySlot;\n    b.unavailable=s.downMask;b.explicitStage=0;b.when=when;b.opened=when;b.action=s.action;\n    for(uint who=0;who<5;who++)\n    {\n        b.stages[who]=stages[who];b.ready[who]=s.ready[who];\n        if(statusStunned(s,who))b.unavailable|=1U<<who;\n        if((commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3]&1024U)!=0)b.explicitStage|=1U<<who;\n    }\n    BurstControlDecision d=burstControlChoose(p,b,burstControlCandidates(p,b,s.phase,true));\n    picked=d.owner;s.action=d.action;s.cooldownWaitMask=d.waitMask;\n}\n"
+        },
+        {
+          "start": 10177,
+          "end": 10264,
+          "before": "",
+          "after": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n    initializeProductBurstPatterns(s);\n#endif\n"
+        }
+      ]
+    },
+    "gpu/combat_runtime.slang": {
+      "before_sha256": "714650a033ce289f520464b1df59cbe2c5d2488e5a5c54af9a3b612d769981ac",
+      "after_sha256": "959378bad447361dd93bcfd07271f26ecd41fad016bbff3ea747995a1829262e",
+      "hunks": [
+        {
+          "start": 2212,
+          "end": 2556,
+          "before": "        if((stageWord&~0x707U)!=0 || s.stage[who]>4 || ((stageWord>>8)&3U)!=0 && (s.stage[who]!=4 || (stageWord&1024U)!=0)) { s.error=64;return; }\n",
+          "after": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n        uint stageMask=0xffffff07U;\n        if(!validProductBurstPatternWord(stageWord)){s.error=64;return;}\n#else\n        uint stageMask=0x707U;\n#endif\n        if((stageWord&~stageMask)!=0 || s.stage[who]>4 || ((stageWord>>8)&3U)!=0 && (s.stage[who]!=4 || (stageWord&1024U)!=0)) { s.error=64;return; }\n"
+        },
+        {
+          "start": 11770,
+          "end": 11859,
+          "before": "",
+          "after": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n      finishProductBurstPatternCycle(s);\n#endif\n"
+        },
+        {
+          "start": 13185,
+          "end": 13330,
+          "before": "",
+          "after": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n        if(productBurstPatterns(s))chooseProductBurstPattern(s,when,stages,picked);\n        else\n#endif\n"
+        }
+      ]
+    },
+    "gpu/burst_control_policy.slang": {
+      "before_sha256": "67e178287eb06eaec483db76b28033995d7b8dc62ca004a75f2ed8d9dfc36152",
+      "after_sha256": "4dbd1dbd5b0711bcb9b1a0c8fb4d90d618e7392831ebab3977c0c95d1d1725e4",
+      "hunks": [
+        {
+          "start": 0,
+          "end": 94,
+          "before": "",
+          "after": "#ifndef PORTABLE_BURST_CONTROL_POLICY_INCLUDED\n#define PORTABLE_BURST_CONTROL_POLICY_INCLUDED\n"
+        },
+        {
+          "start": 5268,
+          "end": 5317,
+          "before": "",
+          "after": "#endif // PORTABLE_BURST_CONTROL_POLICY_INCLUDED\n"
         }
       ]
     }

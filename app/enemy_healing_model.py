@@ -92,6 +92,7 @@ class EnemyHealing:
             for label in rule['targets']:
                 binding=self.bound[label];run=boss._runs[binding.run]
                 record=dict(node=rule['node'],source_generation=source.opens,time=t,target=label,base_amount=rule['amount'],actor=None,status='not-spawned')
+                if len(self.data['receipts'])>=1024:raise ValueError('Enemy healing receipt capacity exceeded; no history truncation')
                 self.data['receipts'].append(record)
                 if run.opens==0:continue
                 snapshot=registry.view(ActorKind.ADD,label);record['actor']=[5,snapshot.handle.identity,snapshot.handle.generation]

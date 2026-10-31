@@ -10,6 +10,42 @@ import portable_product_artifact as artifacts
 from portable_projectile_roster_input import compile_projectile_battle
 
 class PortableDetail(unittest.TestCase):
+    def test_product_burst_pattern_literals_share_policy_and_never_pack_cpu_state(self):
+        from portable_burst_control_specs import product_patterns
+        from portable_specs import LIMITS as L
+        names=[c['name'] for c in self.prepared['chars']]
+        for pattern,word in [('every:3',(1<<11)|(3<<13)),([1,3,5,9,11,14],(2<<11)|(0x2515<<13)),(None,3<<11),([],2<<11)]:
+            with self.subTest(pattern=pattern):
+                self.assertEqual(product_patterns(names,{names[0]:pattern}),[word,0,0,0,0])
+                changed=copy.deepcopy(self.prepared)
+                changed['policies']['config']['burst_pattern']={names[0]:pattern}
+                changed['chars'][0].setdefault('control',{})['burst']={'pattern':pattern}
+                changed['policies']['controls'][names[0]]=copy.deepcopy(changed['chars'][0]['control'])
+                before=copy.deepcopy(changed)
+                with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle')):
+                    _,iw,ow,words,meta=product.compile_product(changed)
+                self.assertEqual(changed,before)
+                self.assertFalse(meta['product_burst_patterns']['cpu_schedule_or_state_supplied'])
+                _,oiw,oow,original,_=product.compile_product(self.prepared)
+                expected=list(original);expected[L['WEAPON_BASE']+3]|=word
+                self.assertEqual(words,expected);self.assertEqual((iw,ow),(oiw,oow))
+        for pattern in ('every:0','every:524288',[20],[512],True):
+            with self.subTest(pattern=pattern),self.assertRaises(ValueError):product_patterns(names,{names[0]:pattern})
+        with self.assertRaises(ValueError):product_patterns(names,{'unknown':'every:3'})
+
+    def test_product_burst_cycle_readback_is_validated_without_click_controls(self):
+        from portable_world_result import read_product_control_log
+        from portable_specs import LIMITS as L
+        block=array.array('I',[0])*786432;h=L['WORLD_CONTROL_HEAD_BASE']
+        block[h]=0x57434831;block[h+14]=2;block[h+15]=0x50425031;block[8]=30
+        meta=dict(product_burst_patterns=dict(encoded=[1<<11]),product_control_labels=[[],[],[],[],[]])
+        trace=[dict(event=5),dict(event=3),dict(event=5)]
+        self.assertIsNone(read_product_control_log(block,meta,['a','b','c','d','e'],1.,burst_trace=trace))
+        for offset,value in [(h,0),(h+15,0),(h+14,1),(h+14,31)]:
+            bad=array.array('I',block);bad[offset]=value
+            with self.subTest(offset=offset,value=value),self.assertRaises(product.UnsupportedPortable):
+                read_product_control_log(bad,meta,['a','b','c','d','e'],1.,burst_trace=trace)
+
     def test_original_reload_cancel_policy_reaches_existing_ammo_executor(self):
         from portable_original_identity_inventory import selected_profile_bodies
         from portable_specs import LIMITS as L

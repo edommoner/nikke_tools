@@ -1,3 +1,5 @@
+#ifndef PORTABLE_BURST_CONTROL_POLICY_INCLUDED
+#define PORTABLE_BURST_CONTROL_POLICY_INCLUDED
 // One candidate producer for real selection and the unobserved next-FB chain.
 // No Runtime, command buffer or CPU-computed prediction is owned by this module.
 #ifndef PORTABLE_BURST_CONTROL_SHARED_BINARY64
@@ -94,3 +96,4 @@ uint64_t burstControlPredict(BurstControlPolicy p,BurstControlState s)
     }
     return at;
 }
+#endif // PORTABLE_BURST_CONTROL_POLICY_INCLUDED

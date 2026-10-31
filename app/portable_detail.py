@@ -64,6 +64,8 @@ def verified_transport(evidence, backend):
 
 def compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
+    if prepared.get('reference_models'):
+        raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared GPU product wire; no model may be silently omitted')
     from portable_enemy_specs import lower_single_body_nearby
     original=prepared
     gauge_mode=prepared['policies']['config'].get('burst_gauge_mode','fixed')
@@ -81,6 +83,8 @@ def compile_product(prepared):
         prepared['policies']['config']['burst_gauge_mode']='accumulate'
     from portable_product_add_attack import lower as lower_add_attacks
     prepared,add_patterns=lower_add_attacks(prepared)
+    if 'burst_pattern' in prepared['policies']['config']:
+        prepared=dict(prepared,_product_burst_patterns=True)
     prepared,nearby=lower_single_body_nearby(prepared)
     if any(p.get('kind') in ('attack','debuff') and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):
         prepared=dict(prepared,_product_boss_debuffs=True)
@@ -121,6 +125,15 @@ def compile_product(prepared):
             metadata['product_fixed_burst']=dict(first_seconds=first,member_regen_seconds=regen,
                 readiness_regen_seconds=max(regen),CPU_state_or_schedule_as_input=False)
             source=source.replace('gpu/product_','gpu/product_fixed_',1)
+        if prepared.get('_product_burst_patterns'):
+            from portable_burst_control_specs import product_patterns
+            from portable_specs import LIMITS as limits
+            names=[c['name'] for c in prepared['chars']]
+            patterns=prepared['policies']['config']['burst_pattern']
+            packed=product_patterns(names,patterns)
+            for who,value in enumerate(packed):
+                words[limits['WEAPON_BASE']+who*limits['WEAPON_WORDS']+3]|=value
+            if any(packed):metadata['product_burst_patterns']=dict(patterns=copy.deepcopy(patterns),encoded=packed,cpu_schedule_or_state_supplied=False)
         if add_patterns is not None:
             from portable_product_add_attack import attach
             return attach(source,words,metadata,prepared,add_patterns,original['enemy']['patterns'])
@@ -177,7 +190,7 @@ def decode_payload(body, prepared, run, metadata, block):
         raise RuntimeError('Invalid GPU damage totals')
     names = [c['name'] for c in prepared['chars']]
     from portable_world_result import read_product_control_log
-    control_log=read_product_control_log(block,metadata,names,run.config['duration'])
+    control_log=read_product_control_log(block,metadata,names,run.config['duration'],burst_trace=view['burst_trace'])
     result = SimpleNamespace(squad_total=sum(values), char_total=dict(zip(names, values)),
         duration=run.config['duration'], log=control_log, boss_unmodeled={})
     payload = engine_worker.sim.payload(run, result)

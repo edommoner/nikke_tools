@@ -13,6 +13,30 @@ SOURCE = 'gpu/world_coordinate_burst_control_entry.slang'
 STATE_BASE = 1769838
 
 
+def product_patterns(names, patterns):
+    """Compact literal priorities in the existing product weapon stage word.
+
+    Reuse the shared policy producer/selector. Current public character presets
+    use every:N and short cycle lists; larger lists fail closed, never truncate.
+    No counter, selected owner or predicted time is a CPU input.
+    """
+    policy=pack(names,patterns=patterns)
+    result=[]
+    for who,name in enumerate(names):
+        at=8+who*ROW_WORDS
+        if name not in patterns:kind=value=0
+        elif patterns[name] is None:kind,value=3,0
+        elif policy[at+4]==1:
+            kind,value=1,policy[at+5]
+            if value>0x7ffff:raise ValueError('Product every:N exceeds its literal uint19 capacity')
+        else:
+            if any(policy[at+7:at+22]) or policy[at+6]>>19:
+                raise ValueError('Product cycle-list patterns require cycles1..19; larger lists need the explicit policy bank')
+            kind,value=2,policy[at+6]
+        result.append((kind<<11)|(value<<13))
+    return result
+
+
 def empty():
     return [MAGIC, 1, 0, 0, OWNERS, ROW_WORDS, 16, 0] + [0] * (WORDS - 8)
 

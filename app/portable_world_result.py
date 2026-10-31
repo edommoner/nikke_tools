@@ -81,7 +81,7 @@ def read_overlay_result(block,meta,case):
  return actual
 
 
-def read_product_control_log(block,metadata,names,duration):
+def read_product_control_log(block,metadata,names,duration,*,burst_trace=None):
     """Project GPU operator intervals through the canonical result formatter.
 
     Labels are constructor metadata. Decisions and times come only from the
@@ -93,12 +93,17 @@ def read_product_control_log(block,metadata,names,duration):
     from portable_runtime import UnsupportedPortable
     from calculator.sim_result import SimLog,ControlLogEntry
     labels=metadata.get('product_control_labels')
-    if not labels or not any(labels):return None
+    patterns=metadata.get('product_burst_patterns')
+    if not patterns and (not labels or not any(labels)):return None
     h=L['WORLD_CONTROL_HEAD_BASE'];base=L['WORLD_CONTROL_TRACE_BASE'];capacity=L['WORLD_CONTROL_TRACE_COUNT']
     def fail():raise UnsupportedPortable('Invalid or missing GPU operator control history')
+    if patterns:
+        if len(block)<=h+15 or block[h]!=0x57434831 or block[h+15]!=0x50425031 or block[h+14]>block[8]:fail()
+        if burst_trace is not None and block[h+14]!=sum(e['event']==5 for e in burst_trace):fail()
+    if not labels or not any(labels):return None
     if len(labels)!=5 or len(names)!=5 or len(block)<base+capacity*8:fail()
     if block[h]!=0x57434831 or block[h+13]!=0x50434c31 or block[h+1]>capacity or block[h+2]>5 or block[h+3]>31:fail()
-    if any(block[h+k] for k in (7,9,14,15)):fail()
+    if any(block[h+k] for k in ((7,9) if patterns else (7,9,14,15))):fail()
     def number(at):return struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
     log=SimLog();active={};preempts={};arbs=0;last_close=None;previous=0.
     def close(who,when):

@@ -4323,3 +4323,14 @@ standalone probeなのでgeneration-cache/require-generation-cacheは指定し�
 分類はreference_model_gap/default拒否を維持し、numeric Metal実証・carrier readerと、未接続cover layer/元戦闘/level curve/CUDAを分けた。fresh model-check/entry-inventory成功、静的254/266・12失敗13分類は不変。次は明示base DEF5人分のwire、元ranked carrierのprivate lowering、body/cover量とshield callback前後のsnapshot規則を既存incoming/protectionへ接続し、実cover破壊/復活・全戦闘を比較する。詳細 [cover DEF数値契約](portable-cover-defense-numeric.md)、小証跡 `research/target-count-query-evidence/cover-defense-numeric-metal-v1.json`。全キャラ/全特殊効果/公開GPUは未完了。
 
 固定入力追補：元の乱数vector生成にホストpowがあったため、入力だけの128×6 hex binary64表へ固定した。元GPU input.bin全36,612byteと完全一致、native数値oracle/adapter全byteも同一。f3820a6c/packet40a8e62b…のown CLIで17unit＋fresh562 native/全572入力の元基準指紋一致（CPU0.806435秒/GPU0）。新CUBIN O1/2GiB/60秒compile-plan policy成功、最終inventory/model-check成功。旧GPU/独立sealの出所を付替えず、GPU追加0。最新小証跡には初版16unit/c2 packetと、この固定入力版のCPU結果を分けて保存する。
+
+
+## 2026-10-31 製品バースト周期と許可済みCPU consumer拡張
+
+ユーザーは残11profileの専用CPUモデル拡張を明示許可した。対象・実装済み範囲・次手は [product reference consumers](product-reference-consumers.md)。DoTだけの許可待ちへ戻さない。pinned upstreamは変更しない。アンの敵回復を明示reference_models要求から既存checked adapterへ接続し、元69定義の通常CPU評価で倍率低下と実回復を確認。新4テスト＋旧12テスト成功。CPUの動的結果をGPUへ入力せず、未接続のGPU／legacy入口は実行前拒否。ほかのconsumerと通常GPU接続は未完了。
+
+製品patternは共通BurstControlPolicyを使用し、GPUがcycle／casterを決定。wire stride変更なし、every:N最大524287、list1..19、null／空listの意味を保持。公開HTTP6条件はM5 Metal/full CPU payload一致、保存raw再投影も6一致、監査追加native/GPU0。3／6周期目の選択変更、配置順、代替なしの非該当周期も確認。通常accumulate1入力は固定92f39c13…でM5実行＋fresh GPU禁止seal。旧input/output/native entriesを保持してproduct-programs-v2のaccumulateだけ登録し、v1と他program基準は保存した。最終compact packet cddcbaae…自身で76unit＋native1成功、GPU追加0。公開集約 `research/product-burst-pattern-v1.json`。過去255/266を今回再検証した意味ではなく、残11のGPU対応完了数も増やしていない。
+
+添付設定はprivate-v2としてMac内だけに保存。実GPU到達／burst履歴一致だが1人damageが約12.5%相違し、members／total_damage不一致でGPU結果拒否・CPU fallback。元fallbackと新失敗を保存し、許容差変更0。個人設定・詳細結果・hash・rawはGitHubへ出さない。専用4384serverは終了済み、4317／4327は操作なし。
+
+Windows owner15339b24…はown70成功41.234s後、fake-only15件のうち1件で停止。fixture環境コピーにNIKKE_CUDA_SPLIT_COMPILEがなく、threads2→1でcache keyが変わったのが原因。fixture修正後のMac fake45成功（artifact15＋compileCLI14＋diagnostic16）。Windows deps／plan／generation／実SDK／driver／GPU／API未実行、新native claim未消費、再送0。missing／観測／cleanup error0だが未識別serviceのpreservation=falseは維持。旧serial timeoutとmissing7の記録も保持。最新Windows cursor 4b3eff0d-96af-48be-b3ad-b6609ae33ca8:329、turn完了。新sourceの短い検証は新固定packetで行い、古い失敗を再試行しない。
