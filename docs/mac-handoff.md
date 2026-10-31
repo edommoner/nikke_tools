@@ -1,3 +1,11 @@
+## 2026-10-31 Windows事前検査を元テストID単位で段階化
+
+v2 owner ebb2bfce…は先頭3群73検査を完了したが、最後の27検査の群が60秒枠を超えて停止した。62.625秒（cleanup含む）／peak185,352,192bytes、missing0／Job empty、service未確認／preservation=false。15進捗dotは完了receiptがないため認定件数へ加えない。fresh native／generation／SDK／driver／GPU／APIは0。小結果をreport commit2dfd8eb4から取得しbyte/SHA照合済み。失敗・全claimは保持。
+
+共通CLIに登録ファイル内の元unittest ID分割を追加した。`preflight-plan --test-group-size 1 --split-test-pattern test_product_reference_models.py --test-case-group-size 3`で元100件を12群へ分ける。テスト本文・fixture・数値・上限を変えず、計画を再発見した全IDと照合し、実行receiptと独立取り込みで欠落・重複・順序変更・不完全件数を拒否する。未完了群があればnative/GPUへ進めない。従来のファイル単位経路は維持。新suiteなし。
+
+source79455c6dのsealed owner20391ee2…（transport4b34547a／normal-origin-gates-v3.zip）は、Macで実際のguard付きpacket wrapperによる全100件／12群＋fresh native1を完了。関連runner／Job／SDK／source回帰109も成功。v2に対してpayload変更は共通runner／CLI／テスト6ファイルだけで、GPU全byteとgoldenは完全同一。追加Metal／CUDA dispatch・新製品profileは0。PTX計画60秒／2GiB／threads2が成功。Windows既存chatへ新ownerで1回だけ依頼済みで、結果未認定。全CPU前提成功後だけPTX→objectO1→JITlink各60秒／native合計180秒。driver／GPU／APIは今回依頼0。旧v1/v2/2195の再試行はしない。
+
 ## 2026-10-31 Windows事前検査のguard内cache fixtureを修正
 
 transport abf46f5f／owner59160ddb…は標準観測付き展開とpreflight-planを通過したが、最初の登録59件で58成功／1失敗となり停止。約34.915秒・peak133,365,760bytes、missing0／Job empty、service未確認／preservation=false。残3群・fresh native・generation・SDK/driver/GPU/APIは0。旧2195の失敗／claimを保持。小summary＋manifestを既存report branchから取得しbyte/SHAを照合済み、original rawはMac未読。
