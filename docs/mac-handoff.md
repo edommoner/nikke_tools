@@ -1,5 +1,7 @@
 ## 2026-10-31 通常製品のユニ／ヤン宣言移動を接続
 
+最終追補：b9600178からsealed packet8bb61a3d…を作り、packet自身の96unit／fresh native1／CPU-onlyが成功（GPU追加0）。実装と小証跡は既存codex/runtime-residentへ共有。独立sealのMetal実証とは別の最終登録確認である。
+
 許可済みCPU拡張として既存EnemyMovement・LogicalGeometry・attack-group adapterと共通sample/geometry数値providerを再利用した。pinned upstream／数値式／許容差は変更しない。`reference_models.enemy_movement` は `coord`、`logical_geometry`、`motion` の3宣言が必須。元duration carrierと実ADD世代を共通Slangで消費し、CPUの位置・世代・軌跡・予定表をGPU入力にしない。CPU応答はsampledであることを `expected=false` と警告に明示する。単独CPU workerでもproviderをchecked rewrite前に解決し、終了・例外時にalias／乱数stateを復元する。
 
 通常HTTP→実M5のユニ停止／ヤン強制移動／世代更新／重複2優先規則の計2profile・5条件でCPU全応答一致。各3602frame、3598〜3608segmentを保存rawから全再投影し、追加native／GPU0で一致。readerはactor・世代・連続区間・有限量・予約word・最終state・未使用tailを検査し、既存4096上限を超えれば切り捨てず拒否する。初版wire登録漏れのGPU前拒否、起動前送信失敗、単独CPU import失敗を保持。ユニ先頭の成功と残4件はhost preload修正前後の別source snapshotとして区別する。集約は `research/product-enemy-movement-v1.json`。

@@ -141,5 +141,15 @@
     "previous_registered_programs": 25,
     "previous_sealed_golden_entries": 10,
     "previous_golden_entries_preserved": true
+  },
+  "final_registered_packet_preflight": {
+    "source_commit": "b96001786d5f44928a66e7e7678406611f7d3146",
+    "package_id": "8bb61a3d7a9c07165adcfb947f62f9b74559753c8895de5ef877ce0afdbf0913",
+    "own_tests": 96,
+    "fresh_native_cases": 1,
+    "cpu_verified": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "scope": "CPU-only final registered packet preflight; prior actual Metal and independent seal retained separately"
   }
 }
