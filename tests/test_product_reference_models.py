@@ -439,7 +439,7 @@ class ProductReferenceModels(unittest.TestCase):
         self.assertTrue(any(r['effective_defense']>r['base_defense'] for r in data['receipts']))
         self.assertEqual(data['base_defenses'],[r['base_defense'] for r in case['cover_defense']])
 
-    def test_cover_malformed_or_unknown_roster_and_unconnected_controls_fail_closed(self):
+    def test_cover_malformed_or_unknown_roster_fails_closed(self):
         from portable_cover_defense_battle_cases import fixtures
         import portable_detail as product
         from portable_runtime import UnsupportedPortable
@@ -449,7 +449,8 @@ class ProductReferenceModels(unittest.TestCase):
         body['reference_models']={'cover_defense':case['cover_defense']}
         body['manual_cover_sequences']=case['declared_manual_sequences'];body['burst_gauge_mode']='fixed'
         prepared,_=product.prepare(body)
-        with self.assertRaisesRegex(UnsupportedPortable,'combined literal control header'):product.compile_product(prepared)
+        source,_,_,_,_=product.compile_product(prepared)
+        self.assertEqual(source,'gpu/product_cover_fixed_battle_entry.slang')
         bad=copy.deepcopy(case['cover_defense']);bad[0]['name']='wrong original owner'
         with self.assertRaisesRegex(ValueError,'original cover owner'):
             engine_worker.evaluate(dict(body,reference_models={'cover_defense':bad}))
@@ -458,6 +459,33 @@ class ProductReferenceModels(unittest.TestCase):
         for overrides in ({}, {'not-in-squad':[dict(action='cover',t=1,duration=1)]}, {body['squad'][0]:[dict(action='cover',t=True,duration=1)]}):
             with self.subTest(overrides=overrides),patch.object(sim,'execute',side_effect=AssertionError('Invalid cover control may not simulate')),self.assertRaises(ValueError):
                 engine_worker.evaluate(dict(body,manual_cover_sequences=overrides))
+
+    def test_fixed_cover_keeps_posture_controls_literal_and_restores_fixed_policy(self):
+        import struct
+        from portable_cover_defense_battle_cases import fixtures
+        from portable_specs import LIMITS as L
+        import portable_detail as product
+        for case in fixtures():
+            body=copy.deepcopy(case['body'])
+            body.update(burst_gauge_mode='fixed',
+                reference_models={'cover_defense':case['cover_defense']},
+                manual_cover_sequences=case['declared_manual_sequences'])
+            with self.subTest(case=case['name']),patch.object(sim,'execute',side_effect=AssertionError('No native state in GPU input')):
+                prepared,_=product.prepare(body);prepared['policies']['config']['first_burst_time']=4.25;before=copy.deepcopy(prepared)
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,before)
+            self.assertEqual(source,'gpu/product_cover_fixed_battle_entry.slang')
+            self.assertEqual((iw,ow),(115704,2048912))
+            at=L['WORLD_CONTROL_INPUT_BASE']
+            self.assertEqual(words[at+1],6)
+            self.assertEqual(words[at+7],0x4d435631)
+            self.assertEqual(words[at+12],0x46424731)
+            self.assertEqual(words[at+13:at+16],[0,0,0])
+            self.assertEqual(struct.unpack('<d',struct.pack('<II',*words[at+8:at+10]))[0],4.25)
+            self.assertEqual(meta['real_prepared_input']['policy'],before['policies'])
+            self.assertEqual(meta['product_manual_cover_owners'],list(range(5)))
+            self.assertFalse(meta['product_fixed_burst']['CPU_state_or_schedule_as_input'])
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(before['effects']))))
 
     def test_cover_readback_rejects_overflow_and_stale_depth_state(self):
         from portable_product_cover import read_result
@@ -546,7 +574,7 @@ class ProductReferenceModels(unittest.TestCase):
         case=fixtures()[0];declared=dict(case['body'],reference_models={'enemy_healing':case['enemy_healing']})
         for body,count in [(plain,0),(declared,4)]:
             with self.subTest(count=count),patch.object(sim,'execute',side_effect=AssertionError('No CPU battle before GPU')):
-                prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+                prepared,_=product.prepare(body);prepared['policies']['config']['first_burst_time']=4.25;before=copy.deepcopy(prepared)
                 source,iw,ow,words,meta=product.compile_product(prepared)
             self.assertEqual(prepared,before);self.assertEqual(iw,INPUT_WORDS);self.assertEqual(ow,2032000)
             self.assertIn(source,('gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang'))

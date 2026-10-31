@@ -21,6 +21,8 @@ def compile_product(prepared,producer):
     # guessed DEF. The device rejects any attempt to consume an absent base.
     bank=[MAGIC,1,5,1]+[0]*20 if unspecified else pack(declarations['cover_defense'],names)
     inner=dict(prepared,_product_cover_compiled=True);inner.pop('reference_models',None)
+    from portable_product_fixed import lower as lower_fixed,attach as attach_fixed
+    inner,fixed_values=lower_fixed(inner)
     with compiler_policy():source,iw,ow,words,meta=producer(inner)
     if source not in ('gpu/product_battle_entry.slang','gpu/product_fixed_battle_entry.slang') or (iw,ow)!=(104400,786432):
         raise UnsupportedPortable('Cover DEF composition requires the plain shared product battle')
@@ -31,7 +33,19 @@ def compile_product(prepared,producer):
         words[at+F['KIND']]=0;words[at+F['STAT']]=STAT
     meta['product_cover_defense']=dict(declarations=declarations,definition_indices=indices,unspecified_quantities=unspecified,
         cpu_state_or_schedule_supplied=False)
-    return ('gpu/product_cover_fixed_battle_entry.slang' if 'fixed_' in source else 'gpu/product_cover_battle_entry.slang',INPUT,OUTPUT,
+    if fixed_values is not None:
+        # Use the already checked combined header for both explicit cover and
+        # automatic controls. No posture, readiness clock or native state is
+        # supplied: these are literal controls and fixed-delay parameters.
+        base=L['WORLD_CONTROL_INPUT_BASE'];version=words[base+1]
+        if version in (1,2):
+            tap_mask=words[base+5] if version==2 else 0
+            if any(words[base+(6 if version==2 else 5):base+16]):
+                raise UnsupportedPortable('Cover fixed burst requires a canonical control header')
+            words[base+1]=3
+            words[base+5:base+8]=[tap_mask,0xffffffff,0x4d435631]
+        attach_fixed(words,meta,prepared,fixed_values)
+    return ('gpu/product_cover_fixed_battle_entry.slang' if fixed_values is not None else 'gpu/product_cover_battle_entry.slang',INPUT,OUTPUT,
         list(words)+[0]*(C['BASE']-len(words))+bank,meta)
 
 def read_result(block,metadata,names,duration):

@@ -9,7 +9,7 @@ def lower(prepared):
     mode=prepared['policies']['config'].get('burst_gauge_mode','fixed')
     if mode not in ('fixed','accumulate'):raise UnsupportedPortable('Unported burst gauge mode')
     if mode!='fixed':return prepared,None
-    if any(a.get('action')=='cover' for c in prepared['chars'] for a in c.get('control',{}).get('sequence',[])):
+    if not prepared.get('_product_cover_compiled') and any(a.get('action')=='cover' for c in prepared['chars'] for a in c.get('control',{}).get('sequence',[])):
         raise UnsupportedPortable('Fixed burst with manual cover needs a combined literal control header')
     first=prepared['policies']['config'].get('first_burst_time',3.)
     regen=[c.get('burst_regen_time',2.) for c in prepared['chars']]
