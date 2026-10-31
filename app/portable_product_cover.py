@@ -46,6 +46,10 @@ def compile_product(prepared,producer):
         row=meta['binding_source_indices'].index(index);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
         if words[at+F['KIND']]!=4 or words[at+F['STAT']]!=0:raise ValueError('Original cover placeholder changed')
         words[at+F['KIND']]=0;words[at+F['STAT']]=STAT
+        # Revival's automatic lazy-marker bit belongs only to kind4. The
+        # numeric cover carrier now uses kind0's existing revival lifecycle;
+        # retain every other flag, including explicit persist_on_revive.
+        words[at+F['FLAGS']] &= ~2048
     meta['product_cover_defense']=dict(declarations=cover_declarations,definition_indices=indices,unspecified_quantities=unspecified,
         cpu_state_or_schedule_supplied=False)
     if fixed_values is not None:

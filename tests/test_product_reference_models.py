@@ -29,7 +29,7 @@ class ProductReferenceModels(unittest.TestCase):
         from portable_enemy_healing_wire import INPUT_WORDS as H,OUTPUT as HO
         from portable_cover_defense_wire import LAYOUT as C,MAGIC
         from portable_backend import validate_composed_stride
-        from portable_specs import LIMITS as L
+        from portable_specs import LIMITS as L,FIELDS as F
         self.assertEqual(HO['OUTPUT_WORDS'],C['OUTPUT_BASE'])
         for mode in ('fixed','accumulate'):
             body=body_for_program(ROOT,'healing-cover-'+mode)
@@ -46,6 +46,14 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertTrue(meta['product_healing_cover'])
             self.assertIn('product_enemy_healing',meta);self.assertIn('product_cover_defense',meta)
             self.assertEqual(words[L['WORLD_CONTROL_INPUT_BASE']+1],6 if mode=='fixed' else 3)
+            # Ann's original revive enables lazy markers in the common
+            # compiler. Once the cover placeholder becomes numeric kind0,
+            # only that obsolete marker bit must be removed.
+            self.assertTrue(any(r['effect'].get('stat')=='revive' for r in prepared['effects']))
+            for index in meta['product_cover_defense']['definition_indices']:
+                row=meta['binding_source_indices'].index(index);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
+                self.assertEqual(words[at+F['KIND']],0)
+                self.assertFalse(words[at+F['FLAGS']]&2048)
 
     def lock_body(self,duration=3,typed=False):
         from portable_heavyarms_lock_cases import fixtures,NAME,source_definitions
