@@ -10,6 +10,19 @@ probe = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(probe)
 
 class QuantityVisitedTests(unittest.TestCase):
+    def test_retained_closure_uses_existing_exact_inverse_and_rejects_wrong_helper(self):
+        import json,hashlib
+        from portable_quantity_visited_source_contract import historical_hashes,BEFORE_SHA256
+        from portable_attack_group_source_contract import retained_source_hashes
+        source='gpu/quantity_runtime.slang';helper='gpu/quantity_visited.slang'
+        hashes={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in (source,helper)}
+        self.assertEqual(historical_hashes(ROOT,hashes),{source:BEFORE_SHA256})
+        with self.assertRaisesRegex(ValueError,'Unreviewed quantity visited'):
+            historical_hashes(ROOT,dict(hashes,**{helper:'0'*64}))
+        retained=retained_source_hashes(ROOT,'gpu/destructible_weapon_shield_entry.slang')
+        self.assertEqual(retained[source],BEFORE_SHA256)
+        self.assertNotIn(helper,retained)
+
     def test_exact_storage_delta_recovers_all_original_numeric_and_query_bytes(self):
         import json,hashlib
         data=json.loads((ROOT/'tests/fixtures/quantity-visited-source-change-v1.json').read_text())

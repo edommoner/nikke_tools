@@ -10,7 +10,7 @@ WF_OUTPUT=L['WORLD_FRAME_OUTPUT_BASE']
 WF_TARGETS=L['WORLD_FRAME_TARGET_BASE']
 WF_HITS=L['WORLD_FRAME_HIT_BASE']
 
-def read_histories(block,patterns):
+def read_histories(block,patterns,*,attack_sources=None):
  head=WF_OUTPUT
  def num(at):return struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
  logs=[];query_pattern={};plan=[];down_by_query={}
@@ -36,6 +36,8 @@ def read_histories(block,patterns):
   dot=bool(tag&0x80000000)
   pattern=patterns[(tag>>5)&31]['id'] if dot else query_pattern[tag>>5]
   hits.append(dict(time=num(at),pattern=pattern,owner=(flags>>3)&7,damage=num(at+4),pierce=bool(flags&1),shield=num(at+6),cover=num(at+8),decoy=num(at+10),hp=num(at+12),hp_after=num(at+14),down=bool(flags&4)))
+  if attack_sources is not None:
+   hits[-1]['by']='' if dot else attack_sources[tag>>5]
   if flags&4 and not dot:down_by_query.setdefault(tag>>5,[]).append(dict(time=num(at),pattern=pattern,event='down',outcome=''))
  logs=order_squad_logs(plan,down_by_query)
  return dict(hits=hits,boss_log=logs)

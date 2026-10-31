@@ -24,19 +24,67 @@
     },
     "app/portable_detail.py": {
       "before_sha256": "085c7ccdcebfa6641bf124d95e6c320c337405202e4b148ae64dca08cb11db06",
-      "after_sha256": "c928b8ae1db4cfe0abf2b271bc196b4190cae0b4a295b746f928a646c0b36a9d",
+      "after_sha256": "ad8825d1b6a4daa5b00522894c49b28b164c27f8f952850608576af1ab4c1a69",
       "hunks": [
         {
-          "start": 3827,
-          "end": 4018,
+          "start": 3778,
+          "end": 3903,
+          "before": "",
+          "after": "from portable_product_add_attack import lower as lower_add_attacks\n    prepared,add_patterns=lower_add_attacks(prepared)\n    "
+        },
+        {
+          "start": 3952,
+          "end": 4143,
           "before": "",
           "after": ")\n    if any(p.get('kind') in ('attack','debuff') and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):\n        prepared=dict(prepared,_product_boss_debuffs=True"
         },
         {
-          "start": 13571,
-          "end": 13573,
+          "start": 5178,
+          "end": 5299,
+          "before": "",
+          "after": "registry_nodes=validate(copy.deepcopy(prepared['enemy']['patterns'])) if add_patterns is not None else nodes\n            "
+        },
+        {
+          "start": 5327,
+          "end": 5336,
+          "before": "",
+          "after": "registry_"
+        },
+        {
+          "start": 6873,
+          "end": 7070,
+          "before": "",
+          "after": ")\n        if add_patterns is not None:\n            from portable_product_add_attack import attach\n            return attach(source,words,metadata,prepared,add_patterns,original['enemy']['patterns']"
+        },
+        {
+          "start": 14023,
+          "end": 14025,
           "before": "",
           "after": ",8"
+        },
+        {
+          "start": 14301,
+          "end": 14409,
+          "before": "",
+          "after": "from portable_product_add_attack import query_sources\n        sources=query_sources(block,metadata)\n        "
+        },
+        {
+          "start": 14439,
+          "end": 14462,
+          "before": "",
+          "after": "es,attack_sources=sourc"
+        },
+        {
+          "start": 15884,
+          "end": 15897,
+          "before": "",
+          "after": "hit.get('by',"
+        },
+        {
+          "start": 15899,
+          "end": 15900,
+          "before": "",
+          "after": ")"
         }
       ]
     },
@@ -498,13 +546,49 @@
     },
     "app/portable_destructible_roster_input.py": {
       "before_sha256": "bdf192454c12fe469b85b1fdd93f0a11d823a4c32782674e4b498c4c97b519ea",
-      "after_sha256": "a1b806a22a243f00e6ae67c9727c39fceefdeb9cf9370e5a53522944c54d0880",
+      "after_sha256": "786daf75ab73f432a03d0e034499f3f082ba3176a837e326d5f0b7acfaf01a26",
       "hunks": [
         {
-          "start": 2067,
-          "end": 2076,
+          "start": 2031,
+          "end": 2031,
+          "before": "if ",
+          "after": ""
+        },
+        {
+          "start": 2032,
+          "end": 2037,
+          "before": "ny(p.kin",
+          "after": "llowe"
+        },
+        {
+          "start": 2038,
+          "end": 2039,
+          "before": " not in ",
+          "after": "="
+        },
+        {
+          "start": 2054,
+          "end": 2063,
           "before": "",
           "after": "','debuff"
+        },
+        {
+          "start": 2087,
+          "end": 2190,
+          "before": "",
+          "after": "+(('summon',) if prepared.get('_product_add_attacks') is True else ())\n    if any(p.kind not in allowed"
+        },
+        {
+          "start": 2364,
+          "end": 2444,
+          "before": "",
+          "after": "actor_kinds=(1,5) if prepared.get('_product_add_attacks') is True else (1,)\n    "
+        },
+        {
+          "start": 2506,
+          "end": 2525,
+          "before": "!=1",
+          "after": " not in actor_kinds"
         }
       ]
     },
@@ -522,59 +606,71 @@
     },
     "app/portable_world_result.py": {
       "before_sha256": "14b75458d6d90058523c1bd63bdfc5ba23b4842b690bd2d64cc64ba0f4101fec",
-      "after_sha256": "41acf1f0f0932fa5cbd2f829a9f85259df8181ec2568a7c05de37487512dff98",
+      "after_sha256": "922a01822821badddc1366836dee1153e14f83902c753cd9bd1f8922ada48973",
       "hunks": [
         {
-          "start": 713,
-          "end": 845,
+          "start": 471,
+          "end": 493,
+          "before": "",
+          "after": ",*,attack_sources=None"
+        },
+        {
+          "start": 735,
+          "end": 867,
           "before": "",
           "after": "\n  if kind==8:\n   plan.append(dict(time=time,pattern=patterns[node]['id'],event='down',outcome='',direct_downs_before=arg));continue"
         },
         {
-          "start": 1631,
-          "end": 1730,
+          "start": 1653,
+          "end": 1752,
           "before": "",
           "after": "dot=bool(tag&0x80000000)\n  pattern=patterns[(tag>>5)&31]['id'] if dot else query_pattern[tag>>5]\n  "
         },
         {
-          "start": 1768,
-          "end": 1768,
+          "start": 1790,
+          "end": 1790,
           "before": "query_",
           "after": ""
         },
         {
-          "start": 1775,
-          "end": 1775,
+          "start": 1797,
+          "end": 1797,
           "before": "[tag>>5]",
           "after": ""
         },
         {
-          "start": 1950,
-          "end": 1962,
+          "start": 1965,
+          "end": 2054,
+          "before": "",
+          "after": "attack_sources is not None:\n   hits[-1]['by']='' if dot else attack_sources[tag>>5]\n  if "
+        },
+        {
+          "start": 2061,
+          "end": 2073,
           "before": "",
           "after": " and not dot"
         },
         {
-          "start": 2032,
-          "end": 2032,
+          "start": 2143,
+          "end": 2143,
           "before": "query_",
           "after": ""
         },
         {
-          "start": 2039,
-          "end": 2039,
+          "start": 2150,
+          "end": 2150,
           "before": "[tag>>5]",
           "after": ""
         },
         {
-          "start": 3492,
-          "end": 3750,
+          "start": 3603,
+          "end": 3861,
           "before": "",
           "after": "direct_downs_before' in item:\n   drain(item['direct_downs_before']);assert delivered_downs==item['direct_downs_before'],'Invalid direct down ordinal'\n   logs.append({k:v for k,v in item.items() if k!='direct_downs_before'});delivered_downs+=1;continue\n  if '"
         },
         {
-          "start": 4382,
-          "end": 4384,
+          "start": 4493,
+          "end": 4495,
           "before": "",
           "after": ",8"
         }
@@ -613,6 +709,156 @@
           "end": 6674,
           "before": "",
           "after": "\n#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n    uint bossDotCount,bossDotEnabled;\n    uint bossDotSlot[P_CARRIERS],bossDotEntry[P_CARRIERS],bossDotRow[P_CARRIERS],bossDotRecipients[P_CARRIERS],bossDotStack[P_CARRIERS],bossDotLive[P_CARRIERS];\n    uint64_t bossDotActivated[P_CARRIERS],bossDotNext[P_CARRIERS],bossDotExpiry[P_CARRIERS];\n#endif"
+        }
+      ]
+    },
+    "gpu/destructible_battle_runtime.slang": {
+      "before_sha256": "766691cba6bdf15af1ed8670eb48c3efbf5873c6916c0457e8c95aaa678288fc",
+      "after_sha256": "39f7fb1732e6092c3f0f77d1690495afee6b28c0b186553ad4d859f678bab750",
+      "hunks": [
+        {
+          "start": 2233,
+          "end": 2234,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "start": 2235,
+          "end": 2257,
+          "before": "",
+          "after": "       {\n            u"
+        },
+        {
+          "start": 2258,
+          "end": 2266,
+          "before": "f(",
+          "after": "nt kind="
+        },
+        {
+          "start": 2296,
+          "end": 2404,
+          "before": "",
+          "after": ";\n#ifdef PORTABLE_ADD_ATTACK_BATTLE\n            if(kind!=1&&kind!=5) return false;\n#else\n            if(kind"
+        },
+        {
+          "start": 2422,
+          "end": 2439,
+          "before": "",
+          "after": "\n#endif\n        }"
+        }
+      ]
+    },
+    "gpu/destructible_shield_battle_entry.slang": {
+      "before_sha256": "6d0e8fda975c1f5f0e3c557b309475fb5bb4d2205cc1934a4fde8297affc4f9b",
+      "after_sha256": "87d053354479546d3338ea491ec47355cc88da310ea0695e1269f8301bc87210",
+      "hunks": [
+        {
+          "start": 211,
+          "end": 249,
+          "before": "",
+          "after": "\n#ifndef PORTABLE_PRODUCT_ADD_EXECUTOR"
+        },
+        {
+          "start": 997,
+          "end": 1005,
+          "before": "",
+          "after": "\n#endif\n"
+        }
+      ]
+    },
+    "gpu/destructible_weapon_runtime.slang": {
+      "before_sha256": "34ef4ef4614589da699af251e0ed2d28f8f8de945ccacd2310fbcb0d1cc8fd20",
+      "after_sha256": "1d64f861913f317276a679933c5089dfa5899345674491b6821369a3e0de7dd7",
+      "hunks": [
+        {
+          "start": 1513,
+          "end": 1514,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "start": 1515,
+          "end": 1537,
+          "before": "",
+          "after": "       {\n            u"
+        },
+        {
+          "start": 1538,
+          "end": 1546,
+          "before": "f(",
+          "after": "nt kind="
+        },
+        {
+          "start": 1576,
+          "end": 1684,
+          "before": "",
+          "after": ";\n#ifdef PORTABLE_ADD_ATTACK_BATTLE\n            if(kind!=1&&kind!=5) return false;\n#else\n            if(kind"
+        },
+        {
+          "start": 1702,
+          "end": 1719,
+          "before": "",
+          "after": "\n#endif\n        }"
+        }
+      ]
+    },
+    "gpu/product_group_target_battle_entry.slang": {
+      "before_sha256": "5a87c08576208567b6256bd99dd373f10eb11dd42a35e804dff911638908c42a",
+      "after_sha256": "049b27689437ea9557044a06ac53ec9cdd2e0e40eb04ab22441ac6c812337d64",
+      "hunks": [
+        {
+          "start": 771,
+          "end": 772,
+          "before": "",
+          "after": "\n"
+        },
+        {
+          "start": 773,
+          "end": 795,
+          "before": "",
+          "after": "       {\n            u"
+        },
+        {
+          "start": 796,
+          "end": 804,
+          "before": "f(",
+          "after": "nt kind="
+        },
+        {
+          "start": 834,
+          "end": 942,
+          "before": "",
+          "after": ";\n#ifdef PORTABLE_ADD_ATTACK_BATTLE\n            if(kind!=1&&kind!=5) return false;\n#else\n            if(kind"
+        },
+        {
+          "start": 960,
+          "end": 977,
+          "before": "",
+          "after": "\n#endif\n        }"
+        },
+        {
+          "start": 1452,
+          "end": 1490,
+          "before": "",
+          "after": "\n#ifndef PORTABLE_PRODUCT_ADD_EXECUTOR"
+        },
+        {
+          "start": 2143,
+          "end": 2151,
+          "before": "",
+          "after": "\n#endif\n"
+        }
+      ]
+    },
+    "app/portable_backend.py": {
+      "before_sha256": "56d708fa4162b19d35cb2ec16498380f762e11dea17162c57ceb37c651c9f8ac",
+      "after_sha256": "c4e77550989e741d82c57e087ab8e6d4fb6f97249f97268db40ab35f408db64e",
+      "hunks": [
+        {
+          "start": 3841,
+          "end": 4702,
+          "before": "",
+          "after": "    if source in ('gpu/product_add_battle_entry.slang','gpu/product_add_group_battle_entry.slang',\n                  'gpu/product_add_fixed_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang',\n                  'gpu/product_add_target_battle_entry.slang','gpu/product_add_fixed_target_battle_entry.slang',\n                  'gpu/product_add_group_target_battle_entry.slang','gpu/product_add_fixed_group_target_battle_entry.slang'):\n        from portable_add_attack_battle_wire import check_schema,LAYOUT\n        from portable_add_self_destruct_wire import check_schema as check_retirement\n        check_schema(ROOT);check_retirement(ROOT)\n        if (input_words,output_words)!=(LAYOUT['INPUT_WORDS'],LAYOUT['OUTPUT_WORDS']):\n            raise ValueError('Product ADD attacks require the complete shared source/retirement wire')\n        return\n"
         }
       ]
     }

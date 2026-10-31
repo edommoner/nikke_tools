@@ -17,10 +17,11 @@ for _name,_program in PROGRAMS.items():
     if type(_program) is not dict or set(_program)!={'source','input_words','output_words','mode','kind'}:
         raise ValueError('Invalid product program declaration')
     _mode,_kind=_program['mode'],_program['kind']
-    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or _name!=_mode+('-'+_kind if _kind else ''):
+    _add=_name.startswith('add-')
+    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or _name!=('add-' if _add else '')+_mode+('-'+_kind if _kind else ''):
         raise ValueError('Invalid product program identity')
     _stem=('fixed_' if _mode=='fixed' else '')+(_kind.replace('-','_')+'_' if _kind else '')
-    if _program['source']!='gpu/product_'+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
+    if _program['source']!='gpu/product_'+('add_' if _add else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
         raise ValueError('Invalid product source or wire declaration')
 
 
@@ -71,4 +72,8 @@ def body_for_program(root, name=None):
         body = json.loads((Path(root) / 'tests/fixtures/portable-detail-product-v1.json').read_text(encoding='utf-8'))['body']
     body = copy.deepcopy(body)
     body['burst_gauge_mode'] = program['mode']
+    if name is not None and name.startswith('add-'):
+        body['enemy']['patterns']=[dict(id='product-escort',kind='summon',spec=dict(
+            name='Escort',count=2,hp=1e12,attack_at=.25,self_destruct=True,
+            attack=dict(atk=1000,coeff=100,hits=2,interval=.5,target='all')))]
     return body

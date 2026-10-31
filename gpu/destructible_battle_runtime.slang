@@ -36,7 +36,15 @@ bool initializeDestructibleBattle(inout Runtime s)
     if(count==0)
     {
         if(!weaponOnly||actorPoolCount(s)==0||commands[actorBinding(s,0)]!=0) return false;
-        for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=1) return false;
+        for(uint slot=1;slot<actorPoolCount(s);slot++)
+        {
+            uint kind=commands[actorBinding(s,slot)];
+#ifdef PORTABLE_ADD_ATTACK_BATTLE
+            if(kind!=1&&kind!=5) return false;
+#else
+            if(kind!=1) return false;
+#endif
+        }
         for(uint i=2328;i<3864;i++) if(commands[extra+i]!=0) return false;
     }
     else

@@ -56,6 +56,62 @@
       "output_words": 1048576,
       "mode": "fixed",
       "kind": "group-target"
+    },
+    "add-accumulate": {
+      "source": "gpu/product_add_battle_entry.slang",
+      "input_words": 116464,
+      "output_words": 2032000,
+      "mode": "accumulate",
+      "kind": ""
+    },
+    "add-accumulate-group": {
+      "source": "gpu/product_add_group_battle_entry.slang",
+      "input_words": 116464,
+      "output_words": 2032000,
+      "mode": "accumulate",
+      "kind": "group"
+    },
+    "add-accumulate-target": {
+      "source": "gpu/product_add_target_battle_entry.slang",
+      "input_words": 116464,
+      "output_words": 2032000,
+      "mode": "accumulate",
+      "kind": "target"
+    },
+    "add-accumulate-group-target": {
+      "source": "gpu/product_add_group_target_battle_entry.slang",
+      "input_words": 116464,
+      "output_words": 2032000,
+      "mode": "accumulate",
+      "kind": "group-target"
+    },
+    "add-fixed": {
+      "source": "gpu/product_add_fixed_battle_entry.slang",
+      "input_words": 116464,
+      "output_words": 2032000,
+      "mode": "fixed",
+      "kind": ""
+    },
+    "add-fixed-group": {
+      "source": "gpu/product_add_fixed_group_battle_entry.slang",
+      "input_words": 116464,
+      "output_words": 2032000,
+      "mode": "fixed",
+      "kind": "group"
+    },
+    "add-fixed-target": {
+      "source": "gpu/product_add_fixed_target_battle_entry.slang",
+      "input_words": 116464,
+      "output_words": 2032000,
+      "mode": "fixed",
+      "kind": "target"
+    },
+    "add-fixed-group-target": {
+      "source": "gpu/product_add_fixed_group_target_battle_entry.slang",
+      "input_words": 116464,
+      "output_words": 2032000,
+      "mode": "fixed",
+      "kind": "group-target"
     }
   }
 }

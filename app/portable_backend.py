@@ -86,6 +86,16 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source in ('gpu/product_add_battle_entry.slang','gpu/product_add_group_battle_entry.slang',
+                  'gpu/product_add_fixed_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang',
+                  'gpu/product_add_target_battle_entry.slang','gpu/product_add_fixed_target_battle_entry.slang',
+                  'gpu/product_add_group_target_battle_entry.slang','gpu/product_add_fixed_group_target_battle_entry.slang'):
+        from portable_add_attack_battle_wire import check_schema,LAYOUT
+        from portable_add_self_destruct_wire import check_schema as check_retirement
+        check_schema(ROOT);check_retirement(ROOT)
+        if (input_words,output_words)!=(LAYOUT['INPUT_WORDS'],LAYOUT['OUTPUT_WORDS']):
+            raise ValueError('Product ADD attacks require the complete shared source/retirement wire')
+        return
     if source in ('gpu/product_fixed_battle_entry.slang','gpu/product_fixed_group_battle_entry.slang',
                   'gpu/product_fixed_target_battle_entry.slang','gpu/product_fixed_group_target_battle_entry.slang'):
         # Identical wire; only the guarded fixed-readiness consumer differs.

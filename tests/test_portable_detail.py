@@ -10,6 +10,56 @@ import portable_product_artifact as artifacts
 from portable_projectile_roster_input import compile_projectile_battle
 
 class PortableDetail(unittest.TestCase):
+    def test_add_product_reuses_existing_prefix_and_literal_attack_retirement_wire(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_product_add_attack import lower
+        from portable_add_attack_battle_wire import LAYOUT as A
+        from portable_backend import validate_composed_stride
+        profiles=selected_profile_bodies(['미란다','벨로타','아스카'],0)
+        by_name={row[0]:row[2] for row in profiles}
+        mixed=copy.deepcopy(by_name['아스카']);mixed['profile']['chars'].update(by_name['벨로타']['profile']['chars'])
+        mixed['squad']=['아스카','벨로타','미란다','도라','드레이크']
+        for name,kind,original in [('미란다','',by_name['미란다']),('벨로타','group_',by_name['벨로타']),
+                ('아스카','target_',by_name['아스카']),('mixed','group_target_',mixed)]:
+            for mode in ('accumulate','fixed'):
+                body=copy.deepcopy(original)
+                body.update(duration=3,burst_gauge_mode=mode)
+                body['enemy']['patterns']=[dict(id='wave',kind='summon',spec=dict(
+                    name='escort',count=2,hp=1e12,attack_at=.25,self_destruct=True,
+                    attack=dict(atk=1234,coeff=50,hits=2,interval=.5,target='random:2')))]
+                with self.subTest(name=name,mode=mode),patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle')):
+                    prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+                    source,iw,ow,words,meta=product.compile_product(prepared)
+                    lowered,_=lower(prepared);_,base_iw,_,base_words,_=product.compile_product(lowered)
+                    self.assertEqual(prepared,before)
+                    self.assertEqual(words[:base_iw],base_words)
+                    self.assertFalse(any(words[base_iw:A['BASE']]))
+                    self.assertEqual((iw,ow,len(words)),(A['INPUT_WORDS'],A['OUTPUT_WORDS'],A['INPUT_WORDS']))
+                    self.assertEqual(source,'gpu/product_add_'+('fixed_' if mode=='fixed' else '')+kind+'battle_entry.slang')
+                    validate_composed_stride(source,iw,ow)
+                    at=A['BASE']+A['ROW_BASE']
+                    self.assertEqual(words[at:at+2],[2,2])
+                    self.assertEqual(words[at+4:at+8],[1,0,1070596096,0])
+                    self.assertEqual(meta['product_add_attacks']['labels'],['','escort#1','escort#2'])
+                    self.assertFalse(meta['product_add_attacks']['CPU_schedule_or_state_supplied'])
+
+    def test_add_source_projection_rejects_unknown_slots_and_misbound_nodes(self):
+        from portable_product_add_attack import query_sources
+        from portable_add_attack_battle_wire import MAGIC,LAYOUT as A
+        from portable_add_self_destruct_wire import MAGIC as RM,LAYOUT as R
+        from portable_specs import LIMITS as L
+        from portable_runtime import UnsupportedPortable
+        block=array.array('I',[0])*A['OUTPUT_WORDS'];h=L['WORLD_FRAME_OUTPUT_BASE']
+        block[A['OUTPUT_BASE']]=MAGIC;block[R['OUTPUT_BASE']]=RM
+        block[h+2]=1;block[h+2832:h+2832+6]=array.array('I',[3,2,0,0,0,1])
+        block[A['OUTPUT_BASE']+1]=1;m=A['OUTPUT_BASE']+A['MAP_BASE']
+        block[m:m+2]=array.array('I',[1,3])
+        meta={'product_add_attacks':dict(labels=['','escort#1'],source_nodes=[-1,2])}
+        self.assertEqual(query_sources(block,meta),{0:'escort#1'})
+        for slot,generation,node in [(2,3,2),(1,0,2),(1,3,1)]:
+            block[m:m+2]=array.array('I',[slot,generation]);block[h+2833]=node
+            with self.assertRaises(UnsupportedPortable):query_sources(block,meta)
+
     def test_dot_down_ordinal_preserves_queued_attack_and_revive_order(self):
         from portable_world_result import order_squad_logs
         dot=dict(time=1.,pattern='dot',event='down',outcome='')

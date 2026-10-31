@@ -79,6 +79,8 @@ def compile_product(prepared):
         # This copy is validation input only, never a simulated CPU schedule.
         prepared=copy.deepcopy(prepared)
         prepared['policies']['config']['burst_gauge_mode']='accumulate'
+    from portable_product_add_attack import lower as lower_add_attacks
+    prepared,add_patterns=lower_add_attacks(prepared)
     prepared,nearby=lower_single_body_nearby(prepared)
     if any(p.get('kind') in ('attack','debuff') and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):
         prepared=dict(prepared,_product_boss_debuffs=True)
@@ -96,7 +98,8 @@ def compile_product(prepared):
             metadata['product_world']=dict(nodes=[dict(id=p.id,kind=p.kind) for p in nodes],
                 literal_pattern_identity_only=True,cpu_schedule_or_state_supplied=False)
             from portable_actor_specs import compile_registry
-            _,bindings=compile_registry(nodes,pools=True)
+            registry_nodes=validate(copy.deepcopy(prepared['enemy']['patterns'])) if add_patterns is not None else nodes
+            _,bindings=compile_registry(registry_nodes,pools=True)
             metadata['product_parts']=[dict(name=b.label,slot=slot,node=b.run)
                 for slot,b in enumerate(bindings) if int(b.kind)==1 and nodes[b.run].id=='authored-live-parts']
         if nearby:
@@ -118,6 +121,9 @@ def compile_product(prepared):
             metadata['product_fixed_burst']=dict(first_seconds=first,member_regen_seconds=regen,
                 readiness_regen_seconds=max(regen),CPU_state_or_schedule_as_input=False)
             source=source.replace('gpu/product_','gpu/product_fixed_',1)
+        if add_patterns is not None:
+            from portable_product_add_attack import attach
+            return attach(source,words,metadata,prepared,add_patterns,original['enemy']['patterns'])
         return source,iw,ow,words,metadata
     from destructible_damage_policy import modifier_axis
     if any(modifier_axis(row['effect']) for row in prepared['effects']):
@@ -232,7 +238,9 @@ def decode_payload(body, prepared, run, metadata, block):
                 raise UnsupportedPortable('Unknown product world history identity')
             if kind==2 and arg not in (1,2,3,4):
                 raise UnsupportedPortable('Unknown product world closing outcome')
-        world=read_histories(block,nodes)
+        from portable_product_add_attack import query_sources
+        sources=query_sources(block,metadata)
+        world=read_histories(block,nodes,attack_sources=sources)
         if any(not math.isfinite(row['time']) or row['time']<0 for row in world['boss_log']):
             raise UnsupportedPortable('Invalid product world history time')
         for hit in world['hits']:
@@ -248,7 +256,7 @@ def decode_payload(body, prepared, run, metadata, block):
                for p in body['enemy']['patterns']):
             payload['incoming_hits']=[dict(time=round(hit['time'],6),pattern=hit['pattern'],target=names[hit['owner']],
                 damage=round(hit['damage'],6),pierce=hit['pierce'],decoy=round(hit['decoy'],6),shield=round(hit['shield'],6),
-                cover=round(hit['cover'],6),hp=round(hit['hp'],6),hp_after=round(hit['hp_after'],6),down=hit['down'],by='')
+                cover=round(hit['cover'],6),hp=round(hit['hp'],6),hp_after=round(hit['hp_after'],6),down=hit['down'],by=hit.get('by',''))
                 for hit in world['hits']]
     return payload
 

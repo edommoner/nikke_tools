@@ -27,7 +27,7 @@ class WeightedSourceContract(unittest.TestCase):
             self.assertEqual(project_sources(root),current)
 
     def test_changed_product_route_guard_and_arithmetic_are_rejected(self):
-        cases=[('gpu/destructible_weapon_runtime.slang','commands[actorBinding(s,slot)]!=1','commands[actorBinding(s,slot)]!=5'),
+        cases=[('gpu/destructible_weapon_runtime.slang','if(kind!=1&&kind!=5)','if(kind!=1)'),
                ('gpu/attack_group_runtime.slang','commands[input+1]==2&&commands[actorBinding(s,slot)]==1','commands[actorBinding(s,slot)]==1'),
                ('app/portable_backend.py',"source.replace('gpu/product_fixed_','gpu/product_',1)","source.replace('gpu/product_fixed_','gpu/product_group_',1)"),
                ('gpu/event_runtime.slang','uint64_t fixedGaugeReadyAt;','uint fixedGaugeReadyAt;'),
@@ -82,7 +82,7 @@ class WeightedSourceContract(unittest.TestCase):
     def test_product_history_and_added_helper_cannot_be_edited(self):
         for name,message in [('tests/fixtures/portable-product-source-delta.json','history ledger changed'),
                              ('gpu/admission_definition_types.slang','Unreviewed product source'),
-                             ('gpu/product_group_target_battle_entry.slang','Unreviewed product dependency')]:
+                             ('gpu/product_group_target_battle_entry.slang','Unreviewed product source')]:
             with self.subTest(name=name),tempfile.TemporaryDirectory() as folder:
                 root=Path(folder);self.copy_sources(root);target=root/name
                 target.write_bytes(target.read_bytes()+b'\n')

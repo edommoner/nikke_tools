@@ -23,6 +23,15 @@ def retained_source_hashes(root,source):
     def visit(path):
         key=path.relative_to(root).as_posix()
         if key in found:return
-        text=projected.get(key,path.read_text());found[key]=hashlib.sha256(text.encode()).hexdigest()
+        text=projected.get(key,path.read_text())
+        if key=='gpu/full_burst_landing_runtime.slang' and key not in projected:
+            from portable_coordinate_full_burst_source_contract import project_file
+            text=project_file(root,key,text)
+        found[key]=hashlib.sha256(text.encode()).hexdigest()
         for include in re.findall(r'^\s*#include\s+"([^"]+)"',text,re.M):visit((path.parent/include).resolve())
-    visit(root/source);return found
+    visit(root/source)
+    # This API reconstructs historical closures. Apply the existing exact
+    # membership-storage inverse too; current runtime/codegen hashes are kept
+    # by portable_slang_generation.source_hashes and never use this path.
+    from portable_quantity_visited_source_contract import historical_hashes
+    return historical_hashes(root,found)
