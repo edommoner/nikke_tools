@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "package_id": "008be53bb770a08ac5fed45962aba111add2be2e9c045e5aa2326d8c93fa69e1",
+  "source_commit": "975dc67b1d0f9e3a5b7c6642341f2d952277f836",
+  "program": "cover-fixed-group",
+  "archive": "cover-group-fixed-v1.zip",
+  "archive_bytes": 12014408,
+  "archive_sha256": "aac2252b8fc0e4de07df91d27503369d02f5481457d81e65488f4e59f64813b4",
+  "ptx_compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "008be53bb770a08ac5fed45962aba111add2be2e9c045e5aa2326d8c93fa69e1",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "api_request": "cover-group-fixed-api-v1.json",
+  "request_sha256": "11f41279ca30248e93f813ab00917af95bfcf1ff7dc07708d95bcc9cc761900c",
+  "bounds": {
+    "sdk_child_seconds": 60,
+    "job_memory_mb": 2048,
+    "outer_seconds": 180,
+    "api_helper_seconds": 53,
+    "priority": "BelowNormal"
+  },
+  "original_mac_source": "535ffa18738d742a1833bcc9da9837f3e0a7cf35a3458f0da7ed976e82aba09e",
+  "scope": "New fixed cover/group source only; no catalogue sweep or old-source image rebinding"
+}
