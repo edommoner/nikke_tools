@@ -322,6 +322,20 @@
       "output_words": 2048912,
       "mode": "accumulate",
       "kind": ""
+    },
+    "lock-cover-fixed": {
+      "source": "gpu/product_lock_cover_fixed_battle_entry.slang",
+      "input_words": 109560,
+      "output_words": 2048912,
+      "mode": "fixed",
+      "kind": ""
+    },
+    "lock-cover-accumulate": {
+      "source": "gpu/product_lock_cover_battle_entry.slang",
+      "input_words": 109560,
+      "output_words": 2048912,
+      "mode": "accumulate",
+      "kind": ""
     }
   }
 }

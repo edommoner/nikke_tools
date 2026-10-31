@@ -119,6 +119,13 @@ def validate_composed_stride(source,input_words,output_words):
         if RO!=C['OUTPUT_BASE']:raise ValueError('Named range and cover banks must remain disjoint and contiguous')
         if (input_words,output_words)!=(R+C['WORDS'],OUTPUT):raise ValueError('Named range/cover requires both complete declaration and receipt banks')
         return
+    lock_cover_sources={p['source'] for n,p in PROGRAMS.items() if n.startswith('lock-cover-')}
+    if source in lock_cover_sources:
+        from portable_lock_typed_layout import check,INPUT as LI,OUTPUT as LO
+        from portable_cover_defense_wire import check_schema,LAYOUT as C,OUTPUT
+        check(ROOT);check_schema(ROOT)
+        if LO>C['OUTPUT_BASE'] or (input_words,output_words)!=(LI+C['WORDS'],OUTPUT):raise ValueError('Lock On/cover requires complete disjoint arenas')
+        return
     movement_cover_sources={p['source'] for n,p in PROGRAMS.items() if n.startswith('movement-cover-')}
     if source in movement_cover_sources:
         from portable_cover_defense_wire import check_schema,LAYOUT as C,OUTPUT

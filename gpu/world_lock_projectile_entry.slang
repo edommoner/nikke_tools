@@ -40,12 +40,27 @@
 void portableEvents(uint3 id:SV_DispatchThreadID)
 {
     if(id.x>=commands[0])return;
-    uint input=1+id.x*109536,output=id.x*1310720;WORLD_TEAM_INPUT(input,output)
+#ifdef PORTABLE_PRODUCT_COVER_LOCK
+    uint input=1+id.x*(109536U+CDF_WORDS),output=id.x*CDF_OUTPUT_WORDS;
+#else
+    uint input=1+id.x*109536,output=id.x*1310720;
+#endif
+    WORLD_TEAM_INPUT(input,output)
+#ifdef PORTABLE_PRODUCT_COVER_LOCK
+    for(uint i=786432;i<CDF_OUTPUT_WORDS;i++)results[output+i]=0;
+#else
     for(uint i=786432;i<1048576;i++)results[output+i]=0;
+#endif
     initializeRuntime(runtimeStates[id.x]);bool ready;
     initializePortableProgram(runtimeStates[id.x],input,output,ready);if(!ready)return;
     if(!initializeDestructibleBattle(runtimeStates[id.x])){results[output]=64;return;}
     if(!initializePacketFates(runtimeStates[id.x])){results[output]=64;return;}
+#ifdef PORTABLE_PRODUCT_COVER_LOCK
+    if(!initializeCoverDefense(runtimeStates[id.x])){results[output]=64;return;}
+#endif
     uint queries;executePortableCommands(runtimeStates[id.x],input,output,queries);
     writePortableProgram(runtimeStates[id.x],input,output,queries);
+#ifdef PORTABLE_PRODUCT_COVER_LOCK
+    for(uint i=0;i<CDF_DEPTH*CDF_SNAPSHOT_WORDS;i++)results[output+CDF_OUTPUT_BASE+CDF_SNAPSHOT_BASE+i]=0;
+#endif
 }

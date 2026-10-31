@@ -6,7 +6,8 @@ from unittest.mock import patch
 from cover_defense_battle_model import normalize
 MAGIC=0x43444231
 STAT=93
-NAMED_RANGE_STAT=96  # Disjoint from named target count93 and radius94.
+COMPOSED_STAT=96  # Disjoint from target count93 and radius94.
+NAMED_RANGE_STAT=COMPOSED_STAT  # Earlier immutable consumers retain this alias.
 SOURCE='gpu/world_cover_defense_entry.slang'
 LAYOUT=dict(BASE=115680,WORDS=24,INPUT_WORDS=115704,OUTPUT_BASE=2032000,HEADER=16,SNAPSHOT_BASE=16,SNAPSHOT_WORDS=16,DEPTH=32,RECEIPT_BASE=528,RECEIPTS=512,RECEIPT_WORDS=32,OUTPUT_WORDS=2048912)
 INPUT=LAYOUT['INPUT_WORDS'];OUTPUT=LAYOUT['OUTPUT_WORDS']

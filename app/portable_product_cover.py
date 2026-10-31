@@ -16,7 +16,7 @@ def compile_product(prepared,producer):
     from portable_product_world_contract import has_incoming_attacks
     if unspecified and has_incoming_attacks(prepared):
         raise UnsupportedPortable('Independent cover DEF requires explicit reference_models.cover_defense bases; no body DEF or level curve is inferred')
-    if set(declarations)-{'cover_defense','enemy_healing','enemy_ammo','enemy_movement','named_range'} or len(set(declarations)-{'cover_defense'})>1:
+    if set(declarations)-{'cover_defense','enemy_healing','enemy_ammo','enemy_movement','named_range','lock_on'} or len(set(declarations)-{'cover_defense'})>1:
         raise UnsupportedPortable('Cover DEF product composition requires a matching combined consumer wire')
     check_schema();names=[c['name'] for c in prepared['chars']]
     # Product-only unavailable flag; zero payload is reserved padding, not a
@@ -41,15 +41,20 @@ def compile_product(prepared,producer):
     movement=source in ('gpu/product_movement_battle_entry.slang','gpu/product_movement_fixed_battle_entry.slang') and (iw,ow)==(MOVE_INPUT,MOVE_OUTPUT)
     from portable_named_range_battle_wire import INPUT as RANGE_INPUT,OUTPUT as RANGE_OUTPUT
     named_range=source in ('gpu/product_named_range_battle_entry.slang','gpu/product_named_range_fixed_battle_entry.slang') and (iw,ow)==(RANGE_INPUT,RANGE_OUTPUT)
-    from portable_cover_defense_wire import NAMED_RANGE_STAT
-    cover_stat=NAMED_RANGE_STAT if named_range else STAT
+    from portable_lock_typed_layout import INPUT as LOCK_INPUT,OUTPUT as LOCK_OUTPUT
+    locks=source in ('gpu/product_lock_battle_entry.slang','gpu/product_lock_fixed_battle_entry.slang') and (iw,ow)==(LOCK_INPUT,LOCK_OUTPUT)
+    from portable_cover_defense_wire import COMPOSED_STAT
+    cover_stat=COMPOSED_STAT if named_range or locks else STAT
     if named_range:
         from portable_named_range_battle_wire import COUNT_STAT,RANGE_STAT
         # Reject semantic aliasing before a claim or device call, including
         # requests with no incoming hit that would otherwise mask the error.
         if len({cover_stat,COUNT_STAT,RANGE_STAT})!=3:
             raise ValueError('Cover DEF, target count and named range require disjoint stat identifiers')
-    kind='healing' if healing else 'ammo' if ammo else 'movement' if movement else 'named_range' if named_range else None
+    kind='healing' if healing else 'ammo' if ammo else 'movement' if movement else 'named_range' if named_range else 'lock' if locks else None
+    if locks:
+        from portable_named_range_battle_wire import COUNT_STAT
+        if cover_stat==COUNT_STAT:raise ValueError('Lock target count and cover DEF require disjoint stat identifiers')
     for candidate,wire in prefixes.items():
         stem=(candidate.replace('-','_')+'_') if candidate else ''
         if source in ('gpu/product_'+stem+'battle_entry.slang','gpu/product_fixed_'+stem+'battle_entry.slang') and (iw,ow)==wire:
@@ -95,6 +100,10 @@ def compile_product(prepared,producer):
         meta['product_named_range_cover']=True
         if len(words)!=RANGE_INPUT:raise ValueError('Complete named range prefix required before cover bank')
         return ('gpu/product_named_range_cover_'+('fixed_' if fixed_values is not None else '')+'battle_entry.slang',RANGE_INPUT+C['WORDS'],OUTPUT,list(words)+bank,meta)
+    if locks:
+        meta['product_lock_cover']=True
+        if len(words)!=LOCK_INPUT:raise ValueError('Complete Lock On prefix required before cover bank')
+        return ('gpu/product_lock_cover_'+('fixed_' if fixed_values is not None else '')+'battle_entry.slang',LOCK_INPUT+C['WORDS'],OUTPUT,list(words)+bank,meta)
     stem=('fixed_' if fixed_values is not None else '')+(kind.replace('-','_')+'_' if kind else '')
     return ('gpu/product_cover_'+stem+'battle_entry.slang',INPUT,OUTPUT,
         list(words)+[0]*(C['BASE']-len(words))+bank,meta)

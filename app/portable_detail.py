@@ -67,10 +67,10 @@ def compile_product(prepared):
     from portable_product_cover import required as cover_required,compile_product as compile_cover
     from portable_product_movement import required as movement_required,compile_product as compile_movement
     from portable_product_locks import required as locks_required,compile_product as compile_locks
-    if locks_required(prepared):return compile_locks(prepared)
     from portable_product_named_range import required as range_required,compile_product as compile_range
-    if not prepared.get('_product_cover_compiled') and cover_required(prepared) and (range_required(prepared) or movement_required(prepared)):
+    if not prepared.get('_product_cover_compiled') and cover_required(prepared) and (range_required(prepared) or movement_required(prepared) or locks_required(prepared)):
         return compile_cover(prepared,compile_product)
+    if locks_required(prepared):return compile_locks(prepared)
     if range_required(prepared):return compile_range(prepared)
     if movement_required(prepared):return compile_movement(prepared)
     if not prepared.get('_product_cover_compiled') and cover_required(prepared):
@@ -275,7 +275,12 @@ def decode_payload(body, prepared, run, metadata, block):
             models.append(model)
     if metadata.get('product_lock_on'):
         from portable_product_locks import read_result
-        model=read_result(block,metadata,run.config['duration'])
+        from portable_lock_typed_layout import OUTPUT as LOCK_OUTPUT
+        from portable_cover_defense_wire import LAYOUT as C
+        if metadata.get('product_lock_cover') and any(block[LOCK_OUTPUT:C['OUTPUT_BASE']]):
+            raise UnsupportedPortable('Unowned Lock On/cover output gap contains data')
+        lock_block=block[:LOCK_OUTPUT] if metadata.get('product_lock_cover') else block
+        model=read_result(lock_block,metadata,run.config['duration'])
         models.append(model)
     if metadata.get('product_enemy_movement'):
         from portable_product_movement import read_result

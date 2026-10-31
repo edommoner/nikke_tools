@@ -57,7 +57,7 @@ class ProductReferenceModels(unittest.TestCase):
             if not incoming:body['enemy']['patterns']=[p for p in body['enemy']['patterns'] if p['kind']!='attack']
             pre,_=product.prepare(body)
             for collision in (93,94):
-                with patch.object(cover,'NAMED_RANGE_STAT',collision),patch.object(product,'execute',side_effect=AssertionError('GPU forbidden')):
+                with patch.object(cover,'COMPOSED_STAT',collision),patch.object(product,'execute',side_effect=AssertionError('GPU forbidden')):
                     with self.assertRaisesRegex(ValueError,'disjoint stat identifiers'):product.compile_product(pre)
 
     def test_named_range_and_manual_cover_share_literal_banks_and_restore_native_contexts(self):
@@ -269,6 +269,41 @@ class ProductReferenceModels(unittest.TestCase):
         transform=QueueHooks();transform.visit(ast.parse('def simulate():\n def _land(ev,t):\n  if boss is not None and boss.has_adds:pass\n'))
         self.assertNotEqual(transform.counts,dict(emission=1,landing=1,route=1,clock=1))
 
+    def test_lock_and_cover_keep_all_original_effects_and_independent_arenas(self):
+        import portable_detail as product
+        from portable_product_programs import body_for_program
+        from portable_lock_typed_layout import INPUT as LI,OUTPUT as LO
+        from portable_cover_defense_wire import LAYOUT as C,COMPOSED_STAT
+        from portable_specs import LIMITS as L,FIELDS as F
+        from portable_backend import validate_composed_stride
+        aliases=(timeline.simulate,sim.simulate);state=timeline.random.getstate()
+        self.assertLess(LO,C['OUTPUT_BASE'])
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'lock-cover-'+mode)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle as GPU input')):
+                prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,before);validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(LI+24,2048912,LI+24))
+            self.assertEqual(words[L['WORLD_CONTROL_INPUT_BASE']+1],6 if mode=='fixed' else 3)
+            self.assertTrue(meta['product_lock_cover'])
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+            for index in meta['product_cover_defense']['definition_indices']:
+                row=meta['binding_source_indices'].index(index)
+                self.assertEqual(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['STAT']],COMPOSED_STAT)
+            for short in [(LI,ow),(iw,LO)]:
+                with self.assertRaises(ValueError):validate_composed_stride(source,*short)
+            body['duration']=3
+            body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=1)]}
+            body['enemy']['patterns'][1]['delay']=.75
+            body['enemy']['patterns'][1]['spec'].update(hits=2,interval=.5)
+            original=copy.deepcopy(body);actual=engine_worker.evaluate(body)
+            self.assertEqual(body,original)
+            self.assertEqual(set(actual['reference_models']['declarations']),{'lock_on','cover_defense'})
+            self.assertTrue(actual['reference_models']['cover_defense']['receipts'])
+            self.assertIn('lock_on',actual['reference_models'])
+            self.assertEqual(aliases,(timeline.simulate,sim.simulate));self.assertEqual(timeline.random.getstate(),state)
+
     def test_fixed_lock_uses_shared_literal_header_and_preserves_all_effects(self):
         import portable_detail as product
         from portable_backend import validate_composed_stride
@@ -285,7 +320,7 @@ class ProductReferenceModels(unittest.TestCase):
         self.assertEqual(meta['product_fixed_burst']['first_seconds'],.75)
         self.assertFalse(meta['product_fixed_burst']['CPU_state_or_schedule_as_input'])
         bad=copy.deepcopy(prepared);bad['chars'][0]['control']={'sequence':[{'action':'cover'}]}
-        with self.assertRaisesRegex(UnsupportedPortable,'manual cover'):product.compile_product(bad)
+        with self.assertRaisesRegex(UnsupportedPortable,'control policy'):product.compile_product(bad)
         for value in (True,float('nan'),-1,181):
             bad=copy.deepcopy(prepared);bad['policies']['config']['first_burst_time']=value
             with self.subTest(value=value),self.assertRaisesRegex(UnsupportedPortable,'finite binary64'):product.compile_product(bad)
