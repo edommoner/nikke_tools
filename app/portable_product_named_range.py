@@ -41,16 +41,18 @@ def compile_product(prepared):
     return source,INPUT,OUTPUT,words,meta
 
 
-def read_result(block,meta,duration):
+def read_result(block,meta,duration,*,out=OUT):
     def fail():raise UnsupportedPortable('Invalid or incomplete product named range cast history')
     if len(block)!=OUTPUT or block[0]!=0:fail()
-    h=list(block[OUT:OUT+OUT_HEADER]);count=h[2]
+    end=out+(END-OUT)
+    if type(out) is not int or out<OUT or end>len(block):fail()
+    h=list(block[out:out+OUT_HEADER]);count=h[2]
     if count>CASTS or h!=[MAGIC,1,count]+[0]*(OUT_HEADER-3):fail()
     info=meta['product_named_range'];bound={r['row']:r for r in meta['named_range_battle']['bindings']}
     rules={(r['owner'],r['effect']):r for r in info['declarations']['named_range']['rules']}
     names=info['names'];casts=[];previous=0.
     for i in range(count):
-        at=OUT+OUT_HEADER+i*CAST_WORDS;raw=list(block[at:at+CAST_WORDS]);row,who=raw[:2]
+        at=out+OUT_HEADER+i*CAST_WORDS;raw=list(block[at:at+CAST_WORDS]);row,who=raw[:2]
         if row not in bound or who>=len(names) or bound[row]['owner']!=names[who] or any(raw[22:]):fail()
         def num(offset):
             value=struct.unpack('<d',struct.pack('<II',*raw[offset:offset+2]))[0]
@@ -63,5 +65,5 @@ def read_result(block,meta,duration):
             or r['add_count']+bool(r['body_position'])>r['capacity'] or r['factor']<0 or r['radius']<0
             or r['additional_targets']<0 or r['additional_targets']!=int(r['additional_targets']) or r['capacity']!=r['base_count']+r['additional_targets']):fail()
         previous=r['time'];casts.append(r)
-    if any(block[OUT+OUT_HEADER+count*CAST_WORDS:END]):fail()
+    if any(block[out+OUT_HEADER+count*CAST_WORDS:end]):fail()
     return dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(info['declarations']),named_range=dict(casts=casts))

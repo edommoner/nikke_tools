@@ -13,8 +13,8 @@ OUTPUT=2032000;OUT=1867648;OUT_HEADER=16;CASTS=512;CAST_WORDS=32;END=OUT+OUT_HEA
 MAGIC=0x4e524231;RANGE_STAT=94;COUNT_STAT=93
 
 def bits(x):return list(struct.unpack('<II',struct.pack('<d',float(x))))
-def shader_schema():
-    return '// Generated from portable_named_range_battle_wire; literal inputs only.\n'+''.join('static const uint NRB_'+k+'='+str(v)+'U;\n' for k,v in dict(BASE=BASE,HEADER=HEADER,ROWS=ROWS,ROW_WORDS=ROW_WORDS,WORDS=WORDS,INPUT=INPUT,OUTPUT=OUTPUT,OUT=OUT,OUT_HEADER=OUT_HEADER,CASTS=CASTS,CAST_WORDS=CAST_WORDS,END=END,MAGIC=MAGIC,RANGE_STAT=RANGE_STAT).items())
+def shader_schema(*,base=BASE,out=OUT):
+    return '// Generated from portable_named_range_battle_wire; literal inputs only.\n'+''.join('static const uint NRB_'+k+'='+str(v)+'U;\n' for k,v in dict(BASE=base,HEADER=HEADER,ROWS=ROWS,ROW_WORDS=ROW_WORDS,WORDS=WORDS,INPUT=base+WORDS,OUTPUT=OUTPUT,OUT=out,OUT_HEADER=OUT_HEADER,CASTS=CASTS,CAST_WORDS=CAST_WORDS,END=out+OUT_HEADER+CASTS*CAST_WORDS,MAGIC=MAGIC,RANGE_STAT=RANGE_STAT).items())
 def check_schema(root=None):
     path=Path(root or Path(__file__).resolve().parents[1])/'gpu/named_range_battle_layout.slang'
     if path.read_text()!=shader_schema():raise ValueError('Named range battle schema drift')

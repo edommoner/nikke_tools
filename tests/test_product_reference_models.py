@@ -9,6 +9,55 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    @staticmethod
+    def movement_range_body():
+        from portable_product_programs import body_for_program
+        from detail_coverage import body_for
+        body=body_for_program(ROOT,'named-range-accumulate')
+        motion=body_for_program(ROOT,'movement-accumulate')['reference_models']['enemy_movement']
+        squad=body['squad'][:3]+['유니','얀'];body['squad']=squad
+        body['profile']=body_for(squad,body['duration'])['profile']
+        spec=body['reference_models']['named_range']
+        motion['coord']=copy.deepcopy(spec['coord']);motion['logical_geometry']=copy.deepcopy(spec['logical_geometry'])
+        motion['motion']['actors']=[dict(label=r['label'],velocity=[.1,0.],force_center=[0.,0.]) for r in spec['logical_geometry']]
+        body['reference_models']['enemy_movement']=motion
+        return body
+
+    def test_movement_range_keeps_all_definitions_and_disjoint_literal_banks(self):
+        import portable_detail as product
+        from portable_product_movement_range import INPUT,OUTPUT,OUT,END,check_schema
+        from portable_enemy_movement_wire import INPUT as MI,BASE as MB,END as ME,MAGIC as MM
+        from portable_named_range_battle_wire import WORDS as RW,MAGIC as RM
+        from portable_backend import validate_composed_stride
+        self.assertEqual(OUT,ME);self.assertEqual(INPUT,MI+RW);self.assertLessEqual(END,OUTPUT);check_schema(ROOT)
+        for mode in ('fixed','accumulate'):
+            body=self.movement_range_body();body['burst_gauge_mode']=mode;before=copy.deepcopy(body)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle input')):
+                prepared,run=product.prepare(body);original=copy.deepcopy(prepared)
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,original);self.assertEqual(body,before);self.assertFalse(run.expected)
+            self.assertEqual((iw,ow,len(words)),(INPUT,OUTPUT,INPUT));validate_composed_stride(source,iw,ow)
+            self.assertEqual(words[MB],MM);self.assertEqual(words[MI],RM)
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+            self.assertEqual(set(meta['product_enemy_movement']['declarations']),{'enemy_movement'})
+            self.assertEqual(set(meta['product_named_range']['declarations']),{'named_range'})
+            self.assertFalse(meta['product_movement_range']['cpu_state_or_schedule_supplied'])
+            with self.assertRaises(ValueError):validate_composed_stride(source,iw-1,ow)
+            with self.assertRaises(ValueError):validate_composed_stride(source,iw,ow-1)
+
+    def test_movement_range_rejects_disagreeing_geometry_and_restores_aliases(self):
+        body=self.movement_range_body();models=normalize(body['reference_models'])
+        for key in ('coord','logical_geometry'):
+            bad=copy.deepcopy(body['reference_models'])
+            if key=='coord':bad['named_range'][key]['auto_aim'][0]=1.
+            else:bad['named_range'][key][0]['shape']['x']=1.
+            with self.subTest(key=key),self.assertRaisesRegex(ValueError,'identical declared coordinate geometry'):normalize(bad)
+        aliases=(timeline.simulate,sim.simulate,timeline.random.getstate())
+        with self.assertRaisesRegex(RuntimeError,'injected'):
+            with execution(models):raise RuntimeError('injected')
+        self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
+        with self.assertRaisesRegex(ValueError,'combined checked'):normalize(dict(body['reference_models'],enemy_healing=[]))
+
     def test_movement_and_manual_cover_share_literal_banks_and_restore_native_contexts(self):
         import portable_detail as product
         from portable_product_programs import body_for_program

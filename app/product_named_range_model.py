@@ -1,5 +1,5 @@
 """Declared named range/count consumer at original skill creation."""
-from contextlib import contextmanager
+from contextlib import contextmanager,nullcontext
 from unittest.mock import patch
 import copy
 
@@ -27,7 +27,7 @@ def public(data):
 
 
 @contextmanager
-def execution(spec):
+def execution(spec,*,coordinate_context=True):
     # Resolve the common geometry provider before any checked rewrite.
     import engine_worker
     from named_range_battle import named_range_battle
@@ -42,4 +42,4 @@ def execution(spec):
             effect=found[0]
             if (effect.get('type')!='damage' or effect.get('stat')!='damage' or effect.get('target')!='enemies_nearest:'+str(rule['base_count'])
                 or effect.get('tick_interval') or effect.get('hits_parts')):raise ValueError('Plain original nearest damage binding required')
-    with patch.object(BuffManager,'__init__',checked),named_range_battle(spec['rules'],spec['logical_geometry']) as data,coordinates(spec):yield data
+    with patch.object(BuffManager,'__init__',checked),named_range_battle(spec['rules'],spec['logical_geometry']) as data,(coordinates(spec) if coordinate_context else nullcontext()):yield data

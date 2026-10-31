@@ -70,6 +70,9 @@ def compile_product(prepared):
     from portable_product_named_range import required as range_required,compile_product as compile_range
     if not prepared.get('_product_cover_compiled') and cover_required(prepared) and (range_required(prepared) or movement_required(prepared) or locks_required(prepared)):
         return compile_cover(prepared,compile_product)
+    if range_required(prepared) and movement_required(prepared):
+        from portable_product_movement_range import compile_product as compile_movement_range
+        return compile_movement_range(prepared)
     if locks_required(prepared):return compile_locks(prepared)
     if range_required(prepared):return compile_range(prepared)
     if movement_required(prepared):return compile_movement(prepared)
@@ -277,13 +280,16 @@ def decode_payload(body, prepared, run, metadata, block):
         from portable_product_locks import read_result
         model=read_result(block,metadata,run.config['duration'])
         models.append(model)
-    if metadata.get('product_enemy_movement'):
+    if metadata.get('product_movement_range'):
+        from portable_product_movement_range import read_result as read_movement_range
+        models.extend(read_movement_range(block,metadata,run.config['duration']))
+    if metadata.get('product_enemy_movement') and not metadata.get('product_movement_range'):
         from portable_product_movement import read_result
         from portable_enemy_movement_wire import OUTPUT as MOVEMENT_OUTPUT
         movement_block=block[:MOVEMENT_OUTPUT] if metadata.get('product_movement_cover') else block
         model=read_result(movement_block,metadata,run.config['duration'])
         models.append(model)
-    if metadata.get('product_named_range'):
+    if metadata.get('product_named_range') and not metadata.get('product_movement_range'):
         from portable_product_named_range import read_result
         from portable_named_range_battle_wire import OUTPUT as RANGE_OUTPUT
         range_block=block[:RANGE_OUTPUT] if metadata.get('product_named_range_cover') else block

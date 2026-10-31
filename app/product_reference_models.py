@@ -38,8 +38,8 @@ def normalize(value):
     if type(value) is not dict or set(value)-{'enemy_healing','weighted_incoming','cover_defense','enemy_ammo','enemy_movement','named_range','lock_on'}:
         raise ValueError('reference_modelsには接続済みのenemy_healing／weighted_incoming／cover_defense／enemy_ammo／enemy_movement／named_range／lock_onだけを指定してください。')
     if 'enemy_ammo' in value and set(value)-{'enemy_ammo','cover_defense'}:raise ValueError('Enemy magazine composition requires a combined checked native consumer')
-    if 'enemy_movement' in value and set(value)-{'enemy_movement','cover_defense'}:raise ValueError('Movement composition requires a combined checked native consumer')
-    if 'named_range' in value and set(value)-{'named_range','cover_defense'}:raise ValueError('Named range composition requires a combined checked native consumer')
+    if 'enemy_movement' in value and set(value)-({'enemy_movement','named_range'} if 'named_range' in value else {'enemy_movement','cover_defense'}):raise ValueError('Movement composition requires a combined checked native consumer')
+    if 'named_range' in value and set(value)-({'named_range','enemy_movement'} if 'enemy_movement' in value else {'named_range','cover_defense'}):raise ValueError('Named range composition requires a combined checked native consumer')
     if 'lock_on' in value and set(value)-{'lock_on','cover_defense'}:raise ValueError('Lock composition requires a combined checked native consumer')
     result={}
     if 'enemy_healing' in value:
@@ -68,6 +68,10 @@ def normalize(value):
     if 'lock_on' in value:
         from product_lock_model import normalize as locks
         result['lock_on']=locks(value['lock_on'])
+    if 'enemy_movement' in result and 'named_range' in result:
+        for key in ('coord','logical_geometry'):
+            if result['enemy_movement'][key]!=result['named_range'][key]:
+                raise ValueError('Movement and named range require identical declared coordinate geometry')
     return result
 
 def healing_public(data):
@@ -117,7 +121,7 @@ def execution(declarations,names=None):
         else:movement=None
         if 'named_range' in declarations:
             from product_named_range_model import execution as range_execution
-            named=stack.enter_context(range_execution(declarations['named_range']))
+            named=stack.enter_context(range_execution(declarations['named_range'],coordinate_context='enemy_movement' not in declarations))
         else:named=None
         if 'lock_on' in declarations:
             from product_lock_model import execution as lock_execution

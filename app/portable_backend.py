@@ -86,6 +86,11 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source in ('gpu/product_movement_range_battle_entry.slang','gpu/product_movement_range_fixed_battle_entry.slang'):
+        from portable_product_movement_range import check_schema,INPUT,OUTPUT
+        check_schema(ROOT)
+        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Movement/range requires complete disjoint consumer arenas')
+        return
     if source in ('gpu/product_add_battle_entry.slang','gpu/product_add_group_battle_entry.slang',
                   'gpu/product_add_fixed_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang',
                   'gpu/product_add_target_battle_entry.slang','gpu/product_add_fixed_target_battle_entry.slang',
