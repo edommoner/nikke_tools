@@ -540,7 +540,7 @@
     },
     "app/portable_world_result.py": {
       "before_sha256": "14b75458d6d90058523c1bd63bdfc5ba23b4842b690bd2d64cc64ba0f4101fec",
-      "after_sha256": "a517b4f78b8b09dcaa7cdd64858365c96a9592c667ae247d1696436d6995c3cb",
+      "after_sha256": "fd382b84ef999f958be24ce421fbeb9186caf11ee52e107c70e64fdb03e05f5c",
       "hunks": [
         {
           "start": 471,
@@ -640,37 +640,37 @@
         },
         {
           "start": 6305,
-          "end": 6575,
+          "end": 6767,
           "before": "",
-          "after": "manual:\n        from portable_manual_control_specs import BASE\n        if len(set(manual))!=len(manual) or any(type(i) is not int or not 0<=i<5 for i in manual):fail()\n        if len(block)<BASE+80 or any(block[BASE+i*16+14]!=0x504d4331 for i in range(5)):fail()\n    if "
+          "after": "manual:\n        from portable_manual_control_specs import BASE\n        if metadata.get('product_lock_on'):\n            from portable_physical_lock_cover_layout import BASE\n            from portable_lock_typed_layout import OFFSET\n            BASE+=OFFSET\n        if len(set(manual))!=len(manual) or any(type(i) is not int or not 0<=i<5 for i in manual):fail()\n        if len(block)<BASE+80 or any(block[BASE+i*16+14]!=0x504d4331 for i in range(5)):fail()\n    if "
         },
         {
-          "start": 6600,
-          "end": 6624,
+          "start": 6792,
+          "end": 6816,
           "before": "",
           "after": "(7,9) if patterns else ("
         },
         {
-          "start": 6633,
-          "end": 6634,
+          "start": 6825,
+          "end": 6826,
           "before": "",
           "after": ")"
         },
         {
-          "start": 7044,
-          "end": 7062,
+          "start": 7236,
+          "end": 7254,
           "before": "",
           "after": "label.get('input',"
         },
         {
-          "start": 7069,
-          "end": 7070,
+          "start": 7261,
+          "end": 7262,
           "before": "",
           "after": ")"
         },
         {
-          "start": 8597,
-          "end": 9024,
+          "start": 8789,
+          "end": 9216,
           "before": "",
           "after": "None\n        elif kind in (4,5):\n            if who not in manual or list(block[at+4:at+8])!=[1,0,0,0]:fail()\n            label=dict(input='cover',mode='cover',producer='엄폐(시퀀스)')\n            if kind==4:\n                if who in active:fail()\n                active[who]=(when,label)\n            else:\n                if who not in active or active[who][1]!=label:fail()\n                close(who,when)\n            last_close="
         }

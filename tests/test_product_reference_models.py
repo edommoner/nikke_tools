@@ -130,6 +130,25 @@ class ProductReferenceModels(unittest.TestCase):
         b[at+1]=12
         with self.assertRaises(UnsupportedPortable):read_result(b,meta,3)
 
+    def test_lock_on_manual_control_projection_reads_its_relocated_owned_bank(self):
+        from portable_world_result import read_product_control_log
+        from portable_specs import LIMITS as L
+        from portable_physical_lock_cover_layout import BASE
+        from portable_lock_typed_layout import OFFSET,OUTPUT
+        from portable_manual_control_specs import BASE as OTHER_BASE
+        from portable_runtime import UnsupportedPortable
+        names=['a','b','c','d','e'];meta=dict(product_lock_on={'declared':True},product_control_labels=[[] for _ in names],product_manual_cover_owners=[2])
+        b=array.array('I',[0])*OUTPUT;h=L['WORLD_CONTROL_HEAD_BASE'];t=L['WORLD_CONTROL_TRACE_BASE']
+        b[h]=0x57434831;b[h+1]=2;b[h+13]=0x50434c31
+        for i in range(5):b[BASE+OFFSET+i*16+14]=0x504d4331
+        for i,(kind,time) in enumerate(((4,.4),(5,.8))):
+            at=t+i*8;b[at:at+8]=array.array('I',[kind,2,*struct.unpack('<II',struct.pack('<d',time)),1,0,0,0])
+        log=read_product_control_log(b,meta,names,30);self.assertEqual(len(log.control_log),1)
+        self.assertEqual((log.control_log[0].t0,log.control_log[0].t1,log.control_log[0].caster),(.4,.8,'c'))
+        b[BASE+OFFSET+14]=0
+        for i in range(5):b[OTHER_BASE+i*16+14]=0x504d4331
+        with self.assertRaises(UnsupportedPortable):read_product_control_log(b,meta,names,30)
+
     def test_named_range_product_consumes_original_count_and_range_modifiers(self):
         from portable_named_range_battle_cases import fixtures
         from portable_runtime import UnsupportedPortable

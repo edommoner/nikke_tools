@@ -68,6 +68,7 @@ def compile_product(prepared):
     meta['product_lock_on']=dict(declarations=declarations,names=names,packet_source=packet,typed_source=typed,
         bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],
         typed_case=dict(names=names,effects=copy.deepcopy(effects),owners=[names.index(n) for n in owners],skill_levels=[c['skill_levels'] for c in prepared['chars']],typed_bindings=spec['typed_bindings'],max_attacks=128),cpu_state_or_schedule_supplied=False)
+    meta['product_manual_cover_owners']=[i for i,c in enumerate(prepared['chars']) if any(a.get('action')=='cover' for a in c.get('control',{}).get('sequence',[]))]
     meta['product_control_labels']=[[dict(mode=e['mode'],producer=_when_label(e)) for e in CharState(c,atk,prepared['enemy'].get('code'))._click_sched] for c,atk in zip(prepared['chars'],prepared['base_atk'])]
     meta['product_world']=dict(nodes=[dict(id=p.id,kind=p.kind) for p in parsed],literal_pattern_identity_only=True,cpu_schedule_or_state_supplied=False)
     return SOURCE,INPUT,OUTPUT,words,meta
