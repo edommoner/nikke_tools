@@ -46,6 +46,22 @@ class PortableDetail(unittest.TestCase):
             prepared,_=product.prepare(body)
             with self.assertRaisesRegex(ValueError,'Boss damage-over-time carrier is not connected'):product.compile_product(prepared)
 
+    def test_boss_debuffs_compose_with_all_product_binding_families(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_specs import LIMITS as L,FIELDS as F
+        belorta=selected_profile_bodies(['벨로타'],0)[0][2]
+        asuka=selected_profile_bodies(['아스카'],0)[0][2]
+        mixed=copy.deepcopy(asuka);mixed['profile']['chars'].update(belorta['profile']['chars'])
+        mixed['squad']=['아스카','벨로타','미란다','도라','드레이크']
+        for body,kind in [(belorta,'group'),(asuka,'target'),(mixed,'group_target')]:
+            body=copy.deepcopy(body);body.update(duration=4,burst_gauge_mode='fixed')
+            body['enemy']['patterns']=[dict(id='incoming',kind='attack',spec=dict(coeff=100,target='all',debuffs=[dict(stat='atk_pct',value=-10,duration=2)]))]
+            with self.subTest(kind=kind),patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('Static only')):
+                prepared,_=product.prepare(body);source,_,_,words,meta=product.compile_product(prepared)
+                self.assertEqual(source,'gpu/product_fixed_'+kind+'_battle_entry.slang')
+                for row in meta['boss_debuffs']['definitions']:
+                    self.assertEqual(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['OWNER']],5)
+
     def world_projection_fixture(self):
         """Synthetic readback for format tests; never GPU execution evidence."""
         from portable_specs import LIMITS as limits

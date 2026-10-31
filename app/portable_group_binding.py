@@ -21,6 +21,10 @@ def lower(prepared):
 
 def bind(words,metadata,original):
     for row,source in enumerate(metadata['binding_source_indices']):
+        if source>=len(original):
+            if row not in metadata.get('boss_debuffs',{}).get('definitions',()) or words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['OWNER']]!=5:
+                raise ValueError('Unowned appended group definition')
+            continue
         timings=original[source]['effect']['trigger']['timing']
         if words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['TRIGGER_COUNT']]!=len(timings):raise ValueError('Unexpected trigger expansion')
         for slot,t in enumerate(timings):

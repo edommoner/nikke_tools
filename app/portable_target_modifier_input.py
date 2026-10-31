@@ -12,6 +12,12 @@ def pack_axes(words,metadata,effects):
     """Keep the axis separate from ordinary numeric stats; never edit effects."""
     axes=[0]*L['DEFINITIONS']
     for row,index in enumerate(metadata['binding_source_indices']):
+        if index>=len(effects):
+            if row not in metadata.get('boss_debuffs',{}).get('definitions',()) or words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['OWNER']]!=5:
+                raise ValueError('Unowned appended target modifier definition')
+            # Boss effects remain ordinary numeric/status carriers, never a
+            # projectile/shield contribution of the attacking squad.
+            continue
         axis=modifier_axis(effects[index]);axes[row]=axis
         if axis:
             at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']

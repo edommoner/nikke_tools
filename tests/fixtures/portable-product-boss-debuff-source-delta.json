@@ -183,6 +183,30 @@
           "after": "    if(s.error==0)releaseWorldBossDebuffs(s,bossFirstLog,results[w.output+2]);\n"
         }
       ]
+    },
+    "app/portable_group_binding.py": {
+      "before_sha256": "1047db58f423a57cd14c7893362b909de550d49c341574f2498858bef1dcd013",
+      "after_sha256": "552d1d32d2ba238e27a8ebf233c6fa990d0d64b72c2681767ad2520eb77193ca",
+      "hunks": [
+        {
+          "start": 1470,
+          "end": 1747,
+          "before": "",
+          "after": "        if source>=len(original):\n            if row not in metadata.get('boss_debuffs',{}).get('definitions',()) or words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['OWNER']]!=5:\n                raise ValueError('Unowned appended group definition')\n            continue\n"
+        }
+      ]
+    },
+    "app/portable_target_modifier_input.py": {
+      "before_sha256": "8fcf1e6ab5998b1ab282eee0cafe3f50cdf9308d6f26e5205cb81423bbbb5471",
+      "after_sha256": "6fec6471dbee10a42042d569d64176df16bda543ae7e7beba5745c42c1d61aae",
+      "hunks": [
+        {
+          "start": 552,
+          "end": 982,
+          "before": "",
+          "after": "        if index>=len(effects):\n            if row not in metadata.get('boss_debuffs',{}).get('definitions',()) or words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['OWNER']]!=5:\n                raise ValueError('Unowned appended target modifier definition')\n            # Boss effects remain ordinary numeric/status carriers, never a\n            # projectile/shield contribution of the attacking squad.\n            continue\n"
+        }
+      ]
     }
   }
 }
