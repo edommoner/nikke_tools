@@ -547,6 +547,38 @@ class ProductReferenceModels(unittest.TestCase):
             with self.assertRaisesRegex(UnsupportedPortable,'combined consumer wire'):
                 product.compile_product(prepared)
 
+    def test_cover_composes_original_target_modifiers_and_optional_groups(self):
+        import portable_detail as product
+        from detail_coverage import body_for
+        from portable_specs import LIMITS as L,FIELDS as F
+        from portable_cover_defense_wire import STAT
+        from portable_backend import validate_composed_stride
+        for kind,roster,prefix in [
+            ('target',['솔져 O.W.','아스카','미란다','도라','드레이크'],110112),
+            ('group-target',['솔져 O.W.','사쿠라','벨로타','도라','드레이크'],104672),
+        ]:
+            for mode in ('fixed','accumulate'):
+                body=body_for(roster,30)
+                body.update(burst_gauge_mode=mode,
+                    reference_models={'cover_defense':[dict(name=n,base_defense=100) for n in roster]},
+                    manual_cover_sequences={roster[0]:[dict(action='cover',t=.5,duration=1)]})
+                with patch.object(sim,'execute',side_effect=AssertionError('No native schedule as input')):
+                    prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+                    source,iw,ow,words,meta=product.compile_product(prepared)
+                with self.subTest(kind=kind,mode=mode):
+                    self.assertEqual(prepared,before)
+                    self.assertEqual(source,'gpu/product_cover_'+('fixed_' if mode=='fixed' else '')+kind.replace('-','_')+'_battle_entry.slang')
+                    validate_composed_stride(source,iw,ow)
+                    self.assertEqual((iw,ow),(115704,2048912))
+                    self.assertFalse(any(words[prefix:115680]))
+                    self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+                    axes=meta['real_prepared_input']['target_modifier_carriers']['axis_rows']
+                    self.assertTrue(any(axes))
+                    self.assertEqual(bool(meta['real_prepared_input'].get('declared_attack_group_policy')),kind=='group-target')
+                    for index in meta['product_cover_defense']['definition_indices']:
+                        row=meta['binding_source_indices'].index(index)
+                        self.assertEqual(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['STAT']],STAT)
+
     def test_fixed_cover_header_conversion_rejects_invalid_tap_masks_and_reserved_words(self):
         import portable_detail as product
         from portable_product_cover import compile_product

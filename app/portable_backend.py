@@ -110,10 +110,13 @@ def validate_composed_stride(source,input_words,output_words):
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Weighted incoming requires complete literal weights and owned receipt banks')
         return
-    if source in ('gpu/world_cover_defense_entry.slang','gpu/product_cover_battle_entry.slang','gpu/product_cover_fixed_battle_entry.slang','gpu/product_cover_group_battle_entry.slang','gpu/product_cover_fixed_group_battle_entry.slang') or output_words==2048912:
+    from portable_product_programs import PROGRAMS
+    cover_sources={'gpu/world_cover_defense_entry.slang'}|{
+        p['source'] for n,p in PROGRAMS.items() if n.startswith(('cover-','default-cover-'))}
+    if source in cover_sources or output_words==2048912:
         from portable_cover_defense_wire import check_schema,INPUT,OUTPUT
         check_schema(ROOT)
-        if source not in ('gpu/world_cover_defense_entry.slang','gpu/product_cover_battle_entry.slang','gpu/product_cover_fixed_battle_entry.slang','gpu/product_cover_group_battle_entry.slang','gpu/product_cover_fixed_group_battle_entry.slang') or (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Cover DEF requires complete independent bases and receipt bank')
+        if source not in cover_sources or (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Cover DEF requires complete independent bases and receipt bank')
         return
     if source=='gpu/world_coordinate_typed_ordered_history_entry.slang':
         from portable_recipient_order_observation import check_layout,INPUT_WORDS,OUTPUT_WORDS

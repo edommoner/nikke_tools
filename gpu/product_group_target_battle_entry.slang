@@ -33,7 +33,7 @@ bool validProductGroupTargetAxes(inout Runtime s)
     return count==commands[descriptor+2];
 }
 
-#ifndef PORTABLE_PRODUCT_ADD_EXECUTOR
+#if !defined(PORTABLE_PRODUCT_ADD_EXECUTOR) && !defined(PORTABLE_PRODUCT_EXTERNAL_EXECUTOR)
 [shader("compute")]
 [numthreads(1,1,1)]
 void portableEvents(uint3 id:SV_DispatchThreadID)

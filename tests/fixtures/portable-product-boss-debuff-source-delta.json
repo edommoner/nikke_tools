@@ -1212,17 +1212,17 @@
     },
     "gpu/destructible_shield_battle_entry.slang": {
       "before_sha256": "6d0e8fda975c1f5f0e3c557b309475fb5bb4d2205cc1934a4fde8297affc4f9b",
-      "after_sha256": "87d053354479546d3338ea491ec47355cc88da310ea0695e1269f8301bc87210",
+      "after_sha256": "e8d2cdf7dbdd74a42fd59459d15ad58af0ed004ac3819b55c95dff63eae57730",
       "hunks": [
         {
           "start": 211,
-          "end": 249,
+          "end": 303,
           "before": "",
-          "after": "\n#ifndef PORTABLE_PRODUCT_ADD_EXECUTOR"
+          "after": "\n#if !defined(PORTABLE_PRODUCT_ADD_EXECUTOR) && !defined(PORTABLE_PRODUCT_EXTERNAL_EXECUTOR)"
         },
         {
-          "start": 997,
-          "end": 1005,
+          "start": 1051,
+          "end": 1059,
           "before": "",
           "after": "\n#endif\n"
         }
@@ -1266,7 +1266,7 @@
     },
     "gpu/product_group_target_battle_entry.slang": {
       "before_sha256": "5a87c08576208567b6256bd99dd373f10eb11dd42a35e804dff911638908c42a",
-      "after_sha256": "049b27689437ea9557044a06ac53ec9cdd2e0e40eb04ab22441ac6c812337d64",
+      "after_sha256": "7dbc7d82e8036f876fcdda418ef2dd3c4321a648d140dae106581b88ff85fbb5",
       "hunks": [
         {
           "start": 771,
@@ -1300,13 +1300,13 @@
         },
         {
           "start": 1452,
-          "end": 1490,
+          "end": 1544,
           "before": "",
-          "after": "\n#ifndef PORTABLE_PRODUCT_ADD_EXECUTOR"
+          "after": "\n#if !defined(PORTABLE_PRODUCT_ADD_EXECUTOR) && !defined(PORTABLE_PRODUCT_EXTERNAL_EXECUTOR)"
         },
         {
-          "start": 2143,
-          "end": 2151,
+          "start": 2197,
+          "end": 2205,
           "before": "",
           "after": "\n#endif\n"
         }
@@ -1314,7 +1314,7 @@
     },
     "app/portable_backend.py": {
       "before_sha256": "56d708fa4162b19d35cb2ec16498380f762e11dea17162c57ceb37c651c9f8ac",
-      "after_sha256": "5315e53fb99c2f5d6b10784ee6ad58de5dc08a4a094338c62f24a381a36c0834",
+      "after_sha256": "69c2094058fc4878aec0c83ee5ed5bd8b1e8fc8fe457b072347d0a8e1dec77ff",
       "hunks": [
         {
           "start": 3872,
@@ -1329,128 +1329,170 @@
           "after": ",'gpu/product_weighted_battle_entry.slang','gpu/product_weighted_fixed_battle_entry.slang'"
         },
         {
-          "start": 5975,
-          "end": 5980,
+          "start": 5966,
+          "end": 5997,
+          "before": "",
+          "after": "from portable_product_programs "
+        },
+        {
+          "start": 5998,
+          "end": 6003,
+          "before": "f",
+          "after": "mport"
+        },
+        {
+          "start": 6004,
+          "end": 6023,
+          "before": "",
+          "after": "PROGRAMS\n    cover_"
+        },
+        {
+          "start": 6029,
+          "end": 6030,
+          "before": "",
+          "after": "s"
+        },
+        {
+          "start": 6031,
+          "end": 6032,
+          "before": "=",
+          "after": "{"
+        },
+        {
+          "start": 6069,
+          "end": 6197,
+          "before": "",
+          "after": "}|{\n        p['source'] for n,p in PROGRAMS.items() if n.startswith(('cover-','default-cover-'))}\n    if source in cover_sources"
+        },
+        {
+          "start": 6342,
+          "end": 6344,
+          "before": "!='gpu/w",
+          "after": " n"
+        },
+        {
+          "start": 6345,
+          "end": 6350,
+          "before": "rld_",
+          "after": "t in "
+        },
+        {
+          "start": 6356,
+          "end": 6361,
+          "before": "d",
+          "after": "sourc"
+        },
+        {
+          "start": 6362,
+          "end": 6362,
+          "before": "fen",
+          "after": ""
+        },
+        {
+          "start": 6363,
+          "end": 6363,
+          "before": "e_entry.slang'",
+          "after": ""
+        },
+        {
+          "start": 7559,
+          "end": 7564,
           "before": "==",
           "after": " in ("
         },
         {
-          "start": 6017,
-          "end": 6198,
-          "before": "",
-          "after": ",'gpu/product_cover_battle_entry.slang','gpu/product_cover_fixed_battle_entry.slang','gpu/product_cover_group_battle_entry.slang','gpu/product_cover_fixed_group_battle_entry.slang')"
-        },
-        {
-          "start": 6343,
-          "end": 6352,
-          "before": "!=",
-          "after": " not in ("
-        },
-        {
-          "start": 6389,
-          "end": 6570,
-          "before": "",
-          "after": ",'gpu/product_cover_battle_entry.slang','gpu/product_cover_fixed_battle_entry.slang','gpu/product_cover_group_battle_entry.slang','gpu/product_cover_fixed_group_battle_entry.slang')"
-        },
-        {
-          "start": 7766,
-          "end": 7771,
-          "before": "==",
-          "after": " in ("
-        },
-        {
-          "start": 7809,
-          "end": 7900,
+          "start": 7602,
+          "end": 7693,
           "before": "",
           "after": ",'gpu/product_movement_battle_entry.slang','gpu/product_movement_fixed_battle_entry.slang')"
         },
         {
-          "start": 8531,
-          "end": 8536,
+          "start": 8324,
+          "end": 8329,
           "before": "==",
           "after": " in ("
         },
         {
-          "start": 8570,
-          "end": 8653,
+          "start": 8363,
+          "end": 8446,
           "before": "",
           "after": ",'gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang')"
         },
         {
-          "start": 9760,
-          "end": 9842,
+          "start": 9553,
+          "end": 9635,
           "before": "",
           "after": ",'gpu/product_lock_battle_entry.slang','gpu/product_lock_fixed_battle_entry.slang'"
         },
         {
-          "start": 10040,
-          "end": 10122,
+          "start": 9833,
+          "end": 9915,
           "before": "",
           "after": "_entry.slang','gpu/product_lock_battle_entry.slang','gpu/product_lock_fixed_battle"
         },
         {
-          "start": 11756,
-          "end": 11761,
+          "start": 11549,
+          "end": 11554,
           "before": "==",
           "after": " in ("
         },
         {
-          "start": 11803,
-          "end": 11900,
+          "start": 11596,
+          "end": 11693,
           "before": "",
           "after": ",'gpu/product_named_range_battle_entry.slang','gpu/product_named_range_fixed_battle_entry.slang')"
         },
         {
-          "start": 12166,
-          "end": 12171,
+          "start": 11959,
+          "end": 11964,
           "before": "==",
           "after": " in ("
         },
         {
-          "start": 12208,
-          "end": 12297,
+          "start": 12001,
+          "end": 12090,
           "before": "",
           "after": ",'gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang')"
         },
         {
-          "start": 35258,
-          "end": 35389,
+          "start": 35051,
+          "end": 35182,
           "before": "",
           "after": "if cuda_split_compile_threads()==2:\n                signatures['nvrtcVersion']=[C.POINTER(C.c_int),C.POINTER(C.c_int)]\n            "
         },
         {
-          "start": 42143,
-          "end": 42400,
+          "start": 41936,
+          "end": 42193,
           "before": "",
           "after": "split_compile_threads():\n    value=os.environ.get('NIKKE_CUDA_SPLIT_COMPILE','1')\n    if value not in ('1','2'):\n        raise ValueError('NIKKE_CUDA_SPLIT_COMPILE must be1 or2; automatic/all-core compilation is forbidden')\n    return int(value)\n\n\ndef cuda_"
         },
         {
-          "start": 42433,
-          "end": 42456,
+          "start": 42226,
+          "end": 42249,
           "before": "",
           "after": "=None, *, split_compile"
         },
         {
-          "start": 42854,
-          "end": 43256,
+          "start": 42647,
+          "end": 43049,
           "before": "",
           "after": "\n    threads=cuda_split_compile_threads() if split_compile is None else split_compile\n    if type(threads) is not int or threads not in (1,2):raise ValueError('NVRTC compiler threads must be1 or2')\n    # Opt-in only: default argv/cache identities stay byte-identical. The\n    # parallel optimizer count participates in the ordinary exact cache key.\n    if threads==2:options.append('--split-compile=2')"
         },
         {
-          "start": 43932,
-          "end": 43973,
+          "start": 43725,
+          "end": 43766,
           "before": "",
           "after": "threads=cuda_split_compile_threads()\n    "
         },
         {
-          "start": 44060,
-          "end": 44082,
+          "start": 43853,
+          "end": 43875,
           "before": "",
           "after": ",split_compile=threads"
         },
         {
-          "start": 44680,
-          "end": 44962,
+          "start": 44473,
+          "end": 44755,
           "before": "",
           "after": "')\n        if threads==2:\n            major,minor=C.c_int(),C.c_int()\n            check(lib.nvrtcVersion(C.byref(major),C.byref(minor)))\n            if major.value!=12 or minor.value<4:\n                raise ValueError('Two-thread NVRTC compilation requires verified NVRTC12.4..12.x"
         }
@@ -1686,7 +1728,7 @@
     },
     "app/portable_product_programs.py": {
       "before_sha256": "51d18a2191c24ef3b68f2d1cf71d792cdb9e8e01ed209e5c793827ce5b7d056d",
-      "after_sha256": "cb843a46f7b572b798cebead0d2dd0226c10ae6cbcc855dfa1622e272cc7f98f",
+      "after_sha256": "929ac79aa224a578c1bbddf956bea6562db859c8acbe812a1e0323ff3daa7768",
       "hunks": [
         {
           "start": 365,
@@ -1702,31 +1744,31 @@
         },
         {
           "start": 1934,
-          "end": 2056,
+          "end": 2016,
           "before": "",
-          "after": "(_healing or _weighted or _ammo or _movement or _range or _lock) and _kind!='' or _cover and _kind not in ('','group') or "
+          "after": "(_healing or _weighted or _ammo or _movement or _range or _lock) and _kind!='' or "
         },
         {
-          "start": 2063,
-          "end": 2071,
+          "start": 2023,
+          "end": 2031,
           "before": "",
           "after": "_prefix+"
         },
         {
-          "start": 2302,
-          "end": 2513,
+          "start": 2262,
+          "end": 2473,
           "before": "",
           "after": "+('add_' if _add else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else 'ammo_' if _ammo else 'movement_' if _movement else 'named_range_' if _range else 'lock_' if _lock else '')"
         },
         {
-          "start": 4482,
-          "end": 7623,
+          "start": 4442,
+          "end": 7511,
           "before": "",
-          "after": "name is not None and name.startswith('lock-'):\n        import engine_worker\n        from portable_heavyarms_lock_cases import fixtures,NAME,source_definitions\n        from product_lock_model import ORDER,MARKER,DELIVERY_MODEL\n        body=copy.deepcopy(fixtures()[1]['body'])\n        body['reference_models']={'lock_on':dict(owner=NAME,marker=MARKER,packet_skill=source_definitions()[8]['name'],candidate_order=ORDER,delivery=DELIVERY_MODEL,typed_bindings=[])}\n    elif name is not None and name.startswith('named-range-'):\n        from portable_named_range_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'named_range':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),rules=copy.deepcopy(case['named_range_rules']))}\n    elif name is not None and name.startswith('movement-'):\n        import engine_worker\n        from portable_enemy_movement_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'enemy_movement':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),motion=copy.deepcopy(case['enemy_movement']))}\n    elif name is not None and name.startswith('ammo-'):\n        if program['mode']=='fixed':\n            from portable_original_identity_inventory import selected_profile_bodies\n            body=selected_profile_bodies(['벨벳'],0)[0][2]\n        else:\n            import engine_worker\n            from portable_enemy_ammo_cases import fixtures\n            case=fixtures()[0];body=copy.deepcopy(case['body'])\n            body['reference_models']={'enemy_ammo':copy.deepcopy(case['enemy_ammo'])}\n    elif name is not None and name.startswith('default-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['베이' if name.startswith('default-weighted-') else '솔져 O.W.'],0)[0][2]\n    elif name is not None and name.startswith('cover-') and program['kind']=='group':\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['벨로타'],0)[0][2]\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('cover-'):\n        from portable_cover_defense_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'cover_defense':copy.deepcopy(case['cover_defense'])}\n        body['manual_cover_sequences']=copy.deepcopy(case['declared_manual_sequences'])\n    elif name is not None and name.startswith('weighted-'):\n        from portable_weighted_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}\n    elif name is not None and name.startswith('healing-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]\n    elif "
+          "after": "name is not None and name.startswith('lock-'):\n        import engine_worker\n        from portable_heavyarms_lock_cases import fixtures,NAME,source_definitions\n        from product_lock_model import ORDER,MARKER,DELIVERY_MODEL\n        body=copy.deepcopy(fixtures()[1]['body'])\n        body['reference_models']={'lock_on':dict(owner=NAME,marker=MARKER,packet_skill=source_definitions()[8]['name'],candidate_order=ORDER,delivery=DELIVERY_MODEL,typed_bindings=[])}\n    elif name is not None and name.startswith('named-range-'):\n        from portable_named_range_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'named_range':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),rules=copy.deepcopy(case['named_range_rules']))}\n    elif name is not None and name.startswith('movement-'):\n        import engine_worker\n        from portable_enemy_movement_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'enemy_movement':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),motion=copy.deepcopy(case['enemy_movement']))}\n    elif name is not None and name.startswith('ammo-'):\n        if program['mode']=='fixed':\n            from portable_original_identity_inventory import selected_profile_bodies\n            body=selected_profile_bodies(['벨벳'],0)[0][2]\n        else:\n            import engine_worker\n            from portable_enemy_ammo_cases import fixtures\n            case=fixtures()[0];body=copy.deepcopy(case['body'])\n            body['reference_models']={'enemy_ammo':copy.deepcopy(case['enemy_ammo'])}\n    elif name is not None and name.startswith('default-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['베이' if name.startswith('default-weighted-') else '솔져 O.W.'],0)[0][2]\n    elif name is not None and name.startswith('cover-') and program['kind']:\n        body=body_for_program(root,program['mode']+'-'+program['kind'])\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('cover-'):\n        from portable_cover_defense_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'cover_defense':copy.deepcopy(case['cover_defense'])}\n        body['manual_cover_sequences']=copy.deepcopy(case['declared_manual_sequences'])\n    elif name is not None and name.startswith('weighted-'):\n        from portable_weighted_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}\n    elif name is not None and name.startswith('healing-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]\n    elif "
         },
         {
-          "start": 8245,
-          "end": 8678,
+          "start": 8133,
+          "end": 8566,
           "before": "",
           "after": "if name is not None and name.startswith('add-'):\n        body['enemy']['patterns']=[dict(id='product-escort',kind='summon',until=dict(targets_cleared=True),spec=dict(\n            name='Escort',count=2,hp=1e12,attack_at=.25,self_destruct=True,\n            attack=dict(atk=1000,coeff=100,hits=2,interval=.5,target='all',debuffs=[\n                dict(stat='atk_pct',value=-10),dict(stat='dot',coeff=10,interval=.5,duration=1)])))]\n    "
         }

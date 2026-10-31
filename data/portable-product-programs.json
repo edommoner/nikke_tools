@@ -238,6 +238,34 @@
       "output_words": 2048912,
       "mode": "accumulate",
       "kind": "group"
+    },
+    "cover-fixed-target": {
+      "source": "gpu/product_cover_fixed_target_battle_entry.slang",
+      "input_words": 115704,
+      "output_words": 2048912,
+      "mode": "fixed",
+      "kind": "target"
+    },
+    "cover-fixed-group-target": {
+      "source": "gpu/product_cover_fixed_group_target_battle_entry.slang",
+      "input_words": 115704,
+      "output_words": 2048912,
+      "mode": "fixed",
+      "kind": "group-target"
+    },
+    "cover-accumulate-target": {
+      "source": "gpu/product_cover_target_battle_entry.slang",
+      "input_words": 115704,
+      "output_words": 2048912,
+      "mode": "accumulate",
+      "kind": "target"
+    },
+    "cover-accumulate-group-target": {
+      "source": "gpu/product_cover_group_target_battle_entry.slang",
+      "input_words": 115704,
+      "output_words": 2048912,
+      "mode": "accumulate",
+      "kind": "group-target"
     }
   }
 }

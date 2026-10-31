@@ -3,7 +3,7 @@
 #include "world_projectile_chain_entry.slang"
 #undef portableEvents
 #include "destructible_shield_frame_impl.slang"
-#ifndef PORTABLE_PRODUCT_ADD_EXECUTOR
+#if !defined(PORTABLE_PRODUCT_ADD_EXECUTOR) && !defined(PORTABLE_PRODUCT_EXTERNAL_EXECUTOR)
 [shader("compute")]
 [numthreads(1,1,1)]
 void portableEvents(uint3 id:SV_DispatchThreadID)

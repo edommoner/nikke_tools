@@ -26,9 +26,17 @@ def compile_product(prepared,producer):
     from portable_product_fixed import lower as lower_fixed,attach as attach_fixed
     inner,fixed_values=lower_fixed(inner)
     with compiler_policy():source,iw,ow,words,meta=producer(inner)
-    group=source in ('gpu/product_group_battle_entry.slang','gpu/product_fixed_group_battle_entry.slang')
-    if (source not in ('gpu/product_battle_entry.slang','gpu/product_fixed_battle_entry.slang') or (iw,ow)!=(104400,786432)) and not (group and (iw,ow)==(104408,1048576)):
-        raise UnsupportedPortable('Cover DEF composition requires the shared BODY or shot-group product battle')
+    prefixes={
+        '':(104400,786432), 'group':(104408,1048576),
+        'target':(110112,1048576), 'group-target':(104672,1048576),
+    }
+    kind=None
+    for candidate,wire in prefixes.items():
+        stem=(candidate.replace('-','_')+'_') if candidate else ''
+        if source in ('gpu/product_'+stem+'battle_entry.slang','gpu/product_fixed_'+stem+'battle_entry.slang') and (iw,ow)==wire:
+            kind=candidate;break
+    if kind is None:
+        raise UnsupportedPortable('Cover DEF composition requires a connected BODY/PART modifier or shot-group product battle')
     indices=[i for i,r in enumerate(prepared['effects']) if r['effect'].get('stat')=='cover_def_pct']
     for index in indices:
         row=meta['binding_source_indices'].index(index);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
@@ -48,7 +56,7 @@ def compile_product(prepared,producer):
             words[base+1]=3
             words[base+5:base+8]=[tap_mask,0xffffffff,0x4d435631]
         attach_fixed(words,meta,prepared,fixed_values)
-    stem=('fixed_' if fixed_values is not None else '')+('group_' if group else '')
+    stem=('fixed_' if fixed_values is not None else '')+(kind.replace('-','_')+'_' if kind else '')
     return ('gpu/product_cover_'+stem+'battle_entry.slang',INPUT,OUTPUT,
         list(words)+[0]*(C['BASE']-len(words))+bank,meta)
 
