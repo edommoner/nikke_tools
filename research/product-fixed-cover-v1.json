@@ -359,5 +359,48 @@
       "ptx_compile_plan_passed": true,
       "cuda_requests": 0
     }
+  },
+  "ui": {
+    "verified_source_commit": "53369dc2e048104fb868b8de1331b3034d61ec46",
+    "package_id": "655c1ec643443944ba2f4c0c24c56c77c4a687c38bdef3e0379df0807573962e",
+    "ordinary_ui_actual_metal_conditions": 1,
+    "profile": "Soldier O.W. with original named roster and fictional expanded-demo growth",
+    "duration_seconds": 30,
+    "total_damage": 85703861,
+    "capture_id": "e41d6ac5d35f4c3daf696bda45d741c8",
+    "input_sha256": "f27f3801a0b7293ec722ce1e420767bb0db19785a8b4d4b1e481519d5219859e",
+    "output_sha256": "53f2a19550dce128ba5ed3ff90e6bdf19d97a661f638430cce0a522a49cec16d",
+    "all_original_definitions_retained": 98,
+    "cover_receipts": 5,
+    "cpu_full_payload_matched": true,
+    "saved_audit": {
+      "passed": true,
+      "capture_id": "e41d6ac5d35f4c3daf696bda45d741c8",
+      "input_sha256": "f27f3801a0b7293ec722ce1e420767bb0db19785a8b4d4b1e481519d5219859e",
+      "output_sha256": "53f2a19550dce128ba5ed3ff90e6bdf19d97a661f638430cce0a522a49cec16d",
+      "all_source_input_raw_and_payload_fields_verified": true,
+      "definitions": 98,
+      "bindings_complete": true,
+      "ui_compute_base_stats_and_displayed_total_verified": true,
+      "body_reconstructed_from_frozen_demo_and_visible_conditions": true,
+      "gpu_calls": 0,
+      "native_calls": 0
+    },
+    "validation": {
+      "unsupported_action_rejected_in_ui": true,
+      "timing_only_change_invalidates_old_score_in_ui": true,
+      "session_roundtrip": "Node tests only; no repeated browser file transfer",
+      "final_state_admission_guard": "One additional validation call before state mutation; actual setDeclaredScenario VM regression plus full55 Node tests; not part of earlier browser-tested packet",
+      "final_guard_is_only_app_js_delta": true,
+      "all_other_changed_ui_and_calculation_files_byte_identical": true
+    },
+    "screenshot": {
+      "path": "research/product-fixed-cover-ui-v1.png",
+      "sha256": "1a651ad50d8eeaaf3b9e176cc00dff61dc0d6ab771f95c906ebb868f504bc8cf"
+    },
+    "extra_gpu_native_calls_for_audit": 0,
+    "source_node_tests": 55,
+    "dedicated_server_stopped": true,
+    "test_tab_closed": true
   }
 }

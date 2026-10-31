@@ -1,3 +1,15 @@
+## 2026-11-01 resident frameでCUDA実メモリ低下・手動遮蔽UIを接続
+
+前turnはAPI固定遮蔽の実装・5条件Metal/CPU一致で進捗。今回はWindowsの保存結果をGitHub経由で取得、movementだけ同じ4秒通常APIを1回実行して実RTX3070Ti/CPU全payload一致、全readback SHA b1c1e77e…はM5保存8,128,000bytesと同一。新source ownerbc57f0d3…、capture26d72a73…、CUBIN c5216731…（6,816,912bytes）。damage15,425,927、burstI3/II3.1/III3.2/full3.583。新生成/NVRTC/PTXAS/link0、POST/kernel/sync/readback各1、retry0。初回/再利用/最終全file gate1/4/1保持、Job23.699秒/HTTP17.990秒、missing0/timeoutなし/Job空/ownedserver停止。元713record不変。Windows原rawはMac未取得、peer summaryとMac実rawの独立照合である。
+
+その前のCPU origin再監査は10.193秒成功、object/linkも正式origin/containment成功で各内外missing0。dispatch stack9912→1984、linked entry22848→14936bytes、registers254のまま。1回のJob peakは2,139,754,496→1,535,086,592bytes（差-604,667,904）、2GiBまで約612MBの余裕。launch前後private398,893,056→1,474,740,224bytes、GPUfree7,435,452,416→6,409,945,088bytes。背景負荷未統制なので一般性能保証/原因内訳確定ではない。子Job上限field null/reasonunknownでmemory observation complete=false、service unverified/whole preservation=falseを保持。rangeは元PTX内外missing7/unknownで停止、再実行0/新range GPU0。
+
+取得commit6eafb33b（object/link）/63695b05（API）、元小要約をresearch/product-resident-frames-movement-{object,api}-status-v1.jsonへbyte保存。wait/readは引き続きunavailableでもlist/send/GitHubは成功した。Windows依頼は全てterminal/pending0。保存結果の転送だけで新SDK/GPUを回さない。標準30秒全profileのCUDA認定0のまま、今回ユニ宣言4秒の既存条件への最適化保持実証1編成。Metal標準最新全件262/266、新standard加算0。次はこの既存frame領域方式を通常product entryへ適用してheadroomを確保し、通常profileの短い差分CUDAへ進む。全goal未完了。
+
+通常画面の詳細条件JSONがmanual_cover_sequencesを受け付け、5人以内/1〜8操作/有限0〜180秒/時刻順/coverのみを検査する（53369dc2）。reference_modelsと一緒に保存、部隊/敵scopeへ隔離。score/battle両キーに操作列を含め、時刻変更で旧結果を無効化。UI結果に手動遮蔽も表示。source Node54、その後「foreign ownerはstate変更前に拒否」の1callを追加し実setDeclaredScenarioをVMで検査した最終55が成功。CPU正本/GPU数値/normalizer/tolerance変更0。
+
+不変UI owner655c1ec6…（53369dc2）を専用4403で実IAB確認。203人の架空expanded demoから元Soldier O.W./Dora/Drake/N102/Maryを画面で組み、30秒固定/5人の遮蔽操作/敵攻撃をJSON適用し通常ボタンで計算。実M5/CPU全payload一致、damage85,703,861、capturee41d6ac5…、元98定義/遮蔽receipt5。取り込み時と変更後の2応答に対し保存GPU capture1。source/input/fullraw/全CPU/GPUの再投影と画面compute/base_stats/表示合計の保存監査を追加native/GPU0で確認。bodyは同一不変demo producerと画面条件から再構成し、全input byte一致を要求した。保存session downloadは反復せず、sessionはNode roundtripだけ。scratch監査v1のreserved keyword構文誤りはGPU/native前で停止し原file保持、v2成功。画面でaction shoot拒否と時刻のみ変更時の「再計算が必要」を確認。後追加のstate前guardだけはブラウザーpacketに含まれず、唯一のapp.js deltaをbyte検査し最終Node55で検査、他UI/計算file全byte同一。Screenshot research/product-fixed-cover-ui-v1.png。専用4403/テストtabは停止、ユーザー4317/4327不操作。詳細research/product-fixed-cover-v1.json。以下は履歴。
+
 ## 2026-11-01 固定周期と手動遮蔽を通常製品APIへ接続
 
 進捗あり。固定burstと手動coverの接続拒否を解消し、既存coordinate header6/固定ready/遮蔽consumerを再利用した（9cb703a1）。新suite・計算本体・CPU正本・数値・normalizer・tolerance変更0。cover-fixedを既存product familyのdata variantへ追加。manual時だけ既存cover consumer内でlowerを許可し、automatic/tapも同じcanonical headerへ変換する。tap mask/cover triggerと予約語を検査、CPU時計/姿勢/履歴を入力しない。固定時刻の最初のtestは未対応request keyを使い3.0となったが、prepared configへ設定する既存方式に修正し、runtime変更なし。元失敗をproofへ保持。

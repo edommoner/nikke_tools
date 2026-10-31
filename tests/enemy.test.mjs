@@ -76,3 +76,19 @@ test('actual score and frozen baseline keys change when only manual cover timing
  const keys=runInNewContext(code+'\nrequests.map(r=>[key(r),battleKey(r)])',{requests:[evaluation,changed],merge:(a,b)=>({...a,...b})});
  assert.notEqual(keys[0][0],keys[1][0]);assert.notEqual(keys[0][1],keys[1][1]);
 });
+
+test('actual UI application rejects a foreign manual-cover owner before mutating saved conditions',async()=>{
+ const {runInNewContext}=await import('node:vm');
+ const source=readFileSync(new URL('../web/app.js',import.meta.url),'utf8');
+ const start=source.indexOf('function setDeclaredScenario(value)');const end=source.indexOf('\nfunction burst(',start);
+ assert.ok(start>=0&&end>start);
+ const prior={reference_models:{cover_defense:[]}},state={activeTeam:0,teams:[['a','b','c','d','e']],declaredScenarios:{0:prior}},calls=[];
+ const context={state,normalizeDeclaredScenario,applyDeclaredScenario,requireEditable(){},enemyScope,
+ $(){return {dataset:{}}},rememberEnemy(){calls.push('remember')},renderAll(){calls.push('render')},renderReference(){calls.push('reference')},notice(){calls.push('notice')},
+ candidate:{reference_models:{cover_defense:[]},manual_cover_sequences:{foreign:[{action:'cover',t:1,duration:.5}]}}};
+ const code=source.slice(start,end)+'\nsetDeclaredScenario(candidate);';
+ assert.throws(()=>runInNewContext(code,context),/現在の部隊/);
+ assert.equal(state.declaredScenarios[0],prior);assert.deepEqual(calls,[]);
+ context.candidate.manual_cover_sequences={a:[{action:'cover',t:1,duration:.5}]};
+ runInNewContext(code,context);assert.deepEqual(state.declaredScenarios[0].manual_cover_sequences,context.candidate.manual_cover_sequences);assert.ok(calls.length>0);
+});

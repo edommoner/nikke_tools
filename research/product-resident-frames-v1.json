@@ -25,9 +25,29 @@
     "runtime_stride_after_bytes": 167680
   },
   "cuda": {
-    "new_source_compiled": false,
-    "new_source_product_gpu_verified": false,
-    "memory_reduction_proven": false
+    "new_source_compiled": true,
+    "new_source_product_gpu_verified": true,
+    "memory_reduction_proven": false,
+    "memory_reduction_scope": "Single measured Job peak reduced 604667904 bytes; background uncontrolled, no general guarantee",
+    "one_measured_job_peak_before_bytes": 2139754496,
+    "one_measured_job_peak_after_bytes": 1535086592,
+    "linked_entry_stack_before_bytes": 22848,
+    "linked_entry_stack_after_bytes": 14936,
+    "standard_profile_30s_verified": 0,
+    "declared_original_rosters_verified": [
+      {
+        "profile": "Yuni",
+        "duration_seconds": 4,
+        "input_sha256": "5f0ac969a35509b188039b12cf90a6901e94d37749de2ee826d38e36909b95f9",
+        "readback_sha256": "b1c1e77e1a34e87f92ae6e0b058cb6e1dfbf1b03f7e8640680fbf9b55c966087"
+      }
+    ],
+    "range_current_gpu_verified": false,
+    "range_missing_processes": 7,
+    "range_cause": "unknown",
+    "environment_preservation_verified": false,
+    "memory_observation_complete": false,
+    "original_windows_raw_read_on_mac": false
   },
   "coverage": {
     "last_standard_metal_profile_sweep_matched": 262,
@@ -120,7 +140,8 @@
   "windows_request": {
     "turn_id": "01a19317-e8b7-7af3-9f3a-2c53836fd58b",
     "last_cursor": "4b3eff0d-96af-48be-b3ad-b6609ae33ca8:442",
-    "scope": "PTX2 terminal; range missing7/unknown stops its subsequent stages. Movement-only unchanged origin re-audit and conditional first object/link requested; no driver/GPU/HTTP."
+    "scope": "All requested movement stages terminal; one actual ordinary CUDA API matched CPU and full Metal readback hash. Range stopped at PTX/missing7, no retry.",
+    "pending": 0
   },
   "pre_device_plan_notes": [
     "An unsupported --split-count argument was rejected by argparse before claim/compiler/device work. The successful v2 plans use the actual NIKKE_CUDA_SPLIT_COMPILE=2 environment; earlier v1 single-thread plans remain saved."
@@ -286,5 +307,22 @@
       },
       "historical_bindings_created": 0
     }
+  },
+  "windows_saved_object_and_api_reports": {
+    "resident-frames-movement-object-status-v1.json": {
+      "file": "research/product-resident-frames-movement-object-status-v1.json",
+      "commit": "6eafb33bdb4f7aaa2ef710f5c10aef1c6b9f5566",
+      "sha256": "acc47acd04ffe1e48d681c626896b3b9e946c834735b6f471fa11bbc813819f6"
+    },
+    "resident-frames-movement-api-status-v1.json": {
+      "file": "research/product-resident-frames-movement-api-status-v1.json",
+      "commit": "63695b05f5794a9bbad05f13f5f4c1f84f08fe1a",
+      "sha256": "d9fb1c063d7bd7b6b84f974853fdccb1e841b1c01056a34ce7b907306fe485c8"
+    }
+  },
+  "saved_cross_backend_audit": {
+    "passed": true,
+    "scope": "Mac actual input/readback bytes/source seal plus Windows peer saved summary; original Windows raw not copied to Mac",
+    "extra_gpu_native_calls": 0
   }
 }

@@ -34,7 +34,7 @@ function renderDeclaredScenario(){
  $('declared-scenario-status').textContent=label?`${label}を部隊${team+1}だけに適用します。実ゲームの仕様を確認した意味ではありません。${scenario.enemy?' この部隊では宣言した敵行動を使います。':''}`:`部隊${team+1}への宣言モデル指定はありません。`;
 }
 function setDeclaredScenario(value){
- requireEditable();const checked=normalizeDeclaredScenario(value);if(checked.reference_models)state.declaredScenarios[state.activeTeam]=checked;else delete state.declaredScenarios[state.activeTeam];
+ requireEditable();const checked=normalizeDeclaredScenario(value);applyDeclaredScenario({squad:state.teams[state.activeTeam]},checked);if(checked.reference_models)state.declaredScenarios[state.activeTeam]=checked;else delete state.declaredScenarios[state.activeTeam];
  $('declared-scenario-json').dataset.applied='';rememberEnemy(enemyScope(state.singleMode,state.raidCount));renderAll();renderReference();notice(checked.reference_models?'選択中の部隊に宣言モデルを適用しました。計算結果は再計算してください。':'選択中の部隊の宣言モデルを解除しました。');
 }
 function burst(name){const b=String(meta(name).burst);return `<span class="burst-badge burst-${b==='1'?'1':b==='2'?'2':'3'}">${e(b.replace(/1/g,'Ⅰ').replace(/2/g,'Ⅱ').replace(/3/g,'Ⅲ'))}</span>`;}
