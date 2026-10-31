@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "package_id": "68e212dc954e7582c5849587702de2e5d101fc349e1d171cbf08d9aba422d743",
+  "archive": {
+    "path": "product-equipment-carriers-v1.zip",
+    "bytes": 11858507,
+    "sha256": "b1f4c2a2b16e0d933d96aa2c12d736fbb342a81afce617d7df010b395274e488"
+  },
+  "requests": "equipment-carriers-api-requests.json",
+  "program": "accumulate",
+  "source": "gpu/product_battle_entry.slang",
+  "environment": {
+    "NIKKE_CUDA_SPLIT_COMPILE": "2"
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "68e212dc954e7582c5849587702de2e5d101fc349e1d171cbf08d9aba422d743",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "mac_own_tests": 77,
+  "mac_control_tests": 45,
+  "mac_cpu_preflight_native_oracles": 1,
+  "mac_public_metal_profiles": 3,
+  "mac_public_conditions": 6,
+  "private_settings_included": false,
+  "raw_included": false,
+  "sdk_included": false,
+  "source_scope": "Immutable packet; native equipment state producer, burst pattern common policy, fake SDK cache fixture corrected",
+  "old_windows_owner": "15339b2480276cce62507b8ec476b5efc0dd85ee45feb79ed134480133a16ca4",
+  "new_source_since_old_windows_owner": true,
+  "old_serial_failure_claim_retained": true,
+  "compile_only_request": true,
+  "gpu_or_api_not_requested_yet": true
+}
