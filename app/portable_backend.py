@@ -111,6 +111,14 @@ def validate_composed_stride(source,input_words,output_words):
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Weighted incoming requires complete literal weights and owned receipt banks')
         return
     from portable_product_programs import PROGRAMS
+    movement_cover_sources={p['source'] for n,p in PROGRAMS.items() if n.startswith('movement-cover-')}
+    if source in movement_cover_sources:
+        from portable_cover_defense_wire import check_schema,LAYOUT as C,OUTPUT
+        from portable_enemy_movement_wire import check_schema as movement_schema,INPUT as M,OUTPUT as MO
+        check_schema(ROOT);movement_schema(ROOT)
+        if MO!=C['OUTPUT_BASE']:raise ValueError('Movement and cover receipt banks must remain disjoint and contiguous')
+        if (input_words,output_words)!=(M+C['WORDS'],OUTPUT):raise ValueError('Movement/cover requires both complete declaration and receipt banks')
+        return
     ammo_cover_sources={p['source'] for n,p in PROGRAMS.items() if n.startswith('ammo-cover-')}
     if source in ammo_cover_sources:
         from portable_cover_defense_wire import check_schema,LAYOUT as C,OUTPUT

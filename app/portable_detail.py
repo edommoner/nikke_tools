@@ -64,13 +64,15 @@ def verified_transport(evidence, backend, *, cases=1):
 
 def compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
+    from portable_product_cover import required as cover_required,compile_product as compile_cover
+    from portable_product_movement import required as movement_required,compile_product as compile_movement
+    if not prepared.get('_product_cover_compiled') and movement_required(prepared) and cover_required(prepared):
+        return compile_cover(prepared,compile_product)
     from portable_product_locks import required as locks_required,compile_product as compile_locks
     if locks_required(prepared):return compile_locks(prepared)
     from portable_product_named_range import required as range_required,compile_product as compile_range
     if range_required(prepared):return compile_range(prepared)
-    from portable_product_movement import required as movement_required,compile_product as compile_movement
     if movement_required(prepared):return compile_movement(prepared)
-    from portable_product_cover import required as cover_required,compile_product as compile_cover
     if not prepared.get('_product_cover_compiled') and cover_required(prepared):
         return compile_cover(prepared,compile_product)
     from portable_product_ammo import required as ammo_required,compile_product as compile_ammo
@@ -277,7 +279,9 @@ def decode_payload(body, prepared, run, metadata, block):
         models.append(model)
     if metadata.get('product_enemy_movement'):
         from portable_product_movement import read_result
-        model=read_result(block,metadata,run.config['duration'])
+        from portable_enemy_movement_wire import OUTPUT as MOVEMENT_OUTPUT
+        movement_block=block[:MOVEMENT_OUTPUT] if metadata.get('product_movement_cover') else block
+        model=read_result(movement_block,metadata,run.config['duration'])
         models.append(model)
     if metadata.get('product_named_range'):
         from portable_product_named_range import read_result

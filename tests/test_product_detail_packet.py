@@ -49,7 +49,7 @@ class ProductPacket(unittest.TestCase):
         cli=self.cli();base=cli.SUITES['product-detail']
         self.assertIs(configuration(cli.SUITES,'product-detail'),base)
         self.assertIs(configuration(cli.SUITES,dict(suite='product-detail')),base)
-        self.assertEqual(len(PROGRAMS),42)
+        self.assertEqual(len(PROGRAMS),44)
         self.assertEqual({n for n in PROGRAMS if n.startswith('ammo-')},{'ammo-fixed','ammo-accumulate','ammo-cover-fixed','ammo-cover-accumulate'})
         self.assertEqual({n for n in PROGRAMS if n.startswith('default-')},{'default-weighted-fixed','default-cover-fixed'})
         self.assertEqual({n for n in PROGRAMS if n.startswith('cover-')},{'cover-'+mode+suffix for mode in ('accumulate','fixed') for suffix in ('','-group','-target','-group-target')})

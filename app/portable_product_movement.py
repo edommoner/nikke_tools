@@ -24,11 +24,14 @@ def compile_product(prepared):
     from portable_product_fixed import lower as lower_fixed,attach as attach_fixed
     original=prepared
     prepared,fixed_values=lower_fixed(prepared)
-    if any(a.get('action')=='cover' for c in prepared['chars'] for a in c.get('control',{}).get('sequence',[])):
+    manual=[i for i,c in enumerate(prepared['chars']) if any(a.get('action')=='cover' for a in c.get('control',{}).get('sequence',[]))]
+    if manual and not prepared.get('_product_cover_compiled'):
         raise UnsupportedPortable('Movement with manual cover requires the combined coordinate control consumer')
+    if manual:prepared=dict(prepared,_product_manual_cover=True)
     spec=declarations['enemy_movement'];check_schema()
     words,meta,bindings,scene=compile_battle(dict(prepared,_product_native_equipment_carriers=True),spec['logical_geometry'],spec['motion'])
     meta['product_enemy_movement']=dict(declarations=declarations,bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],cpu_state_or_schedule_supplied=False)
+    if manual:meta['product_manual_cover_owners']=manual
     meta['product_control_labels']=[
         [dict(mode=e['mode'],producer=_when_label(e)) for e in CharState(c,atk,prepared['enemy'].get('code'))._click_sched]
         for c,atk in zip(prepared['chars'],prepared['base_atk'])]

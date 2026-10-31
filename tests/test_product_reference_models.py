@@ -9,6 +9,45 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_movement_and_manual_cover_share_literal_banks_and_restore_native_contexts(self):
+        import portable_detail as product
+        from portable_product_programs import body_for_program
+        from portable_enemy_movement_wire import INPUT as M,OUTPUT as MO
+        from portable_cover_defense_wire import LAYOUT as C,MAGIC
+        from portable_backend import validate_composed_stride
+        from portable_specs import LIMITS as L
+        from portable_runtime import UnsupportedPortable
+        self.assertEqual(MO,C['OUTPUT_BASE'])
+        aliases=(timeline.simulate,sim.simulate);state=timeline.random.getstate()
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'movement-cover-'+mode)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle as input')):
+                prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,before);validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(M+24,2048912,M+24))
+            self.assertEqual(words[M:M+4],[MAGIC,1,5,1])
+            self.assertEqual(words[L['WORLD_CONTROL_INPUT_BASE']+1],6 if mode=='fixed' else 3)
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+            self.assertTrue(meta['product_movement_cover'])
+            self.assertEqual(meta['product_manual_cover_owners'],[0])
+            for bad in [(iw-24,ow),(iw,MO)]:
+                with self.assertRaises(ValueError):validate_composed_stride(source,*bad)
+            body['duration']=4
+            body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=0,duration=4)]}
+            body['enemy']['patterns'].append(dict(id='body-attacks',kind='attack',spec=dict(atk=1000,coeff=100,target='all',hits=3,interval=1.)))
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle in missing-base rejection')):
+                pre,_=product.prepare(body)
+                with self.assertRaisesRegex(UnsupportedPortable,'explicit.*cover_defense'):product.compile_product(pre)
+            body['reference_models']['cover_defense']=[dict(name=n,base_defense=100.) for n in body['squad']]
+            original=copy.deepcopy(body);actual=engine_worker.evaluate(body)
+            self.assertEqual(body,original)
+            self.assertEqual(set(actual['reference_models']['declarations']),{'enemy_movement','cover_defense'})
+            self.assertTrue(actual['reference_models']['enemy_movement']['frames'])
+            self.assertTrue(actual['reference_models']['cover_defense']['receipts'])
+            self.assertEqual(actual['manual_cover_sequences'],body['manual_cover_sequences'])
+            self.assertEqual(aliases,(timeline.simulate,sim.simulate));self.assertEqual(timeline.random.getstate(),state)
+
     def test_enemy_ammo_cover_preserves_complete_banks_and_requires_each_literal_model(self):
         import portable_detail as product
         from portable_product_programs import body_for_program
