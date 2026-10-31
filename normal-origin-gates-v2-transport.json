@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "owner": "ebb2bfce6cf965a8fc5b5f525dc1af2daa988cf892f3393483a9bd8554c3f443",
+  "source_commit": "304e20b64b09ee5419fd6b310cd769971e010f2c",
+  "archive": "normal-origin-gates-v2.zip",
+  "archive_bytes": 11911258,
+  "archive_sha256": "e127100dfaab13c6e60ab8704932c505bf026449000cfbcf5c76a0340ef765da",
+  "files": 2724,
+  "program": "accumulate",
+  "slang_version": "2026.20",
+  "mac": {
+    "own_tests": 100,
+    "sdk_fake_tests": 202,
+    "fresh_native": 1,
+    "actual_metal_and_independent_seal": true,
+    "registered_golden": "research/portable-product-programs-v10-expected.json"
+  },
+  "plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "ebb2bfce6cf965a8fc5b5f525dc1af2daa988cf892f3393483a9bd8554c3f443",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "scope": "Guarded test fixture correction only; continue original unexecuted PTX/object/link request with fresh owner and claims; no driver/GPU/API",
+  "old_2195_retry": false,
+  "old_ptx_cache_reuse": false,
+  "priority": "BelowNormal",
+  "memory_limit_mb": 2048,
+  "stage_timeout_seconds": 60,
+  "native_pipeline_budget_seconds": 180,
+  "stop_on_first_failure": true,
+  "preflight": "CPU-only registered staged tests if needed; preserve all four groups/100 tests, then fresh native1; SDK fake controls; deps; own PTX plan; paired generation. Each command maximum180s and native SDK stages maximum60s. No observation or guard relaxation.",
+  "report_branch": "codex/product-cuda-origin-gates-v1-report",
+  "share": "Small saved JSON summary/manifest only; no personal settings, process details, PTX/object/image/raw buffers",
+  "previous_failed_owner": "59160ddb81ae0e13ffd9393f584837220c89c30a5a9814ecc3b9284e834316fd",
+  "changed_files": [
+    "tests/test_portable_detail.py"
+  ],
+  "all_non_test_files_and_golden_identical": true,
+  "guarded_mac_staged_tests": 100,
+  "guarded_mac_staged_fresh_native": 1,
+  "extra_mac_gpu_calls": 0,
+  "NIKKE_CUDA_SPLIT_COMPILE": "2"
+}
