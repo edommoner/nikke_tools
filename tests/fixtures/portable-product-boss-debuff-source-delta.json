@@ -2016,13 +2016,37 @@
     },
     "gpu/product_fixed_battle_entry.slang": {
       "before_sha256": "2a9836a7f7cd7b632f4514ac92f387df6e9b119158108646c4c31f899cddea18",
-      "after_sha256": "9d64018e1a2af00c22a31ce245c54caa6566c718fd064fa87587bb039d9e1f33",
+      "after_sha256": "d16d3b0b53d86817d816841d00e4d4f230d5184408efd7a2a804eea8052694d1",
       "hunks": [
         {
-          "start": 105,
-          "end": 143,
+          "start": 89,
+          "end": 210,
           "before": "",
-          "after": "RESIDENT_FRAME_STACK\n#define PORTABLE_"
+          "after": "ifndef PORTABLE_ADD_ATTACK_BATTLE\n#define PORTABLE_PRODUCT_RESIDENT_FRAMES\n#define PORTABLE_RESIDENT_FRAME_STACK\n#endif\n#"
+        }
+      ]
+    },
+    "gpu/dispatch_frame_storage.slang": {
+      "before_sha256": "eb3615a6f4a3bc1b24f1d1eaaf4946af86be4c10198ad7d9fe6517b59da9ac1b",
+      "after_sha256": "4e7eff9758ea25921444d2b2f3d680a9521af1b327440113f8a8c7740d5c8810",
+      "hunks": [
+        {
+          "start": 152,
+          "end": 153,
+          "before": "",
+          "after": "("
+        },
+        {
+          "start": 185,
+          "end": 395,
+          "before": "",
+          "after": ") && !(defined(PORTABLE_PRODUCT_RESIDENT_FRAMES) && defined(PORTABLE_PRODUCT_FIXED_BURST) && defined(PORTABLE_PRODUCT_OUTLINED_HELPERS) && defined(PORTABLE_WORLD_RELOAD) && !defined(PORTABLE_ADD_ATTACK_BATTLE))"
+        },
+        {
+          "start": 449,
+          "end": 466,
+          "before": "",
+          "after": " or fixed product"
         }
       ]
     }
