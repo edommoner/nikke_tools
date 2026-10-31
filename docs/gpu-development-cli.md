@@ -1,3 +1,5 @@
+`cover-fixed` は宣言した独立遮蔽DEFと元の手動遮蔽操作を、既存version6ヘッダーと固定バースト実行器へ接続する。`package --suite product-detail --product-program cover-fixed --out NEW.zip`を使う。元の敵攻撃なし条件は`default-cover-fixed`。通常APIの宣言4条件とdefault1条件が実M5/CPU全payload一致、GPU禁止独立seal済みv17。他15memberの履歴を保持し、標準profile数の増加やCUDA成功とは数えない。[製品経路と範囲](../research/product-fixed-cover-v1.json)。
+
 ## 製品プログラムを同じCLIで選択する
 
 `movement-fixed` / `named-range-fixed` は、明示した移動/範囲モデルへ同じ固定バーストreadyを適用する。`package --suite product-detail --product-program movement-fixed --out NEW.zip`（範囲は`named-range-fixed`）で通常の不変package/run経路を使う。version6はtap mask/cover tagを保持し、first/regenリテラルを別slotへ置く。CPU時刻表は渡さない。両programはM5/fresh seal済みv15、旧14member保持。標準profile数や現CUDAの確認とは分ける。[範囲と失敗保持](../research/product-coordinate-fixed-v1.json)。

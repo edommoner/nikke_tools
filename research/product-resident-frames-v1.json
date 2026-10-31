@@ -120,9 +120,171 @@
   "windows_request": {
     "turn_id": "01a19317-e8b7-7af3-9f3a-2c53836fd58b",
     "last_cursor": "4b3eff0d-96af-48be-b3ad-b6609ae33ca8:442",
-    "scope": "paired generation and first PTX only for two new source owners; pending, no object/link/GPU requested"
+    "scope": "PTX2 terminal; range missing7/unknown stops its subsequent stages. Movement-only unchanged origin re-audit and conditional first object/link requested; no driver/GPU/HTTP."
   },
   "pre_device_plan_notes": [
     "An unsupported --split-count argument was rejected by argparse before claim/compiler/device work. The successful v2 plans use the actual NIKKE_CUDA_SPLIT_COMPILE=2 environment; earlier v1 single-thread plans remain saved."
-  ]
+  ],
+  "windows_saved_status": {
+    "report": "research/product-resident-frames-ptx-status-v1.json",
+    "transport_commit": "213100b8f46029dac34dc6bb07744b4e66c34f31",
+    "report_sha256": "4729d973b6f74b711271fe6a71a685aa73c19c723475e61eff6865c2369ed574",
+    "summary": {
+      "schema": "resident-frames-ptx-summary-v1",
+      "transport_commit": "31d99419e312e25c34d86ff5cec7632b398941c7",
+      "source_commit": "24a36a118d053c5301dca414cf448ed088699748",
+      "path_base": "Documents/Codex",
+      "stopped": true,
+      "stop_reason": "range PTX inner and outer observations each contain 7 missing existing processes",
+      "missing_termination_cause": "unknown",
+      "sources": {
+        "movement": {
+          "owner": "bc57f0d3b8875cef6d2f8e6f673f3e7990e60453e0d18ae22750157517da9a70",
+          "zip_verified": true,
+          "paired_strict_sealed_origin_verified": true,
+          "compiler_verified": true,
+          "containment_verified": true,
+          "passed": false,
+          "preservation_verified": false,
+          "stage_verified": false,
+          "formal_error": null,
+          "generation": {
+            "seconds": 24.01148940017447,
+            "peak_bytes": 642539520,
+            "missing": 0,
+            "job_empty": true,
+            "service": "unverified",
+            "preservation_verified": false,
+            "timeout": false,
+            "error": null,
+            "observation_error": null,
+            "cleanup_error": null,
+            "inspection_error": false,
+            "exit_code": 0
+          },
+          "ptx_outer": {
+            "seconds": 44.63924020016566,
+            "peak_bytes": 409735168,
+            "missing": 0,
+            "job_empty": true,
+            "service": "unverified",
+            "preservation_verified": false,
+            "timeout": false,
+            "error": null,
+            "observation_error": null,
+            "cleanup_error": null,
+            "inspection_error": false,
+            "exit_code": 2
+          },
+          "ptx_sdk": {
+            "seconds": 34.820857299957424,
+            "peak_bytes": 374837248,
+            "missing": 0,
+            "job_empty": true,
+            "service": "unverified",
+            "preservation_verified": false,
+            "timeout": false,
+            "error": null,
+            "observation_error": null,
+            "cleanup_error": null,
+            "inspection_error": false,
+            "exit_code": 0
+          },
+          "nvrtc": {
+            "calls": 1,
+            "return_code": 0,
+            "seconds": 22.777535
+          },
+          "ptx_bytes": 13133645,
+          "ptx_sha256": "bf4e273cc253916a47a7b19ec8c958a921a1c616027091722b2f7c6a0fead572",
+          "capture": "resident-frames-movement-v1/compile-ptx-v2/proof",
+          "cache": "nikke-product-parts-boundary-v1/compile-cache-v1/8d14742db646215fb950c3735c5f1e47491ffd7e6846aacc2291f637f91db378.json",
+          "cache_hit": false,
+          "old_records_unchanged": true,
+          "old_records_checked": 506,
+          "next_stage_admitted": false
+        },
+        "range": {
+          "owner": "954a9cd1e315b8bf7f40f214683d47747beb6c7bb1bcba484112b52423f71775",
+          "zip_verified": true,
+          "paired_strict_sealed_origin_verified": true,
+          "compiler_verified": true,
+          "containment_verified": true,
+          "passed": false,
+          "preservation_verified": false,
+          "stage_verified": false,
+          "formal_error": null,
+          "generation": {
+            "seconds": 26.327705800067633,
+            "peak_bytes": 643620864,
+            "missing": 0,
+            "job_empty": true,
+            "service": "unverified",
+            "preservation_verified": false,
+            "timeout": false,
+            "error": null,
+            "observation_error": null,
+            "cleanup_error": null,
+            "inspection_error": false,
+            "exit_code": 0
+          },
+          "ptx_outer": {
+            "seconds": 46.27057009981945,
+            "peak_bytes": 414236672,
+            "missing": 7,
+            "job_empty": true,
+            "service": "unverified",
+            "preservation_verified": false,
+            "timeout": false,
+            "error": null,
+            "observation_error": null,
+            "cleanup_error": null,
+            "inspection_error": false,
+            "exit_code": 2
+          },
+          "ptx_sdk": {
+            "seconds": 35.925967999733984,
+            "peak_bytes": 378671104,
+            "missing": 7,
+            "job_empty": true,
+            "service": "unverified",
+            "preservation_verified": false,
+            "timeout": false,
+            "error": null,
+            "observation_error": null,
+            "cleanup_error": null,
+            "inspection_error": false,
+            "exit_code": 0
+          },
+          "nvrtc": {
+            "calls": 1,
+            "return_code": 0,
+            "seconds": 23.5041521
+          },
+          "ptx_bytes": 13201797,
+          "ptx_sha256": "a38112e3df4ffa311d3624a351af3f5eb6ce35631d064fdb3572e7456e0b99cd",
+          "capture": "resident-frames-range-v1/compile-ptx-v2/proof",
+          "cache": "nikke-product-parts-boundary-v1/compile-cache-v1/9c63ae9b1f0ad25bff0e818e0f989d8381b1ee1a546f66a6272e663442866494.json",
+          "cache_hit": false,
+          "old_records_unchanged": true,
+          "old_records_checked": 506,
+          "next_stage_admitted": false
+        }
+      },
+      "additional_calls": {
+        "nvrtc_compile": 2,
+        "paired_generation": 2,
+        "unit": 0,
+        "native_battle": 0,
+        "object": 0,
+        "link": 0,
+        "driver": 0,
+        "context": 0,
+        "gpu": 0,
+        "http": 0,
+        "retry": 0
+      },
+      "historical_bindings_created": 0
+    }
+  }
 }

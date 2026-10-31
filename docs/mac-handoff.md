@@ -1,3 +1,15 @@
+## 2026-11-01 固定周期と手動遮蔽を通常製品APIへ接続
+
+進捗あり。固定burstと手動coverの接続拒否を解消し、既存coordinate header6/固定ready/遮蔽consumerを再利用した（9cb703a1）。新suite・計算本体・CPU正本・数値・normalizer・tolerance変更0。cover-fixedを既存product familyのdata variantへ追加。manual時だけ既存cover consumer内でlowerを許可し、automatic/tapも同じcanonical headerへ変換する。tap mask/cover triggerと予約語を検査、CPU時計/姿勢/履歴を入力しない。固定時刻の最初のtestは未対応request keyを使い3.0となったが、prepared configへ設定する既存方式に修正し、runtime変更なし。元失敗をproofへ保持。
+
+通常HTTPで元Soldier O.W.のphases/pierce/broken/shared-shield30秒4条件と元default攻撃なし30秒1条件を実Apple M5/CPU全製品payload一致。共有シールドは元の別編成。保存source/input/raw全SHA・全CPU/GPU/API再投影も追加native/GPU0で5件一致。explicit cover basesは宣言モデル、実ゲーム規則認定ではない。UI操作の今回追加実証は0。既存defaultのnative hash67ddacc5…は保持、control header6と初期化tailでinput/output raw hashは意図して変更。entry全体にはinput/output hashも含まれるため最初の全entry同一assertは過大、native hashだけの比較へ限定して事実を記録し、計算を合わせ直していない。
+
+各開発packet自身110unit/fresh native1/M5/fresh GPU禁止seal成功。後追加のmalformed header4変種test1件と登録14検査成功。v17はcover-fixed追加/default-cover-fixed再実証のみ、他15member全内容を保持。source eabd96c6のsealed releaseはmanual7b6579a2…/defaultb8046f7b…、各自身111unit/fresh native1/GPU0、PTX60秒/2GiB/split2 plan成功。新cover sourceのWindows compile/GPU依頼0。専用4402停止、4317/4327操作なし。標準全件の最新Metal262/266、今回新profile0、Soldier O.W.の製品条件拡張。全goal未完了。
+
+resident-frame Windows結果はwait/read unavailableでもlist/send成功だったため、既存GitHub輸送へ保存小要約を共有して取得した。213100b8 resident-frames-ptx-status-v1.json、Mac byte保存research/product-resident-frames-ptx-status-v1.json。両PTXはcompiler/containment true、NVRTC各1、22.778/23.504秒、outer44.639/46.271秒、PTX13,133,645/13,201,797bytes。movement内外missing0、range内外missing7/原因unknownで停止、passed/preservation=falseとclaim保持。object/link/driver/GPU/HTTPはその時点0、原506record保持。新CUDA製品profile0、物理memory改善未証明。
+
+movementのみ既存assembly_originのCPU再監査と外側missing0が通れば、未実施module-object→正式監査→jit-link-object各1回を条件付き依頼済み（既存60秒/2GiB/outer180/低優先度）。rangeは再実行しない。SDK/driver/GPU増加なしで失敗gateを保持し、stageのpassed=falseを計算不一致と混同しない。結果は同じ輸送branchのresident-frames-movement-object-status-v1.jsonで受け取る。wait/read取得だけが不安定なら結果GitHubを確認し、同じ実行を再送しない。次はmovement link後stackを旧22848bytesと比較し、正式成功後だけ同じ4秒APIの実memoryを測る。大きなWindows総当たりはしない。proofs/product-fixed-cover-v1-20261101、research/product-fixed-cover-v1.json。以下は履歴。
+
 ## 2026-11-01 固定移動・範囲で既存resident dispatch frameを接続
 
 前turnはWindows保存結果取得とMetal11条件の全byte保持監査で進捗。共通GPU本文は新規実行器を作らず、既存PORTABLE_RESIDENT_FRAME_STACKをfixed movement/rangeのwrapper2個だけで有効化した（fc92b5fd）。他programのsource closureは変更なし。各32frameを既存Runtimeの4096byte bankへ移す。Runtime stride163584→167680byte。数値/CPU正本/normalizer/tolerance不変。配列の境界・全bit保存の既存5検査成功。

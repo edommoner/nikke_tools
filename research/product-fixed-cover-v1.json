@@ -335,5 +335,29 @@
     "dedicated_port": 4402,
     "stopped": true,
     "user_servers_untouched": true
+  },
+  "sealed_release": {
+    "manual": {
+      "package_id": "7b6579a2a4db6140779668923ced9559fc863710a9219081e454a82d1114e302",
+      "source_commit": "eabd96c6f2a6cca55471d7f3e24381cd6398dcfc",
+      "zip_sha256": "b5f5fc45b21c2bb1aad56c7772ea01fa6b591506389bdc819569b34fde90611a",
+      "zip_bytes": 11947276,
+      "unit_tests": 111,
+      "fresh_native_cases": 1,
+      "gpu_calls": 0,
+      "ptx_compile_plan_passed": true,
+      "cuda_requests": 0
+    },
+    "default": {
+      "package_id": "b8046f7bba1b7f5b5319d991639ed4605946d491e696e7be32bee6dc194de571",
+      "source_commit": "eabd96c6f2a6cca55471d7f3e24381cd6398dcfc",
+      "zip_sha256": "8e071680ac0f0b91f01a86f0ba1bd805d0c028dcd30abb684fdd01e972d4b0df",
+      "zip_bytes": 11947285,
+      "unit_tests": 111,
+      "fresh_native_cases": 1,
+      "gpu_calls": 0,
+      "ptx_compile_plan_passed": true,
+      "cuda_requests": 0
+    }
   }
 }
