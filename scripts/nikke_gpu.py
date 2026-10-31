@@ -1,7 +1,9 @@
 """Portable GPU proof CLI. Packages are immutable inputs; captures are append-only runs."""
 import argparse
 import array
+import ast
 import contextlib
+from contextvars import ContextVar
 import hashlib
 import importlib.util
 import json
@@ -907,6 +909,31 @@ def registered_golden(root,selection):
     return product_registered_golden(root,config)
 
 
+def package_registered_golden(root,manifest):
+    """Read a frozen product's pinned baseline without executing its code."""
+    config=suite_config(manifest)
+    if 'product_program' not in config:return registered_golden(root,manifest)
+    records={r['path']:r for r in manifest['files']}
+    declaration='app/portable_product_programs.py'
+    if declaration in records:
+        raw=(root/declaration).read_bytes()
+        if sha(raw)!=records[declaration]['sha256']:raise ValueError('Product baseline declaration changed')
+        try:tree=ast.parse(raw)
+        except (SyntaxError,UnicodeError) as error:raise ValueError('Invalid frozen product baseline declaration') from error
+        definitions=[node for node in tree.body if isinstance(node,ast.Assign)
+                     and any(isinstance(target,ast.Name) and target.id=='GOLDEN' for target in node.targets)]
+        if (len(definitions)!=1 or len(definitions[0].targets)!=1
+                or not isinstance(definitions[0].value,ast.Constant) or type(definitions[0].value.value) is not str):
+            raise ValueError('One literal frozen product baseline declaration required')
+        baseline=safe_name(definitions[0].value.value)
+    else:
+        # Small synthetic/legacy owners can pin the current declared baseline
+        # directly. Never search for an unlisted or merely equal JSON file.
+        baseline=config['golden']
+    if baseline not in records:raise ValueError('Product baseline absent from immutable payload')
+    return product_registered_golden(root,dict(config,golden=baseline))
+
+
 def safe_name(name):
     p = PurePosixPath(name)
     if not name or '\\' in name or ':' in name or p.is_absolute() or any(x in ('', '.', '..') for x in name.split('/')):
@@ -928,7 +955,70 @@ def file_records(root, names):
     return records
 
 
-def check_records(root, records, *, parallel=False):
+_PACKAGE_RECORD_GATE=ContextVar('product_package_record_gate',default=None)
+
+
+class _PackageRecordGate:
+    """Share payload reads only within one CPU admission, before any GPU yield."""
+    def __init__(self,root):
+        self.root=Path(root).resolve();self.records=None;self.manifest=None
+        self.initial_checks=0;self.reused_checks=0;self.final_checks=0;self.active=True
+    def matches(self,root):return self.active and Path(root).resolve()==self.root
+    def manifest_bytes(self):
+        # Keep the manifest itself regular and byte-identical, including when
+        # nested callers request another validation mode or artifact subset.
+        path=self.root/'gpu-package.json'
+        if not stat.S_ISREG(path.lstat().st_mode):raise ValueError('Package gate manifest is not regular')
+        raw=path.read_bytes()
+        if self.manifest is not None and raw!=self.manifest:raise ValueError('Package changed within product admission')
+        return raw
+    def reuse(self,root,records):
+        if not self.matches(root) or self.records is None:return False
+        self.manifest_bytes()
+        if records!=self.records:return False
+        self.reused_checks+=1;return True
+    def snapshot(self,root,records):
+        if not self.matches(root):return None
+        raw=self.manifest_bytes()
+        return raw if json.loads(raw).get('files')==records else None
+    def remember(self,raw,records):
+        if raw is None:return
+        if self.manifest_bytes()!=raw:raise ValueError('Package changed during initial product verification')
+        if self.records is None:
+            self.records=json.loads(json.dumps(records));self.manifest=raw;self.initial_checks+=1
+    def finish(self):
+        if self.records is not None:
+            self.manifest_bytes()
+            # Re-read all bytes before admitting the image. Size/mtime caches
+            # cannot replace this check, even for an immutable owner.
+            _check_records_fresh(self.root,self.records,parallel=os.name=='nt')
+            self.manifest_bytes();self.final_checks+=1
+        self.active=False
+    def summary(self):
+        return dict(initial_full_checks=self.initial_checks,reused_payload_checks=self.reused_checks,
+                    final_full_checks=self.final_checks,scope='Same CPU admission only; final full read precedes GPU')
+
+
+@contextlib.contextmanager
+def package_records_gate(root):
+    if _PACKAGE_RECORD_GATE.get() is not None:raise ValueError('Nested product package gate')
+    gate=_PackageRecordGate(root);token=_PACKAGE_RECORD_GATE.set(gate)
+    try:
+        yield gate
+        gate.finish()
+    finally:
+        gate.active=False;_PACKAGE_RECORD_GATE.reset(token)
+
+
+def check_records(root,records,*,parallel=False):
+    gate=_PACKAGE_RECORD_GATE.get()
+    if gate is not None and gate.reuse(root,records):return
+    snapshot=gate.snapshot(root,records) if gate is not None else None
+    _check_records_fresh(root,records,parallel=parallel)
+    if gate is not None:gate.remember(snapshot,records)
+
+
+def _check_records_fresh(root, records, *, parallel=False):
     names = [safe_name(r['path']) for r in records]
     if len(names) != len(set(names)):
         raise ValueError('Artifact bytes/SHA/size mismatch')
@@ -998,7 +1088,7 @@ def verify_package(root,*,historical_compiler=False):
     if compiler_only(m)!=(m.get('purpose')=='compiler-diagnostic'):raise ValueError('Compiler diagnostic purpose mismatch')
     check_records(root, m['files'],parallel=os.name=='nt')
     historical_layout=historical_compiler_layout(root,m) if historical_compiler else None
-    golden = m['golden'] if is_development(m) else (load(root/historical_layout[0]) if historical_layout else registered_golden(root,m))
+    golden = m['golden'] if is_development(m) else (load(root/historical_layout[0]) if historical_layout else package_registered_golden(root,m))
     if golden != m['golden']:
         raise ValueError('Package golden mismatch')
     if compiler_only(m):

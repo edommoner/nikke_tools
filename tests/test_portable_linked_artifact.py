@@ -1,5 +1,5 @@
 """Explicit full-source CUBIN reuse, no live compiler and no GPU in these tests."""
-import copy,json,os,sys,tempfile,time,types,unittest
+import contextlib,copy,json,os,stat,sys,tempfile,time,types,unittest
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','tests')]
@@ -394,6 +394,151 @@ class LinkedArtifactTests(unittest.TestCase):
         for flag in ('--require-cache','--artifact-kind'):
             args=['run','--backend','cuda','--capture',str(self.capture),'--linked-package','p','--linked-capture','c',flag]+(['cubin'] if flag=='--artifact-kind' else [])
             with patch.object(cli,'run_capture',side_effect=AssertionError('No launch')),self.assertRaisesRegex(ValueError,'exclusive'):cli.main(args)
+
+
+class SameAdmissionPackageReads(unittest.TestCase):
+    """Real package bytes, synthetic source; no compiler or device operations."""
+    def setUp(self):
+        self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
+        self.root=Path(self.tmp.name).resolve();self.owner=self.make_package(self.root)
+    def make_package(self,root):
+        from portable_product_programs import GOLDEN
+        root.mkdir(parents=True,exist_ok=True);(root/'gpu').mkdir();(root/'app').mkdir()
+        (root/'gpu/product_battle_entry.slang').write_text('// synthetic gate fixture; no hardware evidence\n')
+        (root/'app/reference.py').write_text('value = 1\n')
+        hashes={'gpu/product_battle_entry.slang':saved.digest((root/'gpu/product_battle_entry.slang').read_bytes())}
+        golden=dict(source_sha256=hashes,input_sha256='a'*64,output_sha256='b'*64,entries=[],generated_normalized={})
+        path=root/GOLDEN;path.parent.mkdir(parents=True);path.write_text(json.dumps(dict(schema=1,programs={'accumulate':golden})))
+        owner=dict(schema=cli.SCHEMA,suite='product-detail',product_program='accumulate',purpose='sealed',selected_cases=[],golden=golden,
+                   files=cli.file_records(root,['gpu/product_battle_entry.slang','app/reference.py',GOLDEN]))
+        owner['package_id']=cli.package_id(owner);(root/'gpu-package.json').write_text(json.dumps(owner))
+        return owner
+    def test_repeated_owner_reads_have_full_checks_at_both_boundaries_and_no_cross_request_cache(self):
+        with patch.object(cli,'file_records',wraps=cli.file_records) as reads:
+            with cli.package_records_gate(self.root) as gate:
+                for _ in range(4):self.assertEqual(cli.verify_package(self.root),self.owner)
+                self.assertEqual(reads.call_count,1)
+            self.assertEqual(reads.call_count,2);self.assertEqual(gate.summary()['reused_payload_checks'],3)
+            self.assertEqual(gate.summary()['final_full_checks'],1)
+            cli.verify_package(self.root);self.assertEqual(reads.call_count,3)
+            with cli.package_records_gate(self.root):cli.verify_package(self.root)
+            self.assertEqual(reads.call_count,5)
+        self.assertIsNone(cli._PACKAGE_RECORD_GATE.get())
+    def test_same_size_backdated_reference_change_is_rejected_before_dispatch(self):
+        reference=self.root/'app/reference.py';stamp=reference.stat();dispatched=[]
+        with self.assertRaisesRegex(ValueError,'bytes/SHA/size'):
+            with cli.package_records_gate(self.root):
+                cli.verify_package(self.root);reference.write_text('value = 2\n');os.utime(reference,ns=(stamp.st_atime_ns,stamp.st_mtime_ns))
+                cli.verify_package(self.root)  # Shared reads are provisional until gate exit.
+            dispatched.append(True)
+        self.assertFalse(dispatched);self.assertIsNone(cli._PACKAGE_RECORD_GATE.get())
+        with self.assertRaises(ValueError):cli.verify_package(self.root)
+    def test_manifest_reformat_is_not_reused_as_the_same_capture_anchor(self):
+        with self.assertRaisesRegex(ValueError,'Package changed'):
+            with cli.package_records_gate(self.root):
+                cli.verify_package(self.root)
+                (self.root/'gpu-package.json').write_text(json.dumps(self.owner,indent=2))
+                cli.verify_package(self.root)
+        self.assertEqual(cli.verify_package(self.root),self.owner)
+    def test_other_owner_and_capture_subsets_are_always_fresh(self):
+        other=self.root/'another';self.make_package(other)
+        subset=cli.file_records(self.root,['app/reference.py'])
+        with patch.object(cli,'file_records',wraps=cli.file_records) as reads:
+            with cli.package_records_gate(self.root) as gate:
+                cli.verify_package(self.root);cli.check_records(self.root,subset)
+                cli.verify_package(other);cli.verify_package(other)
+            self.assertEqual(reads.call_count,5);self.assertEqual(gate.reused_checks,0)
+    def test_symlink_substitution_and_missing_file_are_rejected_at_final_full_read(self):
+        path=self.root/'app/reference.py';original=Path.lstat
+        def substituted(p,*args,**kwargs):
+            info=original(p,*args,**kwargs)
+            if p==path:
+                values=list(info);values[0]=stat.S_IFLNK
+                return os.stat_result(values)
+            return info
+        with self.assertRaisesRegex(ValueError,'regular artifact'):
+            with contextlib.ExitStack() as faults:
+                with cli.package_records_gate(self.root):
+                    cli.verify_package(self.root)
+                    # Keep the fault active through the final gate read without
+                    # requiring Windows symlink privileges or OS changes.
+                    faults.enter_context(patch.object(Path,'lstat',substituted))
+                    cli.check_records(self.root,self.owner['files'])
+        with self.assertRaises(ValueError):
+            with cli.package_records_gate(self.root):
+                cli.verify_package(self.root);path.unlink()
+    def test_manifest_change_during_initial_read_is_rejected(self):
+        original=cli.file_records
+        def changed(root,names):
+            result=original(root,names)
+            (self.root/'gpu-package.json').write_text(json.dumps(self.owner,indent=2))
+            return result
+        with patch.object(cli,'file_records',side_effect=changed),self.assertRaisesRegex(ValueError,'initial product verification'):
+            with cli.package_records_gate(self.root):cli.verify_package(self.root)
+        self.assertIsNone(cli._PACKAGE_RECORD_GATE.get())
+    def test_old_product_uses_its_recorded_literal_baseline_without_running_old_code(self):
+        from portable_product_programs import GOLDEN
+        old='research/frozen-product-baseline.json';(self.root/GOLDEN).rename(self.root/old)
+        declaration=self.root/'app/portable_product_programs.py'
+        declaration.write_text("GOLDEN = '"+old+"'\nraise RuntimeError('Never execute frozen code')\n")
+        names=[r['path'] for r in self.owner['files'] if r['path']!=GOLDEN]+[old,'app/portable_product_programs.py']
+        def rekey():
+            self.owner['files']=cli.file_records(self.root,names);self.owner['package_id']=cli.package_id(self.owner)
+            (self.root/'gpu-package.json').write_text(json.dumps(self.owner))
+        rekey();self.assertEqual(cli.verify_package(self.root),self.owner)
+        for text in ("GOLDEN =", "GOLDEN = '../outside.json'", "GOLDEN = str('research/frozen-product-baseline.json')", "GOLDEN = 'research/frozen-product-baseline.json'\nGOLDEN = 'research/frozen-product-baseline.json'"):
+            declaration.write_text(text);rekey()
+            with self.subTest(text=text),self.assertRaises(ValueError):cli.verify_package(self.root)
+        declaration.write_text("GOLDEN = 'research/unlisted.json'");rekey()
+        (self.root/'research/unlisted.json').write_bytes((self.root/old).read_bytes())
+        with self.assertRaisesRegex(ValueError,'immutable payload'):cli.verify_package(self.root)
+    def test_nested_scope_and_failed_admission_cannot_leak_cache(self):
+        with self.assertRaisesRegex(ValueError,'Nested'):
+            with cli.package_records_gate(self.root):
+                with cli.package_records_gate(self.root):pass
+        self.assertIsNone(cli._PACKAGE_RECORD_GATE.get())
+        with self.assertRaisesRegex(RuntimeError,'rejected'):
+            with cli.package_records_gate(self.root):
+                cli.verify_package(self.root);raise RuntimeError('rejected origin')
+        with patch.object(cli,'file_records',wraps=cli.file_records) as reads:
+            cli.verify_package(self.root);self.assertEqual(reads.call_count,1)
+    def test_product_final_full_check_precedes_dispatch_and_provider_remains_active(self):
+        import portable_product_artifact as product
+        capture=self.root/'capture';capture.mkdir();closed=[];receipt={'key':'synthetic','identity':{}}
+        @contextlib.contextmanager
+        def provider(*args):
+            try:
+                for _ in range(3):cli.verify_package(self.root)
+                yield receipt
+            finally:closed.append(True)
+        program=dict(battle_package=str(self.root),request=dict(package=str(self.root),capture=str(capture)))
+        with patch.object(product,'proof_cli',return_value=cli),patch.object(backend,'source_hashes',return_value=self.owner['golden']['source_sha256']),patch.object(cli,'saved_linked_provider',side_effect=provider),patch.object(saved,'verify_phases') as phase_audit,patch.object(cli,'file_records',wraps=cli.file_records) as reads:
+            with product._audited_program('gpu/product_battle_entry.slang',capture,program) as actual:
+                self.assertEqual(actual,receipt);self.assertIsNone(cli._PACKAGE_RECORD_GATE.get())
+                self.assertEqual(reads.call_count,2);self.assertFalse(closed)
+                cli.verify_package(self.root);self.assertEqual(reads.call_count,3)
+            self.assertEqual(closed,[True]);phase_audit.assert_called_once()
+        rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
+        summary=next(r['package_gate'] for r in rows if r['stage']=='product_cubin_admission' and r['state']=='returned')
+        self.assertEqual((summary['initial_full_checks'],summary['reused_payload_checks'],summary['final_full_checks']),(1,3,1))
+
+    def test_product_never_yields_to_driver_after_package_change_and_restores_provider(self):
+        import portable_product_artifact as product
+        capture=self.root/'capture';capture.mkdir();restored=[];dispatched=[]
+        @contextlib.contextmanager
+        def provider(*args):
+            try:
+                for _ in range(3):cli.verify_package(self.root)
+                (self.root/'app/reference.py').write_text('value = 2\n')
+                yield dict(identity={},key='synthetic')
+            finally:restored.append(True)
+        program=dict(battle_package=str(self.root),request=dict(package=str(self.root),capture=str(capture)))
+        with patch.object(product,'proof_cli',return_value=cli),patch.object(backend,'source_hashes',return_value=self.owner['golden']['source_sha256']),patch.object(cli,'saved_linked_provider',side_effect=provider):
+            with self.assertRaisesRegex(ValueError,'bytes/SHA/size'):
+                with product._audited_program('gpu/product_battle_entry.slang',capture,program):dispatched.append(True)
+        self.assertFalse(dispatched);self.assertEqual(restored,[True]);self.assertIsNone(cli._PACKAGE_RECORD_GATE.get())
+        rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
+        self.assertEqual([(r['stage'],r['state']) for r in rows][-1],('product_cubin_admission','raised'))
 
 
 if __name__=='__main__':unittest.main()

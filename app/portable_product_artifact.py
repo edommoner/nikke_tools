@@ -3,7 +3,7 @@
 This never installs an image as an NVRTC cache entry. Every selected image
 retains its original PTX/object/link owners and is re-audited before dispatch.
 """
-from contextlib import contextmanager
+from contextlib import contextmanager, ExitStack
 import importlib.util
 from functools import lru_cache
 import json
@@ -101,24 +101,28 @@ def _audited_program(source,capture,program):
     from portable_backend import source_hashes
     from portable_phase_audit import Journal
     journal=Journal(capture/'phases.jsonl')
+    started=None;admitted=False
     try:
-        with cli.forbid_gpu():
-            owner=journal.invoke('product_cubin_owner',cli.verify_package,Path(program['battle_package']))
-            if (owner.get('purpose','sealed')!='sealed' or cli.compiler_only(owner)
-                    or owner.get('selected_cases') or product_configuration(cli.SUITES,owner)['source']!=source
-                    or owner['golden']['source_sha256']!=source_hashes(source)):
-                raise ValueError('Saved product CUBIN owner does not match current battle source')
-    except (KeyError,TypeError) as error:
-        raise ValueError('Incomplete product CUBIN owner') from error
-    cli.write(capture/'linked-artifact-request.json',program['request'])
-    cli.write(capture/'artifact-owner.json',dict(package_id=owner['package_id'],source=source))
-    started=time.perf_counter()
-    journal.emit('product_cubin_admission','entered')
-    admitted=False
-    try:
-        with cli.saved_linked_provider(owner,capture,'cuda',journal) as receipt:
-            if receipt is None:raise ValueError('Saved product CUBIN receipt missing')
-            journal.emit('product_cubin_admission','returned',elapsed_seconds=time.perf_counter()-started)
+        with ExitStack() as providers:
+            with cli.package_records_gate(Path(program['battle_package'])) as gate:
+                try:
+                    with cli.forbid_gpu():
+                        owner=journal.invoke('product_cubin_owner',cli.verify_package,Path(program['battle_package']))
+                        if (owner.get('purpose','sealed')!='sealed' or cli.compiler_only(owner)
+                                or owner.get('selected_cases') or product_configuration(cli.SUITES,owner)['source']!=source
+                                or owner['golden']['source_sha256']!=source_hashes(source)):
+                            raise ValueError('Saved product CUBIN owner does not match current battle source')
+                except (KeyError,TypeError) as error:
+                    raise ValueError('Incomplete product CUBIN owner') from error
+                cli.write(capture/'linked-artifact-request.json',program['request'])
+                cli.write(capture/'artifact-owner.json',dict(package_id=owner['package_id'],source=source))
+                started=time.perf_counter()
+                journal.emit('product_cubin_admission','entered')
+                receipt=providers.enter_context(cli.saved_linked_provider(owner,capture,'cuda',journal))
+                if receipt is None:raise ValueError('Saved product CUBIN receipt missing')
+            # Gate exit revalidates every owner byte before the caller can
+            # reach the driver. Provider patches stay active through dispatch.
+            journal.emit('product_cubin_admission','returned',elapsed_seconds=time.perf_counter()-started,package_gate=gate.summary())
             admitted=True
             import portable_backend
             from portable_phase_audit import observe
@@ -126,5 +130,5 @@ def _audited_program(source,capture,program):
             from portable_linked_artifact import verify_phases
             verify_phases([json.loads(line) for line in journal.path.read_text(encoding='utf-8').splitlines()],receipt)
     except BaseException as error:
-        if not admitted:journal.emit('product_cubin_admission','raised',exception=type(error).__name__,elapsed_seconds=time.perf_counter()-started)
+        if started is not None and not admitted:journal.emit('product_cubin_admission','raised',exception=type(error).__name__,elapsed_seconds=time.perf_counter()-started)
         raise
