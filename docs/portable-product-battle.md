@@ -1,3 +1,9 @@
+# 2026-11-01 現行の通常API全プロファイル確認
+
+現行runtimeと2,053コード/データfileが一致する不変snapshotで、元の全266標準リクエストを通常APIへ小分け投入し、263profile（200キャラ）が実Metal・freshCPU・HTTPの全結果と過去の全readback SHAに一致した。Yuni/Yan/Heavy Armsの未指定3件は必要な宣言モデルを理由にCPUへ切替。全266の保存再投影監査も追加battle/GPUなしで一致した。CUDAの標準263/266は既録source横断の数で、現行全matrixのCUDA認定とは分ける。[全件の記録](../research/product-current-matrix-v1.json)。
+
+別の明示モデル条件では、Yuni/Yanの元30秒ADD0モデル成功原本を現在の入力/source/全payloadで照合し、Heavy Armsの元30秒＋Lock Onモデルをfresh実Metal/CPUで確認した。これを含む元profileのMetal成功実績は266/266、CUDAは265/266だが、未指定標準3件の既定挙動・ゲーム規則の確定・任意合成全体は未完了。[宣言条件の記録](../research/product-configured-missing-v1.json)。
+
 # 2026-11-01 通常画面で宣言モデルを適用しMetal/CPU一致
 
 「詳細条件 → 部隊の宣言モデル」でreference_modelsと任意のenemy.patternsをJSON指定し、選択した部隊だけで計算できる。画面/結果に実ゲーム未確認の仮定であることを表示する。育成・編成の上書きや他部隊への流用を防ぎ、宣言変更/解除は計算済み表示も無効にする。保存JSONは両scopeを保持する。全データを維持するcompact保存と、利用者が明示する設定のみ保存を追加し、12MiB取り込み上限は変更しない。

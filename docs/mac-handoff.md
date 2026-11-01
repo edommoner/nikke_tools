@@ -1,3 +1,15 @@
+## 2026-11-01 現行runtimeで標準全266を再確認、Metal263一致・未指定3fallback
+
+9f156b5bのruntimeとapp/gpu/data/scripts/計算reader/upstreamの2,053fileが全byte一致する不変owner836ade72で、元標準266リクエスト（固定30秒・モデル未指定・効果削除なし）を通常APIへ16件ずつ投入。全263 Metal（200/203キャラ）がfreshCPU/HTTP全payloadと、保存済み全readback SHAに完全一致。元262＋元Rei1のanchorを実入力SHA一致で保持。残3はYuni88/Yan111/Heavy Arms210の明示モデル未指定理由でCPUfallback、error/数値差/cachehit0。24POST/38physical GPU、serial API-job待ち合計421.189秒（CPU/GPU/poll込み、別stageへ分解していない）。全266保存raw/input/source/親member slice/CPU/GPU/HTTP再投影監査も追加battle/GPU0。専用Node全process group消滅、実行中source不変、親/member raw＋1GiBreserve計3,040,502,904byteを実行前budget確認。Metalはこの現行snapshotの263件、CUDA263件は既録source横断であり現行全matrix CUDA未実行。
+
+static adapterのv1は旧CPUfallbackのinput.binを要求して停止、v2は旧結果がsource別実行順なのにlist位置でprofileを参照し、旧anchorも継承していた。GPU/battle0の時点で検出し無効原本を保持。v3は明示indexで参照しanchorを再構築して262旧input完全一致、Reiは独立旧実M5 input87978e6b…一致を確認して補完。数値期待値は変更0。この事前処理失敗を製品計算の差や成功へ混ぜない。原本proofs/product-current-matrix-v1-20261101、小記録research/product-current-matrix-v1.json。
+
+別条件として元の未対応3profileへ既存宣言モデルを明示した。Yuni/Yanは元30秒body＋明示idle/ADD0モデルのinput787f537c…/9b518090…・全GPU sourceが過去実M5/CPU/HTTP成功原本と完全一致。現runtimeで再pack・全payload再投影一致、追加CPU/GPU0、fresh再実行とは記録しない。Heavy Armsは元30秒の他caller fieldを全て保持し、BODY優先/ADD出現順・live frozen delivery・typed[]を明示して通常API1件をfresh実M5/CPU/HTTP比較し成功。全91定義、110pulses/15shots、input9337f726…/output76fd63c5…、保存単独監査追加battle/GPU0。専用Node消滅。モデルを明示した別条件を含めた元profileのMetal成功実績は266/266、CUDAは265/266まで（Heavy Armsのこの元30秒条件が未確認）。標準未指定263/266は置換しない。BODY免疫・ゲーム距離規則を推定せず、任意合成・全特殊効果条件は未完了。research/product-configured-missing-v1.json参照。
+
+依頼済み3者合成CUDAも91495e00の27,414byte/SHA5e4db092…を取得しMac照合済み。owner836ade72/7資料/archivead0a52a4…/CPU87元ID、M5親16,391,296byte＋2member全input/output SHA、8MiB chunks、全driver ret0、全CPU/GPU/HTTP/Unicode再投影、実coverDEF2285.7/applied97714.3を確認。同期3.208秒/HTTP23.949秒、追加計算0。旧47,405file・SDK外側2/内側0・8advisory null/観測不完全・service/whole/overallfalse保持。API peak2,005,929,984byteで2GiB以内だが余裕は小さいため、Windowsの入力batchを増やさない。research/product-healing-group-cover-cuda-import-v1.json参照。Windowsはterminalで追加依頼なし。
+
+次はHeavy Armsの元30秒宣言条件の必要最小CUDA（保存artifactの厳密再利用を先に調べる）、未指定ゲーム規則・未接続consumer合成。全goal未完了。以下は履歴。
+
 ## 2026-11-01 新3者合成のCUDA差分2条件だけを依頼
 
 共有001e8d0eの7資料12,143,284byte、sealed owner836ade72/archivead0a52a4…から既存Windowsチャットへ初回差分を依頼済み。固定30秒baseline＋固定15秒の元Drake coverbuff発動中の2条件だけ、1POST/1GPU最大。親16,391,296byteとmember全M5 SHA、実8MiB chunks[8388608,8002688]、全CPU/GPU/HTTP/Unicode比較を要求。Mac保存全raw/source/inputをrelease自身で戦闘/GPU0再pack照合済み。

@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "scope": "Original missing3 profiles with explicit pre-existing declared models; does not change unconfigured defaults or verify game distance rules",
+  "standard_unconfigured_metal_profiles": 263,
+  "standard_unconfigured_cuda_recorded_profiles": 263,
+  "total_profiles": 266,
+  "configured_metal_profile_successes_across_recorded_sources": 266,
+  "configured_cuda_profile_successes_across_recorded_sources": 265,
+  "heavy_arms_new_cuda_verified": false,
+  "body_movement_immunity_or_game_distances_inferred": false,
+  "standard_profile_delta": 0,
+  "rows": [
+    {
+      "index": 88,
+      "character": "유니",
+      "scope": "Prior actual Metal/CPU/HTTP success, current exact raw input/shader identity and saved full projection; no new execution",
+      "current_original_model_configured_input_exact": true,
+      "current_raw_shader_graph_exact": true,
+      "current_full_projection_equals_saved_cpu_gpu_http": true,
+      "original_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-empty-movement-v1-20261101/api-v1/captures/e94847f14b1046c0852d9c3784ff790c",
+      "input_sha256": "787f537c7c00d9d24acc9f931106228d04babf60cfc121ad429a5a78fa743193",
+      "output_sha256": "4f98034477055f1b3b5a342321ea508edc0c6dcadfd51aa71a575301f8e3c4d3",
+      "new_gpu_calls": 0,
+      "new_cpu_battles": 0,
+      "fresh_current_cpu_battle_claimed": false
+    },
+    {
+      "index": 111,
+      "character": "얀",
+      "scope": "Prior actual Metal/CPU/HTTP success, current exact raw input/shader identity and saved full projection; no new execution",
+      "current_original_model_configured_input_exact": true,
+      "current_raw_shader_graph_exact": true,
+      "current_full_projection_equals_saved_cpu_gpu_http": true,
+      "original_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-empty-movement-v1-20261101/api-v3/captures/1a6893bc08cd4451bf0509973d55037e",
+      "input_sha256": "9b5180903d62ccef05684c9b8f0b71e2912c9d7a47b6f053922ce6d85a6e95f0",
+      "output_sha256": "0e094f4b65958baeadd072d761a9b213cd144802dfa5d43a28cae638972120a0",
+      "new_gpu_calls": 0,
+      "new_cpu_battles": 0,
+      "fresh_current_cpu_battle_claimed": false
+    },
+    {
+      "index": 210,
+      "character": "스노우 화이트 : 헤비암즈",
+      "scope": "Fresh original30s normal API plus explicit Lock On policies and empty typed bindings; all other caller fields unchanged",
+      "compute": {
+        "requested": "metal_detail",
+        "backend": "metal_detail",
+        "capture_id": "c3de8551d5d04410b0f7a1ca32ffd6ec",
+        "device": "Apple M5",
+        "elapsed_ms": 16472.649291041307,
+        "gpu_execution_verified": true,
+        "input_sha256": "9337f726787944458cb09c19b1de2b7f955f11c149f42bd6b385a7284bb50afa",
+        "output_sha256": "76fd63c5f64fd0b6fd0693e4906a4ba06f74a43e8626b7f570f3d6a757d72f2e",
+        "source": "gpu/product_lock_fixed_battle_entry.slang",
+        "scope": "shared autonomous battle; CPU verified for this request",
+        "gpu_seconds": 2.1792946250061505,
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        }
+      },
+      "saved_audit": {
+        "rows": [
+          {
+            "capture": "c3de8551d5d04410b0f7a1ca32ffd6ec",
+            "variant": "declared-original-heavy-arms-30s",
+            "input_sha256": "9337f726787944458cb09c19b1de2b7f955f11c149f42bd6b385a7284bb50afa",
+            "output_sha256": "76fd63c5f64fd0b6fd0693e4906a4ba06f74a43e8626b7f570f3d6a757d72f2e",
+            "gpu_status": 0,
+            "full_saved_cpu_gpu_http_current_projection_equal": true,
+            "source_exact": true,
+            "static_input_exact": true,
+            "transport_cases": 1
+          }
+        ],
+        "audited": 1,
+        "native_battle_calls": 0,
+        "gpu_calls": 0,
+        "original_runner_batch_assumption_failure_retained": false,
+        "source_unchanged": true
+      },
+      "lock_pulses": 110,
+      "lock_shots": 15,
+      "all_original_definitions_preserved": 91,
+      "source_input_and_readback_verified": true,
+      "full_cpu_gpu_http_equal": true
+    }
+  ],
+  "additional_saved_projection_battles": 0,
+  "additional_saved_projection_gpu": 0,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Unconfigured movement and Lock On game specification",
+    "Heavy Arms configured original30s CUDA",
+    "Unrestricted compositions and all special-effect conditions"
+  ],
+  "configured_coverage_counting": "263 standard successful profiles plus explicit declared-model variants for original indices88/111/210; input conditions and execution owners remain distinct"
+}

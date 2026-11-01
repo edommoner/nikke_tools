@@ -299,13 +299,12 @@
   "recorded_source_metal_profiles": 263,
   "recorded_source_cuda_profiles": 263,
   "total_profiles": 266,
-  "current_triple_composition_cuda_verified": false,
+  "current_triple_composition_cuda_verified": true,
   "all_profiles_recertified_on_latest_source": false,
   "whole_environment_preservation_verified": false,
   "overall_verified": false,
   "full_goal_complete": false,
   "remaining": [
-    "Short CUDA differential for this triple composition",
     "Unconfigured Yuni/Yan/Heavy Arms standard profiles",
     "Unrestricted compositions and final current-source matrix"
   ],
@@ -322,6 +321,8 @@
       8388608,
       8002688
     ],
-    "status": "Sent to existing Windows chat; no result imported"
+    "status": "Saved result imported and audited on Mac; no re-execution",
+    "result_commit": "91495e001a499fb07fab55afd32ceeafea0a405a",
+    "mac_import_report": "research/product-healing-group-cover-cuda-import-v1.json"
   }
 }
