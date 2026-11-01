@@ -918,4 +918,4 @@ packet自身の `compile-plan --artifact-kind cubin --ptxas-level 1 --memory-lim
 
 `sample_blocks=0`の既存Python APIでも取得でき、raw sampleの共有は不要。診断値は保存bufferの観測であり、sourceの所有証明・根本原因・計算成功の認定ではない。全block差分、原SHA、calculation_verified:false、CLIの不一致exitを維持し、raw/status/期待値を書き換えない。
 
-敵回復と元実射撃グループの製品合成は `--suite product-detail --product-program healing-fixed-group` を使用する。固定30秒は独立Metal seal済み基準。`healing-accumulate-group` は通常APIの15/30秒CPU全一致を確認済みだがCLI独立基準未登録のためdevelopが必要。敵回復は明示したreference modelでありゲーム仕様認定ではない。target/ADD攻撃/coverとの三者合成は未接続理由を保持する。証拠は `research/product-healing-group-v1.json`。
+敵回復と元実射撃グループの製品合成は `--suite product-detail --product-program healing-fixed-group` を使用する。固定30秒は独立Metal seal済み基準。`healing-accumulate-group` も通常APIの15/30秒CPU全一致と独立Metal sealを確認し、v35へ登録済み。敵回復は明示したreference modelでありゲーム仕様認定ではない。target/ADD攻撃/coverとの三者合成は未接続理由を保持する。証拠は `research/product-healing-group-v1.json`。

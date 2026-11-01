@@ -378,5 +378,69 @@
     },
     "validation_dependencies_passed": true,
     "windows_requested": false
+  },
+  "accumulate_independent_registration": {
+    "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-healing-group-v1-20261101/accumulate-v1",
+    "audit": {
+      "package_id": "09e860ab2f4027aadbe40b7a14de0543b62bf58c3a53594c173d500488d8a359",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-healing-group-v1-20261101/accumulate-v1/metal",
+      "child_pid": 10217,
+      "input_count": 1,
+      "native_cases": 1,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 1.7489790830295533,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "b48e27fdb55c8288950ae77624d7ea8aeca7778f4c5110e14d80f6a8b6dee156",
+      "output_sha256": "22a235dcaf23a52445d0a2435e9c2484c7981e5a845c8a847f56b9f171818f69",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "seal_sha256": "beaf3e723e38593e23aac0f642236ab4ad1088ab06cdf326358559da6db3e6f8",
+    "cpu_tests": [
+      {
+        "pattern": "test_portable_detail.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.479532958008349,
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 10167
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.5564603749662638,
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 10167
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.28457437502220273,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 10167
+      },
+      {
+        "pattern": "test_product_reference_models.py",
+        "exit_code": 0,
+        "elapsed_seconds": 20.889897874963935,
+        "tests": 56,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 10167
+      }
+    ],
+    "original_api_input_and_output_unchanged": true,
+    "previous_28_baselines_unchanged": true,
+    "registered_baselines": 29
   }
 }

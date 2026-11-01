@@ -1,3 +1,9 @@
+## 2026-11-01 敵回復＋射撃グループの実蓄積もCLI独立基準へ登録
+
+source b0a11fe9の不変owner09e860ab2f4027aadbe40b7a14de0543b62bf58c3a53594c173d500488d8a359自身でown140 CPU/fresh native/実M5実蓄積30秒/GPU禁止fresh独立seal成功。元通常APIのinput/output全bytes一致。v35へ実蓄積groupだけ追加し旧28基準完全保持、厳密88cda inverse/SHA同時更新・履歴7/製品10成功。新標準profile/GPU CUDA加算0。原本proofs/product-healing-group-v1-20261101/accumulate-v1、small記録は既存research/product-healing-group-v1.jsonへ統合。固定release8931c837はsource79d67a55のまま保持し付替えない。
+
+Windows既存17件は同turn01a1954f/cursor584で16件保存監査一致、最後ammo-fixedのO1成功後リンクを継続。再依頼0・最終原本未取得、確認済み標準CUDA245/266据置き。未指定4件は移動/距離/対象範囲の規約不足を保持し、Reiの対象不成立という推定で元効果を取り除かない。次は17件原本の照合と、この共通敵回復group両modeの少量CUDA照合。以下は履歴。
+
 ## 2026-11-01 敵回復＋実射撃グループを製品APIへ接続、4条件Metal全一致
 
 既存敵回復製品adapterのplain限定を、チェック済みactual-shot group prefix104408wordにも拡張。既存group executorを同じ時計/actor poolへ含め、enemy-healing bank115680..120048と出力1867648..2032000を保持。入力の104408..115680だけzero必須とし、groupの元8wordを消さない。固定/実蓄積wrapperは同じ共通Slang本体、数値/効果/CPU正本4file/許容差/normalizer変更0。target/ADD-attack、coverも含む三者合成は明示拒否を保持。
