@@ -38,12 +38,12 @@ def normalize(value):
     if value is None:return {}
     if type(value) is not dict or set(value)-{'coordinate','enemy_healing','weighted_incoming','cover_defense','enemy_ammo','enemy_movement','named_range','lock_on','typed_targets'}:
         raise ValueError('reference_modelsには接続済みのcoordinate／enemy_healing／weighted_incoming／cover_defense／enemy_ammo／enemy_movement／named_range／lock_onだけを指定してください。')
-    if 'typed_targets' in value and set(value)!={'typed_targets'}:raise ValueError('Typed target product composition requires its matching checked consumer')
+    if 'typed_targets' in value and set(value) not in ({'typed_targets'},{'typed_targets','lock_on'}):raise ValueError('Typed target product composition requires its matching checked consumer')
     if 'coordinate' in value and set(value)-{'coordinate','cover_defense','weighted_incoming','enemy_healing','lock_on'}:raise ValueError('Coordinate composition requires a matching checked consumer wire')
     if 'enemy_ammo' in value and set(value)-{'enemy_ammo','enemy_healing','cover_defense'}:raise ValueError('Enemy magazine composition requires a combined checked native consumer')
     if 'enemy_movement' in value and set(value)-({'enemy_movement','named_range','cover_defense'} if 'named_range' in value else {'enemy_movement','cover_defense'}):raise ValueError('Movement composition requires a combined checked native consumer')
     if 'named_range' in value and set(value)-({'named_range','enemy_movement','cover_defense'} if 'enemy_movement' in value else {'named_range','cover_defense'}):raise ValueError('Named range composition requires a combined checked native consumer')
-    if 'lock_on' in value and set(value)-({'lock_on','coordinate'} if 'coordinate' in value else {'lock_on','cover_defense'}):raise ValueError('Lock composition requires a combined checked native consumer')
+    if 'lock_on' in value and set(value)-({'lock_on','typed_targets'} if 'typed_targets' in value else {'lock_on','coordinate'} if 'coordinate' in value else {'lock_on','cover_defense'}):raise ValueError('Lock composition requires a combined checked native consumer')
     if {'weighted_incoming','cover_defense'}<=set(value):raise ValueError('Weighted allocation and independent cover DEF require a combined checked landing contract')
     result={}
     if 'typed_targets' in value:
@@ -78,6 +78,11 @@ def normalize(value):
     if 'lock_on' in value:
         from product_lock_model import normalize as locks
         result['lock_on']=locks(value['lock_on'])
+    if {'typed_targets','lock_on'}<=set(result):
+        if result['typed_targets']['bindings']!=result['lock_on']['typed_bindings']:
+            raise ValueError('Typed weapons and Lock On require identical ordered bindings in one shared world')
+        if any(row['kind']!=2 for row in result['typed_targets']['bindings']):
+            raise ValueError('Original Lock On projectile skill requires projectile weapon bindings')
     if 'enemy_movement' in result and 'named_range' in result:
         for key in ('coord','logical_geometry'):
             if result['enemy_movement'][key]!=result['named_range'][key]:
@@ -111,10 +116,10 @@ def execution(declarations,names=None):
     from enemy_healing_model import enemy_healing
     result=dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(declarations))
     with ExitStack() as stack:
-        typed=None
+        typed=None;typed_runtime={}
         if 'typed_targets' in declarations:
             from product_typed_model import execution as typed_execution
-            typed=stack.enter_context(typed_execution(declarations['typed_targets'],names))
+            typed=stack.enter_context(typed_execution(declarations['typed_targets'],names,runtime=typed_runtime))
         if 'coordinate' in declarations:
             from product_coordinate_model import execution as coordinates,public as coordinate_public
             stack.enter_context(coordinates(declarations['coordinate'],configure_run=True))
@@ -148,7 +153,7 @@ def execution(declarations,names=None):
         else:named=None
         if 'lock_on' in declarations:
             from product_lock_model import execution as lock_execution
-            locks=stack.enter_context(lock_execution(declarations['lock_on'],names))
+            locks=stack.enter_context(lock_execution(declarations['lock_on'],names,typed_runtime=typed_runtime or None))
         else:locks=None
         yield result
     if typed is not None:result['typed_targets']=copy.deepcopy(typed)

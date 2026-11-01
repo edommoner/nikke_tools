@@ -96,7 +96,7 @@ def typed_reader():
 
 
 @contextmanager
-def execution(value,names):
+def execution(value,names,*,typed_runtime=None):
     import engine_worker  # Resolve aliases and private reader before rewriting.
     from calculator import timeline
     from calculator.buff_manager import BuffManager
@@ -156,7 +156,16 @@ def execution(value,names):
     with ExitStack() as stack:
         stack.callback(timeline.random.setstate,timeline.random.getstate())
         stack.enter_context(patch.object(BuffManager,'__init__',checked))
-        typed=stack.enter_context(typed_battle(spec['typed_bindings'],max_attacks=128)) if spec['typed_bindings'] else None
+        if typed_runtime is None:
+            typed=stack.enter_context(typed_battle(spec['typed_bindings'],max_attacks=128)) if spec['typed_bindings'] else None
+        else:
+            if (type(typed_runtime) is not dict or typed_runtime.get('active') is not True
+                    or typed_runtime.get('bindings')!=spec['typed_bindings']
+                    or type(typed_runtime.get('data')) is not dict):
+                raise ValueError('Lock On must borrow its active identical typed weapon world')
+            typed=typed_runtime['data']
+            if typed.get('worlds') or typed.get('managers'):
+                raise ValueError('Lock On must join before the shared typed battle starts')
         if typed is None:
             finish=timeline.BossScript.finish
             def finished(boss,t):

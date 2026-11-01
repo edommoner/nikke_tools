@@ -11,7 +11,7 @@ def compile_product(prepared):
     from calculator.timeline import CharState,_when_label
     from calculator.boss_pattern import validate
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
-    if set(declarations)!={'typed_targets'}:raise UnsupportedPortable('Typed product requires its standalone declared target model')
+    if set(declarations)!={'typed_targets'}:raise UnsupportedPortable('Typed weapon and Lock On composition requires its matching checked shared GPU consumer')
     spec=normalize_product(declarations['typed_targets'])
     if any(r['effect'].get('target') in ('all_projectiles','typed_point') for r in prepared['effects']):
         raise UnsupportedPortable('Original typed skill damage requires its checked common skill route; weapon typed admission cannot omit it')

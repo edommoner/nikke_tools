@@ -63,7 +63,7 @@ def native_public(spec,data,names,duration):
 
 
 @contextmanager
-def execution(spec,names):
+def execution(spec,names,*,runtime=None):
     from product_coordinate_model import execution as coordinates
     from destructible_battle_runtime import typed_battle
     from runner import sim
@@ -73,7 +73,13 @@ def execution(spec,names):
         duration.append(value.config['duration']);return original(value,*args,**kwargs)
     with coordinates(dict(coord=spec['coord'],logical_geometry=[]),configure_run=True,typed_packets=True),typed_battle(spec['bindings'],modifier_model=True,typed_geometry=spec['geometry'],coordinate_weapon_targets=True,typed_aim_policy=spec['aim_policy'],typed_actor_policy=spec['actor_policy']) as data:
         original=sim.execute
-        with patch.object(sim,'execute',run):yield result
+        if runtime is not None:
+            if type(runtime) is not dict or runtime:raise ValueError('Fresh internal typed runtime holder required')
+            runtime.update(data=data,bindings=copy.deepcopy(spec['bindings']),active=True)
+        try:
+            with patch.object(sim,'execute',run):yield result
+        finally:
+            if runtime is not None:runtime['active']=False
     if len(duration)!=1:raise ValueError('One original typed product battle required')
     result.update(native_public(spec,data,names,duration[0]))
 

@@ -3026,7 +3026,7 @@
   "added_sources": {
     "app/portable_product_cover.py": "70dff2ee787e15b7a8e479b09a078048838cbc86cfa08baf3db2194aac766f8f",
     "app/portable_product_movement_range.py": "eb9b7727c47943b78217795779b681fba269c6a3b88f72635cb311aa826b2625",
-    "app/product_reference_models.py": "e4e3a255311a236b37be247bb6998d0bb55b39cd6306df2bc69f4377e0e62c94",
+    "app/product_reference_models.py": "4127cdee8685eccaf23ee19fd39158604789097fe8595a1220bd7e0fdb3bf793",
     "gpu/product_movement_range_cover_battle_entry.slang": "1cdac26aa6548cddb68f651eb60accee4990ad68ff81b087ca51068f6dbe03c3",
     "gpu/product_movement_range_cover_fixed_battle_entry.slang": "6710f79e3ce475933c752dce08f219a0bfcc24530bb6d258e9adf788cad40e39",
     "app/portable_product_healing.py": "57bf7b72995b870db3c953b552d53bc870e1a426ea6080bf1da3bd3ae0fbb33d",
@@ -3078,14 +3078,15 @@
     "gpu/product_coordinate_add_fixed_battle_entry.slang": "ae3b12923c816b9c5e189e5bf9d1c40f52e24dc72f29590336c2421afe1b9318",
     "gpu/product_coordinate_healing_battle_entry.slang": "79a5950bc8e3f709e7f2878c6a6d87867eecc27929b85e7b64dd39c0925edb00",
     "gpu/product_coordinate_healing_fixed_battle_entry.slang": "ccbe0e86368e43716908ea3149f6b590c4fb207aa3e262f8ec021f0bbb3a3140",
-    "app/portable_product_typed.py": "f933caa230330f63faba4a1aa1861ad8b00d989586996a5f4e73bd3af967ed12",
-    "app/product_typed_model.py": "0b9d1c46fade65bc9a3349f6ff13463c845e4c41112c9e5ac71cf28182aff5fb",
+    "app/portable_product_typed.py": "3c681062cb1f250fdd9ea3320483be1ac5f31a779a6b9e254422459970d56f9c",
+    "app/product_typed_model.py": "ae6b0a586f8ffb6371d424c8cb688eab91493f172e702cb582f729df4317b257",
     "gpu/product_typed_battle_entry.slang": "43f16a9ae17ecb87a4a5a9ab5c16e5f73533357ebe5f50b16c4c4ffee273394d",
     "gpu/product_typed_fixed_battle_entry.slang": "c0e72e586d12c19a9c946e8efc8d3e89b535678fab4e816f8aeeaf41e5933bf0",
     "app/portable_product_locks.py": "5c9eddac132777b4eafc515998803cfc290f84f8c9d2212a80e07e0a692a2b56",
     "app/portable_product_coordinate_lock.py": "9c99e21f358e142e9be6b5c89416e94b45e95520540ea64319afd76989b51949",
     "gpu/product_coordinate_lock_battle_entry.slang": "240fc0801bedb1041db08374b1b1ed52c0f7e508bb793373bd325d478e6d1e26",
     "gpu/product_coordinate_lock_fixed_battle_entry.slang": "a9b73a0ba875bc8bffe46aabeebbf5665c671d0ddb776497f51bfa3e49a26571",
-    "gpu/product_coordinate_lock_layout.slang": "e4e02afee4ff99189b00f533cdf5565daf4feabbc8f64b20aefcfd4bbd4c0f3e"
+    "gpu/product_coordinate_lock_layout.slang": "e4e02afee4ff99189b00f533cdf5565daf4feabbc8f64b20aefcfd4bbd4c0f3e",
+    "app/product_lock_model.py": "dbf14aaccd8a646b079b3e9ffa87060f810bfe5ac0d6e2099ccb2875714b7889"
   }
 }

@@ -1766,4 +1766,99 @@ class ProductReferenceModels(unittest.TestCase):
                 self.assertIsNot(timeline.simulate,aliases[0]);raise RuntimeError('injected')
         self.assertEqual(aliases,(timeline.simulate,sim.simulate))
 
+    @staticmethod
+    def typed_lock_body(mode='accumulate',capacity=1e8):
+        from portable_product_programs import body_for_program
+        from coordinate_typed_actor_policy import FIELD_MODE
+        from coordinate_typed_aim_runtime import POLICY
+        body=body_for_program(ROOT,'coordinate-lock-'+mode);body['duration']=4.
+        body['enemy']['patterns'][0]['until']['time']=5.
+        models=body['reference_models'];locks=copy.deepcopy(models['lock_on'])
+        for i,row in enumerate(locks['typed_bindings']):
+            row.update(capacity=capacity,owner=[0,0,1],label='projectile-'+str(i))
+        typed=dict(coord=models['coordinate']['coord'],bindings=copy.deepcopy(locks['typed_bindings']),
+            geometry=dict(point_source='caster_aim',shapes=[dict(x=0.,y=0.,r=1000.,z=float(i)) for i in range(3)]),
+            aim_policy={'mode':POLICY},actor_policy={'mode':FIELD_MODE})
+        body['reference_models']=dict(typed_targets=typed,lock_on=locks)
+        return body
+
+    def test_typed_weapons_and_original_lock_skill_share_one_live_world(self):
+        from destructible_world_runtime import DestructibleWorld
+        from portable_detail import prepare,compile_product
+        from portable_runtime import UnsupportedPortable
+        for mode in ('fixed','accumulate'):
+            for capacity in (1e8,1.):
+                with self.subTest(mode=mode,capacity=capacity):
+                    body=self.typed_lock_body(mode,capacity);before=copy.deepcopy(body)
+                    aliases=(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage)
+                    rng=timeline.random.getstate();worlds=[];original=DestructibleWorld.from_clock
+                    def create(*a,**kw):
+                        world=original(*a,**kw);worlds.append(world);return world
+                    with patch.object(DestructibleWorld,'from_clock',side_effect=create):
+                        result=engine_worker.evaluate(body)
+                    self.assertEqual(len(worlds),1);self.assertTrue(worlds[0].finished)
+                    self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
+                    self.assertEqual(rng,timeline.random.getstate())
+                    models=result['reference_models'];typed=models['typed_targets'];locks=models['lock_on']
+                    self.assertEqual(typed['state'],locks['typed']['state'])
+                    self.assertGreater(typed['packet_count'],0)
+                    self.assertTrue(locks['pulses']);self.assertTrue(locks['shots'])
+                    self.assertEqual(typed['packet_count'],len(typed['weapon_packets']))
+                    self.assertTrue(all(a['completed'] for a in typed['skill_attacks']))
+                    if capacity==1e8:
+                        self.assertEqual(len(typed['skill_attacks']),1)
+                        self.assertEqual(len(locks['typed']['attacks']),1)
+                        skill=typed['skill_attacks'][0];lock=locks['typed']['attacks'][0]
+                        self.assertEqual(skill['attack_id'],lock['attack_id']);self.assertEqual(skill['damage'],lock['damage'])
+                        self.assertEqual(len(skill['receipts']),3)
+                        # Native Lock On alone has the same scalar definitions;
+                        # sharing weapon damage must reduce that same target HP.
+                        standalone=copy.deepcopy(body)
+                        standalone['reference_models']={'lock_on':copy.deepcopy(body['reference_models']['lock_on']),
+                            'coordinate':dict(coord=copy.deepcopy(body['reference_models']['typed_targets']['coord']),logical_geometry=[])}
+                        other=engine_worker.evaluate(standalone)['reference_models']['lock_on']['typed']['state']
+                        self.assertLess(sum(t['remaining'] for t in typed['state']),sum(t['remaining'] for t in other))
+                    else:
+                        self.assertTrue(all(not t['alive'] and t['remaining']==0 for t in typed['state']))
+                        self.assertTrue(any(p['broken'] for p in typed['weapon_packets']))
+                    # Static preparation may not execute a CPU battle or silently
+                    # admit the unfinished shared GPU consumer.
+                    with patch.object(sim,'execute',side_effect=AssertionError('No battle as GPU input')):
+                        prepared,_=prepare(body)
+                        original_prepared=copy.deepcopy(prepared)
+                        with self.assertRaisesRegex(UnsupportedPortable,'composition.*checked.*consumer'):
+                            compile_product(prepared)
+                        self.assertEqual(prepared,original_prepared)
+
+    def test_typed_lock_rejects_different_or_nonprojectile_worlds_before_simulating(self):
+        body=self.typed_lock_body();base=body['reference_models']
+        variants=[]
+        changed=copy.deepcopy(base);changed['lock_on']['typed_bindings'].reverse();variants.append(changed)
+        changed=copy.deepcopy(base);changed['lock_on']['typed_bindings'][0]['capacity']=3.;variants.append(changed)
+        changed=copy.deepcopy(base)
+        for model,key in ((changed['typed_targets'],'bindings'),(changed['lock_on'],'typed_bindings')):
+            for row in model[key]:row['kind']=3
+        variants.append(changed)
+        with patch.object(sim,'execute',side_effect=AssertionError('Invalid world must not execute')):
+            for value in variants:
+                with self.subTest(value=value),self.assertRaises(ValueError):
+                    engine_worker.evaluate(dict(body,reference_models=value))
+        self.assertEqual(body['reference_models'],base)
+
+    def test_shared_typed_lock_unwinds_on_error_and_rejects_foreign_runtime(self):
+        from product_lock_model import execution as locks
+        from product_typed_model import execution as typed
+        models=normalize(self.typed_lock_body()['reference_models']);names=self.typed_lock_body()['squad']
+        aliases=(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage)
+        holder={}
+        with self.assertRaisesRegex(RuntimeError,'shared abort'):
+            with typed(models['typed_targets'],names,runtime=holder):
+                with locks(models['lock_on'],names,typed_runtime=holder):raise RuntimeError('shared abort')
+        self.assertFalse(holder['active'])
+        self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
+        for runtime in (holder,{'active':True,'bindings':[],'data':{}},{'active':True,'bindings':models['lock_on']['typed_bindings'],'data':{'worlds':[object()],'managers':[]}}):
+            with self.subTest(runtime=runtime),self.assertRaises(ValueError):
+                with locks(models['lock_on'],names,typed_runtime=runtime):pass
+            self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
+
 if __name__=='__main__':unittest.main()

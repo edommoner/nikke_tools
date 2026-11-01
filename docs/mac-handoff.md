@@ -1,3 +1,15 @@
+## 2026-11-02 typed武器＋Lock OnのCPU共有世界と通常API fallbackを接続
+
+前turnは保存CUDA2条件の計算一致とmissing7/記録Job peak超過の証拠取得でprogress。今回は次の未接続組合せのnative基準を実装。従来のproduct_typed_modelとproduct_lock_modelを別々にネストすると同じ敵に2つのDestructibleWorldを作るため、前者のactiveな内部runtimeを後者へ渡し、生成前・binding順/容量/owner/label全一致を要求。受け渡しはrequest fieldではなく内部contextだけ。新規の数値式やCPU正本/pinned変更なし。normalizeはtyped_targets＋lock_onのみ新たに許可し、非projectile/順序/容量の不一致を戦闘前に拒否する。
+
+元Heavyの固定/accumulate×生存1e8/破壊1HPの4条件で世界生成1回、武器171/12packet、生存時の元all_projectilesスキル1回、Lock On16pulse/2shotを確認。武器とLock Onの最終typed HPは同一で、武器を含む世界のHPは従来Lock単独より低い。破壊時は武器が敵を壊し、後続の元飛翔体スキル対象0になる。異常終了のalias/RNG復元も検査。既存test_product_reference_models.pyを拡張、85成功。最初の非projectile負例失敗はnative-tests-v1.logへ保持し、normalize guard修正後v2成功。
+
+immutable package ed76941de354effdc33f1dfd53882c96ebad11a866e86281ce60414877e02e7b自身の既存4群172検査・元coordinate-lock30/56秒CPU期待値2件成功。GPU呼出0。新suite/監査器0、registry80/v56不変。compact packetのmodel-checkは古いIMPL-STATUS.mdを含まず読込で停止したログを保持し、full worktreeで既存model-check静的成功（GPU/battle0）。歴史ledgerは追加app sourceの全SHAだけ更新、normalizer/pinned ledgerを緩めない。
+
+通常/api/jobsへ1POSTで4条件を投入し、全てbackend=cpu、gpu_execution_verified=false、未接続shared GPU consumerの具体的理由を表示。世界HP一致/破壊結果を検査、input/readback作成0、owned Node group gone。CPU fallbackをGPU成功と数えない。research/product-typed-lock-native-v1.json、proofs/product-typed-lock-v1-20261102参照。
+
+次は既存coordinate-lockのarenaへtyped武器/aim/owner consumerを接続する。武器pellet scratchは従来skill DFS領域の再利用のため、この組合せでは別領域へ置き、同期子スキルが親のpellet snapshotを壊さないことが必要。元128typed attack/2048skill/2048weapon packet/全Lock On履歴は削らない。元Heavy1profileのCPU条件追加のみ、今回新GPU profile0。標準Metal直近263/266、CUDA従来263/266（current全matrix再認定なし）。Windows再依頼0、以前のmissing7とJob peak超過は未解決。全goal未完了。以下は履歴。
+
 ## 2026-11-02 Windows保存結果取得：2条件の計算一致、監視とメモリは未解決
 
 復旧後は保存結果だけ取得。輸送6d2a7356のstatus-v2と匿名identity診断をGit blob/全SHA照合してresearchへ保存。新source ec80ecb2の4秒×生存/破壊2条件を1POST/1CUDAで実行済み。Mac実保存parent/inputと全member rawを再hashし、CUDA報告と全一致（parent20,465,664B、SHA f2f12a7f…）。CPU/GPU/HTTP/Unicodeも一致、非zero batch index1の相対trace参照を確認。GPU dispatch0.661秒、HTTP18.935秒。元Heavy1profileの条件追加で、profile加算0、全matrix再認定なし。
