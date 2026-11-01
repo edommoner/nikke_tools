@@ -26,5 +26,15 @@
   "advisory_nulls_and_unknown_preserved": true,
   "whole_environment_preservation_verified": false,
   "overall_verified": false,
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "saved_source_policy_supplement": {
+    "original_commit": "30065fd3934e22e8dee52da207570cc3d818c8a4",
+    "bytes": 4765,
+    "sha256": "916c206ca670a5a9ecdce6b30c9ab8111906a8fc1dacbbcbccdc163578829e03",
+    "source_hash_manifest_verified": true,
+    "exact_offsets_sizes_and_ret0_verified": true,
+    "parent_all_hashes_unchanged": true,
+    "cpu_only_bounded_observation_verified": true,
+    "extra_gpu_posts_sdk_and_native": 0
+  }
 }

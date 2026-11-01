@@ -1,3 +1,11 @@
+## 2026-11-01 座標の補足原本も照合、元Rei1条件だけのCUDAを依頼
+
+座標の補足原本30065fd3/4,765byte/SHA916c206c…もMacで照合。送信済みbackend自身のhash/固定8MiBと全DToH相対offset0/8,388,608/16,777,216・byte列・ret0・親input/readbackの前後SHA、60秒2GiB gate/empty/missing0を確認。追加SDK/POST/GPU/CPU戦闘0。元16MiB宣言不一致/v2失敗/全環境falseは保持しており、数値期待値を変更した意味ではない。
+
+元Reiの標準profile251/favorite0固定30秒だけのsealed owner2dc37ccb/sourcee3f0ada5・archive214d6771…はown deps/PTX/O1計画成功。Macの元標準M5 input87978e6b…/全output571dfde4…（3,145,728bytes）と静的再pack全一致、戦闘/GPU0。共有6d2e4c24の7資料12,122,041bytesから既存Windowsチャットへ1POST/1GPU/各元上限の初回検証を依頼済み。前の座標作業はterminal、追加GPU重複なし。
+
+Windows CPUは変更範囲86件（detail67/packet11/履歴7とnew named-carriersモデル1元ID）だけを既存selected_casesで実行する。旧sourceの85件を新sourceへ流用せず、他model60件を実行したとも記録しない。Mac全146成功と実4条件・raw負例は既存根拠。CPU/SDKchild60秒/APIhelper53秒/outer180秒/2GiB/BelowNormal/freshJob gate/serial・artifact/paired/cache/M5/全CPU比較を維持し、初回差で停止。8MiB分割列は実source定数から導出した単一3,145,728byte、保存監査はNode実輸送JSONを使用。追加原本は未取得なので標準CUDA262/266据置き、Metal263/266、全goal未完了。以下は履歴。
+
 ## 2026-11-01 公開座標CUDA3条件の原本をMac照合、実転送8MiBを確認
 
 原本c273f6adのv2 JSON31,543bytes/SHA686b6d65…を取得し、own a077d3b3/source170cf08d/archive/manifest/paired生成基準と照合。Mac保存M5の3個input/readback全hashと合成親hashを再計算して全一致。元85+新59の144検査、11段階の予算/2GiB/prepost gate/empty/missing0/query/cleanupを確認。1POST/1GPU/retry0、3thread各1、全driver ret0。CUDA同期2.527秒、host dispatch2.534秒、HTTP18.786秒。SDK外側3exit2/falseと対応inner0/artifact成功を分けて保持、旧保存監査失敗とNode実輸送での全payload/Unicode一致も分離。追加battle/GPU0でMac監査した。
