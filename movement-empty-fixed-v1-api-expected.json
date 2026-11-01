@@ -1,0 +1,50 @@
+{
+  "schema": "movement-empty-cuda-api-expected-v1",
+  "owner": "0e164a2058b1b9a07b28927afb3631d219ec0de84285ec11e2563d956bb26ed3",
+  "source_commit": "5f9e93c6eee590dcb2ecabf18127c5dad6ecb955",
+  "source": "gpu/product_movement_fixed_battle_entry.slang",
+  "physical_cases": 3,
+  "input_words": 117476,
+  "output_words": 2032000,
+  "physical_input_bytes": 1409716,
+  "physical_output_bytes": 24384000,
+  "physical_input_sha256": "b83280977022d5cc4de3806cbea63910c079a0c1fae5c27654571d822c358597",
+  "physical_output_sha256": "b783131f3a9e2b9991f65a2a0bd09fc1d1ab4fe4d239e456f70d69d65c83a351",
+  "readback_chunk_bytes": 8388608,
+  "expected_readback_chunk_bytes": [
+    8388608,
+    8388608,
+    7606784
+  ],
+  "cases": [
+    {
+      "index": 0,
+      "label": "유니-empty-fixed",
+      "expected_input_sha256": "787f537c7c00d9d24acc9f931106228d04babf60cfc121ad429a5a78fa743193",
+      "expected_output_sha256": "4f98034477055f1b3b5a342321ea508edc0c6dcadfd51aa71a575301f8e3c4d3",
+      "saved_metal_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-empty-movement-v1-20261101/api-v1/captures/e94847f14b1046c0852d9c3784ff790c",
+      "declared_model": true,
+      "standard_profile_delta": 0
+    },
+    {
+      "index": 1,
+      "label": "얀-empty-fixed",
+      "expected_input_sha256": "9b5180903d62ccef05684c9b8f0b71e2912c9d7a47b6f053922ce6d85a6e95f0",
+      "expected_output_sha256": "0e094f4b65958baeadd072d761a9b213cd144802dfa5d43a28cae638972120a0",
+      "saved_metal_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-empty-movement-v1-20261101/api-v3/captures/1a6893bc08cd4451bf0509973d55037e",
+      "declared_model": true,
+      "standard_profile_delta": 0
+    },
+    {
+      "index": 2,
+      "label": "existing-two-add-fixed",
+      "expected_input_sha256": "3ff51c006f6ca444761ba64c00eb54a945b7f4fb536667fd1d0fd5c86fd2b15f",
+      "expected_output_sha256": "0cd3194c40b7114f6e4eb694c1f90c7e1725a51611e9aee7aa47690755238a0a",
+      "saved_metal_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-empty-movement-v1-20261101/metal-v1",
+      "declared_model": true,
+      "standard_profile_delta": 0
+    }
+  ],
+  "cpu_battles": 0,
+  "gpu_calls": 0
+}

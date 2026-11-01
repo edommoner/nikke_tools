@@ -1,0 +1,71 @@
+{
+  "schema": "movement-empty-windows-request-v1",
+  "owner": "0e164a2058b1b9a07b28927afb3631d219ec0de84285ec11e2563d956bb26ed3",
+  "source_commit": "5f9e93c6eee590dcb2ecabf18127c5dad6ecb955",
+  "code_review_commit": "394546cd4d370631b36c09cfb41c36f6230a8ec3",
+  "snapshot_note": "Exact tested immutable v3 snapshot created before code commit; manifest retains original source_base and payload hashes, never relabelled",
+  "source": "gpu/product_movement_fixed_battle_entry.slang",
+  "program": "movement-fixed",
+  "scope": "Explicit ADD-only movement: Yuni empty, Yan empty, previous nonempty baseline; no standard profile additions",
+  "archive": "movement-empty-fixed-v1.zip",
+  "archive_bytes": 12115566,
+  "archive_sha256": "01a1c5ec8b59845dd1452b45b3290feffa47e6f7da66097ae6bc4de8e62a5996",
+  "api_job": "movement-empty-fixed-v1-api-job.json",
+  "api_job_sha256": "1b1e4dbf83c13d8f9fcb5375138ee5b7c964ccdde7c912cc7ebdae7d377da376",
+  "api_expected": "movement-empty-fixed-v1-api-expected.json",
+  "cpu_patterns": [
+    "test_portable_detail.py",
+    "test_product_detail_packet.py",
+    "test_weighted_source_contract.py",
+    "test_product_reference_models.py"
+  ],
+  "selected_case_ids": {
+    "test_product_reference_models.py": [
+      "test_product_reference_models.ProductReferenceModels.test_explicit_empty_movement_preserves_duration_carriers_and_rejects_future_add"
+    ]
+  },
+  "windows_targeted_tests": 86,
+  "mac_own_tests": 147,
+  "mac_private_movement_tests": 8,
+  "mac_gpu_saved_cases": 3,
+  "mac_positive_baseline_and_independent_seal_verified": true,
+  "mac_raw_negative_rejected_status": 64,
+  "physical_cases": 3,
+  "input_words": 117476,
+  "output_words": 2032000,
+  "physical_input_sha256": "b83280977022d5cc4de3806cbea63910c079a0c1fae5c27654571d822c358597",
+  "physical_output_sha256": "b783131f3a9e2b9991f65a2a0bd09fc1d1ab4fe4d239e456f70d69d65c83a351",
+  "physical_output_bytes": 24384000,
+  "expected_readback_chunk_bytes": [
+    8388608,
+    8388608,
+    7606784
+  ],
+  "max_posts": 1,
+  "max_gpu_dispatches": 1,
+  "retries": 0,
+  "standard266_rerun": false,
+  "standard_profile_delta": 0,
+  "report": "movement-empty-fixed-normal-api-status-v1.json",
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "steps": [
+    "Fresh immutable root, own CLI/golden/deps/PTX/O1 plans; preserve all older roots/claims/raw/failures",
+    "CPU original IDs: detail67, packet11, source contract7, only selected empty-movement model1, total86; other61 model tests not claimed on Windows",
+    "Existing strict paired generation once, current PTX once, O1 object once, pinned nvJitLink once; no NVRTC fallback, no source/artifact substitutions; stop first admission failure",
+    "After all source/artifact/cache/Job gates: supplied3-case batch1POST/1GPU only, full M5 raw SHA for parent and each slice plus fresh CPU/GPU/HTTP exact all fields/Unicode",
+    "Saved audit using actual Node JSON parse/stringify effective request; exact static repack/source/readback/projection; zero additional CPU battle or GPU",
+    "Stop first difference/time/query/missing/cleanup/observation error; no retries, no limit increases; export saved small JSON only"
+  ],
+  "report_policy": "Keep SDK outerexit2/inner0 and 8 advisory nulls/unknown separate; service/whole/overallfalse; no raw/compiler/settings/auth; no new tool or suite",
+  "full_goal_complete": false
+}
