@@ -1,0 +1,221 @@
+{
+  "schema": "lock-cover-jit-link-status-v3",
+  "status": "requested_jit_link_scope_completed",
+  "overall_passed": false,
+  "permission_mode": "require_escalated",
+  "approval_denied": false,
+  "package_id": "72638887e127795d92a39f0d86b28fa052e4ee7a9b793f4d6bedd944c69df481",
+  "source_commit": "2d1e48332f10af038034ff2bc4db176857c8a199",
+  "prior_compile_status_commit": "4827754683f64fa7ce0abe78277ce4117c7b62c3",
+  "input_object": {
+    "source_claim": "module-object-claimed-cuda.json",
+    "source_claim_sha256": "3138a0b11a4258ed9de1893d592232dc4c59ff36ade39455da3c31822d7980c4",
+    "bytes": 5557168,
+    "sha256": "070c3789c9e05f999aba742d21d4a78cd550a33cd6e0fb7ca9626c90c03cb4d5",
+    "source_capture_read_from_original_claim": true,
+    "full_linked_object_origin_and_pre_post_anchors_verified": true,
+    "recompiled": false
+  },
+  "fixed_component": {
+    "version": "12.4.127",
+    "archive_sha256": "d8f4086215f482263dbfbe47a3580e88acbcdacbb284f8aa0c21a8fe408e671d",
+    "dll_sha256": "2da9da786b85c100ba122f931a49c5c1eda83c32e3fa36814c2ef470e45fa9b1",
+    "dll_bytes": 38247424,
+    "header_sha256": "5c15689136c1da9a25013118c686e38ceb2adeb2ba544c37d274129fab0c7f06",
+    "header_bytes": 17018,
+    "dll_header_byte_match_pinned_archive": true,
+    "api_contract": "12_4 symbols; runtime version validation delegated to own linker"
+  },
+  "execution": {
+    "outer": {
+      "seconds": 59.58422329975292,
+      "timeout_seconds": 179.82800000021234,
+      "exit_code": 2,
+      "bounded_passed": false,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "job_memory_values": [
+        {
+          "before_bytes": 2147483648,
+          "after_bytes": 2147483648,
+          "peak_bytes": 243064832
+        }
+      ],
+      "missing": 0,
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "environment_preservation_verified": false,
+      "wait_completed_utc": "2026-11-01T00:34:49.125164Z"
+    },
+    "sdk_child": {
+      "seconds": 23.440959199797362,
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "bounded_passed": true,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "job_memory_values": [
+        {
+          "before_bytes": 2147483648,
+          "after_bytes": 2147483648,
+          "peak_bytes": 118980608
+        }
+      ],
+      "missing": 0,
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "environment_preservation_verified": false,
+      "wait_completed_utc": "2026-11-01T00:34:34.221202Z"
+    },
+    "sdk_api_provider_seconds": 0.1898273997940123,
+    "api_current_job_checks": {
+      "before_and_after_verified": true,
+      "job_limit_bytes": [
+        2147483648,
+        2147483648
+      ]
+    }
+  },
+  "api_validation": {
+    "version": [
+      12,
+      4
+    ],
+    "options": [
+      "-arch=sm_86",
+      "-verbose"
+    ],
+    "events": [
+      {
+        "api": "nvJitLinkVersion",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkCreate_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkAddData_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkComplete_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkGetErrorLogSize_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkGetInfoLogSize_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkGetLinkedCubinSize_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkGetLinkedCubin_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkDestroy_12_4",
+        "return_code": 0
+      }
+    ],
+    "all_returns_zero": true,
+    "destroy_succeeded_and_handle_cleared": true,
+    "error_log_bytes": 0,
+    "info_log_bytes": 0,
+    "log_capture_errors": 0,
+    "cleanup_error": null,
+    "driver_module_observations": [
+      {
+        "phase": "before_load",
+        "driver_module_loaded": false,
+        "state": "verified"
+      },
+      {
+        "phase": "after_load",
+        "driver_module_loaded": false,
+        "state": "verified"
+      },
+      {
+        "phase": "after_link",
+        "driver_module_loaded": false,
+        "state": "verified"
+      }
+    ],
+    "program_driver_api_calls": 0
+  },
+  "linked_cubin": {
+    "format": "elf64-little",
+    "type": "executable",
+    "machine": "cuda",
+    "cuda_format_version": 124,
+    "target": "sm_86",
+    "bytes": 5184976,
+    "sha256": "d8bfd9f7838d9a81bb09c2f6a66f9d85942902bf5a7491ae5c58f8f925b739b0",
+    "entry_symbol": "portableEvents",
+    "entry_symbol_bytes": 34944,
+    "parameter_symbol": "SLANG_globalParams",
+    "parameter_bytes": 48,
+    "static_symbol_and_parameter_contract_verified": true
+  },
+  "verification": {
+    "object_verified": true,
+    "link_verified": true,
+    "containment_verified": true,
+    "preservation_verified": false,
+    "calculation_verified": false,
+    "current_full_battle_verified": false,
+    "outer_stage_verified": false,
+    "inner_job_exit_code": 0,
+    "owner_cli_exit_code": 2,
+    "exit_reason": "Service preservation remains unverified; original passed=false and stage_verified=false retained."
+  },
+  "actual_calls_this_request": {
+    "jit_link_sessions": 1,
+    "link_complete": 1,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "slang": 0,
+    "own_cpu_tests": 0,
+    "native_battle": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0,
+    "retries": 0
+  },
+  "claims_and_handles": {
+    "new_jit_link_claim_preserved": true,
+    "old_claims_deleted_or_reused": false,
+    "future_gpu_claim_still_reserved_only": true,
+    "all_started_children_terminal": true,
+    "all_observed_jobs_empty": true,
+    "known_live_handle": null
+  },
+  "integrity": {
+    "original_capture_claim_component_files_checked_unchanged": 517,
+    "immutable_payload_files_checked_unchanged": 4244,
+    "original_ptx_object_raw_and_failures_retained": true,
+    "old_missing_unknown_preservation_false_retained": true
+  },
+  "evidence_hashes": {
+    "jit_link_receipt_json": "1e2cb7d5e4f05ece9abfb6361a929571bda15d137f089822b40ea51b4cdfc9ce",
+    "phases_journal": "3aab0819c27db78b44b875675b710cce52b22247918b85c9c1deed3c61223e9e",
+    "preparation_journal": "cdbaa1eca62549ba6bcbb78e24d07753c835eb65d5c3384dec89da62f729df78"
+  },
+  "capture": {
+    "path_base": "Documents/Codex",
+    "relative_directory": "lock-cover-cleanup-repair-v2/jit-link-v3"
+  },
+  "next_action": "Stopped after saved-object JIT linking; no automatic GPU/API continuation."
+}
