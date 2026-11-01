@@ -1,3 +1,13 @@
+## 2026-11-01 座標実蓄積をCLI独立基準へ登録、限定CUDA3条件を依頼
+
+source170cf08dの実蓄積不変packet自身で144 CPU/fresh native/実M5/GPU禁止fresh独立seal成功。v38へcoordinate-accumulateのみ追加、旧30基準不変。固定/実蓄積とも同じproduct-detail CLIから通常のsealed配布を使える。CLI監査・基準登録を標準profile追加認定へ数えない。
+
+固定sealed配布owner a077d3b3/source170cf08d・ZIP SHA00b679aa…のown deps/PTX60秒2GiB/O1計画が成功。保存Metal8条件から固定BODY30秒・ADD3体30秒・1体射程外3秒の3条件だけをGPU/CPU戦闘禁止で静的再pack、元input全bytes保持。共有commit aab7e49aの7資料（12,134,486bytes）からWindows既存チャットへ1POST/1GPU・各child60秒/API53秒/outer180秒/2GiB/serial/BelowNormal/fresh Job gateを依頼した。旧標準266の再実行なし。親output24,384,000bytesの全SHA・各memberと分割転送を照合対象とする。結果原本の取得・Mac独立照合はまだで、CUDA成功へ加算しない。
+
+既存model-checkは新しいpublic_coordinate_productでreference_models.coordinateの限定公開・2programの登録済みshader source一致・記録済みMetal API8条件を表示する。保存原本の再監査ではないと明示し、unrestricted public/全キャラ/未接続合成のfalseを保持。source改変負例を含むfrontier8、履歴7、製品11成功。最初のfrontier試行は同時変更したgolden selectorの厳密台帳が未更新として拒否、台帳更新後に成功（戦闘/GPU追加0）。旧private証拠を現sourceへ付替えていない。
+
+原本proofs/product-coordinate-public-v1-20261101/accumulate-v1とrelease-v1、既存small記録product-coordinate-public-v1.json。Metal/CUDAの標準履歴は262/266据置き。全goal未完了。以下は履歴。
+
 ## 2026-11-01 宣言した座標・乱数を通常APIの共通実行器へ接続
 
 `reference_models.coordinate`に既存common binary64/MT19937 point samplerを公開。明示auto_aimとlogical_geometryを入力にし、BODYのみは明示空配列、ADDは全対象のcolliderを必須にする。旧private wireの空配列拒否は維持し、新product入口だけ限定許可。CPU正本4file変更0。固定/実蓄積は同じ実行器と既存制御・バースト・元全効果を使用し、CPU戦闘状態/予定表を入力にしない。モデル併用と手動遮蔽の未接続組合せは拒否。

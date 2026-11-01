@@ -20,7 +20,7 @@ class FrontierTests(unittest.TestCase):
         packets = dependencies['physical-packet-expansion']
         self.assertIn('Public frontend', packets['remaining_scope'])
         self.assertNotIn('sampling-rng', packets['remaining'])
-        self.assertIn('public-sampling-rng-admission', packets['remaining'])
+        self.assertIn('unrestricted-public-sampling-rng-admission', packets['remaining'])
         self.assertEqual(packets['private_sampling']['suite'], result['coordinate_sampled_battles']['suite'])
         self.assertEqual(packets['private_sampling']['proof_available'], result['coordinate_sampled_battles']['proof_available'])
         self.assertEqual(packets['private_sampling']['sealed_source_matches_current'], result['coordinate_sampled_battles']['sealed_source_matches_current'])
@@ -33,6 +33,24 @@ class FrontierTests(unittest.TestCase):
         self.assertFalse(rng['parent_quantity_admitted'])
         self.assertFalse(result['public_gpu_admitted'])
         self.assertFalse(result['full_goal_complete'])
+
+    def test_public_standalone_coordinate_evidence_does_not_complete_unrestricted_frontier(self):
+        result=verify(ROOT);product=result['public_coordinate_product']
+        self.assertEqual(product['frontend'],'reference_models.coordinate')
+        self.assertEqual({row['program'] for row in product['programs']},{'coordinate-fixed','coordinate-accumulate'})
+        self.assertTrue(all(row['registered_metal_baseline_available'] and row['current_shader_matches_registered_baseline'] for row in product['programs']))
+        self.assertEqual(product['recorded_metal_api_cases'],8)
+        self.assertTrue(product['recorded_metal_api_cases_matched'])
+        self.assertFalse(product['recorded_api_evidence_reaudited'])
+        self.assertFalse(product['unrestricted_compositions_admitted'])
+        self.assertFalse(product['all_characters_certified'])
+        self.assertFalse(result['public_gpu_admitted']);self.assertFalse(result['full_goal_complete'])
+
+    def test_public_coordinate_shader_drift_is_not_lent_old_metal_identity(self):
+        name='gpu/product_coordinate_battle_entry.slang'
+        result=verify(ROOT,{name:(ROOT/name).read_text()+'\n// source drift\n'})
+        self.assertTrue(all(not row['current_shader_matches_registered_baseline'] for row in result['public_coordinate_product']['programs']))
+        self.assertFalse(result['calculation_verified'])
 
     def test_audit_reuses_public_and_arena_guards_without_battles(self):
         result = verify(ROOT)

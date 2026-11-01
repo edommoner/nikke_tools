@@ -2196,13 +2196,13 @@
     },
     "app/portable_product_programs.py": {
       "before_sha256": "51d18a2191c24ef3b68f2d1cf71d792cdb9e8e01ed209e5c793827ce5b7d056d",
-      "after_sha256": "eb5256836443cd30a4d3ee07540b4f6238e6eb30ac9d2f002a35a127ee8f5349",
+      "after_sha256": "599b2a389ad95a2beab7b40bdd06be4fbd3ffb4fe7d3ed596999dc766f151f1b",
       "hunks": [
         {
           "start": 364,
           "end": 366,
           "before": "1",
-          "after": "37"
+          "after": "38"
         },
         {
           "start": 1043,
@@ -3505,6 +3505,138 @@
           "end": 1105,
           "before": "",
           "after": "\n#ifndef PORTABLE_PRODUCT_COORDINATE\n    if(count==0)return false;\n#else\n    for(uint slot=1;slot<actorPoolCount(s);slot++)\n        if(commands[actorBinding(s,slot)]==5&&commands[p+LAG_MAP_BASE+slot]==0)return false;\n#endif"
+        }
+      ]
+    },
+    "app/portable_coordinate_frontier.py": {
+      "before_sha256": "8452720bcd7cb20b69e6482dfc01687c974a904d1926562a41f4840e25c8e91c",
+      "after_sha256": "d62007de4759342840d32c53e0fc8b3a3b427aa70b67032e09f2a823c526fddc",
+      "hunks": [
+        {
+          "start": 24852,
+          "end": 27370,
+          "before": "",
+          "after": "# Keep limited public product evidence separate from private suite history\n    # and unrestricted frontend completion. This source audit runs no battle.\n    registry_path=root/'data/portable-product-programs.json'\n    registry=json.loads(registry_path.read_text())['programs']\n    selector_path='app/portable_product_programs.py'\n    selector=ast.parse(overrides.get(selector_path,(root/selector_path).read_text()))\n    golden_name=next(ast.literal_eval(n.value) for n in selector.body if isinstance(n,ast.Assign)\n        and any(isinstance(t,ast.Name) and t.id=='GOLDEN' for t in n.targets))\n    product_goldens=json.loads((root/golden_name).read_text())['programs']\n    public_programs=[]\n    for mode in ('fixed','accumulate'):\n        name='coordinate-'+mode;program=registry.get(name);golden=product_goldens.get(name)\n        current=source_hashes(root,program['source']) if program else {}\n        current={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else value for name,value in current.items()}\n        public_programs.append(dict(program=name,source=program['source'] if program else None,\n            registered_metal_baseline_available=golden is not None,\n            current_shader_matches_registered_baseline=bool(golden and golden['source_sha256']==current),\n            current_shader_sha256=current))\n    record_path=root/'research/product-coordinate-public-v1.json'\n    record=json.loads(record_path.read_text()) if record_path.is_file() else None\n    recorded_rows=[row for batch in record.get('api',[]) for row in batch['cases']] if record else []\n    public_product=dict(frontend='reference_models.coordinate',scope='Standalone explicit declared coordinate model only',\n        programs=public_programs,normal_api_record_available=record is not None,\n        normal_api_record_sha256=hashlib.sha256(record_path.read_bytes()).hexdigest() if record else None,\n        recorded_metal_api_cases=len(recorded_rows),recorded_metal_api_cases_matched=bool(recorded_rows) and all(\n            row['compute']['backend']=='metal_detail' and row['compute']['gpu_execution_verified'] and\n            row['compute']['cpu_verification']==dict(matched=True,differing_fields=[]) for row in recorded_rows),\n        recorded_api_evidence_reaudited=False,source_audit_only=True,\n        unrestricted_compositions_admitted=False,all_characters_certified=False,\n        remaining=['uncovered mixed scenes','complete original definition coverage','current source CUDA validation'])\n    "
+        },
+        {
+          "start": 28181,
+          "end": 28194,
+          "before": "",
+          "after": "unrestricted "
+        },
+        {
+          "start": 28208,
+          "end": 28209,
+          "before": "unrestr",
+          "after": "m"
+        },
+        {
+          "start": 28210,
+          "end": 28211,
+          "before": "ct",
+          "after": "x"
+        },
+        {
+          "start": 28228,
+          "end": 28231,
+          "before": "",
+          "after": "sta"
+        },
+        {
+          "start": 28232,
+          "end": 28235,
+          "before": "",
+          "after": "dal"
+        },
+        {
+          "start": 28236,
+          "end": 28254,
+          "before": "",
+          "after": "ne declared produc"
+        },
+        {
+          "start": 28256,
+          "end": 28257,
+          "before": "",
+          "after": "h"
+        },
+        {
+          "start": 28258,
+          "end": 28258,
+          "before": "b",
+          "after": ""
+        },
+        {
+          "start": 28259,
+          "end": 28277,
+          "before": "",
+          "after": " scoped Metal evid"
+        },
+        {
+          "start": 28281,
+          "end": 28281,
+          "before": " of private implementations",
+          "after": ""
+        },
+        {
+          "start": 28613,
+          "end": 28626,
+          "before": "",
+          "after": "unrestricted-"
+        },
+        {
+          "start": 30521,
+          "end": 30535,
+          "before": "P",
+          "after": "Unrestricted p"
+        },
+        {
+          "start": 30549,
+          "end": 30550,
+          "before": "",
+          "after": ";"
+        },
+        {
+          "start": 30551,
+          "end": 30558,
+          "before": "",
+          "after": "standal"
+        },
+        {
+          "start": 30560,
+          "end": 30584,
+          "before": "ly;",
+          "after": "e coordinate product and"
+        },
+        {
+          "start": 30594,
+          "end": 30594,
+          "before": "ampled skill and parent s",
+          "after": ""
+        },
+        {
+          "start": 30600,
+          "end": 30601,
+          "before": "",
+          "after": "h"
+        },
+        {
+          "start": 30602,
+          "end": 30603,
+          "before": "r",
+          "after": "v"
+        },
+        {
+          "start": 30613,
+          "end": 30620,
+          "before": "",
+          "after": " scoped"
+        },
+        {
+          "start": 32417,
+          "end": 32605,
+          "before": "",
+          "after": ",\n                public_admission_scope='Unrestricted public frontend; see public_coordinate_product for limited declared models',\n                public_coordinate_product=public_product"
         }
       ]
     }

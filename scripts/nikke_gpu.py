@@ -4431,6 +4431,7 @@ def main(argv=None):
         display=dict(schema='model-check-summary-v1',passed=result['passed'],scope=result['scope'],
             report=str(a.out.resolve()),report_bytes=a.out.stat().st_size,report_sha256=sha(a.out.read_bytes()),
             public_gpu_admitted=result['public_gpu_admitted'],full_goal_complete=result['full_goal_complete'],
+            public_admission_scope=result['public_admission_scope'],public_coordinate_product=result['public_coordinate_product'],
             gpu_calls=result['gpu_calls'],native_battle_calls=result['native_battle_calls'],
             missing_canonical_stat_consumers=sorted(gaps['missing_stats']),
             numeric_policy_scope=numeric['policy_implemented_scope'],public_numeric_admission_remaining=numeric['public_admission_remaining'],

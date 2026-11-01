@@ -268,6 +268,36 @@ def verify(root, overrides=None):
     assert 'bm.accumulate_damage' in function(base+'timeline.py','_land_boss')
     assert 'bm.accumulate_damage' not in function(base+'timeline.py','_land_target')
     from portable_coordinate_landing_v1 import TARGETS,CUTS,OUTPUT as LANDING_OUTPUT
+    # Keep limited public product evidence separate from private suite history
+    # and unrestricted frontend completion. This source audit runs no battle.
+    registry_path=root/'data/portable-product-programs.json'
+    registry=json.loads(registry_path.read_text())['programs']
+    selector_path='app/portable_product_programs.py'
+    selector=ast.parse(overrides.get(selector_path,(root/selector_path).read_text()))
+    golden_name=next(ast.literal_eval(n.value) for n in selector.body if isinstance(n,ast.Assign)
+        and any(isinstance(t,ast.Name) and t.id=='GOLDEN' for t in n.targets))
+    product_goldens=json.loads((root/golden_name).read_text())['programs']
+    public_programs=[]
+    for mode in ('fixed','accumulate'):
+        name='coordinate-'+mode;program=registry.get(name);golden=product_goldens.get(name)
+        current=source_hashes(root,program['source']) if program else {}
+        current={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else value for name,value in current.items()}
+        public_programs.append(dict(program=name,source=program['source'] if program else None,
+            registered_metal_baseline_available=golden is not None,
+            current_shader_matches_registered_baseline=bool(golden and golden['source_sha256']==current),
+            current_shader_sha256=current))
+    record_path=root/'research/product-coordinate-public-v1.json'
+    record=json.loads(record_path.read_text()) if record_path.is_file() else None
+    recorded_rows=[row for batch in record.get('api',[]) for row in batch['cases']] if record else []
+    public_product=dict(frontend='reference_models.coordinate',scope='Standalone explicit declared coordinate model only',
+        programs=public_programs,normal_api_record_available=record is not None,
+        normal_api_record_sha256=hashlib.sha256(record_path.read_bytes()).hexdigest() if record else None,
+        recorded_metal_api_cases=len(recorded_rows),recorded_metal_api_cases_matched=bool(recorded_rows) and all(
+            row['compute']['backend']=='metal_detail' and row['compute']['gpu_execution_verified'] and
+            row['compute']['cpu_verification']==dict(matched=True,differing_fields=[]) for row in recorded_rows),
+        recorded_api_evidence_reaudited=False,source_audit_only=True,
+        unrestricted_compositions_admitted=False,all_characters_certified=False,
+        remaining=['uncovered mixed scenes','complete original definition coverage','current source CUDA validation'])
     dependencies = [
         dict(id='landing-probability', classification='gpu_port_gap',
              native='Geometry.landing -> aim.landing',
@@ -279,13 +309,13 @@ def verify(root, overrides=None):
              work='Per-pellet body/front/reach packets, conditional core probability, per-target damage rounding',
              private_expected_entry='gpu/world_coordinate_physical_entry.slang',
              private_expected_packets_connected=True,
-             remaining_scope='Public frontend admission and unrestricted compositions; not absence of private implementations',
+             remaining_scope='Public frontend unrestricted admission and mixed compositions; standalone declared product has scoped Metal evidence',
              private_sampling=dict(suite='coordinate-sampled-battle',
                  source='gpu/world_coordinate_sampling_entry.slang',
                  proof_available=sampled_battle_golden is not None,
                  sealed_source_matches_current=sampled_battle_matches),
              remaining=[
-                        'public-sampling-rng-admission','uncovered-mixed-scenes','complete-original-definition-coverage'],
+                        'unrestricted-public-sampling-rng-admission','uncovered-mixed-scenes','complete-original-definition-coverage'],
              depends_on=['landing-probability', 'physical-native-observation']),
         dict(id='coordinate-shot-groups', classification='gpu_port_gap',
              native='battle_attack_group_runtime.Producer.wrap_fire / packet_scope',
@@ -310,7 +340,7 @@ def verify(root, overrides=None):
              native='CharState._coord_pellet -> sample_landing',
              work='Preserve random draw count/order, angle requirement, front-most and reach routing',
              private_physical_executor_implemented=True,shared_scalar_condition_rng_implemented=True,
-             admission_scope='Public frontend only; private sampled skill and parent suites are separate evidence',
+             admission_scope='Unrestricted public frontend; standalone coordinate product and private suites have separate scoped evidence',
              private_sampled_skill=dict(suite='coordinate-sampled-skill',source='gpu/world_coordinate_sampling_skill_entry.slang',
                  proof_available=sampled_skill_golden is not None,sealed_source_matches_current=sampled_skill_matches),
              private_sampled_parent=dict(suite='coordinate-sampled-parent',source='gpu/world_coordinate_sampling_parent_entry.slang',
@@ -331,6 +361,8 @@ def verify(root, overrides=None):
     ]
     return dict(schema=1, passed=True, scope='Source audit and dependency plan only',
                 native_model_available=True, public_gpu_admitted=False,
+                public_admission_scope='Unrestricted public frontend; see public_coordinate_product for limited declared models',
+                public_coordinate_product=public_product,
                 private_composed_arena_verified=True, private_physical_scope='legacy-composed-body-only; separate coordinate-physical expected profile',
                 coordinate_physical_expected=dict(suite='coordinate-physical',
                     source_sha256=physical_sources,proof_available=physical_golden is not None,
