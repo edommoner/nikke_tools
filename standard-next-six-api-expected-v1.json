@@ -1,0 +1,78 @@
+{
+  "schema": "standard-next-six-expectations-v1",
+  "owner": "032bbb7646fe850b222c0c23097b16cd820f2ad4295c5ce7b00510171d7be071",
+  "source": "gpu/product_fixed_battle_entry.slang",
+  "body_sha256": "1971350e9279d824d4d96f6d678963c3abb0a24d59c3f0849911814d9e71fbda",
+  "physical_cases": 6,
+  "input_words": 104400,
+  "output_words": 786432,
+  "physical_input_bytes": 2505604,
+  "physical_output_bytes": 18874368,
+  "physical_input_sha256": "93f39a9739bfaad804ad0bb632535e66e0368aabcb78271627a52c1a1f2d4dee",
+  "physical_output_sha256": "d0505a182c08955b0a4b3c659b6dd9d4aca94eefd2ce13e8d969f97a417476fd",
+  "cases": [
+    {
+      "index": 1,
+      "character": "네온",
+      "favorite_stage": 0,
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "expected_input_sha256": "082c05e1ccd1e94433a608236ec6cb01e96d4b2e35a79cd81d0bc6a026b5ee74",
+      "expected_output_sha256": "0b139e4bce7dbd20897e3471183b27be6d20baaaa859728b9215d6ba046f282e"
+    },
+    {
+      "index": 2,
+      "character": "아니스",
+      "favorite_stage": 0,
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "expected_input_sha256": "e046d8d455967b830604e80814686af6b6437a1c0086ed02f344ca28d7e1c8ae",
+      "expected_output_sha256": "71e1952730d2383f1e164ed5dcbacfa3d908f951f914d12756258c177c22898f"
+    },
+    {
+      "index": 3,
+      "character": "네온 : 블루 오션",
+      "favorite_stage": 0,
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "expected_input_sha256": "1a4ceda6d2062ef8811cd78a45cb0db16a7c20e1b17d0db30e1fe05688156cdf",
+      "expected_output_sha256": "d6c95943f861da7c76ab923dd5c34f84700656b700ced09d78f036fcfeb4887a"
+    },
+    {
+      "index": 4,
+      "character": "아니스 : 스파클링 서머",
+      "favorite_stage": 0,
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "expected_input_sha256": "e52023b2b8063113d43a917bc738fa81d2e00a10ea7b2db450f43c59e6aadbc3",
+      "expected_output_sha256": "5b46ef9dea3a103c865e907e0ace32a7cfd983e1c639056c54bcd2239060f69d"
+    },
+    {
+      "index": 5,
+      "character": "라피 : 레드 후드",
+      "favorite_stage": 0,
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "expected_input_sha256": "0427e937368c4ce139cf54d90f889d5d3aa7c477612df8cc944cc3d0f954de04",
+      "expected_output_sha256": "9240a2f9d00940da59f1b9a3a3c12abdba04a9435d0742a6d95def660a3cd606"
+    },
+    {
+      "index": 7,
+      "character": "네온 : 비전 아이",
+      "favorite_stage": 0,
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "expected_input_sha256": "eac74a6f10b132138a3a111144f79d5ce5be0cf17f105cef1888e8093d86183c",
+      "expected_output_sha256": "8b9d2f844b1d2560b75d3b6e4b9ac0c6f80a1a802492977bd62bdbd7f6b4ed5a"
+    }
+  ],
+  "native_battles": 0,
+  "gpu_calls": 0,
+  "scope": "Static six-profile preparation; no execution requested pending first-two complete status and memory audit"
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "all-fixed-static-retention-v1",
+  "owner": "032bbb7646fe850b222c0c23097b16cd820f2ad4295c5ce7b00510171d7be071",
+  "source_commit": "00ed1f529995ce206378255f6aa51e2619d54392",
+  "cases": 245,
+  "all_old_input_bytes_equal": true,
+  "old_normal_api_metal_cpu_payloads_matched": true,
+  "old_metal_output_hashes_retained": true,
+  "cpu_battles": 0,
+  "gpu_calls": 0,
+  "standard_cuda_profiles_added": 0,
+  "scope": "Static input/old Metal reference retention only; no current CUDA execution or coverage",
+  "requests": {
+    "name": "all-fixed-static-requests-v1.json",
+    "bytes": 1930574,
+    "sha256": "dd65a733181826200e2951836691f1994e31833964f5d77b5c0ec02a48530df2"
+  }
+}

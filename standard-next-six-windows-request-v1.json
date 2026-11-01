@@ -1,0 +1,49 @@
+{
+  "schema": "standard-next-six-cuda-request-v1",
+  "owner": "032bbb7646fe850b222c0c23097b16cd820f2ad4295c5ce7b00510171d7be071",
+  "source_commit": "00ed1f529995ce206378255f6aa51e2619d54392",
+  "prior_verified_report_commit": "ff6674d030fbd219b4b3ab3f04b073e0284cabd0",
+  "scope": "One bounded six-case standard batch; not admission of any further batch",
+  "artifact": {
+    "bytes": 5357328,
+    "sha256": "0a25fdc0dbbc7a0b31a55433373aa215d8d2baff721ed004481b6b8b730ff2f0"
+  },
+  "paired_cache": {
+    "key": "fc8e5d0e1208011c9d683fefb6c98c1fc3ccb0b71cf0c0a8d02382bd83aaad05",
+    "hit": true,
+    "compiler_invocations": 0
+  },
+  "job_file": "standard-next-six-api-job-v1.json",
+  "expected_file": "standard-next-six-api-expected-v1.json",
+  "body_sha256": "1971350e9279d824d4d96f6d678963c3abb0a24d59c3f0849911814d9e71fbda",
+  "steps": [
+    "Reuse unchanged immutable packet, same verified standard image/provider and exact paired cache; no SDK/Slang/test/native-preflight stages",
+    "Static repack six requests with CPU battle/GPU forbidden and compare all supplied hashes",
+    "Run normal API kind=batch with supplied six evaluations, POST1/physical GPU maximum1/retries0; fresh CPU full payload comparison after GPU remains required",
+    "Saved audit all full CPU/GPU/API results, parent/member input/readback slices, source, original M5 complete member and parent output hashes, static repack; no additional battle/GPU"
+  ],
+  "limits": {
+    "api_helper_seconds": 53,
+    "each_outer_seconds": 180,
+    "cpu_audit_seconds": 60,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_start_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "stop_conditions": [
+    "Any source/cache/artifact/provider mismatch",
+    "Any missing process, timeout, cleanup/observation error, unavailable enforced Job pre/post membership or limit query",
+    "Any member error/status/fallback/mismatch: preserve all outcomes and stop; no rerun"
+  ],
+  "observation_policy": "Prior eight advisory inner resource snapshots had limit=null and completeness=false; retain as unknown, distinct from verified enforced outer pre/post 2GiB Job. This new bounded experiment is not inferred capacity certification. Preserve future unknowns; do not change Job queries/limits/policy.",
+  "preservation": "Old raw/claims/failures and whole/overallfalse/serviceunverified retained",
+  "reports": [
+    "standard-next-six-normal-api-status-v1.json"
+  ],
+  "physical_gpu_dispatch_max": 1,
+  "http_post_max": 1,
+  "gpu_retries": 0,
+  "other_237_not_requested": true
+}
