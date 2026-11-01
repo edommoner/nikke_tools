@@ -1,0 +1,229 @@
+{
+  "schema": "lock-cover-saved-skill-history-v1",
+  "status": "saved_file_semantic_read_completed",
+  "calculation_verified": false,
+  "environment_preservation_verified": false,
+  "scope": "Existing decode_prefix and existing header constants only; no status rewrite, projection, parser substitution or calculation.",
+  "source_gpu_capture_id": "a00b6137f7784452a8cac64e954b95f6",
+  "source_gpu_failure_commit": "c9e8b702ce28e8897c523392afb7646c02166035",
+  "readback": {
+    "pre_sha256": "fbdafa26ecfbc4fdb1e45086363195bd3b197296da312a944ad76452b3b84e25",
+    "post_sha256": "fbdafa26ecfbc4fdb1e45086363195bd3b197296da312a944ad76452b3b84e25",
+    "unchanged": true,
+    "status_before": 64,
+    "status_after": 64,
+    "case_words": 2048912
+  },
+  "skill_history": {
+    "decoder": "app/portable_skill_history.py:decode_prefix",
+    "decoder_source_sha256": "adef4026115092aa031150b385444a283bfceca2ef3635a7a8f866a29bb7398d",
+    "decoder_calls": 1,
+    "count": 3,
+    "head_word": 512184,
+    "magic": 1465076529,
+    "rows": [
+      {
+        "row": 78,
+        "hit": 1,
+        "hits": 1,
+        "created": 0.4333333333333333,
+        "landed": 0.44999999999999996,
+        "amount": 113901.0,
+        "share": 113901.0,
+        "recipients": [
+          1
+        ]
+      },
+      {
+        "row": 78,
+        "hit": 1,
+        "hits": 1,
+        "created": 0.8333333333333343,
+        "landed": 0.850000000000001,
+        "amount": 113901.0,
+        "share": 113901.0,
+        "recipients": [
+          1
+        ]
+      },
+      {
+        "row": 7,
+        "hit": 1,
+        "hits": 1,
+        "created": 1.2000000000000006,
+        "landed": 1.2166666666666672,
+        "amount": 77393.0,
+        "share": 77393.0,
+        "recipients": [
+          0,
+          1,
+          2
+        ]
+      }
+    ],
+    "decode_succeeded": true,
+    "success_payload_projection": false,
+    "numeric_values_rounded": false
+  },
+  "headers": {
+    "packet_fates": {
+      "layout": "gpu/packet_fates_layout.slang",
+      "constants": {
+        "PF_HEAD": 1069056,
+        "PF_FLAGS": 1069072,
+        "PF_MAGIC": 1346777137
+      },
+      "header": {
+        "constant": "PF_HEAD",
+        "absolute_word": 1069056,
+        "header_words": 16,
+        "expected_magic": 1346777137,
+        "magic_matches": true,
+        "values": {
+          "PF_HEAD+0": 1346777137,
+          "PF_HEAD+1": 0,
+          "PF_HEAD+2": 0,
+          "PF_HEAD+3": 0,
+          "PF_HEAD+4": 0,
+          "PF_HEAD+5": 0,
+          "PF_HEAD+6": 0,
+          "PF_HEAD+7": 0,
+          "PF_HEAD+8": 0,
+          "PF_HEAD+9": 0,
+          "PF_HEAD+10": 0,
+          "PF_HEAD+11": 0,
+          "PF_HEAD+12": 0,
+          "PF_HEAD+13": 0,
+          "PF_HEAD+14": 0,
+          "PF_HEAD+15": 0
+        }
+      }
+    },
+    "lock_packet": {
+      "layout": "gpu/lock_packet_layout.slang",
+      "constants": {
+        "LP_HEAD_unrelocated": 806288,
+        "PL_LAYOUT_OFFSET": 262144,
+        "LP_HEAD": 1068432,
+        "LP_TRACE": 1068448,
+        "LP_MAGIC": 1280323633
+      },
+      "offset_source": "portable_lock_typed_layout.OFFSET",
+      "header": {
+        "constant": "LP_HEAD",
+        "absolute_word": 1068432,
+        "header_words": 16,
+        "expected_magic": 1280323633,
+        "magic_matches": true,
+        "values": {
+          "LP_HEAD+0": 1280323633,
+          "LP_HEAD+1": 5,
+          "LP_HEAD+2": 5,
+          "LP_HEAD+3": 0,
+          "LP_HEAD+4": 0,
+          "LP_HEAD+5": 0,
+          "LP_HEAD+6": 0,
+          "LP_HEAD+7": 0,
+          "LP_HEAD+8": 0,
+          "LP_HEAD+9": 0,
+          "LP_HEAD+10": 0,
+          "LP_HEAD+11": 0,
+          "LP_HEAD+12": 0,
+          "LP_HEAD+13": 0,
+          "LP_HEAD+14": 0,
+          "LP_HEAD+15": 0
+        }
+      }
+    },
+    "cover_defense": {
+      "layout": "gpu/cover_defense_layout.slang",
+      "constants": {
+        "CDF_OUTPUT_BASE": 2032000,
+        "CDF_HEADER": 16,
+        "CDF_MAGIC": 1128546865
+      },
+      "header": {
+        "constant": "CDF_OUTPUT_BASE",
+        "absolute_word": 2032000,
+        "header_words": 16,
+        "expected_magic": 1128546865,
+        "magic_matches": true,
+        "values": {
+          "CDF_OUTPUT_BASE+0": 1128546865,
+          "CDF_OUTPUT_BASE+1": 0,
+          "CDF_OUTPUT_BASE+2": 0,
+          "CDF_OUTPUT_BASE+3": 0,
+          "CDF_OUTPUT_BASE+4": 0,
+          "CDF_OUTPUT_BASE+5": 0,
+          "CDF_OUTPUT_BASE+6": 0,
+          "CDF_OUTPUT_BASE+7": 0,
+          "CDF_OUTPUT_BASE+8": 0,
+          "CDF_OUTPUT_BASE+9": 0,
+          "CDF_OUTPUT_BASE+10": 0,
+          "CDF_OUTPUT_BASE+11": 0,
+          "CDF_OUTPUT_BASE+12": 0,
+          "CDF_OUTPUT_BASE+13": 0,
+          "CDF_OUTPUT_BASE+14": 0,
+          "CDF_OUTPUT_BASE+15": 0
+        }
+      }
+    }
+  },
+  "interpretation": {
+    "original_status64_retained": true,
+    "failure_cause": "unknown",
+    "stage": "unknown",
+    "only_header_magic_validity_checked": true,
+    "zero_counter_values_are_not_initialization_success": true,
+    "complete_gpu_result_verified": false
+  },
+  "cpu_job": {
+    "permission_mode": "require_escalated",
+    "approval_denied": false,
+    "source_syntax_checked": true,
+    "below_normal_priority": true,
+    "child_timeout_seconds": 60,
+    "outer_budget_seconds": 180,
+    "seconds": 4.13131200009957,
+    "saved_read_seconds": 0.08417030004784465,
+    "exit_code": 0,
+    "passed": true,
+    "timed_out": false,
+    "cleanup_error": null,
+    "observation_error": null,
+    "missing": 0,
+    "pre_gate_verified": true,
+    "post_wait_job_empty": true,
+    "memory_values": [
+      {
+        "before_bytes": 2147483648,
+        "after_bytes": 2147483648,
+        "peak_bytes": 49569792
+      }
+    ],
+    "service_before": "unverified",
+    "service_after": "unverified",
+    "preservation_verified": false
+  },
+  "additional_calls": {
+    "gpu": 0,
+    "post": 0,
+    "driver": 0,
+    "sdk": 0,
+    "native_cpu_battle": 0,
+    "regeneration": 0,
+    "retries": 0
+  },
+  "integrity": {
+    "original_files_checked_unchanged": 24,
+    "raw_claims_all_previous_failures_retained": true,
+    "old_missing_unknown_and_preservation_false_retained": true,
+    "new_parser_or_sdk_tool_added": false,
+    "known_live_handle": null
+  },
+  "capture": {
+    "path_base": "Documents/Codex",
+    "relative_directory": "lock-cover-saved-semantic-history-v1"
+  },
+  "next_action": "Stopped; wait for further instruction. No automatic execution or diagnosis."
+}
