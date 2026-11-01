@@ -1,0 +1,323 @@
+{
+  "schema": "product-healing-actual-shot-group-v1",
+  "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-healing-group-v1-20261101",
+  "independent_audit": {
+    "package_id": "e73b0caa7156418adab7a4a170e51b0fc955af0bea456cb87be48f92eabac187",
+    "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-healing-group-v1-20261101/metal",
+    "child_pid": 9651,
+    "input_count": 1,
+    "native_cases": 1,
+    "live_parent_receipt_present": false,
+    "elapsed_seconds": 1.7455381670151837,
+    "gpu_calls": 0,
+    "calculation_verified": true,
+    "input_sha256": "e257a4e99357c3b0e601ab4554774e6d8fd0c5958e758ed076e3893abc952e9e",
+    "output_sha256": "2fbe22ce4e9cb9f5dc385e1b93d53a1271dba66f2b40b8dae9fdefd58fa4db39",
+    "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+    "schema": "independent-metal-audit-v1"
+  },
+  "independent_seal_sha256": "162be684d00837520cba5e63da0182bff76e647b363a41a3fbfe145918952130",
+  "cpu_tests": [
+    {
+      "pattern": "test_portable_detail.py",
+      "exit_code": 0,
+      "elapsed_seconds": 3.534367625019513,
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 9536
+    },
+    {
+      "pattern": "test_product_detail_packet.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.5430032089934684,
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 9536
+    },
+    {
+      "pattern": "test_weighted_source_contract.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.2830275410087779,
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 9536
+    },
+    {
+      "pattern": "test_product_reference_models.py",
+      "exit_code": 0,
+      "elapsed_seconds": 20.84431262500584,
+      "tests": 56,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 9536
+    }
+  ],
+  "normal_api": {
+    "requests": 4,
+    "post_count": 1,
+    "physical_batches": 2,
+    "wall_seconds": 21.367542832973413,
+    "rows": [
+      {
+        "variant": "fixed-15",
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "0accca05119d4d4eb86d75abf6cefb2a",
+          "device": "Apple M5",
+          "elapsed_ms": 3100.1610420062207,
+          "gpu_execution_verified": true,
+          "input_sha256": "eebdcf4378afa836c925dd5b178e0adfaa9f1f829a06ff8c62385d744fd12d4a",
+          "output_sha256": "c3680c0d3b2c1956e11942066ab5bb146e8b52abefe412995aa9dcab46faac0b",
+          "source": "gpu/product_healing_fixed_group_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 1.9344101666356437,
+          "batch": {
+            "capture_id": "batch-4c770e336b4e4c6294127aebbe392012",
+            "index": 0,
+            "cases": 2,
+            "input_words": 120048,
+            "output_words": 2032000,
+            "input_sha256": "eebdcf4378afa836c925dd5b178e0adfaa9f1f829a06ff8c62385d744fd12d4a",
+            "output_sha256": "c3680c0d3b2c1956e11942066ab5bb146e8b52abefe412995aa9dcab46faac0b",
+            "transport_input_sha256": "3d0d35b5f74174f72902ce833977cc76768b9380309a7de5000245d21ee454de",
+            "transport_output_sha256": "8d692feeb2c9c83c5f20444e7d60a3ef846c576df75006ebe1b44ed991192159",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        "healing_receipts": 2,
+        "healing_multipliers": [
+          1.0
+        ],
+        "reduced_healing_receipts": 0
+      },
+      {
+        "variant": "fixed-30",
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "b9a7ee58e502477bae67b015533b0d7a",
+          "device": "Apple M5",
+          "elapsed_ms": 3198.4306249651127,
+          "gpu_execution_verified": true,
+          "input_sha256": "e257a4e99357c3b0e601ab4554774e6d8fd0c5958e758ed076e3893abc952e9e",
+          "output_sha256": "2fbe22ce4e9cb9f5dc385e1b93d53a1271dba66f2b40b8dae9fdefd58fa4db39",
+          "source": "gpu/product_healing_fixed_group_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 1.9344101666356437,
+          "batch": {
+            "capture_id": "batch-4c770e336b4e4c6294127aebbe392012",
+            "index": 1,
+            "cases": 2,
+            "input_words": 120048,
+            "output_words": 2032000,
+            "input_sha256": "e257a4e99357c3b0e601ab4554774e6d8fd0c5958e758ed076e3893abc952e9e",
+            "output_sha256": "2fbe22ce4e9cb9f5dc385e1b93d53a1271dba66f2b40b8dae9fdefd58fa4db39",
+            "transport_input_sha256": "3d0d35b5f74174f72902ce833977cc76768b9380309a7de5000245d21ee454de",
+            "transport_output_sha256": "8d692feeb2c9c83c5f20444e7d60a3ef846c576df75006ebe1b44ed991192159",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        "healing_receipts": 4,
+        "healing_multipliers": [
+          0.2106999999999999,
+          1.0
+        ],
+        "reduced_healing_receipts": 2
+      },
+      {
+        "variant": "accumulate-15",
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "951aa7df230e49cf9398d56c71da8806",
+          "device": "Apple M5",
+          "elapsed_ms": 19440.985874971375,
+          "gpu_execution_verified": true,
+          "input_sha256": "7eee08fd8b62c3a6decbd953cecff38c8fcee6901bb1348d2e4cd8023379c84a",
+          "output_sha256": "8d3f68d1b4eb741f339203c56ba689cd51d82339157c2b2de728808663c23bfa",
+          "source": "gpu/product_healing_group_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 1.9249596250010654,
+          "batch": {
+            "capture_id": "batch-5804ffd2bb62462f889558188ce9eb6e",
+            "index": 0,
+            "cases": 2,
+            "input_words": 120048,
+            "output_words": 2032000,
+            "input_sha256": "7eee08fd8b62c3a6decbd953cecff38c8fcee6901bb1348d2e4cd8023379c84a",
+            "output_sha256": "8d3f68d1b4eb741f339203c56ba689cd51d82339157c2b2de728808663c23bfa",
+            "transport_input_sha256": "4ce304aaa8a1c6aa4ee0a375a73883d1d1a142d264008fd8688498fdeec475fb",
+            "transport_output_sha256": "b6ab5eb0f369987382c50fc00041892fe437bf6c9907e5a932234f9ac46caa53",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        "healing_receipts": 2,
+        "healing_multipliers": [
+          1.0
+        ],
+        "reduced_healing_receipts": 0
+      },
+      {
+        "variant": "accumulate-30",
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "60b59352d0fa4b3fbf74b59bd959dd72",
+          "device": "Apple M5",
+          "elapsed_ms": 19613.568792003207,
+          "gpu_execution_verified": true,
+          "input_sha256": "b48e27fdb55c8288950ae77624d7ea8aeca7778f4c5110e14d80f6a8b6dee156",
+          "output_sha256": "22a235dcaf23a52445d0a2435e9c2484c7981e5a845c8a847f56b9f171818f69",
+          "source": "gpu/product_healing_group_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 1.9249596250010654,
+          "batch": {
+            "capture_id": "batch-5804ffd2bb62462f889558188ce9eb6e",
+            "index": 1,
+            "cases": 2,
+            "input_words": 120048,
+            "output_words": 2032000,
+            "input_sha256": "b48e27fdb55c8288950ae77624d7ea8aeca7778f4c5110e14d80f6a8b6dee156",
+            "output_sha256": "22a235dcaf23a52445d0a2435e9c2484c7981e5a845c8a847f56b9f171818f69",
+            "transport_input_sha256": "4ce304aaa8a1c6aa4ee0a375a73883d1d1a142d264008fd8688498fdeec475fb",
+            "transport_output_sha256": "b6ab5eb0f369987382c50fc00041892fe437bf6c9907e5a932234f9ac46caa53",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        "healing_receipts": 4,
+        "healing_multipliers": [
+          0.2106999999999999,
+          1.0
+        ],
+        "reduced_healing_receipts": 2
+      }
+    ],
+    "saved_audit": {
+      "rows": [
+        {
+          "index": 0,
+          "profile": "Ann + Belorta",
+          "variant": "fixed-15",
+          "capture": "0accca05119d4d4eb86d75abf6cefb2a",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 1,
+          "profile": "Ann + Belorta",
+          "variant": "fixed-30",
+          "capture": "b9a7ee58e502477bae67b015533b0d7a",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 2,
+          "profile": "Ann + Belorta",
+          "variant": "accumulate-15",
+          "capture": "951aa7df230e49cf9398d56c71da8806",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 3,
+          "profile": "Ann + Belorta",
+          "variant": "accumulate-30",
+          "capture": "60b59352d0fa4b3fbf74b59bd959dd72",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        }
+      ],
+      "audited": 4,
+      "native_battle_calls": 0,
+      "gpu_calls": 0
+    },
+    "server_stop": {
+      "pid": 9671,
+      "exit_code": -15,
+      "process_group_absent": true
+    }
+  },
+  "old_healing_generation_retention": {
+    "source": "gpu/product_healing_fixed_battle_entry.slang",
+    "reference": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-cuda-standard-other-current-v1-20261101/healing-fixed/metal-v1",
+    "raw_bytes_equal": {
+      "cuda": true,
+      "metal": true
+    },
+    "gpu_calls": 0
+  },
+  "old_registered_baselines_unchanged": 27,
+  "new_standard_profiles": 0,
+  "new_cuda_dispatches": 0,
+  "canonical_cpu_files_changed": [],
+  "declared_model_not_game_verification": true,
+  "overall_verified": false,
+  "old_standard_ann_static_retention": {
+    "source": "gpu/product_healing_fixed_battle_entry.slang",
+    "input_sha256": "2b7a6df61d6da36035c569285780116e9c1631ccfa61f1ff3e5eba6230c87aa0",
+    "unchanged": true,
+    "cpu_battle_calls": 0,
+    "gpu_calls": 0
+  },
+  "development_failures_preserved": [
+    "Initial local model test: trigger is a timing dictionary, corrected test traversal",
+    "Old triple-composition rejection reached invalid healing declaration; explicit checked-combined-wire rejection restored before packing",
+    "Initial local preparation missing scripts import path, corrected launcher path; no battle/GPU"
+  ]
+}

@@ -21,8 +21,13 @@ def compile_product(prepared,producer):
     check_schema();declarations=copy.deepcopy(prepared.get('reference_models',{}))
     inner=dict(prepared,_product_healing_compiled=True);inner.pop('reference_models',None)
     with compiler_policy():source,iw,ow,words,metadata=producer(inner)
-    if source not in ('gpu/product_battle_entry.slang','gpu/product_fixed_battle_entry.slang') or iw!=104400 or ow!=786432:
-        raise UnsupportedPortable('Enemy healing product composition requires the plain shared battle entry; group/target/ADD-attack composition is not yet connected')
+    prefixes={'gpu/product_battle_entry.slang':(104400,786432),'gpu/product_fixed_battle_entry.slang':(104400,786432),
+        'gpu/product_group_battle_entry.slang':(104408,1048576),'gpu/product_fixed_group_battle_entry.slang':(104408,1048576)}
+    if source not in prefixes or (iw,ow)!=prefixes[source]:
+        raise UnsupportedPortable('Enemy healing requires a checked plain or actual-shot group battle prefix; target/ADD-attack composition is not yet connected')
+    grouped='group_' in source
+    if grouped and prepared.get('_product_cover_compiled'):
+        raise UnsupportedPortable('Enemy healing plus cover and shot groups requires its own checked combined wire')
     raw=prepared['enemy'].get('patterns') or [dict(id='portable-empty-world',kind='idle')]
     patterns=patterns_for(copy.deepcopy(raw));_,bindings=compile_registry(patterns,pools=True)
     padded=list(words)+[0]*(H['BASE']-len(words));spec=declarations.get('enemy_healing')
@@ -37,7 +42,8 @@ def compile_product(prepared,producer):
     metadata['product_enemy_healing']=dict(declarations=declarations,nodes=[p.id for p in patterns],
         bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],
         cpu_health_generations_or_schedule_supplied=False)
-    return ('gpu/product_healing_fixed_battle_entry.slang' if 'fixed_' in source else 'gpu/product_healing_battle_entry.slang',INPUT_WORDS,O['OUTPUT_WORDS'],padded+bank,metadata)
+    stem=('fixed_' if 'fixed_' in source else '')+('group_' if grouped else '')
+    return ('gpu/product_healing_'+stem+'battle_entry.slang',INPUT_WORDS,O['OUTPUT_WORDS'],padded+bank,metadata)
 
 def read_result(block,metadata,names,duration):
     """Use GPU receipts/pools only, with complete bounds/order/reserved checks."""

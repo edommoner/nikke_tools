@@ -1,3 +1,13 @@
+## 2026-11-01 敵回復＋実射撃グループを製品APIへ接続、4条件Metal全一致
+
+既存敵回復製品adapterのplain限定を、チェック済みactual-shot group prefix104408wordにも拡張。既存group executorを同じ時計/actor poolへ含め、enemy-healing bank115680..120048と出力1867648..2032000を保持。入力の104408..115680だけzero必須とし、groupの元8wordを消さない。固定/実蓄積wrapperは同じ共通Slang本体、数値/効果/CPU正本4file/許容差/normalizer変更0。target/ADD-attack、coverも含む三者合成は明示拒否を保持。
+
+Ann＋Belorta＋Miranda＋Dolla＋Drakeの元74効果を全保持して静的pack、owned fieldsとCPU戦闘なしを既存model testへ追加。既存モデル56/製品10/履歴7成功。不変owner e73b0caa7156418adab7a4a170e51b0fc955af0bea456cb87be48f92eabac187自身のown140 CPU/fresh native/実M5固定30秒/GPU禁止fresh独立seal成功。input e257a4e9…、全readback2fbe22ce…。v34へ固定groupだけ追加し旧27基準完全保持、厳密88cda inverse/SHA同時更新・登録後履歴7/製品10成功。実蓄積は通常API成功だがCLI独立基準未登録。
+
+同じpacket自身の通常APIで固定/実蓄積×15/30秒の4条件、1POST/2physical batch×2件を実行。Metal/freshCPU/HTTP全payload・Unicode完全一致、wall21.368秒。15秒2回復receipt/30秒4receipt、両30秒で元Annの実倍率0.2106999999999999も一致。既存親member/hash/全raw/source/静的repack/製品再投影監査4成功（追加battle/GPU0）。専用Node/プロセス群消滅確認、ユーザー4317/4327不操作。旧標準Ann inputと生成CUDA/MSL全raw bytes保持もCPUのみ確認。新suite/恒久監査器追加0。
+
+原本proofs/product-healing-group-v1-20261101、small研究記録research/product-healing-group-v1.json。最初のローカルtest2件の不備とimport path失敗を記録、GPU前の修正のみ。新標準profile0/CUDA実行0。標準実績は最後のMetal262/266（5e1）、Mac原本照合済みCUDA245/266（00ed）のまま。Windows同turnは追加15/17一致報告、残cover/ammoを継続中・最終原本未取得。別ownerへ認定を付替えない。全goal未完了、default4/公開sampling/未接続合成を保持。以下は履歴。
+
 ## 2026-11-01 接続復旧確認、3モデル実蓄積を独立sealしてCLI v33へ登録
 
 Windowsの同turn 01a1954fは応答・処理継続を確認。追加17入力のうち11入力が元M5 full readback一致との報告、残default-weighted/default-cover/ammoを継続中。再送/retry0。最終原本未取得のため標準CUDA確認済み245/266は増やさない。cursor573時点でweighted自身のpaired生成/計画成立、PTX段階。結果待ちを失敗扱いしない。

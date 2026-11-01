@@ -917,3 +917,5 @@ packet自身の `compile-plan --artifact-kind cubin --ptxas-level 1 --memory-lim
 `readback-compare` は2048912語の製品wireでは、同じ全bytes/SHA再検査の読み取りから各caseのstatusと既存診断16語も取得し、`failure_diagnostics`へ追加する。1024語blockに揃わないbatch境界もcase strideで分離する。status64・magic0x57504144・既知packet site9001..9006/9010..9012・記録status64が全て一致した場合だけpacket fieldsとして解釈する。admission stageや未知markerはpacket失敗へ読み替えず、`packet_failure:null`を保持する。whenはlow/highの生bitsで、丸めない。
 
 `sample_blocks=0`の既存Python APIでも取得でき、raw sampleの共有は不要。診断値は保存bufferの観測であり、sourceの所有証明・根本原因・計算成功の認定ではない。全block差分、原SHA、calculation_verified:false、CLIの不一致exitを維持し、raw/status/期待値を書き換えない。
+
+敵回復と元実射撃グループの製品合成は `--suite product-detail --product-program healing-fixed-group` を使用する。固定30秒は独立Metal seal済み基準。`healing-accumulate-group` は通常APIの15/30秒CPU全一致を確認済みだがCLI独立基準未登録のためdevelopが必要。敵回復は明示したreference modelでありゲーム仕様認定ではない。target/ADD攻撃/coverとの三者合成は未接続理由を保持する。証拠は `research/product-healing-group-v1.json`。

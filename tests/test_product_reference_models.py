@@ -9,6 +9,26 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_healing_group_preserves_original_effects_and_shared_wire(self):
+        from portable_product_programs import body_for_program
+        from portable_detail import prepare,compile_product
+        from portable_backend import validate_composed_stride
+        from portable_enemy_healing_wire import LAYOUT as H,INPUT_WORDS,OUTPUT
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'healing-'+mode+'-group');original=copy.deepcopy(body)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle input')):
+                prepared,_=prepare(body);before=copy.deepcopy(prepared)
+                source,iw,ow,words,metadata=compile_product(prepared)
+            self.assertEqual(body,original);self.assertEqual(prepared,before)
+            self.assertEqual((iw,ow,len(words)),(INPUT_WORDS,OUTPUT['OUTPUT_WORDS'],INPUT_WORDS))
+            self.assertEqual(set(metadata['binding_source_indices']),set(range(len(prepared['effects']))))
+            self.assertEqual(words[104400:104402],[0x41475331,2])
+            self.assertTrue(any(t.startswith('multi_hit:') for e in prepared['effects'] for t in e['effect'].get('trigger',{}).get('timing',[])))
+            self.assertFalse(any(words[104408:H['BASE']]))
+            validate_composed_stride(source,iw,ow)
+            self.assertTrue(metadata['product_enemy_healing']['declarations']['enemy_healing'])
+            self.assertFalse(metadata['product_enemy_healing']['cpu_health_generations_or_schedule_supplied'])
+
     @staticmethod
     def movement_range_body():
         from portable_product_programs import body_for_program
@@ -914,7 +934,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertTrue(meta['real_prepared_input']['declared_attack_group_policy']['listener_owners'])
             # Other dedicated banks remain explicit unsupported combinations.
             prepared['reference_models']['enemy_healing']=[dict(node='world',targets=['x'],amount=1)]
-            with self.assertRaisesRegex(UnsupportedPortable,'plain shared battle entry'):
+            with self.assertRaisesRegex(UnsupportedPortable,'checked combined wire'):
                 product.compile_product(prepared)
 
     def test_cover_composes_original_target_modifiers_and_optional_groups(self):
