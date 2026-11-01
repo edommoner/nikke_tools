@@ -4068,7 +4068,7 @@
     "full_goal_complete": false,
     "proof_directory": "product-current-standard-v4-20261102/declared-three-api-v1"
   },
-  "latest_current_standard_report": "research/product-current-standard-v4.json",
+  "latest_current_standard_report": "research/product-current-standard-v5.json",
   "latest_current_declared_report": "research/product-current-declared-three-v2.json",
   "later_typed_nearby_lock_validation": {
     "report": "research/product-typed-nearby-lock-v1.json",
@@ -4098,5 +4098,14 @@
     "current_composite_cuda": 0,
     "current_full_matrix_recertified": false,
     "full_goal_complete": false
+  },
+  "current_standard_revalidation_v5": {
+    "report": "research/product-current-standard-v5.json",
+    "metal_verified_profiles": 266,
+    "metal_verified_characters": 203,
+    "fresh_gpu_profiles": 266,
+    "original_cpu_default_payload_preserved_for_new_three": true,
+    "all_special_effects_verified": false,
+    "cuda_new_three_verified": false
   }
 }

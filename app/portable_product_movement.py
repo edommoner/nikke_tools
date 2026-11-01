@@ -7,6 +7,26 @@ from portable_enemy_movement_wire import INPUT,OUTPUT,OUT,STATE,STATE_WORDS,FRAM
 def required(prepared):
     return 'enemy_movement' in prepared.get('reference_models',{}) or any(r['effect'].get('stat') in ('enemy_movement_disable','force_move') for r in prepared['effects'])
 
+def compile_static_body(prepared,producer):
+    """Retain native named duration carriers where no movable actor exists.
+
+    The ordinary expected-value path remains unchanged. No coordinate model,
+    velocity, geometry, sampled RNG or effective movement rule is introduced.
+    """
+    from portable_enemy_specs import plain_body_domain
+    from portable_enemy_movement_wire import lower_effects
+    if prepared.get('reference_models') or not plain_body_domain(prepared,unauthored=True):
+        raise UnsupportedPortable('Undeclared movement specialization requires one unauthored static BODY and no parts or geometry')
+    before=copy.deepcopy(prepared)
+    try:lowered,tags=lower_effects(prepared)
+    except ValueError as error:raise UnsupportedPortable('Static BODY movement requires its checked original duration carriers: '+str(error)) from error
+    source,iw,ow,words,meta=producer(lowered)
+    if prepared!=before or set(meta['binding_source_indices'])!=set(range(len(prepared['effects']))):
+        raise ValueError('Complete original movement definitions required in static BODY specialization')
+    meta['product_static_enemy_movement']=dict(source_indices=list(tags),original_effects=[copy.deepcopy(prepared['effects'][i]) for i in tags],
+        movable_actor_count=0,coordinate_model_inferred=False,expected_mode_preserved=True,cpu_state_or_schedule_supplied=False)
+    return source,iw,ow,words,meta
+
 
 def compile_product(prepared):
     from portable_enemy_movement_wire import compile_battle,check_schema

@@ -768,7 +768,8 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
         with self.assertRaisesRegex(ValueError,'combined checked'):normalize({'lock_on':spec,'enemy_healing':[]})
         prepared,_=product.prepare(body)
-        with self.assertRaisesRegex(UnsupportedPortable,'explicit reference_models.lock_on'):product.compile_product(dict(prepared,reference_models={}))
+        authored=copy.deepcopy(prepared);authored['reference_models']={};authored['enemy']['patterns']=[dict(id='future-target',kind='summon',delay=5.,spec=dict(count=1,hp=1e8))]
+        with self.assertRaisesRegex(UnsupportedPortable,'explicit reference_models.lock_on'):product.compile_product(authored)
         changed=copy.deepcopy(prepared);next(r['effect'] for r in changed['effects'] if r['effect'].get('stat')=='lock_on')['duration']=1
         with self.assertRaisesRegex(ValueError,'Unchanged original'):product.compile_product(changed)
         import ast
@@ -1044,6 +1045,37 @@ class ProductReferenceModels(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError,'injected'):
             with execution(normalize(body['reference_models'])):raise RuntimeError('injected')
         self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
+
+    def test_default_body_preserves_expected_policy_and_all_original_motion_lock_definitions(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_detail import prepare,compile_product
+        for name in ('\uc720\ub2c8','\uc580','\uc2a4\ub178\uc6b0 \ud654\uc774\ud2b8 : \ud5e4\ube44\uc554\uc988'):
+            for mode in ('fixed','accumulate'):
+                body=copy.deepcopy(selected_profile_bodies([name],0)[0][2]);body['burst_gauge_mode']=mode;before=copy.deepcopy(body)
+                with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle or model selection in static preparation')):
+                    pre,run=prepare(body);original=copy.deepcopy(pre);source,iw,ow,words,meta=compile_product(pre)
+                self.assertEqual(pre,original);self.assertEqual(body,before);self.assertTrue(run.expected)
+                self.assertEqual(pre['policies']['config']['rng_mode'],'expected');self.assertFalse(body.get('reference_models'))
+                self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
+                if name.startswith('\uc2a4\ub178\uc6b0'):
+                    self.assertTrue(meta['product_static_body_lock']);self.assertEqual(len(meta['product_lock_on']['bindings']),1)
+                    self.assertEqual(meta['product_lock_on']['declarations']['lock_on']['typed_bindings'],[])
+                else:
+                    info=meta['product_static_enemy_movement'];self.assertEqual(info['movable_actor_count'],0)
+                    self.assertFalse(info['coordinate_model_inferred']);self.assertEqual(info['original_effects'],[pre['effects'][i] for i in info['source_indices']])
+                    self.assertEqual((iw,ow),(104400,786432))
+
+    def test_default_body_does_not_assume_movement_or_lock_policy_in_authored_world(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_detail import prepare,compile_product
+        from portable_runtime import UnsupportedPortable
+        for name in ('\uc720\ub2c8','\uc580','\uc2a4\ub178\uc6b0 \ud654\uc774\ud2b8 : \ud5e4\ube44\uc554\uc988'):
+            base=selected_profile_bodies([name],0)[0][2]
+            for change in (dict(patterns=[dict(id='future',kind='summon',delay=5.,spec=dict(count=1,hp=1e8))]),dict(patterns=[dict(id='idle',kind='idle')]),dict(has_parts=True),dict(part_break_interval=1.),dict(coord=dict(auto_aim=[0.,0.],pierce_px=10.,explosion_scale=1.))):
+                body=copy.deepcopy(base);body['enemy'].update(change)
+                with patch.object(sim,'execute',side_effect=AssertionError('Unknown active model must stop before battle')):
+                    with self.assertRaises((UnsupportedPortable,ValueError)):
+                        pre,_=prepare(body);compile_product(pre)
 
     def test_movement_declarations_reject_unknown_geometry_or_composition_before_battle(self):
         from portable_enemy_movement_cases import fixtures

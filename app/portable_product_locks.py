@@ -51,6 +51,21 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
     from portable_original_lock_layout import check
     from portable_lock_typed_layout import check as check_locks
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
+    if not declarations and coordinate_model is None and typed_model is None:
+        from portable_enemy_specs import plain_body_domain
+        if plain_body_domain(prepared,unauthored=True):
+            from product_lock_model import ORDER,MARKER,DELIVERY_MODEL
+            markers=[r for r in prepared['effects'] if r['effect'].get('stat')=='lock_on']
+            packets=[r for r in prepared['effects'] if r['effect'].get('type')=='damage' and r['effect'].get('target')=='enemies_with_buff:'+MARKER]
+            if len(markers)==len(packets)==1 and markers[0]['owner']==packets[0]['owner']:
+                spec=dict(owner=markers[0]['owner'],marker=MARKER,packet_skill=packets[0]['effect']['name'],candidate_order=ORDER,delivery=DELIVERY_MODEL,typed_bindings=[])
+                try:validate_effects([r['effect'] for r in prepared['effects']],[r['owner'] for r in prepared['effects']],spec)
+                except ValueError as error:raise UnsupportedPortable('Static BODY Lock On requires its checked original definitions: '+str(error)) from error
+                inner=copy.deepcopy(prepared);inner['reference_models']={'lock_on':spec}
+                source,iw,ow,words,meta=compile_product(inner)
+                meta['product_static_body_lock']=dict(candidate_actor_count=1,typed_actor_count=0,coordinate_model_inferred=False,
+                    original_reference_models_absent=True,expected_mode_preserved=True,cpu_state_or_schedule_supplied=False)
+                return source,iw,ow,words,meta
     if typed_model is not None:
         from product_reference_models import normalize as normalize_models
         declarations=normalize_models(declarations)

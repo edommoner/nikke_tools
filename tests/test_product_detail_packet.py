@@ -121,9 +121,14 @@ class ProductPacket(unittest.TestCase):
             for name,config in PROGRAMS.items():
                 selected=cli.open_suite(dict(suite='product-detail',product_program=name))
                 rows,raw=selected.prepare()
-                self.assertEqual(len(rows),7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1)
+                self.assertEqual(len(rows),7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 3 if name=='fixed' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
                 self.assertEqual((selected.SOURCE,selected.suite.INPUT,selected.suite.OUTPUT),(config['source'],config['input_words'],config['output_words']))
                 self.assertEqual(len(raw),4*(1+len(rows)*config['input_words']))
+                from portable_product_programs import GOLDEN
+                baseline=json.loads((ROOT/GOLDEN).read_text())['programs'].get(name)
+                if baseline is not None:
+                    self.assertEqual(len(baseline['entries']),len(rows),name)
+                    self.assertEqual(baseline['input_sha256'],hashlib.sha256(raw).hexdigest(),name)
                 self.assertEqual(rows[0][2][0]['burst_gauge_mode'],config['mode'])
                 self.assertFalse(rows[0][2][1]['cpu_battle_executed'])
                 self.assertEqual(rows[0][1][LIMITS['WORLD_CONTROL_INPUT_BASE']+1],6 if config['mode']=='fixed' and name.startswith(('typed-','coordinate-','movement-','named-range-','cover-','default-cover-','healing-cover-','ammo-cover-','lock-cover-')) else 3 if name.startswith(('typed-','coordinate-','cover-','movement-','named-range-','healing-cover-','ammo-cover-','lock-cover-')) else 4 if config['mode']=='fixed' else 1)

@@ -1,3 +1,13 @@
+## 2026-11-02 標準266/266を通常Metal APIでCPUと照合
+
+標準30秒・固定・期待値・seed0・無宣言の266profile（データ内203キャラ）を現在の同一runtimeでfresh実M5計算し、全CPU／GPU／HTTP一致。39 POST／39物理dispatch、API cache0。旧263の入力全byteとreadback全SHAは不変、Heavy Armsの旧宣言付きreadbackも同一。最終登録後の保存監査266も成功、追加battle／GPU0。[全件記録](../research/product-current-standard-v5.json)／[新3件と範囲](../research/product-default-body-v1.json)。
+
+残っていたYuni／Yan／Snow White Heavy Armsは、未作成の敵・座標・部位がないBODY1体だけを証明して既存共通実行器へ接続。Yuni／Yanは動くADDがないため元の名前・trigger・durationを持つcarrierを既存命令へ落とす。Heavy Armsは元のLock On定義を厳密検査し唯一のBODY候補を既存lock本体で処理する。座標・速度・距離の規則を選ばず、定義行を省略しない。明示座標モデルを自動追加すると期待値モードが変わるため使わず、元CPU fallback3件とcompute/cache_hit以外の全payloadが完全一致、expected=Trueと無宣言応答を保持。ADDが将来出現するpattern、idleを含む作成済みscript、座標・部位・部位破壊条件はこの特例へ入れず既存の理由付きfallbackを維持。
+
+追加の蓄積3条件も通常APIで全一致。これは標準profile数へ加算しない。既存CLI fixed／lock-fixedを3／2caseへ拡張し実Metal＋独立seal成功、v66はこの2baselineのみ更新、他40不変。最終CPU184検査とnative3の事前検査が成功。蓄積CLIは独立登録済みの元case数を維持し、追加の蓄積3は通常APIで検証。既存packet testで登録済み42programのcase数と入力SHAも検査し、基準との不整合を防止。最終owner2ce78005…、proof product-default-body-run-v3-20261102/release4-v1。PTX／CUBIN O1 plan成功はcompiler/GPU0。旧unsupported負例を直す前のv1/v2はGPU前失敗として保持。新suite／shader entry／監査器0、CPU正本・pinned・数値規約・許容差変更0。
+
+UIは現在worktreeから http://127.0.0.1:4327/#single で起動。設定／sessionは変更していない。標準BODY30秒の266成功は全特殊効果・任意場面の完成ではない。次は長時間（UI既定180秒）と容量、敵攻撃／回復／cover／ADD所有typed合成を優先。新3の現在CUDAは未検証、歴史CUDA263を現在全件へ昇格しない。Windowsの保存coordinate-lock v2 object/link成功を読み取りで再確認したがinner0／outer2／環境保全falseとresident RAM停止を維持。新Windows実行・compile・GPU・RAM計測0。以下は過去記録。
+
 ## 2026-11-02 通常30秒：移動・物理着弾・射撃対象数の履歴容量を解消
 
 元の30秒・ADD3体でCPU実測すると、移動frame5403／segment5400、物理着弾standalone2484／Lock On2094。旧4096／2048上限を両方超えていた。既存movement schemaのcapacity8192を再利用し、物理履歴は4096へ。最初2048件は旧番地、追加分だけmovement終端後のtailへ置き、連結した全件の同じSHAと未使用／overflow scratchの0を検査。input123732は不変、standalone output2345384／typed Lock On2945320。新suite／監査器／shader entry／module／layout file0、CPU正本・pinned・数値規約・許容差変更0。

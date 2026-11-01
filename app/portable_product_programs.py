@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v65-expected.json'
+GOLDEN = 'research/portable-product-programs-v66-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -52,7 +52,7 @@ def configuration(suites, selection):
     program = PROGRAMS[name]
     return dict(base, product_program=name, source=program['source'], golden=GOLDEN,
                 input_words=program['input_words'], output_words=program['output_words'],
-                inputs=7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1,native=7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1)
+                inputs=7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 3 if name=='fixed' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1,native=7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 3 if name=='fixed' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
 
 
 def registered_golden(root, config, *, allow_unsealed=False):
@@ -272,6 +272,12 @@ def body_for_program(root, name=None):
 def cases_for_program(root,name=None):
     """Extend the existing product corpus, keeping its original case first."""
     base=body_for_program(root,name);rows=[(None,base)]
+    if name in ('fixed','lock-fixed'):
+        from portable_original_identity_inventory import selected_profile_bodies
+        owners=['\uc2a4\ub178\uc6b0 \ud654\uc774\ud2b8 : \ud5e4\ube44\uc554\uc988'] if name.startswith('lock-') else ['\uc720\ub2c8','\uc580']
+        for i,owner in enumerate(owners):
+            body=copy.deepcopy(selected_profile_bodies([owner],0)[0][2]);body.update(duration=30.,burst_gauge_mode=PROGRAMS[name]['mode'])
+            rows.append(('default-body-'+str(i),body))
     if name is not None and name.startswith('coordinate-lock-'):
         body=copy.deepcopy(base);body['duration']=56.;body['enemy']['patterns'][0]['until']['time']=57.
         rows.append(('long56',body))

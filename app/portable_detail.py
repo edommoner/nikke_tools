@@ -107,6 +107,11 @@ def _compile_product(prepared):
     from portable_product_movement import required as movement_required,compile_product as compile_movement
     from portable_product_locks import required as locks_required,compile_product as compile_locks
     from portable_product_named_range import required as range_required,compile_product as compile_range
+    if movement_required(prepared) and not prepared.get('reference_models'):
+        from portable_enemy_specs import plain_body_domain
+        if plain_body_domain(prepared,unauthored=True):
+            from portable_product_movement import compile_static_body
+            return compile_static_body(prepared,_compile_product)
     if not prepared.get('_product_cover_compiled') and cover_required(prepared) and (range_required(prepared) or movement_required(prepared) or locks_required(prepared)):
         return compile_cover(prepared,compile_product)
     if range_required(prepared) and movement_required(prepared):
@@ -353,7 +358,15 @@ def decode_payload(body, prepared, run, metadata, block):
         if metadata.get('product_coordinate_lock'):
             from portable_product_coordinate_lock import read_result
         model=read_result(block,metadata,run.config['duration'])
-        models.append(model)
+        if metadata.get('product_static_body_lock'):
+            info=metadata['product_lock_on'];locks=model['lock_on']
+            if (body.get('reference_models') or len(info['bindings'])!=1 or info['bindings'][0]['kind']!=0
+                or info['declarations']['lock_on']['typed_bindings'] or locks['typed']['state'] or locks['typed']['attacks']
+                or any(handle!=[0,0,1] for shot in locks['shots'] for handle in shot['handles'])):
+                raise UnsupportedPortable('Static BODY Lock On specialization has a non-singleton actor domain')
+            # All real lock/typed/packet banks were checked above. The
+            # canonical undeclared CPU response has no declared-model fields.
+        else:models.append(model)
     if metadata.get('product_movement_range'):
         from portable_product_movement_range import read_result as read_movement_range
         models.extend(read_movement_range(block,metadata,run.config['duration']))
