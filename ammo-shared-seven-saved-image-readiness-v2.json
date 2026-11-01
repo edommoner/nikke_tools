@@ -1,0 +1,49 @@
+{
+  "schema": "saved-image-readiness-clarification-v2",
+  "continuation_commit": "3e1a0e4b71c9fe1d1e78dabb22a7dbe0b26358d1",
+  "hold_report_commit": "ef45926b",
+  "hold_report_sha256": "44ef5f65465b01969301ab26c4b1690637a77c295cbb01deb02e0eed7f356867",
+  "evidence": {
+    "prior_setup_terminal": true,
+    "owned_setup_process_absent": true,
+    "owned_dism_session_shutdown_logged": true,
+    "prior_setup_succeeded": false,
+    "pending_reboot_flags": true,
+    "pending_reboot_flags_origin": "unknown",
+    "all_new_execution_counts_zero": true
+  },
+  "clarification": "Pending CBS/Windows Update flags alone are not proof of a GPU or source/admission failure. Keep them as unresolved whole-host observations; do not claim host stability or repair old setup/diagnostic outcomes.",
+  "calculation_admission": [
+    "No active owned setup remains; connection/read control responds",
+    "Exact saved immutable packet/image/source/reflection/claim/phase validation by existing product admission",
+    "Fresh available RAM>=4GiB once immediately before each API; no resampling loop",
+    "Existing fresh Job/start gate, BelowNormal,2GiB,53-second API/60-second audit/180-second outer limits",
+    "Existing pre/post process queries, missing0, no query/cleanup error, ownedNodegone/Jobempty/live0; stop first actual failure"
+  ],
+  "non_actions": [
+    "No reboot, OS/SSH change, or restart of prior setup",
+    "No clearing registry flags, deleting stop/claims, altering old receipts, or claiming full environment preservation",
+    "No new SDK generation/compile/link/diagnostic cache-probe or CPU91 rerun"
+  ],
+  "execution_scope": "First unexecuted7 cases only in fresh API root; preserve original host hold unchanged. This clarifies readiness scope, not successful execution.",
+  "max_total_posts": 4,
+  "max_total_gpu_dispatches": 4,
+  "case_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "batch_cases": [
+    2,
+    2,
+    2,
+    1
+  ],
+  "overall_verified": false,
+  "whole_environment_preservation_verified": false,
+  "full_goal_complete": false
+}
