@@ -1,3 +1,9 @@
+## 2026-11-01 Heavy Arms元30秒のCUDA配布を準備、旧数値基準は全保持
+
+既存lock-fixed programの現行不変packet自身148 CPU/fresh native/実M5/GPU禁止独立seal成功。元30秒の通常API input9337f726…/全output76fd63c5…とCLI自身のinput/readback全byteも完全同一。v43はlock-fixedのsource/生成identityだけを更新し、旧input/output/native entriesと他33memberは全保持。新program/suite追加0。最終release ownera0d3ea37/archivee0f96938…も148 CPU-only/deps/PTX60秒/O1計画成功。
+
+既存保存CUDA imageはcover付き別入口・別history配置のため流用しなかった。今回の元Heavy Arms210/favorite0/固定30秒＋既存Lock On宣言だけの1条件を、通常API1POST/1GPU・全5,242,880byte単一chunkで確認する資料を準備済み。元全91定義/110pulses/15shotsを保持。Windows対象CPU87（67/11/7＋元lock2ID）、他model61と全266は再実行しない。まだWindows結果は未取得。関連記録research/product-heavy-original-cuda-v1.json。全goal未完了。以下は履歴。
+
 ## 2026-11-01 現行runtimeで標準全266を再確認、Metal263一致・未指定3fallback
 
 9f156b5bのruntimeとapp/gpu/data/scripts/計算reader/upstreamの2,053fileが全byte一致する不変owner836ade72で、元標準266リクエスト（固定30秒・モデル未指定・効果削除なし）を通常APIへ16件ずつ投入。全263 Metal（200/203キャラ）がfreshCPU/HTTP全payloadと、保存済み全readback SHAに完全一致。元262＋元Rei1のanchorを実入力SHA一致で保持。残3はYuni88/Yan111/Heavy Arms210の明示モデル未指定理由でCPUfallback、error/数値差/cachehit0。24POST/38physical GPU、serial API-job待ち合計421.189秒（CPU/GPU/poll込み、別stageへ分解していない）。全266保存raw/input/source/親member slice/CPU/GPU/HTTP再投影監査も追加battle/GPU0。専用Node全process group消滅、実行中source不変、親/member raw＋1GiBreserve計3,040,502,904byteを実行前budget確認。Metalはこの現行snapshotの263件、CUDA263件は既録source横断であり現行全matrix CUDA未実行。
