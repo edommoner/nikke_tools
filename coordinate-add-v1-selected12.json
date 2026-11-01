@@ -1,0 +1,19 @@
+{
+  "schema": "unit-selection-v1",
+  "package_id": "b659740bb186a4acd141c2ca4f698609f991cb24fc581024dc233ffee2395ec9",
+  "patterns": {
+    "test_portable_detail.py": [
+      "test_portable_detail.PortableDetail.test_add_product_reuses_existing_prefix_and_literal_attack_retirement_wire",
+      "test_portable_detail.PortableDetail.test_add_source_projection_rejects_unknown_slots_and_misbound_nodes"
+    ],
+    "test_product_detail_packet.py": [
+      "test_product_detail_packet.ProductPacket.test_each_program_uses_the_actual_static_product_input_and_exact_wire"
+    ],
+    "test_weighted_source_contract.py": null,
+    "test_product_reference_models.py": [
+      "test_product_reference_models.ProductReferenceModels.test_coordinate_add_preserves_original_shot_descriptors_scene_and_definitions",
+      "test_product_reference_models.ProductReferenceModels.test_coordinate_add_receipt_ownership_rejects_reserved_and_forged_retirement"
+    ]
+  },
+  "expected_tests": 12
+}

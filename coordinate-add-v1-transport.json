@@ -1,0 +1,64 @@
+{
+  "schema": "product-transport-v1",
+  "owner": "b659740bb186a4acd141c2ca4f698609f991cb24fc581024dc233ffee2395ec9",
+  "files": [
+    {
+      "path": "coordinate-add-v1-api-expected.json",
+      "bytes": 1207,
+      "sha256": "a8c8bd142c141362e9049ca116043d43834eed4bc767f7ee72cea4eb99a9c789"
+    },
+    {
+      "path": "coordinate-add-v1-api-job.json",
+      "bytes": 8770,
+      "sha256": "4c3edb8776a57e729c9888f1833e000679963c483ba9598bc419b809c70dcf92"
+    },
+    {
+      "path": "coordinate-add-v1-check-sdk.py",
+      "bytes": 4875,
+      "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d"
+    },
+    {
+      "path": "coordinate-add-v1-o1-plan.json",
+      "bytes": 735,
+      "sha256": "c7129571fa4948889c26eb05f31d2e5b9d4034993c0236a896f8a04d4b64381a"
+    },
+    {
+      "path": "coordinate-add-v1-prepare-api.py",
+      "bytes": 6413,
+      "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739"
+    },
+    {
+      "path": "coordinate-add-v1-ptx-plan.json",
+      "bytes": 707,
+      "sha256": "02adc640c40ef7506ba6b06166f3b5e5fe6ea147371626b5e09c34b4c8d03218"
+    },
+    {
+      "path": "coordinate-add-v1-selected12.json",
+      "bytes": 974,
+      "sha256": "b616d2138878bc91b36040bdcff33572d8b0b92c86bb83423bd12b9d2f8593ce"
+    },
+    {
+      "path": "coordinate-add-v1-validation-deps.json",
+      "bytes": 407,
+      "sha256": "bf7fb9ede9d6e93c3283887f1c6aa2aba40746fa91bb429c0a1e51c92d80fffb"
+    },
+    {
+      "path": "coordinate-add-v1-verify-host-tests.py",
+      "bytes": 1924,
+      "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7"
+    },
+    {
+      "path": "coordinate-add-v1-windows-request.json",
+      "bytes": 9169,
+      "sha256": "5a6ca2ff0f3afc20ae8c4c02d38cfca43e649d887f85187f4f2f684c663b192b"
+    },
+    {
+      "path": "coordinate-add-v1.zip",
+      "bytes": 12164472,
+      "sha256": "7f84f14e91f107ad8885a971f98a960cf7a673771e1b28bbb3a9014afa1ad7e9"
+    }
+  ],
+  "raw_or_settings_included": false,
+  "additional_battles": 0,
+  "additional_gpu": 0
+}
