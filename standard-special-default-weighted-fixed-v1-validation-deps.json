@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "passed": true,
+  "dependencies": [],
+  "requirements_file": null,
+  "installation_performed": false,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "scope": "Selected validation tests only; package metadata and import availability, not GPU or numerical correctness",
+  "suite": "product-detail",
+  "package_id": "06bac7e56e5442b775b75451ee54100ff91f5605c642b67b730992dd13319ed5"
+}

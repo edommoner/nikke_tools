@@ -1,0 +1,460 @@
+{
+  "schema": "standard-special-seventeen-cuda-request-v1",
+  "scope": "Only remaining17 standard profiles across6 already shared program sources; no four fallbacks, no new three-model composition",
+  "programs": [
+    {
+      "program": "fixed-group",
+      "owner": "1a29d9203b787276e9caec33df3c918f57000e579328d901e28042d294e3203c",
+      "source_commit": "7d4000f4899d5f7f83356e0694d63715a1c48c81",
+      "source": "gpu/product_fixed_group_battle_entry.slang",
+      "input_words": 104408,
+      "output_words": 1048576,
+      "archive": "standard-special-fixed-group-v1.zip",
+      "archive_bytes": 12069087,
+      "archive_sha256": "1de3803b1a8b42d89f92260eb18d2819190e2edae0aacf8402da04cc0d524dba",
+      "api_job": "standard-special-fixed-group-v1-api-job.json",
+      "api_job_sha256": "296817264cd31a6112ca226be7d21ced0197a715c5e7804ab08af192c55ba8b7",
+      "api_expected": "standard-special-fixed-group-v1-api-expected.json",
+      "own_ptx_o1_plans_passed": true,
+      "own_validation_deps_passed": true,
+      "retained_platform_files_byte_identical": 28,
+      "own_metal_cpu_tests": 136,
+      "own_fresh_native_and_independent_seal": true,
+      "batches": [
+        {
+          "index": 0,
+          "member_indices": [
+            0,
+            1
+          ],
+          "original_profile_indices": [
+            23,
+            135
+          ],
+          "cases": 2,
+          "physical_input_sha256": "8820319afdd100a2eabc71b2687778bb8b6d4886af21a4af5374b4f64ba804d6",
+          "physical_output_sha256": "3f728f46aa3f77f43f2da93e8c84c90b0a1bfd4653a1a79af7f1952f1b0b77d2",
+          "physical_input_bytes": 835268,
+          "physical_output_bytes": 8388608,
+          "expected_readback_chunk_bytes": [
+            8388608
+          ],
+          "post_max": 1,
+          "gpu_dispatch_max": 1,
+          "retries": 0
+        }
+      ]
+    },
+    {
+      "program": "fixed-target",
+      "owner": "3a2b57ae484b21b80019b047b281daa6d7fcc9fdb324886d4db6eef79ad5a3ba",
+      "source_commit": "dae2605816d5fbd92bd6b223ab21ea98f081d92c",
+      "source": "gpu/product_fixed_target_battle_entry.slang",
+      "input_words": 110112,
+      "output_words": 1048576,
+      "archive": "standard-special-fixed-target-v1.zip",
+      "archive_bytes": 12073333,
+      "archive_sha256": "d601c28f99bac9a5f9b8d5e6e583ec216923ffa3a35dde46578feb26797108b4",
+      "api_job": "standard-special-fixed-target-v1-api-job.json",
+      "api_job_sha256": "f2286f97a188ce1d2f27b9700a7c6484de4c3acf15d645b7b97450e3399ce08b",
+      "api_expected": "standard-special-fixed-target-v1-api-expected.json",
+      "own_ptx_o1_plans_passed": true,
+      "own_validation_deps_passed": true,
+      "retained_platform_files_byte_identical": 28,
+      "own_metal_cpu_tests": 136,
+      "own_fresh_native_and_independent_seal": true,
+      "batches": [
+        {
+          "index": 0,
+          "member_indices": [
+            0,
+            1
+          ],
+          "original_profile_indices": [
+            148,
+            174
+          ],
+          "cases": 2,
+          "physical_input_sha256": "b6d1dc0b1e7c1b8c56bcc962e544a6ccc6aa872f143a63cd190460055997fc2b",
+          "physical_output_sha256": "906ecd0c6ca5358dd7aaf5dc639560a0c8b18cd214560c33b182a2fbef740e14",
+          "physical_input_bytes": 880900,
+          "physical_output_bytes": 8388608,
+          "expected_readback_chunk_bytes": [
+            8388608
+          ],
+          "post_max": 1,
+          "gpu_dispatch_max": 1,
+          "retries": 0
+        },
+        {
+          "index": 1,
+          "member_indices": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "original_profile_indices": [
+            211,
+            225,
+            247,
+            248,
+            249,
+            250
+          ],
+          "cases": 6,
+          "physical_input_sha256": "7c5310b8f56dee945d9696132c641fb245fafc9fb55557ebf3f17f359e1850e5",
+          "physical_output_sha256": "9ee63c9887e65ef443220f5f53a7a5629882670f6ea6cd4e9dbcada835b74d00",
+          "physical_input_bytes": 2642692,
+          "physical_output_bytes": 25165824,
+          "expected_readback_chunk_bytes": [
+            8388608,
+            8388608,
+            8388608
+          ],
+          "post_max": 1,
+          "gpu_dispatch_max": 1,
+          "retries": 0
+        }
+      ]
+    },
+    {
+      "program": "healing-fixed",
+      "owner": "cbc736ce2653d30ed2571ae42c87cb8b928be601934df842c772d790429dda8c",
+      "source_commit": "dae2605816d5fbd92bd6b223ab21ea98f081d92c",
+      "source": "gpu/product_healing_fixed_battle_entry.slang",
+      "input_words": 120048,
+      "output_words": 2032000,
+      "archive": "standard-special-healing-fixed-v1.zip",
+      "archive_bytes": 12072979,
+      "archive_sha256": "c389d19e1cbab340b9bd486dfebf3a2de7936ce3c27c61656aa07d4761f1b5e1",
+      "api_job": "standard-special-healing-fixed-v1-api-job.json",
+      "api_job_sha256": "02032df96bdb1a871b19574951aeb0cf080a1eae7cfcdc400a4f51d39a0cf344",
+      "api_expected": "standard-special-healing-fixed-v1-api-expected.json",
+      "own_ptx_o1_plans_passed": true,
+      "own_validation_deps_passed": true,
+      "retained_platform_files_byte_identical": 28,
+      "own_metal_cpu_tests": 136,
+      "own_fresh_native_and_independent_seal": true,
+      "batches": [
+        {
+          "index": 0,
+          "member_indices": [
+            0
+          ],
+          "original_profile_indices": [
+            67
+          ],
+          "cases": 1,
+          "physical_input_sha256": "2b7a6df61d6da36035c569285780116e9c1631ccfa61f1ff3e5eba6230c87aa0",
+          "physical_output_sha256": "69b3018d823af230d8497a0cd71f0bcdfcd2c1cd85851707ed228d2e36f5c67f",
+          "physical_input_bytes": 480196,
+          "physical_output_bytes": 8128000,
+          "expected_readback_chunk_bytes": [
+            8128000
+          ],
+          "post_max": 1,
+          "gpu_dispatch_max": 1,
+          "retries": 0
+        }
+      ]
+    },
+    {
+      "program": "default-weighted-fixed",
+      "owner": "06bac7e56e5442b775b75451ee54100ff91f5605c642b67b730992dd13319ed5",
+      "source_commit": "dae2605816d5fbd92bd6b223ab21ea98f081d92c",
+      "source": "gpu/product_weighted_fixed_battle_entry.slang",
+      "input_words": 115696,
+      "output_words": 2048912,
+      "archive": "standard-special-default-weighted-fixed-v1.zip",
+      "archive_bytes": 12072934,
+      "archive_sha256": "7c26925d84fa2ef7a6fa6089367cd44041fa7baa347e2d6b189b91c51d6a8e9f",
+      "api_job": "standard-special-default-weighted-fixed-v1-api-job.json",
+      "api_job_sha256": "f69d11520b84d7784be9f633db5ef2c6f1ac14c8657aa1a4b7264b8a61823a49",
+      "api_expected": "standard-special-default-weighted-fixed-v1-api-expected.json",
+      "own_ptx_o1_plans_passed": true,
+      "own_validation_deps_passed": true,
+      "retained_platform_files_byte_identical": 28,
+      "own_metal_cpu_tests": 136,
+      "own_fresh_native_and_independent_seal": true,
+      "batches": [
+        {
+          "index": 0,
+          "member_indices": [
+            0
+          ],
+          "original_profile_indices": [
+            221
+          ],
+          "cases": 1,
+          "physical_input_sha256": "05dbcafa4bc8407432557239fa8f3bad02e75ee4be1ca06e6dba2ee7b83d49f9",
+          "physical_output_sha256": "d3c122dcda4471884d5472dac38c3649e6d47d039344646a3e0456570228aab1",
+          "physical_input_bytes": 462788,
+          "physical_output_bytes": 8195648,
+          "expected_readback_chunk_bytes": [
+            8195648
+          ],
+          "post_max": 1,
+          "gpu_dispatch_max": 1,
+          "retries": 0
+        },
+        {
+          "index": 1,
+          "member_indices": [
+            1,
+            2,
+            3
+          ],
+          "original_profile_indices": [
+            222,
+            223,
+            224
+          ],
+          "cases": 3,
+          "physical_input_sha256": "25f5fd7e956f0bb2e80581d4741c23776500278638f7d5d2b1304fde1795f7c7",
+          "physical_output_sha256": "fa0428372510c147a50835bf7008b115109a307da8cc23eb8b012afa9fb8cfd6",
+          "physical_input_bytes": 1388356,
+          "physical_output_bytes": 24586944,
+          "expected_readback_chunk_bytes": [
+            8388608,
+            8388608,
+            7809728
+          ],
+          "post_max": 1,
+          "gpu_dispatch_max": 1,
+          "retries": 0
+        }
+      ]
+    },
+    {
+      "program": "default-cover-fixed",
+      "owner": "e0f069e3edbddea3f899838b4c039b472e71a14497b6d4ceee782fae5b33d051",
+      "source_commit": "dae2605816d5fbd92bd6b223ab21ea98f081d92c",
+      "source": "gpu/product_cover_fixed_battle_entry.slang",
+      "input_words": 115704,
+      "output_words": 2048912,
+      "archive": "standard-special-default-cover-fixed-v1.zip",
+      "archive_bytes": 12074263,
+      "archive_sha256": "05d50a58714944021e69ae400b103f17aa43bfc29cae21be839f6d3eef726429",
+      "api_job": "standard-special-default-cover-fixed-v1-api-job.json",
+      "api_job_sha256": "bcba3485812c8c6a1b351b49240262bdd9654f4f6d15906f5780708348fbd972",
+      "api_expected": "standard-special-default-cover-fixed-v1-api-expected.json",
+      "own_ptx_o1_plans_passed": true,
+      "own_validation_deps_passed": true,
+      "retained_platform_files_byte_identical": 28,
+      "own_metal_cpu_tests": 136,
+      "own_fresh_native_and_independent_seal": true,
+      "batches": [
+        {
+          "index": 0,
+          "member_indices": [
+            0
+          ],
+          "original_profile_indices": [
+            159
+          ],
+          "cases": 1,
+          "physical_input_sha256": "d60bf71a008bd1601d8af5bc083f6ffcc61c3f8e537954dbcb04d5ea3282e85d",
+          "physical_output_sha256": "ad5208a7613d552c13172bc1be00f7c02c981732afb7c24a0d93b6e2e1728fa4",
+          "physical_input_bytes": 462820,
+          "physical_output_bytes": 8195648,
+          "expected_readback_chunk_bytes": [
+            8195648
+          ],
+          "post_max": 1,
+          "gpu_dispatch_max": 1,
+          "retries": 0
+        }
+      ]
+    },
+    {
+      "program": "ammo-fixed",
+      "owner": "a5f405c447a07b20d27f260fcd3efbec3807906698a6dc0b041513e00caefb81",
+      "source_commit": "dae2605816d5fbd92bd6b223ab21ea98f081d92c",
+      "source": "gpu/product_ammo_fixed_battle_entry.slang",
+      "input_words": 117632,
+      "output_words": 2032000,
+      "archive": "standard-special-ammo-fixed-v1.zip",
+      "archive_bytes": 12073155,
+      "archive_sha256": "841485696e43ae95c4374d0f59b8023709d6c6e148fe629db03223a891f06d38",
+      "api_job": "standard-special-ammo-fixed-v1-api-job.json",
+      "api_job_sha256": "628518485340482649bd5aa1838f0593d5dfeeb7f9750e1fe184c4ee27b5f315",
+      "api_expected": "standard-special-ammo-fixed-v1-api-expected.json",
+      "own_ptx_o1_plans_passed": true,
+      "own_validation_deps_passed": true,
+      "retained_platform_files_byte_identical": 28,
+      "own_metal_cpu_tests": 136,
+      "own_fresh_native_and_independent_seal": true,
+      "batches": [
+        {
+          "index": 0,
+          "member_indices": [
+            0
+          ],
+          "original_profile_indices": [
+            168
+          ],
+          "cases": 1,
+          "physical_input_sha256": "1bcd913dd2f6dfb61a7db6bf241dcc2d58e00d75883692d8535c832bcf743d13",
+          "physical_output_sha256": "c79d2a07675205c25060416600f34b70760a0a258e1060e110e7670206da0c70",
+          "physical_input_bytes": 470532,
+          "physical_output_bytes": 8128000,
+          "expected_readback_chunk_bytes": [
+            8128000
+          ],
+          "post_max": 1,
+          "gpu_dispatch_max": 1,
+          "retries": 0
+        }
+      ]
+    }
+  ],
+  "source_reference": "Current root37d three-model change keeps all7 prior standard CUDA/MSL generated raw bytes identical; old immutable execution owners remain unchanged",
+  "platform_reference_owner": "032bbb7646fe850b222c0c23097b16cd820f2ad4295c5ce7b00510171d7be071",
+  "platform_files": [
+    {
+      "path": "scripts/nikke_gpu.py",
+      "sha256": "6877d406d665dbdf79a26b64020a6f741500518f59a5774426ea78013da11e3b"
+    },
+    {
+      "path": "scripts/run-gpu-packet.py",
+      "sha256": "c7c763e1b7609bbcb8a92d86c78cd2f7d46b1ec775c81a2b53a20e508ccd528b"
+    },
+    {
+      "path": "research/run-world-bounded.py",
+      "sha256": "494df8bc60201989a4e8fb451dc5aa0742d7f93098bc52d5f79722eebb123a88"
+    },
+    {
+      "path": "research/windows_validation_observer.py",
+      "sha256": "97d7405ff8771cf413f5e58c14ebea98037afb8a3691417d12e7b21d2d45fdd3"
+    },
+    {
+      "path": "app/portable_backend.py",
+      "sha256": "b6452d7fcefd8fc09ddf04f36ea606fe82f57ce2afb974ae4ec545022cb5aebe"
+    },
+    {
+      "path": "app/portable_slang_generation.py",
+      "sha256": "a3285cc9b372e4bb592fd70fdc18e44b07b6803a2c432eca8a8f0493eae76dac"
+    },
+    {
+      "path": "app/portable_generation_cache.py",
+      "sha256": "72f279db869974159c7ef80642310af8defead82ea91d704cb7a7cf3bf189e2f"
+    },
+    {
+      "path": "app/portable_scope_snapshot_audit.py",
+      "sha256": "1f638c2bc7e46c63c3817ff6394103887639e0fd1d0c28d678aaf17d6b3385c4"
+    },
+    {
+      "path": "app/portable_compile_cache.py",
+      "sha256": "d1dcc7cf1a5c7197b1dd63dd0d6bd1cc90192356eb42ad4a4e6b2f641c5cc505"
+    },
+    {
+      "path": "app/portable_offline_assembler.py",
+      "sha256": "e5b625d9c8db8910429d618df8526e52350bfacf4d840e75ceaf1433d8087d94"
+    },
+    {
+      "path": "app/portable_partition_object.py",
+      "sha256": "22a5a3f4b4be713130dd1897ec8d18719bbc7075bcb7509a582f3b725063b513"
+    },
+    {
+      "path": "app/portable_jit_link.py",
+      "sha256": "7638916f0c63046855e877a5d3b4ccb00431ae11c4855f93c3d386b88afa0f97"
+    },
+    {
+      "path": "app/portable_jit_link_run.py",
+      "sha256": "6a0ec1012a4354b7ccb3a0aa299d0fb7aa67d496a0e1cdab4ea1d27f8e3fd779"
+    },
+    {
+      "path": "app/portable_linked_artifact.py",
+      "sha256": "3bb3e2bf687ace0b7d0c28faedd6d5ce1974b6b3501040010ca0b0ad118315a9"
+    },
+    {
+      "path": "app/portable_product_artifact.py",
+      "sha256": "651d17988f3cfd543a407ed8b77222591971ed8a67aec11fd8e3bac56ba628d0"
+    },
+    {
+      "path": "app/portable_detail.py",
+      "sha256": "73cffcca974d2209ea0e74f59c44fc7f637aac772fe30922edaab4cb100297de"
+    },
+    {
+      "path": "app/detail_gpu.py",
+      "sha256": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270"
+    },
+    {
+      "path": "app/engine_worker.py",
+      "sha256": "52832891066bd4b59b8c60783151e81ec0db0c116e59441c0dabbefc4c4a3fa1"
+    },
+    {
+      "path": "app/effect_spec.py",
+      "sha256": "a6655815582048966dbb0bf3a97081e1c2585fb2f549be7c635aabda36effb9b"
+    },
+    {
+      "path": "app/engine_compat.py",
+      "sha256": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8"
+    },
+    {
+      "path": "server.mjs",
+      "sha256": "9d03fc904206276152a870aadb1aef5ca70848a997fee04bf4f0118744cb80eb"
+    },
+    {
+      "path": "tests/server.test.mjs",
+      "sha256": "848a37e535d6f27ea90c6db9e89f38e7812bdb9a29001c6135105e93e9a0fd8e"
+    },
+    {
+      "path": "tests/test_portable_scope_snapshot_audit.py",
+      "sha256": "56cf65e805e98936da9b8f47c090bec79de78b3724ebbca6e6d97ad832311a4f"
+    },
+    {
+      "path": "tests/test_portable_generation_cache.py",
+      "sha256": "97f68413099fac271bddeebd52224003522669b1f9860e3d80b6c4ac466d909f"
+    },
+    {
+      "path": "app/portable_readback_blocks.py",
+      "sha256": "d921b979d6dc1eb203ecd77568bd991be2ed541175f4dc97d0e07fd5b3928bd1"
+    },
+    {
+      "path": "tests/test_portable_readback_blocks.py",
+      "sha256": "a57e9d2127d9379f77612fb5b76376172233897bcd84bb2e276ed250f9b70789"
+    },
+    {
+      "path": "tests/test_portable_windows_cleanup.py",
+      "sha256": "7528aaa49b8790ce4da24ff9fc9110ac71a56e0f4297e57df32365b5c6ab6999"
+    },
+    {
+      "path": "tests/test_portable_device_linker.py",
+      "sha256": "449a22de9302a6d4c6c64a866f7a87b07c234115dd670997d5d3f98eb1896195"
+    }
+  ],
+  "steps": [
+    "For each program serially: fresh verified unpack; own source/golden/compile-plan/dependency gates",
+    "One paired generation matching own sealed M5 baseline, one PTX compile using exact existing cache policy",
+    "Only verified current PTX origin -> O1 module object once; only verified object -> pinned nvJitLink once",
+    "Only admitted saved image/exact paired cache -> supplied normal API batches, each POST/GPUmax1/retry0",
+    "Verify first smaller batch/memory/containment before next batch in same program; all fresh CPU/GPU/API fields and original M5 full member/parent raw hashes required",
+    "Saved parent/member slices/source/static repack and complete payload audit; no additional battle/GPU",
+    "Stop first gate/missing/timeout/cleanup/observation/source/cache/artifact/fallback/status/CPU/M5 mismatch; preserve partial outcomes and no rerun"
+  ],
+  "skip_duplicate_tests": "Own136/native preflight and unchanged27 SDK guard tests are not repeated; 28 listed execution/audit/server/protected/test files match last successful fixed owner exactly. Every CLI immutable source/golden/provider gate remains. GPU-after fresh CPU full comparisons remain mandatory.",
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "preservation": "All prior failures/raw/claims remain; service/whole/overallfalse remain false. Inner advisory null Job limits stay unknown/false; enforced outer pre/post limit/membership query must complete.",
+  "sdk_policy": "No artifact substitution, source/key/claim deletion, normalized-only NVRTC cache reuse or require-cache miss fallback. Cache-key exact raw code/options/compiler/headers only after strict paired baseline.",
+  "report": "standard-special-seventeen-normal-api-status-v1.json",
+  "report_policy": "Small per-source SDK/source/artifact fingerprints, per-profile hashes/full comparison verdicts, per-batch driver/chunk/Job/memory results, precise successful count and first failure; no raw buffers, full payloads or compiler distribution.",
+  "cases": 17,
+  "max_total_api_posts": 8,
+  "max_total_gpu_dispatches": 8,
+  "retries": 0,
+  "full_goal_complete": false
+}

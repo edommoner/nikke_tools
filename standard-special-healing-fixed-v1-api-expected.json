@@ -1,0 +1,27 @@
+{
+  "schema": "standard-other-api-expectations-v1",
+  "owner": "cbc736ce2653d30ed2571ae42c87cb8b928be601934df842c772d790429dda8c",
+  "source_commit": "dae2605816d5fbd92bd6b223ab21ea98f081d92c",
+  "source": "gpu/product_healing_fixed_battle_entry.slang",
+  "compute_backend": "cuda_shared_detail",
+  "physical_cases": 1,
+  "body_sha256": "02032df96bdb1a871b19574951aeb0cf080a1eae7cfcdc400a4f51d39a0cf344",
+  "input_words": 120048,
+  "output_words": 2032000,
+  "physical_input_bytes": 480196,
+  "physical_output_bytes": 8128000,
+  "physical_input_sha256": "2b7a6df61d6da36035c569285780116e9c1631ccfa61f1ff3e5eba6230c87aa0",
+  "physical_output_sha256": "69b3018d823af230d8497a0cd71f0bcdfcd2c1cd85851707ed228d2e36f5c67f",
+  "cases": [
+    {
+      "index": 67,
+      "character": "앤 : 미라클 페어리",
+      "favorite_stage": 0,
+      "expected_input_sha256": "2b7a6df61d6da36035c569285780116e9c1631ccfa61f1ff3e5eba6230c87aa0",
+      "expected_output_sha256": "69b3018d823af230d8497a0cd71f0bcdfcd2c1cd85851707ed228d2e36f5c67f"
+    }
+  ],
+  "cpu_battles": 0,
+  "gpu_calls": 0,
+  "scope": "Prepared static common-CUDA API bodies with original M5 raw expectations only; no API execution requested"
+}

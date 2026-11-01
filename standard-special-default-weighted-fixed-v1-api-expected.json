@@ -1,0 +1,48 @@
+{
+  "schema": "standard-other-api-expectations-v1",
+  "owner": "06bac7e56e5442b775b75451ee54100ff91f5605c642b67b730992dd13319ed5",
+  "source_commit": "dae2605816d5fbd92bd6b223ab21ea98f081d92c",
+  "source": "gpu/product_weighted_fixed_battle_entry.slang",
+  "compute_backend": "cuda_shared_detail",
+  "physical_cases": 4,
+  "body_sha256": "f69d11520b84d7784be9f633db5ef2c6f1ac14c8657aa1a4b7264b8a61823a49",
+  "input_words": 115696,
+  "output_words": 2048912,
+  "physical_input_bytes": 1851140,
+  "physical_output_bytes": 32782592,
+  "physical_input_sha256": "95b71498e0ef553fb3f6515f460eb0cc9580029c36426ba3d0d6bb8a793c9ae7",
+  "physical_output_sha256": "a48c5a8650424987179f72351d7dd09d6a13e573c8ba8410d452711d3ba55cda",
+  "cases": [
+    {
+      "index": 221,
+      "character": "베이",
+      "favorite_stage": 0,
+      "expected_input_sha256": "05dbcafa4bc8407432557239fa8f3bad02e75ee4be1ca06e6dba2ee7b83d49f9",
+      "expected_output_sha256": "d3c122dcda4471884d5472dac38c3649e6d47d039344646a3e0456570228aab1"
+    },
+    {
+      "index": 222,
+      "character": "베이",
+      "favorite_stage": 1,
+      "expected_input_sha256": "f81e71332d564461d61de54fbec9051657c5c0b9b47f186b1ac90350f4358530",
+      "expected_output_sha256": "5ef51d59e35cfb0ee8dcb84b095067704288c101d163a51593195992ebfd6af5"
+    },
+    {
+      "index": 223,
+      "character": "베이",
+      "favorite_stage": 2,
+      "expected_input_sha256": "d05203083a1dea25c3e828e13ecc32d7041b38f92e62e8e7b514cd72c82d843b",
+      "expected_output_sha256": "84c23aadb9ad59d3c583ff1c46314fb1ec29cae16b1f2a58d05706d139aff143"
+    },
+    {
+      "index": 224,
+      "character": "베이",
+      "favorite_stage": 3,
+      "expected_input_sha256": "bc57dc778e96c770137db6fa3736bba6aef987c0f1fc57f27797b1f725d031ca",
+      "expected_output_sha256": "b2662b306ad161d478bc600f0b6609e1e25eb4e8e2dad9fd6853101a8e249544"
+    }
+  ],
+  "cpu_battles": 0,
+  "gpu_calls": 0,
+  "scope": "Prepared static common-CUDA API bodies with original M5 raw expectations only; no API execution requested"
+}

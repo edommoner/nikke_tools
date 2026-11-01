@@ -1,0 +1,34 @@
+{
+  "schema": "standard-two-group-expectations-v1",
+  "owner": "1a29d9203b787276e9caec33df3c918f57000e579328d901e28042d294e3203c",
+  "source_commit": "7d4000f4899d5f7f83356e0694d63715a1c48c81",
+  "source": "gpu/product_fixed_group_battle_entry.slang",
+  "physical_cases": 2,
+  "body_sha256": "296817264cd31a6112ca226be7d21ced0197a715c5e7804ab08af192c55ba8b7",
+  "input_words": 104408,
+  "output_words": 1048576,
+  "physical_input_bytes": 835268,
+  "physical_output_bytes": 8388608,
+  "physical_input_sha256": "8820319afdd100a2eabc71b2687778bb8b6d4886af21a4af5374b4f64ba804d6",
+  "physical_output_sha256": "3f728f46aa3f77f43f2da93e8c84c90b0a1bfd4653a1a79af7f1952f1b0b77d2",
+  "cases": [
+    {
+      "index": 23,
+      "character": "벨로타",
+      "favorite_stage": 0,
+      "expected_input_sha256": "4a8cbfd2c006b31814a07f748717510d64cc1468c8f82100463fb4cbc68a3362",
+      "expected_output_sha256": "f7d44e602220892659b6b4a1f280493f21cc75b1bdc2f4c805ee763d8d097f2f"
+    },
+    {
+      "index": 135,
+      "character": "니힐리스타",
+      "favorite_stage": 0,
+      "expected_input_sha256": "6af47818ade96e76bbf79a6e69ac4386b48ac2c07bba4d1b437204380bcf33f6",
+      "expected_output_sha256": "ce6b6ea1a5aee97d7f9061895f0c157ac9f4d482ca0f10095b8fd4e11be6f8b3"
+    }
+  ],
+  "cpu_battles": 0,
+  "gpu_calls": 0,
+  "scope": "Correct shared-CUDA API selector with unchanged numeric input and M5 full output expectations; no API/GPU execution",
+  "compute_backend": "cuda_shared_detail"
+}

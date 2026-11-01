@@ -1,0 +1,76 @@
+{
+  "schema": "standard-other-api-expectations-v1",
+  "owner": "3a2b57ae484b21b80019b047b281daa6d7fcc9fdb324886d4db6eef79ad5a3ba",
+  "source_commit": "dae2605816d5fbd92bd6b223ab21ea98f081d92c",
+  "source": "gpu/product_fixed_target_battle_entry.slang",
+  "compute_backend": "cuda_shared_detail",
+  "physical_cases": 8,
+  "body_sha256": "f2286f97a188ce1d2f27b9700a7c6484de4c3acf15d645b7b97450e3399ce08b",
+  "input_words": 110112,
+  "output_words": 1048576,
+  "physical_input_bytes": 3523588,
+  "physical_output_bytes": 33554432,
+  "physical_input_sha256": "599cb7a5863073e394998d2965f00e3d8293975c81f0f46100f4cb4063225ddc",
+  "physical_output_sha256": "e736170c1054f238d7faa308d4a54407a2478bdf0d831a29419101c4410eaed0",
+  "cases": [
+    {
+      "index": 148,
+      "character": "사쿠라",
+      "favorite_stage": 0,
+      "expected_input_sha256": "e1bbf87e84f9227820782a92a9d3ff208db069e966cca30c569a70c1b51072bd",
+      "expected_output_sha256": "2d49b7689def96b62620026df881376d3f1f588898d1e38aefb85812ecd6a47a"
+    },
+    {
+      "index": 174,
+      "character": "앵커",
+      "favorite_stage": 0,
+      "expected_input_sha256": "215edae5ac129da0de0777d8d8845826f48ca513c79254becd535a94c0e9fd75",
+      "expected_output_sha256": "1cafc300b22fd2d499d74a1b9c2c53d8bb7bee44d8b77d65eb7ce598a5318369"
+    },
+    {
+      "index": 211,
+      "character": "일레그",
+      "favorite_stage": 0,
+      "expected_input_sha256": "a23e405f46b3f5748fb466ee4fd2be480c1746141ffe5428fe384f02fc571278",
+      "expected_output_sha256": "0035552d7d2b216e256b4a4d74ef4426cb40fa1401e145cb2394b407aa72e070"
+    },
+    {
+      "index": 225,
+      "character": "클레이",
+      "favorite_stage": 0,
+      "expected_input_sha256": "390baaafc91e07613f9f4b7c39837c4d3b224594c452556e4c2e3320546793f5",
+      "expected_output_sha256": "ff0e87f1d884162b706ee17ec2471a503b72320adde7b2ff37b8e20e6e316a6d"
+    },
+    {
+      "index": 247,
+      "character": "아스카",
+      "favorite_stage": 0,
+      "expected_input_sha256": "d8839383f6b279ac902202ccfcdefb2bac9364b41bffed70d9da6f80c378aba0",
+      "expected_output_sha256": "5cc8ce4633e02f125a6997ced956a3d3c2c8628fb494c50fabdfa5de6d38b598"
+    },
+    {
+      "index": 248,
+      "character": "레이",
+      "favorite_stage": 0,
+      "expected_input_sha256": "577add18c1952648c40b6bab24e4fa746ea9c00bdc44cd916b7ed66fdfe79448",
+      "expected_output_sha256": "d6dac7d639e255fea6bcee248e11a156b528891b7ec6dba8fa465c130839cbdf"
+    },
+    {
+      "index": 249,
+      "character": "마리",
+      "favorite_stage": 0,
+      "expected_input_sha256": "ce3e178ed5ea2c05c257398e6c69eee71bc66f1739d94fa3c5ac5d325788826b",
+      "expected_output_sha256": "6bae3630523ddb8e9005fa56593ab0df2ab621e6807b5f9b3ce880716b05b3d3"
+    },
+    {
+      "index": 250,
+      "character": "미사토",
+      "favorite_stage": 0,
+      "expected_input_sha256": "f309f5c53af865859702ebd215db85312ae7aab14f7c6434c19db2342005384e",
+      "expected_output_sha256": "f3cc060619678f30b8df0e2917918b9a00a34c08072f7d0d51fef6baa44556d7"
+    }
+  ],
+  "cpu_battles": 0,
+  "gpu_calls": 0,
+  "scope": "Prepared static common-CUDA API bodies with original M5 raw expectations only; no API execution requested"
+}

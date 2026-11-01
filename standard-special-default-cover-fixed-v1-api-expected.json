@@ -1,0 +1,27 @@
+{
+  "schema": "standard-other-api-expectations-v1",
+  "owner": "e0f069e3edbddea3f899838b4c039b472e71a14497b6d4ceee782fae5b33d051",
+  "source_commit": "dae2605816d5fbd92bd6b223ab21ea98f081d92c",
+  "source": "gpu/product_cover_fixed_battle_entry.slang",
+  "compute_backend": "cuda_shared_detail",
+  "physical_cases": 1,
+  "body_sha256": "bcba3485812c8c6a1b351b49240262bdd9654f4f6d15906f5780708348fbd972",
+  "input_words": 115704,
+  "output_words": 2048912,
+  "physical_input_bytes": 462820,
+  "physical_output_bytes": 8195648,
+  "physical_input_sha256": "d60bf71a008bd1601d8af5bc083f6ffcc61c3f8e537954dbcb04d5ea3282e85d",
+  "physical_output_sha256": "ad5208a7613d552c13172bc1be00f7c02c981732afb7c24a0d93b6e2e1728fa4",
+  "cases": [
+    {
+      "index": 159,
+      "character": "솔져 O.W.",
+      "favorite_stage": 0,
+      "expected_input_sha256": "d60bf71a008bd1601d8af5bc083f6ffcc61c3f8e537954dbcb04d5ea3282e85d",
+      "expected_output_sha256": "ad5208a7613d552c13172bc1be00f7c02c981732afb7c24a0d93b6e2e1728fa4"
+    }
+  ],
+  "cpu_battles": 0,
+  "gpu_calls": 0,
+  "scope": "Prepared static common-CUDA API bodies with original M5 raw expectations only; no API execution requested"
+}
