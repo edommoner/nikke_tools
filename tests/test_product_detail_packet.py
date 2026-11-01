@@ -121,14 +121,25 @@ class ProductPacket(unittest.TestCase):
             for name,config in PROGRAMS.items():
                 selected=cli.open_suite(dict(suite='product-detail',product_program=name))
                 rows,raw=selected.prepare()
-                self.assertEqual(len(rows),7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 3 if name=='fixed' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
+                self.assertEqual(len(rows),7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
                 self.assertEqual((selected.SOURCE,selected.suite.INPUT,selected.suite.OUTPUT),(config['source'],config['input_words'],config['output_words']))
                 self.assertEqual(len(raw),4*(1+len(rows)*config['input_words']))
                 from portable_product_programs import GOLDEN
                 baseline=json.loads((ROOT/GOLDEN).read_text())['programs'].get(name)
                 if baseline is not None:
-                    self.assertEqual(len(baseline['entries']),len(rows),name)
-                    self.assertEqual(baseline['input_sha256'],hashlib.sha256(raw).hexdigest(),name)
+                    manifest_path=ROOT/'gpu-package.json'
+                    manifest=json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
+                    appended=manifest.get('purpose')=='development' and manifest.get('product_program')==name
+                    if appended:
+                        sealed=len(baseline['entries']);self.assertGreaterEqual(len(rows),sealed,name)
+                        import array
+                        prefix=array.array('I',[sealed])
+                        for row in rows[:sealed]:prefix.extend(row[1])
+                        if sys.byteorder!='little':prefix.byteswap()
+                        self.assertEqual(baseline['input_sha256'],hashlib.sha256(prefix.tobytes()).hexdigest(),name)
+                    else:
+                        self.assertEqual(len(baseline['entries']),len(rows),name)
+                        self.assertEqual(baseline['input_sha256'],hashlib.sha256(raw).hexdigest(),name)
                 self.assertEqual(rows[0][2][0]['burst_gauge_mode'],config['mode'])
                 self.assertFalse(rows[0][2][1]['cpu_battle_executed'])
                 self.assertEqual(rows[0][1][LIMITS['WORLD_CONTROL_INPUT_BASE']+1],6 if config['mode']=='fixed' and name.startswith(('typed-','coordinate-','movement-','named-range-','cover-','default-cover-','healing-cover-','ammo-cover-','lock-cover-')) else 3 if name.startswith(('typed-','coordinate-','cover-','movement-','named-range-','healing-cover-','ammo-cover-','lock-cover-')) else 4 if config['mode']=='fixed' else 1)

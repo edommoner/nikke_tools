@@ -1,3 +1,13 @@
+## 2026-11-02 通常攻撃式スキルのコア規約を修正
+
+標準180秒の最初の8件は7一致、ラピ：レッドフードだけ本人のダメージが6785266不足してCPUへ戻った。射撃7609回・全skill170件はCPUと同じ、保存された先頭2048射撃も全一致。45／60秒は一致、90秒以降で差。既存full traceで85.383秒作成の「부착형 유탄 4」がGPU4940401／CPU6859023と特定。CPUの通常攻撃式スキルはcore_px>0ならis_core=True、core_prob指定なし。GPUは武器散布の確率を使っていたため、MGが冷えたタイミングのスキルで差が出た。効果／CPU／数値規約を変えず、共通normalDamageCoreを非座標の通常攻撃式スキルだけへ適用。physical武器と座標skillの既存確率契約は維持。[出所・境界・回帰](../research/product-normal-skill-core-v1.json)。
+
+既存fixed programへ元編成・元全定義のRapi180秒をappendし、4case実M5＋独立seal成功。元3のnative SHA・全raw prefixはbyte一致、regression入力は元の失敗API入力とbyte一致。v68はfixedだけ更新、他41基準は履歴として保持。開発packetだけは選択memberのappendを許し、旧全case prefixの入力SHAは厳密検査。sealed packetは全42memberの件数・入力全SHAを厳密検査し、検査skip0。CPU185、最終は同一165検査を再利用＋registry13／台帳7を新実行。PTX／CUBIN O1 plan成功はcompiler/GPU0。
+
+通常APIの元Rapi180秒で固定／蓄積×core0／50の4条件が全CPU／GPU／HTTP一致。固定core50は進行中の標準matrix結果を再利用、残3は新実行・保存監査済み。修正版full90の全90着弾で定義・作成／着弾時刻・amount／share・対象がCPUと一致。CPU180秒の元traceを再利用し追加native戦闘なし。元不一致・duration probes・診断後処理失敗とreadback復旧も保持。
+
+全266profileの180秒matrixはproduct-standard180-run-v2-20261102/api-v1で直列実行中。停止／切断時は保存job/statusを取得し、既存jobを再送しない。この段落は完了266件を主張しない。CUDAの新規実行0、既存RAM停止を維持。全特殊効果・任意場面・現source全CUDA対応は未完了。以下は過去記録。
+
 ## 2026-11-02 通常BODY Lock OnをUI既定180秒へ延長
 
 元Heavy Arms編成の無宣言・期待値・180秒を通常APIから固定／蓄積で実M5計算し、全CPU／GPU／HTTP一致。標準profile加算0、既存1profileの追加2条件。各条件でLock On取得668、射撃93、対象数履歴4407、packet1150、端数処理13224、team6612、skill674を全件保存。Lock On／対象数の全行とtyped状態は既存singleton CPU observer、端数／teamの全行・最終team状態も既存native observer／readerで順序・値一致。追加診断はCPU6戦闘、GPU再実行0。保存監査2と最終登録への再投影2も追加battle／GPU0。[出所と全件SHA](../research/product-plain-lock-long180-v1.json)。

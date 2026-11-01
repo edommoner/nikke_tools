@@ -27,6 +27,19 @@ uint64_t normalProbability(inout Runtime s, uint who, uint64_t accuracy)
     return s.lastProbability[who];
 }
 
+// The canonical non-coordinate damage_formula=normal_attack skill sets
+// is_core from the current core presence, without a physical core_prob.
+// Physical weapon shots keep their spread probability and coordinate skills
+// keep their separate geometry/sampling contract.
+uint64_t normalDamageCore(inout Runtime s,uint who,uint64_t accuracy,bool physical,uint basisRow)
+{
+#if defined(PORTABLE_WORLD_SKILLS) && !defined(PORTABLE_COORDINATE_SKILLS)
+    if(!physical && basisRow<s.count)
+        return f64Less(0,s.coreDiameter[who]) ? ONE : uint64_t(0);
+#endif
+    return normalProbability(s,who,accuracy);
+}
+
 // Seven-factor scalar damage, shared by CUDA and Metal. All intermediate
 // arithmetic is software binary64 and follows the authored reference order.
 [noinline]
@@ -112,7 +125,7 @@ void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient
 #ifdef PORTABLE_COORDINATE_PHYSICAL
         physical ? coordinatePhysicalBodyCore(s,who) :
 #endif
-        (aimedKind==1 || aimedKind==6) ? uint64_t(0) : COUNTER_PART_CORE(s,flags,(flags & H_CORE) != 0 ? ONE : normal ? normalProbability(s,who,b[S_accuracy_pct]) : WORLD_MODE_CORE(s,who,flags,b[S_accuracy_pct]));
+        (aimedKind==1 || aimedKind==6) ? uint64_t(0) : COUNTER_PART_CORE(s,flags,(flags & H_CORE) != 0 ? ONE : normal ? normalDamageCore(s,who,b[S_accuracy_pct],physical,basisRow) : WORLD_MODE_CORE(s,who,flags,b[S_accuracy_pct]));
     WORLD_FRACTION_SAMPLE(s,who,critRate,core,physical,flags) if (!f64Zero(core)) f3 = f64Add(f3,f64Mul(core,f64Add(coreBonus,f64Div(b[S_core_dmg_pct],HUNDRED))));
     uint64_t f4 = (flags & H_CHARGE) != 0 ? f64Add(f64Mul(fullChargeMult,f64Add(ONE,f64Div(b[S_charge_dmg_mag_pct],HUNDRED))),f64Div(b[S_charge_dmg_pct],HUNDRED)) : ONE;
     uint64_t f5 = f64Add(ONE,f64Div(b[S_atk_dmg_pct],HUNDRED));

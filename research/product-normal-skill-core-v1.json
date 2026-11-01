@@ -1,0 +1,153 @@
+{
+  "schema": "product-normal-attack-skill-core-v1",
+  "scope": "Canonical non-coordinate normal_attack damage-formula skills use core presence,without the physical weapon spread probability. Ordinary weapon shots and coordinate skills retain their previous contracts.",
+  "implementation_base_commit": "286852f76db8bf60d9b48ee95f35b1ce41a37cac",
+  "execution_owner": "d71a3d42c5f1227c99cf699b1073e72414cc7a0653c9723e01e3a5e725332121",
+  "final_runtime_owner": "f9cc9c5c4d8566331dd0a28f42bc924a6c3b1578d19da0a41f9c394387e19f40",
+  "runtime_files_byte_equal_to_checkout": 1816,
+  "normal_api_verified_profiles": 1,
+  "normal_api_verified_conditions": 4,
+  "new_distinct_profiles": 0,
+  "current_cuda_verified_profiles": 0,
+  "profile": "라피 : 레드 후드",
+  "profile_results": [
+    {
+      "mode": "fixed",
+      "core_px": 0,
+      "duration": 180,
+      "backend": "metal_detail",
+      "input_sha256": "e110a2ae5cd819cc744e2b891f1fe445d0dc58e3518ef6f96cc553be208ece5b",
+      "output_sha256": "d43f085663c798c86ce4ab97efadbbc94d67250de98a39e3a887e8f1d2083cd2",
+      "capture_id": "8efd671520444320a3bc6e1a757614c9",
+      "total_damage": 803294437,
+      "cpu_gpu_http_exact": true
+    },
+    {
+      "mode": "accumulate",
+      "core_px": 0,
+      "duration": 180,
+      "backend": "metal_detail",
+      "input_sha256": "c6e44a8a9b9dec95a238549e5cbc18e20a2d3a6e919fd08e3e9634c6b991f739",
+      "output_sha256": "dad7f93924c54cc827892804e5c96871e464ae406dc9c3f0c1b10d5a59738aa9",
+      "capture_id": "98b49da87c2e4b179c8b0640bdb75c86",
+      "total_damage": 781139181,
+      "cpu_gpu_http_exact": true
+    },
+    {
+      "mode": "accumulate",
+      "core_px": 50,
+      "duration": 180,
+      "backend": "metal_detail",
+      "input_sha256": "bc34bd6456eebb2a56e227e7c42e7a50535c8ed85796b2b9332e817cf0df8e86",
+      "output_sha256": "4ea2bc949f76f170f85a42beaf1205def0d7ded1cdb2d27af45080d1b3352374",
+      "capture_id": "ab55943666fb46c5952f429840fedc27",
+      "total_damage": 1079527027,
+      "cpu_gpu_http_exact": true
+    },
+    {
+      "mode": "fixed",
+      "core_px": 50,
+      "duration": 180,
+      "backend": "metal_detail",
+      "input_sha256": "0246de8eef48e18483d4ef7e4db0dccd5a12e7f4427b533d59e2481672452475",
+      "output_sha256": "8312e640f13a04b9da5ca3fee082cec538703e96e66b587f74d4000eb399cd70",
+      "capture_id": "b16d9243370647ef84cb66df0b8d5d7e",
+      "total_damage": 1112885848,
+      "cpu_gpu_http_exact": true,
+      "reused_standard_matrix_response": true
+    }
+  ],
+  "before_fix_duration_probes": [
+    {
+      "duration": 45.0,
+      "backend": "metal_detail",
+      "gpu_minus_cpu": 0
+    },
+    {
+      "duration": 60.0,
+      "backend": "metal_detail",
+      "gpu_minus_cpu": 0
+    },
+    {
+      "duration": 90.0,
+      "backend": "cpu",
+      "gpu_minus_cpu": -1918622
+    },
+    {
+      "duration": 120.0,
+      "backend": "cpu",
+      "gpu_minus_cpu": -4178476
+    },
+    {
+      "duration": 150.0,
+      "backend": "cpu",
+      "gpu_minus_cpu": -4178476
+    }
+  ],
+  "before180_gpu_minus_cpu": -6785266,
+  "first90_divergence": {
+    "effect": "부착형 유탄 4",
+    "created": 85.38333333332977,
+    "landed": 85.39999999999644,
+    "gpu_damage": 4940401,
+    "cpu_damage": 6859023
+  },
+  "before_shot_counts_equal": true,
+  "before_total_skill_count_equal": 170,
+  "before_complete_saved2048_shot_prefix_exact": true,
+  "full90_after_fix": {
+    "gpu_skill_rows": 90,
+    "native_skill_rows": 90,
+    "first_difference": null,
+    "all_gpu_skill_amount": 287911402.0,
+    "all_native_skill_amount": 287911402
+  },
+  "full90_exact_fields": [
+    "definition",
+    "created",
+    "landed",
+    "amount",
+    "share",
+    "recipients"
+  ],
+  "native_full90_trace_reused_from_original180_observation": true,
+  "regression_case": "product/fixed/normal-skill-core-cold-mg-180-180s",
+  "regression_gpu_input_byte_identical_to_original_failed_api_input": true,
+  "no_authored_effects_or_cpu_schedule_in_gpu_input": true,
+  "baseline": "v68",
+  "fixed_cases": 4,
+  "old3_native_hashes_and_full_raw_unchanged": true,
+  "other41_registered_baselines_unchanged_not_recertified": true,
+  "development_registry_test_policy": "Only selected development member may append; every old sealed case prefix is still byte-hash checked. Sealed packages enforce exact full count/hash for all42 registered programs. No tests skipped.",
+  "cpu_preflight_tests": 185,
+  "final_reused_identical_unit_tests": 165,
+  "final_new_registry_and_ledger_tests": 20,
+  "new_suites": 0,
+  "new_shader_entries": 0,
+  "new_modules_or_layout_files": 0,
+  "canonical_cpu_and_pinned_changed": false,
+  "tolerances_or_normalizers_changed": false,
+  "windows_new_requests_compile_gpu_ram_samples": 0,
+  "windows_ram_stop_retained": true,
+  "all_profile180_validation": {
+    "directory": "product-standard180-run-v2-20261102/api-v1",
+    "status": "running; this report makes no completed266 claim",
+    "do_not_resubmit": true
+  },
+  "retained_failures": [
+    "original standard180 batch0:7 native-exact and1 Rapi mismatch; all8 stored responses recovered,matched7 saved-audited without GPU",
+    "full90 original diagnostic finished GPU/readback successfully; decoder attempted to read None return with explicit readback_path,then recovered saved bytes without rerunning GPU",
+    "native-buff observer probes corrected argument index and ActiveBuff.stack field before successful read-only observation"
+  ],
+  "full_goal_complete": false,
+  "proof_directory": "product-normal-skill-core-run-v1-20261102",
+  "proof_hashes": {
+    "independent-audit-v1.json": "d08abd2adb6fa0304d5303879826e3bd771b8ff3ae053d094cd535142c9c16b1",
+    "old-prefix-identity-v1.json": "e4630e2b9e96acbc5d313916c3969b57f3b129ef12aad6320ec159d4929b0c18",
+    "full90-v1/summary.json": "d99762bb73a53859e6aeb735509f4fea9c27a205cb58a7d5c50cfe9b00ec7e8a",
+    "release-v1/source-and-test-reuse-v1.json": "acd5bb52bf2e621bb2cf0031dd7a5290eda3167edcae714f9c3650d352f4c6ad",
+    "release-v1/compile-plan-ptx.json": "5b76a345c09be9fb865a8fd810a33187d2123092ed74341382e61f4e42a945cc",
+    "release-v1/compile-plan-cubin.json": "e096bc0807ac76ebfdd9b2ecf20a1e3993feb7f0bb957ed2b86a4635d89a8b74"
+  },
+  "variant_audit_sha256": "3f2a4e9be8b14afd3c5e03349c1ac8abda7d7411610cf0a23b45e3e01d99bd9b"
+}
