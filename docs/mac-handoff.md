@@ -1,14 +1,16 @@
-## 2026-11-01 CUDA token修正の通常API成功、標準共通入口の2profileを検証依頼
+## 2026-11-01 現標準CUDA2/266を通常batch APIで確認、同imageの6件へ拡大
 
-Windows既存turnの保存結果84d9f15dを取得し、SDK status11,143bytes/SHA504583b7…、API status6,728bytes/SHA125eb1e2…を原本照合。不変owner9975b5dc…／sourcecbee4f07のLock On＋遮蔽30秒を通常API POST1・実RTX3070Ti dispatch1で完走。fresh CPU/GPU/HTTPの全製品項目が一致し、元M5 input07c3e787…／readback772355d4…の全8,195,648bytes一致。旧status64は再現せず。これは宣言モデル1ケースの修正回帰で、標準profile加算0。
+Windows保存結果ff6674d0のSDK10,636bytes/SHA9fe13143…、通常API18,536bytes/SHA17aefb7b…を取得・照合。不変owner032bbb76…／source00ed1f52の標準Poli3/D0を30秒・POST1/physicalGPU1/retry0で実RTX3070Ti確認。両member status0、fresh CPU/GPU/HTTP全項目一致・Unicode除外0。元M5各全readbackと親6,291,456bytes/SHA6c7d8eb0…も一致。静的再pack/親member入出力slice/source/全payload保存監査も成功、追加battle/GPU0。旧Poli3の13word差分は現programで再現しなかった。ただし複数の既存修正を含むsource変更なので、元13wordの特定原因を断定せず旧失敗を保持する。
 
-paired CUDA/MSLもM5の独立sealと一致、実driver7call全ret0。GPU3.676秒／HTTP22.059秒／API outer26.347秒、peak1,923,284,992bytes（2GiB上限）。各SDK/API内外missing0・gate/Job limit/終了後empty成立、専用Node停止。SDK innerは全0だが、service unverifiedによるouter2・whole/overallfalseはそのまま保持。旧254fileも同一bytesで保持し、元失敗/claimは成功へ付替えない。原本proofs/product-lock-token-snapshot-v1-20261101、小記録と共有statusはresearch/product-lock-token-snapshot-v1.jsonを参照。
+生成CUDA/MSLはM5の独立sealと一致。PTXはexact raw code/options/compiler/headerによる既存cache hit、旧failed objectは再利用せず新O1 object/JIT image5357328bytes/SHA0a25fdc0…を生成。通常APIはSDK0、GPU2.385秒/HTTP21.171秒/outer25.421秒。全enforced wrapperのpre/post Job制限2GiB・gate・終了後empty・missing0を確認、専用Node停止。外側Job peak1,459,347,456bytes（約1.36GiB）。一方、内部resource snapshot8件のJob limitはnullで観測完全性falseを保持し、外側の実制限と混同しない。SDK inner0/outer2、service unverified・whole/overallfalseと旧4772file/claimは保持。数値一致と環境保全を分ける。
 
-標準245profileが共用するfixed入口をa82754f8で梱包し、不変development owner77090c82…自身の136CPU/fresh native/実M5代表30秒と独立GPU禁止seal成功。元fixed input/output/native entries/生成CUDA・MSLは全bytes不変。v29はfixedのsource closureのみ更新し他21member保持。最終sealed source00ed1f52／owner032bbb76…／archive14,500,684bytes・SHA11609648…のown PTX/O1各60秒・2GiB計画とdepsも成功。これは代表CLI確認であり245件の通常API証明ではない。
+同じsealed packet自身で標準fixed245要求をsimulate/GPU禁止で再packし、元M5通常APIの入力/期待全readback SHAを全保持。新CPU戦闘/GPU0。全245を将来32physical batch（最初2、次6、以後最大8）へ静的分割し、最大readback25,165,824bytesを算出。これは入力準備で、残243件のCUDA実績や将来容量の認定ではない。現Metal全件は262/266（source5e1）、現標準CUDAは2/266（source00ed）、歴史別source厳格CUDA3は付替えず別記。未指定Yuni/Yan/HeavyArms/Reiの4profile、残合成/自由条件/公開サンプリングが残り全goal未完了。
 
-元8要求の静的再packはsimulate/GPU禁止のまま全input SHA一致。旧Poli3失敗a466と現fixedは実際の生成CUDA/MSLが異なり、既存removalCountBeforeMutation修正等を含む。元13word不一致・missing7 objectを保持し、Poli解消済みとは扱わない。28 platform/監査/server/保護CPU/test fileは直近Windows成功owner9975と全bytes一致。輸送6c983c21の8fileを共有し、既存chatへPoli3/D0の2要求だけを通常API1physical batchで依頼済み。共通CLI/coordinatorを再利用しpaired生成→PTX→条件付きO1 object/link→provider成立時だけPOST/GPU各最大1。SDKchild60秒/2GiB/BelowNormal/freshJob・各outer180秒、APIhelper53秒。全own136/native事前/不変27guardを重複実行せず、GPU後fresh CPU全項目照合は保持。新2件のメモリ実測前に残6件は実行しない。依頼済みは成功の証拠ではなく結果未取得。
+輸送6a73c880の6file（約2MB、個人設定/rawなし）を共有し、既存chatへ次のNeon/Anis/NeonBlueOcean/AnisSparklingSummer/RapiRedHood/NeonVisionEyeの6件だけを通常API POST/GPU最大1で依頼済み。同owner・同image・paired cache fc8e5d0e…を再利用、追加Slang/NVRTC/PTXAS/JIT/全CPUテスト/native事前0。GPU後fresh CPU比較は保持。元M5 rawから親expected d0505a18…も確認済み。既存helper/保存監査のfixture/path/countだけを変え、APIhelper53秒/2GiB/BelowNormal/freshJob+gate、各outer180秒・直列。全member/source/親slice/raw/CPU/APIを照合し、異常時保存停止・retry0。内部null/falseとservice/wholefalseを保持。残237件/全266は今回未依頼。次6件結果は未取得。
 
-原本proofs/product-cuda-standard-current-v4-20261101、小記録research/product-standard-current-source-v1.json。標準Metal最終全件262/266（5e1）、CUDA歴史厳格3/266・現source標準0、新標準加算0、全goal未完了。次は同turnの標準2件保存結果を取得し、メモリと全readback/CPU/API一致に従って拡大または原因修正する。以下は履歴。
+直近の別declared Lock On＋遮蔽回帰もowner9975／sourcecbee4f07でCPU全payload/M5全8,195,648bytes一致を確認済み（84d9f15d、research/product-lock-token-snapshot-v1.json）。標準profileへ加算しない。既存model-checkもGPU/CPU戦闘0で実行、公開RNG/座標と5canonical stat consumerの残範囲を再確認した。私的実装の不在と読み替えない。
+
+原本proofs/product-cuda-standard-current-v4-20261101、小記録research/product-standard-current-source-v1.jsonと共有status2file。次は既存6件turnの保存結果を取得し、数値/実測とenforced gateに従って拡大または共通source原因修正へ進む。以下は履歴。
 
 ## 2026-11-01 実CUDA診断でtoken消失を特定、共通snapshot修正と再発防止をMetal実証
 

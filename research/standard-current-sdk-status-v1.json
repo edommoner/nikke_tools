@@ -1,0 +1,327 @@
+{
+  "schema": 1,
+  "owner": "032bbb7646fe850b222c0c23097b16cd820f2ad4295c5ce7b00510171d7be071",
+  "source_commit": "00ed1f529995ce206378255f6aa51e2619d54392",
+  "transport_commit": "6c983c21ff01f65bda257a7a7822863faf045cd9",
+  "archive_sha256": "11609648d7781dd7a3ca698d6f388d11affd20aa8f9a23d8a94ee088d8e73bd0",
+  "scope": "Only Poli3 and D0 original standard 30 second requests; no remaining six or full266 execution",
+  "overall_verified": false,
+  "whole_environment_preservation_verified": false,
+  "identified_service_preservation_verified": false,
+  "full_goal_complete": false,
+  "old_failure_records_relabelled": false,
+  "old_files_rehashed_unchanged": 4772,
+  "gpu_retries": 0,
+  "report": "standard-current-sdk-status-v1",
+  "source_golden_verified": true,
+  "retained_platform_files_byte_identical": 28,
+  "unchanged_guard_tests_repeated": false,
+  "own136_repeated": false,
+  "full106_repeated": false,
+  "fresh_native_preflight_repeated": false,
+  "retained_test_reference_commit": "84d9f15d6747d5daca5df00926ca3e940a77a3ee",
+  "stages": {
+    "unpack": {
+      "child_exit_code": 0,
+      "elapsed_seconds": 20.348388799931854,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "job_records": 1,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 77209600,
+      "below_normal": true,
+      "identified_service_preservation_verified": false,
+      "whole_environment_preservation_verified": false
+    },
+    "plans": {
+      "child_exit_code": 0,
+      "elapsed_seconds": 24.070880599785596,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "job_records": 1,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 72679424,
+      "below_normal": true,
+      "identified_service_preservation_verified": false,
+      "whole_environment_preservation_verified": false
+    },
+    "generation-v1": {
+      "child_exit_code": 0,
+      "elapsed_seconds": 19.687277799937874,
+      "timeout_seconds": 59.84400000004098,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "job_records": 1,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 578539520,
+      "below_normal": true,
+      "identified_service_preservation_verified": false,
+      "whole_environment_preservation_verified": false,
+      "artifact_verified": true,
+      "reported_stage_verified": true,
+      "reported_stage_complete": true
+    },
+    "compile-ptx-v1": {
+      "child_exit_code": 2,
+      "elapsed_seconds": 22.034274000208825,
+      "timeout_seconds": 179.81199999991804,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "job_records": 1,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 227897344,
+      "below_normal": true,
+      "identified_service_preservation_verified": false,
+      "whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "elapsed_seconds": 11.650370299816132,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "job_records": 1,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 108425216,
+        "below_normal": true,
+        "identified_service_preservation_verified": false,
+        "whole_environment_preservation_verified": false
+      },
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false
+    },
+    "module-object-v1": {
+      "child_exit_code": 2,
+      "elapsed_seconds": 35.78189999982715,
+      "timeout_seconds": 179.85999999986961,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "job_records": 1,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 414187520,
+      "below_normal": true,
+      "identified_service_preservation_verified": false,
+      "whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "elapsed_seconds": 18.532251599710435,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "job_records": 1,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 364974080,
+        "below_normal": true,
+        "identified_service_preservation_verified": false,
+        "whole_environment_preservation_verified": false
+      },
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false
+    },
+    "jit-link-v1": {
+      "child_exit_code": 2,
+      "elapsed_seconds": 61.597834799904376,
+      "timeout_seconds": 179.84400000004098,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "job_records": 1,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 245411840,
+      "below_normal": true,
+      "identified_service_preservation_verified": false,
+      "whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "elapsed_seconds": 23.945958700031042,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "job_records": 1,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 120336384,
+        "below_normal": true,
+        "identified_service_preservation_verified": false,
+        "whole_environment_preservation_verified": false
+      },
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false
+    }
+  },
+  "paired_generation": {
+    "compiler_invocations": 2,
+    "cache_hit": false,
+    "generated_normalized": {
+      "cuda": "84ca925f66f2a60e882e46c4d9bf2b4d199adefff91369365d3824a15cf695e8",
+      "metal": "308692a0e201e294162f390c02533b795e1f70b85633f5c965913f7f782aca78"
+    },
+    "sealed_baseline_verified": true,
+    "cache_key": "fc8e5d0e1208011c9d683fefb6c98c1fc3ccb0b71cf0c0a8d02382bd83aaad05",
+    "later_cache_hit": true,
+    "later_compiler_invocations": 0
+  },
+  "ptx": {
+    "actual_nvrtc_invocations": 0,
+    "cache_hit": true,
+    "cache_key": "a3fe00fe715c88d56993f8f7d43c0b741ae0b5c36990c1e138d36fb01345d106",
+    "bytes": 10043329,
+    "sha256": "9889731bcdcd8908602ea5ca979f1f4d7b5bd4545507c8079181f11b9078c407",
+    "raw_cuda_sha256": "5b827f0f11e830e0ef621438de5a42b9914902c68e525ccf49225cba6a1060f3",
+    "options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "compiler_files": {
+      "nvrtc-builtins64_124.dll": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43",
+      "nvrtc64_120_0.dll": "3aa3cd8aa10437e212760c0e1ed730807811ec3bc330216dbfde4b26211d2243"
+    },
+    "header_content_sha256": [
+      "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
+    ],
+    "cache_policy": "Exact raw CUDA/options/compiler/header identity under existing policy; normalized identity not used as NVRTC cache evidence"
+  },
+  "object": {
+    "artifact": {
+      "format": "elf64-little",
+      "type": "relocatable",
+      "machine": "cuda",
+      "cuda_format_version": 124,
+      "sections": 1096,
+      "bytes": 5757232,
+      "sha256": "d4112ce0b89bf04cfc27c36fcf30eedb4ab37ce618275229fd6640e96aba1cbb"
+    },
+    "source_bytes_unchanged": true,
+    "source_partitioned": false,
+    "ptxas_invocations": 1,
+    "optimization_level": 1,
+    "portableEvents": {
+      "registers": 24,
+      "stack_bytes": 0,
+      "spill_store_bytes": 0,
+      "spill_load_bytes": 0,
+      "shared_bytes": null,
+      "local_bytes": null,
+      "unknown_fields_reason": "Not printed for this entry by ptxas"
+    }
+  },
+  "jit": {
+    "invocations": 1,
+    "library_version": "12.4.127",
+    "api_version": [
+      12,
+      4
+    ],
+    "api_events": [
+      {
+        "api": "nvJitLinkVersion",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkCreate_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkAddData_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkComplete_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkGetErrorLogSize_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkGetInfoLogSize_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkGetLinkedCubinSize_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkGetLinkedCubin_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkDestroy_12_4",
+        "return_code": 0
+      }
+    ],
+    "artifact": {
+      "format": "elf64-little",
+      "type": "executable",
+      "machine": "cuda",
+      "cuda_format_version": 124,
+      "target": "sm_86",
+      "sections": 1016,
+      "program_headers": 4,
+      "static_bindings": {
+        "portableEvents": {
+          "info": 18,
+          "other": 16,
+          "section": 1013,
+          "value": 0,
+          "bytes": 512
+        },
+        "SLANG_globalParams": {
+          "info": 1,
+          "other": 0,
+          "section": 729,
+          "value": 0,
+          "bytes": 48
+        }
+      },
+      "bytes": 5357328,
+      "sha256": "0a25fdc0dbbc7a0b31a55433373aa215d8d2baff721ed004481b6b8b730ff2f0"
+    },
+    "error_log_empty": true,
+    "info_log_empty": true,
+    "program_driver_api_calls": 0
+  },
+  "gpu_calls_in_sdk_stages": 0,
+  "old_failed_objects_reused": false,
+  "lock_cover_image_reused": false
+}

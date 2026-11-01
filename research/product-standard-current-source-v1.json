@@ -99,7 +99,7 @@
   ],
   "remaining_six_are_preparation_only": true,
   "windows_requested": true,
-  "new_standard_profiles": 0,
+  "new_standard_profiles": 2,
   "goal_complete": false,
   "prior_poli_failure": {
     "owner": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
@@ -115,10 +115,12 @@
     "compiled_program_changed": true,
     "existing_removal_scalar_snapshot_correction_in_current_source": true,
     "original_failure_not_promoted": true,
-    "specific_poli_resolution_unverified": true,
-    "scope": "Different compiled program permits a corrected-source regression, not replay to reconstruct old evidence"
+    "specific_poli_resolution_unverified": false,
+    "scope": "Different compiled program permits a corrected-source regression, not replay to reconstruct old evidence",
+    "corrected_program_regression_matches_all_original_m5_bytes": true,
+    "specific_historical_causal_attribution_proven": false
   },
-  "windows_result_received": false,
+  "windows_result_received": true,
   "windows_request": {
     "transport_commit": "6c983c21ff01f65bda257a7a7822863faf045cd9",
     "source_commit": "00ed1f529995ce206378255f6aa51e2619d54392",
@@ -141,5 +143,187 @@
     "gpu_dispatch_max": 1,
     "gpu_retries": 0,
     "remaining_six_not_requested": true
+  },
+  "all_fixed_static_retention": {
+    "schema": "all-fixed-static-retention-v1",
+    "owner": "032bbb7646fe850b222c0c23097b16cd820f2ad4295c5ce7b00510171d7be071",
+    "source_commit": "00ed1f529995ce206378255f6aa51e2619d54392",
+    "cases": 245,
+    "all_old_input_bytes_equal": true,
+    "old_normal_api_metal_cpu_payloads_matched": true,
+    "old_metal_output_hashes_retained": true,
+    "cpu_battles": 0,
+    "gpu_calls": 0,
+    "standard_cuda_profiles_added": 0,
+    "scope": "Static input/old Metal reference retention only; no current CUDA execution or coverage",
+    "requests": {
+      "name": "all-fixed-static-requests-v1.json",
+      "bytes": 1930574,
+      "sha256": "dd65a733181826200e2951836691f1994e31833964f5d77b5c0ec02a48530df2"
+    }
+  },
+  "all_fixed_prospective_batches": {
+    "cases": 245,
+    "batches": 32,
+    "max_cases": 8,
+    "max_physical_readback_bytes": 25165824,
+    "request_scope": "Only first two already requested; this preparation does not request remaining batches",
+    "expansion_conditions": [
+      "Every first-two CPU/GPU/API/M5 raw result verified and complete containment/memory observation",
+      "Then measure six prior priority cases before any eight-case execution request",
+      "Only reuse exact admitted fixed image and paired cache, no compilation per batch",
+      "Each bounded job serial BelowNormal/2GiB/53s helper/180s outer; stop without retry on any rejection or mismatch"
+    ]
+  },
+  "standard_profile_coverage": {
+    "denominator": 266,
+    "metal_last_full_normal_api": 262,
+    "metal_last_full_source": "5e1f9c2a",
+    "cuda_current_fixed_source": 2,
+    "cuda_current_fixed_source_commit": "00ed1f529995ce206378255f6aa51e2619d54392",
+    "cuda_historical_other_source_strict": 3,
+    "scope": "Current source-specific CUDA2; historical3 are separate and not silently carried to the current source"
+  },
+  "windows_result": {
+    "commit": "ff6674d030fbd219b4b3ab3f04b073e0284cabd0",
+    "normal_api_verified": true,
+    "numerical_cases_verified": 2,
+    "members": [
+      {
+        "index": 0,
+        "profile": "Poli3",
+        "original_profile_index": 14,
+        "capture_id": "e5a3286335a846f6ab8c006748657b14",
+        "source": "gpu/product_fixed_battle_entry.slang",
+        "status": 0,
+        "input_bytes": 417604,
+        "output_bytes": 3145728,
+        "input_sha256": "774447605c6480cb355fed607bc94b01290e993c9139f621c0235154b3b21a0e",
+        "output_sha256": "657ef8fb9ec63494bd16648f45f43a287cf0b04819448744f72e7675ae278050",
+        "m5_full_readback_equal": true,
+        "parent_input_slice_equal": true,
+        "parent_output_slice_equal": true,
+        "static_repack_equal": true,
+        "full_cpu_gpu_api_payload_equal": true,
+        "unicode_exclusions": [],
+        "excluded_transport_metadata": [
+          "compute",
+          "cache_hit"
+        ],
+        "cpu_battle_used_as_gpu_input": false
+      },
+      {
+        "index": 1,
+        "profile": "D0",
+        "original_profile_index": 20,
+        "capture_id": "98bdb95170eb4840b775a282f5d0ea30",
+        "source": "gpu/product_fixed_battle_entry.slang",
+        "status": 0,
+        "input_bytes": 417604,
+        "output_bytes": 3145728,
+        "input_sha256": "815156e459dfb18a3a2511db2e55ed7c1f19b9cb9386e1a716e3357776d48d5b",
+        "output_sha256": "279eec95f216372e44eab2a23411b5a169b4b9d5f257a0315f576281b6bf9f26",
+        "m5_full_readback_equal": true,
+        "parent_input_slice_equal": true,
+        "parent_output_slice_equal": true,
+        "static_repack_equal": true,
+        "full_cpu_gpu_api_payload_equal": true,
+        "unicode_exclusions": [],
+        "excluded_transport_metadata": [
+          "compute",
+          "cache_hit"
+        ],
+        "cpu_battle_used_as_gpu_input": false
+      }
+    ],
+    "physical_input_sha256": "e7cebc56ccbb29b1b9786d82633c289fdc554f29fbbf2d5ef9667ca33695ca5f",
+    "physical_output_sha256": "6c7d8eb0284b1921d7f4947f138aa1002bfe24caa7dc29190a8856482551d87e",
+    "physical_gpu_dispatch_count": 1,
+    "normal_http_post_count": 1,
+    "gpu_retries": 0,
+    "fresh_cpu_full_payload_comparisons": [
+      {
+        "index": 0,
+        "performed": true,
+        "api_gpu_matched": true,
+        "gpu_cpu_matched": true,
+        "api_compute_matched": true,
+        "unicode_exclusions": [],
+        "excluded_transport_metadata": [
+          "compute",
+          "cache_hit"
+        ],
+        "api_gpu_differing_fields": [],
+        "gpu_cpu_differing_fields": []
+      },
+      {
+        "index": 1,
+        "performed": true,
+        "api_gpu_matched": true,
+        "gpu_cpu_matched": true,
+        "api_compute_matched": true,
+        "unicode_exclusions": [],
+        "excluded_transport_metadata": [
+          "compute",
+          "cache_hit"
+        ],
+        "api_gpu_differing_fields": [],
+        "gpu_cpu_differing_fields": []
+      }
+    ],
+    "artifact": {
+      "bytes": 5357328,
+      "sha256": "0a25fdc0dbbc7a0b31a55433373aa215d8d2baff721ed004481b6b8b730ff2f0"
+    },
+    "paired_cache": {
+      "key": "fc8e5d0e1208011c9d683fefb6c98c1fc3ccb0b71cf0c0a8d02382bd83aaad05",
+      "hit": true,
+      "compiler_invocations": 0
+    },
+    "paired_generation_matches_independent_m5_seal": true,
+    "elapsed": {
+      "http_seconds": 21.171342600136995,
+      "host_dispatch_seconds": 2.384660500101745
+    },
+    "api_peak_memory_bytes": 1459347456,
+    "enforced_outer_memory_limit_bytes": 2147483648,
+    "enforced_outer_job_pre_post_verified": true,
+    "advisory_inner_resource_observation_complete": false,
+    "advisory_inner_job_limit_values": "8 null values retained as unknown",
+    "missing_processes": 0,
+    "owned_server_stopped": true,
+    "overall_verified": false,
+    "whole_environment_preservation_verified": false,
+    "identified_service_preservation_verified": false,
+    "saved_results": {
+      "standard-current-sdk-status-v1.json": {
+        "path": "research/standard-current-sdk-status-v1.json",
+        "bytes": 10636,
+        "sha256": "9fe13143c58e58b6890ea6a93711a14c0c3c13a4d37a16d3b8f7a3dd5194321d"
+      },
+      "standard-first-two-normal-api-status-v1.json": {
+        "path": "research/standard-first-two-normal-api-status-v1.json",
+        "bytes": 18536,
+        "sha256": "17aefb7bad6cd073b8b15f1973a27ccab20879fa467bfd51a7b8412f15a16add"
+      }
+    }
+  },
+  "next_six_windows_request": {
+    "transport_commit": "6a73c880f65632ac0e88e8df55d7aadcd207a3e4",
+    "owner": "032bbb7646fe850b222c0c23097b16cd820f2ad4295c5ce7b00510171d7be071",
+    "requested": true,
+    "result_received": false,
+    "cases": 6,
+    "native_preflight_and_sdk_calls": 0,
+    "artifact_sha256": "0a25fdc0dbbc7a0b31a55433373aa215d8d2baff721ed004481b6b8b730ff2f0",
+    "gpu_dispatch_max": 1,
+    "http_post_max": 1,
+    "gpu_retries": 0,
+    "api_helper_seconds": 53,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "physical_input_sha256": "93f39a9739bfaad804ad0bb632535e66e0368aabcb78271627a52c1a1f2d4dee",
+    "physical_output_sha256": "d0505a182c08955b0a4b3c659b6dd9d4aca94eefd2ce13e8d969f97a417476fd",
+    "other_237_not_requested": true
   }
 }
