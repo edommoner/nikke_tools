@@ -136,5 +136,15 @@
     "api-v1/saved-audit-progress.json": "d180ebe9f8ba3c0440cfcec2268743ef5833d7106a8da41112b90dcbf81726bf",
     "final-release-projection-v1.json": "e0e93a19ffd4a994e7ef43554317adb30728233f4440e1df2997d521e3030eee"
   },
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "windows_request_record": "research/product-typed-lock-resident-cuda-request-v1.json",
+  "windows_stop": {
+    "status": "stopped-at-first-sdk-before-ram-admission",
+    "available_physical_bytes": 1438969856,
+    "required_bytes": 4294967296,
+    "selected_tests_passed": 11,
+    "sdk_api_gpu_and_resampling": 0,
+    "owner_job_empty": true,
+    "old_failed_gates_unchanged": true
+  }
 }

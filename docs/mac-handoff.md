@@ -1,10 +1,24 @@
+## 2026-11-02 残3profileの宣言付き条件も現在Metalの通常APIで確認
+
+標準未指定88Yuni/111Yan/210Heavyは、original squad/profile/stat/equipment/skill level/seed/30秒を保持し、既存宣言consumerで追加1POST/2physicalM5/38.200秒。Yuni/YanはBODY-only・empty ADD domainを明示したenemy_movement（69/71原定義保持）、HeavyはBODY-first/frozen generation・typed binding無しのlock_on（91原定義保持）。元effectを削除せず全binding source indexを確認。新source/suite/監査器/数値変更0、全GPU/CPU/HTTP/Unicode一致、宣言warning表示、保存監査3は追加battle/GPU0、owned Node gone。
+
+現在sourceで通常製品GPU戦闘を確認した元profileの和集合はMetal266/266・203キャラ。ただし標準モデル未指定は263/266のまま、残3の自動モデル選択/default対応は追加していない。BODY-only movementは実ADD移動を発生させた証明ではなく、BODY-only Lock Onも飛翔物迎撃の証明ではない（後者は別typedLock8条件で実証）。全effect定義保持・profile実行を、全条件分岐/全特殊効果/任意consumer合成の完了へ昇格しない。CUDAは従来標準263/266、current新sourceはRAM gate停止でGPU0、メモリ削減は未証明。research/product-current-declared-three-v1.json参照。全goal未完了。以下は履歴。
+
+## 2026-11-02 標準263profileを現在sourceの通常Metal APIで全件再確認
+
+既存static delta runnerで元266標準30秒/モデル指定無しを再packし、GPU対応済み263入力は全て旧inputと完全同一。8kernelのsource graphは旧から差があり、strict source-exact reuse0件だったため、旧263をcurrent実績に付け替えず、既存run-api-batches.pyを8件ずつ逐次実行した。明示モデル不足88Yuni/111Yan/210Heavyの3件は静的reasonを保持し、fallback CPUを再計算しない。新suite/監査器/数値変更0。
+
+owner5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622の通常/api/jobsで263件（200キャラ）全て実Metal/独立CPU/HTTP/Unicode一致。38POST/38physical GPU、cache hit0、旧263全readback SHAも完全同一。既存saved auditorで全263のsource/input/parent-member/raw/CPU/GPU/HTTP再投影を成功、追加battle/GPU0、owned Node group gone。現在checkoutとimmutable runtime1468file全byte一致、canonical CPU/pinned data43fileも旧と同一。静的成功だけから件数加算していない。
+
+標準Metal current263/266（今回fresh263、旧GPU実行reuse0）・CUDA従来263/266（current全CUDA再認定なし）。全goal未完了、declaredモデル別historical各266とは区別。research/product-current-standard-v3.jsonへ全profile結果、product-current-matrix-v1.jsonへ旧履歴を残したv3を追加。proofs/product-current-standard-v3-20261102。以下は履歴。
+
 ## 2026-11-02 typed Lock On蓄積のFrame32一時配列を既存resident codecへ移設
 
 前turnは通常Metal8条件接続でprogress。今回は保存Windows診断のcuLaunchKernel前後private増加1,680,879,616Bを受け、生成CUDAを既存compiler-statsで監査。Runtime本体は既にresource上、蓄積dispatchにFrame32局所配列とactorStateEventへ渡す配列copyの2宣言が残っていた。元のdispatch_frame_storage codec32段×32wordをtyped_lock entryにも有効化し、新規suite/監査器/数値式0。生成CUDAではFrame32配列宣言2→0、M5実runtime stride164632→168728（case当たりglobal4096B追加）。CUDA source textは2,831,867→3,375,380Bへ増えた。これは字句上の宣言とreflection比較であり、compiled CUDA stack/local量やWindows実RAM削減・高速化の証明ではない。fixedは元からresident frame。
 
 固定candidate自身172検査・native2・依存成功、既存frame codec4 controlsで全32slot/IEEE bit/符号付ゼロ/NaN payload/境界を確認。M5実2casesは旧CLI input/全raw/全native hash完全同一、GPU0.506秒・fresh独立seal成功。通常APIも同じ旧8入力を1POST/2physicalM5/20.519秒で実行し、全CPU/GPU/HTTP/Unicode一致、旧8case全input/full raw SHAを完全保持。キャッシュ状態が異なるため旧51.466秒との速度比較をしない。8保存監査/最終release再投影は追加battle/GPU0、owned Node group gone。
 
-v58は全42programの数値アンカーを保持しtyped-lock-accumulateのsource/generated hashだけ更新。最終owner5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622、自身172CPU/2native/依存/PTX・O1計画成功。元GPU-only native期待値再利用は、strict ledgerに対応するCPU hash literalも変わるためbyte同一条件を満たさず、規則を緩めず通常fresh2caseを使用。scopeは元Heavy1profileの条件保持で新profile加算0、標準Metal直近263/266・CUDA従来263/266（current全matrix再認定なし）。Windows削減と現composite CUDAは未実証、旧missing7/上限超過/失敗を保持。次は同じ新sourceの生存/破壊4秒2caseだけを従来の低優先度・2GiB・RAM4GiB・180秒上限・最初異常停止で1回検証する準備。旧sourceの再試行や上限拡大はしない。research/product-typed-lock-resident-v1.json参照。全goal未完了。以下は履歴。
+v58は全42programの数値アンカーを保持しtyped-lock-accumulateのsource/generated hashだけ更新。最終owner5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622、自身172CPU/2native/依存/PTX・O1計画成功。元GPU-only native期待値再利用は、strict ledgerに対応するCPU hash literalも変わるためbyte同一条件を満たさず、規則を緩めず通常fresh2caseを使用。scopeは元Heavy1profileの条件保持で新profile加算0、標準Metal直近263/266・CUDA従来263/266（current全matrix再認定なし）。Windows削減と現composite CUDAは未実証、旧missing7/上限超過/失敗を保持。次は同じ新sourceの生存/破壊4秒2caseだけを従来の低優先度・2GiB・RAM4GiB・180秒上限・最初異常停止で1回検証する準備。旧sourceの再試行や上限拡大はしない。research/product-typed-lock-resident-v1.json参照。Windows要求はf7eff205で13file/12,251,346Bを共有、manifest69555f5b…/全Git blob照合済み。Macの実管理helperへrequest/selector/owner/AST caseIDを渡してselected11成功、未選択161はWindows実行しない。実APIのaccumulate生存/破壊memberのinput本体とfull rawは実独立CLI physical2と完全同一、parent期待値も実M5 original captureそのもの。新turn01a1986e-0d3d-7a43-8dc1-25e9f048f4daがactive/inProgressとread_threadで確認済み、まだCUDA実行/メモリ結果未取得。同handle status/exportのみ、run再送禁止。research/product-typed-lock-resident-cuda-request-v1.json参照。Windows terminal status bbcba8d7を取得（19,091B/SHAd1ed30f2…/Git blob照合）。selected11/依存/計画成功後、SDK前RAM一度だけの実測1,438,969,856B<4,294,967,296Bで停止。SDK/生成/NVRTC/ptxas/link/API/GPU/保存監査/再測定0、SDK claim無し。新モデルのCUDA成功・Windowsメモリ削減へ加算しない。旧missing7/上限超過/unknownを保持。ユーザーへ空きRAM確保状況をasyncで確認中、Macは独立に進める。全goal未完了。以下は履歴。
 
 ## 2026-11-02 武器迎撃＋元Lock Onを同一共通世界の通常Metal APIへ接続
 
