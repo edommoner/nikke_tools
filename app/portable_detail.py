@@ -91,6 +91,9 @@ def _compile_product(prepared):
         from portable_product_weighted import required as weighted_required,compile_product as compile_weighted
         if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):
             return compile_weighted(prepared,compile_product)
+        from portable_product_healing import required as healing_required,compile_product as compile_healing
+        if not prepared.get('_product_healing_compiled') and healing_required(prepared):
+            return compile_healing(prepared,compile_product)
         if not prepared.get('_product_cover_compiled') and cover_required(prepared):
             return compile_cover(prepared,compile_product)
         from portable_product_coordinate import compile_product as coordinates
@@ -295,8 +298,8 @@ def decode_payload(body, prepared, run, metadata, block):
     models=[]
     if metadata.get('product_coordinate'):
         from portable_product_coordinate import read_result,OUTPUT as COORDINATE_OUTPUT
-        models.append(read_result(block[:COORDINATE_OUTPUT] if metadata.get('product_coordinate_cover') or metadata.get('product_coordinate_weighted') else block,metadata))
-    if metadata.get('product_enemy_healing'):
+        models.append(read_result(block[:COORDINATE_OUTPUT] if metadata.get('product_coordinate_cover') or metadata.get('product_coordinate_weighted') else block,metadata,names=names,duration=run.config['duration']))
+    if metadata.get('product_enemy_healing') and not metadata.get('product_coordinate_healing'):
         from portable_product_healing import read_result
         from portable_enemy_healing_wire import OUTPUT as healing_output
         healing_block=block[:healing_output['OUTPUT_WORDS']] if metadata.get('product_healing_cover') else block

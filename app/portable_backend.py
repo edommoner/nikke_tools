@@ -260,9 +260,15 @@ def validate_composed_stride(source,input_words,output_words):
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Named radial battle requires its complete declared wire')
         return
-    if source in ('gpu/world_enemy_healing_entry.slang','gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang','gpu/product_healing_group_battle_entry.slang','gpu/product_healing_fixed_group_battle_entry.slang'):
+    if source in ('gpu/world_enemy_healing_entry.slang','gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang','gpu/product_healing_group_battle_entry.slang','gpu/product_healing_fixed_group_battle_entry.slang','gpu/product_coordinate_healing_battle_entry.slang','gpu/product_coordinate_healing_fixed_battle_entry.slang'):
         from portable_enemy_healing_wire import check_schema,INPUT_WORDS,OUTPUT
         check_schema(ROOT)
+        if source.startswith('gpu/product_coordinate_healing_'):
+            from portable_logical_geometry_wire import check_schema as logical_schema,LAYOUT as G,SCRATCH
+            from portable_enemy_healing_wire import LAYOUT as H
+            logical_schema(ROOT)
+            if G['BASE']+G['WORDS']!=H['BASE'] or SCRATCH['OUTPUT_WORDS']!=OUTPUT['OUTPUT_WORDS']:
+                raise ValueError('Coordinate and healing require adjacent complete banks')
         if (input_words,output_words)!=(INPUT_WORDS,OUTPUT['OUTPUT_WORDS']):raise ValueError('Enemy healing requires its complete declared source wire')
         return
     if source in ('gpu/product_coordinate_add_battle_entry.slang','gpu/product_coordinate_add_fixed_battle_entry.slang'):

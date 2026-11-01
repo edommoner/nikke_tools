@@ -156,7 +156,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(set(metadata['binding_source_indices']),set(range(len(prepared['effects']))))
             self.assertFalse(metadata['product_coordinate']['cpu_state_or_schedule_supplied'])
             self.assertEqual(run.enemy['coord'],body['reference_models']['coordinate']['coord'])
-            with self.assertRaisesRegex(ValueError,'matching checked'):
+            with self.assertRaisesRegex(ValueError,'explicit healing source'):
                 normalize({**body['reference_models'],'enemy_healing':[]})
 
     def test_coordinate_model_configures_only_request_run_and_restores_global_aliases(self):
@@ -1428,6 +1428,42 @@ class ProductReferenceModels(unittest.TestCase):
             missing=copy.deepcopy(prepared);missing.pop('reference_models')
             with self.assertRaisesRegex(UnsupportedPortable,'explicit.*weighted_incoming'):
                 product.compile_product(missing)
+
+    def test_coordinate_healing_keeps_all_effects_scene_and_literal_source_bank(self):
+        import portable_detail as product
+        from portable_product_programs import body_for_program
+        from portable_product_coordinate import compile_product as coordinates
+        from portable_enemy_healing_wire import LAYOUT as H,OUTPUT as O,compiler_policy,MAGIC
+        from portable_backend import validate_composed_stride
+        from portable_runtime import UnsupportedPortable
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'coordinate-healing-'+mode)
+            prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+            inner=dict(prepared,_product_healing_compiled=True)
+            inner['reference_models']={'coordinate':prepared['reference_models']['coordinate']}
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle in GPU input')):
+                with compiler_policy():_,iw,ow,prefix,_=coordinates(inner)
+                source,wi,wo,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,before)
+            self.assertEqual((iw,ow),(115680,2032000));self.assertEqual(words[:iw],prefix)
+            self.assertEqual((wi,wo,len(words)),(120048,2032000,120048))
+            self.assertEqual(source,'gpu/product_coordinate_healing_'+('fixed_' if mode=='fixed' else '')+'battle_entry.slang')
+            validate_composed_stride(source,wi,wo)
+            self.assertEqual(words[H['BASE']:H['BASE']+2],[MAGIC,1])
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+            self.assertEqual(set(meta['product_coordinate']['declarations']),{'coordinate'})
+            self.assertEqual(set(meta['product_enemy_healing']['declarations']),{'enemy_healing'})
+            self.assertTrue(meta['product_coordinate_healing'])
+            bad=copy.deepcopy(prepared);bad['enemy']['patterns'][0]['spec']['attack']=dict(atk=100.,coeff=100.,target='all',hits=1,interval=0.)
+            with self.assertRaisesRegex(UnsupportedPortable,'ADD-attack composition'):product.compile_product(bad)
+
+    def test_coordinate_healing_requires_complete_projection_context_before_receipts(self):
+        from portable_product_coordinate import read_result,OUTPUT
+        from portable_runtime import UnsupportedPortable
+        words=array.array('I',[0])*OUTPUT
+        metadata={'product_coordinate_healing':True}
+        for names,duration in [(None,None),(['a']*5,30),(['a','b','c','d','e'],float('nan')),(['a','b','c','d','e'],0)]:
+            with self.subTest(names=names,duration=duration),self.assertRaises(UnsupportedPortable):read_result(words,metadata,names=names,duration=duration)
 
     def test_coordinate_add_preserves_original_shot_descriptors_scene_and_definitions(self):
         import portable_detail as product

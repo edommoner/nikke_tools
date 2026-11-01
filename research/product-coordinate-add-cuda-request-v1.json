@@ -254,7 +254,7 @@
   "send_accepted": true,
   "new_live_turn_confirmed": true,
   "read_after_send": "Initial transient host read failure; subsequent read confirmed original terminal pre-execution stop and corrected new live turn. No duplicate GPU request after timeout.",
-  "new_cuda_results_received": false,
+  "new_cuda_results_received": true,
   "previous_runs_retried": false,
   "standard_profile_delta": 0,
   "full_goal_complete": false,
@@ -761,5 +761,12 @@
   "original_packet_selector_job_expected_plans_unchanged": true,
   "corrected_send_accepted": true,
   "live_turn": "01a19787-9e92-7023-8a9f-3fba6ff76bb7",
-  "live_turn_status": "inProgress"
+  "live_turn_status": "completed",
+  "result_transport_commit": "9d31ddae8ca0987f93643aef175a4704b26770f5",
+  "requested_one_condition_calculation_verified": true,
+  "saved_audit_passed": true,
+  "original_cuda_raw_read_on_mac": false,
+  "original_m5_raw_and_all_input_source_manifest_hashes_rechecked": true,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false
 }

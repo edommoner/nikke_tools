@@ -1,3 +1,15 @@
+## 2026-11-01 座標＋敵回復の通常Metal12条件、座標ADDのCUDA成功
+
+前turnはcoordinate ADD Metal12とrequest修正版の開始でprogress。今回は通常coordinateへ既存のfinite ADD healing consumerを接続。完全coordinate prefix115680＋元4368word healing descriptor、既存予約suffix内の元healing outputのみを厳密decoderで所有検査し座標結果へ統合。二重healing decodeなし。2薄entryで同じSlang Runtime/効果定義を使用、元shader/式/CPU正本4file/pinned/suite/監査器変更0。ADD攻撃や他consumer bankとの未接続合成は明示拒否を保持。
+
+P1は旧の「coordinate+healingは未対応」という負例error-category assertionでCPU前確認失敗、GPU0。初回workspace patchが一致しなかった履歴ごと保持。空のhealing宣言は元schemaのexplicit source不足として拒否されるべきなので、assertの文字列だけをそのerrorへ修正。数値/許容差変更0。P2自身164CPU/fresh native1/実M5/別GPU禁止独立seal成功、v52へcoordinate-healing-accumulate1memberのみ追加し旧38全保持。fixedは通常API成功・CLI独立基準未登録で--develop。
+
+通常HTTP1POST/実3physicalM5、両mode×level10/level1/capped/dead/renewal/fractional-deathの12条件（各56s/renewal36s）が全CPU/GPU/HTTP/Unicode一致。各8receipts/4sources、実倍率0.2106999999999999と0.5659000000000001を1.0との時間変化込みで消費。回復上限/死者未回復/再出現generation1→2/一部死亡を確認。静的事前/既存保存監査12/最終release全12再投影は追加battle/GPU0、owned Node group absent。元rawのheader/receipt/未使用healing/未所有tail/unfinished coordinate headerの10負例も拒否、元raw/claim不変。
+
+最終owner fa22d9b5406ceb73bd8fcf0924267d37835796471ccf4fa60219868ead76c47d、自身164CPU/依存/PTX/O1計画成功。GPU後の計算scope差はGOLDEN pointer/strict ledger SHAだけ。research/product-coordinate-healing-v1.json、proof .portable-recovery/proofs/product-coordinate-healing-v1-20261101。新合成CUDA実機未検証、標準profile加算0、Metal/CUDA従来各263/266は据置。宣言healing/colliderをゲーム検証へ昇格しない。全goal未完了。
+
+Windows coordinate ADDの修正版turn01a19787はterminal/idle確認、結果9d31ddae product-coordinate-add-windows-status-v2.json（35,312B/SHA2c4d12db…）を取得。6s1POST/1実CUDAが全CPU/GPU/HTTP/Unicodeと元M5全readback SHA一致。公式metadataのADDshot6/retirement2/incoming30、driver全7API各ret0、sync約1.1秒/HTTP19.640秒/API Job24.493秒・peak2,071,089,152B<2GiB。選択12成功（全162とは区別）、保存監査battle/GPU0・missing/timeout/query/cleanup0。MacでownerB659の全manifest/輸送/271 closure/元M5 CLI・API全rawを再hashして一致、CUDA raw自体Mac未取得と区別。import research/product-coordinate-add-cuda-import-v1.json。旧v1 ID不一致停止/weighted成功/ammo missing3・SDK outer2-inner0/wholefalseを保持、再実行0。新証拠は元12条件中spaced-accumulate1件だけ。次はhealing同一sourceの30s1条件用の短いWindows資料を準備する。以下は履歴。
+
 ## 配分＋座標の通常CUDA成功を取込、座標ADD差分1件を依頼
 
 Windows turn01a1976cはread_threadでterminal/idle確認。結果5b5dec83のproduct-coordinate-weighted-windows-status-v1.json（27,718B、SHA445fefa8…）を取得。accumulate30s1POST/1実CUDAが全CPU/GPU/HTTP/Unicode一致、元M5全input/readback SHAも一致。実driver全7API各entered/returned1/ret0、sync3.448秒/HTTP23.508秒/API Job28.506秒・peak2,130,137,088B<2GiB。5対象×14groups/通知14/配分snapshot6/cover6。保存監査追加battle/GPU0、今回全stage missing/timeout/query/cleanup0・Nodegone/Jobempty/live0。選択89成功、SDK artifact成功・元source無分割、outer2/inner0/stagefalse/advisory unknown/service・whole・overallfalseは保持。旧ammo4/残3/監査の再実行0。

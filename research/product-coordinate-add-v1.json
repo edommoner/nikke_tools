@@ -315,13 +315,12 @@
     "configured_original_historical_each": 266,
     "current_full_cuda_matrix_revalidated": false
   },
-  "new_composition_cuda_verified": false,
+  "new_composition_cuda_verified": true,
   "declared_coordinate_colliders_game_verified": false,
   "whole_environment_preservation_verified": false,
   "overall_verified": false,
   "full_goal_complete": false,
   "remaining": [
-    "Short CUDA difference verification of this same coordinate ADD product entry",
     "Coordinate ADD with weighted/cover/ammo/healing consumer banks is not yet composed",
     "Typed projectile/shield public product worlds and other uncovered mixed conditions"
   ],
@@ -380,5 +379,8 @@
     "invalid_class_id_rejected_before_tests_and_retained": true,
     "selection_sha256": "b616d2138878bc91b36040bdcff33572d8b0b92c86bb83423bd12b9d2f8593ce",
     "managed_request_helper_with_corrected_program_and_selector_passed": true
-  }
+  },
+  "cuda_verified_conditions": 1,
+  "cuda_verified_scope": "Accumulate spaced6s only; other eleven Metal conditions not executed on CUDA",
+  "cuda_result_import": "research/product-coordinate-add-cuda-import-v1.json"
 }

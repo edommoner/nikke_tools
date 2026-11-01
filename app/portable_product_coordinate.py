@@ -34,15 +34,23 @@ def compile_product(prepared):
         return attach_add(source,words,meta,inner,add_patterns,prepared['enemy']['patterns'])
     return source,INPUT,OUTPUT,words,meta
 
-def read_result(block,metadata):
+def read_result(block,metadata,*,names=None,duration=None):
     from product_coordinate_model import public
     if len(block)!=OUTPUT:raise UnsupportedPortable('Complete coordinate product readback required')
     from portable_logical_geometry_wire import output_regions
     from portable_skill_history import decode_pages,BASE
     from portable_specs import LIMITS as L
+    healing_model=None
     try:
         from portable_product_add_attack import coordinate_output_ownership
         owned=coordinate_output_ownership(block,metadata)
+        if metadata.get('product_coordinate_healing'):
+            if owned or not isinstance(names,list) or len(names)!=5 or len(set(names))!=5 or type(duration) not in (int,float) or not math.isfinite(duration) or duration<=0:
+                raise ValueError('Complete coordinate healing projection context required')
+            from portable_product_healing import read_result as read_healing
+            from portable_enemy_healing_wire import OUTPUT as H
+            healing_model=read_healing(block,metadata,names,duration)
+            owned=(H['OUTPUT_BASE'],H['OUTPUT_BASE']+H['RECEIPT_BASE']+H['RECEIPTS']*H['RECEIPT_WORDS'])
         for region in output_regions():
             if region.name.startswith('logical-reserved') or region.name in ('logical-pellet-amounts','logical-shot-header'):
                 spans=[(region.base,region.end)]
@@ -58,4 +66,8 @@ def read_result(block,metadata):
     except (AssertionError,ValueError,IndexError) as error:
         raise UnsupportedPortable('Invalid or incomplete coordinate product history') from error
     info=metadata['product_coordinate']
-    return dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(info['declarations']),coordinate=public(info['declarations']['coordinate']))
+    model=dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(info['declarations']),coordinate=public(info['declarations']['coordinate']))
+    if healing_model is not None:
+        from product_reference_models import combine_public
+        return combine_public([model,healing_model])
+    return model

@@ -19,19 +19,24 @@ def compile_product(prepared,producer):
     from calculator.boss_pattern import validate as patterns_for
     from portable_actor_specs import compile_registry
     from destructible_damage_policy import modifier_axis
-    if any(modifier_axis(row['effect']) for row in prepared['effects']):
+    coordinate='coordinate' in prepared.get('reference_models',{})
+    if not coordinate and any(modifier_axis(row['effect']) for row in prepared['effects']):
         # The existing magazine executor already owns disjoint target, ADD
         # and healing banks. Its empty-magazine mode is admitted only for a
         # world without incoming attacks; no capacity is inferred here.
         from portable_product_ammo import compile_product as compile_combined
         return compile_combined(prepared,producer)
     check_schema();declarations=copy.deepcopy(prepared.get('reference_models',{}))
+    if coordinate and set(declarations)-{'coordinate','enemy_healing'}:
+        raise UnsupportedPortable('Coordinate healing requires its matching standalone coordinate/healing wire')
     inner=dict(prepared,_product_healing_compiled=True);inner.pop('reference_models',None)
+    if coordinate:inner['reference_models']={'coordinate':declarations['coordinate']}
     with compiler_policy():source,iw,ow,words,metadata=producer(inner)
     prefixes={'gpu/product_battle_entry.slang':(104400,786432),'gpu/product_fixed_battle_entry.slang':(104400,786432),
-        'gpu/product_group_battle_entry.slang':(104408,1048576),'gpu/product_fixed_group_battle_entry.slang':(104408,1048576)}
+        'gpu/product_group_battle_entry.slang':(104408,1048576),'gpu/product_fixed_group_battle_entry.slang':(104408,1048576),
+        'gpu/product_coordinate_battle_entry.slang':(115680,2032000),'gpu/product_coordinate_fixed_battle_entry.slang':(115680,2032000)}
     if source not in prefixes or (iw,ow)!=prefixes[source]:
-        raise UnsupportedPortable('Enemy healing requires a checked plain or actual-shot group battle prefix; target/ADD-attack composition is not yet connected')
+        raise UnsupportedPortable('Enemy healing requires a checked plain, actual-shot group or coordinate battle prefix; ADD-attack composition requires its matching wire')
     grouped='group_' in source
     raw=prepared['enemy'].get('patterns') or [dict(id='portable-empty-world',kind='idle')]
     patterns=patterns_for(copy.deepcopy(raw));_,bindings=compile_registry(patterns,pools=True)
@@ -44,11 +49,12 @@ def compile_product(prepared,producer):
         # No authored healing sources is a real stationary-boss condition,
         # while heal_received_pct remains a live, consumable enemy field.
         bank=[0]*H['WORDS'];bank[:5]=[MAGIC,VERSION,0,len(patterns),len(bindings)]
-    metadata['product_enemy_healing']=dict(declarations=declarations,nodes=[p.id for p in patterns],
+    metadata['product_enemy_healing']=dict(declarations={k:v for k,v in declarations.items() if k=='enemy_healing'},nodes=[p.id for p in patterns],
         bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],
         cpu_health_generations_or_schedule_supplied=False)
     stem=('fixed_' if 'fixed_' in source else '')+('group_' if grouped else '')
-    return ('gpu/product_healing_'+stem+'battle_entry.slang',INPUT_WORDS,O['OUTPUT_WORDS'],padded+bank,metadata)
+    if coordinate:metadata['product_coordinate_healing']=True
+    return ('gpu/product_'+('coordinate_healing_' if coordinate else 'healing_')+stem+'battle_entry.slang',INPUT_WORDS,O['OUTPUT_WORDS'],padded+bank,metadata)
 
 def read_result(block,metadata,names,duration,*,layout=O):
     """Use GPU receipts/pools only, with complete bounds/order/reserved checks."""

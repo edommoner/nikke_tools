@@ -1,3 +1,9 @@
+## 座標と有限ADDの敵回復
+
+`reference_models.coordinate`と`enemy_healing`を通常リクエストで併用できます。既存の有限HP/世代/回復量減少/上限のconsumerを座標実行器へ接続し、CPUのHPや予定時刻は入力へ渡しません。回復履歴と未使用領域を既存decoderで検証してから、両モデルを既存envelopeへ統合します。他consumer bankとの未接続合成は理由付きfallbackを維持します。
+
+`coordinate-healing-accumulate`は独立Metal/native seal済みv52、旧38基準保持。fixedは通常API実証済み・CLIは`--develop`。両modeのレベル差/上限/死亡/再出現/一部死亡12条件でCPU/GPU/全返却値が一致しました。新CUDA実機と宣言モデルのゲーム一致は未検証です。[証拠と失敗保持](../research/product-coordinate-healing-v1.json)。
+
 ## 座標と召喚敵の射撃・最終退場
 
 `reference_models.coordinate`付きの通常リクエストで、既存summonのattack/attack_at/self_destructを共通実行器へ渡せます。有限HP・世代・射撃間隔・同時射撃・最終退場は元のADD consumerを使い、CPUの命中先や射撃予定を入力へ渡しません。座標prefixとADD descriptorを完全保持し、読戻しのsource map/退場通知/時刻/未使用領域を検査します。未接続の他モデルとの同時合成は理由付きfallbackを維持します。
