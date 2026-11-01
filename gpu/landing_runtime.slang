@@ -74,9 +74,23 @@ void enqueueLanding(inout Runtime s,uint row,uint target,uint mask,uint order,ui
 #ifdef PORTABLE_ATTACK_GROUPS
     receipt.attackGroup=0;
 #endif
-    if(!WORLD_SKILL_RECEIPT_VALID(s,receipt,validLandingReceipt(receipt))) { s.error=64;return; }
+    if(!WORLD_SKILL_RECEIPT_VALID(s,receipt,validLandingReceipt(receipt))) {
+#ifdef PORTABLE_PRODUCT_COVER_LOCK
+        failLockPacket(s,9010U,receipt,results[landingHeader(s)],0);
+#else
+        s.error=64;
+#endif
+        return;
+    }
     uint header=landingHeader(s),count=results[header];
-    if(count>=P_LANDINGS) { s.error=64;return; }
+    if(count>=P_LANDINGS) {
+#ifdef PORTABLE_PRODUCT_COVER_LOCK
+        failLockPacket(s,9011U,receipt,count,0);
+#else
+        s.error=64;
+#endif
+        return;
+    }
     if(results[header+2]==0x7fffffff) { s.error=2;return; }
 #ifdef PORTABLE_ATTACK_GROUPS
     receipt.attackGroup=agRetainCurrent(s,row);if(s.error!=0) return;

@@ -283,7 +283,14 @@ void drainWorldSkills(inout Runtime s,uint64_t when,uint output)
     {
         if(++work>4096) { s.error=4;break; }
         LandingReceipt r=loadWorldSkillReceipt(landingAddress(s,results[h+1]++));
-        if(!validWorldSkillReceipt(s,r,false)) { s.error=64;break; }
+        if(!validWorldSkillReceipt(s,r,false)) {
+#ifdef PORTABLE_PRODUCT_COVER_LOCK
+            failLockPacket(s,9012U,r,results[h+1]-1,0);
+#else
+            s.error=64;
+#endif
+            break;
+        }
         bool landed=landWorldSkillReceipt(s,r,when,output);
 #ifdef PORTABLE_ATTACK_GROUPS
         if(r.attackGroup!=0) agRelease(s,r.attackGroup);
