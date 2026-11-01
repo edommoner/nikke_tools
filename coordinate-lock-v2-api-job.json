@@ -1,0 +1,677 @@
+{
+  "kind": "batch",
+  "evaluations": [
+    {
+      "profile": {
+        "chars": {
+          "스노우 화이트 : 헤비암즈": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 30,
+            "skill_levels": {
+              "1": 10,
+              "2": 10,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "없음",
+            "favorite_stage": 0
+          },
+          "미란다": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 30,
+            "skill_levels": {
+              "1": 10,
+              "2": 10,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "없음",
+            "favorite_stage": 0
+          },
+          "도라": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 30,
+            "skill_levels": {
+              "1": 10,
+              "2": 10,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "없음",
+            "favorite_stage": 0
+          },
+          "N102": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 30,
+            "skill_levels": {
+              "1": 10,
+              "2": 10,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "없음",
+            "favorite_stage": 0
+          },
+          "메어리": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 30,
+            "skill_levels": {
+              "1": 10,
+              "2": 10,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "없음",
+            "favorite_stage": 0
+          }
+        },
+        "_account": {
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          }
+        }
+      },
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "duration": 4,
+      "level": 400,
+      "enemy": {
+        "def": 31784,
+        "code": "풍압",
+        "core_px": 50,
+        "distance": 25,
+        "patterns": [
+          {
+            "id": "coordinate-projectiles",
+            "kind": "idle",
+            "until": {
+              "time": 5
+            }
+          }
+        ]
+      },
+      "burst_policy": "auto",
+      "burst_gauge_mode": "accumulate",
+      "seed": 2427,
+      "reference_models": {
+        "lock_on": {
+          "owner": "스노우 화이트 : 헤비암즈",
+          "marker": "록 온",
+          "packet_skill": "오토 파이어 2",
+          "candidate_order": "body-then-add-spawn-v1",
+          "delivery": "require-live-frozen-slot-v1",
+          "typed_bindings": [
+            {
+              "node": "coordinate-projectiles",
+              "kind": 2,
+              "identity": 10,
+              "capacity": 100000000
+            },
+            {
+              "node": "coordinate-projectiles",
+              "kind": 2,
+              "identity": 11,
+              "capacity": 100000000
+            },
+            {
+              "node": "coordinate-projectiles",
+              "kind": 2,
+              "identity": 12,
+              "capacity": 100000000
+            }
+          ]
+        },
+        "coordinate": {
+          "coord": {
+            "auto_aim": [
+              0,
+              0
+            ],
+            "pierce_px": 10,
+            "explosion_scale": 1
+          },
+          "logical_geometry": []
+        }
+      },
+      "compute_backend": "cuda_shared_detail"
+    },
+    {
+      "profile": {
+        "chars": {
+          "스노우 화이트 : 헤비암즈": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 30,
+            "skill_levels": {
+              "1": 10,
+              "2": 10,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "없음",
+            "favorite_stage": 0
+          },
+          "미란다": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 30,
+            "skill_levels": {
+              "1": 10,
+              "2": 10,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "없음",
+            "favorite_stage": 0
+          },
+          "도라": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 30,
+            "skill_levels": {
+              "1": 10,
+              "2": 10,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "없음",
+            "favorite_stage": 0
+          },
+          "N102": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 30,
+            "skill_levels": {
+              "1": 10,
+              "2": 10,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "없음",
+            "favorite_stage": 0
+          },
+          "메어리": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 30,
+            "skill_levels": {
+              "1": 10,
+              "2": 10,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "없음",
+            "favorite_stage": 0
+          }
+        },
+        "_account": {
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          }
+        }
+      },
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "duration": 4,
+      "level": 400,
+      "enemy": {
+        "def": 31784,
+        "code": "풍압",
+        "core_px": 50,
+        "distance": 25,
+        "patterns": [
+          {
+            "id": "coordinate-projectiles",
+            "kind": "idle",
+            "until": {
+              "time": 5
+            }
+          }
+        ]
+      },
+      "burst_policy": "auto",
+      "burst_gauge_mode": "accumulate",
+      "seed": 2427,
+      "reference_models": {
+        "lock_on": {
+          "owner": "스노우 화이트 : 헤비암즈",
+          "marker": "록 온",
+          "packet_skill": "오토 파이어 2",
+          "candidate_order": "body-then-add-spawn-v1",
+          "delivery": "require-live-frozen-slot-v1",
+          "typed_bindings": [
+            {
+              "node": "coordinate-projectiles",
+              "kind": 2,
+              "identity": 10,
+              "capacity": 1
+            },
+            {
+              "node": "coordinate-projectiles",
+              "kind": 2,
+              "identity": 11,
+              "capacity": 1
+            },
+            {
+              "node": "coordinate-projectiles",
+              "kind": 2,
+              "identity": 12,
+              "capacity": 1
+            }
+          ]
+        },
+        "coordinate": {
+          "coord": {
+            "auto_aim": [
+              0,
+              0
+            ],
+            "pierce_px": 10,
+            "explosion_scale": 1
+          },
+          "logical_geometry": []
+        }
+      },
+      "compute_backend": "cuda_shared_detail"
+    }
+  ]
+}

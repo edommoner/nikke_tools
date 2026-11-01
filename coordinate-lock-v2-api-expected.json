@@ -1,0 +1,43 @@
+{
+  "schema": "product-cuda-expected-v1",
+  "owner": "ec80ecb25850c479feaf676d0cf6d3f9b43d708daaeb4ffd1e76da78d8c52013",
+  "source_commit": "21c9edb0a259cafd490c46568b7bc42b64b02e1a",
+  "source": "gpu/product_coordinate_lock_battle_entry.slang",
+  "physical_cases": 2,
+  "input_words": 120816,
+  "output_words": 2558208,
+  "physical_input_bytes": 966532,
+  "physical_output_bytes": 20465664,
+  "physical_input_sha256": "b117c0ae32243811e672913644e258d0333fddffa93d42ff3598b5d10c29cb20",
+  "physical_output_sha256": "f2f12a7fe398ca21a67f2123eaa360f8c337a21c303409897dfc3d6fcf832363",
+  "readback_chunk_bytes": 8388608,
+  "expected_readback_chunk_bytes": [
+    8388608,
+    8388608,
+    3688448
+  ],
+  "cases": [
+    {
+      "index": 0,
+      "member_index": 0,
+      "label": "product/coordinate-lock-accumulate/short-live-4s",
+      "variant": "short-live",
+      "expected_input_sha256": "4ae2994202bb450dd00943a072b9130aeb32cfbaa8cddf71e9fd3ba96e1199f5",
+      "expected_output_sha256": "b0b1b88265ad12c32ca233ff746ca65eda6824d1c06b72e6263b08f89b8c4b3a",
+      "definition_count": 91,
+      "all_original_definitions_preserved": true,
+      "saved_metal_capture": "product-coordinate-lock-v1-20261102/api-v3/captures/122989ad85a94f4891e434739b37f731"
+    },
+    {
+      "index": 1,
+      "member_index": 1,
+      "label": "product/coordinate-lock-accumulate/short-broken-4s",
+      "variant": "short-broken",
+      "expected_input_sha256": "7fda4b4b4af05dfab567224c1923d9e61dfb87b6c56b202d2937519ad6626502",
+      "expected_output_sha256": "5b2d18c6a1528b394b28b9fd0d08eaa7c47436092b34c92fc933de45647fe143",
+      "definition_count": 91,
+      "all_original_definitions_preserved": true,
+      "saved_metal_capture": "product-coordinate-lock-v1-20261102/api-v3/captures/2b9d29f02c944106be1b32d32bb6d31f"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "unit-selection-v1",
+  "package_id": "ec80ecb25850c479feaf676d0cf6d3f9b43d708daaeb4ffd1e76da78d8c52013",
+  "patterns": {
+    "test_portable_detail.py": [
+      "test_portable_detail.PortableDetail.test_product_keeps_all_equipment_rows_and_uses_native_carrier_lifecycle"
+    ],
+    "test_product_detail_packet.py": [
+      "test_product_detail_packet.ProductPacket.test_each_program_uses_the_actual_static_product_input_and_exact_wire"
+    ],
+    "test_weighted_source_contract.py": null,
+    "test_product_reference_models.py": [
+      "test_product_reference_models.ProductReferenceModels.test_coordinate_lock_preserves_all_definitions_and_disjoint_complete_arenas",
+      "test_product_reference_models.ProductReferenceModels.test_lock_on_invalid_policies_bindings_composition_and_source_fail_closed"
+    ]
+  },
+  "expected_tests": 11
+}
