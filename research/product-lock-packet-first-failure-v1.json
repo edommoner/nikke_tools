@@ -1,0 +1,81 @@
+{
+  "schema": "product-lock-packet-first-failure-v1",
+  "source_commit": "6fd7fd4d1289d486eedc0ed2eea393b60ab1878c",
+  "development_owner": "bc62435c38eb63d2a5cd68b9166d33c349c7b08506bd8f1957809b2ba4a49b92",
+  "scope": "Failure-only shared diagnostics, not a correction of the unknown CUDA failure",
+  "program": "lock-cover-fixed",
+  "existing_diagnostic_bank": [
+    786416,
+    786432
+  ],
+  "sites": {
+    "9001": "invalid token or hit budget",
+    "9002": "shot time/snapshot mismatch",
+    "9003": "packet trace capacity",
+    "9004": "queue packet address",
+    "9005": "occupied token",
+    "9006": "non-lock row carrying lock token",
+    "9010": "invalid enqueue receipt",
+    "9011": "queue capacity",
+    "9012": "invalid decoded receipt"
+  },
+  "diagnostic_words": [
+    "magic",
+    "site",
+    "row",
+    "packet",
+    "hit",
+    "hits",
+    "depth",
+    "epoch",
+    "lock_snapshot",
+    "shot_count",
+    "when_low",
+    "when_high",
+    "queue_tail",
+    "queue_cursor",
+    "detail",
+    "original_status"
+  ],
+  "helper_contract": {
+    "schema": "lock-packet-failure-helper-contract-v1",
+    "helper_source_sha256": "f62651678a8138a4e7a7a8895ed463a312e2f280dd51dd6aa0c3306ecefb7285",
+    "actual_source_function_executed": true,
+    "sites": 9,
+    "exact16word_layout": true,
+    "signed_zero_bits_preserved": true,
+    "adjacent_words_unchanged": true,
+    "first_failure_retained": true,
+    "preexisting_error_does_not_create_false_first_site": true,
+    "gpu_calls": 0,
+    "native_battles": 0,
+    "scope": "Host execution of exact shared helper body with buffer/address stubs; not shader or battle proof"
+  },
+  "metal": {
+    "cpu_tests": 136,
+    "calculation_verified": true,
+    "independent_seal": true,
+    "input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+    "output_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+    "all_old_input_and_readback_bytes_equal": true
+  },
+  "standard_fixed_retention": {
+    "source": "gpu/product_fixed_battle_entry.slang",
+    "generated": {
+      "cuda": {
+        "normalized": "84ca925f66f2a60e882e46c4d9bf2b4d199adefff91369365d3824a15cf695e8",
+        "raw_bytes_equal": true
+      },
+      "metal": {
+        "normalized": "308692a0e201e294162f390c02533b795e1f70b85633f5c965913f7f782aca78",
+        "raw_bytes_equal": true
+      }
+    },
+    "gpu_calls": 0,
+    "native_battles": 0,
+    "scope": "Generated program retention only, not 245 profile execution"
+  },
+  "new_standard_profiles": 0,
+  "cuda_execution": false,
+  "goal_complete": false
+}

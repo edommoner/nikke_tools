@@ -1,3 +1,13 @@
+## 2026-11-01 Lock On失敗の共通診断を既存16語へ追加、正常Metal全bytes保持
+
+前turnは保存CUDAの3skill全項目がM5と一致し、Lock On stored5/loaded0まで切り分けた。今回は6fd7fd4dで新suite/tool/入力flagを追加せず、既存projectile診断領域786416..786432へ最初のpacket失敗site/receipt/queueを保存する。対象はPORTABLE_PRODUCT_COVER_LOCKだけ。既存error64とCPU fallbackを保持し、正常計算/出力は変更しない。元Windows失敗と原claim/rawを全保持、原因修正の証明ではない。
+
+site9001..9006はtoken/hit/snapshot/trace/queue address/occupied token/non-lock token、9010/9011/9012はenqueue妥当性/queue容量/decode妥当性。16語はmagic/site/row/packet/hit/hits/depth/epoch/token/shotcount/when2語/tail/cursor/detail/status。共通SlangからCUDA/MSL生成/反射成功。関数本体そのものをhost上で実行し、9siteの全16語・signed zero生bits・両隣guard・最初の失敗保持・既存error時の誤site生成なしを確認（shader実行証明とは別）。既存製品10/packet5/歴史7成功。
+
+不変development ownerbc62435c…自身の136CPU/fresh native/実M530秒とfresh独立GPU禁止seal成功。元入力SHA07c3e787…と全2048912語出力SHA772355d4…が元Lock On＋遮蔽の保存結果と全bytes同一。標準245profileのfixed入口も生成CUDA/MSLがS/metal-v1とraw全bytes同一、再戦闘/GPU0。v27は独立sealしたlock-cover-fixedだけを登録し、旧21member/旧期待値/normalizer/数値を保持。新標準profile0、Metal最終全件262/266（source5e1）、CUDA歴史厳格3/266・現source0、全goal未完了。
+
+原本proofs/product-lock-packet-failure-v1-20261101、小記録research/product-lock-packet-first-failure-v1.json。診断は停止箇所の観測を増やすもので、元status64が解消したとは扱わない。次は最終sealed packet自身のcompile-planと依存検査を行い、変更sourceだけWindowsで短いSDK段階へ渡す。コンパイル専用はdocs/portable-compile-plan.mdの既存規約どおり全CPU戦闘を再実行せず、GPU後の製品fresh CPU比較は保持する。以下は履歴。
+
 ## 2026-11-01 Windows保存結果を回収：SDK/link成立、実CUDAは74frameでstatus64
 
 接続復旧後、既存transportの48277546/d4271a8f/c9e8b702/fb6757ef保存結果を取得し、原本bytes/SHAを照合した。owner72638887（source2d1e4833）のown136分割14群・fresh native・cleanup8・fake linker15は成功。paired Slang1組、NVRTC1、PTXAS O1 1、nvJitLink1でobject070c3789…/CUBIN d8bfd9f7…を生成。全SDK/link段階missing0・Job2GiB・終了後empty。serviceunverifiedのためpreservationfalse/outer exit2/overallfalseは保持。コンパイル成立を環境保全成功へ昇格しない。
