@@ -56,12 +56,25 @@ class LockView:
         return 0
 
 
+def validate_trace_addresses(block):
+    """Interior references have one logical-case scope in every GPU batch."""
+    count=block[COORDINATE_OUTPUT+1]
+    for depth in range(32):
+        at=COORDINATE_OUTPUT+153568+depth*544
+        pointer,identity=block[at+530],block[at+531]
+        if pointer==0:
+            if identity:raise UnsupportedPortable('Unpaired typed trace identity')
+        elif not 1<=identity<=count or pointer!=COORDINATE_OUTPUT+3568+(identity-1)*1040:
+            raise UnsupportedPortable('Typed trace pointer must be relative to its logical result')
+
+
 def read_result(block,metadata,duration):
     from portable_product_locks import read_result as locks
     if len(block)!=OUTPUT or block[0]!=0:raise UnsupportedPortable('Complete coordinate/Lock On readback required')
     for start,end in ((16,1024),(2832,3568),(136688,153568),(170976,262144)):
         if any(block[COORDINATE_OUTPUT+start:COORDINATE_OUTPUT+end]):
             raise UnsupportedPortable('Nonzero unowned coordinate/Lock On typed bank')
+    validate_trace_addresses(block)
     # Every real bank is validated by the original strict reader. The virtual
     # cover suffix is zero only after the coordinate history owner is checked.
     copied=copy.copy(metadata);copied['product_lock_cover']=True

@@ -1,3 +1,11 @@
+## バッチ内位置に依存しない内部trace参照
+
+`coordinate-lock-accumulate`のv56は、元30秒caseを先頭に保持した30秒＋56秒の2caseを同じ物理起動で検証します。元先頭のinput/output/native entryは完全同一で、他40基準も保持しています。
+
+内部trace参照はlogical result内offsetとして保存し、実アクセスでだけphysical baseを加えます。Metalのbatch index1とCUDAのsingle-caseを比較した際に、この内部アドレス1wordだけで全raw hashが異なる原因を確認して修正しました。数値・履歴を除外するnormalizerは追加していません。新decoderはabsolute addressを拒否します。
+
+修正版の両mode×30/56秒4条件と4秒の生存/破壊2条件は通常APIの全CPU/GPU/HTTP一致、保存結果再投影も成功しています。旧Windows rawゲート失敗は原本とともに保持し、新CUDA sourceの実証とは区別します。[診断の出所](../research/product-coordinate-lock-cuda-diagnostic-import-v1.json)、[修正版の範囲](../research/product-coordinate-lock-v1.json)。
+
 ## 座標とLock On・元飛翔体スキル
 
 通常APIで`reference_models.coordinate`と`lock_on`を併用できます。元のBODY優先・ADD出現順・生存凍結対象規約のまま、実座標の武器計算と元`all_projectiles`スキルを共通実行器へ接続します。飛翔体は`lock_on.typed_bindings`の明示対象で、武器による形状迎撃を加えた意味ではありません。

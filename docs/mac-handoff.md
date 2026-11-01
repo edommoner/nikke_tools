@@ -1,3 +1,17 @@
+## 2026-11-02 内部trace参照を相対化、実M5複数ケースと画面取込を確認
+
+Windows e53f5bf6の元56秒1POST/1CUDAは、全CPU/GPU/HTTP/Unicode・input・219skill/2typed attacks/6receipts/214pulses/29shotsが一致したが、全rawゲートで停止した。status da4ea9d2（43,171B/SHA c6eebb66…）と診断dc957eff（8,832B/SHA eefde000…）をMac取得。M5は物理6cases/index5、CUDAは単独0で、DFscratchのtrace参照word2186642だけがM5の絶対位置14827648とCUDA2036608で違っていた。M5のその既知1wordだけを診断上case-relativeへ変えるとCUDA全SHA b3d42775…へ一致し、Windows側の逆候補も元M5全SHA33650b1e…へ一致。全10,232,832Bの他全word差なし。元raw/期待値/stopを変更せず、保存診断のみ、追加SDK/GPU/battle0。旧full-raw失敗は保持し、新sourceのCUDA成功へ付け替えない。research/product-coordinate-lock-cuda-diagnostic-import-v1.json参照。
+
+修正は新coordinate-lock共通entryの3macro。captureではtrace参照をlogical result内offsetとして保存し、receipt/completeの実dereferenceでだけphysical output baseを加える。全数値scratch/履歴は残し、除外・mask・zero化で差を隠さない。decoderはpointer/identity/countの対応とlogical範囲を要求し、旧physical addressを拒否。readonly LockViewを大きなlistへ展開せず元typed readerへ渡し、coordinate prefixもmemoryviewで共有して不要コピーを減らした。数値式・CPU正本/pinned変更0。
+
+既存CLI coordinate-lockの同一programへ56秒caseを追加し、元30秒caseを先頭に完全保持。P4は1物理M5で2casesを実行し、native2/独立seal成功。元先頭のinput/full output/native entryは完全同一、2番目56秒の実full outputは保存CUDA b3d42775…と完全同一。v56は旧41member中coordinate-lock-accumulateを更新し、他40全保持。fixedはAPI成功・独立CLI未登録。registry80/suite追加0。
+
+修正版の通常API-v2は両mode×30/56秒4条件を1POST/2physicalM5/36.303秒、API-v3は生存/破壊の各4秒2条件を1POST/1physicalM5/3.054秒で全CPU/GPU/HTTP一致。両方でbatch index1を実行。旧API-v1の該当4rawと新実GPU rawの全word比較も既知trace参照以外全一致、元raw不変。保存監査と最終再投影6は追加battle/GPU0、source/input/全raw/全payload一致、研究observer import禁止でもdecode成功、owned Node group absent。新physical address負例も拒否。元API14は旧source実証として保持、現在sourceで新実証した条件は6/元Heavy1profile、新profile加算0。
+
+最終release-v2 owner ec80ecb25850c479feaf676d0cf6d3f9b43d708daaeb4ffd1e76da78d8c52013、自身169CPU/依存/PTX/O1計画成功。標準Metal直近263/266・CUDA従来263/266、明示モデル別historical各266/266、current全matrix再認定なし。web/enemy-model.mjsのtyped_targets取込名漏れも修正済み、部隊JSON保存・再読込・requestまで11画面model検査成功。frontend変更は計算protocolと独立、現在packetには取込修正も含む。
+
+次のWindows差分はsource修正後の4秒×生存/破壊2条件を1POST/1CUDAだけで確認する候補。必要なのは非zero batch indexを含む相対参照確認。前の56秒API job peak2,136,633,344Bと2GiB capを保持し、既存BelowNormal/RAM4GiB/Job/時間/逐次/最初異常停止を維持する。旧停止の再送はしない。sourceを新たに渡す場合は、Macの実管理helperへrequest/selectorを与えるID/owner/SHA照合から実施。全goal未完了。以下は履歴。
+
 ## 2026-11-02 座標＋Lock On／元飛翔体スキルを通常Metal14条件で接続
 
 前turnは非座標Heavy Armsの製品decoder修正までprogress。今回は通常reference_models.coordinate＋lock_onを同じRuntimeへ接続。既存の座標/論理ADD入力115680wordを全保持し、元typed descriptor5136wordを追加。出力は完全な座標＋2048skill履歴2032000wordの後ろへ、元typed/lock arena786432..1310720をSHIFT1245568で一括移設し、fate継続1920wordを追加。OUTPUT2558208、input120816。typed attack128/skill2048/lock shot31等の容量を削らない。両modeの2薄entry、元Slang/効果/CPU adapter/strict readerを再利用、新suite/監査器/式0、CPU正本4file/pinned/数値規約変更0。Swift/Python wireとschema生成器も同時登録。

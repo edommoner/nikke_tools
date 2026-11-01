@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v55-expected.json'
+GOLDEN = 'research/portable-product-programs-v56-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -51,7 +51,7 @@ def configuration(suites, selection):
     program = PROGRAMS[name]
     return dict(base, product_program=name, source=program['source'], golden=GOLDEN,
                 input_words=program['input_words'], output_words=program['output_words'],
-                inputs=7 if name=='ammo-cover-fixed-group' else 1,native=7 if name=='ammo-cover-fixed-group' else 1)
+                inputs=7 if name=='ammo-cover-fixed-group' else 2 if name.startswith('coordinate-lock-') else 1,native=7 if name=='ammo-cover-fixed-group' else 2 if name.startswith('coordinate-lock-') else 1)
 
 
 def registered_golden(root, config, *, allow_unsealed=False):
@@ -260,6 +260,9 @@ def body_for_program(root, name=None):
 def cases_for_program(root,name=None):
     """Extend the existing product corpus, keeping its original case first."""
     base=body_for_program(root,name);rows=[(None,base)]
+    if name is not None and name.startswith('coordinate-lock-'):
+        body=copy.deepcopy(base);body['duration']=56.;body['enemy']['patterns'][0]['until']['time']=57.
+        rows.append(('long56',body))
     if name=='ammo-cover-fixed-group':
         from portable_enemy_ammo_self_destruct_cases import fixtures
         for case in fixtures():

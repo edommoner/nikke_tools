@@ -25,10 +25,10 @@
 #define DF_HAS_SAMPLE(s,row) destructibleActivationHasTargets(s,row)
 #define DF_COEFF(s,scratch,output,value) dtStore(scratch+532,value);
 #define DF_AMOUNT(s,scratch,output,value) dtStore(scratch+534,value);
-#define DF_SELECTION(s,scratch,output,selected,f,d) destructibleBattleCapture(s,scratch,selected,f,d);
-#define DF_RECEIPT(s,scratch,output,cursor) (results[scratch+530]+16+(cursor)*8)
+#define DF_SELECTION(s,scratch,output,selected,f,d) destructibleBattleCapture(s,scratch,selected,f,d); if(results[scratch+530]!=0) results[scratch+530]-=output;
+#define DF_RECEIPT(s,scratch,output,cursor) ((output)+results[scratch+530]+16+(cursor)*8)
 #define DF_ATTACK_ID(s,scratch,descriptor) results[scratch+531]
-#define DF_COMPLETE(s,scratch) if(results[scratch+531]!=0) results[results[scratch+530]+10]=1;
+#define DF_COMPLETE(s,scratch) if(results[scratch+531]!=0) results[(s).resourceOutput+results[scratch+530]+10]=1;
 #define WORLD_PACKET_CAPTURE(s,r,index,fallback) if(compositionSuppressedReceipt(s,r,index,when)) return s.error==0; if(!lockDeliveryCapture(s,r,index)) { fallback }
 #include "product_coordinate_lock_layout.slang"
 #include "world_coordinate_logical_actor_entry.slang"

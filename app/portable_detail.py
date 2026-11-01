@@ -310,7 +310,8 @@ def decode_payload(body, prepared, run, metadata, block):
         models.append(typed_result(block,metadata,names,run.config['duration']))
     if metadata.get('product_coordinate'):
         from portable_product_coordinate import read_result,OUTPUT as COORDINATE_OUTPUT
-        models.append(read_result(block[:COORDINATE_OUTPUT] if metadata.get('product_coordinate_cover') or metadata.get('product_coordinate_weighted') or metadata.get('product_coordinate_lock') else block,metadata,names=names,duration=run.config['duration']))
+        coordinate_block=(memoryview(block)[:COORDINATE_OUTPUT] if isinstance(block,array.array) else block[:COORDINATE_OUTPUT]) if metadata.get('product_coordinate_lock') else block[:COORDINATE_OUTPUT] if metadata.get('product_coordinate_cover') or metadata.get('product_coordinate_weighted') else block
+        models.append(read_result(coordinate_block,metadata,names=names,duration=run.config['duration']))
     if metadata.get('product_enemy_healing') and not metadata.get('product_coordinate_healing'):
         from portable_product_healing import read_result
         from portable_enemy_healing_wire import OUTPUT as healing_output

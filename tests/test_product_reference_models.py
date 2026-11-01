@@ -1447,6 +1447,15 @@ class ProductReferenceModels(unittest.TestCase):
         for at,value in [(787456+SHIFT,11),(BASE,22),(FATE_EXTRA,33)]:raw[at]=value
         view=LockView(raw)
         self.assertEqual([view[787456],view[COVER_SKILL_BASE],view[COVER_FATE_BASE]],[11,22,33])
+        from portable_product_coordinate_lock import validate_trace_addresses,COORDINATE_OUTPUT
+        from portable_runtime import UnsupportedPortable
+        at=COORDINATE_OUTPUT+153568+544
+        raw[COORDINATE_OUTPUT+1]=2;raw[at+530]=COORDINATE_OUTPUT+3568+1040;raw[at+531]=2
+        validate_trace_addresses(raw)
+        raw[at+530]+=5*OUTPUT
+        with self.assertRaisesRegex(UnsupportedPortable,'relative'):validate_trace_addresses(raw)
+        raw[at+530]=0
+        with self.assertRaisesRegex(UnsupportedPortable,'Unpaired'):validate_trace_addresses(raw)
         bad=copy.deepcopy(body['reference_models']);bad['enemy_healing']=[]
         with self.assertRaisesRegex(ValueError,'matching|combined'):normalize(bad)
 

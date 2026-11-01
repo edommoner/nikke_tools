@@ -452,7 +452,12 @@
     "new_coordinate_lock_cuda_verified": false,
     "new_request_sent": true,
     "old_missing7_stop_preserved_unknown": true,
-    "request_record": "research/product-coordinate-lock-cuda-request-v1.json"
+    "request_record": "research/product-coordinate-lock-cuda-request-v1.json",
+    "normal_payload_match_verified": true,
+    "original_full_raw_gate_passed": false,
+    "diagnostic_import": "research/product-coordinate-lock-cuda-diagnostic-import-v1.json",
+    "known_absolute_trace_address_one_word_difference": true,
+    "old_failure_retained": true
   },
   "standard_profiles": {
     "metal_previous_verified": 263,
@@ -481,5 +486,50 @@
     "backend_or_input_calculation_changed": false,
     "additional_gpu_or_battles": 0,
     "frozen_release_core_verification_unchanged": true
+  },
+  "relative_address_fix": {
+    "cause": "Only the saved internal DF trace-reference word used physical output addresses; M5 batch index5 differed from single-case CUDA. Full10,232,832byte hashes prove no other differing word.",
+    "representation": "Store case-relative trace address, add physical base only at receipt/completion dereference; retain all numerical scratch/state fields. No output field excluded, masked or zeroed.",
+    "strict_pointer_identity_and_logical_bounds_checked": true,
+    "old_failures_and_expected_hashes_preserved": true,
+    "original_cuda_diagnostic": "research/product-coordinate-lock-cuda-diagnostic-import-v1.json",
+    "cli_physical_cases": 2,
+    "cli_first30s_input_output_native_exactly_retained": true,
+    "cli_second56s_actual_full_raw_matches_saved_cuda": true,
+    "current_normal_api_conditions": 6,
+    "current_normal_api_original_profiles": 1,
+    "new_profiles": 0,
+    "current_api_proofs": [
+      {
+        "proof": "api-v2",
+        "conditions": 4,
+        "seconds": 36.303327750007156,
+        "full_cpu_gpu_http_equal": true,
+        "source_and_input_and_all_raw_reprojected": true,
+        "additional_audit_battles": 0,
+        "additional_audit_gpu": 0
+      },
+      {
+        "proof": "api-v3",
+        "conditions": 2,
+        "seconds": 3.053807375021279,
+        "full_cpu_gpu_http_equal": true,
+        "source_and_input_and_all_raw_reprojected": true,
+        "additional_audit_battles": 0,
+        "additional_audit_gpu": 0
+      }
+    ],
+    "old_api14_retained_as_previous_source_evidence": true,
+    "before_after_actual_gpu_all_other_numeric_words_identical": true,
+    "old_physical_address_negative_rejected": true,
+    "large_eager_result_copies_removed": true,
+    "new_decoder_has_no_research_observer_dependency": true,
+    "baseline_version": 56,
+    "other40_members_preserved": true,
+    "release_owner": "ec80ecb25850c479feaf676d0cf6d3f9b43d708daaeb4ffd1e76da78d8c52013",
+    "release_own_unit_tests": 169,
+    "release_own_cpu_deps_ptx_o1_plans_passed": true,
+    "new_cuda_source_verified": false,
+    "new_cuda_candidate": "Single GPU launch of short-live/short-broken4s product requests, checks nonzero batch member; previous API job peak2136633344 vs2GiB cap retained"
   }
 }
