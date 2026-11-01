@@ -10,6 +10,8 @@
 
 新profile加算0、元Heavy1profileの追加14条件。標準Metal263/266・CUDA従来263/266、明示モデル別historical各266/266は不変、current全matrix再認定ではない。新coordinate Lock OnのCUDAはまだ未検証。Windows旧healing missing7 unknown/停止は保持し、同処理は再依頼していない。最新read_threadでは同chat idle/診断terminalを確認。次の候補は同じ新kernelのlong56-accumulate1条件だけで、元M5のfull219skill/2typed attacks/6receipts/214pulses/29shotsを比較する。未接続はtyped武器の形状による迎撃とLock Onの同時世界、cover/ammo/healing/weightedとの合成。declared modelをゲーム仕様へ昇格しない。全goal未完了。以下は履歴。
 
+Windows差分を輸送e53f5bf6で共有（13file/12,224,661B、全Git blob再hash）。元long56-accumulate1条件だけ、output10,232,832Bは既存8MiBの[8,388,608,1,844,224]2chunk。最終ownerとMac169/選択11、実管理helperによるrequest↔selector/ID/SHA/owner照合を確認し、他158/標準266はWindows再実行しない。コードreview30f58203、snapshot元commitは3d8913b6＋dirty snapshotなのでowner/各SHAで実byteを拘束する。元healing stopを再実行せず、fresh sourceの初回だけ。BelowNormal/2GiB/RAM4GiB/SDK60s/API53s/audit60s/outer180s/逐次/最初異常停止を維持。同chat新turn01a197f0-9b28-7b20-a773-b6538830fcebがinProgress/activeとread_threadで確認。CUDA結果はまだ未取得、以後はこのhandleのstatus/exportだけを取得しrunを再送しない。research/product-coordinate-lock-cuda-request-v1.json参照。
+
 ## 2026-11-02 Heavy Arms飛翔体スキルの製品読取器を分離、通常Metal4条件
 
 前turnはtyped武器16条件までprogress。今回は実original all_projectilesを調査し、該当はHeavy Armsの元burst_cast skill1定義と確認。既存Lock On製品経路にはこのskillを処理する共通typed frameがあるので、同じ計算本体を再利用。portable_world_result.read_typed_battleのskill分岐に研究用roster observer importが残っていたため、portable_product_locksから元effect/owner/skill_levelsだけで求めた静的係数を渡し、既存の完全なsource/係数binary照合を維持した。sampled係数がある場合は研究moduleをimportしない。新shader/式/suite/program/監査器0、CPU正本4file/pinned/数値規約変更0。

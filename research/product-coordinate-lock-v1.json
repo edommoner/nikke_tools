@@ -450,8 +450,9 @@
   },
   "windows": {
     "new_coordinate_lock_cuda_verified": false,
-    "new_request_sent": false,
-    "old_missing7_stop_preserved_unknown": true
+    "new_request_sent": true,
+    "old_missing7_stop_preserved_unknown": true,
+    "request_record": "research/product-coordinate-lock-cuda-request-v1.json"
   },
   "standard_profiles": {
     "metal_previous_verified": 263,
