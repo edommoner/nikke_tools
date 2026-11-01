@@ -1,0 +1,21 @@
+{
+  "schema": "product-cleanup-fixture-repair-request-v2",
+  "source_commit": "2d1e48332f10af038034ff2bc4db176857c8a199",
+  "package_id": "72638887e127795d92a39f0d86b28fa052e4ee7a9b793f4d6bedd944c69df481",
+  "archive": "product-consumer-fix-sealed-v2.zip",
+  "archive_bytes": 14495247,
+  "archive_sha256": "84b91531a861029385016533315eef664305d2d3849bfccd7c9458b4384f5af3",
+  "scope": "CPU-only repair verification: existing cleanup 8 tests exactly once; no own suite, no SDK, no Slang, no driver/GPU/native/HTTP",
+  "correction": "Only two fake POSIX tests now substitute signal proxy SIGKILL=9 and assert original fake kill arguments. Real run-world-bounded/Job/observer unchanged.",
+  "original_failure_commit": "9eed2127920bb98b3ada3daa23eaf64c959c0fd2",
+  "limits": {
+    "child_seconds": 60,
+    "outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated"
+  },
+  "stop": "Any failure/missing/observation/cleanup/query incomplete; preserve every old claim and failure; no retries",
+  "report": "lock-cover-cleanup-repair-status-v2.json"
+}
