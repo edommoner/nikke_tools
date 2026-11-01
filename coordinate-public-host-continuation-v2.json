@@ -1,0 +1,65 @@
+{
+  "schema": "coordinate-public-host-continuation-v2",
+  "owner": "a077d3b3cceff66eed9e7b0a3d80ab8505f89f0b0fce294e13870c1cc6932c12",
+  "source_commit": "170cf08dea2b0c55a3558b4e8ad7358d29d2640a",
+  "original_request": "coordinate-public-windows-request-v1.json",
+  "retained_stop_commit": "5957642f09f9ff3dad4a4d989a71c92a14f251cb14",
+  "retained_stop_sha256": "6aba6623f3071f1be9f12aeb6b3c01eb067df683636a4938ac031af8a8d3233d",
+  "mode": "Remaining original test file in its own60s child; no aggregate restart, no budget extension",
+  "reuse_completed_original_groups": [
+    {
+      "pattern": "test_portable_detail.py",
+      "exit_code": 0,
+      "elapsed_seconds": 9.189235200174153,
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_product_detail_packet.py",
+      "exit_code": 0,
+      "elapsed_seconds": 3.4452810999937356,
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_weighted_source_contract.py",
+      "exit_code": 0,
+      "elapsed_seconds": 4.082476200070232,
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "remaining_patterns": [
+    "test_product_reference_models.py"
+  ],
+  "remaining_test_count": 59,
+  "partial48_progress_not_accepted": true,
+  "conditions": [
+    "Verify original sealed package/file/source/fixture/dependency identities and immutable saved85 receipts; preserve all old stop/claims/files",
+    "Run only the remaining59-test original file once in a fresh60s 2GiB BelowNormal gated Job; use existing run_groups and coordinator, no new tool, no test edits",
+    "Only complete59 receipt plus exact85 source-bound saved receipts may satisfy original144; incomplete/timeout/query/cleanup stops again",
+    "Then original request unchanged: first paired generation/PTX/O1object/nvJitLink and supplied3-case normalAPI 1POST/1GPU, first SDK/GPU attempts only, no prior attempt exists",
+    "Do not remove old stopped state, rewrite false success, increase budgets or reuse partial markers as proof"
+  ],
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "max_api_posts": 1,
+  "max_gpu_dispatches": 1,
+  "report": "coordinate-public-fixed-normal-api-status-v2.json",
+  "full_goal_complete": false
+}
