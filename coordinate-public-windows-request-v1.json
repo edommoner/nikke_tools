@@ -1,0 +1,53 @@
+{
+  "schema": "coordinate-public-windows-request-v1",
+  "scope": "Three explicit declared coordinate cases through normal API; no new default profile claim",
+  "program": "coordinate-fixed",
+  "owner": "a077d3b3cceff66eed9e7b0a3d80ab8505f89f0b0fce294e13870c1cc6932c12",
+  "source_commit": "170cf08dea2b0c55a3558b4e8ad7358d29d2640a",
+  "source": "gpu/product_coordinate_fixed_battle_entry.slang",
+  "archive": "coordinate-public-fixed-v1.zip",
+  "archive_bytes": 12101660,
+  "archive_sha256": "00b679aaba0018034286140455769d9cfd573be32f3e2d290e231b20def9d91e",
+  "api_job": "coordinate-public-fixed-v1-api-job.json",
+  "api_job_sha256": "46dfcaa8f31b825d259a49b4f7e116a2b25c40401251b3ba8f11c1640990dc5d",
+  "api_expected": "coordinate-public-fixed-v1-api-expected.json",
+  "own_ptx_o1_plans_passed": true,
+  "own_validation_deps_passed": true,
+  "own_metal_cpu_tests": 144,
+  "own_fresh_native_and_independent_seal": true,
+  "cases": 3,
+  "max_total_api_posts": 1,
+  "max_total_gpu_dispatches": 1,
+  "retries": 0,
+  "physical_input_bytes": 1388164,
+  "physical_output_bytes": 24384000,
+  "physical_input_sha256": "8d1e0def4770ff3e86e513d82580695fa7ccf5e6be8a73edca3e1b2175ed7744",
+  "physical_output_sha256": "6338f352b8a36c7817374d65da2ee246cce2bd39a5de278d4a8f749674aac920",
+  "expected_readback_chunk_bytes": [
+    16777216,
+    7606784
+  ],
+  "steps": [
+    "Reuse existing coordinator in a new immutable proof root. Verify archive/own CLI, source/golden, deps and fresh compile plans",
+    "CPU bound only changed host tests: test_portable_detail.py67, test_product_detail_packet.py11, test_weighted_source_contract.py7, test_product_reference_models.py59; no native battle preflight or repeating unchanged SDK smoke",
+    "Serial paired generation against own sealed M5, exact origin PTX once, O1 module object once, pinned nvJitLink once. Each child remains60s/2GiB/BelowNormal; each outer180s; fresh Job+gate and complete pre/post observations",
+    "Only admitted saved image plus paired cache: supplied normal API job one POST and one3-case GPU batch, API helper53s. Check exact supplied physical input and entire saved M5 readback, per-member hash, root-clock readback guard and fresh CPU/full HTTP payload equality",
+    "Existing saved-result audit: exact raw parent/member/source/hash/static repack/full result; no extra battle or GPU",
+    "Stop first failure/timeout/cache/source/artifact/observation/missing/query/cleanup/fallback/status/CPU/M5 difference. Preserve all claims/old files and publish small result only. No same-source retry"
+  ],
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "report": "coordinate-public-fixed-normal-api-status-v1.json",
+  "preservation": "Keep all outer/inner statuses and advisory null limits; service, whole environment and overall remain false, not inferred from calculation success",
+  "report_policy": "Share only small JSON diagnostic/result; no raw/compiler/private settings/auth; no new tool/suite",
+  "full_goal_complete": false
+}

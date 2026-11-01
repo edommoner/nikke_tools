@@ -1,0 +1,49 @@
+{
+  "schema": "coordinate-public-cuda-api-expected-v1",
+  "owner": "a077d3b3cceff66eed9e7b0a3d80ab8505f89f0b0fce294e13870c1cc6932c12",
+  "source_commit": "170cf08dea2b0c55a3558b4e8ad7358d29d2640a",
+  "source": "gpu/product_coordinate_fixed_battle_entry.slang",
+  "compute_backend": "cuda_shared_detail",
+  "body_sha256": "46dfcaa8f31b825d259a49b4f7e116a2b25c40401251b3ba8f11c1640990dc5d",
+  "physical_cases": 3,
+  "input_words": 115680,
+  "output_words": 2032000,
+  "physical_input_bytes": 1388164,
+  "physical_output_bytes": 24384000,
+  "physical_input_sha256": "8d1e0def4770ff3e86e513d82580695fa7ccf5e6be8a73edca3e1b2175ed7744",
+  "physical_output_sha256": "6338f352b8a36c7817374d65da2ee246cce2bd39a5de278d4a8f749674aac920",
+  "cases": [
+    {
+      "index": 0,
+      "character": "마르차나",
+      "favorite_stage": 0,
+      "variant": "fixed-seed-2301",
+      "expected_input_sha256": "7eeca53c67a37430a615cc539046d775399a303873209a0adb2ad5b86ee66309",
+      "expected_output_sha256": "c2d0f37bfa17fe608647835632da9d5e83125c108e180950133d34ff5e724a5e",
+      "saved_metal_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-coordinate-public-v1-20261101/api-v2/captures/c3231d83286642b7b74aff2a58a390c9",
+      "declared_model": true
+    },
+    {
+      "index": 1,
+      "character": "벨로타",
+      "favorite_stage": 0,
+      "variant": "fixed-four-live-long",
+      "expected_input_sha256": "cf9d2f95a4144ddd361a9abe9fcb079be71527458230356a38f8aaf665aa3eeb",
+      "expected_output_sha256": "a103bc4afe419ebbdd2bb586f6e4eee1824169d17d06a073bd42a8dc75f37fa8",
+      "saved_metal_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-coordinate-public-v1-20261101/api-add-v2/captures/f3a527adfa07405097e5f3548d55ada0",
+      "declared_model": true
+    },
+    {
+      "index": 2,
+      "character": "벨로타",
+      "favorite_stage": 0,
+      "variant": "fixed-one-outside",
+      "expected_input_sha256": "43b62a2b1dda606945d4ff8a20b1ebf612cf9dfca11cedc7aeaea71578d32eeb",
+      "expected_output_sha256": "a59c8a2c0284872993a8fa2a7b3fe42452b9104a49fe47c27d4f113006359e3b",
+      "saved_metal_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-coordinate-public-v1-20261101/api-add-v2/captures/40fcd81d389c46fcb13b45d315f2c6e4",
+      "declared_model": true
+    }
+  ],
+  "cpu_battles": 0,
+  "gpu_calls": 0
+}
