@@ -1,3 +1,9 @@
+## 共通Windows差分v2の送信受付・開始未確認
+
+共通CLI/既存3helperを実装commit2639cd00として共有済み。新owner ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168、最終P3 archive12,148,119B/SHA41747b61…を輸送ea7a0446へ14fileで共有。自身のdeps/PTX/O1計画成功、全7caller/static input/source graph/v48期待値不変、追加battle/GPU0。Macで管理CPU helper91=7.65秒/従来full158=30.06秒、ID負例と全7分割prepareが成功したownerである。
+
+同じWindows chatへv2要求を1回送信し、send APIはthreadIdを返して受付。ただし直後wait_threadsはhost unavailableで、新turn/live handle/実行開始は未確認。前cursor46は旧turnの記録でv2の実行証拠ではない。次は同chatのstatus/exportか既存packet branchの保存ammo-shared-seven-normal-api-status-v2.jsonを確認するだけ。runを再送しない。旧v1のhelper-contract stopと全claimを保持し、新ownerでは未実行7ケース/CPU91だけ、Job/2GiB/RAM4GiB/時間/優先度/逐次/異常停止を維持。新Metal12条件や標準266はWindows再実行しない。全request/送信範囲/開始未確認はresearch/product-ammo-shared-cuda-request-v2.json。全goal未完了。以下は履歴。
+
 ## 2026-11-01 共通unit CLI選択と既存Windows3helperを汎用化
 
 前ターンのMetal12条件は完了済み、今回はWindows7ケースの実行前stopを解消する準備を実装。既存unit-checkへ--selection FILE/--selection-sha256を追加。owner/全登録group順/ID順/件数を固定し、既存run_groups/selected_coverage/依存検査/freshCPU child/timeoutを再利用。選択成功でも全件unit/native/GPUはfalse。元JSONbyteと正規化入力、全ID、group logを保持する。P1の選択91はtests pathが戻るためsibling fixture import2件で失敗、旧packet/capture/logを保持。run_groups中だけ標準discoveryと同じtests pathを置きfinally復元する修正後、P2で91/158と未知IDのtest前拒否が成功した。
