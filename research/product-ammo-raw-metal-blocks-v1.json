@@ -1,0 +1,3991 @@
+{
+  "schema": "ammo-metal-readback-block-diagnostic-v1",
+  "original_standard_index": 168,
+  "character": "벨벳",
+  "source": "gpu/product_ammo_fixed_battle_entry.slang",
+  "input_sha256": "1bcd913dd2f6dfb61a7db6bf241dcc2d58e00d75883692d8535c832bcf743d13",
+  "output_sha256": "c79d2a07675205c25060416600f34b70760a0a258e1060e110e7670206da0c70",
+  "readback_bytes": 8128000,
+  "block_words": 4096,
+  "blocks": [
+    {
+      "byte_start": 0,
+      "bytes": 16384,
+      "sha256": "1bbcf404a2b0aa91d16b63c1b32578a22d4b5e3b6c13fd80c8e8c5891916b476",
+      "nonzero_words": 156,
+      "first_nonzero_word": 1,
+      "last_nonzero_word": 3846
+    },
+    {
+      "byte_start": 16384,
+      "bytes": 16384,
+      "sha256": "16f6e051de4a8afcb5576838707b20006041233a6dfac9e0fc81e5fb3ff7df3d",
+      "nonzero_words": 64,
+      "first_nonzero_word": 6160,
+      "last_nonzero_word": 7223
+    },
+    {
+      "byte_start": 32768,
+      "bytes": 16384,
+      "sha256": "b41e18017f611f07e0e2135be361de2a600c14b0c8510617fc9d8e9399c4593a",
+      "nonzero_words": 36,
+      "first_nonzero_word": 9744,
+      "last_nonzero_word": 9951
+    },
+    {
+      "byte_start": 49152,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 65536,
+      "bytes": 16384,
+      "sha256": "fc33fc09787b587913906a2fd33992ae1c31713b912513ec3e48cb91f5d3f346",
+      "nonzero_words": 8,
+      "first_nonzero_word": 18080,
+      "last_nonzero_word": 20275
+    },
+    {
+      "byte_start": 81920,
+      "bytes": 16384,
+      "sha256": "81e9396bd6c5bffd9c98a764304811680f2c4bfd109c7583fe971133d0da7ca5",
+      "nonzero_words": 82,
+      "first_nonzero_word": 21088,
+      "last_nonzero_word": 24415
+    },
+    {
+      "byte_start": 98304,
+      "bytes": 16384,
+      "sha256": "a380998529a312dab69c920f820e484ca5ae987ed042dc19b4e61b5dbe7a0777",
+      "nonzero_words": 457,
+      "first_nonzero_word": 26240,
+      "last_nonzero_word": 27629
+    },
+    {
+      "byte_start": 114688,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 131072,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 147456,
+      "bytes": 16384,
+      "sha256": "39e3f401911606c66196fe3671d8e635fbc06ea5e2d05aed5f97a9e532002475",
+      "nonzero_words": 20,
+      "first_nonzero_word": 39296,
+      "last_nonzero_word": 39325
+    },
+    {
+      "byte_start": 163840,
+      "bytes": 16384,
+      "sha256": "8b8f529419fb65b57611b40b37b8fc9394695fcc37afeb14c94362d5192cf8a8",
+      "nonzero_words": 52,
+      "first_nonzero_word": 41856,
+      "last_nonzero_word": 44509
+    },
+    {
+      "byte_start": 180224,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 196608,
+      "bytes": 16384,
+      "sha256": "4f19459518369bd1a6b86e0df3f05304b0ab7c0e032d7588a0a9b4f404d1a333",
+      "nonzero_words": 3,
+      "first_nonzero_word": 52456,
+      "last_nonzero_word": 52460
+    },
+    {
+      "byte_start": 212992,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 229376,
+      "bytes": 16384,
+      "sha256": "2874da6d5440e9c60e96335664bcaa9b5ad8e6e0573451f456f18a9f4a3aac67",
+      "nonzero_words": 514,
+      "first_nonzero_word": 59624,
+      "last_nonzero_word": 60655
+    },
+    {
+      "byte_start": 245760,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 262144,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 278528,
+      "bytes": 16384,
+      "sha256": "26fa6f0dab756c39948ebc6b368cb8fec2bc990f4a4b9c5b370208ac2a002b03",
+      "nonzero_words": 10,
+      "first_nonzero_word": 69634,
+      "last_nonzero_word": 69646
+    },
+    {
+      "byte_start": 294912,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 311296,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 327680,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 344064,
+      "bytes": 16384,
+      "sha256": "3ae0185fa3f437add46f4740712ac6200509b9761e9037be6439756ac036a7c2",
+      "nonzero_words": 2,
+      "first_nonzero_word": 86024,
+      "last_nonzero_word": 86025
+    },
+    {
+      "byte_start": 360448,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 376832,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 393216,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 409600,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 425984,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 442368,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 458752,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 475136,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 491520,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 507904,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 524288,
+      "bytes": 16384,
+      "sha256": "bfee5adee92610e45bda8301d193d63542cf07e4605bdc2a85471e1b33bcc8bd",
+      "nonzero_words": 625,
+      "first_nonzero_word": 133840,
+      "last_nonzero_word": 134471
+    },
+    {
+      "byte_start": 540672,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 557056,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 573440,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 589824,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 606208,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 622592,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 638976,
+      "bytes": 16384,
+      "sha256": "dbf6574315c2df04afd3209e93d8fd93e82d88849b4451792d46dc9b1e70a239",
+      "nonzero_words": 12,
+      "first_nonzero_word": 159745,
+      "last_nonzero_word": 162586
+    },
+    {
+      "byte_start": 655360,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 671744,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 688128,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 704512,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 720896,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 737280,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 753664,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 770048,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 786432,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 802816,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 819200,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 835584,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 851968,
+      "bytes": 16384,
+      "sha256": "96027fd07d9483378317ac5241075a1325e38f78b470300b121f7bb0154a510d",
+      "nonzero_words": 12,
+      "first_nonzero_word": 215826,
+      "last_nonzero_word": 216207
+    },
+    {
+      "byte_start": 868352,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 884736,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 901120,
+      "bytes": 16384,
+      "sha256": "8f77a9a202c37bb252b1783d7468ef5dfe3d4b109afc5d03ef015737ca05f874",
+      "nonzero_words": 17,
+      "first_nonzero_word": 225280,
+      "last_nonzero_word": 227361
+    },
+    {
+      "byte_start": 917504,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 933888,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 950272,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 966656,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 983040,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 999424,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1015808,
+      "bytes": 16384,
+      "sha256": "e165a5b2dfd0c1e642bdb549591b6855f1285f64ec10f065c429c2155b68c2cc",
+      "nonzero_words": 6,
+      "first_nonzero_word": 253952,
+      "last_nonzero_word": 257045
+    },
+    {
+      "byte_start": 1032192,
+      "bytes": 16384,
+      "sha256": "b6063878716b3d506e9dbeb29632227afc781b20a1ae41749ac8efa17b598407",
+      "nonzero_words": 3,
+      "first_nonzero_word": 262131,
+      "last_nonzero_word": 262133
+    },
+    {
+      "byte_start": 1048576,
+      "bytes": 16384,
+      "sha256": "bc355195e81dd894ac78ff4675ec99e4d6dd00eb4938aa97be798c87b35e3190",
+      "nonzero_words": 1,
+      "first_nonzero_word": 262144,
+      "last_nonzero_word": 262144
+    },
+    {
+      "byte_start": 1064960,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1081344,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1097728,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1114112,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1130496,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1146880,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1163264,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1179648,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1196032,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1212416,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1228800,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1245184,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1261568,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1277952,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1294336,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1310720,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1327104,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1343488,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1359872,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1376256,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1392640,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1409024,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1425408,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1441792,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1458176,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1474560,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1490944,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1507328,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1523712,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1540096,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1556480,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1572864,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1589248,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1605632,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1622016,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1638400,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1654784,
+      "bytes": 16384,
+      "sha256": "eb34a3dac77fac5c1972e1a2a3f3cba2bb840b056e2173ddd8eedfc4690be80e",
+      "nonzero_words": 1,
+      "first_nonzero_word": 413712,
+      "last_nonzero_word": 413712
+    },
+    {
+      "byte_start": 1671168,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1687552,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1703936,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1720320,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1736704,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1753088,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1769472,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1785856,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1802240,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1818624,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1835008,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1851392,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1867776,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1884160,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1900544,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1916928,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1933312,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1949696,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1966080,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1982464,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 1998848,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2015232,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2031616,
+      "bytes": 16384,
+      "sha256": "4b007df27fcb779f5b74b6c1c00f265da3e15940d559ac199b85e30290f5bda8",
+      "nonzero_words": 7,
+      "first_nonzero_word": 509488,
+      "last_nonzero_word": 509500
+    },
+    {
+      "byte_start": 2048000,
+      "bytes": 16384,
+      "sha256": "7aeaf00db12ab0a94722dbf3bfe1210fc6da7c158c9eba1d9e7be81f4f00cb08",
+      "nonzero_words": 6,
+      "first_nonzero_word": 512176,
+      "last_nonzero_word": 512187
+    },
+    {
+      "byte_start": 2064384,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2080768,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2097152,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2113536,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2129920,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2146304,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2162688,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2179072,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2195456,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2211840,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2228224,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2244608,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2260992,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2277376,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2293760,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2310144,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2326528,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2342912,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2359296,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2375680,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2392064,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2408448,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2424832,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2441216,
+      "bytes": 16384,
+      "sha256": "d4c7c090aeb208c2d3acb739313eec83096f0aa5a24398abc70761cdbd95339e",
+      "nonzero_words": 8,
+      "first_nonzero_word": 611840,
+      "last_nonzero_word": 612136
+    },
+    {
+      "byte_start": 2457600,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2473984,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2490368,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2506752,
+      "bytes": 16384,
+      "sha256": "b0a0246c5b5aab9189f72525731ebb6b9f7060e0f16d1b0ab6ee46980fae67a1",
+      "nonzero_words": 2166,
+      "first_nonzero_word": 628504,
+      "last_nonzero_word": 630783
+    },
+    {
+      "byte_start": 2523136,
+      "bytes": 16384,
+      "sha256": "f0c37fb17802ae3a09897611a46b6e7159b95888fdd113b0d712f4f22a9ce7fd",
+      "nonzero_words": 3745,
+      "first_nonzero_word": 630784,
+      "last_nonzero_word": 634879
+    },
+    {
+      "byte_start": 2539520,
+      "bytes": 16384,
+      "sha256": "f7960aec166d88a199e1f31951be6cf9273c76d3e70c1d5423a32ad5fdf1492e",
+      "nonzero_words": 3694,
+      "first_nonzero_word": 634880,
+      "last_nonzero_word": 638975
+    },
+    {
+      "byte_start": 2555904,
+      "bytes": 16384,
+      "sha256": "fa87891f527d207bc477667df92bd9a1b0f9123b855b63828a32efe9e2190f8b",
+      "nonzero_words": 3690,
+      "first_nonzero_word": 638976,
+      "last_nonzero_word": 643071
+    },
+    {
+      "byte_start": 2572288,
+      "bytes": 16384,
+      "sha256": "e7537b6ff23c7aacb9aeb4434f831bdbb90bd8ce1616e26554b88fb0c86392c0",
+      "nonzero_words": 3581,
+      "first_nonzero_word": 643072,
+      "last_nonzero_word": 647167
+    },
+    {
+      "byte_start": 2588672,
+      "bytes": 16384,
+      "sha256": "f901787457f4692f3c7f64f9a26cdb05c30c535b8fea8314935741a9ec0e2d4b",
+      "nonzero_words": 2788,
+      "first_nonzero_word": 647168,
+      "last_nonzero_word": 651263
+    },
+    {
+      "byte_start": 2605056,
+      "bytes": 16384,
+      "sha256": "ab6856aa8bc4149b83ece42c931ed5b66372434d47100f287d6dc6be54244190",
+      "nonzero_words": 1376,
+      "first_nonzero_word": 651264,
+      "last_nonzero_word": 653540
+    },
+    {
+      "byte_start": 2621440,
+      "bytes": 16384,
+      "sha256": "b95925dd0387b594b444913c8dcf19bd00ac21bb4b812a88d217ed65d66d228e",
+      "nonzero_words": 141,
+      "first_nonzero_word": 655360,
+      "last_nonzero_word": 655627
+    },
+    {
+      "byte_start": 2637824,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2654208,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2670592,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2686976,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2703360,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2719744,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2736128,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2752512,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2768896,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2785280,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2801664,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2818048,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2834432,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2850816,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2867200,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 2883584,
+      "bytes": 16384,
+      "sha256": "7a274aa89bdb83d14d44abaa2164c33bd793e97c49ffc2e773c21c4f9237502e",
+      "nonzero_words": 1522,
+      "first_nonzero_word": 720912,
+      "last_nonzero_word": 724985
+    },
+    {
+      "byte_start": 2899968,
+      "bytes": 16384,
+      "sha256": "5339e45d109b07d9f2a9b2d89ad8f760dda4050fe2bd4b46ac44c454b6f73459",
+      "nonzero_words": 1538,
+      "first_nonzero_word": 724992,
+      "last_nonzero_word": 729081
+    },
+    {
+      "byte_start": 2916352,
+      "bytes": 16384,
+      "sha256": "078bb0f05c34f3ef90a0c2e7c6b19feca0f35aba13ba5222effbca5b9fc6c400",
+      "nonzero_words": 1538,
+      "first_nonzero_word": 729089,
+      "last_nonzero_word": 733177
+    },
+    {
+      "byte_start": 2932736,
+      "bytes": 16384,
+      "sha256": "6b1bf3a521b03ac888d3aaecf52726adc50c0c97fe167cd45655de3674253831",
+      "nonzero_words": 1539,
+      "first_nonzero_word": 733184,
+      "last_nonzero_word": 737273
+    },
+    {
+      "byte_start": 2949120,
+      "bytes": 16384,
+      "sha256": "476f143baab5037850976708970bb19422e39b9a5bd84f0030cfe0c1ca950549",
+      "nonzero_words": 1540,
+      "first_nonzero_word": 737280,
+      "last_nonzero_word": 741369
+    },
+    {
+      "byte_start": 2965504,
+      "bytes": 16384,
+      "sha256": "71dbfe86990be1cdf3b7246c8d1983c184f9a454a075b0e3c51ea7f9855f89c3",
+      "nonzero_words": 1537,
+      "first_nonzero_word": 741377,
+      "last_nonzero_word": 745465
+    },
+    {
+      "byte_start": 2981888,
+      "bytes": 16384,
+      "sha256": "50fcb45680f9a571a41cf0afc637ac026d58a96d64c3e834bbb50f5d12b30e09",
+      "nonzero_words": 1026,
+      "first_nonzero_word": 745473,
+      "last_nonzero_word": 748201
+    },
+    {
+      "byte_start": 2998272,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3014656,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3031040,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3047424,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3063808,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3080192,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3096576,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3112960,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3129344,
+      "bytes": 16384,
+      "sha256": "15dcb827ca3959f45683b8ab7a028358a0b50a4b5e0f1af98e6e76f28ee1b8ec",
+      "nonzero_words": 9,
+      "first_nonzero_word": 786416,
+      "last_nonzero_word": 786431
+    },
+    {
+      "byte_start": 3145728,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3162112,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3178496,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3194880,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3211264,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3227648,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3244032,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3260416,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3276800,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3293184,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3309568,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3325952,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3342336,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3358720,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3375104,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3391488,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3407872,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3424256,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3440640,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3457024,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3473408,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3489792,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3506176,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3522560,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3538944,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3555328,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3571712,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3588096,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3604480,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3620864,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3637248,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3653632,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3670016,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3686400,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3702784,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3719168,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3735552,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3751936,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3768320,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3784704,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3801088,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3817472,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3833856,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3850240,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3866624,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3883008,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3899392,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3915776,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3932160,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3948544,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3964928,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3981312,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 3997696,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4014080,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4030464,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4046848,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4063232,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4079616,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4096000,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4112384,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4128768,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4145152,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4161536,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4177920,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4194304,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4210688,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4227072,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4243456,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4259840,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4276224,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4292608,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4308992,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4325376,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4341760,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4358144,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4374528,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4390912,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4407296,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4423680,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4440064,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4456448,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4472832,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4489216,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4505600,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4521984,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4538368,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4554752,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4571136,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4587520,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4603904,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4620288,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4636672,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4653056,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4669440,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4685824,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4702208,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4718592,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4734976,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4751360,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4767744,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4784128,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4800512,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4816896,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4833280,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4849664,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4866048,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4882432,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4898816,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4915200,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4931584,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4947968,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4964352,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4980736,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 4997120,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5013504,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5029888,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5046272,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5062656,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5079040,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5095424,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5111808,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5128192,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5144576,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5160960,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5177344,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5193728,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5210112,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5226496,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5242880,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5259264,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5275648,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5292032,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5308416,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5324800,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5341184,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5357568,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5373952,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5390336,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5406720,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5423104,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5439488,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5455872,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5472256,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5488640,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5505024,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5521408,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5537792,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5554176,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5570560,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5586944,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5603328,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5619712,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5636096,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5652480,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5668864,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5685248,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5701632,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5718016,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5734400,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5750784,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5767168,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5783552,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5799936,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5816320,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5832704,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5849088,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5865472,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5881856,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5898240,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5914624,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5931008,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5947392,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5963776,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5980160,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 5996544,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6012928,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6029312,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6045696,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6062080,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6078464,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6094848,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6111232,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6127616,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6144000,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6160384,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6176768,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6193152,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6209536,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6225920,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6242304,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6258688,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6275072,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6291456,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6307840,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6324224,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6340608,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6356992,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6373376,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6389760,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6406144,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6422528,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6438912,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6455296,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6471680,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6488064,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6504448,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6520832,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6537216,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6553600,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6569984,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6586368,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6602752,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6619136,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6635520,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6651904,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6668288,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6684672,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6701056,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6717440,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6733824,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6750208,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6766592,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6782976,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6799360,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6815744,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6832128,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6848512,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6864896,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6881280,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6897664,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6914048,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6930432,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6946816,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6963200,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6979584,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 6995968,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7012352,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7028736,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7045120,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7061504,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7077888,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7094272,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7110656,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7127040,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7143424,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7159808,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7176192,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7192576,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7208960,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7225344,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7241728,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7258112,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7274496,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7290880,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7307264,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7323648,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7340032,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7356416,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7372800,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7389184,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7405568,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7421952,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7438336,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7454720,
+      "bytes": 16384,
+      "sha256": "1b5301be10e7509bc2ea3678e8b706d110490b684bb52c5e84118e059ef87397",
+      "nonzero_words": 1,
+      "first_nonzero_word": 1867648,
+      "last_nonzero_word": 1867648
+    },
+    {
+      "byte_start": 7471104,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7487488,
+      "bytes": 16384,
+      "sha256": "0fe031936bdd4777a605a699c485483bb214cb9406740ca54e176547245378f7",
+      "nonzero_words": 2,
+      "first_nonzero_word": 1872080,
+      "last_nonzero_word": 1872082
+    },
+    {
+      "byte_start": 7503872,
+      "bytes": 16384,
+      "sha256": "fbc9a10934286839cb8521dde85d726113fc53a3599f17242b072b0a7ba8f9d8",
+      "nonzero_words": 29,
+      "first_nonzero_word": 1879264,
+      "last_nonzero_word": 1879349
+    },
+    {
+      "byte_start": 7520256,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7536640,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7553024,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7569408,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7585792,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7602176,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7618560,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7634944,
+      "bytes": 16384,
+      "sha256": "2b3839fb2a25f1b81ce312fe2e8e12c3f2f7f39103884b53c526abc71d66519f",
+      "nonzero_words": 400,
+      "first_nonzero_word": 1912032,
+      "last_nonzero_word": 1912831
+    },
+    {
+      "byte_start": 7651328,
+      "bytes": 16384,
+      "sha256": "d3f8d8f8da64c7713aeadb78000152de7ce6612626e32b76fd2993f0a3b45c50",
+      "nonzero_words": 2048,
+      "first_nonzero_word": 1912832,
+      "last_nonzero_word": 1916927
+    },
+    {
+      "byte_start": 7667712,
+      "bytes": 16384,
+      "sha256": "7e2005c65daa8a7519d67d4ab878c6df9943ecd2711073e80a54d150685a32c0",
+      "nonzero_words": 2048,
+      "first_nonzero_word": 1916928,
+      "last_nonzero_word": 1921023
+    },
+    {
+      "byte_start": 7684096,
+      "bytes": 16384,
+      "sha256": "d050c35c334c382d19c1f617c4e90e9411c58a78a1f76e0bacced34ef2693387",
+      "nonzero_words": 2048,
+      "first_nonzero_word": 1921024,
+      "last_nonzero_word": 1925119
+    },
+    {
+      "byte_start": 7700480,
+      "bytes": 16384,
+      "sha256": "0abbf9ed188be2ef012455fae421f4cb914868c2afb6b0711656535fbab29459",
+      "nonzero_words": 2048,
+      "first_nonzero_word": 1925120,
+      "last_nonzero_word": 1929215
+    },
+    {
+      "byte_start": 7716864,
+      "bytes": 16384,
+      "sha256": "c67cedea7ac58eb5ef30ec4f827056ec69ab055e21ee9b8592986c2693d7edab",
+      "nonzero_words": 2048,
+      "first_nonzero_word": 1929216,
+      "last_nonzero_word": 1933311
+    },
+    {
+      "byte_start": 7733248,
+      "bytes": 16384,
+      "sha256": "f827f8ea3ee3b482f58f5acf867bd331b75c6f259c3cced3536ae6201e3d15a3",
+      "nonzero_words": 2048,
+      "first_nonzero_word": 1933312,
+      "last_nonzero_word": 1937407
+    },
+    {
+      "byte_start": 7749632,
+      "bytes": 16384,
+      "sha256": "fad451f74c9befb20db25acf97476f4e2858c0ef0366e8c246e047eaa9181127",
+      "nonzero_words": 2048,
+      "first_nonzero_word": 1937408,
+      "last_nonzero_word": 1941503
+    },
+    {
+      "byte_start": 7766016,
+      "bytes": 16384,
+      "sha256": "5632edb0487024df65b625ff753f4c58ab089999a3a5306b480117b927f17097",
+      "nonzero_words": 1552,
+      "first_nonzero_word": 1941504,
+      "last_nonzero_word": 1944607
+    },
+    {
+      "byte_start": 7782400,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7798784,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7815168,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7831552,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7847936,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7864320,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7880704,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7897088,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7913472,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7929856,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7946240,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7962624,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7979008,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 7995392,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 8011776,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 8028160,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 8044544,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 8060928,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 8077312,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 8093696,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 8110080,
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    },
+    {
+      "byte_start": 8126464,
+      "bytes": 1536,
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "nonzero_words": 0,
+      "first_nonzero_word": null,
+      "last_nonzero_word": null
+    }
+  ],
+  "raw_buffer_included": false,
+  "additional_gpu_calls": 0,
+  "additional_cpu_battles": 0
+}
