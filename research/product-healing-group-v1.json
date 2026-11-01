@@ -442,5 +442,24 @@
     "original_api_input_and_output_unchanged": true,
     "previous_28_baselines_unchanged": true,
     "registered_baselines": 29
+  },
+  "accumulate_sealed_release": {
+    "package_id": "bf25448d1d8be93feaf66cb4b8ce0970f51d8abf8dcdbe8d085032f383aba7fe",
+    "source_commit": "98198a7b",
+    "archive_bytes": 12086063,
+    "archive_sha256": "f0a786489292295a518e7259a44dbbcd65077b78c27d0f529bd074b90875c7f3",
+    "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-healing-group-v1-20261101/release-accumulate-v1",
+    "own_ptx_o1_plans_passed": true,
+    "own_validation_dependencies_passed": true,
+    "windows_requested": false
+  },
+  "cuda_static_preparation": {
+    "directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-healing-group-v1-20261101/cuda-preparation-v1",
+    "cases": 4,
+    "cpu_battles": 0,
+    "gpu_calls": 0,
+    "original_metal_all_input_and_readback_expectations_retained": true,
+    "compute_backend": "cuda_shared_detail",
+    "windows_requested": false
   }
 }

@@ -1,0 +1,78 @@
+{
+  "schema": "saved-ammo-cuda-metal-block-diff-v1",
+  "source": "gpu/product_ammo_fixed_battle_entry.slang",
+  "input_sha256": "1bcd913dd2f6dfb61a7db6bf241dcc2d58e00d75883692d8535c832bcf743d13",
+  "cuda_output_sha256": "65e21f9bffdaa5a366c5bb949902428f057faeda086cc8116cfc828ff690b19a",
+  "metal_output_sha256": "c79d2a07675205c25060416600f34b70760a0a258e1060e110e7670206da0c70",
+  "bytes": 8128000,
+  "block_words": 4096,
+  "block_bytes": 16384,
+  "blocks": 497,
+  "equal_blocks": 494,
+  "changed_blocks": [
+    {
+      "block_index": 0,
+      "byte_start": 0,
+      "byte_length": 16384,
+      "metal": {
+        "sha256": "1bbcf404a2b0aa91d16b63c1b32578a22d4b5e3b6c13fd80c8e8c5891916b476",
+        "nonzero_word_count": 156,
+        "first_nonzero_word_index": 1,
+        "last_nonzero_word_index": 3846
+      },
+      "cuda": {
+        "sha256": "6d70ab610b7ba5e5e015c3d3db0288152bd238e922fbb1b75e99fe9c428d865c",
+        "nonzero_word_count": 157,
+        "first_nonzero_word_index_global": 1,
+        "last_nonzero_word_index_global": 3846
+      }
+    },
+    {
+      "block_index": 39,
+      "byte_start": 638976,
+      "byte_length": 16384,
+      "metal": {
+        "sha256": "dbf6574315c2df04afd3209e93d8fd93e82d88849b4451792d46dc9b1e70a239",
+        "nonzero_word_count": 12,
+        "first_nonzero_word_index": 159745,
+        "last_nonzero_word_index": 162586
+      },
+      "cuda": {
+        "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+        "nonzero_word_count": 0,
+        "first_nonzero_word_index_global": null,
+        "last_nonzero_word_index_global": null
+      }
+    },
+    {
+      "block_index": 52,
+      "byte_start": 851968,
+      "byte_length": 16384,
+      "metal": {
+        "sha256": "96027fd07d9483378317ac5241075a1325e38f78b470300b121f7bb0154a510d",
+        "nonzero_word_count": 12,
+        "first_nonzero_word_index": 215826,
+        "last_nonzero_word_index": 216207
+      },
+      "cuda": {
+        "sha256": "1ec5207f29f23370e58be38ee367bd735be0bce72fb98c371c36553bdcd7395a",
+        "nonzero_word_count": 11,
+        "first_nonzero_word_index_global": 215826,
+        "last_nonzero_word_index_global": 216207
+      }
+    }
+  ],
+  "all_blocks_equal": false,
+  "metal_reference_commit": "f576a21a78ed34525bd70f4bb192a8edf3d06c6e",
+  "metal_reference_file": "research/product-ammo-raw-metal-blocks-v1.json",
+  "metal_reference_sha256": "eac6b20b3e4911ee7c69c33e1d58c63e35129225626a38ae46c68a2ab6e37714",
+  "cuda_blocks_file": "standard-special-ammo-saved-blocks4096-v1.json",
+  "cuda_blocks_sha256": "41c633372af2a190e9140e8bc12c4c463294a354d76e72114f17a0a9af3f635d",
+  "raw_buffer_shared": false,
+  "additional_gpu_calls": 0,
+  "additional_cpu_battles": 0,
+  "additional_posts": 0,
+  "calculation_verified": false,
+  "root_cause": "unknown",
+  "scope": "Saved fingerprints only; nonzero index field names retain each original reader convention; no raw values or new execution"
+}

@@ -1,3 +1,15 @@
+## 2026-11-01 標準CUDA261/266を原本照合、Velvetの時計readback欠落を検出
+
+Windows同turn01a1954fはterminal。原本cdf5cdde9bb43fbc19c9437e15e9a0a5adcb3a6dの3JSONを公表SHAと照合し保存。全17profileの元ID/育成/input/元M5 output、6owner/archive/paired正規化基準、8親batchのbyte/hash/launch/chunk、79段階の予算/Job pre/post/empty/missing0をMacで確認。16件は全CPU/GPU/APIと元M5全raw一致し、標準CUDA厳密261/266（最後のMetal262/266）。Windows payloadだけなら17件一致だがVelvet1件を厳密認定へ含めない。6programのsource7d4000f4/dae26058、各ownerを現rootへ付替えない。
+
+18 SDK外側exit2/reported falseを保持。対応するSDK内側は全exit0、artifact出所と計算は成立するが各program/service/whole/overallfalseは変更しない。8POST/8GPU/retry0、最大Job peak2,024,624,128bytes、Node8/8停止。旧13,792file/stop/claimを保持。計算一致と環境全体の認定を区別する。
+
+最後ammo-fixed/Velvet（標準168）はGPU status0・CUDA/freshCPU/API全応答一致だがinput1bcd913d…に対するCUDA readback65e21f9b…が元M5c79d2a07…と不一致で停止。再実行0。保存readbackの497ブロック中494一致、byte開始0/638976/851968の3ブロック差。CUDAの638976..655360は全zero、元M5には世界時計のmandatory root-start word160528と履歴12非zeroがある。単なる表示差と断定せず、rootcause未確定。small原本/指紋で再計算なしに調査する。
+
+製品decodeへ共通時計完了の検査を追加。入力からliteral node数だけmetadataへ保持し、保存出力の有界履歴数/root-start [32,0,0,0]/全node終了を要求。静止ボスでも欠落をUnsupportedPortableにし既存CPUfallbackへ渡す。GPU/効果/数値/期待値/許容差/CPU正本変更0。最初はheader履歴数をnode数と誤解した候補が既存保存Metalで拒否され、GPU前に訂正。合成テストは明示的synthetic root-startを持つwireへ更新、GPU証拠にしない。製品11/detail67/履歴7成功。全266をbattle/GPU禁止で静的再packし262 input全bytes保持、全262保存M5が新guardに成功、既存4fallback保持。これは保存再投影/ホストguardの検査で新owner GPU認定ではない。根本の共通実行器修正は未完了。
+
+原本proofs/product-ammo-world-clock-diagnosis-v1-20261101、small記録research/product-standard-special-import-v1.jsonとproduct-world-clock-readback-guard-v1.json、Windows原本/差分もresearchへ元bytes保持。次は保存fingerprintを細分化してVelvetの欠落・差分を共通ソースの具体箇所へ特定する。Windowsはidle、追加SDK/GPU/POST未依頼。敵回復group両modeのsealed配布（固定8931c837/source79d67a55、実蓄積bf25448d/source98198a7b）とown PTX/O1 60秒2GiB計画/deps/元M5全input/readback保持した4静的API入力は準備済みだが、この既存差分を先に扱う。全goal未完了、4default/公開sampling/未接続合成を保持。以下は履歴。
+
 ## 2026-11-01 敵回復＋射撃グループの実蓄積もCLI独立基準へ登録
 
 source b0a11fe9の不変owner09e860ab2f4027aadbe40b7a14de0543b62bf58c3a53594c173d500488d8a359自身でown140 CPU/fresh native/実M5実蓄積30秒/GPU禁止fresh独立seal成功。元通常APIのinput/output全bytes一致。v35へ実蓄積groupだけ追加し旧28基準完全保持、厳密88cda inverse/SHA同時更新・履歴7/製品10成功。新標準profile/GPU CUDA加算0。原本proofs/product-healing-group-v1-20261101/accumulate-v1、small記録は既存research/product-healing-group-v1.jsonへ統合。固定release8931c837はsource79d67a55のまま保持し付替えない。

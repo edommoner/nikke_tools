@@ -10,6 +10,15 @@ import portable_product_artifact as artifacts
 from portable_projectile_roster_input import compile_projectile_battle
 
 class PortableDetail(unittest.TestCase):
+    @staticmethod
+    def synthetic_stationary_readback(words):
+        # Transport fixtures model the scheduler's mandatory root-start marker;
+        # they remain synthetic bytes, never real GPU calculation evidence.
+        from portable_specs import LIMITS as L
+        block=array.array('I',[0])*words;head=L['WORLD_FRAME_OUTPUT_BASE']
+        block[head+1]=1;block[head+784]=32
+        return block.tobytes()
+
     def test_product_keeps_all_equipment_rows_and_uses_native_carrier_lifecycle(self):
         from portable_original_identity_inventory import selected_profile_bodies
         from portable_specs import LIMITS as L
@@ -264,6 +273,7 @@ class PortableDetail(unittest.TestCase):
             before=copy.deepcopy(prepared);_,_,_,words,meta=product.compile_product(prepared)
             self.assertEqual(prepared,before)
         block=array.array('I',[0])*limits['WORLD_FRAME_OUTPUT_WORDS'];head=limits['WORLD_FRAME_OUTPUT_BASE']
+        block[head+1]=1;block[head+784]=32
         number=lambda value:product.struct.unpack('<II',product.struct.pack('<d',value))
         events=[(1,0,0,0.),(1,1,0,.5),(1,2,0,.5),(3,1,0,.5),(4,0,0,.75),(5,2,1,.8),
                 (2,0,2,1.),(2,1,4,1.),(2,2,4,1.)]
@@ -563,7 +573,7 @@ class PortableDetail(unittest.TestCase):
             def provider(source,folder):
                 self.assertEqual(source,product.SOURCE);events.append('admission');yield receipt
             def execute(source,entry,packed,iw,ow,backend,*,readback_path):
-                events.append('gpu');raw=bytes(ow*4);readback_path.write_bytes(raw)
+                events.append('gpu');raw=self.synthetic_stationary_readback(ow);readback_path.write_bytes(raw)
                 return None,dict(backend='cuda',gpu_execution_verified=True,input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),transport=dict(device='mock',cases=1,command_status='completed',host_dispatch_seconds=.1,compile_artifact=receipt if matching else {}))
             def cpu(request):events.append('cpu');return copy.deepcopy(expected)
             with tempfile.TemporaryDirectory() as folder:
@@ -626,7 +636,7 @@ class PortableDetail(unittest.TestCase):
             self.assertEqual(image,fixture.image.read_bytes());self.assertEqual(receipt,state['receipt'])
             if attempt_forbidden:
                 with self.assertRaisesRegex(RuntimeError,'forbidden'):backend.compile_cuda_artifact(None,b'',[])
-            events.append('gpu');raw=bytes(ow*4);readback_path.write_bytes(raw)
+            events.append('gpu');raw=self.synthetic_stationary_readback(ow);readback_path.write_bytes(raw)
             return None,dict(backend='cuda',gpu_execution_verified=True,input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),transport=dict(device='mock; no actual GPU',cases=1,command_status='completed',host_dispatch_seconds=.1,compile_artifact=receipt))
         def cpu(request):events.append('cpu');return copy.deepcopy(expected)
         for attempt_forbidden in (False,True):
@@ -658,7 +668,7 @@ class PortableDetail(unittest.TestCase):
                 for stage,state,facts in rows:journal.emit(stage,state,**facts)
                 yield receipt
             def execute(source,entry,packed,iw,ow,backend,*,readback_path):
-                raw=bytes(ow*4);readback_path.write_bytes(raw)
+                raw=self.synthetic_stationary_readback(ow);readback_path.write_bytes(raw)
                 return None,dict(transport=dict(compile_artifact=receipt))
             with tempfile.TemporaryDirectory() as folder:
                 path=self.descriptor(folder)
@@ -697,7 +707,7 @@ class PortableDetail(unittest.TestCase):
         def execute(source,entry,packed,iw,ow,actual_backend,*,readback_path):
             image,receipt=backend.compile_cuda_source(f.source);self.assertEqual(image,f.image.read_bytes())
             self.assertFalse(receipt['identity']['historical_link_environment']['preservation_verified'])
-            raw=bytes(ow*4);readback_path.write_bytes(raw)
+            raw=self.synthetic_stationary_readback(ow);readback_path.write_bytes(raw)
             return None,dict(backend='cuda',gpu_execution_verified=True,input_sha256=saved.digest(packed),output_sha256=saved.digest(raw),transport=dict(device='mock; not GPU evidence',cases=1,command_status='completed',host_dispatch_seconds=.1,compile_artifact=receipt))
         with patch.dict(os.environ,{artifacts.ENV:str(path),'NIKKE_DETAIL_CAPTURE_ROOT':str(f.root/'requests'),'NIKKE_SLANG_GENERATION_CACHE':str(f.root)}),\
              patch.object(product.platform,'system',return_value='Windows'),patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
@@ -812,7 +822,7 @@ class PortableDetail(unittest.TestCase):
                 if backend=='cuda':
                     self.assertEqual({k:os.environ[k] for k in ('NIKKE_CUDA_ARTIFACT','NIKKE_CUDA_CACHE_REQUIRED','NIKKE_CUDA_PTXAS_OPT_LEVEL','NIKKE_SLANG_GENERATION_REQUIRED')},
                         dict(NIKKE_CUDA_ARTIFACT='cubin',NIKKE_CUDA_CACHE_REQUIRED='1',NIKKE_CUDA_PTXAS_OPT_LEVEL='1',NIKKE_SLANG_GENERATION_REQUIRED='1'))
-                raw=bytes(ow*4);readback_path.write_bytes(raw)
+                raw=self.synthetic_stationary_readback(ow);readback_path.write_bytes(raw)
                 return None,dict(backend=backend,gpu_execution_verified=True,input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),
                     transport=dict(device='mock transport; not GPU evidence',cases=1,command_status='completed',**{'gpu_seconds' if backend=='metal' else 'host_dispatch_seconds':.1}))
             def cpu(request):

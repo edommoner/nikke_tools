@@ -63,6 +63,28 @@ def verified_transport(evidence, backend, *, cases=1):
 
 
 def compile_product(prepared):
+    source,iw,ow,words,metadata=_compile_product(prepared)
+    from portable_specs import LIMITS as L
+    at=L['WORLD_FRAME_INPUT_BASE']
+    if len(words)>at and words[at]!=0:
+        if words[at]!=0x57533031 or not 1<=words[at+1]<=32:
+            raise UnsupportedPortable('Invalid shared world clock input contract')
+        metadata['product_world_frame_contract']=dict(nodes=words[at+1])
+    return source,iw,ow,words,metadata
+
+
+def validate_world_frame_readback(block,metadata):
+    """Every compiled world, including an empty boss, must retain its clock."""
+    contract=metadata.get('product_world_frame_contract')
+    if contract is None:return
+    from portable_specs import LIMITS as L
+    base=L['WORLD_FRAME_OUTPUT_BASE'];count=contract['nodes']
+    if (len(block)<base+788 or block[base]!=0 or not 1<=block[base+1]<=512 or list(block[base+784:base+788])!=[32,0,0,0]
+        or any(block[base+16+i*24]!=0 for i in range(count))):
+        raise UnsupportedPortable('Shared world clock readback is missing or incomplete; the GPU result is rejected')
+
+
+def _compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
     from portable_product_cover import required as cover_required,compile_product as compile_cover
     from portable_product_movement import required as movement_required,compile_product as compile_movement
@@ -197,6 +219,7 @@ def decode_payload(body, prepared, run, metadata, block):
     ammo_attempts=None
     if not block or block[0]!=0:
         raise UnsupportedPortable('Shared battle status: '+str(block[0] if block else 'missing')+(' (history capacity exceeded)' if block and block[0] in (2,8) else ''))
+    validate_world_frame_readback(block,metadata)
     view = decode(block if metadata.get('product_enemy_ammo') else block[:159744], metadata)
     if view['status'] != 0:
         raise UnsupportedPortable('Shared battle status: '+str(view['status']))

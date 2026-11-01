@@ -24,7 +24,7 @@
     },
     "app/portable_detail.py": {
       "before_sha256": "085c7ccdcebfa6641bf124d95e6c320c337405202e4b148ae64dca08cb11db06",
-      "after_sha256": "24f4ec8e911250e62543fa274da71f74d0df2f25bb2171f8fc5159e7a6ce28d5",
+      "after_sha256": "04561777345037965636a29e1aa3056022310f8310e5d4e4debb5c5207ae75fa",
       "hunks": [
         {
           "start": 1759,
@@ -39,872 +39,878 @@
           "after": "cases"
         },
         {
-          "start": 2858,
-          "end": 4924,
+          "start": 2759,
+          "end": 3853,
+          "before": "",
+          "after": "source,iw,ow,words,metadata=_compile_product(prepared)\n    from portable_specs import LIMITS as L\n    at=L['WORLD_FRAME_INPUT_BASE']\n    if len(words)>at and words[at]!=0:\n        if words[at]!=0x57533031 or not 1<=words[at+1]<=32:\n            raise UnsupportedPortable('Invalid shared world clock input contract')\n        metadata['product_world_frame_contract']=dict(nodes=words[at+1])\n    return source,iw,ow,words,metadata\n\n\ndef validate_world_frame_readback(block,metadata):\n    \"\"\"Every compiled world, including an empty boss, must retain its clock.\"\"\"\n    contract=metadata.get('product_world_frame_contract')\n    if contract is None:return\n    from portable_specs import LIMITS as L\n    base=L['WORLD_FRAME_OUTPUT_BASE'];count=contract['nodes']\n    if (len(block)<base+788 or block[base]!=0 or not 1<=block[base+1]<=512 or list(block[base+784:base+788])!=[32,0,0,0]\n        or any(block[base+16+i*24]!=0 for i in range(count))):\n        raise UnsupportedPortable('Shared world clock readback is missing or incomplete; the GPU result is rejected')\n\n\ndef _compile_product(prepared):\n    "
+        },
+        {
+          "start": 3952,
+          "end": 6018,
           "before": "",
           "after": "product_cover import required as cover_required,compile_product as compile_cover\n    from portable_product_movement import required as movement_required,compile_product as compile_movement\n    from portable_product_locks import required as locks_required,compile_product as compile_locks\n    from portable_product_named_range import required as range_required,compile_product as compile_range\n    if not prepared.get('_product_cover_compiled') and cover_required(prepared) and (range_required(prepared) or movement_required(prepared) or locks_required(prepared)):\n        return compile_cover(prepared,compile_product)\n    if range_required(prepared) and movement_required(prepared):\n        from portable_product_movement_range import compile_product as compile_movement_range\n        return compile_movement_range(prepared)\n    if locks_required(prepared):return compile_locks(prepared)\n    if range_required(prepared):return compile_range(prepared)\n    if movement_required(prepared):return compile_movement(prepared)\n    if not prepared.get('_product_cover_compiled') and cover_required(prepared):\n        return compile_cover(prepared,compile_product)\n    from portable_product_ammo import required as ammo_required,compile_product as compile_ammo\n    if not prepared.get('_product_ammo_compiled') and ammo_required(prepared):\n        return compile_ammo(prepared,compile_product)\n    from portable_product_weighted import required as weighted_required,compile_product as compile_weighted\n    if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):\n        return compile_weighted(prepared,compile_product)\n    from portable_product_healing import required,compile_product as compile_healing\n    if not prepared.get('_product_healing_compiled') and required(prepared):\n        return compile_healing(prepared,compile_product)\n    if prepared.get('reference_models'):\n        raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared GPU product wire; no model may be silently omitted')\n    from portable_"
         },
         {
-          "start": 4994,
-          "end": 5122,
+          "start": 6088,
+          "end": 6216,
           "before": "",
           "after": "# The product promises the canonical battle's named-carrier lifecycle.\n    # Keep every equipment definition and let the existin"
         },
         {
-          "start": 5123,
-          "end": 5126,
+          "start": 6217,
+          "end": 6220,
           "before": "",
           "after": " sh"
         },
         {
-          "start": 5127,
-          "end": 5152,
+          "start": 6221,
+          "end": 6246,
           "before": "u",
           "after": "red GPU carrier\n    # mer"
         },
         {
-          "start": 5154,
-          "end": 5166,
+          "start": 6248,
+          "end": 6260,
           "before": "_",
           "after": "/refresh the"
         },
         {
-          "start": 5167,
-          "end": 5187,
+          "start": 6261,
+          "end": 6281,
           "before": "",
           "after": " exactly as native d"
         },
         {
-          "start": 5188,
-          "end": 5196,
+          "start": 6282,
+          "end": 6290,
           "before": "",
           "after": "es. Stan"
         },
         {
-          "start": 5197,
-          "end": 5201,
+          "start": 6291,
+          "end": 6295,
           "before": "",
           "after": "alon"
         },
         {
-          "start": 5202,
-          "end": 5294,
+          "start": 6296,
+          "end": 6388,
           "before": "=",
           "after": " component-quantity\n    # proofs retain their distinct, explicitly documented contract.\n    "
         },
         {
-          "start": 5302,
-          "end": 5304,
+          "start": 6396,
+          "end": 6398,
           "before": "['pol",
           "after": "=d"
         },
         {
-          "start": 5306,
-          "end": 5306,
+          "start": 6400,
+          "end": 6400,
           "before": "ies']['config'].ge",
           "after": ""
         },
         {
-          "start": 5308,
-          "end": 5308,
+          "start": 6402,
+          "end": 6402,
           "before": "'burst_gauge_mode','fixed')\n    if gauge_mode not in ('fixed','accumulate'):raise UnsupportedPortable('Unported burst gauge mode')\n    fixed=gauge_mode=='fixed'\n    if fixed:\n        cfg=",
           "after": ""
         },
         {
-          "start": 5316,
-          "end": 5318,
+          "start": 6410,
+          "end": 6412,
           "before": "['",
           "after": ",_"
         },
         {
-          "start": 5319,
-          "end": 5320,
+          "start": 6413,
+          "end": 6414,
           "before": "",
           "after": "r"
         },
         {
-          "start": 5321,
-          "end": 5329,
+          "start": 6415,
+          "end": 6423,
           "before": "l",
           "after": "duct_nat"
         },
         {
-          "start": 5330,
-          "end": 5343,
+          "start": 6424,
+          "end": 6437,
           "before": "",
           "after": "ve_equipment_"
         },
         {
-          "start": 5344,
-          "end": 5347,
+          "start": 6438,
+          "end": 6441,
           "before": "",
           "after": "arr"
         },
         {
-          "start": 5349,
-          "end": 5350,
+          "start": 6443,
+          "end": 6444,
           "before": "",
           "after": "r"
         },
         {
-          "start": 5351,
-          "end": 5357,
+          "start": 6445,
+          "end": 6451,
           "before": "']['config']",
           "after": "=True)"
         },
         {
-          "start": 5362,
-          "end": 5373,
+          "start": 6456,
+          "end": 6467,
           "before": "    fi",
           "after": "manual_cove"
         },
         {
-          "start": 5374,
-          "end": 5374,
+          "start": 6468,
+          "end": 6468,
           "before": "st",
           "after": ""
         },
         {
-          "start": 5375,
-          "end": 5380,
+          "start": 6469,
+          "end": 6474,
           "before": "cfg",
           "after": "any(a"
         },
         {
-          "start": 5386,
-          "end": 5388,
+          "start": 6480,
+          "end": 6482,
           "before": "first_burst_",
           "after": "ac"
         },
         {
-          "start": 5390,
-          "end": 5400,
+          "start": 6484,
+          "end": 6494,
           "before": "m",
           "after": "on')=='cov"
         },
         {
-          "start": 5401,
-          "end": 5402,
+          "start": 6495,
+          "end": 6496,
           "before": "",
           "after": "r"
         },
         {
-          "start": 5403,
-          "end": 5403,
+          "start": 6497,
+          "end": 6497,
           "before": ",3.)\n        regen=[c.get('burst_regen_time',2.)",
           "after": ""
         },
         {
-          "start": 5430,
-          "end": 5476,
+          "start": 6524,
+          "end": 6570,
           "before": "",
           "after": " for a in c.get('control',{}).get('sequence',["
         },
         {
-          "start": 5477,
-          "end": 5500,
+          "start": 6571,
+          "end": 6594,
           "before": "",
           "after": "))\n    if manual_cover:"
         },
         {
-          "start": 5512,
-          "end": 5512,
+          "start": 6606,
+          "end": 6606,
           "before": "any(type(v) ",
           "after": ""
         },
         {
-          "start": 5516,
-          "end": 5517,
+          "start": 6610,
+          "end": 6611,
           "before": "in (int,float) or not math.isfinite(v) or not 0<=v<=180 for v in [first,*",
           "after": "p"
         },
         {
-          "start": 5519,
-          "end": 5525,
+          "start": 6613,
+          "end": 6619,
           "before": "",
           "after": "pared."
         },
         {
-          "start": 5527,
-          "end": 5554,
+          "start": 6621,
+          "end": 6648,
           "before": "n]",
           "after": "t('_product_cover_compiled'"
         },
         {
-          "start": 5596,
-          "end": 5606,
+          "start": 6690,
+          "end": 6700,
           "before": "Fix",
           "after": "Manual cov"
         },
         {
-          "start": 5607,
-          "end": 5607,
+          "start": 6701,
+          "end": 6701,
           "before": "d bu",
           "after": ""
         },
         {
-          "start": 5608,
-          "end": 5608,
+          "start": 6702,
+          "end": 6702,
           "before": "st delays",
           "after": ""
         },
         {
-          "start": 5616,
-          "end": 5617,
+          "start": 6710,
+          "end": 6711,
           "before": "",
           "after": "s"
         },
         {
-          "start": 5618,
-          "end": 5618,
+          "start": 6712,
+          "end": 6712,
           "before": "fini",
           "after": ""
         },
         {
-          "start": 5619,
-          "end": 5620,
+          "start": 6713,
+          "end": 6714,
           "before": "",
           "after": "h"
         },
         {
-          "start": 5622,
-          "end": 5622,
+          "start": 6716,
+          "end": 6716,
           "before": "binary64 se",
           "after": ""
         },
         {
-          "start": 5625,
-          "end": 5625,
+          "start": 6719,
+          "end": 6719,
           "before": "ds in [0,180]')\n        # Reuse existing static lowering; readi",
           "after": ""
         },
         {
-          "start": 5627,
-          "end": 5628,
+          "start": 6721,
+          "end": 6722,
           "before": "ss i",
           "after": "c"
         },
         {
-          "start": 5629,
-          "end": 5629,
+          "start": 6723,
+          "end": 6723,
           "before": "self is suppli",
           "after": ""
         },
         {
-          "start": 5632,
-          "end": 5634,
+          "start": 6726,
+          "end": 6728,
           "before": "bel",
           "after": "pr"
         },
         {
-          "start": 5635,
-          "end": 5639,
+          "start": 6729,
+          "end": 6733,
           "before": "w.\n        # This",
           "after": "duct"
         },
         {
-          "start": 5642,
-          "end": 5642,
+          "start": 6736,
+          "end": 6736,
           "before": "py is validation input only, ne",
           "after": ""
         },
         {
-          "start": 5646,
-          "end": 5654,
+          "start": 6740,
+          "end": 6748,
           "before": "a",
           "after": "consumer"
         },
         {
-          "start": 5655,
-          "end": 5657,
+          "start": 6749,
+          "end": 6751,
           "before": "simula",
           "after": "en"
         },
         {
-          "start": 5658,
-          "end": 5662,
+          "start": 6752,
+          "end": 6756,
           "before": "ed CPU schedule.",
           "after": "ry')"
         },
         {
-          "start": 5680,
-          "end": 5710,
+          "start": 6774,
+          "end": 6804,
           "before": "",
           "after": "dict(prepared,_product_manual_"
         },
         {
-          "start": 5712,
-          "end": 5731,
+          "start": 6806,
+          "end": 6825,
           "before": "",
           "after": "ver=True)\n    from "
         },
         {
-          "start": 5732,
-          "end": 5743,
+          "start": 6826,
+          "end": 6837,
           "before": "y.",
           "after": "ortable_pro"
         },
         {
-          "start": 5744,
-          "end": 5751,
+          "start": 6838,
+          "end": 6845,
           "before": "",
           "after": "uct_fix"
         },
         {
-          "start": 5752,
-          "end": 5811,
+          "start": 6846,
+          "end": 6905,
           "before": "",
           "after": "d import lower as lower_fixed,attach as attach_fixed\n    pr"
         },
         {
-          "start": 5813,
-          "end": 5832,
+          "start": 6907,
+          "end": 6926,
           "before": "c",
           "after": "ared,fixed_values=l"
         },
         {
-          "start": 5833,
-          "end": 5842,
+          "start": 6927,
+          "end": 6936,
           "before": "py",
           "after": "wer_fixed"
         },
         {
-          "start": 5857,
-          "end": 5888,
+          "start": 6951,
+          "end": 6982,
           "before": "",
           "after": "fixed=fixed_values is not None\n"
         },
         {
-          "start": 5891,
-          "end": 6038,
+          "start": 6985,
+          "end": 7132,
           "before": "",
           "after": " from portable_product_add_attack import lower as lower_add_attacks\n    prepared,add_patterns=lower_add_attacks(prepared)\n    if 'burst_pattern' in"
         },
         {
-          "start": 6069,
-          "end": 6111,
+          "start": 7163,
+          "end": 7205,
           "before": "['",
           "after": ":\n        prepared=dict(prepared,_product_"
         },
         {
-          "start": 6117,
-          "end": 6118,
+          "start": 7211,
+          "end": 7212,
           "before": "gauge_mode']='accumul",
           "after": "p"
         },
         {
-          "start": 6120,
-          "end": 6121,
+          "start": 7214,
+          "end": 7215,
           "before": "",
           "after": "t"
         },
         {
-          "start": 6122,
-          "end": 6131,
+          "start": 7216,
+          "end": 7225,
           "before": "'",
           "after": "rns=True)"
         },
         {
-          "start": 6185,
-          "end": 6376,
+          "start": 7279,
+          "end": 7470,
           "before": "",
           "after": ")\n    if any(p.get('kind') in ('attack','debuff') and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):\n        prepared=dict(prepared,_product_boss_debuffs=True"
         },
         {
-          "start": 6802,
-          "end": 7004,
+          "start": 7896,
+          "end": 8098,
           "before": "",
           "after": ")]\n        if manual_cover:\n            metadata['product_manual_cover_owners']=[i for i,c in enumerate(original['chars']) if any(a.get('action')=='cover' for a in c.get('control',{}).get('sequence',[])"
         },
         {
-          "start": 7613,
-          "end": 7734,
+          "start": 8707,
+          "end": 8828,
           "before": "",
           "after": "registry_nodes=validate(copy.deepcopy(prepared['enemy']['patterns'])) if add_patterns is not None else nodes\n            "
         },
         {
-          "start": 7762,
-          "end": 7771,
+          "start": 8856,
+          "end": 8865,
           "before": "",
           "after": "registry_"
         },
         {
-          "start": 8254,
-          "end": 8256,
+          "start": 9348,
+          "end": 9350,
           "before": "from por",
           "after": "at"
         },
         {
-          "start": 8258,
-          "end": 8264,
+          "start": 9352,
+          "end": 9358,
           "before": "bl",
           "after": "ch_fix"
         },
         {
-          "start": 8265,
-          "end": 8265,
+          "start": 9359,
+          "end": 9359,
           "before": "_specs import LIMITS as limits\n            base=limits['WORLD_CONTROL_INPUT_BASE']\n            version=wor",
           "after": ""
         },
         {
-          "start": 8266,
-          "end": 8266,
+          "start": 9360,
+          "end": 9360,
           "before": "s[base+1]\n            tap_mask=words[base+5] if version==2 else 0\n            if (version not in (1,2) or version==1 and any",
           "after": ""
         },
         {
-          "start": 8272,
-          "end": 8272,
+          "start": 9366,
+          "end": 9366,
           "before": "[base+5:base+16])\n                    or version==2 and (not 0<tap_mask<32 or any(words[base+6:base+16]))):\n                raise UnsupportedPortable('Fixed burst requires a canonical automatic or tap control header')\n            words[base+1]=5 if tap_mask else 4\n            if tap_mask:words[base+10]=tap_mask\n            words[base+5:base+10]=[0x46424731",
           "after": ""
         },
         {
-          "start": 8273,
-          "end": 8273,
+          "start": 9367,
+          "end": 9367,
           "before": "*struct.unpack('<II',struct.pack('<d',first)),*struct.unpack('<II',struct.pack('<d',max(regen)))]\n            ",
           "after": ""
         },
         {
-          "start": 8281,
-          "end": 8282,
+          "start": 9375,
+          "end": 9376,
           "before": "['real_prepared_input']['policy']=copy.deepcopy(",
           "after": ","
         },
         {
-          "start": 8290,
-          "end": 8291,
+          "start": 9384,
+          "end": 9385,
           "before": "['policies'])\n            metadata['product_",
           "after": ","
         },
         {
-          "start": 8297,
-          "end": 8300,
+          "start": 9391,
+          "end": 9394,
           "before": "b",
           "after": "val"
         },
         {
-          "start": 8301,
-          "end": 8301,
+          "start": 9395,
+          "end": 9395,
           "before": "rst']=dict(first_seconds=first,member_regen_seconds=regen,\n                readin",
           "after": ""
         },
         {
-          "start": 8303,
-          "end": 8303,
+          "start": 9397,
+          "end": 9397,
           "before": "s_regen_seconds=max(regen),CPU_state_or_schedule_as_input=False",
           "after": ""
         },
         {
-          "start": 8376,
-          "end": 9211,
+          "start": 9470,
+          "end": 10305,
           "before": "",
           "after": ")\n        if prepared.get('_product_burst_patterns'):\n            from portable_burst_control_specs import product_patterns\n            from portable_specs import LIMITS as limits\n            names=[c['name'] for c in prepared['chars']]\n            patterns=prepared['policies']['config']['burst_pattern']\n            packed=product_patterns(names,patterns)\n            for who,value in enumerate(packed):\n                words[limits['WEAPON_BASE']+who*limits['WEAPON_WORDS']+3]|=value\n            if any(packed):metadata['product_burst_patterns']=dict(patterns=copy.deepcopy(patterns),encoded=packed,cpu_schedule_or_state_supplied=False)\n        if add_patterns is not None:\n            from portable_product_add_attack import attach\n            return attach(source,words,metadata,prepared,add_patterns,original['enemy']['patterns']"
         },
         {
-          "start": 11584,
-          "end": 11757,
+          "start": 12678,
+          "end": 12851,
           "before": "",
           "after": "if set(prepared.get('reference_models',{}))&{'enemy_movement','named_range'}:\n        captured['run'].expected=False\n        captured['run'].config['rng_mode']='random'\n    "
         },
         {
-          "start": 11854,
-          "end": 12080,
+          "start": 12948,
+          "end": 13224,
           "before": "",
-          "after": "ammo_attempts=None\n    if not block or block[0]!=0:\n        raise UnsupportedPortable('Shared battle status: '+str(block[0] if block else 'missing')+(' (history capacity exceeded)' if block and block[0] in (2,8) else ''))\n    "
+          "after": "ammo_attempts=None\n    if not block or block[0]!=0:\n        raise UnsupportedPortable('Shared battle status: '+str(block[0] if block else 'missing')+(' (history capacity exceeded)' if block and block[0] in (2,8) else ''))\n    validate_world_frame_readback(block,metadata)\n    "
         },
         {
-          "start": 12094,
-          "end": 12143,
+          "start": 13238,
+          "end": 13287,
           "before": "",
           "after": "block if metadata.get('product_enemy_ammo') else "
         },
         {
-          "start": 12846,
-          "end": 12878,
+          "start": 13990,
+          "end": 14022,
           "before": "",
           "after": "'],burst_trace=view['burst_trace"
         },
         {
-          "start": 15668,
-          "end": 19200,
+          "start": 16812,
+          "end": 20344,
           "before": "",
           "after": "models=[]\n    if metadata.get('product_enemy_healing'):\n        from portable_product_healing import read_result\n        from portable_enemy_healing_wire import OUTPUT as healing_output\n        healing_block=block[:healing_output['OUTPUT_WORDS']] if metadata.get('product_healing_cover') else block\n        model=read_result(healing_block,metadata,names,run.config['duration'])\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_weighted_incoming'):\n        from portable_product_weighted import read_result\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_cover_defense'):\n        from portable_product_cover import read_result\n        options={}\n        if metadata.get('product_movement_range_cover'):\n            from portable_product_movement_range import COVER_OUT,OUTPUT as MRO,check_cover_schema\n            check_cover_schema();options=dict(out=COVER_OUT,output=MRO)\n        model=read_result(block,metadata,names,run.config['duration'],**options)\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_enemy_ammo'):\n        from portable_product_ammo import read_result\n        from portable_enemy_ammo_wire import LAYOUT as AMMO\n        ammo_block=block[:AMMO['OUTPUT_WORDS']] if metadata.get('product_ammo_cover') else block\n        model=read_result(ammo_block,metadata)\n        ammo_attempts=model['enemy_ammo']['attempts'] if model is not None else []\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_lock_on'):\n        from portable_product_locks import read_result\n        model=read_result(block,metadata,run.config['duration'])\n        models.append(model)\n    if metadata.get('product_movement_range'):\n        from portable_product_movement_range import read_result as read_movement_range\n        models.extend(read_movement_range(block,metadata,run.config['duration']))\n    if metadata.get('product_enemy_movement') and not metadata.get('product_movement_range'):\n        from portable_product_movement import read_result\n        from portable_enemy_movement_wire import OUTPUT as MOVEMENT_OUTPUT\n        movement_block=block[:MOVEMENT_OUTPUT] if metadata.get('product_movement_cover') else block\n        model=read_result(movement_block,metadata,run.config['duration'])\n        models.append(model)\n    if metadata.get('product_named_range') and not metadata.get('product_movement_range'):\n        from portable_product_named_range import read_result\n        from portable_named_range_battle_wire import OUTPUT as RANGE_OUTPUT\n        range_block=block[:RANGE_OUTPUT] if metadata.get('product_named_range_cover') else block\n        model=read_result(range_block,metadata,run.config['duration'])\n        models.append(model)\n    if models:\n        from product_reference_models import combine_public,warning\n        payload['reference_models']=combine_public(models)\n        # Match the product CPU order: base, effect models, declarations,\n        # optional policy and hypothetical-growth notices. Keep list equality\n        # strict; a later declaration must not reorder the other notices.\n        payload['app_warnings'].insert(1+len(run._portable_detail_model_warnings),\n            warning(payload['reference_models']['declarations']))\n    if 'manual_cover_sequences' in body:\n        payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])\n    "
         },
         {
-          "start": 20176,
-          "end": 20178,
+          "start": 21320,
+          "end": 21322,
           "before": "",
           "after": ",8"
         },
         {
-          "start": 20454,
-          "end": 20590,
+          "start": 21598,
+          "end": 21734,
           "before": "",
           "after": "from portable_product_add_attack import query_sources\n        sources=query_sources(block,metadata,ammo_attempts=ammo_attempts)\n        "
         },
         {
-          "start": 20620,
-          "end": 20643,
+          "start": 21764,
+          "end": 21787,
           "before": "",
           "after": "es,attack_sources=sourc"
         },
         {
-          "start": 22065,
-          "end": 22078,
+          "start": 23209,
+          "end": 23222,
           "before": "",
           "after": "hit.get('by',"
         },
         {
-          "start": 22080,
-          "end": 22081,
+          "start": 23224,
+          "end": 23225,
           "before": "",
           "after": ")"
         },
         {
-          "start": 22150,
-          "end": 22151,
+          "start": 23294,
+          "end": 23295,
           "before": "",
           "after": "_"
         },
         {
-          "start": 22158,
-          "end": 22161,
+          "start": 23302,
+          "end": 23305,
           "before": "e",
           "after": "ion"
         },
         {
-          "start": 22176,
-          "end": 22196,
+          "start": 23320,
+          "end": 23340,
           "before": "O",
           "after": "Prepare and finish o"
         },
         {
-          "start": 22198,
-          "end": 22198,
+          "start": 23342,
+          "end": 23342,
           "before": " isolated product",
           "after": ""
         },
         {
-          "start": 22206,
-          "end": 22206,
+          "start": 23350,
+          "end": 23350,
           "before": ";",
           "after": ""
         },
         {
-          "start": 22207,
-          "end": 22208,
+          "start": 23351,
+          "end": 23352,
           "before": "",
           "after": "a"
         },
         {
-          "start": 22209,
-          "end": 22210,
+          "start": 23353,
+          "end": 23354,
           "before": "eject ",
           "after": "o"
         },
         {
-          "start": 22212,
-          "end": 22216,
+          "start": 23356,
+          "end": 23360,
           "before": "",
           "after": "d a "
         },
         {
-          "start": 22217,
-          "end": 22227,
+          "start": 23361,
+          "end": 23371,
           "before": "uppo",
           "after": "ingle defe"
         },
         {
-          "start": 22228,
-          "end": 22229,
+          "start": 23372,
+          "end": 23373,
           "before": "t",
           "after": "r"
         },
         {
-          "start": 22232,
-          "end": 22237,
+          "start": 23376,
+          "end": 23381,
           "before": "c",
           "after": "GPU b"
         },
         {
-          "start": 22238,
-          "end": 22239,
+          "start": 23382,
+          "end": 23383,
           "before": "",
           "after": "u"
         },
         {
-          "start": 22241,
-          "end": 22242,
+          "start": 23385,
+          "end": 23386,
           "before": "itions befo",
           "after": "a"
         },
         {
-          "start": 22243,
-          "end": 22244,
+          "start": 23387,
+          "end": 23388,
           "before": "e dispatch",
           "after": "y"
         },
         {
-          "start": 24482,
-          "end": 24484,
+          "start": 25626,
+          "end": 25628,
           "before": "w",
           "after": "ev"
         },
         {
-          "start": 24485,
-          "end": 24485,
+          "start": 25629,
+          "end": 25629,
           "before": "th patch.",
           "after": ""
         },
         {
-          "start": 24486,
-          "end": 24486,
+          "start": 25630,
+          "end": 25630,
           "before": "ict(os.",
           "after": ""
         },
         {
-          "start": 24488,
-          "end": 24488,
+          "start": 25632,
+          "end": 25632,
           "before": "viron,policy) if policy else nullcontext():\n            context=saved_program(sour",
           "after": ""
         },
         {
-          "start": 24491,
-          "end": 24491,
+          "start": 25635,
+          "end": 25635,
           "before": "folder) if explicit_image else nullcontext()\n            with context as ",
           "after": ""
         },
         {
-          "start": 24507,
-          "end": 24592,
+          "start": 25651,
+          "end": 25736,
           "before": ":",
           "after": ",member = yield dict(source=source,input_words=input_words,output_words=output_words,"
         },
         {
-          "start": 24605,
-          "end": 24606,
+          "start": 25749,
+          "end": 25750,
           "before": "    history=artif",
           "after": "p"
         },
         {
-          "start": 24608,
-          "end": 24608,
+          "start": 25752,
+          "end": 25752,
           "before": "t_receipt['identity'].get('historical_link_environment') if artifact_receipt is not None else None\n                if history is not None:\n                    from portable_lin",
           "after": ""
         },
         {
-          "start": 24611,
-          "end": 24613,
+          "start": 25755,
+          "end": 25757,
           "before": "_artif",
           "after": "=p"
         },
         {
-          "start": 24615,
-          "end": 24656,
+          "start": 25759,
+          "end": 25800,
           "before": "",
           "after": "ked,backend=backend,policy=policy,explici"
         },
         {
-          "start": 24657,
-          "end": 24658,
+          "start": 25801,
+          "end": 25802,
           "before": " ",
           "after": "_"
         },
         {
-          "start": 24660,
-          "end": 24666,
+          "start": 25804,
+          "end": 25810,
           "before": "",
           "after": "age=ex"
         },
         {
-          "start": 24667,
-          "end": 24667,
+          "start": 25811,
+          "end": 25811,
           "before": "ort va",
           "after": ""
         },
         {
-          "start": 24669,
-          "end": 24682,
+          "start": 25813,
+          "end": 25826,
           "before": "",
           "after": "cit_image,fol"
         },
         {
-          "start": 24683,
-          "end": 24683,
+          "start": 25827,
+          "end": 25827,
           "before": "at",
           "after": ""
         },
         {
-          "start": 24684,
-          "end": 24687,
+          "start": 25828,
+          "end": 25831,
           "before": "_hist",
           "after": "r=f"
         },
         {
-          "start": 24688,
-          "end": 24691,
+          "start": 25832,
+          "end": 25835,
           "before": "",
           "after": "lde"
         },
         {
-          "start": 24692,
-          "end": 24693,
+          "start": 25836,
+          "end": 25837,
           "before": "ical_environment",
           "after": ","
         },
         {
-          "start": 24694,
-          "end": 24694,
+          "start": 25838,
+          "end": 25838,
           "before": "                    validate_historical_environment(history)\n        ",
           "after": ""
         },
         {
-          "start": 24723,
-          "end": 24723,
+          "start": 25867,
+          "end": 25867,
           "before": ".update(historical_link_preservation_verified",
           "after": ""
         },
         {
-          "start": 24724,
-          "end": 24724,
+          "start": 25868,
+          "end": 25868,
           "before": "False,\n                        historical_link_missing_processes_count=len(history['missing_identities']),historical_link_termination_cause=history['termination_cause'])\n                    record.update(",
           "after": ""
         },
         {
-          "start": 24741,
-          "end": 24742,
+          "start": 25885,
+          "end": 25886,
           "before": ")\n                ",
           "after": ","
         },
         {
-          "start": 24743,
-          "end": 24743,
+          "start": 25887,
+          "end": 25887,
           "before": "aw, evidence = ex",
           "after": ""
         },
         {
-          "start": 24745,
-          "end": 24745,
+          "start": 25889,
+          "end": 25889,
           "before": "ute(source,'portableEvents',packed,input_w",
           "after": ""
         },
         {
-          "start": 24748,
-          "end": 24752,
+          "start": 25892,
+          "end": 25896,
           "before": "s,output_w",
           "after": "=rec"
         },
         {
-          "start": 24755,
-          "end": 24755,
+          "start": 25899,
+          "end": 25899,
           "before": "s,backend,readback_path=folder/'readback.bin')\n                if raw is not None:raise RuntimeError('Expected bounded file readback')\n                (folder/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8'",
           "after": ""
         },
         {
-          "start": 25188,
-          "end": 25227,
+          "start": 26332,
+          "end": 26371,
           "before": "",
           "after": ",cases=member['cases'] if member else 1"
         },
         {
-          "start": 25228,
-          "end": 25395,
+          "start": 26372,
+          "end": 26539,
           "before": "",
           "after": "\n        input_hash=member['input_sha256'] if member else evidence['input_sha256']\n        output_hash=member['output_sha256'] if member else evidence['output_sha256']"
         },
         {
-          "start": 25489,
-          "end": 25489,
+          "start": 26633,
+          "end": 26633,
           "before": "evidence['",
           "after": ""
         },
         {
-          "start": 25495,
-          "end": 25497,
+          "start": 26639,
+          "end": 26641,
           "before": "",
           "after": "ha"
         },
         {
-          "start": 25499,
-          "end": 25499,
+          "start": 26643,
+          "end": 26643,
           "before": "a256']",
           "after": ""
         },
         {
-          "start": 25514,
-          "end": 25514,
+          "start": 26658,
+          "end": 26658,
           "before": "evidence['",
           "after": ""
         },
         {
-          "start": 25521,
-          "end": 25523,
+          "start": 26665,
+          "end": 26667,
           "before": "",
           "after": "ha"
         },
         {
-          "start": 25525,
-          "end": 25554,
+          "start": 26669,
+          "end": 26698,
           "before": "",
           "after": ")\n        if member:record['b"
         },
         {
-          "start": 25555,
-          "end": 25558,
+          "start": 26699,
+          "end": 26702,
           "before": "256",
           "after": "tch"
         },
         {
-          "start": 25560,
-          "end": 25567,
+          "start": 26704,
+          "end": 26711,
           "before": ")",
           "after": "=member"
         },
         {
-          "start": 26023,
-          "end": 26023,
+          "start": 27167,
+          "end": 27167,
           "before": "evidence['",
           "after": ""
         },
         {
-          "start": 26029,
-          "end": 26031,
+          "start": 27173,
+          "end": 27175,
           "before": "",
           "after": "ha"
         },
         {
-          "start": 26033,
-          "end": 26033,
+          "start": 27177,
+          "end": 27177,
           "before": "a256']",
           "after": ""
         },
         {
-          "start": 26048,
-          "end": 26048,
+          "start": 27192,
+          "end": 27192,
           "before": "evidence['",
           "after": ""
         },
         {
-          "start": 26055,
-          "end": 26057,
+          "start": 27199,
+          "end": 27201,
           "before": "",
           "after": "ha"
         },
         {
-          "start": 26059,
-          "end": 26059,
+          "start": 27203,
+          "end": 27203,
           "before": "a256']",
           "after": ""
         },
         {
-          "start": 26206,
-          "end": 26511,
+          "start": 27350,
+          "end": 27655,
           "before": "",
           "after": "\n        if member:\n            payload['compute']['batch']=member\n            payload['compute']['input_sha256_scope']='logical single-case framing; physical transfer is batch.transport_input_sha256'\n            payload['compute']['timing_scope']='shared batch transport; not an individual case duration'"
         },
         {
-          "start": 28587,
-          "end": 35982,
+          "start": 29731,
+          "end": 37126,
           "before": "",
           "after": "\n\nMAX_PRODUCT_BATCH=8\n\n\ndef _execute_prepared(plans):\n    \"\"\"One actual transport for compatible prepared cases, with honest views.\"\"\"\n    first=plans[0];count=len(plans)\n    if not 1<=count<=MAX_PRODUCT_BATCH:raise ValueError('Shared detail batch exceeds its bounded case count')\n    key=lambda p:(p['source'],p['input_words'],p['output_words'],p['backend'],p['policy'],p['explicit_image'],p['folder'].parent)\n    if any(key(p)!=key(first) for p in plans):raise ValueError('Shared detail transport requires identical source, wire, policy and capture root')\n    folder=first['folder'] if count==1 else first['folder'].parent/('batch-'+uuid.uuid4().hex)\n    if count>1:folder.mkdir(exist_ok=False)\n    packed=first['packed'] if count==1 else struct.pack('<I',count)+b''.join(p['packed'][4:] for p in plans)\n    if any(len(p['packed'])!=4+4*first['input_words'] or p['packed'][:4]!=struct.pack('<I',1) for p in plans):\n        raise ValueError('Complete single-case framing required before batching')\n    if count>1:(folder/'input.bin').write_bytes(packed)\n    write=lambda name,value:(folder/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\n    try:\n        if count>1:\n            from portable_capture_storage import space_status\n            budget=space_status(folder,len(packed)+2*count*first['output_words']*4)\n            write('storage-budget.json',budget)\n            if not budget['passed']:raise RuntimeError('Insufficient space for shared batch and complete member readbacks')\n        with patch.dict(os.environ,first['policy']) if first['policy'] else nullcontext():\n            context=saved_program(first['source'],folder) if first['explicit_image'] else nullcontext()\n            with context as receipt:\n                history=receipt['identity'].get('historical_link_environment') if receipt is not None else None\n                if history is not None:\n                    from portable_linked_artifact import validate_historical_environment\n                    validate_historical_environment(history)\n                    for p in plans:\n                        p['historical_status'].update(historical_link_preservation_verified=False,\n                            historical_link_missing_processes_count=len(history['missing_identities']),historical_link_termination_cause=history['termination_cause'])\n                        p['record'].update(p['historical_status'])\n                raw,evidence=execute(first['source'],'portableEvents',packed,first['input_words'],first['output_words'],first['backend'],readback_path=folder/'readback.bin')\n                if raw is not None:raise RuntimeError('Expected bounded file readback')\n                write('evidence.json',evidence)\n        if count==1:return [(evidence,receipt,None)]\n        if receipt is not None and evidence.get('transport',{}).get('compile_artifact')!=receipt:\n            raise RuntimeError('Saved product CUBIN transport receipt mismatch')\n        verified_transport(evidence,first['backend'],cases=count)\n        data=(folder/'readback.bin').read_bytes();stride=first['output_words']*4\n        if (len(data)!=count*stride or hashlib.sha256(packed).hexdigest()!=evidence['input_sha256']\n                or hashlib.sha256(data).hexdigest()!=evidence['output_sha256']):\n            raise RuntimeError('Shared batch full input/readback digest mismatch')\n        members=[];returned=[]\n        for index,p in enumerate(plans):\n            block=data[index*stride:(index+1)*stride]\n            member=dict(capture_id=folder.name,index=index,cases=count,input_words=first['input_words'],output_words=first['output_words'],\n                input_sha256=hashlib.sha256(p['packed']).hexdigest(),output_sha256=hashlib.sha256(block).hexdigest(),\n                transport_input_sha256=evidence['input_sha256'],transport_output_sha256=evidence['output_sha256'],\n                input_scope='single-case framing of this exact physical batch member',output_scope='exact readback slice')\n            (p['folder']/'readback.bin').write_bytes(block)\n            (p['folder']/'batch-member.json').write_text(json.dumps(member,indent=2)+'\\n')\n            (p['folder']/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\\n')\n            members.append(dict(member,capture_id=p['folder'].name));returned.append((evidence,receipt,member))\n        write('result.json',dict(schema='product-batch-transport-v1',source=first['source'],backend=first['backend'],cases=count,\n            gpu_execution_verified=True,scope='Shared physical transport only; each member has its own complete CPU result check',members=members))\n        return returned\n    except Exception as error:\n        if count>1:write('result.json',dict(schema='product-batch-transport-v1',source=first['source'],backend=first['backend'],cases=count,\n            scope='Failed shared transport; preserve all member failures',error=str(error),error_type=type(error).__name__,gpu_execution_verified=False))\n        raise\n\n\ndef _finish_evaluation(generator,*,outcome=None,error=None):\n    try:\n        if error is None:generator.send(outcome)\n        else:generator.throw(error)\n    except StopIteration as finished:return finished.value\n    raise RuntimeError('A product request may have only one GPU execution boundary')\n\n\ndef evaluate(body):\n    \"\"\"Original single-request behavior through the same batch-capable engine.\"\"\"\n    generator=_evaluation(body)\n    try:\n        try:plan=next(generator)\n        except StopIteration as finished:return finished.value\n        try:outcome=_execute_prepared([plan])[0]\n        except Exception as error:return _finish_evaluation(generator,error=error)\n        return _finish_evaluation(generator,outcome=outcome)\n    finally:generator.close()\n\n\ndef evaluate_many(bodies):\n    \"\"\"Preserve row identity and per-case CPU checks in bounded shared dispatches.\"\"\"\n    if not isinstance(bodies,list) or not 1<=len(bodies)<=MAX_PRODUCT_BATCH:\n        raise ValueError('Shared detail evaluations must contain one to eight requests')\n    results=[None]*len(bodies);groups={};generators=[]\n    try:\n        for index,body in enumerate(bodies):\n            generator=_evaluation(body);generators.append(generator)\n            try:plan=next(generator)\n            except StopIteration as finished:results[index]=dict(result=finished.value);continue\n            except (Exception,SystemExit) as error:results[index]=dict(error=str(error));continue\n            key=(plan['source'],plan['input_words'],plan['output_words'],plan['backend'],tuple(sorted(plan['policy'].items())),plan['explicit_image'],str(plan['folder'].parent))\n            groups.setdefault(key,[]).append((index,generator,plan))\n        for group in groups.values():\n            try:\n                outcomes=_execute_prepared([p for _,_,p in group]);error=None\n                if len(outcomes)!=len(group):raise RuntimeError('Shared batch result count mismatch')\n            except Exception as failure:outcomes=[None]*len(group);error=failure\n            for (index,generator,_),outcome in zip(group,outcomes):\n                try:results[index]=dict(result=_finish_evaluation(generator,outcome=outcome,error=error))\n                except (Exception,SystemExit) as failure:results[index]=dict(error=str(failure))\n        return results\n    finally:\n        for generator in generators:generator.close()\n"
         }

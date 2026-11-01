@@ -8,6 +8,19 @@ spec=importlib.util.spec_from_file_location('product_packet',ROOT/'research/veri
 adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
 
 class ProductPacket(unittest.TestCase):
+    def test_stationary_world_clock_must_survive_gpu_readback(self):
+        from portable_detail import validate_world_frame_readback
+        from portable_specs import LIMITS as L
+        from portable_runtime import UnsupportedPortable
+        base=L['WORLD_FRAME_OUTPUT_BASE'];block=[0]*(base+788)
+        meta={'product_world_frame_contract':{'nodes':2}}
+        with self.assertRaisesRegex(UnsupportedPortable,'clock readback'):
+            validate_world_frame_readback(block,meta)
+        block[base+1]=1;block[base+784]=32;validate_world_frame_readback(block,meta)
+        block[base+16]=1
+        with self.assertRaisesRegex(UnsupportedPortable,'clock readback'):
+            validate_world_frame_readback(block,meta)
+
     def test_generated_mutation_snapshot_guard_rejects_the_saved_cuda_failure(self):
         from portable_slang_generation import validate_counter_snapshots
         for field in ('removalCount','carrierCount'):
