@@ -1,0 +1,26 @@
+{
+  "schema": "lock-cover-packet-diagnostic-compile-request-v1",
+  "source_commit": "bd19f2bfc0c8c3b0ec891ab2684f10db43527f54",
+  "package_id": "aef09ee5d04a4442fb8b1231f23cb20de073a8d9e2a9f60f9ca3f68e6801ce1e",
+  "archive": "lock-cover-packet-diagnostic-v1.zip",
+  "archive_bytes": 14498389,
+  "archive_sha256": "91a8a0528907c793fc0a21d0f79d2880b9fad3258f6262f5019faa0d8e485971",
+  "scope": "New Metal-verified failure-only diagnostic source, not old failed claim reuse. Compile-only, no link/driver/GPU/POST in this request.",
+  "steps": [
+    "bounded unpack and own package/source/golden verification",
+    "one paired generation, require paired generation cache in later phase",
+    "compile --artifact-kind ptx once",
+    "module-object --ptxas-level 1 once from same saved PTX only"
+  ],
+  "limits": {
+    "child_seconds": 60,
+    "outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_start_gate": true,
+    "permission_mode": "require_escalated"
+  },
+  "cpu_policy": "Existing docs/portable-compile-plan.md compile-only policy: no implicit battle tests/native. Mac own136/fresh native/Metal/independent seal already complete. Do not relabel old Windows tests as current.",
+  "preservation": "Keep status64, all old missing/claims/raw, service unverified and preservation false. Missing identities/observation/cleanup/query incomplete/timeout/origin mismatch stop. No retries or bound extension.",
+  "report": "lock-cover-packet-diagnostic-compile-status-v1.json"
+}

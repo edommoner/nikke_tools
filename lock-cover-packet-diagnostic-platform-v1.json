@@ -1,0 +1,81 @@
+{
+  "schema": "sdk-platform-retention-v1",
+  "reference_owner": "17d2c94dfbabefbdb6cfde4fd81eafc86f79ec7ed8b2816253883d634b9e76db",
+  "candidate_owner": "aef09ee5d04a4442fb8b1231f23cb20de073a8d9e2a9f60f9ca3f68e6801ce1e",
+  "files": [
+    {
+      "path": "scripts/nikke_gpu.py",
+      "sha256": "6877d406d665dbdf79a26b64020a6f741500518f59a5774426ea78013da11e3b"
+    },
+    {
+      "path": "scripts/run-gpu-packet.py",
+      "sha256": "c7c763e1b7609bbcb8a92d86c78cd2f7d46b1ec775c81a2b53a20e508ccd528b"
+    },
+    {
+      "path": "research/run-world-bounded.py",
+      "sha256": "494df8bc60201989a4e8fb451dc5aa0742d7f93098bc52d5f79722eebb123a88"
+    },
+    {
+      "path": "research/windows_validation_observer.py",
+      "sha256": "97d7405ff8771cf413f5e58c14ebea98037afb8a3691417d12e7b21d2d45fdd3"
+    },
+    {
+      "path": "app/portable_backend.py",
+      "sha256": "b6452d7fcefd8fc09ddf04f36ea606fe82f57ce2afb974ae4ec545022cb5aebe"
+    },
+    {
+      "path": "app/portable_slang_generation.py",
+      "sha256": "d4aec4c86feac3018ab465557bcd51645265219bb2ec4db63c054acb85e44ff3"
+    },
+    {
+      "path": "app/portable_compile_cache.py",
+      "sha256": "d1dcc7cf1a5c7197b1dd63dd0d6bd1cc90192356eb42ad4a4e6b2f641c5cc505"
+    },
+    {
+      "path": "app/portable_offline_assembler.py",
+      "sha256": "e5b625d9c8db8910429d618df8526e52350bfacf4d840e75ceaf1433d8087d94"
+    },
+    {
+      "path": "app/portable_partition_object.py",
+      "sha256": "22a5a3f4b4be713130dd1897ec8d18719bbc7075bcb7509a582f3b725063b513"
+    },
+    {
+      "path": "app/portable_jit_link.py",
+      "sha256": "7638916f0c63046855e877a5d3b4ccb00431ae11c4855f93c3d386b88afa0f97"
+    },
+    {
+      "path": "app/portable_linked_artifact.py",
+      "sha256": "3bb3e2bf687ace0b7d0c28faedd6d5ce1974b6b3501040010ca0b0ad118315a9"
+    },
+    {
+      "path": "app/portable_product_artifact.py",
+      "sha256": "651d17988f3cfd543a407ed8b77222591971ed8a67aec11fd8e3bac56ba628d0"
+    },
+    {
+      "path": "tests/test_portable_windows_cleanup.py",
+      "sha256": "7528aaa49b8790ce4da24ff9fc9110ac71a56e0f4297e57df32365b5c6ab6999"
+    },
+    {
+      "path": "tests/test_portable_device_linker.py",
+      "sha256": "449a22de9302a6d4c6c64a866f7a87b07c234115dd670997d5d3f98eb1896195"
+    },
+    {
+      "path": "app/detail_gpu.py",
+      "sha256": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270"
+    },
+    {
+      "path": "app/engine_worker.py",
+      "sha256": "52832891066bd4b59b8c60783151e81ec0db0c116e59441c0dabbefc4c4a3fa1"
+    },
+    {
+      "path": "app/effect_spec.py",
+      "sha256": "a6655815582048966dbb0bf3a97081e1c2585fb2f549be7c635aabda36effb9b"
+    },
+    {
+      "path": "app/engine_compat.py",
+      "sha256": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8"
+    }
+  ],
+  "byte_exact": true,
+  "scope": "Unchanged platform/SDK/protected source only; not current Windows test or calculation proof"
+}
