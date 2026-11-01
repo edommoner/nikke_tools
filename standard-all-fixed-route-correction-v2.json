@@ -1,0 +1,17 @@
+{
+  "schema": "standard-fixed-route-correction-v2",
+  "cases": 245,
+  "old_selector": "cuda_detail",
+  "new_selector": "cuda_shared_detail",
+  "changed_field_only": "body.compute_backend",
+  "all_old_compute_input_bytes_unchanged": true,
+  "all_m5_expected_output_hashes_retained": true,
+  "old_static_failure_retained": true,
+  "old_post_and_gpu_count": 0,
+  "cpu_battles": 0,
+  "gpu_calls": 0,
+  "new_table_bytes": 1932289,
+  "new_table_sha256": "4bff4e6681460f509f7f5047fb106ca47ca03388a37d243f00d79e08b94f5118",
+  "new_standard_profiles": 0,
+  "scope": "Correct API execution selector, no numeric input or verification policy change"
+}
