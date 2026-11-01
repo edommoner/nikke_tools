@@ -1,3 +1,11 @@
+## 配分と実射撃groupの通常製品経路
+
+`reference_models.weighted_incoming`と元の`multi_hit` listenerを含む編成は、同じ配分・射撃group・イベント実行器へ接続します。固定/実蓄積の両modeを通常APIで確認しました。入力には元のmarker/全effectとliteral weightsだけを渡し、groupや配分時刻・recipient maskをCPU戦闘から作りません。元のplain weighted shaderは全byte不変です。
+
+既存`product-detail`の`weighted-accumulate-group`は独立seal済みv49を使います。`weighted-fixed-group`は通常APIの実Metal成功・CLI基準未登録のため`--develop`が必要です。新suite/監査器はありません。v49は新しい1memberだけを加え、既存35memberの期待値を保持します。
+
+今回の12条件はBay4段階/30秒、遮蔽破壊後の65秒、配分未発動の3秒を両modeで検証した単一BODY sceneです。GPUで実射撃groupを1/14/32個生成し、配分snapshot0/6/10件、全CPU/GPU/HTTP返却と資源解放が一致しました。各groupの対象は1体なので、Belortaのmulti_hit:4 callbackは未発動で通知0です。多対象callbackの発動やcoordinate/typed target/独立cover等の組み合わせの成功とは区別します。重み8:3:262は宣言モデルで、ゲーム仕様と確認できた値ではありません。CUDA実機は未確認です。[範囲・raw guard・失敗保持](../research/product-weighted-group-v1.json)。
+
 ## 共通CPU検査の選択実行とWindows分割job
 
 全件検査は従来の`unit-check --capture NEW`を使います。短い差分検査は同じ入口へ`--selection FILE --selection-sha256 SHA256`を追加できます。選択JSONは`schema: unit-selection-v1`、不変packetの`package_id`、登録順の全test patternをkeyにした`patterns`、正確な`expected_tests`を持ちます。patternの値は全件なら`null`、選択なら元のdiscovery順に並べた重複なしの完全test ID配列です。登録groupを省略できません。既存の依存検査・fresh CPU child・60秒上限・run_groupsを使用し、未知IDや件数差はtest実行前に拒否します。

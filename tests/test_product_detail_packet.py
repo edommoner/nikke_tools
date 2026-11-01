@@ -62,7 +62,7 @@ class ProductPacket(unittest.TestCase):
         cli=self.cli();base=cli.SUITES['product-detail']
         self.assertIs(configuration(cli.SUITES,'product-detail'),base)
         self.assertIs(configuration(cli.SUITES,dict(suite='product-detail')),base)
-        self.assertEqual(len(PROGRAMS),68)
+        self.assertEqual(len(PROGRAMS),70)
         self.assertEqual({n for n in PROGRAMS if n.startswith('coordinate-')},{'coordinate-fixed','coordinate-accumulate','coordinate-cover-fixed','coordinate-cover-accumulate'})
         self.assertEqual({n for n in PROGRAMS if n.startswith('healing-') and n.endswith('-group')},
                          {'healing-fixed-group','healing-accumulate-group','healing-cover-fixed-group','healing-cover-accumulate-group'})
@@ -71,7 +71,7 @@ class ProductPacket(unittest.TestCase):
         self.assertEqual({n for n in PROGRAMS if n.startswith('ammo-')},{stem+mode+suffix for stem in ('ammo-','ammo-cover-') for mode in ('fixed','accumulate') for suffix in ('','-group','-target')})
         self.assertEqual({n for n in PROGRAMS if n.startswith('default-')},{'default-weighted-fixed','default-cover-fixed'})
         self.assertEqual({n for n in PROGRAMS if n.startswith('cover-')},{'cover-'+mode+suffix for mode in ('accumulate','fixed') for suffix in ('','-group','-target','-group-target')})
-        self.assertEqual({n for n in PROGRAMS if n.startswith('weighted-')},{'weighted-fixed','weighted-accumulate'})
+        self.assertEqual({n for n in PROGRAMS if n.startswith('weighted-')},{'weighted-fixed','weighted-accumulate','weighted-fixed-group','weighted-accumulate-group'})
         for name in (None,True,[],{},'unknown','fixed/../../anything'):
             with self.subTest(name=name),self.assertRaises(ValueError):
                 configuration(cli.SUITES,dict(suite='product-detail',product_program=name))

@@ -353,14 +353,29 @@
     "host": "remote-control:env_e_6ac12920046c8331afb50b0234aeba48",
     "thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
     "send_api_acknowledged": true,
-    "status_read_after_send": "host_unavailable",
-    "execution_start_verified": false,
-    "turn_id_observed": null,
+    "status_read_after_send": "wait_threads lookup fails; list_threads and read_thread available",
+    "execution_start_verified": true,
+    "turn_id_observed": "01a196f7-34f1-7063-9052-0ef6acd4aad6",
     "last_confirmed_cursor": "20f61e43-c193-4c3d-95b9-55e58cc5d5d8:46",
     "do_not_resend_run": true,
-    "next_action": "Same chat status/export or saved GitHub report only; do not infer terminal from observation failure"
+    "next_action": "Same chat status/export or saved GitHub report only; do not infer terminal from observation failure",
+    "latest_validation_status": "stopped_before_first_api_due_to_file_only_probe_wrong_entry_argument",
+    "sdk_stages_observed": true,
+    "gpu_execution_started": false
   },
   "new_cuda_profiles": 0,
   "new_gpu_calls_observed": 0,
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "saved_stop_import": {
+    "commit": "0a66abc9",
+    "sha256": "9319f00d8ca5b3e86170727db6231615c35a579e88a7d4fab5867201e5febb70",
+    "all_transport_hashes_and_manifest_recomputed": true,
+    "selected91_success": true,
+    "sdk_artifact_chain_reported_correct": true,
+    "compiler_or_image_bytes_read_on_mac": false,
+    "outer_failure_states_preserved": true,
+    "diagnostic_probe_requirement_still_unsatisfied": true,
+    "post_and_gpu0": true,
+    "followup": "Read-only source/provenance continuation design only; SDK/CPU/GPU not re-requested"
+  }
 }

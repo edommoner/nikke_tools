@@ -1,0 +1,920 @@
+{
+  "schema": "ammo-shared-seven-normal-api-status-v2",
+  "request_transport_commit": "ea7a0446e7f111098987e7fd2a28e25bebf1441a",
+  "owner": "ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168",
+  "source_commit": "3cb7bda7e4dc0b0c1c4dd32445bdb1bb6443a0e4",
+  "code_review_commit": "2639cd00",
+  "immutable_dirty_snapshot_retained": true,
+  "manifest_sha256": "9b4eb7ded3a34437b0bf49bb279a531d4bf6621d0a653e4eb1065dc925900678",
+  "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+  "scope": "All7 existing fixed product CLI cases, original5 preserved plus declared enemy healing2, serialized batches2/2/2/1; no unconfigured-standard additions or game specification promotion",
+  "status": "stopped_before_first_api_due_to_file_only_probe_wrong_entry_argument",
+  "all7_verified": false,
+  "numeric_verification_passed": false,
+  "stop": {
+    "stage": "pre-api-cache-probe-entry-consistency",
+    "error_type": "FileOnlyProbeEntryArgumentMismatch",
+    "reason": "Diagnostic probe used main; actual immutable runtime entry is portableEvents. Exact-entry pre-SDK probe requirement was not met. No re-probe or API start.",
+    "observed_unix_ns": 1793535454715740800,
+    "probe_entry": "main",
+    "actual_entry": "portableEvents",
+    "probe_key": "02970beb67f34a599c75696e50a6c40f16cb3fc0036aa9dfaaaa3215ab5c6c65",
+    "actual_key": "f47a4d70c2569b99d17e1c38f23f5111f0f22367c92af0053e88f0bf210df68c",
+    "only_entry_diff_explains_key": true,
+    "actual_sdk_used_correct_entry": true,
+    "actual_first_generation_cache_miss_saved": true,
+    "old_probe_receipt_retained": true,
+    "sdk_reexecution": false,
+    "posts": 0,
+    "gpu_dispatches": 0,
+    "retries_allowed": false
+  },
+  "transport_files_verified": [
+    {
+      "path": "ammo-shared-fixed-v2-batch-0-api-expected.json",
+      "bytes": 1800,
+      "sha256": "e0df3445acdc2322582a42714f790d39b65a5f94da61a53c70406760ad9e78e0"
+    },
+    {
+      "path": "ammo-shared-fixed-v2-batch-1-api-expected.json",
+      "bytes": 1851,
+      "sha256": "4bbfdfa2f89f05dd00a1df4528d117fb84d28cf0403a78e3f8ba29dfd2e5c798"
+    },
+    {
+      "path": "ammo-shared-fixed-v2-batch-2-api-expected.json",
+      "bytes": 1843,
+      "sha256": "cdb77a1feef07adf91e4e940a81625d2f2639720b852b8f32133f3f9736ff9f1"
+    },
+    {
+      "path": "ammo-shared-fixed-v2-batch-3-api-expected.json",
+      "bytes": 1261,
+      "sha256": "44107e47c75f7ebba1ff90f66a0cee4fda9eaeb5013e1fb296c4ca4d81e1ce40"
+    },
+    {
+      "path": "ammo-shared-fixed-v2-o1-plan.json",
+      "bytes": 735,
+      "sha256": "dabe66aee4c961b312608ec25231d48ebe3ac2db3266e959fa2148d155a31d62"
+    },
+    {
+      "path": "ammo-shared-fixed-v2-ptx-plan.json",
+      "bytes": 707,
+      "sha256": "43b49275b6c8eb736997f55d518f6af6bf7d9d786bd500b9860732e38af10430"
+    },
+    {
+      "path": "ammo-shared-fixed-v2-validation-deps.json",
+      "bytes": 407,
+      "sha256": "13aaee1f11c9b1f00ae294bcb020531c2a92de13dcac9d49517aa5e10c4f472e"
+    },
+    {
+      "path": "ammo-shared-fixed-v2.zip",
+      "bytes": 12148119,
+      "sha256": "41747b6171e12144abae8a53a9e530fdc95feb21145edd8506560c988e1d3735"
+    },
+    {
+      "path": "ammo-shared-selected91-v2.json",
+      "bytes": 1149,
+      "sha256": "31a90ca7d25a5271c7d2cb77ccf011705c20ae0aa01e9afbe25ebaa0f81ea4d4"
+    },
+    {
+      "path": "ammo-shared-seven-windows-request-v2.json",
+      "bytes": 15495,
+      "sha256": "669fc726a1ab8897ac74519da27f9b833f830a6d1f470b38ff405c4c546b7edd"
+    },
+    {
+      "path": "shared-product-check-sdk.py",
+      "bytes": 4875,
+      "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d"
+    },
+    {
+      "path": "shared-product-prepare-api.py",
+      "bytes": 4561,
+      "sha256": "3582476ea329ac9760433e2d68a2cdffd840c14f8b677c785bda0c01d9aec9dc"
+    },
+    {
+      "path": "shared-product-verify-host-tests.py",
+      "bytes": 1924,
+      "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7"
+    }
+  ],
+  "helper_install": {
+    "passed": true,
+    "managed_helpers": [
+      {
+        "source": "shared-product-check-sdk.py",
+        "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d",
+        "destination": "check-sdk.py",
+        "destination_scope": "outer-windows-directory"
+      },
+      {
+        "source": "shared-product-prepare-api.py",
+        "sha256": "3582476ea329ac9760433e2d68a2cdffd840c14f8b677c785bda0c01d9aec9dc",
+        "destination": "prepare-api.py",
+        "destination_scope": "outer-windows-directory"
+      },
+      {
+        "source": "shared-product-verify-host-tests.py",
+        "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7",
+        "destination": "verify-host-tests.py",
+        "destination_scope": "program-directory"
+      }
+    ],
+    "other11_original_source_sha256": {
+      "run-sdk-step.ps1": "5285c3fc1b9311aaa2a2c2d821af0b7f4a70432c2634dff1a55fc17f9e7bb51b",
+      "run-api-step.ps1": "76b1177d2055895916715aa96213bf8e714f241a65b54888765c050c45a80726",
+      "cpu-coordinator.py": "9f5f46686c67a7f2dd6eb09290596f1932e651a6fa21666b50f46984f70c4c7a",
+      "cpu-start-gated.py": "4599eae1239be2ada2c2a99f1bf3066798d665c43ed71eb55d992f26a784205f",
+      "run-cpu.ps1": "12d53f83b67bd748c180de9006c7a72a4e71e35e0d596e506ce66e6a47bacfaf",
+      "run-owner-stage.ps1": "36be6192a74c97a84cb6cf6db2903a043151b20f3ae10305b40c6dd4d636fe31",
+      "check-api-stage.py": "daf80c825dcd14d603d19d2b6e4e9410a96d91e4fe553ad3694666955196dba8",
+      "static-preflight.py": "1a27e8125af326e0e345e4f76595ac964e2b50a5eca51e71dd6222408f27d5e3",
+      "api-once.py": "1e4ab8fab4e6800b6c67ba7e742fb987c857da176cc16b0d239975780f4c8e5c",
+      "audit-saved.py": "8b42673c35a8b9fee2cda0b8dc51826f91b1583debca15d9adfb387978e8ef23",
+      "api-start-ram-gate.py": "ade508992abb226237d98940ede98e5a24df86be4f4f8e2d8f87e22bed874ae5"
+    },
+    "gate_ast_identical": true,
+    "selector_sha256": "31a90ca7d25a5271c7d2cb77ccf011705c20ae0aa01e9afbe25ebaa0f81ea4d4",
+    "original_534f5601_export_sha256": "e153983d90276700d728dc7ae9398b0fdcc4a80eb0e7cc5b5588870f0d277519",
+    "unpack_uses_existing_cli_without_owner_literal_edit": true
+  },
+  "managed3_exact_bytes_verified": true,
+  "other11_roles_unmodified": true,
+  "unit_selection": {
+    "file": "ammo-shared-selected91-v2.json",
+    "sha256": "31a90ca7d25a5271c7d2cb77ccf011705c20ae0aa01e9afbe25ebaa0f81ea4d4",
+    "selected91_verified": true,
+    "unit_tests_verified": false,
+    "all_registered_unit_tests_verified": false,
+    "remaining67_model_tests_executed": false,
+    "mac158_windows_claimed": false
+  },
+  "host_tests": {
+    "schema": "unit-check-v1",
+    "package_id": "ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168",
+    "suite": "product-detail",
+    "passed": true,
+    "unit_tests_verified": false,
+    "full_native_preflight_executed": false,
+    "cpu_verified": false,
+    "calculation_verified": false,
+    "gpu_execution_verified": false,
+    "gpu_calls": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false,
+    "groups": [
+      {
+        "pattern": "test_portable_detail.py",
+        "exit_code": 0,
+        "elapsed_seconds": 9.218809300102293,
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "case_ids": [
+          "test_portable_detail.BossDotNativeContract.test_clock_install_is_idempotent_and_preserves_simulation_aliases",
+          "test_portable_detail.BossDotNativeContract.test_clock_rewrite_rejects_changed_retirement_body",
+          "test_portable_detail.BossDotNativeContract.test_native_clock_exact_expiry_fires_once",
+          "test_portable_detail.BossDotNativeContract.test_native_clock_keeps_exhausted_schedule_while_carrier_is_live",
+          "test_portable_detail.BossDotNativeContract.test_native_clock_longer_than_duration_never_fires",
+          "test_portable_detail.BossDotNativeContract.test_native_clock_refresh_resets_exhausted_schedule",
+          "test_portable_detail.BossDotNativeContract.test_native_dot_hp_snapshot_includes_threshold_max_hp_grant",
+          "test_portable_detail.BossDotNativeContract.test_native_finite_dot_includes_expiry_tick_without_received_hit",
+          "test_portable_detail.BossDotNativeContract.test_native_pattern_close_precedes_dot_on_the_same_frame",
+          "test_portable_detail.BossDotNativeContract.test_native_refresh_ticks_before_reapplication_and_stacks_in_order",
+          "test_portable_detail.BossDotNativeContract.test_native_subframe_dot_drains_every_due_tick_at_current_frame",
+          "test_portable_detail.PortableDetail.test_actual_backend_cache_misses_do_not_reach_generators_compilers_or_driver",
+          "test_portable_detail.PortableDetail.test_add_debuffs_reuse_external_definitions_and_exact_firing_descriptor",
+          "test_portable_detail.PortableDetail.test_add_product_reuses_existing_prefix_and_literal_attack_retirement_wire",
+          "test_portable_detail.PortableDetail.test_add_source_projection_rejects_unknown_slots_and_misbound_nodes",
+          "test_portable_detail.PortableDetail.test_backend_failure_preserves_cpu_label_and_strips_internal_request_flags",
+          "test_portable_detail.PortableDetail.test_bad_saved_image_phase_order_or_completion_rejects_product_output",
+          "test_portable_detail.PortableDetail.test_bad_world_capacity_identity_owner_and_nonfinite_hits_are_rejected",
+          "test_portable_detail.PortableDetail.test_boss_attack_debuffs_preserve_external_identity_and_static_order",
+          "test_portable_detail.PortableDetail.test_boss_debuffs_compose_with_all_product_binding_families",
+          "test_portable_detail.PortableDetail.test_boss_dot_lowers_only_literal_coeff_interval_and_attack",
+          "test_portable_detail.PortableDetail.test_boss_lowering_keeps_literal_identity_and_all_original_effects",
+          "test_portable_detail.PortableDetail.test_both_backends_use_identical_inputs_decoder_and_post_readback_cpu_check",
+          "test_portable_detail.PortableDetail.test_complete_product_boss_and_incoming_projection_uses_gpu_history",
+          "test_portable_detail.PortableDetail.test_cuda_environment_and_required_cache_failures_remain_cpu_results",
+          "test_portable_detail.PortableDetail.test_declared_warning_precedes_policy_and_hypothetical_notices",
+          "test_portable_detail.PortableDetail.test_descriptor_history_reaches_real_admission_loader_and_product_result",
+          "test_portable_detail.PortableDetail.test_dot_down_ordinal_preserves_queued_attack_and_revive_order",
+          "test_portable_detail.PortableDetail.test_fixed_burst_changes_only_authored_control_header_and_keeps_source_input",
+          "test_portable_detail.PortableDetail.test_fixed_delay_invalid_numbers_stop_before_lowering",
+          "test_portable_detail.PortableDetail.test_fixed_product_timeline_retains_bursts_without_accumulate_only_records",
+          "test_portable_detail.PortableDetail.test_fixed_tap_preserves_original_masks_controls_and_all_nonheader_words",
+          "test_portable_detail.PortableDetail.test_incomplete_or_wrong_execution_metadata_fails_closed",
+          "test_portable_detail.PortableDetail.test_invalid_product_parts_fall_back_before_any_gpu_dispatch",
+          "test_portable_detail.PortableDetail.test_invalid_status_truncation_nonfinite_and_bad_owner_cannot_be_published",
+          "test_portable_detail.PortableDetail.test_modifier_world_composition_preserves_original_script_and_axis_wires",
+          "test_portable_detail.PortableDetail.test_native_groups_use_shared_boss_compiler_without_widening_declared_routing",
+          "test_portable_detail.PortableDetail.test_nearby_selector_is_specialized_only_for_a_proved_single_body",
+          "test_portable_detail.PortableDetail.test_ordinary_periodic_stack_scaling_preserves_hit_count_not_dot_coefficient",
+          "test_portable_detail.PortableDetail.test_original_character_shooting_controls_reach_existing_shared_wire",
+          "test_portable_detail.PortableDetail.test_original_model_warnings_are_collected_without_a_cpu_battle",
+          "test_portable_detail.PortableDetail.test_original_modifier_and_multi_hit_composition_preserves_both_wires",
+          "test_portable_detail.PortableDetail.test_original_parts_lowering_and_gpu_result_projection_are_lossless",
+          "test_portable_detail.PortableDetail.test_original_reload_cancel_policy_reaches_existing_ammo_executor",
+          "test_portable_detail.PortableDetail.test_plain_body_keeps_all_original_target_modifier_carriers_and_axes",
+          "test_portable_detail.PortableDetail.test_plain_body_modifier_input_cannot_discard_a_declared_world",
+          "test_portable_detail.PortableDetail.test_product_burst_cycle_readback_is_validated_without_click_controls",
+          "test_portable_detail.PortableDetail.test_product_burst_pattern_literals_share_policy_and_never_pack_cpu_state",
+          "test_portable_detail.PortableDetail.test_product_control_history_uses_gpu_intervals_and_rejects_corruption",
+          "test_portable_detail.PortableDetail.test_product_keeps_all_equipment_rows_and_uses_native_carrier_lifecycle",
+          "test_portable_detail.PortableDetail.test_product_saved_receipt_is_bound_to_transport_and_cpu_still_runs_after_gpu",
+          "test_portable_detail.PortableDetail.test_product_uses_actual_saved_loader_and_forbids_nvrtc_with_mocked_driver_output",
+          "test_portable_detail.PortableDetail.test_real_multi_hit_uses_existing_native_group_wire_without_changing_effects",
+          "test_portable_detail.PortableDetail.test_real_product_admission_rejects_missing_processes_tampered_owner_and_missing_entry",
+          "test_portable_detail.PortableDetail.test_real_unsupported_effect_reports_owner_and_definition_without_dispatch",
+          "test_portable_detail.PortableDetail.test_saved_actual_gpu_projection_reconstructs_complete_original_product_payload",
+          "test_portable_detail.PortableDetail.test_saved_artifact_descriptor_is_explicit_and_strict",
+          "test_portable_detail.PortableDetail.test_saved_program_preserves_execution_errors_and_restores_import_state",
+          "test_portable_detail.PortableDetail.test_saved_program_requires_the_current_sealed_source_before_loading_image",
+          "test_portable_detail.PortableDetail.test_standalone_boss_debuff_uses_the_same_external_definitions_without_damage",
+          "test_portable_detail.ProductBatchProtocol.test_bad_row_and_shared_failure_keep_all_indices_and_never_retry",
+          "test_portable_detail.ProductBatchProtocol.test_compatible_cases_share_one_real_framing_and_preserve_individual_views",
+          "test_portable_detail.ProductBatchProtocol.test_incompatible_sources_are_not_packed_into_one_dispatch",
+          "test_portable_detail.ProductBatchProtocol.test_mismatching_case_rejects_only_its_own_gpu_payload_without_redispatch",
+          "test_portable_detail.ProductBatchProtocol.test_one_saved_image_admission_is_shared_and_bound_to_all_batch_members",
+          "test_portable_detail.ProductBatchProtocol.test_real_static_preparation_restores_aliases_between_different_cases",
+          "test_portable_detail.ProductBatchProtocol.test_storage_shortage_stops_before_gpu_instead_of_shrinking_the_batch"
+        ]
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "exit_code": 0,
+        "elapsed_seconds": 5.503977099899203,
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "case_ids": [
+          "test_product_detail_packet.ProductPacket.test_each_program_uses_the_actual_static_product_input_and_exact_wire",
+          "test_product_detail_packet.ProductPacket.test_full_comparison_includes_provenance_and_all_product_fields",
+          "test_product_detail_packet.ProductPacket.test_generated_mutation_snapshot_guard_rejects_the_saved_cuda_failure",
+          "test_product_detail_packet.ProductPacket.test_generated_snapshot_guard_also_checks_preexisting_cached_outputs",
+          "test_product_detail_packet.ProductPacket.test_manifest_program_cannot_be_changed_by_rekeying_the_packet",
+          "test_product_detail_packet.ProductPacket.test_optional_frame_checks_keep_complete_declared_dependencies_in_product_payload",
+          "test_product_detail_packet.ProductPacket.test_persistent_hash_ignores_only_environment_vcs_stamp",
+          "test_product_detail_packet.ProductPacket.test_program_baseline_is_explicit_and_unsealed_members_do_not_fall_back",
+          "test_product_detail_packet.ProductPacket.test_program_selection_preserves_legacy_and_rejects_unknown_names",
+          "test_product_detail_packet.ProductPacket.test_same_original_static_input_and_source_without_battle",
+          "test_product_detail_packet.ProductPacket.test_stationary_world_clock_must_survive_gpu_readback"
+        ]
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "exit_code": 0,
+        "elapsed_seconds": 6.303188600111753,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "case_ids": [
+          "test_weighted_source_contract.WeightedSourceContract.test_boss_history_recovers_exact_preimages_and_rejects_unreviewed_bytes",
+          "test_weighted_source_contract.WeightedSourceContract.test_changed_product_route_guard_and_arithmetic_are_rejected",
+          "test_weighted_source_contract.WeightedSourceContract.test_exact_later_product_inverse_keeps_original_ledger_and_old_sources",
+          "test_weighted_source_contract.WeightedSourceContract.test_exact_preimage_and_closure_match_historical_cover_seal",
+          "test_weighted_source_contract.WeightedSourceContract.test_product_history_and_added_helper_cannot_be_edited",
+          "test_weighted_source_contract.WeightedSourceContract.test_product_part_boundary_inverse_accepts_only_exact_current_and_preimage",
+          "test_weighted_source_contract.WeightedSourceContract.test_unreviewed_current_dependency_cannot_be_projected"
+        ]
+      },
+      {
+        "pattern": "test_product_reference_models.py",
+        "exit_code": 0,
+        "elapsed_seconds": 4.285039599984884,
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_combined_enemy_healing_magazines_preserve_shared_owners_and_disjoint_banks",
+          "test_product_reference_models.ProductReferenceModels.test_combined_healing_and_ammo_native_frame_and_final_queue_agree",
+          "test_product_reference_models.ProductReferenceModels.test_declared_product_ammo_reuses_exact_native_final_queue_lifecycle",
+          "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_self_destruct_uses_existing_finite_rows_and_magazine_bank",
+          "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_shot_groups_keep_original_definitions_and_both_literal_banks",
+          "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_target_modifiers_keep_complete_target_and_group_prefixes"
+        ]
+      }
+    ],
+    "tests": 91,
+    "selected_unit_tests_verified": true,
+    "all_registered_unit_tests_verified": false,
+    "selection_sha256": "31a90ca7d25a5271c7d2cb77ccf011705c20ae0aa01e9afbe25ebaa0f81ea4d4",
+    "normalized_selection_sha256": "31a90ca7d25a5271c7d2cb77ccf011705c20ae0aa01e9afbe25ebaa0f81ea4d4",
+    "scope": "Explicit selected unit tests only; no full unit, native or GPU admission",
+    "owner": "ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168",
+    "source_commit": "3cb7bda7e4dc0b0c1c4dd32445bdb1bb6443a0e4",
+    "selected_case_ids": {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_combined_enemy_healing_magazines_preserve_shared_owners_and_disjoint_banks",
+        "test_product_reference_models.ProductReferenceModels.test_combined_healing_and_ammo_native_frame_and_final_queue_agree",
+        "test_product_reference_models.ProductReferenceModels.test_declared_product_ammo_reuses_exact_native_final_queue_lifecycle",
+        "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_self_destruct_uses_existing_finite_rows_and_magazine_bank",
+        "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_shot_groups_keep_original_definitions_and_both_literal_banks",
+        "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_target_modifiers_keep_complete_target_and_group_prefixes"
+      ]
+    },
+    "extra_native_preflight_battles": 0,
+    "sdk_calls": 0
+  },
+  "stage_receipts": {
+    "unpack": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 21.088211900088936,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 71868416,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "plans": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 23.482520200312138,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 69742592,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "host-tests": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 50.03832540009171,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 204546048,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "generation": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 20.920372900087386,
+      "timeout_seconds": 59.813000000081956,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 575053824,
+      "below_normal": true,
+      "runner_exit_code": 0,
+      "artifact_verified": true,
+      "reported_stage_verified": true,
+      "reported_stage_complete": true,
+      "reported_whole_environment_preservation_verified": false
+    },
+    "compile-ptx": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "elapsed_seconds": 40.85975299961865,
+      "timeout_seconds": 179.84400000004098,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 351494144,
+      "below_normal": true,
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "reported_whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 30.28609130019322,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 316227584,
+        "below_normal": true
+      }
+    },
+    "module-object": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "elapsed_seconds": 39.15564389992505,
+      "timeout_seconds": 179.82799999974668,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 436498432,
+      "below_normal": true,
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "reported_whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 22.112094699870795,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 389451776,
+        "below_normal": true
+      }
+    },
+    "jit-link-object": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "elapsed_seconds": 55.821229100227356,
+      "timeout_seconds": 179.82799999974668,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 235765760,
+      "below_normal": true,
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "reported_whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 23.108412800356746,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 119619584,
+        "below_normal": true
+      }
+    }
+  },
+  "native_return_codes": {
+    "generation": [
+      {
+        "stage": "slang_compiler",
+        "state": "returned",
+        "return_code": null,
+        "elapsed_seconds": 3.1868779
+      },
+      {
+        "stage": "slang_compiler",
+        "state": "returned",
+        "return_code": null,
+        "elapsed_seconds": 3.5666902
+      }
+    ],
+    "ptx": [
+      {
+        "stage": "nvrtcVersion",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 1.35e-05
+      },
+      {
+        "stage": "nvrtcCreateProgram",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 0.0017382
+      },
+      {
+        "stage": "nvrtcCompileProgram",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 18.0201522
+      },
+      {
+        "stage": "nvrtcGetProgramLogSize",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 1.07e-05
+      },
+      {
+        "stage": "nvrtcGetProgramLog",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 8.9e-06
+      },
+      {
+        "stage": "nvrtcGetPTXSize",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 1.19e-05
+      },
+      {
+        "stage": "nvrtcGetPTX",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 0.0010655
+      },
+      {
+        "stage": "nvrtcDestroyProgram",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 0.0004588
+      }
+    ],
+    "object": [
+      {
+        "stage": "partition_object_ptxas",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 10.461353200022131
+      }
+    ],
+    "link": [
+      {
+        "stage": "nvJitLinkVersion",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 6.9e-06
+      },
+      {
+        "stage": "__nvJitLinkCreate_12_4",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 0.0042675
+      },
+      {
+        "stage": "__nvJitLinkAddData_12_4",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 0.0060059
+      },
+      {
+        "stage": "__nvJitLinkComplete_12_4",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 0.0119179
+      },
+      {
+        "stage": "__nvJitLinkGetErrorLogSize_12_4",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 9e-06
+      },
+      {
+        "stage": "__nvJitLinkGetInfoLogSize_12_4",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 8.8e-06
+      },
+      {
+        "stage": "__nvJitLinkGetLinkedCubinSize_12_4",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 1.53e-05
+      },
+      {
+        "stage": "__nvJitLinkGetLinkedCubin_12_4",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 0.000445
+      },
+      {
+        "stage": "__nvJitLinkDestroy_12_4",
+        "state": "returned",
+        "return_code": 0,
+        "elapsed_seconds": 0.0005749
+      }
+    ]
+  },
+  "initial_ram": {
+    "passed": true,
+    "gate": "Immediately before first API worker launch",
+    "observed_unix_ns": 1793534318138364100,
+    "observed_at_jst": "2026-11-01T20:58:38.138364+09:00",
+    "available_physical_bytes": 8104996864,
+    "required_available_bytes": 4294967296,
+    "ram_measurements_at_this_gate": 1,
+    "resampling_loop": false,
+    "sdk_calls": 0,
+    "gpu_calls": 0
+  },
+  "sdk_before_ram": {
+    "passed": true,
+    "gate": "Immediately before first API worker launch",
+    "observed_unix_ns": 1793534849549715900,
+    "observed_at_jst": "2026-11-01T21:07:29.549716+09:00",
+    "available_physical_bytes": 5549522944,
+    "required_available_bytes": 4294967296,
+    "ram_measurements_at_this_gate": 1,
+    "resampling_loop": false,
+    "sdk_calls": 0,
+    "gpu_calls": 0
+  },
+  "probe": {
+    "original_receipt": {
+      "passed": true,
+      "probe_only": true,
+      "probe_runs": 1,
+      "owner": "ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168",
+      "source_commit": "3cb7bda7e4dc0b0c1c4dd32445bdb1bb6443a0e4",
+      "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+      "exact_source_closure_verified": true,
+      "slang_compiler_fingerprint_file_count": 89,
+      "paired_generation_cache_key": "02970beb67f34a599c75696e50a6c40f16cb3fc0036aa9dfaaaa3215ab5c6c65",
+      "paired_generation_cache_hit": false,
+      "paired_artifacts": null,
+      "cache_claim_present": false,
+      "current_owner_saved_image_claim_exists": false,
+      "complete_current_artifact_chain_reusable": false,
+      "reason": "No complete current saved-image origin; exact paired generation cache miss at first required cache link",
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false",
+        "--split-compile=2"
+      ],
+      "other_kernel_images_considered": false,
+      "slang_invocations": 0,
+      "nvrtc_invocations": 0,
+      "object_invocations": 0,
+      "link_invocations": 0,
+      "driver_calls": 0,
+      "gpu_calls": 0,
+      "cache_writes": 0
+    },
+    "exact_runtime_entry_probe_requirement_satisfied": false,
+    "probe_entry": "main",
+    "actual_entry": "portableEvents",
+    "only_entry_difference_explains_saved_keys": true,
+    "original_probe_unchanged": true,
+    "reprobe_count": 0,
+    "current_source_or_kernel_mismatch_inferred": false,
+    "scope": "Diagnostic caller argument mismatch; real SDK stages independently used correct portableEvents entry and passed their strict gates"
+  },
+  "actual_sdk": {
+    "first_generation_cache_key": "f47a4d70c2569b99d17e1c38f23f5111f0f22367c92af0053e88f0bf210df68c",
+    "first_generation_hit": false,
+    "first_slang_compiler_invocations": 2,
+    "ptx_generation_cache_hit": true,
+    "ptx_generation_compiler_invocations": 0,
+    "entry": "portableEvents",
+    "ptx_identity": {
+      "key": "a2f6c4c75f222e09c03b8c4b1c35822b14327bb3ad73716101188755aedeeec7",
+      "artifact_sha256": "dabc3598f434065390352d6cbe1d42b72a59865f2d349d3494252483c62a3b0f",
+      "artifact_bytes": 10748604
+    },
+    "ptx_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "object_sha256": "142ba73b6807798781ade094b4f9f9aa74bcbbe45691dbeb1e01d67169a76bd2",
+    "object_bytes": 6150192,
+    "object_options": [
+      "--gpu-name=sm_86",
+      "--opt-level=1",
+      "--fmad=false",
+      "--verbose",
+      "--compile-only"
+    ],
+    "source_bytes_unchanged": true,
+    "source_partitioned": false,
+    "linked_image_sha256": "ae3f641e59b4d42d26253e8ea50279309f57332f2e534653fe84cd4ea0e5088e",
+    "linked_image_bytes": 5710096,
+    "jit_link_all_returns0": true,
+    "jit_link_driver_calls": 0,
+    "other_heavy_image_reused": false
+  },
+  "static_batch0": {
+    "passed": true,
+    "case_indices": [
+      0,
+      1
+    ],
+    "input_proof": {
+      "passed": true,
+      "owner": "ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168",
+      "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+      "request_sha256": "83980f122f19b42f76ab5af669c42501e147fed802788ba14b7d85e794984d86",
+      "physical_input_sha256": "a2902bab275b1e5194337f3f93b95744f034e6f179c0dcba86a4c07c6867c176",
+      "physical_input_bytes": 941252,
+      "cases": 2,
+      "members": [
+        {
+          "index": 0,
+          "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+          "input_sha256": "0a040630b022d2e5d554814085399c3f289132b2e20049af3d25d3d98acac087",
+          "input_bytes": 470628,
+          "request_sha256": "10ddc9fb559e3e5ab4cd8fbac4baf4e09019b63895c44ec7569222a4ebf1853b"
+        },
+        {
+          "index": 1,
+          "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+          "input_sha256": "6bdc75862040a9a38e038cb954b8f64a502434d8437a74020be17dfa1e214eb8",
+          "input_bytes": 470628,
+          "request_sha256": "00b689410100e8d476e3a906ff27bd01d96bb5fcc145a4541b65e8d6a196bce5"
+        }
+      ],
+      "cpu_battle_executed": false,
+      "static_preparation_calls": 2
+    },
+    "definition_counts": [
+      79,
+      79
+    ],
+    "original_caller_bytes_unchanged": true,
+    "stage": {
+      "child_exit_code": 0,
+      "elapsed_seconds": 12.279258700087667,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "job_records": 1,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 96157696,
+      "below_normal": true
+    }
+  },
+  "batches": [
+    {
+      "batch_index": 0,
+      "case_indices": [
+        0,
+        1
+      ],
+      "status": "static_input_passed_no_api",
+      "posts": 0,
+      "gpu_dispatches": 0,
+      "expected_physical_input_sha256": "a2902bab275b1e5194337f3f93b95744f034e6f179c0dcba86a4c07c6867c176",
+      "expected_physical_output_sha256": "55018a3ccbae52fe7da162af150d6b950b856e80192186fe12a520cccace53ee",
+      "expected_output_bytes": 16391296,
+      "expected_readback_chunks": [
+        8388608,
+        8002688
+      ]
+    },
+    {
+      "batch_index": 1,
+      "case_indices": [
+        2,
+        3
+      ],
+      "status": "not_started",
+      "posts": 0,
+      "gpu_dispatches": 0,
+      "expected_physical_input_sha256": "9c43b928d97371db74ddb5f078664a6831a3a321f91b1cc80295e742941010be",
+      "expected_physical_output_sha256": "958d90c9c3d295efc2f459c9c11e048ae02b3c0a3cdd1e6526c8940fb41c3843",
+      "expected_output_bytes": 16391296,
+      "expected_readback_chunks": [
+        8388608,
+        8002688
+      ]
+    },
+    {
+      "batch_index": 2,
+      "case_indices": [
+        4,
+        5
+      ],
+      "status": "not_started",
+      "posts": 0,
+      "gpu_dispatches": 0,
+      "expected_physical_input_sha256": "527543b672e4c346c8f40c6e079129e00914c3e06980f23285fcaa67235306ee",
+      "expected_physical_output_sha256": "05068ebecc387653b191f02570c55c3e1d0796641c0b69915b71ed79f67feb02",
+      "expected_output_bytes": 16391296,
+      "expected_readback_chunks": [
+        8388608,
+        8002688
+      ]
+    },
+    {
+      "batch_index": 3,
+      "case_indices": [
+        6
+      ],
+      "status": "not_started",
+      "posts": 0,
+      "gpu_dispatches": 0,
+      "expected_physical_input_sha256": "7a4816172fec9c6ef0e763910a4446de6b3047c262a19578696070dc65b923b5",
+      "expected_physical_output_sha256": "5d60dc8df2e87786d0800ce5ab5b03988e96e68f73b1dd881321aadc3c8dc2c0",
+      "expected_output_bytes": 8195648,
+      "expected_readback_chunks": [
+        8195648
+      ]
+    }
+  ],
+  "unrun_gpu_case_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "all7_required": true,
+  "counts": {
+    "unpack": 1,
+    "plans": 1,
+    "selected_cpu91": 1,
+    "read_only_probe": 1,
+    "paired_generation": 1,
+    "slang_invocations": 2,
+    "ptx_stage": 1,
+    "o1_object": 1,
+    "pinned_link": 1,
+    "static_preflight": 1,
+    "posts": 0,
+    "physical_gpu_dispatches": 0,
+    "saved_audits": 0,
+    "retries": 0,
+    "heavy_reexecutions": 0,
+    "standard266_runs": 0
+  },
+  "approval_review": {
+    "host_start_initially_rejected_as_possible_plans_overlap": true,
+    "plans_completion_verified_before_same_host_command_accepted": true,
+    "plans_reexecution": 0,
+    "host_executions": 1,
+    "evidence_sha256": "081bddb8939edb1ff6d6fd4733f20a361812d30efe22e542d60c827d1b9b9471"
+  },
+  "preservation": {
+    "prior_snapshot_records_retained": 53653,
+    "recent_prior_files_rechecked": 46,
+    "missing": 0,
+    "changed": 0,
+    "old_helper_contract_stop_retained": true,
+    "heavy_success_retained": true,
+    "old_claims_raw_failures_and_outer_states_retained": true,
+    "local_edits_to_managed_helpers": false,
+    "source_input_expected_values_modified": false,
+    "original_entry_error_receipt_preserved": true
+  },
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "minimum_available_ram_bytes": 4294967296,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "api_advisory_memory_observations": {
+    "performed": false,
+    "limit_known": false,
+    "observation_complete": false
+  },
+  "configured_profile_delta": 0,
+  "unconfigured_standard_profile_delta": 0,
+  "last12_new_mac_compositions_cuda_claimed": false,
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "raw_ptx_object_image_sdk_settings_auth_or_external_process_details_shared": false
+}

@@ -1400,6 +1400,35 @@ class ProductReferenceModels(unittest.TestCase):
         self.assertGreater(len(result['incoming_hits']),len(case['patterns'])-1)
         self.assertFalse(data['in_game_rules_verified'])
 
+    def test_weighted_groups_preserve_original_markers_group_bank_and_literal_weights(self):
+        import portable_detail as product
+        from portable_product_programs import body_for_program
+        from portable_weighted_battle_wire import LAYOUT as W,compiler_policy,MAGIC
+        from portable_backend import validate_composed_stride
+        from portable_runtime import UnsupportedPortable
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'weighted-'+mode+'-group')
+            prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+            inner=dict(prepared,_product_weighted_compiled=True);inner.pop('reference_models')
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU state as GPU input')):
+                with compiler_policy():base,iw,ow,prefix,_=product.compile_product(inner)
+                source,full_iw,full_ow,words,meta=product.compile_product(prepared)
+            with self.subTest(mode=mode):
+                self.assertEqual(prepared,before)
+                self.assertEqual(source,'gpu/product_weighted_'+('fixed_' if mode=='fixed' else '')+'group_battle_entry.slang')
+                self.assertEqual((iw,ow),(104408,1048576));self.assertEqual(words[:iw],prefix)
+                self.assertFalse(any(words[iw:W['BASE']]))
+                self.assertEqual(words[104400],0x41475331)
+                self.assertEqual(words[W['BASE']:W['BASE']+4],[MAGIC,1,5,0])
+                self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+                rows=meta['product_weighted_incoming']['source_rows'];self.assertEqual(len(set(rows)),2)
+                self.assertEqual(words[W['BASE']+10:W['BASE']+12],[r+1 for r in rows])
+                self.assertTrue(meta['real_prepared_input']['declared_attack_group_policy']['listener_owners'])
+                validate_composed_stride(source,full_iw,full_ow)
+            missing=copy.deepcopy(prepared);missing.pop('reference_models')
+            with self.assertRaisesRegex(UnsupportedPortable,'explicit.*weighted_incoming'):
+                product.compile_product(missing)
+
     def test_weighted_missing_weights_and_unsupported_composition_fail_before_dispatch(self):
         from portable_weighted_battle_cases import fixtures
         from portable_runtime import UnsupportedPortable

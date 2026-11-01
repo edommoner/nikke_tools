@@ -1,3 +1,17 @@
+## 2026-11-01 配分＋実射撃groupの通常Metal12条件
+
+新しい計算式/CPU正本/pinned/suite/監査器を追加せず、元WeightedIncoming/actual-shot groupの同じSlang Runtimeと三phaseを接続。入力は元effect/marker row/AGS1 descriptor/literal weightsのみ。weighted compileは完全なplain/group prefixを検査し、groupは104408まで、weighted bank115680以降に分離。新2選択weighted-accumulate-group/weighted-fixed-group、registry70。薄いgroup entryの三phaseは元weighted entryと同じで、reserved paddingの開始だけ104408へ変える。元plain shader全byte不変。kind/owner/stride/全definition保持と未指定weightsの拒否を検査した。
+
+初回group開発packet-v1で旧登録名enum testが新2件を列挙せずGPU前停止。enumだけ修正したP2は--native-baseline-packageの厳密SHA条件に拒否され、緩めず全log/旧packet保持。P3は通常--developで新規native1を生成。P3自身159unit/fresh前確認/実M5/別GPU禁止独立sealが成功。新member1だけv49へ追加、既存35member全保持。固定groupは通常HTTP成功・CLI独立基準未登録で--developを使う。
+
+通常HTTP1POST/4physicalM5で12条件、Bay4段階×両mode30秒、break/reburst65秒×両mode、inactive3秒×両modeが全CPU/GPU/HTTP一致。事前CPU12と既存保存監査12成功。全groupは実生成1/14/32個・解放済み、配分snapshot0/6/10件。**単一BODYでは各group1対象なので元Belorta multi_hit:4は未発動、notifications0。** 追加監査が「通知>0」と誤って仮定して停止したことをgroup-activity-assumption-rejected.jsonへ保持。数学や期待値は変更せず、元CPUと同じ未成立条件と分かる範囲で記録。active多対象callbackを今回の成功へ加算しない。次の重要項目はweighted＋coordinate等のnative多対象接続。
+
+未所有padding104408のraw1word変更は別実M5でstatus64/戦闘前拒否、元成功claim不変。最終sealed release owner8c419554は自身159CPU/依存/PTX/O1計画成功、実GPU後のコード差はGOLDEN pointerと厳密ledger SHAだけ。現decoder/compileで全12保存raw/input/source/CPU/GPU/HTTPを追加battle/GPU0で再投影成功、専用Node group消滅。research/product-weighted-group-v1.json。CUDA新合成0、標準Metal263/266・CUDA記録263/266/明示別各266は従来source横断記録のまま、標準profile加算0。全効果/全合成/全goal未完了。
+
+Windows v2は**接続断と断定しない**。wait_threadsのみhost unavailable、list_threadsはavailable/active、read_threadが成功しturn01a196f7を確認。今後progressが必要ならread_thread最新1turnを取得し、出力はstatus/最後のcommentary/command完了だけ抽出する（丸ごとの長いtool履歴を表示しない）。保存0a66abc9の920行JSONをGitHub経由で取得し、全輸送file SHA・local ownerEFのmanifest SHAとselected91/各stage情報を照合。選択91、paired生成、PTX、O1 object、pinned link成功とのpeer保存報告。ただしdiagnostic cache-probeだけentry='main'でactual='portableEvents'と違い、旧のexact-entry pre-SDK probe条件は未成立。正しいSDKsource/imageとの違いはentry1項目のみと報告。POST/GPU/保存audit0で停止、wrong probeと旧stopを保持。SDK outer exit2/inner0/overallfalseとadvisory未確認も付け替えない。
+
+取込元research/ammo-shared-seven-normal-api-status-v2.json、request-v2にも開始確認と停止import追記。保存image ae3f641e…/5,710,096B、PTX/objectの元byteはMac未読。SDKを作り直さず、既存saved-image admissionで正しいsource/provenanceを再検査して未実行APIだけを別fresh captureへ進める設定経路の**読取調査だけ**を同chatへ依頼済み。run/CPU/SDK/GPU再依頼0、stop/claim削除/guard変更は禁止。次はこのread-only source/config調査の保存JSONを取得する。重複コンパイルはしない。以下は履歴。
+
 ## 共通Windows差分v2の送信受付・開始未確認
 
 共通CLI/既存3helperを実装commit2639cd00として共有済み。新owner ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168、最終P3 archive12,148,119B/SHA41747b61…を輸送ea7a0446へ14fileで共有。自身のdeps/PTX/O1計画成功、全7caller/static input/source graph/v48期待値不変、追加battle/GPU0。Macで管理CPU helper91=7.65秒/従来full158=30.06秒、ID負例と全7分割prepareが成功したownerである。

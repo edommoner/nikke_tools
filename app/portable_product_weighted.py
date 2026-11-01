@@ -24,8 +24,10 @@ def compile_product(prepared,producer):
     if not unspecified:pack(declarations['weighted_incoming'],names)
     inner=dict(prepared,_product_weighted_compiled=True);inner.pop('reference_models',None)
     with compiler_policy():source,iw,ow,words,meta=producer(inner)
-    if source not in ('gpu/product_battle_entry.slang','gpu/product_fixed_battle_entry.slang') or (iw,ow)!=(104400,786432):
-        raise UnsupportedPortable('Weighted product composition requires the plain shared battle entry')
+    prefixes={'gpu/product_battle_entry.slang':(104400,786432),'gpu/product_fixed_battle_entry.slang':(104400,786432),
+        'gpu/product_group_battle_entry.slang':(104408,1048576),'gpu/product_fixed_group_battle_entry.slang':(104408,1048576)}
+    if source not in prefixes or (iw,ow)!=prefixes[source]:
+        raise UnsupportedPortable('Weighted product composition requires a checked plain or actual-shot group battle entry')
     indices=[i for i,r in enumerate(prepared['effects']) if r['effect'].get('stat')=='received_dmg_split']
     if len(indices)!=2 or {prepared['effects'][i]['effect']['target'] for i in indices}!={'all_allies','self_cover'}:
         raise UnsupportedPortable('Weighted product requires exactly one original body and cover marker')
@@ -40,7 +42,7 @@ def compile_product(prepared,producer):
         source_name=next(prepared['effects'][i]['effect']['name'] for i in indices if prepared['effects'][i]['effect']['target']=='all_allies'),
         cover_name=next(prepared['effects'][i]['effect']['name'] for i in indices if prepared['effects'][i]['effect']['target']=='self_cover'),
         cpu_state_or_schedule_supplied=False)
-    return ('gpu/product_weighted_fixed_battle_entry.slang' if 'fixed_' in source else 'gpu/product_weighted_battle_entry.slang',INPUT,OUTPUT,
+    return ('gpu/product_weighted_'+('fixed_' if 'fixed_' in source else '')+('group_' if 'group_' in source else '')+'battle_entry.slang',INPUT,OUTPUT,
         list(words)+[0]*(W['BASE']-len(words))+bank,meta)
 
 def read_result(block,metadata,names,duration):

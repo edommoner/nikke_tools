@@ -1,0 +1,371 @@
+{
+  "schema": "product-weighted-group-v1",
+  "implementation": {
+    "common_cuda_metal_runtime": true,
+    "new_suites": 0,
+    "new_auditors": 0,
+    "registry_programs": 70,
+    "new_thin_program_selections": [
+      "weighted-accumulate-group",
+      "weighted-fixed-group"
+    ],
+    "new_calculation_formulas": 0,
+    "canonical_cpu_changes": 0,
+    "pinned_changes": 0,
+    "original_plain_shaders_changed": false,
+    "single_body_no_multi_hit4_callback": true,
+    "entry_boundary": "Same existing initialize/execute/write phases; group descriptor ends104408, literal weighted bank starts115680; no bank overlap",
+    "numeric_rules_or_tolerances_changed": false
+  },
+  "normal_api": {
+    "conditions": 12,
+    "posts": 1,
+    "physical_gpu_dispatches": 4,
+    "all_full_cpu_gpu_http_equal": true,
+    "saved_audit_additional_battles": 0,
+    "saved_audit_additional_gpu": 0,
+    "final_release_projection_extra_battles": 0,
+    "final_release_projection_extra_gpu": 0,
+    "node_group_absent": true,
+    "seconds": 34.72761658398667,
+    "rows": [
+      {
+        "variant": "phases-favorite0-fixed",
+        "favorite_stage": 0,
+        "source": "gpu/product_weighted_fixed_group_battle_entry.slang",
+        "definitions": 74,
+        "source_rows": [
+          0,
+          2
+        ],
+        "group_count": 14,
+        "group_notifications": 0,
+        "group_resources_released": true,
+        "distinct_targets_per_group": 1,
+        "active_multitarget_callback_verified": false,
+        "weighted_snapshots": 6,
+        "cover_receipts": 6,
+        "active_weighted_cover": true,
+        "input_sha256": "f7270a24877095f0779d601d8ace3c771fa1f4d0844dd16b00abb9ea67f65b83",
+        "output_sha256": "6c18c53f47a839a92683aa5b508c0635809c8aa8eea3e6d6b4cfb0d4fc67e2e7",
+        "all_full_cpu_gpu_http_equal": true,
+        "final_saved_projection_equal": true
+      },
+      {
+        "variant": "phases-favorite0-accumulate",
+        "favorite_stage": 0,
+        "source": "gpu/product_weighted_group_battle_entry.slang",
+        "definitions": 74,
+        "source_rows": [
+          0,
+          2
+        ],
+        "group_count": 14,
+        "group_notifications": 0,
+        "group_resources_released": true,
+        "distinct_targets_per_group": 1,
+        "active_multitarget_callback_verified": false,
+        "weighted_snapshots": 6,
+        "cover_receipts": 6,
+        "active_weighted_cover": true,
+        "input_sha256": "fc949743c76460479552122d828c4db828e783da8b5d3093083b861579cef865",
+        "output_sha256": "ffe7fa34d2faef79822a01c249797534847bcc3dbf87a6b2d73b1f38b6835f73",
+        "all_full_cpu_gpu_http_equal": true,
+        "final_saved_projection_equal": true
+      },
+      {
+        "variant": "phases-favorite1-fixed",
+        "favorite_stage": 1,
+        "source": "gpu/product_weighted_fixed_group_battle_entry.slang",
+        "definitions": 79,
+        "source_rows": [
+          4,
+          0
+        ],
+        "group_count": 14,
+        "group_notifications": 0,
+        "group_resources_released": true,
+        "distinct_targets_per_group": 1,
+        "active_multitarget_callback_verified": false,
+        "weighted_snapshots": 6,
+        "cover_receipts": 6,
+        "active_weighted_cover": true,
+        "input_sha256": "c4c2847f5ac4bcb6415e30b434b834f953a0730b8781085d6c562e552744f250",
+        "output_sha256": "3679fb47bf0dfb1a6897247a5575bbf243711bdec87b641743e33f4d52de389d",
+        "all_full_cpu_gpu_http_equal": true,
+        "final_saved_projection_equal": true
+      },
+      {
+        "variant": "phases-favorite1-accumulate",
+        "favorite_stage": 1,
+        "source": "gpu/product_weighted_group_battle_entry.slang",
+        "definitions": 79,
+        "source_rows": [
+          4,
+          0
+        ],
+        "group_count": 14,
+        "group_notifications": 0,
+        "group_resources_released": true,
+        "distinct_targets_per_group": 1,
+        "active_multitarget_callback_verified": false,
+        "weighted_snapshots": 6,
+        "cover_receipts": 6,
+        "active_weighted_cover": true,
+        "input_sha256": "eeb8b9080d36de6eca1a493513cc6740107830249f419e95fe615f9b4a395e80",
+        "output_sha256": "8ac291e19984efe238ac65720d464bd543b49e6e51aff3d21845d1fe6ed68fad",
+        "all_full_cpu_gpu_http_equal": true,
+        "final_saved_projection_equal": true
+      },
+      {
+        "variant": "phases-favorite2-fixed",
+        "favorite_stage": 2,
+        "source": "gpu/product_weighted_fixed_group_battle_entry.slang",
+        "definitions": 80,
+        "source_rows": [
+          2,
+          5
+        ],
+        "group_count": 14,
+        "group_notifications": 0,
+        "group_resources_released": true,
+        "distinct_targets_per_group": 1,
+        "active_multitarget_callback_verified": false,
+        "weighted_snapshots": 6,
+        "cover_receipts": 6,
+        "active_weighted_cover": true,
+        "input_sha256": "88c93bc3b8f6b870ea5aa479b5fcd89ec9ca235e39b85bc8e112824c125aac48",
+        "output_sha256": "68165db3ffbce52af5598fab92c12755c8748754bf7624a984a23029d89ad9d1",
+        "all_full_cpu_gpu_http_equal": true,
+        "final_saved_projection_equal": true
+      },
+      {
+        "variant": "phases-favorite2-accumulate",
+        "favorite_stage": 2,
+        "source": "gpu/product_weighted_group_battle_entry.slang",
+        "definitions": 80,
+        "source_rows": [
+          2,
+          5
+        ],
+        "group_count": 14,
+        "group_notifications": 0,
+        "group_resources_released": true,
+        "distinct_targets_per_group": 1,
+        "active_multitarget_callback_verified": false,
+        "weighted_snapshots": 6,
+        "cover_receipts": 6,
+        "active_weighted_cover": true,
+        "input_sha256": "5c368f16e2533806348e827044e430455d6ea732992d8f38dcd1194e1bbf3bc0",
+        "output_sha256": "1664075d0194623acdf1d87ebecd354559c2b60776aa36167e19e7916ccf720a",
+        "all_full_cpu_gpu_http_equal": true,
+        "final_saved_projection_equal": true
+      },
+      {
+        "variant": "phases-favorite3-fixed",
+        "favorite_stage": 3,
+        "source": "gpu/product_weighted_fixed_group_battle_entry.slang",
+        "definitions": 81,
+        "source_rows": [
+          0,
+          3
+        ],
+        "group_count": 14,
+        "group_notifications": 0,
+        "group_resources_released": true,
+        "distinct_targets_per_group": 1,
+        "active_multitarget_callback_verified": false,
+        "weighted_snapshots": 6,
+        "cover_receipts": 6,
+        "active_weighted_cover": true,
+        "input_sha256": "219688297d10cd719b35e9d8a35093568197a949ef1b423b0b8405712b28cde8",
+        "output_sha256": "5cb6fa5c42bdc5a82ec857bb861c289dc4b172b3782ab9d5584dab633a43b0db",
+        "all_full_cpu_gpu_http_equal": true,
+        "final_saved_projection_equal": true
+      },
+      {
+        "variant": "phases-favorite3-accumulate",
+        "favorite_stage": 3,
+        "source": "gpu/product_weighted_group_battle_entry.slang",
+        "definitions": 81,
+        "source_rows": [
+          0,
+          3
+        ],
+        "group_count": 14,
+        "group_notifications": 0,
+        "group_resources_released": true,
+        "distinct_targets_per_group": 1,
+        "active_multitarget_callback_verified": false,
+        "weighted_snapshots": 6,
+        "cover_receipts": 6,
+        "active_weighted_cover": true,
+        "input_sha256": "6f2e73945351f4c5b258e04b89d531e29db9f6e6165c06cd85cc55974ffc4459",
+        "output_sha256": "4b898c6c805272d2c74b0aacf7d497ecafe51791073381c0dba1d85316a115de",
+        "all_full_cpu_gpu_http_equal": true,
+        "final_saved_projection_equal": true
+      },
+      {
+        "variant": "break-no-revive-reburst-favorite0-fixed",
+        "favorite_stage": 0,
+        "source": "gpu/product_weighted_fixed_group_battle_entry.slang",
+        "definitions": 74,
+        "source_rows": [
+          0,
+          2
+        ],
+        "group_count": 32,
+        "group_notifications": 0,
+        "group_resources_released": true,
+        "distinct_targets_per_group": 1,
+        "active_multitarget_callback_verified": false,
+        "weighted_snapshots": 10,
+        "cover_receipts": 2,
+        "active_weighted_cover": true,
+        "input_sha256": "133f182ae6f6973ff400670e4aa2eced6d5f3e0305f65a6f4202a08dc8b0924b",
+        "output_sha256": "219d7df0d8547a6141093a45bf531809f5acd2c2e34cdd3f4331057e69d97bab",
+        "all_full_cpu_gpu_http_equal": true,
+        "final_saved_projection_equal": true
+      },
+      {
+        "variant": "break-no-revive-reburst-favorite0-accumulate",
+        "favorite_stage": 0,
+        "source": "gpu/product_weighted_group_battle_entry.slang",
+        "definitions": 74,
+        "source_rows": [
+          0,
+          2
+        ],
+        "group_count": 32,
+        "group_notifications": 0,
+        "group_resources_released": true,
+        "distinct_targets_per_group": 1,
+        "active_multitarget_callback_verified": false,
+        "weighted_snapshots": 10,
+        "cover_receipts": 2,
+        "active_weighted_cover": true,
+        "input_sha256": "f08c89259e1840633f1237992485d5fb8ad395a8279a073d31c1705cbdfd410f",
+        "output_sha256": "035b57f7ceace681e9c1d438b4e48feee7c1f8f3f0aa489dd46073984e8e99aa",
+        "all_full_cpu_gpu_http_equal": true,
+        "final_saved_projection_equal": true
+      },
+      {
+        "variant": "inactive-favorite0-fixed",
+        "favorite_stage": 0,
+        "source": "gpu/product_weighted_fixed_group_battle_entry.slang",
+        "definitions": 74,
+        "source_rows": [
+          0,
+          2
+        ],
+        "group_count": 1,
+        "group_notifications": 0,
+        "group_resources_released": true,
+        "distinct_targets_per_group": 1,
+        "active_multitarget_callback_verified": false,
+        "weighted_snapshots": 0,
+        "cover_receipts": 0,
+        "active_weighted_cover": false,
+        "input_sha256": "49ece9d233af1b0d0852452240eacc145e51294be3419a2fa48bda2ebf35855d",
+        "output_sha256": "cc6ebdec2440c2bc321d3709bb018ad62a7b821b4090b16830ca7e7d28779c16",
+        "all_full_cpu_gpu_http_equal": true,
+        "final_saved_projection_equal": true
+      },
+      {
+        "variant": "inactive-favorite0-accumulate",
+        "favorite_stage": 0,
+        "source": "gpu/product_weighted_group_battle_entry.slang",
+        "definitions": 74,
+        "source_rows": [
+          0,
+          2
+        ],
+        "group_count": 1,
+        "group_notifications": 0,
+        "group_resources_released": true,
+        "distinct_targets_per_group": 1,
+        "active_multitarget_callback_verified": false,
+        "weighted_snapshots": 0,
+        "cover_receipts": 0,
+        "active_weighted_cover": false,
+        "input_sha256": "145f0ce7fc90140cf95c5d8d2681d32aca7c3664facd872cfe4e039431a9c675",
+        "output_sha256": "5f00bf4589db64b6801fefd7f45150ec6818a8f9a002d4d4a7ba6fe43b69dd4a",
+        "all_full_cpu_gpu_http_equal": true,
+        "final_saved_projection_equal": true
+      }
+    ]
+  },
+  "cli": {
+    "program": "weighted-accumulate-group",
+    "original_development_owner": "e9c74285eaee8a8e71c369c11b14e163aa745b8062981469b750b246bcdea5dd",
+    "actual_metal_and_native_cases": 1,
+    "independent_audit": {
+      "package_id": "e9c74285eaee8a8e71c369c11b14e163aa745b8062981469b750b246bcdea5dd",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-weighted-group-v1-20261101/metal-v3",
+      "child_pid": 34746,
+      "input_count": 1,
+      "native_cases": 1,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 1.6852304579806514,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "fc949743c76460479552122d828c4db828e783da8b5d3093083b861579cef865",
+      "output_sha256": "ffe7fa34d2faef79822a01c249797534847bcc3dbf87a6b2d73b1f38b6835f73",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "cpu_tests": 159,
+    "baseline_version": 49,
+    "all35_existing_baseline_members_unchanged": true,
+    "fixed_group_api_verified": true,
+    "fixed_group_independent_cli_baseline_registered": false
+  },
+  "raw_guard": {
+    "owner": "e9c74285eaee8a8e71c369c11b14e163aa745b8062981469b750b246bcdea5dd",
+    "mutation": {
+      "word": 104408,
+      "old": 0,
+      "new": 1
+    },
+    "gpu_status": 64,
+    "rejected_before_battle": true,
+    "input_sha256": "dc398fe2685a01e6194cbd65237ab727322dece4c3b8af78a02ead43e492641d",
+    "output_sha256": "c0e843764175f86cdc685de95c1388b04e6417f98da0af258683eddac860fa28",
+    "gpu_calls": 1,
+    "native_battles": 0,
+    "original_success_claim_unchanged": true,
+    "full_goal_complete": false
+  },
+  "release": {
+    "owner": "8c419554d92c4c39b28e42f0da1f7672bf547d6967bdd023e6c84328321e047e",
+    "own_cpu_deps_ptx_o1_plans_passed": true,
+    "changed_calculation_scope_paths": [
+      "app/portable_product_programs.py",
+      "app/portable_weighted_incoming_source_contract.py"
+    ],
+    "source_and_all12_inputs_reprojected_exact": true,
+    "code_changes_after_gpu": "GOLDEN pointer and exact ledger hash only"
+  },
+  "failures_retained": [
+    "Additional activity assertion expected positive group notifications. Preserved rejection: all groups have one BODY, so original multi_hit4 is correctly inactive in CPU/GPU. No numerical change; no active callback proof claimed.",
+    "Original weighted+group compiler rejected the actual-shot prefix; preserved original caller/error before modification",
+    "Initial registry enumeration test omitted the new2 valid names; retained failure and packet before GPU, corrected enumeration only",
+    "Existing --native-baseline-package rejected the changed test file SHA before native reuse. Did not weaken the gate; retained rejection log and generated a fresh native contract in new packet-v3"
+  ],
+  "standard_metal_profiles": 263,
+  "standard_cuda_recorded_profiles": 263,
+  "configured_original_recorded_profiles_each_gpu": 266,
+  "new_standard_profile_count": 0,
+  "new_composition_cuda_verified": false,
+  "current_full_cuda_matrix_verified": false,
+  "declared_weights_game_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Active multi_hit callback requires native multi-target/coordinate input; current single-BODY notifications0 is an inactive-condition proof",
+    "Weighted with typed target/ADD/coordinate/movement/lock and independent cover models remains guarded",
+    "Other original model compositions and typed projectile/shield product worlds",
+    "Pending bounded CUDA shared7 request; no new Windows run for this group change"
+  ]
+}
