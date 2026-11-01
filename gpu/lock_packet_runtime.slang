@@ -70,11 +70,17 @@ void lockPacketStore(inout Runtime s,uint at,LandingReceipt r)
     r.lockSnapshot=s.lockShotCount;
     if(lockPacketTrace(s,r,0,packet))results[token]=r.lockSnapshot;
 }
+// Materialize the scalar before clearing its RW slot. Slang's CUDA lowering
+// otherwise keeps an address and returns the cleared value; Metal already
+// materializes it. This is the same shared snapshot contract as actor scopes.
+[noinline]
+uint lockPacketTokenSnapshot(uint token)
+{ return results[token]; }
 uint lockPacketLoad(uint at)
 {
     uint output=(at/P_OUTPUT_WORDS)*P_OUTPUT_WORDS,packet=(at-output-P_LANDING_STATE_BASE)/P_LANDING_WORDS;
     if(packet>=P_LANDINGS)return 0xffffffffU;
-    uint token=output+LP_TOKENS+packet,value=results[token];results[token]=0;return value;
+    uint token=output+LP_TOKENS+packet;uint value=lockPacketTokenSnapshot(token);results[token]=0;return value;
 }
 bool lockPacketObserveLoaded(inout Runtime s,LandingReceipt r)
 {

@@ -26,10 +26,10 @@ def function(text,prefix):
     raise ValueError('Incomplete generated scope function')
 
 
-def audit(cuda,metal):
+def _audit_scalar_exchange(cuda,metal,reader,consumer):
     result={}
     for target,raw in [('cuda',cuda),('metal',metal)]:
-        text=raw.decode();helper,read,annotation=function(text,'actorStateQueryScopeSnapshot');name,body,_=function(text,'actorStatePushQuery')
+        text=raw.decode();helper,read,annotation=function(text,reader);name,body,_=function(text,consumer)
         if target=='cuda' and '__noinline__' not in annotation:raise ValueError('CUDA scalar snapshot must remain noinline')
         stores=list(re.finditer(r'(?m)^\s*\*[^;\n]+?\s*=\s*[^;\n]+;',body))
         call=re.search(r'\buint\s+(\w+)\s*=\s*'+helper+r'\([^;]+;',body)
@@ -38,9 +38,23 @@ def audit(cuda,metal):
         if not returned or not call.end()<=stores[0].start()<stores[0].end()<=returned.start():raise ValueError('Scope snapshot/store/return order is invalid')
         if re.search(r'(?m)^\s*\*[^;\n]+?\s*=',read):raise ValueError('Snapshot helper must only read')
         result[target]=dict(function=name,snapshot=helper,sha256=hashlib.sha256(raw).hexdigest(),value_before_store=True)
+    return result
+
+
+def audit_lock_packets(cuda,metal):
+    result=_audit_scalar_exchange(cuda,metal,'lockPacketTokenSnapshot','lockPacketLoad')
+    for raw in (cuda,metal):
+        _,read,_=function(raw.decode(),'lockPacketTokenSnapshot')
+        if not re.search(r'\breturn\s+[^;]*\bresults_\d+\b[^;]*;',read):raise ValueError('Packet snapshot must return the original RW buffer scalar')
+    return dict(generated_lock_packet_snapshot_verified=True,targets=result,gpu_calls=0,calculation_verified=False)
+
+
+def audit(cuda,metal):
+    result=_audit_scalar_exchange(cuda,metal,'actorStateQueryScopeSnapshot','actorStatePushQuery')
     answer=dict(schema=1,generated_scope_snapshot_verified=True,targets=result,gpu_calls=0,calculation_verified=False)
     if b'stagedScopeSnapshot_' in cuda or b'stagedScopeSnapshot_' in metal:answer['staged']=audit_staged(cuda,metal)
     if b'findCarrier_' in cuda or b'findCarrier_' in metal:answer['resident_scalars']=audit_resident_scalars(cuda,metal)
+    if b'lockPacketLoad_' in cuda or b'lockPacketLoad_' in metal:answer['lock_packets']=audit_lock_packets(cuda,metal)
     return answer
 
 

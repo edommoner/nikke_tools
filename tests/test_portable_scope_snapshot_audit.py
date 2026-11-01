@@ -95,4 +95,36 @@ class ResidentScalarSnapshotTests(unittest.TestCase):
         for raw in (GOOD.replace(b'return previous;',b'return *p;'),GOOD.replace(b'{ return *p; }',b'{\n*p = 1;\nreturn *p; }')):
             with self.assertRaises(ValueError):audit(raw,GOOD)
 
+
+
+
+class LockPacketSnapshotTests(unittest.TestCase):
+    GOOD=b'''static __device__ __noinline__ uint lockPacketTokenSnapshot_0(uint at) { return results_0[at]; }
+uint lockPacketLoad_0(uint at) {
+uint previous=lockPacketTokenSnapshot_0(at);
+*p = 0;
+return previous;
+}'''
+    def test_actual_old_cuda_clear_then_dereference_is_rejected(self):
+        from portable_scope_snapshot_audit import audit_lock_packets
+        bad=self.GOOD.replace(b'uint previous=lockPacketTokenSnapshot_0(at);',b'uint* previous=p;').replace(b'return previous;',b'return *previous;')
+        with self.assertRaises(ValueError):audit_lock_packets(bad,self.GOOD)
+        result=audit_lock_packets(self.GOOD,self.GOOD)
+        self.assertTrue(result['generated_lock_packet_snapshot_verified']);self.assertFalse(result['calculation_verified'])
+
+    def test_snapshot_after_clear_writable_reader_constant_or_inlining_is_rejected(self):
+        from portable_scope_snapshot_audit import audit_lock_packets
+        late=self.GOOD.replace(b'uint previous=lockPacketTokenSnapshot_0(at);\n*p = 0;',b'*p = 0;\nuint previous=lockPacketTokenSnapshot_0(at);')
+        for value in (late,self.GOOD.replace(b'__noinline__',b''),self.GOOD.replace(b'return results_0[at];',b'*p=0;return results_0[at];'),self.GOOD.replace(b'return results_0[at];',b'return 0;')):
+            with self.subTest(value=value),self.assertRaises(ValueError):audit_lock_packets(value,self.GOOD)
+
+    def test_cached_output_validation_rejects_the_same_failure_without_gpu(self):
+        from portable_slang_generation import validate_generated_outputs
+        with tempfile.TemporaryDirectory() as folder:
+            paths={name:Path(folder)/name for name in ('cuda','metal')}
+            for p in paths.values():p.write_bytes(self.GOOD)
+            validate_generated_outputs(paths)
+            paths['cuda'].write_bytes(self.GOOD.replace(b'uint previous=lockPacketTokenSnapshot_0(at);',b'uint* previous=p;').replace(b'return previous;',b'return *previous;'))
+            with self.assertRaises(ValueError):validate_generated_outputs(paths)
+
 if __name__=='__main__':unittest.main()

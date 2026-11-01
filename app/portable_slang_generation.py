@@ -29,8 +29,11 @@ def validate_counter_snapshots(generated):
 
 def validate_generated_outputs(outputs):
     """File-only guard, also usable under the CPU/audit GPU prohibition."""
-    for target in ('cuda','metal'):
-        validate_counter_snapshots(outputs[target].read_text(encoding='utf-8'))
+    raw={target:outputs[target].read_bytes() for target in ('cuda','metal')}
+    for value in raw.values():validate_counter_snapshots(value.decode('utf-8'))
+    if any(b'lockPacketLoad_' in value for value in raw.values()):
+        from portable_scope_snapshot_audit import audit_lock_packets
+        audit_lock_packets(raw['cuda'],raw['metal'])
 
 
 def build(root,source,entry):

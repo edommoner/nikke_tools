@@ -3006,7 +3006,7 @@
     },
     "gpu/lock_packet_runtime.slang": {
       "before_sha256": "881d7dff17c238627ebfd5d7deee2c5fe6c2f878ed9a2f1ccbf11b425f2b8f28",
-      "after_sha256": "232550c2c56ef2cb7235aa83852dfdaf558ba7580fa3fe461e8c571a0957f5a6",
+      "after_sha256": "2ffa488b3d1b42630378b5203ad264ccbc73af70048f33b31f2f1c8b995dbb94",
       "hunks": [
         {
           "start": 245,
@@ -3129,20 +3129,62 @@
           "after": "ken])"
         },
         {
-          "start": 4568,
-          "end": 4583,
+          "start": 4169,
+          "end": 4479,
+          "before": "",
+          "after": "}\n// Materialize the scalar before clearing its RW slot. Slang's CUDA lowering\n// otherwise keeps an address and returns the cleared value; Metal already\n// materializes it. This is the same shared snapshot contract as actor scopes.\n[noinline]\nuint lockPacketTokenSnapshot(uint token)\n{ return results[token]; "
+        },
+        {
+          "start": 4704,
+          "end": 4710,
+          "before": ",",
+          "after": ";uint "
+        },
+        {
+          "start": 4716,
+          "end": 4724,
+          "before": "r",
+          "after": "lockPack"
+        },
+        {
+          "start": 4725,
+          "end": 4735,
+          "before": "",
+          "after": "tTokenSnap"
+        },
+        {
+          "start": 4736,
+          "end": 4738,
+          "before": "ul",
+          "after": "ho"
+        },
+        {
+          "start": 4739,
+          "end": 4740,
+          "before": "s[",
+          "after": "("
+        },
+        {
+          "start": 4745,
+          "end": 4746,
+          "before": "]",
+          "after": ")"
+        },
+        {
+          "start": 4899,
+          "end": 4914,
           "before": "",
           "after": "failLockPacket("
         },
         {
-          "start": 4584,
-          "end": 4612,
+          "start": 4915,
+          "end": 4943,
           "before": ".",
           "after": ",9006U,r,results[landingHead"
         },
         {
-          "start": 4614,
-          "end": 4625,
+          "start": 4945,
+          "end": 4956,
           "before": "ror=64",
           "after": "(s)+1]-1,0)"
         }
