@@ -1,0 +1,18 @@
+{
+  "schema": "unit-selection-v1",
+  "package_id": "fa22d9b5406ceb73bd8fcf0924267d37835796471ccf4fa60219868ead76c47d",
+  "patterns": {
+    "test_portable_detail.py": [
+      "test_portable_detail.PortableDetail.test_product_keeps_all_equipment_rows_and_uses_native_carrier_lifecycle"
+    ],
+    "test_product_detail_packet.py": [
+      "test_product_detail_packet.ProductPacket.test_each_program_uses_the_actual_static_product_input_and_exact_wire"
+    ],
+    "test_weighted_source_contract.py": null,
+    "test_product_reference_models.py": [
+      "test_product_reference_models.ProductReferenceModels.test_coordinate_healing_keeps_all_effects_scene_and_literal_source_bank",
+      "test_product_reference_models.ProductReferenceModels.test_coordinate_healing_requires_complete_projection_context_before_receipts"
+    ]
+  },
+  "expected_tests": 11
+}

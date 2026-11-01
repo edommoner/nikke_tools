@@ -1,0 +1,69 @@
+{
+  "schema": "product-transport-v1",
+  "owner": "fa22d9b5406ceb73bd8fcf0924267d37835796471ccf4fa60219868ead76c47d",
+  "files": [
+    {
+      "path": "coordinate-healing-v1-api-expected.json",
+      "bytes": 1189,
+      "sha256": "a56be3685fe93e9925ad1c6e9cda833cf1a3853956b0e860ae0288e12459b31e"
+    },
+    {
+      "path": "coordinate-healing-v1-api-job.json",
+      "bytes": 9894,
+      "sha256": "f40546b4bc39c4ea7e9d5fca584918b1e4441ac6d406efe469fb966d343ec998"
+    },
+    {
+      "path": "coordinate-healing-v1-check-sdk.py",
+      "bytes": 4875,
+      "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d"
+    },
+    {
+      "path": "coordinate-healing-v1-o1-plan.json",
+      "bytes": 735,
+      "sha256": "af8e69b2d5a22f64a5f2a24e83bf4f5f5c254f966f64cce91f4ee02c158965d0"
+    },
+    {
+      "path": "coordinate-healing-v1-prepare-api.py",
+      "bytes": 6413,
+      "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739"
+    },
+    {
+      "path": "coordinate-healing-v1-ptx-plan.json",
+      "bytes": 707,
+      "sha256": "4262672b5288cac4ab40aabc35c52d3296e9a63c886c0207e88b55351868a7a2"
+    },
+    {
+      "path": "coordinate-healing-v1-request-validation.json",
+      "bytes": 601,
+      "sha256": "39f19afdd17a7bc89c160b883b947777913c5cd84c22afc341c7a5ccc55770ac"
+    },
+    {
+      "path": "coordinate-healing-v1-selected11.json",
+      "bytes": 852,
+      "sha256": "47f70ffedde8ff2be2215ea2de7173b0a389fb2cde78a560c8cb16345b9c7055"
+    },
+    {
+      "path": "coordinate-healing-v1-validation-deps.json",
+      "bytes": 407,
+      "sha256": "9e12de137ba95ec9d351e010680c6d167f3a7186ad657b5d1d3ace91b8d0161b"
+    },
+    {
+      "path": "coordinate-healing-v1-verify-host-tests.py",
+      "bytes": 1924,
+      "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7"
+    },
+    {
+      "path": "coordinate-healing-v1-windows-request.json",
+      "bytes": 8744,
+      "sha256": "6771d1740390604c1823c3b2ed3fb4aba9feec5239717b590958df01b8cfb74e"
+    },
+    {
+      "path": "coordinate-healing-v1.zip",
+      "bytes": 12166996,
+      "sha256": "2b8e83c06ec2f9c5238565db9fccf980977a16bb06483c6fbca3bb2ae7547ec2"
+    }
+  ],
+  "raw_or_settings_included": false,
+  "additional_battles": 0,
+  "additional_gpu": 0
+}

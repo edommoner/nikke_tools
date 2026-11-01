@@ -1,0 +1,30 @@
+{
+  "schema": "product-cuda-expected-v1",
+  "owner": "fa22d9b5406ceb73bd8fcf0924267d37835796471ccf4fa60219868ead76c47d",
+  "source_commit": "7fc655646628b41e72cec023fb096ba91b8f0b99",
+  "source": "gpu/product_coordinate_healing_battle_entry.slang",
+  "physical_cases": 1,
+  "input_words": 120048,
+  "output_words": 2032000,
+  "physical_input_bytes": 480196,
+  "physical_output_bytes": 8128000,
+  "physical_input_sha256": "ea3417dc886d5dbd47278867088d101213dbc03639dacf3e41cb775fcf87fd5a",
+  "physical_output_sha256": "27730cba3aacdabeafd157051c38553ab246901d7a9e04d631e20ce26141b0a4",
+  "readback_chunk_bytes": 8388608,
+  "expected_readback_chunk_bytes": [
+    8128000
+  ],
+  "cases": [
+    {
+      "index": 0,
+      "member_index": 0,
+      "label": "product/coordinate-healing-accumulate-30s",
+      "variant": null,
+      "expected_input_sha256": "ea3417dc886d5dbd47278867088d101213dbc03639dacf3e41cb775fcf87fd5a",
+      "expected_output_sha256": "27730cba3aacdabeafd157051c38553ab246901d7a9e04d631e20ce26141b0a4",
+      "definition_count": 69,
+      "all_original_definitions_preserved": true,
+      "saved_metal_capture": "product-coordinate-healing-v1-20261101/metal-v2"
+    }
+  ]
+}
