@@ -1,3 +1,17 @@
+## 2026-11-01 実CUDA診断でtoken消失を特定、共通snapshot修正と再発防止をMetal実証
+
+前turnはPTX/objectの出所成立とreadback診断CLI統合で進捗。今回はf8b0773cのlink status6269bytes/SHA118fa13c…を取得し、同objectのCUBIN4a142dde…（5198416bytes）・9API全ret0/Destroy0・driver未ロード・内外missing0/Job2GiB/emptyを照合。元と全項目同じ30秒bodyをpacket自身でsimulate/GPU禁止で再packしinput07c3e787…一致。新source bd19の通常APIをPOST/GPU各1回。実RTX3070Ti dispatch0.328秒・全driverret0だがstatus64でCPU切替。helper21.268秒/outer25.368秒・peak1930674176bytes・missing0・専用Node停止/Jobempty。二次FileNotFound0、追加生成/SDK/link0。serviceunverified/preservationfalse保持。
+
+f6c1a966の原本status8260bytes/SHA8182a797…、saved diff2931bytes/SHAb60cfd46…を取得。元readback87ccd984…保持、143block差分、rawsamples0。既存readerの同じhash検査からsite9001/row8/packet1/hit1/hits5/depth2/epoch1/token0/shotcount1/tail6/cursor2を取得。新規標準profile0。rootとWindowsの生成物は既存strict normalizerで一致しており、実CUDA側の最初のLock On packet読出しでtoken消失していた。
+
+生成CUDAのlockPacketLoadは、uint value=results[token]をpointerとして保持し、同slotを0へclearした後にpointerをdereferenceしてreturnしていた。生成Metalは先にuintへ退避する。2485f1e1で既存actor scopeと同じnoinline scalar snapshotを共通Slangへ接続し、CUDA/Metal両方をread→clear→saved scalar returnへ固定。計算値/順序/CPU正本/normalizer/許容差の変更0。既存scope監査を共通化し、新生成とcache読込み両方で元の誤生成・pointer戻し・clear後snapshot・noinline削除・書込みreader・定数readerを拒否。新tool/suite0。scope14/lock5/cache13/product10/歴史7検査成功。
+
+元と修正後の実際の生成CUDA関数本体をCPUで実行し、2case×packet0/1/2047×token0/1/31の18条件で旧版の非zero12件消失を再現、修正版は全値保持・clear・両隣guard一致。範囲外2条件も変更なし。これはhost上の生成関数検査であり、修正後の実CUDA戦闘証明は未完。元の誤生成関数もproofへ保存、全失敗/capture/claimを保持。
+
+不変development ownere14078ac…（source2485f1e1）自身の136CPU/fresh native/実M5 30秒が全製品payload一致、別fresh GPU禁止独立seal成功。元input438244bytes/SHA07c3e787…とreadback8195648bytes/SHA772355d4…が全bytes同一。v28はこのlock-cover-fixedだけを登録、旧21member全保持・期待値変更0。Metal最終全件262/266（source5e1）、CUDA歴史厳格3/266・現source0、新標準加算0、全goal未完了。
+
+原本proofs/product-lock-token-snapshot-v1-20261101、小記録research/product-lock-token-snapshot-v1.json。元診断原本proofs/product-lock-packet-failure-v1-20261101を保持。次は最終sealed修正版packet自身のcompile-plan/deps確認後、Windowsで変更sourceの短いPTX/object/linkを既存gateの条件付き連続工程へ渡し、元30秒APIを1回だけ実CUDA確認する。再送ではなく特定した誤生成の修正回帰であり、token失敗が解消しても全goal完了へ一般化しない。以下は履歴。
+
 ## 2026-11-01 Lock On失敗の共通診断を既存16語へ追加、正常Metal全bytes保持
 
 前turnは保存CUDAの3skill全項目がM5と一致し、Lock On stored5/loaded0まで切り分けた。今回は6fd7fd4dで新suite/tool/入力flagを追加せず、既存projectile診断領域786416..786432へ最初のpacket失敗site/receipt/queueを保存する。対象はPORTABLE_PRODUCT_COVER_LOCKだけ。既存error64とCPU fallbackを保持し、正常計算/出力は変更しない。元Windows失敗と原claim/rawを全保持、原因修正の証明ではない。

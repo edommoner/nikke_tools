@@ -2160,13 +2160,13 @@
     },
     "app/portable_product_programs.py": {
       "before_sha256": "51d18a2191c24ef3b68f2d1cf71d792cdb9e8e01ed209e5c793827ce5b7d056d",
-      "after_sha256": "40efc8041ff448c8130ef5a79e3706069f4bc5d7707332726cabc6ffec16d346",
+      "after_sha256": "72a9791b8f791566e6493fd51ee4611ba833483f2156bb6623b20ec92b789a53",
       "hunks": [
         {
           "start": 364,
           "end": 366,
           "before": "1",
-          "after": "27"
+          "after": "28"
         },
         {
           "start": 1043,

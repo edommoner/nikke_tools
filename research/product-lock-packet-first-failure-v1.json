@@ -76,7 +76,7 @@
     "scope": "Generated program retention only, not 245 profile execution"
   },
   "new_standard_profiles": 0,
-  "cuda_execution": false,
+  "cuda_execution": true,
   "goal_complete": false,
   "windows_preparation": {
     "source_commit": "bd19f2bfc0c8c3b0ec891ab2684f10db43527f54",
@@ -162,10 +162,46 @@
     "cuda_image_sha256": "4a142dde70e69a264bfd862945732223e2cbe0f07e731472c5d037e5a667fb7b",
     "post_requested": 1,
     "gpu_launches_requested": 1,
-    "result_received": false,
+    "result_received": true,
     "reader_sha256": "d921b979d6dc1eb203ecd77568bd991be2ed541175f4dc97d0e07fd5b3928bd1",
     "immutable_packet_not_overwritten": true,
     "helper_child_seconds": 53,
     "memory_mib": 2048
-  }
+  },
+  "normal_api_result": {
+    "report_commit": "f6c1a966ff14dccfaf46a220a997f903f05ffe17",
+    "status_sha256": "8182a7979d0ae11ed191670c9906e7a61556596f961d56c710da01810dff42ea",
+    "actual_gpu_launches": 1,
+    "status": 64,
+    "input_matched": true,
+    "readback_sha256": "87ccd984a88b483d85a8c8200fe9b0ebd498bd684c77638542657a2ef37532d7",
+    "changed_blocks": 143,
+    "diagnostic": {
+      "case_index": 0,
+      "status": 64,
+      "packet_failure": {
+        "magic": 1464877380,
+        "site": 9001,
+        "row": 8,
+        "packet": 1,
+        "hit": 1,
+        "hits": 5,
+        "depth": 2,
+        "epoch": 1,
+        "lock_snapshot": 0,
+        "shot_count": 1,
+        "when_low": 858993462,
+        "when_high": 1072902963,
+        "queue_tail": 6,
+        "queue_cursor": 2,
+        "detail": 0,
+        "status": 64
+      }
+    },
+    "calculation_verified": false,
+    "secondary_file_not_found": false,
+    "overall_passed": false,
+    "environment_preservation_verified": false
+  },
+  "cuda_calculation_verified": false
 }
