@@ -9,6 +9,32 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_original_named_carriers_keep_every_definition_and_reject_matching_consumer(self):
+        from portable_product_programs import body_for_program
+        from portable_detail import prepare,compile_product
+        from portable_specs import LIMITS as L,FIELDS as F
+        from portable_backend import validate_composed_stride
+        from portable_runtime import UnsupportedPortable
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'named-carriers-'+mode)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle input')):
+                prepared,_=prepare(body);before=copy.deepcopy(prepared)
+                source,iw,ow,words,metadata=compile_product(prepared)
+            self.assertEqual(prepared,before);self.assertEqual((iw,ow,len(words)),(104400,786432,104400));validate_composed_stride(source,iw,ow)
+            self.assertEqual(set(metadata['binding_source_indices']),set(range(len(prepared['effects']))))
+            info=metadata['product_named_carriers'];self.assertTrue(info['all_original_effects_preserved']);self.assertFalse(info['cpu_state_or_schedule_supplied'])
+            self.assertEqual(len(info['source_indices']),2)
+            for index in info['source_indices']:
+                e=prepared['effects'][index]['effect'];row=metadata['binding_source_indices'].index(index);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
+                self.assertEqual(words[at+F['KIND']],0);self.assertEqual(words[at+F['STAT']],93 if e['stat']=='effect_target_count_add' else 94)
+                self.assertEqual(words[at+F['TARGET_NAME']],metadata['states'][e['target_effect']])
+                import struct
+                self.assertEqual(struct.pack('<2I',*words[at+F['VALUE']:at+F['VALUE']+2]),struct.pack('<d',e['fixed_value']))
+                self.assertEqual(struct.pack('<2I',*words[at+F['DURATION']:at+F['DURATION']+2]),struct.pack('<d',e['duration']))
+                self.assertEqual(words[L['RECIPIENT_BASE']+row*8],12)
+            changed=copy.deepcopy(prepared);changed['effects'][-1]['effect']['name']=info['definitions'][0]['effect']['target_effect']
+            with self.assertRaisesRegex(UnsupportedPortable,'matching skill definition'):compile_product(changed)
+
     def test_coordinate_cover_combines_literal_banks_without_cpu_battle(self):
         from portable_product_programs import body_for_program
         from portable_detail import prepare,compile_product

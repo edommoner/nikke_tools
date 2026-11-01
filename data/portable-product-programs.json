@@ -392,6 +392,20 @@
       "output_words": 2048912,
       "mode": "accumulate",
       "kind": ""
+    },
+    "named-carriers-fixed": {
+      "source": "gpu/product_named_carriers_fixed_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "mode": "fixed",
+      "kind": ""
+    },
+    "named-carriers-accumulate": {
+      "source": "gpu/product_named_carriers_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "mode": "accumulate",
+      "kind": ""
     }
   }
 }

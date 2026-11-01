@@ -17,7 +17,7 @@ bool validTargetCountDefinitions(inout Runtime s)
 #endif
         uint plan=s.inputBase+P_RECIPIENT_BASE+row*8;
         if(commands[plan]!=0&&commands[plan]!=1
-#ifdef PORTABLE_NAMED_RANGE_BATTLE
+#if defined(PORTABLE_NAMED_RANGE_BATTLE) || defined(PORTABLE_PRODUCT_NAMED_CARRIERS)
            &&commands[plan]!=12
 #endif
         )return false;

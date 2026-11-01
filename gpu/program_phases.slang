@@ -66,13 +66,16 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
 #ifdef PORTABLE_EFFECT_TARGET_COUNT
            && definition_stat(input,row)!=TC_STAT
 #endif
-#ifdef PORTABLE_NAMED_RANGE_BATTLE
+#if defined(PORTABLE_NAMED_RANGE_BATTLE) || defined(PORTABLE_PRODUCT_NAMED_CARRIERS)
            && definition_stat(input,row)!=94U
 #endif
         )
         { PROJECTILE_ADMIT_STAGE(s,25) results[output]=64;return; }
 #ifdef PORTABLE_EFFECT_TARGET_COUNT
     if(!validTargetCountDefinitions(s)) { results[output]=64;return; }
+#ifdef PORTABLE_PRODUCT_NAMED_CARRIERS
+    if(!validProductNamedCarriers(s)) { results[output]=64;return; }
+#endif
 #ifdef PORTABLE_GENERATION_LOCKS
     if(!initializeGenerationLocks(s)) { results[output]=64;return; }
 #ifdef PORTABLE_PHYSICAL_LOCKS

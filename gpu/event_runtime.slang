@@ -1979,6 +1979,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "enemy_target_runtime.slang"
 #ifdef PORTABLE_EFFECT_TARGET_COUNT
 #include "effect_target_count_runtime.slang"
+#ifdef PORTABLE_PRODUCT_NAMED_CARRIERS
+#include "product_named_carriers_runtime.slang"
+#endif
 #ifdef PORTABLE_GENERATION_LOCKS
 #include "named_generation_locks.slang"
 #ifdef PORTABLE_PHYSICAL_LOCKS

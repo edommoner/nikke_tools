@@ -515,7 +515,7 @@
     "Every configured ADD requires an explicit collider; no inferred geometry",
     "Manual cover combination explicitly rejects",
     "Default movement/distance/target policy gaps and unrestricted mixed compositions remain",
-    "No actual CUDA execution on this coordinate source yet"
+    "CUDA verified for3 declared fixed cases at source170cf08d; not unrestricted/current-source/all-character certification"
   ],
   "accumulate_cli": {
     "independent_audit": {
@@ -571,7 +571,7 @@
     "cases": 3,
     "posts_max": 1,
     "gpu_max": 1,
-    "status": "Original stopped report imported and audited; remaining59-only bounded continuation requested",
+    "status": "3 fixed cases full M5/CPU/GPU/API saved evidence imported; original incorrect16MiB chunk declaration retained, actual source8MiB matches",
     "reported_completed_tests": 85,
     "incomplete_group": "test_product_reference_models.py (59 discovered; no completion receipt)",
     "sdk_executions": 0,
@@ -583,5 +583,15 @@
     "stop_original_sha256": "6aba6623f3071f1be9f12aeb6b3c01eb067df683636a4938ac031af8a8d3233d",
     "stop_import_audit": "research/coordinate-public-windows-stop-import-v1.json",
     "continuation_request_commit": "d9a0999639b630d2b72ee386e00d18ebb85799e9"
+  },
+  "cuda_product_evidence": {
+    "report": "research/product-coordinate-cuda-import-v2.json",
+    "source_commit": "170cf08dea2b0c55a3558b4e8ad7358d29d2640a",
+    "owner": "a077d3b3cceff66eed9e7b0a3d80ab8505f89f0b0fce294e13870c1cc6932c12",
+    "fixed_cases": 3,
+    "all_m5_raw_and_cpu_gpu_api_payload_matched": true,
+    "original_incorrect_request_chunk_gate": false,
+    "actual_sealed_source_8mib_chunking_verified": true,
+    "new_default_profiles": 0
   }
 }

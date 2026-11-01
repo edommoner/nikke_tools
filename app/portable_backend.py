@@ -121,6 +121,10 @@ def validate_composed_stride(source,input_words,output_words):
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Weighted incoming requires complete literal weights and owned receipt banks')
         return
     from portable_product_programs import PROGRAMS
+    named_carrier_sources={p['source'] for n,p in PROGRAMS.items() if n.startswith('named-carriers-')}
+    if source in named_carrier_sources:
+        if (input_words,output_words)!=(104400,786432):raise ValueError('Named carriers require the complete ordinary BODY wire')
+        return
     coordinate_cover_sources={p['source'] for n,p in PROGRAMS.items() if n.startswith('coordinate-cover-')}
     if source in coordinate_cover_sources:
         from portable_cover_defense_wire import check_schema,LAYOUT as C,INPUT,OUTPUT

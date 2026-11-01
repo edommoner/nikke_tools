@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v39-expected.json'
+GOLDEN = 'research/portable-product-programs-v40-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -18,6 +18,7 @@ for _name,_program in PROGRAMS.items():
         raise ValueError('Invalid product program declaration')
     _mode,_kind=_program['mode'],_program['kind']
     _default=_name.startswith('default-');_selector=_name[8:] if _default else _name
+    _named_carriers=_selector.startswith('named-carriers-')
     _coordinate_cover=_selector.startswith('coordinate-cover-')
     _coordinate=_selector.startswith('coordinate-') and not _coordinate_cover
     _lock_cover=_selector.startswith('lock-cover-')
@@ -25,11 +26,11 @@ for _name,_program in PROGRAMS.items():
     _movement_range_cover=_selector.startswith('movement-range-cover-')
     _movement_cover=_selector.startswith('movement-cover-');_ammo_cover=_selector.startswith('ammo-cover-');_healing_cover=_selector.startswith('healing-cover-');_add=_selector.startswith('add-');_healing=_selector.startswith('healing-');_weighted=_selector.startswith('weighted-');_cover=_selector.startswith('cover-');_ammo=_selector.startswith('ammo-');_movement=_selector.startswith('movement-');_range=_selector.startswith('named-range-');_lock=_selector.startswith('lock-')
     if _default and (not (_weighted or _cover) or _mode!='fixed' or _kind):raise ValueError('Invalid default-world product program')
-    _prefix=('default-' if _default else '')+('coordinate-cover-' if _coordinate_cover else 'coordinate-' if _coordinate else 'add-' if _add else 'ammo-cover-' if _ammo_cover else 'healing-cover-' if _healing_cover else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else 'ammo-' if _ammo else 'movement-range-cover-' if _movement_range_cover else 'movement-cover-' if _movement_cover else 'movement-' if _movement else 'named-range-cover-' if _range_cover else 'named-range-' if _range else 'lock-cover-' if _lock_cover else 'lock-' if _lock else '')
-    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or (_coordinate_cover or _coordinate or _weighted or _ammo or _movement or _range or _lock) and _kind!='' or _healing and _kind not in ('','group') or _healing_cover and _kind!='' or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
+    _prefix=('default-' if _default else '')+('named-carriers-' if _named_carriers else 'coordinate-cover-' if _coordinate_cover else 'coordinate-' if _coordinate else 'add-' if _add else 'ammo-cover-' if _ammo_cover else 'healing-cover-' if _healing_cover else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else 'ammo-' if _ammo else 'movement-range-cover-' if _movement_range_cover else 'movement-cover-' if _movement_cover else 'movement-' if _movement else 'named-range-cover-' if _range_cover else 'named-range-' if _range else 'lock-cover-' if _lock_cover else 'lock-' if _lock else '')
+    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or (_named_carriers or _coordinate_cover or _coordinate or _weighted or _ammo or _movement or _range or _lock) and _kind!='' or _healing and _kind not in ('','group') or _healing_cover and _kind!='' or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
         raise ValueError('Invalid product program identity')
     _stem=('fixed_' if _mode=='fixed' else '')+(_kind.replace('-','_')+'_' if _kind else '')
-    if _program['source']!='gpu/product_'+('coordinate_cover_' if _coordinate_cover else 'coordinate_' if _coordinate else 'add_' if _add else 'ammo_cover_' if _ammo_cover else 'healing_cover_' if _healing_cover else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else 'ammo_' if _ammo else 'movement_range_cover_' if _movement_range_cover else 'movement_cover_' if _movement_cover else 'movement_' if _movement else 'named_range_cover_' if _range_cover else 'named_range_' if _range else 'lock_cover_' if _lock_cover else 'lock_' if _lock else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
+    if _program['source']!='gpu/product_'+('named_carriers_' if _named_carriers else 'coordinate_cover_' if _coordinate_cover else 'coordinate_' if _coordinate else 'add_' if _add else 'ammo_cover_' if _ammo_cover else 'healing_cover_' if _healing_cover else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else 'ammo_' if _ammo else 'movement_range_cover_' if _movement_range_cover else 'movement_cover_' if _movement_cover else 'movement_' if _movement else 'named_range_cover_' if _range_cover else 'named_range_' if _range else 'lock_cover_' if _lock_cover else 'lock_' if _lock else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
         raise ValueError('Invalid product source or wire declaration')
 
 
@@ -69,7 +70,10 @@ def body_for_program(root, name=None):
     if name is not None and (not isinstance(name,str) or name not in PROGRAMS):
         raise ValueError('Invalid product program body')
     program = PROGRAMS.get(name, dict(mode='accumulate', kind=''))
-    if name is not None and name.startswith('coordinate-cover-'):
+    if name is not None and name.startswith('named-carriers-'):
+        from portable_original_identity_inventory import selected_profile_bodies
+        body=selected_profile_bodies(['레이 (가칭)'],0)[0][2]
+    elif name is not None and name.startswith('coordinate-cover-'):
         body=body_for_program(root,'coordinate-'+program['mode'])
         names=body['squad'];body['reference_models']['cover_defense']=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(names)]
         body['manual_cover_sequences']={names[0]:[dict(action='cover',t=.5,duration=2.)]}

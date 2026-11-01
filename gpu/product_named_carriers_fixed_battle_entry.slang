@@ -1,0 +1,4 @@
+#define PORTABLE_PRODUCT_RESIDENT_FRAMES
+#define PORTABLE_RESIDENT_FRAME_STACK
+#define PORTABLE_PRODUCT_FIXED_BURST
+#include "product_named_carriers_battle_entry.slang"

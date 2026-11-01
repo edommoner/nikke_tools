@@ -38,7 +38,14 @@ class FrontierTests(unittest.TestCase):
         result=verify(ROOT);product=result['public_coordinate_product']
         self.assertEqual(product['frontend'],'reference_models.coordinate')
         self.assertEqual({row['program'] for row in product['programs']},{'coordinate-fixed','coordinate-accumulate'})
-        self.assertTrue(all(row['registered_metal_baseline_available'] and row['current_shader_matches_registered_baseline'] for row in product['programs']))
+        self.assertTrue(all(row['registered_metal_baseline_available'] for row in product['programs']))
+        # Shared source extensions may require a fresh proof; old baselines
+        # remain available but cannot be lent a new raw shader identity.
+        from portable_product_programs import GOLDEN
+        import json
+        goldens=json.loads((ROOT/GOLDEN).read_text())['programs']
+        for row in product['programs']:
+            self.assertEqual(row['current_shader_matches_registered_baseline'],goldens[row['program']]['source_sha256']==row['current_shader_sha256'])
         self.assertEqual(product['recorded_metal_api_cases'],8)
         self.assertTrue(product['recorded_metal_api_cases_matched'])
         self.assertFalse(product['recorded_api_evidence_reaudited'])

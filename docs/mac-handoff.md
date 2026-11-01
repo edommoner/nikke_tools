@@ -1,3 +1,23 @@
+## 2026-11-01 公開座標CUDA3条件の原本をMac照合、実転送8MiBを確認
+
+原本c273f6adのv2 JSON31,543bytes/SHA686b6d65…を取得し、own a077d3b3/source170cf08d/archive/manifest/paired生成基準と照合。Mac保存M5の3個input/readback全hashと合成親hashを再計算して全一致。元85+新59の144検査、11段階の予算/2GiB/prepost gate/empty/missing0/query/cleanupを確認。1POST/1GPU/retry0、3thread各1、全driver ret0。CUDA同期2.527秒、host dispatch2.534秒、HTTP18.786秒。SDK外側3exit2/falseと対応inner0/artifact成功を分けて保持、旧保存監査失敗とNode実輸送での全payload/Unicode一致も分離。追加battle/GPU0でMac監査した。
+
+元依頼の分割列[16,777,216,7,606,784]はMacで依頼を構成した際の誤りだった。送信済みmanifestが固定したbackend SHAe2aa8b18…はREADBACK_CHUNK_BYTES=8*1024*1024であり、実DToH列[8,388,608,8,388,608,7,606,784]とstream receipt・総bytes24,384,000・全SHAがその規約に一致。元依頼/不一致falseは書換えず、実source一致と別結果へ記録。数値期待値・許容差・raw・計算回数を変更しない。Windowsの補足saved-only照合も依頼済み、追加SDK/POST/GPUは不要。
+
+公開座標のこの3条件はCUDA/Metal計算一致を確認したが、標準profile追加0。Rei別sourceのMetal263/266、旧source横断CUDA262/266は据置き。内側advisory8件limit=null/観測完全性falseとservice/whole/overallfalseも保持、旧38,123file/claimsは不変。原本とsmall監査はresearch/coordinate-public-fixed-normal-api-status-v2.json・product-coordinate-cuda-import-v2.json。次は新Rei carrierの短いCUDA検証と残3profile/合成。全goal未完了。以下は履歴。
+
+## 2026-11-01 元Rei標準profileをMetalへ接続、記録済みsource横断263/266
+
+元Reiのeffect_target_count_add/effect_range_pctを削除せず、値・9秒寿命・marked-allied宛先・target_effect名を保持する共通numeric carrierへ接続。通常の全definitionからtarget_effect名が存在しないことをhostとGPU両方で検査する。名前が一致するconsumerがあれば既存の宣言named_rangeを要求してCPU切替し、幾何や距離を推定しない。対象不成立という推測で元効果を除外する変更ではなく、元carrierを通常の寿命・宛先処理で実行する。
+
+不変owner ca0291a0/sourcef1117d2b+snapshot自身の146 CPU/fresh native/実M5固定30秒/GPU禁止fresh独立seal成功。v40へnamed-carriers-fixedだけ追加し旧32基準不変。実蓄積CLI独立基準は未登録だが通常API成功。ホスト負例に加え、raw1wordだけを有効な同名consumerへ変える実M5負例がstatus64で戦闘前拒否（別claim/原本保持、native0、通常profileへ数えない）。最初のmodel検査で既存Lock Onの切替理由を覆ったため、受付優先を修正して61件成功、期待値/効果/数値の変更なし。
+
+通常APIで元Reiの固定/実蓄積×15/30秒4条件、1POST/2physical batch、20.397秒、実M5/freshCPU/HTTP全payload一致・既存保存監査4成功（追加battle/GPU0）。専用Node全process group消滅。元catalogueの251/Rei/favorite0の固定30秒リクエストは全canonical JSON bytesも一致。したがって記録済みsourceを通じた標準Metalは263/266（200/203キャラ）、残りYuni/Yan/Heavy Armsの3件。CUDAは262/266据置き、新source/全263を同一最新ownerで再認定した意味ではない。
+
+共通program_phases/event_runtime/target-countのguarded追加により、旧32memberのraw source identityは必要に応じ不一致になる。旧baseline/生成期待値を自動更新せず、frontierも登録済み基準と現在source一致を分離する。CPU正本4file/pinned upstream変更0、新suite0。原本proofs/product-named-carriers-v1-20261101、small記録[product-named-carriers-v1](../research/product-named-carriers-v1.json)。次はWindows結果原本の照合、新carrierの短いCUDA、残3profileと未接続合成。全goal未完了。
+
+Windows standalone座標別owner a077d3b3は元85+新59全144成功後、初回API3条件が全M5 hash/CPU/GPU/HTTP一致と報告。保存監査はNode JSON往復入力の型表記を使って再投影3件成功、比較除外/追加GPU/POST/CPU戦闘なしと報告しているが、最終原本importはまだ。これを新carrierや標準CUDAの追加へ数えない。旧timeout・保存監査失敗は保持。以下は履歴。
+
 ## 2026-11-01 座標・遮蔽を同じ共通実行器へ接続、通常API4条件Metal全一致
 
 明示reference_models.coordinateとcover_defense、および手動遮蔽を、既存座標・actor・burst・遮蔽consumerへ接続。両bankはinput115680+24/output2032000+16912の完全分離を検査。新2入口は既存共通本体をincludeし、完了後の遮蔽snapshot scratchだけを所有入口でclear。既存のGPU本体・数値/許容差/CPU正本4fileは変更0。他の未接続モデル合成は拒否を維持。

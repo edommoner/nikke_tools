@@ -101,6 +101,9 @@ def _compile_product(prepared):
         from portable_product_movement_range import compile_product as compile_movement_range
         return compile_movement_range(prepared)
     if locks_required(prepared):return compile_locks(prepared)
+    from portable_product_named_carriers import required as named_carriers_required,compile_product as compile_named_carriers
+    if not prepared.get('_product_named_carriers_compiled') and not prepared.get('reference_models') and named_carriers_required(prepared):
+        return compile_named_carriers(prepared,compile_product)
     if range_required(prepared):return compile_range(prepared)
     if movement_required(prepared):return compile_movement(prepared)
     if not prepared.get('_product_cover_compiled') and cover_required(prepared):
