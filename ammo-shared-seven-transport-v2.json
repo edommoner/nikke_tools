@@ -1,0 +1,77 @@
+{
+  "schema": "ammo-shared-seven-transport-v2",
+  "owner": "ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168",
+  "files": [
+    {
+      "path": "ammo-shared-fixed-v2-batch-0-api-expected.json",
+      "bytes": 1800,
+      "sha256": "e0df3445acdc2322582a42714f790d39b65a5f94da61a53c70406760ad9e78e0"
+    },
+    {
+      "path": "ammo-shared-fixed-v2-batch-1-api-expected.json",
+      "bytes": 1851,
+      "sha256": "4bbfdfa2f89f05dd00a1df4528d117fb84d28cf0403a78e3f8ba29dfd2e5c798"
+    },
+    {
+      "path": "ammo-shared-fixed-v2-batch-2-api-expected.json",
+      "bytes": 1843,
+      "sha256": "cdb77a1feef07adf91e4e940a81625d2f2639720b852b8f32133f3f9736ff9f1"
+    },
+    {
+      "path": "ammo-shared-fixed-v2-batch-3-api-expected.json",
+      "bytes": 1261,
+      "sha256": "44107e47c75f7ebba1ff90f66a0cee4fda9eaeb5013e1fb296c4ca4d81e1ce40"
+    },
+    {
+      "path": "ammo-shared-fixed-v2-o1-plan.json",
+      "bytes": 735,
+      "sha256": "dabe66aee4c961b312608ec25231d48ebe3ac2db3266e959fa2148d155a31d62"
+    },
+    {
+      "path": "ammo-shared-fixed-v2-ptx-plan.json",
+      "bytes": 707,
+      "sha256": "43b49275b6c8eb736997f55d518f6af6bf7d9d786bd500b9860732e38af10430"
+    },
+    {
+      "path": "ammo-shared-fixed-v2-validation-deps.json",
+      "bytes": 407,
+      "sha256": "13aaee1f11c9b1f00ae294bcb020531c2a92de13dcac9d49517aa5e10c4f472e"
+    },
+    {
+      "path": "ammo-shared-fixed-v2.zip",
+      "bytes": 12148119,
+      "sha256": "41747b6171e12144abae8a53a9e530fdc95feb21145edd8506560c988e1d3735"
+    },
+    {
+      "path": "ammo-shared-selected91-v2.json",
+      "bytes": 1149,
+      "sha256": "31a90ca7d25a5271c7d2cb77ccf011705c20ae0aa01e9afbe25ebaa0f81ea4d4"
+    },
+    {
+      "path": "ammo-shared-seven-windows-request-v2.json",
+      "bytes": 15495,
+      "sha256": "669fc726a1ab8897ac74519da27f9b833f830a6d1f470b38ff405c4c546b7edd"
+    },
+    {
+      "path": "shared-product-check-sdk.py",
+      "bytes": 4875,
+      "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d"
+    },
+    {
+      "path": "shared-product-prepare-api.py",
+      "bytes": 4561,
+      "sha256": "3582476ea329ac9760433e2d68a2cdffd840c14f8b677c785bda0c01d9aec9dc"
+    },
+    {
+      "path": "shared-product-verify-host-tests.py",
+      "bytes": 1924,
+      "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7"
+    }
+  ],
+  "prior_case_job_files_in_commit": "4569a8c2",
+  "prior_case_job_bytes_unchanged": true,
+  "seven_static_input_source_identity": true,
+  "new_battles": 0,
+  "new_gpu": 0,
+  "raw_or_settings_included": false
+}

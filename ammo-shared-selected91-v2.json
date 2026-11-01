@@ -1,0 +1,18 @@
+{
+  "schema": "unit-selection-v1",
+  "package_id": "ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168",
+  "patterns": {
+    "test_portable_detail.py": null,
+    "test_product_detail_packet.py": null,
+    "test_weighted_source_contract.py": null,
+    "test_product_reference_models.py": [
+      "test_product_reference_models.ProductReferenceModels.test_combined_enemy_healing_magazines_preserve_shared_owners_and_disjoint_banks",
+      "test_product_reference_models.ProductReferenceModels.test_combined_healing_and_ammo_native_frame_and_final_queue_agree",
+      "test_product_reference_models.ProductReferenceModels.test_declared_product_ammo_reuses_exact_native_final_queue_lifecycle",
+      "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_self_destruct_uses_existing_finite_rows_and_magazine_bank",
+      "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_shot_groups_keep_original_definitions_and_both_literal_banks",
+      "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_target_modifiers_keep_complete_target_and_group_prefixes"
+    ]
+  },
+  "expected_tests": 91
+}

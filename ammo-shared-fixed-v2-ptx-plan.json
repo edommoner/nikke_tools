@@ -1,0 +1,24 @@
+{
+  "schema": "compile-plan-v1",
+  "passed": true,
+  "package_id": "ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168",
+  "suite": "product-detail",
+  "purpose": "sealed",
+  "artifact_kind": "ptx",
+  "ptxas_level": null,
+  "memory_limit_mb": 2048,
+  "timeout_seconds": 60,
+  "error": null,
+  "compiler_options": [
+    "--std=c++17",
+    "--gpu-architecture=compute_86",
+    "--fmad=false"
+  ],
+  "policy": "sealed-battle compile-only transport",
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "claim_created": false,
+  "execution_claim_available": true,
+  "calculation_verified": false,
+  "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+}
