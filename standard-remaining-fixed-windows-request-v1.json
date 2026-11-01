@@ -1,0 +1,1127 @@
+{
+  "schema": "standard-remaining-fixed-cuda-request-v1",
+  "owner": "032bbb7646fe850b222c0c23097b16cd820f2ad4295c5ce7b00510171d7be071",
+  "source_commit": "00ed1f529995ce206378255f6aa51e2619d54392",
+  "artifact": {
+    "bytes": 5357328,
+    "sha256": "0a25fdc0dbbc7a0b31a55433373aa215d8d2baff721ed004481b6b8b730ff2f0"
+  },
+  "paired_cache": {
+    "key": "fc8e5d0e1208011c9d683fefb6c98c1fc3ccb0b71cf0c0a8d02382bd83aaad05",
+    "hit": true,
+    "compiler_invocations": 0
+  },
+  "verified_first_eight_report_commits": [
+    "ff6674d030fbd219b4b3ab3f04b073e0284cabd0",
+    "a9e6942cf9daf52ec13e40c2968dc9f8cb73fd22"
+  ],
+  "request_table": "standard-all-fixed-static-requests-v1.json",
+  "request_table_sha256": "dd65a733181826200e2951836691f1994e31833964f5d77b5c0ec02a48530df2",
+  "scope": "Remaining237 fixed standard requests only; 30 sequential bounded batches, at most8 per batch, no extra SDK or battle preflight",
+  "limits": {
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate_per_helper": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "execution_policy": [
+    "Reuse unchanged first-six coordinator/normal HTTP/saved auditors with data-driven cases/expected counts only",
+    "CPU-only static preparation and source/owner/provider/cache identity gates; no full tests or native preflight",
+    "One batch at a time, start with first8 and verify its complete Job/memory and every outcome before continuing",
+    "For every batch POST1/GPUmax1/retry0; fresh CPU full payload check after GPU mandatory",
+    "Readback transfer uses existing chunks; require explicit chunk byte lengths/sum/zero return codes, do not assume one DtoH",
+    "For every member compare all CPU/GPU/API fields, original full M5 readback, full input/source, exact parent/member input/output slices and static repack",
+    "Save progress after each completed/audited batch; stop first failure without repeating any completed/submitted batch",
+    "Each outer command remains <=180 seconds; schedule finite batches serially, do not place whole30-batch loop inside one over-budget command",
+    "Keep user apps unaffected, all owned Node servers finally stopped; preserve old evidence/claims and service/whole/overallfalse; internal null resource limits remain unknown/false"
+  ],
+  "stop_conditions": [
+    "Any missing process, unavailable enforced Job pre/post/limit or observation error",
+    "Any timeout/cleanup error, source/cache/provider mismatch",
+    "Any member status/fallback/CPU/API/M5 or parent output mismatch; preserve partial outcomes and stop, no GPU retry"
+  ],
+  "cases": 237,
+  "batches": [
+    {
+      "index": 2,
+      "cases": 8,
+      "profile_indices": [
+        0,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "characters": [
+        "라피",
+        "아니스 : 스타",
+        "델타",
+        "시그널",
+        "델타 : 닌자 시프",
+        "폴리",
+        "폴리",
+        "폴리"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "f0a4c45b2d9ecb9d218153f2f6bba75de1939ab039bcf88a5a45fa27ee0572e1",
+      "expected_physical_output_sha256": "98e82f480a7ddc0b972562cc1ad68f376714d4f5c5e270c4d15e519f91c7c96e",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 3,
+      "cases": 8,
+      "profile_indices": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22,
+        24
+      ],
+      "characters": [
+        "미란다",
+        "미란다",
+        "미란다",
+        "미란다",
+        "키리",
+        "K",
+        "D : 킬러 와이프",
+        "미카"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "e45e3f2858a1667aeca7bae97f5ee1972e6fdca4d854f2c992b4bbf4ce194433",
+      "expected_physical_output_sha256": "42ffea0eb215d5b46ccebfe46b1fd40476f75fc87bb21c997e4a988efb27bdd6",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 4,
+      "cases": 8,
+      "profile_indices": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "characters": [
+        "미카 : 스노우 버디",
+        "벨로타 : 펌킨 위치",
+        "브리드",
+        "솔린",
+        "디젤",
+        "디젤",
+        "디젤",
+        "디젤"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "3fe6f134592a4571aebf543b112b93875085181e9dc30bdfebbd902ea2754b68",
+      "expected_physical_output_sha256": "cee026540cc7d2a4e7ab9b8bcf497eb817571c301c3496cbe1486c7140d635ca",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 5,
+      "cases": 8,
+      "profile_indices": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "characters": [
+        "브리드 : 사일런트 트랙",
+        "솔린 : 프로스트 티켓",
+        "디젤 : 윈터 스위츠",
+        "센티",
+        "센티",
+        "센티",
+        "센티",
+        "리타"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "2c4d632b1d3d3c9d701279dc62ec70181e811a0bf6180ba054a84eb7627adb26",
+      "expected_physical_output_sha256": "d7b78e1a411185a08bbfdeb5a67b33d8c2f7dcbcde2c661f2ce0948f7224b667",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 6,
+      "cases": 8,
+      "profile_indices": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "characters": [
+        "엠마",
+        "베스티",
+        "은화",
+        "엠마 : 택티컬 업",
+        "베스티 : 택티컬 업",
+        "은화 : 택티컬 업",
+        "라플라스",
+        "라플라스"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "6e63528e15e8e3954521cf1dd73ef529028abb04877ef59147335fdad9366861",
+      "expected_physical_output_sha256": "ee6b879d1796855f553645ae9e2a0c334b069cd71306ad17002463a98939d973",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 7,
+      "cases": 8,
+      "profile_indices": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "characters": [
+        "라플라스",
+        "라플라스",
+        "드레이크",
+        "드레이크",
+        "드레이크",
+        "드레이크",
+        "맥스웰",
+        "라플라스 : 얼티밋 히어로"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "53d3f83e033c0c99b7cfe5cfa051352d74671c95a68a6225c0d4830122d2ea03",
+      "expected_physical_output_sha256": "b5b7466c46b87d657d90cb66fa41ac90d260c8b493159cc4aa58dd8cfed7f96a",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 8,
+      "cases": 8,
+      "profile_indices": [
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "characters": [
+        "드레이크 : 그레이트 빌런",
+        "맥스웰 : 오디너리 미케닉",
+        "크로우",
+        "자칼",
+        "바이퍼",
+        "바이퍼",
+        "바이퍼",
+        "바이퍼"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "6e6147016e75b22305601d57cc225c16524dc556bef0a1397be3fd5d4f6050fe",
+      "expected_physical_output_sha256": "7596214bd8938e135a31b71f44c32c17f23d00a464e4e0b43ec7bf840167da3d",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 9,
+      "cases": 8,
+      "profile_indices": [
+        65,
+        66,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "characters": [
+        "E.H.",
+        "N102",
+        "메어리",
+        "페퍼",
+        "메어리 : 베이 갓데스",
+        "슈가",
+        "슈가",
+        "슈가"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "c5a6781231c1630e17ea30a08c40efb76ca59bd9c1c324fb44dd8507e480710f",
+      "expected_physical_output_sha256": "d548f9aadbbf572210a600ed7829916c24be5207562efb4bb9aed2fa2b138518",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 10,
+      "cases": 8,
+      "profile_indices": [
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "characters": [
+        "슈가",
+        "밀크",
+        "밀크",
+        "밀크",
+        "밀크",
+        "프림",
+        "프림",
+        "프림"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "5fa26dc6469734ee2948c0c52f46a5cd53a3dfe255ea5a3086788fbcd4870610",
+      "expected_physical_output_sha256": "85d38d107a07dd922b29ea3b205155be7b5bffb774743490e5c22f603a0b5e23",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 11,
+      "cases": 8,
+      "profile_indices": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        89,
+        90
+      ],
+      "characters": [
+        "프림",
+        "밀크 : 블루밍 바니",
+        "율리아",
+        "율리아",
+        "율리아",
+        "율리아",
+        "미하라",
+        "미하라 : 본딩 체인"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "9d1cee33a92b0e046e44f57e333b8e504ec577519ea043cc77d6512d76a42414",
+      "expected_physical_output_sha256": "52d4518d1384d0bdbf2346da4f6b04602ef1ee18cc39baad5562608d46b648bf",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 12,
+      "cases": 8,
+      "profile_indices": [
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98
+      ],
+      "characters": [
+        "프리바티",
+        "프리바티",
+        "프리바티",
+        "프리바티",
+        "율하",
+        "애드미",
+        "길로틴",
+        "메이든"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "d3c137ac4ee3e98108d03697a9704165d18a703d2435b975fd00765b8206d596",
+      "expected_physical_output_sha256": "9ce033feffc45fe9710e9db29eaffd287b2918bd175feb2e7a295872922ab985",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 13,
+      "cases": 8,
+      "profile_indices": [
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "characters": [
+        "길로틴 : 윈터 슬레이어",
+        "메이든 : 아이스 로즈",
+        "루드밀라",
+        "앨리스",
+        "토브",
+        "토브",
+        "토브",
+        "토브"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "3dd5ac045333eefb3f53f46b4553b202d2c556940757b7cd1b0c5ad15b886b6f",
+      "expected_physical_output_sha256": "85014c080d6b608875468331488515f875f3915843bdc8422ae0ee2c70d25b8d",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 14,
+      "cases": 8,
+      "profile_indices": [
+        107,
+        108,
+        109,
+        110,
+        112,
+        113,
+        114,
+        115
+      ],
+      "characters": [
+        "네베",
+        "루드밀라 : 윈터 오너",
+        "앨리스 : 원더랜드 바니",
+        "루피",
+        "도라",
+        "루피 : 윈터 쇼퍼",
+        "엑시아",
+        "엑시아"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "0b7fa508a138101d4f8eedffdb351b5703dc5614eb91207da32fd2b231777928",
+      "expected_physical_output_sha256": "a6fa2ad190342fb61b076b4d847fdcd04d2e0df0cf482aad6721af8dfcc56e72",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 15,
+      "cases": 8,
+      "profile_indices": [
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123
+      ],
+      "characters": [
+        "엑시아",
+        "엑시아",
+        "노벨",
+        "스노우 화이트",
+        "라푼젤",
+        "홍련",
+        "나유타",
+        "스노우 화이트 : 이노센트 데이즈"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "a60c8dec489d40a69a06dbf17f6ec421b5a3e5fae4d6413b221937d92ca10bdc",
+      "expected_physical_output_sha256": "c3c66ce98c8dd0da9dbdcf9a77f9f73989abe37871f309effb71f964733c9cc2",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 16,
+      "cases": 8,
+      "profile_indices": [
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131
+      ],
+      "characters": [
+        "홍련 : 흑영",
+        "라푼젤 : 퓨어 그레이스",
+        "하란",
+        "이사벨",
+        "노아",
+        "도로시",
+        "도로시 : 세렌디피티",
+        "루마니"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "b970274678b07a8d632de6d9c8bbec24b58dd7f1b9ac6b52e7f9c537c6c37891",
+      "expected_physical_output_sha256": "f97803c22a292360191f560baa307e8d27aa5b11d891e794015c58997d7db478",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 17,
+      "cases": 8,
+      "profile_indices": [
+        132,
+        133,
+        134,
+        136,
+        137,
+        138,
+        139,
+        140
+      ],
+      "characters": [
+        "에피넬",
+        "폴크방",
+        "모더니아",
+        "리버렐리오",
+        "블랑",
+        "누아르",
+        "루주",
+        "로산나"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "1f48c2c14bace0eaea8aa63af9baa794dda544eb2ce8e3eb9f500a4a0630ee1b",
+      "expected_physical_output_sha256": "049b8f28ce9318fa4f267730266f43112f5f76ed75e89d46a5fe993cc71e9466",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 18,
+      "cases": 8,
+      "profile_indices": [
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        149
+      ],
+      "characters": [
+        "로산나",
+        "로산나",
+        "로산나",
+        "목단",
+        "목단",
+        "목단",
+        "목단",
+        "로산나 : 시크 오션"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "a7bb838d514ee89ea6656df4cdc841e7e9346509412d3bcc11a7d1d4fbd3803e",
+      "expected_physical_output_sha256": "5f0487c48e3d872724331187aedbde951ebb1c505429058ebfa7e0db73b1408a",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 19,
+      "cases": 8,
+      "profile_indices": [
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157
+      ],
+      "characters": [
+        "사쿠라 : 블룸 인 서머",
+        "마나",
+        "에테르",
+        "솔져 E.G.",
+        "솔져 F.A.",
+        "프로덕트 08",
+        "프로덕트 12",
+        "iDoll 플라워"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "65cb9c7ce3266a8a1dc42112ecc4cf2a4426a91853795c30c81d7f1055090dc4",
+      "expected_physical_output_sha256": "1a3fc870e68e3afc7eedcac24baf0bc724aae06bcc1613225bb135045ccb7f87",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 20,
+      "cases": 8,
+      "profile_indices": [
+        158,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166
+      ],
+      "characters": [
+        "iDoll 오션",
+        "프로덕트 23",
+        "iDoll 썬",
+        "에이드",
+        "코코아",
+        "소다",
+        "프리바티 : 언카인드 메이드",
+        "소다 : 트윙클링 바니"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "43ad03d4dab20ccb814f91163b43292041b1db6d7921b69de32cde7d0695d621",
+      "expected_physical_output_sha256": "d96c346cbb9fbea631a278d3451e18897bba94e62c79bbf1450dfa80e2e13db8",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 21,
+      "cases": 8,
+      "profile_indices": [
+        167,
+        169,
+        170,
+        171,
+        172,
+        173,
+        175,
+        176
+      ],
+      "characters": [
+        "에이드 : 에이전트 바니",
+        "마르차나",
+        "마르차나 : 마린 스터디",
+        "크라운",
+        "차임",
+        "마스트",
+        "헬름",
+        "헬름"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "d46a36396ae53b9eaf63de0f870b7b6c72704d0d00e47f50010ce911ed7a3905",
+      "expected_physical_output_sha256": "00632109cdd8f973a22768b0b5a49e88ae388687ac41b187d17489fa87eae75b",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 22,
+      "cases": 8,
+      "profile_indices": [
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184
+      ],
+      "characters": [
+        "헬름",
+        "헬름",
+        "헬름 : 아쿠아마린",
+        "마스트 : 로망틱 메이드",
+        "앵커 : 이노센트 메이드",
+        "킬로",
+        "네로",
+        "비스킷"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "4a575d2f39d9aa7980346240ad725e2fd58a1c361f6be7952d829bf4dbbf918a",
+      "expected_physical_output_sha256": "fd52ce9e90a00ad0395f0241a0f7d736db266ee8aab7ae93e806cbcc9848b5ee",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 23,
+      "cases": 8,
+      "profile_indices": [
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192
+      ],
+      "characters": [
+        "레오나",
+        "츠바이",
+        "츠바이",
+        "츠바이",
+        "츠바이",
+        "아인",
+        "라이",
+        "길티"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "e590fafc581d7ffc87d63a48af65c586da0a66ffc5c43ebc4c1c0fb071ddf950",
+      "expected_physical_output_sha256": "dfbb72af6a8569fad2a6e12a6b42497a17f7b586d50f1ed82d116a60ed9913f0",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 24,
+      "cases": 8,
+      "profile_indices": [
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200
+      ],
+      "characters": [
+        "신",
+        "퀀시",
+        "퀀시 : 이스케이프 퀸",
+        "길티 : 마이티 바니",
+        "신 : 스위프트 바니",
+        "플로라",
+        "플로라",
+        "플로라"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "d9bc2d2300d156524497f1013b6b8e121ef865291d208f41e06e6ce78714d155",
+      "expected_physical_output_sha256": "7c1e7787f5f4244888627a0550174d4cdb3e318742483af77ce644d86813329b",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 25,
+      "cases": 8,
+      "profile_indices": [
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208
+      ],
+      "characters": [
+        "플로라",
+        "트리나",
+        "노이즈",
+        "볼륨",
+        "아리아",
+        "아비스타",
+        "나가",
+        "티아"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "ec1839cb99bf2390e1bd6b307523550e59ef72b0f33e1366239d98001add8c79",
+      "expected_physical_output_sha256": "5f92c3fc2fc3a945b0084beb2c7ec40da6d7af1b6f264affd62b289cf05ac052",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 26,
+      "cases": 8,
+      "profile_indices": [
+        209,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218
+      ],
+      "characters": [
+        "레드 후드",
+        "트로니",
+        "일레그 : 붐 앤 쇼크",
+        "신데렐라",
+        "리틀 머메이드",
+        "그레이브",
+        "신데렐라 : 크리스탈 웨이브",
+        "브래디"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "2248b00b9aeb384e2507dcb7f0c09e8c94cc3fdfb6d3dc2953ab16e766339de1",
+      "expected_physical_output_sha256": "e0fa65e4b29decb50180f0974b4270f13f02ed50819ecf9c20ed9470765d8dd6",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 27,
+      "cases": 8,
+      "profile_indices": [
+        219,
+        220,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231
+      ],
+      "characters": [
+        "크러스트",
+        "소라",
+        "아크레인저 블랙",
+        "팬텀",
+        "팬텀",
+        "팬텀",
+        "팬텀",
+        "아르카나"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "dbc98d16631a7f28e7d9704b290235d52035a5d588c1699e9d475b84ecf7e8a5",
+      "expected_physical_output_sha256": "04b33d07663cfe28050822d86101347b278861d12db6533b2a764fdc01079fd3",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 28,
+      "cases": 8,
+      "profile_indices": [
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239
+      ],
+      "characters": [
+        "레이블",
+        "아르카나 : 포츈 메이트",
+        "모리",
+        "민트",
+        "프리카",
+        "백학",
+        "마키마",
+        "파워"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "6f5b287ef488549a9f9bf1ba35d71379aecd4913cb76e93b44e108f521c34af9",
+      "expected_physical_output_sha256": "8e97863c5510b8ca27a1168d6bb01a6469e542d2b551791ce4549461e63b5e7b",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 29,
+      "cases": 8,
+      "profile_indices": [
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        252
+      ],
+      "characters": [
+        "히메노",
+        "2B",
+        "A2",
+        "파스칼",
+        "렘",
+        "에밀리아",
+        "람",
+        "아스카 : WILLE"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "453f8e833f54cc513a43da8963b6eb49b3602123b42e3f0629b35a46f2641256",
+      "expected_physical_output_sha256": "65ab6608b7bdd20d6c34656292974a1b47cdc197c50d61c92a97904ac717fe4c",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 30,
+      "cases": 8,
+      "profile_indices": [
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260
+      ],
+      "characters": [
+        "사쿠라 (SR)",
+        "에이다",
+        "질",
+        "클레어",
+        "이브",
+        "레이븐",
+        "릴리",
+        "치사토"
+      ],
+      "physical_input_bytes": 3340804,
+      "physical_readback_bytes": 25165824,
+      "expected_physical_input_sha256": "2626e359a7a49dc4720faf489abb74d59f4a6262143c78ffcc732ea76e4143ca",
+      "expected_physical_output_sha256": "264ce70712d3385e285ea4558096e8b11af0e6bbe270a11c660063a623d705b0",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        8388608
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    },
+    {
+      "index": 31,
+      "cases": 5,
+      "profile_indices": [
+        261,
+        262,
+        263,
+        264,
+        265
+      ],
+      "characters": [
+        "타키나",
+        "쿠루미",
+        "퀸(마코토)",
+        "유키코",
+        "아이기스"
+      ],
+      "physical_input_bytes": 2088004,
+      "physical_readback_bytes": 15728640,
+      "expected_physical_input_sha256": "df81474eb769603a3b7d7b5f21a1fdec6ab43caf54da8d72cec66aed09f55b7b",
+      "expected_physical_output_sha256": "5c9f9ad577ac929b48b7a4c1a10a4ac2ede118efe8bd5e569934b64bc9970c59",
+      "expected_readback_chunk_bytes": [
+        8388608,
+        7340032
+      ],
+      "post_max": 1,
+      "gpu_dispatch_max": 1,
+      "gpu_retries": 0
+    }
+  ],
+  "other_programs_and_four_fallbacks_not_requested": true,
+  "full_goal_complete": false,
+  "report": "standard-remaining-fixed-normal-api-status-v1.json",
+  "report_policy": "Small per-profile hashes/outcomes plus bounded stage/memory/driver aggregates, precise completed count and first failure. No raw buffers, full API payloads or compiler distributions in GitHub report."
+}
