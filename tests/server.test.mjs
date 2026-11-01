@@ -115,3 +115,21 @@ test('shared CUDA saved images require explicit configuration plus a warm genera
   writeFileSync(file,'invalid');assert.equal(sharedCudaConfigured('win32',env),false);
  }finally{rmSync(root,{recursive:true,force:true});}
 });
+
+test('CPU and GPU worker text streams retain split UTF-8 payloads and diagnostics',async()=>{
+ const {workerTextStreams}=await import('../server.mjs');
+ const {PassThrough}=await import('node:stream');
+ const {once}=await import('node:events');
+ const expected={spec:{text:'기본 스펙(3단계)보다 딜이 낮게 나오는 게 정상이다. 日本語と絵文字🎯'},members:[{name:'얀'}]};
+ const lines=JSON.stringify(expected)+'\n'+JSON.stringify({id:'two',result:expected})+'\n';
+ const diagnostic='計算終了: 정상 — 🎯';
+ const child={stdout:new PassThrough(),stderr:new PassThrough()};
+ assert.equal(workerTextStreams(child),child);
+ let output='',error='';child.stdout.on('data',chunk=>output+=chunk);child.stderr.on('data',chunk=>error+=chunk);
+ const done=Promise.all([once(child.stdout,'end'),once(child.stderr,'end')]);
+ for(const byte of Buffer.from(lines,'utf8'))child.stdout.write(Buffer.from([byte]));
+ for(const byte of Buffer.from(diagnostic,'utf8'))child.stderr.write(Buffer.from([byte]));
+ child.stdout.end();child.stderr.end();await done;
+ const rows=output.trimEnd().split('\n').map(line=>JSON.parse(line));
+ assert.deepEqual(rows,[expected,{id:'two',result:expected}]);assert.equal(error,diagnostic);
+});
