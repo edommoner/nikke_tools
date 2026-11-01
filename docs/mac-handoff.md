@@ -1,3 +1,17 @@
+## 2026-11-02 Nearby: 元Eleggの主対象＋近傍と混在迎撃を製品接続
+
+`reference_models.typed_targets.nearby_rules` を任意の明示フィールドとして接続。既存named-rangeのCPU adapter／literal packer／Slang／履歴readerを再利用し、selection=`primary-center-edge-v1` だけで元 `target_and_nearby:N` を主対象＋近傍N体へ対応させた。base_count=N+1の完全一致が必須。主対象は半径外でも含み、主対象中心から候補の形状端までを共通binary64で測り、近い順・同距離はcanonical ADD出現／BODY順。新しいゲーム距離基準は採用せず、宣言モデルの未検証表示を付ける。未宣言の元8条件は現在も静的に同じ理由で拒否する。
+
+既存typed input121392の後へ既存NRB544wordを隣接追加し121936、出力2032000は不変。履歴は旧未使用のdisjoint領域1867648〜1884048を検査して使い、32word／512cast容量は不変。castの旧reserved22〜29には選択順のkind/ID/generationをSHA256記録し、CPUと照合する。hashだけで対象を推測したりGPU側でCPU状態を使ったりしない。新suite／shader entry／監査器0、生成layout1。大きな作業配列を増やさず、取得済みactor setの一時kind/ID欄を距離ソートに使って復元し、既存frozen queue／ActorPool／split着弾へ渡す。CPU正本・pinned・数値演算・許容差変更0。
+
+実M5 CLI4case＋GPU禁止独立seal4case成功。元Elegg70定義と混在迎撃を使う通常APIは1profile・17条件が全CPU/GPU/HTTP一致。半径0、入替、2／3recipient、上限、死亡、再出現、BODY-onlyを確認。実nearby castあり14条件、なし3条件を分離。fixed再出現はgeneration2のordered SHAを実確認。蓄積の再出現2条件と死亡1条件は元のnamed triggerが発動せず0件であり、positive proofへ加算しない。追加1件の意図名activeは実結果inactiveのまま保存し、再実行していない。同じN102爆風ではHP shield166232／projectile265406がCPUと一致し、元Eleggのprojectile倍率も省略していない。
+
+旧3caseのnative SHAと入力121392word prefixは完全同一。raw差は新empty NRB headerのmagic/version2wordだけ（1867648,1867649）で、rawをmaskせず全比較。v62はtyped-accumulateだけ更新し他41基準を保持。保存17監査と最終コードへの全再投影17は追加battle/GPU0、2つのowned Node群は終了。現standalone named-range scoutはprojectile buff未接続でGPU前拒否されており、効果削除ではなくtyped modifier axesと合成して解消した。初版packetの追加legacy5テストでpending tuple互換性を検出し、split所有を新tupleへ格納して旧3要素を保護。旧失敗を残したv2を実GPU検証した。
+
+最終owner c51b3d43…はown177／native4／deps／PTX・CUBIN O1 plan成功（compiler/GPU0）。既存named-range5／wire5も成功。source/dependency model-checkは成功だが全面対応ではない。proof `product-typed-nearby-run-v2-20261102`、report `research/product-typed-nearby-v1.json`。今回Metal1profile17条件（positive14／inactive3）、new distinct0、CUDA0。旧標準263/266＋明示3はowner5f88…の歴史的scopeを維持し、現source全profile再認定へ読み替えない。WindowsのRAM不足・旧missing・claimは保全、追加SDK／GPU／RAM測定依頼0。
+
+残件：typed nearby＋Lock Onは明示拒否。次はこの共通consumer合成か、全profileのまとめた現source再確認を進める。typed＋movementも現normalizeで拒否する。将来moving nearbyを接続する際、primaryと候補の両方で既存live position helperを使うこと（現在のnearbyはstatic colliderでの実証）。未宣言距離・ゲーム一致、他特殊効果の全分岐、現在CUDAは未完了。以下は過去記録。
+
 ## 2026-11-02 Mixed typed weapons: 飛翔体とHPシールドの同時存在
 
 既存typedの同種制限を、明示BODY所有・weapon-onlyだけで拡張。新suite／shader entry／監査器／wire拡張なし。geometry kind=0はこのconsumerだけの混在タグで、GPUは実際の2種bindingを要求する。通常private skill geometryは従来のmixed拒否を維持。着弾／counter通知／serialized receiptはbindingの実kindを使う。混在時の10word/pelletへ2種の額を先に固定し、親ダメージは既存整数sumで合算。旧単一種の8word配置・2048履歴・128対象・1024pelletは不変。scratch終端163952<次bank170976を検査。CPU正本／pinned／数値演算／許容差変更0。

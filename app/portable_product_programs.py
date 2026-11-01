@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v61-expected.json'
+GOLDEN = 'research/portable-product-programs-v62-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -52,7 +52,7 @@ def configuration(suites, selection):
     program = PROGRAMS[name]
     return dict(base, product_program=name, source=program['source'], golden=GOLDEN,
                 input_words=program['input_words'], output_words=program['output_words'],
-                inputs=7 if name=='ammo-cover-fixed-group' else 3 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1,native=7 if name=='ammo-cover-fixed-group' else 3 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1)
+                inputs=7 if name=='ammo-cover-fixed-group' else 3 if name.startswith('typed-lock-') else 4 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1,native=7 if name=='ammo-cover-fixed-group' else 3 if name.startswith('typed-lock-') else 4 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1)
 
 
 def registered_golden(root, config, *, allow_unsealed=False):
@@ -292,6 +292,19 @@ def cases_for_program(root,name=None):
         body=copy.deepcopy(body)
         body['reference_models']['typed_targets']['bindings'][0]['kind']=2
         rows.append(('mixed-two-adds',body))
+        from portable_original_identity_inventory import selected_profile_bodies
+        nearby=copy.deepcopy(selected_profile_bodies(['\uc77c\ub808\uadf8'],0)[0][2])
+        nearby.update(duration=12.,burst_gauge_mode=PROGRAMS[name]['mode'])
+        nearby['enemy']['patterns']=copy.deepcopy(body['enemy']['patterns'])
+        nearby['enemy']['patterns'][0]['until']['time']=20.
+        nearby['enemy']['patterns'][-1].update(delay=0.,until=dict(time=20.),spec=dict(count=3,hp=1e30))
+        nearby['reference_models']=copy.deepcopy(body['reference_models'])
+        spec=nearby['reference_models']['typed_targets']
+        spec['bindings'][0]['kind']=3;spec['bindings'][1]['kind']=2
+        for shape in spec['geometry']['shapes']:shape.update(x=0.,y=0.,r=1000.)
+        spec['logical_geometry']=[dict(label='__enemy__:typed-wave#'+str(i+1),shape=dict(x=x,y=0.,r=1.,z=-3.)) for i,x in enumerate((0.,10.,100.))]
+        spec['nearby_rules']=[dict(owner='\uc77c\ub808\uadf8',effect='\uc1fc\ud2b8 2',base_count=3,base_radius=20.,body_shape=dict(x=-10.,y=0.,r=1.),selection='primary-center-edge-v1')]
+        rows.append(('nearby-primary',nearby))
     if name=='ammo-cover-fixed-group':
         from portable_enemy_ammo_self_destruct_cases import fixtures
         for case in fixtures():

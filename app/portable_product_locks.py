@@ -52,6 +52,7 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
     from portable_lock_typed_layout import check as check_locks
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
     if typed_model is not None:
+        if typed_model.get('nearby_rules'):raise UnsupportedPortable('Typed nearby rules with Lock On require their matching combined consumer')
         from product_reference_models import normalize as normalize_models
         declarations=normalize_models(declarations)
         coordinate_model=dict(coord=typed_model['coord'],logical_geometry=copy.deepcopy(typed_model.get('logical_geometry',[])))

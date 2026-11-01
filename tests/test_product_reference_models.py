@@ -1486,7 +1486,7 @@ class ProductReferenceModels(unittest.TestCase):
                 source,iw,ow,words,meta=product.compile_product(prepared)
             self.assertEqual(body,before);self.assertEqual(prepared,original)
             self.assertFalse(run.expected);self.assertEqual(run.config['rng_mode'],'random')
-            self.assertEqual((iw,ow,len(words)),(121392,2032000,121392));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(121936,2032000,121936));validate_composed_stride(source,iw,ow)
             self.assertEqual(source,'gpu/product_typed_'+('fixed_' if mode=='fixed' else '')+'battle_entry.slang')
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
             self.assertFalse(meta['product_typed_targets']['cpu_state_or_schedule_supplied'])
@@ -1861,6 +1861,36 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual((iw,ow),(121392,2558208))
             self.assertEqual(len(meta['product_coordinate']['declarations']['coordinate']['logical_geometry']),2)
 
+    def test_typed_nearby_selects_primary_neighbours_and_ordered_handles(self):
+        import hashlib
+        from portable_product_programs import cases_for_program
+        from portable_detail import prepare,compile_product
+        from portable_backend import validate_composed_stride
+        for variant in ('tie','swap','primary-only'):
+            body=copy.deepcopy(cases_for_program(ROOT,'typed-fixed')[-1][1]);spec=body['reference_models']['typed_targets']
+            expected=[[5,0,1],[5,1,1],[0,0,1]]
+            if variant=='swap':
+                spec['logical_geometry'][1]['shape']['x']=100.
+                spec['logical_geometry'][2]['shape']['x']=10.
+                expected=[[5,0,1],[5,2,1],[0,0,1]]
+            if variant=='primary-only':spec['nearby_rules'][0]['base_radius']=0.;expected=[[5,0,1]]
+            before=copy.deepcopy(body);aliases=(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage)
+            result=engine_worker.evaluate(body)['reference_models']['typed_targets'];casts=result['nearby_casts']
+            self.assertTrue(casts);digest=hashlib.sha256(b''.join(struct.pack('<IIII',*h,0) for h in expected)).hexdigest()
+            self.assertTrue(all(c['recipient_count']==len(expected) and c['recipient_sha256']==digest and c['split'] for c in casts))
+            self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU-selected recipients in GPU input')):
+                pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
+            self.assertEqual((iw,ow,len(words)),(121936,2032000,121936));validate_composed_stride(source,iw,ow)
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
+            self.assertEqual(words[121392:121395],[0x4e524231,1,1])
+            self.assertEqual(words[121392+32+5],1)
+            bad=copy.deepcopy(body);bad['reference_models']['typed_targets']['nearby_rules'][0]['base_count']=2
+            with patch.object(sim,'execute',side_effect=AssertionError('Invalid rule before battle')):
+                invalid,_=prepare(bad)
+                from portable_runtime import UnsupportedPortable
+                with self.assertRaisesRegex(UnsupportedPortable,'original primary'):compile_product(invalid)
+
     def test_mixed_typed_weapons_use_actual_kind_after_front_target_breaks(self):
         from portable_product_programs import body_for_program
         from portable_detail import prepare,compile_product
@@ -1904,7 +1934,7 @@ class ProductReferenceModels(unittest.TestCase):
         from destructible_world_runtime import DestructibleWorld
         import coordinate_logical_actor_geometry as logical
         for mode in ('fixed','accumulate'):
-            body=cases_for_program(ROOT,'typed-'+mode)[-1][1];before=copy.deepcopy(body)
+            body=next(b for v,b in cases_for_program(ROOT,'typed-'+mode) if v=='mixed-two-adds');before=copy.deepcopy(body)
             worlds=[];geometries=[];make=DestructibleWorld.from_clock;geometry=logical.LogicalGeometry
             def create(*a,**kw):
                 value=make(*a,**kw);worlds.append(value);return value
@@ -1917,7 +1947,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(body,before)
             with patch.object(sim,'execute',side_effect=AssertionError('No native state in packing')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow,len(words)),(121392,2032000,121392));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(121936,2032000,121936));validate_composed_stride(source,iw,ow)
             self.assertEqual(words[115680:115683],[0x4c414731,1,2])
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
             missing=copy.deepcopy(body);missing['reference_models']['typed_targets']['logical_geometry'].pop()

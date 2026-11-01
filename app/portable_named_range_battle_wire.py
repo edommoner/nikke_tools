@@ -27,7 +27,14 @@ def compile_battle(prepared,geometry,rules,*,allow_empty=False):
         if validate_range(e):domains[i]=RANGE_STAT
         elif validate_count(e,allow_marked_allies=True):domains[i]=COUNT_STAT
         if i in domains:lowered['effects'][i]['effect']['stat']=''
-    if not domains or RANGE_STAT not in domains.values():raise ValueError('Original named range definitions required')
+    nearby_rules=[rule for rule in normalized if rule.get('selection')=='primary-center-edge-v1']
+    if not nearby_rules and (not domains or RANGE_STAT not in domains.values()):raise ValueError('Original named range definitions required')
+    for rule in nearby_rules:
+        found=[i for i,item in enumerate(source['effects']) if item['owner']==rule['owner'] and item['effect'].get('name')==rule['effect']]
+        if len(found)!=1:raise ValueError('Exact original nearby effect binding required')
+        e=source['effects'][found[0]]['effect']
+        if e.get('target')!='target_and_nearby:'+str(rule['base_count']-1):raise ValueError('Nearby base count must include exactly the original primary plus neighbours')
+        lowered['effects'][found[0]]['effect']['target']='enemies_nearest:'+str(rule['base_count'])
     w,m,bindings,scene=compile_logical_geometry(lowered,geometry,allow_empty=allow_empty)
     if len(w)!=BASE or prepared!=source:raise ValueError('Named range prefix identity changed')
     def symbol(name):
@@ -38,15 +45,24 @@ def compile_battle(prepared,geometry,rules,*,allow_empty=False):
     for original,stat in domains.items():
         row=m['binding_source_indices'].index(original);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS'];e=source['effects'][original]['effect']
         w[at+F['KIND']]=0;w[at+F['STAT']]=stat;w[at+F['TARGET_NAME']]=symbol(e['target_effect'])
+    tail,bound=pack_rules(source,m,bindings,normalized)
+    m['named_range_battle']=dict(model='named-radial-frozen-logical-battle-v1',rules=copy.deepcopy(normalized),bindings=bound,domains=domains,input_words=INPUT,gpu_admitted=False)
+    return w+tail,m,bindings,scene
+
+
+def pack_rules(source,m,bindings,normalized):
     tail=[0]*WORDS;tail[:4]=[MAGIC,1,len(normalized),len(bindings)];bound=[]
     for index,rule in enumerate(normalized):
         found=[i for i,item in enumerate(source['effects']) if item['owner']==rule['owner'] and item['effect'].get('name')==rule['effect']]
         if len(found)!=1:raise ValueError('Exact original owner/effect binding required')
         original=found[0];e=source['effects'][original]['effect']
-        if e.get('type')!='damage' or e.get('stat')!='damage' or e.get('target')!='enemies_nearest:'+str(rule['base_count']) or e.get('tick_interval') or e.get('hits_parts'):raise ValueError('Plain original nearest damage binding required')
+        nearby=rule.get('selection')=='primary-center-edge-v1'
+        selector='target_and_nearby:'+str(rule['base_count']-1) if nearby else 'enemies_nearest:'+str(rule['base_count'])
+        if e.get('type')!='damage' or e.get('stat') not in (('damage','split_damage') if nearby else ('damage',)) or e.get('target')!=selector or e.get('tick_interval') or e.get('hits_parts'):raise ValueError('Exact original nearest/nearby damage binding required')
         row=m['binding_source_indices'].index(original);shape=rule['body_shape'];kind=1 if shape['r']>0 else 2;co,si=coefficients(SimpleNamespace(rot=shape['rot'],is_circle=kind==1))
-        at=HEADER+index*ROW_WORDS;tail[at:at+6]=[row+1,rule['base_count'],*bits(rule['base_radius']),kind,0]
+        at=HEADER+index*ROW_WORDS;tail[at:at+6]=[row+1,rule['base_count'],*bits(rule['base_radius']),kind,int(nearby)]
         for j,v in enumerate([shape[k] for k in ('x','y','r','w','h','rot')]+[co,si]):tail[at+6+j*2:at+8+j*2]=bits(v)
-        bound.append(dict(row=row,source_row=original,owner=rule['owner'],effect=rule['effect']))
-    m['named_range_battle']=dict(model='named-radial-frozen-logical-battle-v1',rules=copy.deepcopy(normalized),bindings=bound,domains=domains,input_words=INPUT,gpu_admitted=False)
-    return w+tail,m,bindings,scene
+        binding=dict(row=row,source_row=original,owner=rule['owner'],effect=rule['effect'])
+        if nearby:binding['split']=e['stat']=='split_damage'
+        bound.append(binding)
+    return tail,bound

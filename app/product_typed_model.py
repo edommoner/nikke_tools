@@ -9,9 +9,14 @@ from portable_typed_geometry_specs import normalize as geometry_spec
 
 def normalize_product(value):
     required={'coord','bindings','geometry','aim_policy','actor_policy'}
-    if type(value) is not dict or not required<=set(value) or set(value)-required-{'logical_geometry'}:raise ValueError('Typed targets require explicit coord, bindings, geometry, aim and actor policies')
+    if type(value) is not dict or not required<=set(value) or set(value)-required-{'logical_geometry','nearby_rules'}:raise ValueError('Typed targets require explicit coord, bindings, geometry, aim and actor policies')
     spec=copy.deepcopy(value);coordinate=coordinate_spec(spec['coord'],spec.get('logical_geometry',[]),allow_empty=True);spec['coord']=coordinate['coord']
     if 'logical_geometry' in spec:spec['logical_geometry']=coordinate['logical_geometry']
+    if 'nearby_rules' in spec:
+        from named_range_battle import normalize as nearby_rules
+        rules,_=nearby_rules(spec['nearby_rules'],spec.get('logical_geometry',[]),allow_empty=True)
+        if any(rule.get('selection')!='primary-center-edge-v1' for rule in rules):raise ValueError('Typed nearby rules require the explicit primary-center-edge policy')
+        spec['nearby_rules']=rules
     aim_spec(spec['aim_policy']);actor_spec(spec['actor_policy'])
     if spec['actor_policy']!={'mode':FIELD_MODE}:raise ValueError('Product typed targets require declared BODY-owned current fields')
     rows=spec['bindings']
@@ -65,13 +70,16 @@ def native_public(spec,data,names,duration):
 @contextmanager
 def execution(spec,names,*,runtime=None):
     from product_coordinate_model import execution as coordinates
+    from contextlib import nullcontext
+    from product_named_range_model import execution as nearby_execution
+    from product_named_range_model import public as nearby_public
     from destructible_battle_runtime import typed_battle
     from runner import sim
     from unittest.mock import patch
     result={};duration=[];original=None
     def run(value,*args,**kwargs):
         duration.append(value.config['duration']);return original(value,*args,**kwargs)
-    with coordinates(dict(coord=spec['coord'],logical_geometry=spec.get('logical_geometry',[])),configure_run=True,typed_packets=True),typed_battle(spec['bindings'],modifier_model=True,typed_geometry=spec['geometry'],coordinate_weapon_targets=True,typed_aim_policy=spec['aim_policy'],typed_actor_policy=spec['actor_policy'],mixed_weapon_kinds=len({b['kind'] for b in spec['bindings']})>1) as data:
+    with coordinates(dict(coord=spec['coord'],logical_geometry=spec.get('logical_geometry',[])),configure_run=True,typed_packets=True),typed_battle(spec['bindings'],modifier_model=True,typed_geometry=spec['geometry'],coordinate_weapon_targets=True,typed_aim_policy=spec['aim_policy'],typed_actor_policy=spec['actor_policy'],mixed_weapon_kinds=len({b['kind'] for b in spec['bindings']})>1) as data,(nearby_execution(dict(coord=spec['coord'],logical_geometry=spec.get('logical_geometry',[]),rules=spec['nearby_rules']),coordinate_context=False) if spec.get('nearby_rules') else nullcontext()) as nearby:
         original=sim.execute
         if runtime is not None:
             if type(runtime) is not dict or runtime:raise ValueError('Fresh internal typed runtime holder required')
@@ -82,6 +90,7 @@ def execution(spec,names,*,runtime=None):
             if runtime is not None:runtime['active']=False
     if len(duration)!=1:raise ValueError('One original typed product battle required')
     result.update(native_public(spec,data,names,duration[0]))
+    if nearby is not None:result['nearby_casts']=nearby_public(nearby)['casts']
 
 
 def aim_public(spec,frames):

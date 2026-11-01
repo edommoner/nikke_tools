@@ -17,7 +17,10 @@ COORDINATE_WARNING='宣言した座標・共通命中サンプリング規約を
 MOVEMENT_WARNING='宣言したADD移動・座標モデルと共通サンプリング規約を使用しています。実ゲームの位置・範囲・移動優先規則を確認した意味ではありません。'
 
 def warning(declarations):
-    return ' '.join(text for key,text in [('typed_targets','宣言した飛翔物・HPシールド・照準・所有者モデルを使用しています。ゲーム仕様との一致は未検証です。'),('coordinate',COORDINATE_WARNING),('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING),('cover_defense',COVER_WARNING),('enemy_ammo',AMMO_WARNING),('enemy_movement',MOVEMENT_WARNING),('named_range',RANGE_WARNING),('lock_on',LOCK_WARNING)] if key in declarations)
+    result=' '.join(text for key,text in [('typed_targets','宣言した飛翔物・HPシールド・照準・所有者モデルを使用しています。ゲーム仕様との一致は未検証です。'),('coordinate',COORDINATE_WARNING),('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING),('cover_defense',COVER_WARNING),('enemy_ammo',AMMO_WARNING),('enemy_movement',MOVEMENT_WARNING),('named_range',RANGE_WARNING),('lock_on',LOCK_WARNING)] if key in declarations)
+    if declarations.get('typed_targets',{}).get('nearby_rules'):result+=' '+'宣言した主対象と周辺対象の選択モデルで計算しています。距離規則の実ゲーム一致は未検証です。'
+    return result
+
 
 def combine_public(models):
     """Join independent checked readbacks without overwriting any consumer."""

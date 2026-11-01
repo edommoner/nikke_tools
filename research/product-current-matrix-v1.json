@@ -3894,5 +3894,17 @@
     "current_source_cuda_profiles": 0,
     "previous_matrix_evidence_preserved": true,
     "full_goal_complete": false
+  },
+  "later_typed_nearby_product_validation": {
+    "report": "research/product-typed-nearby-v1.json",
+    "metal_existing_profile": 1,
+    "conditions": 17,
+    "positive_nearby_selection_conditions": 14,
+    "inactive_conditions": 3,
+    "new_distinct_profiles": 0,
+    "full_standard_matrix_recertified_on_this_source": false,
+    "current_source_cuda_profiles": 0,
+    "previous_evidence_preserved": true,
+    "full_goal_complete": false
   }
 }

@@ -4,7 +4,9 @@ from portable_runtime import UnsupportedPortable
 from portable_coordinate_typed_specs import INPUT_WORDS as TYPED_INPUT,OUTPUT_WORDS as OUTPUT,COORDINATE_OUTPUT_WORDS as BASE
 
 from portable_logical_geometry_wire import LAYOUT as LOGICAL
-INPUT=TYPED_INPUT+LOGICAL['WORDS']
+NEARBY_BASE=TYPED_INPUT+LOGICAL['WORDS']
+from portable_named_range_battle_wire import WORDS as NEARBY_WORDS,OUT as NEARBY_OUT,END as NEARBY_END
+INPUT=NEARBY_BASE+NEARBY_WORDS
 
 
 def check_schema(root):
@@ -13,14 +15,16 @@ def check_schema(root):
     from portable_skill_history import check_layout as history_layout
     from portable_logical_geometry_wire import check_schema as logical_layout
     check_layout(root);history_layout(root);logical_layout(root)
+    from portable_named_range_battle_wire import shader_schema
+    if (Path(root)/'gpu/product_typed_nearby_layout.slang').read_text()!=shader_schema(base=NEARBY_BASE):raise ValueError('Typed nearby bank schema drift')
     source=(Path(root)/'gpu/product_typed_battle_entry.slang').read_text()
     entry=(Path(root)/'gpu/world_coordinate_area_entry.slang').read_text()
     if ('#define PORTABLE_PRODUCT_TYPED_LOGICAL' not in source
             or '#define PORTABLE_LOGICAL_INPUT_BASE 115680U' not in source
             or '#define PORTABLE_COORDINATE_TYPED_MIXED' not in source
             or not 153568+1024*10+128+16<=170976
-            or TYPED_INPUT!=115680 or INPUT!=121392
-            or '#if defined(PORTABLE_PRODUCT_TYPED_LOCK) || defined(PORTABLE_PRODUCT_TYPED_LOGICAL)\n    uint input=1+id.x*121392U' not in entry):
+            or TYPED_INPUT!=115680 or NEARBY_BASE!=121392 or INPUT!=121936
+            or '#if defined(PORTABLE_PRODUCT_TYPED_NEARBY)\n    uint input=1+id.x*121936U' not in entry):
         raise ValueError('Typed product requires adjacent complete typed/logical input banks')
 
 
@@ -32,6 +36,7 @@ def compile_product(prepared):
     from calculator.boss_pattern import validate
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
     if set(declarations)=={'typed_targets','lock_on'}:
+        if declarations['typed_targets'].get('nearby_rules'):raise UnsupportedPortable('Typed nearby rules with Lock On require their matching combined consumer')
         from portable_product_locks import compile_product as locks
         return locks(prepared,typed_model=normalize_product(declarations['typed_targets']))
     if set(declarations)!={'typed_targets'}:raise UnsupportedPortable('Typed product composition requires its matching checked shared GPU consumer')
@@ -43,6 +48,13 @@ def compile_product(prepared):
     inner,fixed=lower(prepared);inner=copy.deepcopy(inner);inner.pop('reference_models',None)
     inner['enemy']['coord']=copy.deepcopy(spec['coord']);inner['_product_native_equipment_carriers']=True
     inner['typed_aim_policy']=copy.deepcopy(spec['aim_policy']);inner['typed_actor_policy']=copy.deepcopy(spec['actor_policy'])
+    nearby_source=copy.deepcopy(inner)
+    for rule in spec.get('nearby_rules',[]):
+        found=[i for i,item in enumerate(inner['effects']) if item['owner']==rule['owner'] and item['effect'].get('name')==rule['effect']]
+        if len(found)!=1:raise UnsupportedPortable('Exact original nearby owner/effect binding required')
+        effect=inner['effects'][found[0]]['effect']
+        if effect.get('target')!='target_and_nearby:'+str(rule['base_count']-1):raise UnsupportedPortable('Nearby count must preserve original primary plus neighbours')
+        effect['target']='enemies_nearest:'+str(rule['base_count'])
     words,meta,bindings,scene=compile_coordinate_typed(inner,spec['bindings'],probe_kind=spec['bindings'][0]['kind'],geometry=spec['geometry'],coordinate_weapon_targets=True,coordinate_typed_aim=True,coordinate_typed_actors=True,coordinate_typed_owners=True,mixed_weapon_kinds=len({b['kind'] for b in spec['bindings']})>1)
     from portable_logical_geometry_wire import pack as logical_pack,validate as logical_validate
     shapes=spec.get('logical_geometry',[])
@@ -52,6 +64,13 @@ def compile_product(prepared):
     logical_validate(logical,words[:109968],bindings,allow_empty=True)
     if len(words)!=TYPED_INPUT:raise UnsupportedPortable('Incomplete original typed input bank')
     words+=logical
+    from portable_named_range_battle_wire import pack_rules,MAGIC as NEARBY_MAGIC,WORDS as NRB_WORDS
+    rules=spec.get('nearby_rules',[])
+    bank,bound=pack_rules(nearby_source,meta,bindings,rules)
+    if len(words)!=NEARBY_BASE:raise UnsupportedPortable('Complete logical bank required before nearby rules')
+    words+=bank
+    meta['named_range_battle']=dict(bindings=bound)
+    meta['product_typed_nearby']=dict(declarations={'named_range':dict(coord=spec['coord'],logical_geometry=shapes,rules=rules)},names=[c['name'] for c in inner['chars']])
     meta['product_typed_targets']=dict(declarations={'typed_targets':spec},cpu_state_or_schedule_supplied=False)
     meta['product_control_labels']=[[dict(mode=e['mode'],producer=_when_label(e)) for e in CharState(c,atk,inner['enemy'].get('code'))._click_sched] for c,atk in zip(inner['chars'],inner['base_atk'])]
     nodes=validate(copy.deepcopy(inner['enemy'].get('patterns') or [dict(id='portable-empty-world',kind='idle')]),coord=True)
@@ -93,11 +112,15 @@ def read_result(block,metadata,names,duration):
         if block[BASE+1]!=0:fail('undeclared typed skill route')
         for region in regions()[0]:
             if region.domain=='output' and 'reserved' in region.name and any(block[region.base:region.end]):fail(region.name)
-        if any(block[END:BASE+136688]) or any(block[L['COUNTER_CONTEXT_BASE']:L['COUNTER_CONTEXT_BASE']+1096]):fail('unused skill tail or counter context')
+        nearby_meta=dict(metadata,product_named_range=metadata['product_typed_nearby'])
+        from portable_product_named_range import read_result as read_nearby
+        nearby=read_nearby(block,nearby_meta,duration)['named_range']['casts']
+        if any(block[END:NEARBY_OUT]) or any(block[NEARBY_END:BASE+136688]) or any(block[L['COUNTER_CONTEXT_BASE']:L['COUNTER_CONTEXT_BASE']+1096]):fail('unused skill tail or counter context')
         c=dict(typed_bindings=spec['bindings'],max_attacks=128,effects=[],names=names)
         state=read_typed_battle(TypedStateView(block),(c,metadata,()))
         if state['attacks'] or not state['finished'] or state['time']!=duration:fail('typed clock')
         model=read_weapon_history(block,metadata,names,duration,state,base=BASE)
+        if spec.get('nearby_rules'):model['nearby_casts']=nearby
     except (AssertionError,IndexError,KeyError,ValueError,struct.error) as error:
         raise UnsupportedPortable('Invalid or incomplete typed product history') from error
     return dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(metadata['product_typed_targets']['declarations']),typed_targets=model)

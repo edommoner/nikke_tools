@@ -53,7 +53,7 @@ def read_result(block,meta,duration,*,out=OUT,output=OUTPUT):
     names=info['names'];casts=[];previous=0.
     for i in range(count):
         at=out+OUT_HEADER+i*CAST_WORDS;raw=list(block[at:at+CAST_WORDS]);row,who=raw[:2]
-        if row not in bound or who>=len(names) or bound[row]['owner']!=names[who] or any(raw[22:]):fail()
+        if row not in bound or who>=len(names) or bound[row]['owner']!=names[who] or any(raw[30:] if rules[(names[who],bound[row]['effect'])].get('selection') else raw[22:]):fail()
         def num(offset):
             value=struct.unpack('<d',struct.pack('<II',*raw[offset:offset+2]))[0]
             if not math.isfinite(value):fail()
@@ -64,6 +64,7 @@ def read_result(block,meta,duration,*,out=OUT,output=OUTPUT):
             or not 0<=r['capacity']<=128 or not 0<=r['add_count']<=127 or not 0<=r['body_position']<=r['add_count']+1
             or r['add_count']+bool(r['body_position'])>r['capacity'] or r['factor']<0 or r['radius']<0
             or r['additional_targets']<0 or r['additional_targets']!=int(r['additional_targets']) or r['capacity']!=r['base_count']+r['additional_targets']):fail()
+        if rule.get('selection'):r.update(selection=rule['selection'],split=bound[row].get('split',False),recipient_count=r['add_count']+bool(r['body_position']),recipient_sha256=''.join(format(word,'08x') for word in raw[22:30]))
         previous=r['time'];casts.append(r)
     if any(block[out+OUT_HEADER+count*CAST_WORDS:end]):fail()
     return dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(info['declarations']),named_range=dict(casts=casts))

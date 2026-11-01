@@ -26,11 +26,13 @@ def normalize(rules,geometry,*,allow_empty=False):
     if type(rules) is not list or not 1<=len(rules)<=16:raise ValueError('Explicit named battle rules required')
     names=set();out=[]
     for rule in rules:
-        if type(rule) is not dict or set(rule)!={'owner','effect','base_radius','base_count','body_shape'}:raise ValueError('Literal named battle binding required')
+        if type(rule) is not dict or set(rule)-{'selection'}!={'owner','effect','base_radius','base_count','body_shape'}:raise ValueError('Literal named battle binding required')
+        if 'selection' in rule and rule['selection']!='primary-center-edge-v1':raise ValueError('Explicit nearby primary-center-edge policy required')
         key=(rule['owner'],rule['effect'])
         if any(type(x) is not str or not x for x in key) or key in names:raise ValueError('Unique owner/effect binding required')
         radius=rule['base_radius'];count=rule['base_count']
         if type(radius) not in (int,float) or not math.isfinite(radius) or radius<0 or type(count) is not int or not 1<=count<=128:raise ValueError('Finite radius and bounded base capacity required')
+        if rule.get('selection') and rule['base_count']<2:raise ValueError('Nearby requires primary plus at least one neighbour')
         body=shapes([dict(label='__enemy__',shape=rule['body_shape'])])[0]['shape']
         names.add(key);out.append(dict(rule,base_radius=float(radius),body_shape=body))
     return out,colliders
@@ -64,7 +66,9 @@ class NamedRangeBattle:
     def capture(self,manager,boss,cs,effect,enemy,t,event):
         rule=self.rules.get((cs.name,effect.get('name')))
         if rule is None:return event
-        if effect.get('type')!='damage' or effect.get('target')!='enemies_nearest:'+str(rule['base_count']) or effect.get('tick_interval') or effect.get('hits_parts') or event.extra or event.to is not None:raise ValueError('Named range supports original plain nearest damage packets')
+        nearby=rule.get('selection')=='primary-center-edge-v1'
+        selector=('target_and_nearby:'+str(rule['base_count']-1)) if nearby else ('enemies_nearest:'+str(rule['base_count']))
+        if effect.get('type')!='damage' or effect.get('target')!=selector or effect.get('stat') not in (('damage','split_damage') if nearby else ('damage',)) or effect.get('tick_interval') or effect.get('hits_parts') or event.extra or event.to is not None:raise ValueError('Named range requires its exact original nearest/nearby damage binding')
         if self.boss is None:self.boss=boss;self.manager=manager
         if self.boss is not boss or self.manager is not manager:raise ValueError('Named range requires one live battle')
         from calculator.timeline import GEOM_KEY
@@ -84,24 +88,40 @@ class NamedRangeBattle:
         if ranked is None:raise ValueError('Bounded logical nearest candidates required')
         from coordinate_geometry_reference import evaluate
         selected=[];handles=[];distances=[]
-        for label in ranked[0]:
+        order=ranked[0]
+        primary=order[0] if nearby else None
+        if nearby:
+            if primary not in colliders:raise ValueError('Missing live primary collider')
+            ax,ay=colliders[primary]['x'],colliders[primary]['y']
+        for label in order:
             if label not in colliders:raise ValueError('Missing configured logical collider')
             shape=colliders[label];kind=1 if shape['r']>0 else 2
             answer=evaluate((kind,shape['x'],shape['y'],shape['r'],shape['w'],shape['h'],shape['rot'],ax,ay,0.,value['radius']))
             actor=registry.view(ActorKind.BODY if label=='__enemy__' else ActorKind.ADD,label)
             distances.append(dict(label=label,handle=[int(actor.handle.kind),actor.handle.identity,actor.handle.generation],distance=answer['distance'],inside=answer['contains']))
-            if actor.alive and answer['contains'] and len(selected)<limit:selected.append(label);handles.append(actor.handle)
+            if not nearby and actor.alive and answer['contains'] and len(selected)<limit:selected.append(label);handles.append(actor.handle)
+        if nearby:
+            candidates=[row for row in distances if row['label']!=primary and row['inside']]
+            # Python sort is stable: equal edge distances keep the canonical
+            # primary/ADD-birth/BODY tie order used by the shared actor selector.
+            candidates.sort(key=lambda row:row['distance'])
+            chosen=[next(row for row in distances if row['label']==primary),*candidates[:max(limit-1,0)]] if limit else []
+            for row in chosen:
+                actor=registry.view(ActorKind.BODY if row['label']=='__enemy__' else ActorKind.ADD,row['label'])
+                if actor.alive:selected.append(row['label']);handles.append(actor.handle)
         row=dict(owner=cs.name,effect=effect['name'],time=t,aim=[ax,ay],**value,base_count=rule['base_count'],additional_targets=addition,capacity=limit,candidates=distances,recipients=[dict(label=n,handle=[int(h.kind),h.identity,h.generation]) for n,h in zip(selected,handles)])
-        self.data['casts'].append(row);self.pending[id(event)]=(tuple(selected),tuple(handles),len(self.data['casts'])-1)
+        if nearby:row.update(selection=rule['selection'],split=bool(event.split))
+        self.data['casts'].append(row);self.pending[id(event)]=(tuple(selected),tuple(handles),len(self.data['casts'])-1,*((bool(event.split),) if nearby else ()))
         # Preserve the exact HitEvent object observed by native creation tracing.
         event.to=tuple(selected);return event
     def route(self,boss,event,fallback,*args,**kwargs):
         pending=self.pending.get(id(event))
         if pending is None:return fallback(boss,event,*args,**kwargs)
-        labels,handles,_=pending;registry=registry_for(self.manager,boss);out=[]
+        labels,handles,_=pending[:3];registry=registry_for(self.manager,boss);out=[]
         for label,handle in zip(labels,handles):
             view=registry.view(handle.kind,label)
             if view.alive and view.handle==handle:out.append((label,1.))
+        if len(pending)==4 and pending[3] and out:out=[(label,1./len(out)) for label,_ in out]
         return out
     @contextmanager
     def landing(self,event,t):
