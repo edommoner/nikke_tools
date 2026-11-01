@@ -1,3 +1,15 @@
+## 2026-11-01 敵弾倉＋対象別補正＋同時命中/遮蔽/自爆の通常API16条件Metal一致
+
+前ターンは自爆＋弾倉接続でprogress。今ターンは元のprojectile_dmg_pct/shield_dmg_pct carrierを、BODY/PART/ADD世界の敵弾倉と合成。単独は既存target prefix110112を保持する薄い4選択（registry68）、groupは既存ammo-groupへdescriptor104408..104672をそのまま接続し、新group-target alias0。全axis/元effects/ADD payload/弾倉/遮蔽/自爆bank保持、残りpaddingを全検査。既存validProductGroupTargetAxesの完全な関数をproduct_group_target_axes.slangへ移して共有し、旧group-targetのstride/schema検査も同関数を検査する。CPU正本4file/upstream・数値式・許容差変更0、新suite/監査器0。
+
+既存ammo-cover-fixed-groupは旧3件先頭を保持し、modifier carrier通常15秒/同時刻自爆6秒2件を追加。5件がfresh native/実M5/独立GPU禁止sealで一致。v47は当該memberだけ更新、旧3entryのinput/output/native全hashと他34memberを保持。新単独target4memberはAPI Metal成功・独立CLI基準未登録。own155CPU（67/11/7/70）成功。
+
+初回API16は単独target遮蔽なし4件がSlang入口二重/未定義でGPU前にCPU fallback。他12件は実M5/CPU/HTTP一致。元compiler error/CPU fallback/claims/rawを保持し、gpu/product_ammo_target_battle_entry.slangのみに既存PORTABLE_PRODUCT_ADD_EXECUTORを足して共通子入口を抑制。既に成功した12sourceのclosure/input/rawは全byte同一でGPUを繰り返さず、新sourceの元4caller値だけ追加APIで全一致。各保存監査は初回16（12GPU/4CPU）＋修正4を実施、追加battle/GPU0。成功distinct16、2POST/8physicalGPUbatch。全2専用Node group消滅。誤ったaxis4の別入力1件も同M5 sourceでstatus64、実戦/CPU0・元成功claim不変。negativeはprofile成功へ加算しない。
+
+最終release-v2 owner36cd5e9e60ac2f4789a8c98a68ee67d591f759fc0dec63692d9e1bc81cb677c4自身155CPU/deps/PTX60/O1計画成功。全16保存source/input/raw/全CPU/GPU/HTTPの最終release再投影も追加battle/GPU0で一致。旧packet-v1との差はGOLDEN46→47・ledgerSHAと新bare targetの入口所有flagだけ。選択CLIの5件source closureも完全同一。原本proofs/product-ammo-target-v1-20261101、小記録research/product-ammo-target-v1.json。
+
+今回typed target0であり、飛翔物/シールド実体にmodifierを適用するゲーム仕様の全受付ではない。Windowsは旧RAM2.09GiB停止後idle・追加依頼0、現合成CUDA実機未確認。標準Metal/CUDA累積263/266、宣言別Metal266/CUDA265のまま、標準追加0・全goal未完了。次は敵回復と弾倉などのconsumer合成、実typed targetの製品接続、未指定ゲーム規則を優先。Windows差分は他作業へ影響しない短い単位へまとめる。以下は履歴。
+
 ## 2026-11-01 敵弾倉と自爆の最終キューを通常API接続、Metal16条件一致
 
 前ターンは敵弾倉/group/遮蔽合成の実装・実M5/CPU8一致でprogress。今ターンは残っていた自爆付き敵弾倉を、既存ADD retirement・enemyAmmoRetiredQueue・同じ世界時計/ActorPoolへ接続した。新suite/program/監査器0。自爆の最終frameで実際にキューに入った同世代shotのみ弾倉を消費。HP死亡/時間終了はleaseなし、空弾倉/再装填中はquery/RNG/damageなし。declared CPU adapterは既存self_destruct_enemy_ammoへ接続し、CPU正本4file/upstream・数値規則・許容差は不変。

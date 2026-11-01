@@ -29,13 +29,15 @@ def compile_product(prepared,producer):
     check_retirement()
     check_schema();inner=dict(prepared,_product_ammo_compiled=True);inner.pop('reference_models',None)
     with compiler_policy():source,iw,ow,words,meta=producer(inner)
-    grouped=source in ('gpu/product_group_battle_entry.slang','gpu/product_fixed_group_battle_entry.slang','gpu/product_add_group_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang')
+    grouped=source in ('gpu/product_group_battle_entry.slang','gpu/product_fixed_group_battle_entry.slang','gpu/product_add_group_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang','gpu/product_group_target_battle_entry.slang','gpu/product_fixed_group_target_battle_entry.slang','gpu/product_add_group_target_battle_entry.slang','gpu/product_add_fixed_group_target_battle_entry.slang')
     plain_prefixes={'gpu/product_battle_entry.slang':(104400,786432),'gpu/product_fixed_battle_entry.slang':(104400,786432),
-        'gpu/product_group_battle_entry.slang':(104408,1048576),'gpu/product_fixed_group_battle_entry.slang':(104408,1048576)}
+        'gpu/product_group_battle_entry.slang':(104408,1048576),'gpu/product_fixed_group_battle_entry.slang':(104408,1048576),
+        'gpu/product_target_battle_entry.slang':(110112,1048576),'gpu/product_fixed_target_battle_entry.slang':(110112,1048576),
+        'gpu/product_group_target_battle_entry.slang':(104672,1048576),'gpu/product_fixed_group_target_battle_entry.slang':(104672,1048576)}
     if source in plain_prefixes and (iw,ow)==plain_prefixes[source]:
         words=list(words)+[0]*(A['BASE']-len(words))+pack_add(patterns,bindings,raw)
-    elif source not in ('gpu/product_add_battle_entry.slang','gpu/product_add_fixed_battle_entry.slang','gpu/product_add_group_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang') or (iw,ow)!=(A['INPUT_WORDS'],A['OUTPUT_WORDS']):
-        raise UnsupportedPortable('Enemy magazines require a checked plain or actual-shot group BODY/ADD product prefix')
+    elif source not in ('gpu/product_add_battle_entry.slang','gpu/product_add_fixed_battle_entry.slang','gpu/product_add_group_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang','gpu/product_add_group_target_battle_entry.slang','gpu/product_add_fixed_group_target_battle_entry.slang','gpu/product_add_target_battle_entry.slang','gpu/product_add_fixed_target_battle_entry.slang') or (iw,ow)!=(A['INPUT_WORDS'],A['OUTPUT_WORDS']):
+        raise UnsupportedPortable('Enemy magazines require a checked plain, modifier or actual-shot group BODY/ADD product prefix')
     if len(words)!=E['BASE']:raise ValueError('Enemy magazine product prefix changed')
     if spec is not None:bank=pack(spec,patterns,bindings,allow_self_destruct=True)
     else:
@@ -48,7 +50,8 @@ def compile_product(prepared,producer):
         bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],
         cpu_state_or_schedule_supplied=False)
     fixed='fixed_' in source
-    stem=('fixed_' if fixed else '')+('group_' if grouped else '')
+    targeted=source in ('gpu/product_target_battle_entry.slang','gpu/product_fixed_target_battle_entry.slang','gpu/product_add_target_battle_entry.slang','gpu/product_add_fixed_target_battle_entry.slang')
+    stem=('fixed_' if fixed else '')+('group_' if grouped else 'target_' if targeted else '')
     return ('gpu/product_ammo_'+stem+'battle_entry.slang',E['INPUT_WORDS'],E['OUTPUT_WORDS'],words+bank,meta)
 
 def read_result(block,meta):

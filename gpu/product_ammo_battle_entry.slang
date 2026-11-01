@@ -13,8 +13,11 @@
 #define RESOURCE_TRACE_ENABLED(s) true
 #define RESOURCE_TRACE_AT(output,index) ((index)<128U ? (output)+P_RESOURCE_TRACE_BASE+(index)*8U : (output)+EAM_OUTPUT_BASE+EAM_RESOURCE_BASE+((index)-128U)*8U)
 #define portableEvents unusedProductAmmoBaseEntry
-#ifdef PORTABLE_PRODUCT_AMMO_GROUP
+#ifdef PORTABLE_PRODUCT_AMMO_TARGET
+#include "product_target_battle_entry.slang"
+#elif defined(PORTABLE_PRODUCT_AMMO_GROUP)
 #include "product_group_battle_entry.slang"
+#include "product_group_target_axes.slang"
 #else
 #include "product_battle_entry.slang"
 #endif
@@ -31,5 +34,26 @@ bool productEnemyAmmoHasSelfDestruct(inout Runtime s)
     for(uint node=0;node<32;node++)
         if(commands[s.inputBase+ADB_BASE+ADB_ROW_BASE+node*ADB_ROW_WORDS+4]==1)return true;
     return false;
+}
+// Keep every original descriptor, then validate the remaining zero padding.
+uint productAmmoPrefix(uint input)
+{
+#ifdef PORTABLE_PRODUCT_AMMO_TARGET
+    return 110112U;
+#elif defined(PORTABLE_PRODUCT_AMMO_GROUP)
+    return commands[input+104408U]==0x50474131U ? 104672U : 104408U;
+#else
+    return 104400U;
+#endif
+}
+bool initializeProductAmmoPrefix(inout Runtime s)
+{
+#ifdef PORTABLE_PRODUCT_AMMO_TARGET
+    return initializeDestructibleBattle(s)&&validBattleModifierAxes(s)&&validShieldBattleRoutes(s);
+#elif defined(PORTABLE_PRODUCT_AMMO_GROUP)
+    return commands[s.inputBase+104408U]==0 || validProductGroupTargetAxes(s);
+#else
+    return true;
+#endif
 }
 #include "product_ammo_entry.slang"

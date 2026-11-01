@@ -37,7 +37,7 @@ def compile_product(prepared,producer):
     from portable_enemy_healing_wire import INPUT_WORDS as HEAL_INPUT,OUTPUT as HEAL_OUTPUT
     healing=source in ('gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang','gpu/product_healing_group_battle_entry.slang','gpu/product_healing_fixed_group_battle_entry.slang') and (iw,ow)==(HEAL_INPUT,HEAL_OUTPUT['OUTPUT_WORDS'])
     from portable_enemy_ammo_wire import LAYOUT as AMMO
-    ammo=source in ('gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang','gpu/product_ammo_group_battle_entry.slang','gpu/product_ammo_fixed_group_battle_entry.slang') and (iw,ow)==(AMMO['INPUT_WORDS'],AMMO['OUTPUT_WORDS'])
+    ammo=source in ('gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang','gpu/product_ammo_group_battle_entry.slang','gpu/product_ammo_fixed_group_battle_entry.slang','gpu/product_ammo_target_battle_entry.slang','gpu/product_ammo_fixed_target_battle_entry.slang') and (iw,ow)==(AMMO['INPUT_WORDS'],AMMO['OUTPUT_WORDS'])
     from portable_enemy_movement_wire import INPUT as MOVE_INPUT,OUTPUT as MOVE_OUTPUT
     movement=source in ('gpu/product_movement_battle_entry.slang','gpu/product_movement_fixed_battle_entry.slang') and (iw,ow)==(MOVE_INPUT,MOVE_OUTPUT)
     from portable_named_range_battle_wire import INPUT as RANGE_INPUT,OUTPUT as RANGE_OUTPUT
@@ -107,7 +107,7 @@ def compile_product(prepared,producer):
     if ammo:
         meta['product_ammo_cover']=True
         if len(words)!=AMMO['INPUT_WORDS']:raise ValueError('Complete ammo prefix required before cover bank')
-        return ('gpu/product_ammo_cover_'+('fixed_' if fixed_values is not None else '')+('group_' if 'group_' in source else '')+'battle_entry.slang',AMMO['INPUT_WORDS']+C['WORDS'],OUTPUT,list(words)+bank,meta)
+        return ('gpu/product_ammo_cover_'+('fixed_' if fixed_values is not None else '')+('group_' if 'group_' in source else 'target_' if 'target_' in source else '')+'battle_entry.slang',AMMO['INPUT_WORDS']+C['WORDS'],OUTPUT,list(words)+bank,meta)
     if movement:
         meta['product_movement_cover']=True
         if len(words)!=MOVE_INPUT:raise ValueError('Complete movement prefix required before cover bank')

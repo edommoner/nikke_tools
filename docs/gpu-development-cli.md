@@ -1,3 +1,13 @@
+## 敵弾倉と対象別modifier carrier
+
+元の`projectile_dmg_pct`／`shield_dmg_pct`を含む編成と`enemy_ammo`を、既存のBODY/PART/ADD実行器へ接続しました。元の定義・軸・寿命・イベントを保持し、BODYやADDを飛翔物／シールドへ置き換えません。実在するtyped targetや座標を含む場面には、その別の宣言モデルとの接続が必要です。今回の16条件はtyped target0の既存世界です。
+
+`ammo-fixed-target`／`ammo-accumulate-target`／`ammo-cover-fixed-target`／`ammo-cover-accumulate-target`は既存専用prefixを使う薄い選択です。同時命中を含む場合は既存`ammo-…-group`／`ammo-cover-…-group`入口へそのまま接続し、新しいgroup-target aliasを増やしません。専用prefix110112、group+軸prefix104672を完全保持し、以降のpadding・ADD・弾倉・遮蔽も個別に検査します。groupの軸検査は従来の完全なvalidatorを共有化しています。
+
+既存`ammo-cover-fixed-group`は旧3件を先頭に残してmodifier通常15秒・自爆6秒の2件を追加し、実M5/fresh native/独立seal済みv47です。旧3件のinput/output/native hashと他34memberは全保持。新しい単独target4入口は通常APIのMetal検証済み、独立CLI基準は未登録なので`--develop`を使います。新suite／監査器はありません。
+
+通常APIでは単独targetの固定/実蓄積×15/30秒×遮蔽有無8条件と、group+modifierの両mode×遮蔽有無×通常/自爆8条件、計16条件で全CPU/GPU/HTTP一致しました。初回の遮蔽なし4条件はSlang入口所有flag不足でGPU前にCPU fallback。修正は新しい薄いrootのflagだけで、成功12条件のGPUを繰り返さず全source/input/raw/payloadを厳密再利用しました。rawの不正axis4は実M5でstatus64、元成功claim不変。詳細は[検証記録](../research/product-ammo-target-v1.json)。CUDA実機は未確認です。
+
 ## 敵弾倉と自爆の最終射撃
 
 既存の`enemy_ammo`製品入口は、自爆する召喚敵の最後のキューを同じADD時計・ActorPoolへ接続しています。`enemy_ammo`には実際のBODY/ADD弾倉を明示し、敵patternには有限の射撃数と自爆を指定します。同じ世代・同じframeに既にキューへ入っていた射撃だけが自爆後の弾倉を消費します。HPによる死亡や時間切れにこの扱いは適用しません。空弾倉・再装填中のattemptは敵を選択せず、ダメージも発生させません。
@@ -10,7 +20,7 @@
 
 ## 敵弾倉と実射撃グループの通常API
 
-`reference_models.enemy_ammo`と元の散弾／同時命中listenerを含む編成を、既存の単一時計・ActorPool・ADD攻撃実行器で合成できます。`cover_defense`／手動遮蔽も併用できます。攻撃するBODY/ADDには各弾倉の容量・初期値・再装填秒数を明示し、遮蔽DEFは独立した5人の明示値を使います。未宣言値は推定しません。target modifierとの合成は引き続き理由付きCPU fallbackです。
+`reference_models.enemy_ammo`と元の散弾／同時命中listenerを含む編成を、既存の単一時計・ActorPool・ADD攻撃実行器で合成できます。`cover_defense`／手動遮蔽も併用できます。攻撃するBODY/ADDには各弾倉の容量・初期値・再装填秒数を明示し、遮蔽DEFは独立した5人の明示値を使います。未宣言値は推定しません。typed projectile／shieldを含む別世界との合成は、接続済みの専用consumerが必要です。
 
 既存`product-detail`の`ammo-fixed-group`／`ammo-accumulate-group`／`ammo-cover-fixed-group`／`ammo-cover-accumulate-group`を選択します。新suiteはありません。`ammo-cover-fixed-group`は実M5・fresh native・GPU禁止の独立seal済みv45へ登録し、旧34memberは全保持しました。`package --suite product-detail --product-program ammo-cover-fixed-group --compact --out NEW.zip`を使います。他3入口は通常APIのMetal成功済み、独立CLI基準未登録なので`--develop`が必要です。
 

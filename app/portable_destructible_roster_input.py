@@ -21,7 +21,8 @@ def check_group_wire(root):
     from portable_battle_attack_group_input import INPUT_WORDS as base
     source=(root/GROUP_SOURCE).read_text()
     stride=re.search(r'uint input=1\+id\.x\*(\d+),output=id\.x\*(\d+);',source)
-    descriptor=re.search(r'uint descriptor=s.inputBase\+(\d+);',source)
+    if '#include "product_group_target_axes.slang"' not in source:raise ValueError('Shared product target validator required')
+    descriptor=re.search(r'uint descriptor=s.inputBase\+(\d+);',(root/'gpu/product_group_target_axes.slang').read_text())
     if not stride or tuple(map(int,stride.groups()))!=(GROUP_INPUT_WORDS,OUTPUT_WORDS) or not descriptor or int(descriptor[1])!=base or GROUP_INPUT_WORDS!=base+8+L['DEFINITIONS']:
         raise ValueError('Product group target wire disagrees with the shared shader')
 

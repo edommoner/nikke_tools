@@ -194,6 +194,37 @@ class ProductReferenceModels(unittest.TestCase):
         block[1769856]=1
         with self.assertRaisesRegex(UnsupportedPortable,'coordinate product history'):read_result(block,metadata)
 
+    def test_enemy_ammo_target_modifiers_keep_complete_target_and_group_prefixes(self):
+        from portable_product_programs import body_for_program,cases_for_program
+        from portable_detail import prepare,compile_product
+        from portable_backend import validate_composed_stride
+        from portable_specs import LIMITS as L,FIELDS as F
+        from portable_add_attack_battle_wire import LAYOUT as A
+        from portable_runtime import UnsupportedPortable
+        for mode in ('fixed','accumulate'):
+            bodies=[body_for_program(ROOT,'ammo-'+mode+'-target'),body_for_program(ROOT,'ammo-cover-'+mode+'-target')]
+            for variant,body in cases_for_program(ROOT,'ammo-cover-fixed-group'):
+                if variant and variant.startswith('target-modifier'):
+                    body['burst_gauge_mode']=mode;bodies.append(body)
+            for body in bodies:
+                original=copy.deepcopy(body)
+                with patch.object(sim,'execute',side_effect=AssertionError('No CPU schedule input')):
+                    prepared,_=prepare(body);before=copy.deepcopy(prepared);source,iw,ow,words,meta=compile_product(prepared)
+                self.assertEqual(body,original);self.assertEqual(prepared,before);validate_composed_stride(source,iw,ow)
+                axes=meta['real_prepared_input']['target_modifier_carriers'];self.assertEqual(axes['original_effects'],prepared['effects'])
+                self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+                grouped=bool(meta['real_prepared_input'].get('declared_attack_group_policy'))
+                end=104672 if grouped else 110112
+                self.assertFalse(any(words[end:A['BASE']]))
+                if grouped:self.assertEqual(words[104408:104410],[0x50474131,1])
+                for row,axis in enumerate(axes['axis_rows']):
+                    if axis:
+                        at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS'];self.assertEqual(words[at+F['KIND']],4);self.assertEqual(words[at+F['STAT']],0)
+                missing=copy.deepcopy(body);missing['reference_models'].pop('enemy_ammo')
+                with patch.object(sim,'execute',side_effect=AssertionError('Reject before battle')):
+                    with self.assertRaisesRegex(UnsupportedPortable,'explicit.*magazines'):
+                        pre,_=prepare(missing);compile_product(pre)
+
     def test_enemy_ammo_self_destruct_uses_existing_finite_rows_and_magazine_bank(self):
         from portable_enemy_ammo_self_destruct_cases import fixtures
         from portable_detail import prepare,compile_product
