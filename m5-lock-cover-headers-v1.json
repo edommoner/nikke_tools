@@ -1,0 +1,19 @@
+{
+  "status": 0,
+  "queries": 1,
+  "trace_stored": 0,
+  "max_depth": 6,
+  "burst_stored": 9,
+  "trace_total": 168,
+  "burst_total": 9,
+  "frames": 1801,
+  "ordered_carriers": 76,
+  "typed_initialized": true,
+  "typed_enabled": true,
+  "packet_fates_initialized": true,
+  "cover_initialized": true,
+  "skill_history_initialized": true,
+  "skill_history_count": 168,
+  "admission_marker": false,
+  "admission_stage": null
+}
