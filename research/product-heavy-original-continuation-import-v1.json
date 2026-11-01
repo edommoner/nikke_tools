@@ -23,7 +23,11 @@
     "distributed_sha256": "3540d19c93c402ccd6b18edc38d07126bff35b3246908d08fb513e35f93c2853",
     "windows_reported_sha256": "a7dab2c456c25494838db082d12cfce5ba32de43e732fe287d9884ec7c464bb9",
     "byte_identical": false,
-    "provenance": "Requested saved plan explanation; not yet independently matched"
+    "provenance": "Windows own immutable CLI plans stage; raw UTF8 text and SHA imported, JSON equals distributed plan, only26 CRLF newlines differ",
+    "windows_raw_sha256_verified": true,
+    "json_contents_equal": true,
+    "crlf_to_lf_exact": true,
+    "original_file_bytes_modified": false
   },
   "ptx_recompiled": false,
   "object_first_execution_reported": true,
@@ -46,5 +50,14 @@
   "extra_mac_gpu_calls": 0,
   "whole_environment_preservation_verified": false,
   "overall_verified": false,
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "later_readonly_status": {
+    "file": "research/heavy-original-lock-readonly-status-v3.json",
+    "producer_commit": "656c42e32226afbdcdea9a1173a900d3023f5290",
+    "sha256": "e7ada4dcdaeb8f8e057d54415b546b045342448c977aa42ca34e4aec2ece6238",
+    "available_ram_bytes": 4584529920,
+    "observed_at_jst": "2026-11-01T18:46:40.535324+09:00",
+    "gpu_calls": 0,
+    "api_automatically_started": false
+  }
 }
