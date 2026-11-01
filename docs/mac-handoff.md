@@ -1,3 +1,15 @@
+## 2026-11-01 標準245profile共通入口の現source準備、Windows修正回帰は継続中
+
+前turnはtoken消失の共通修正・Metal全出力保持で進捗。今回は同じWindows依頼の限定scope14＋fake cache13が全成功したことを確認し、再送せずpaired生成以後の同turn結果を待つ。送信/activeは実子handleや成功の証拠ではなく、最終SDK/API保存statusは未取得。
+
+独立して標準245profileが共有するfixed入口を現在source a82754f8で梱包。生成CUDA/MSLは元0facc/S-v3の全raw bytes同一。不変development owner77090c82…自身の136CPU/fresh native/実M5代表編成30秒と別fresh独立GPU禁止sealが成功。旧fixedのinput/output/native entries/generated_normalizedは全て同一で、v29はsource closureだけを現在へ登録。他21member全保持、歴史7/登録10成功。これは1代表編成のCLI製品変換確認で、245profileの通常API実行証明ではない。
+
+Poli3/D0/Neon0/Anis0/NeonBlueOcean0/AnisSparklingSummer0/RapiRedHood0/NeonVisionEye0の8元要求を、この不変packet自身でsimulate/GPU禁止のまま静的再packし、source/stride/input SHAが元M5と完全一致。全CPU戦闘や全266の再実行はしていない。最初の将来Windows標準batchはメモリ実測のためPoli3/D0の2件を計画、残6件は準備のみ。
+
+旧Poli3のa466/owner1ea8保存失敗も再確認した。旧生成CUDA20749a50…/MSL0e22677b…に対し現84ca925f…/308692a0…で実際の生成programが異なり、removalCountBeforeMutationの既存修正等を含む。旧input77444760…と13word不一致の原結果は保持し、今後の実行は修正後programの回帰として区別する。Poli3が解消済みとはまだ扱わない。旧missing7 objectも再利用しない。NVRTC cacheは既存のexact raw code/options/compiler/header identityだけを使い、生成の正規化一致をcache hitへ読み替えない。
+
+原本proofs/product-cuda-standard-current-v4-20261101、小記録research/product-standard-current-source-v1.json。標準Metal最終全件262/266（5e1）、CUDA歴史厳格3/266・現source0、新標準加算0、全goal未完了。次は依頼済みtoken修正Windows回帰の保存結果を取得し、結果に応じて修正または標準共通imageでの小batch確認へ進む。以下は履歴。
+
 ## 2026-11-01 実CUDA診断でtoken消失を特定、共通snapshot修正と再発防止をMetal実証
 
 前turnはPTX/objectの出所成立とreadback診断CLI統合で進捗。今回はf8b0773cのlink status6269bytes/SHA118fa13c…を取得し、同objectのCUBIN4a142dde…（5198416bytes）・9API全ret0/Destroy0・driver未ロード・内外missing0/Job2GiB/emptyを照合。元と全項目同じ30秒bodyをpacket自身でsimulate/GPU禁止で再packしinput07c3e787…一致。新source bd19の通常APIをPOST/GPU各1回。実RTX3070Ti dispatch0.328秒・全driverret0だがstatus64でCPU切替。helper21.268秒/outer25.368秒・peak1930674176bytes・missing0・専用Node停止/Jobempty。二次FileNotFound0、追加生成/SDK/link0。serviceunverified/preservationfalse保持。

@@ -1,0 +1,121 @@
+{
+  "schema": "standard-current-source-preparation-v1",
+  "source_commit": "a82754f803ee5338f5e78c719222edb102778f1f",
+  "program": "fixed",
+  "development_owner": "77090c82c209180d060fcad135151299c92a71eb1ab1c3f38c72aa1b64e51d9c",
+  "shared_standard_profiles": 245,
+  "scope": "Current standard entry preparation; not 245 profile execution or CUDA admission",
+  "own_cpu_tests": 136,
+  "fresh_native": true,
+  "real_metal_pilot": true,
+  "independent_seal": true,
+  "input_sha256": "b534ebb2f7abcf613ea7b052f0ad8b9f9bcb48ec5ece9e0c766422871ba06a6f",
+  "output_sha256": "9c72bd03cc18453a9f8c6a9cdfebd6fe126e3e0b8e5889e6668cf158c4698be2",
+  "old_input_output_native_generated_all_identical": true,
+  "generation_retention": {
+    "source": "gpu/product_fixed_battle_entry.slang",
+    "reference_source": "0faccfc0",
+    "current": {
+      "cuda": {
+        "raw_bytes_equal": true,
+        "normalized_sha256": "84ca925f66f2a60e882e46c4d9bf2b4d199adefff91369365d3824a15cf695e8"
+      },
+      "metal": {
+        "raw_bytes_equal": true,
+        "normalized_sha256": "308692a0e201e294162f390c02533b795e1f70b85633f5c965913f7f782aca78"
+      }
+    },
+    "gpu_calls": 0,
+    "native_battles": 0,
+    "scope": "Generated program retention, not standard profile execution"
+  },
+  "static_priority_requests": {
+    "schema": "first-eight-static-retention-v1",
+    "source_owner": "77090c82c209180d060fcad135151299c92a71eb1ab1c3f38c72aa1b64e51d9c",
+    "checks": [
+      {
+        "index": 14,
+        "character": "폴리",
+        "favorite_stage": 3,
+        "input_sha256": "774447605c6480cb355fed607bc94b01290e993c9139f621c0235154b3b21a0e"
+      },
+      {
+        "index": 20,
+        "character": "D",
+        "favorite_stage": 0,
+        "input_sha256": "815156e459dfb18a3a2511db2e55ed7c1f19b9cb9386e1a716e3357776d48d5b"
+      },
+      {
+        "index": 1,
+        "character": "네온",
+        "favorite_stage": 0,
+        "input_sha256": "082c05e1ccd1e94433a608236ec6cb01e96d4b2e35a79cd81d0bc6a026b5ee74"
+      },
+      {
+        "index": 2,
+        "character": "아니스",
+        "favorite_stage": 0,
+        "input_sha256": "e046d8d455967b830604e80814686af6b6437a1c0086ed02f344ca28d7e1c8ae"
+      },
+      {
+        "index": 3,
+        "character": "네온 : 블루 오션",
+        "favorite_stage": 0,
+        "input_sha256": "1a4ceda6d2062ef8811cd78a45cb0db16a7c20e1b17d0db30e1fe05688156cdf"
+      },
+      {
+        "index": 4,
+        "character": "아니스 : 스파클링 서머",
+        "favorite_stage": 0,
+        "input_sha256": "e52023b2b8063113d43a917bc738fa81d2e00a10ea7b2db450f43c59e6aadbc3"
+      },
+      {
+        "index": 5,
+        "character": "라피 : 레드 후드",
+        "favorite_stage": 0,
+        "input_sha256": "0427e937368c4ce139cf54d90f889d5d3aa7c477612df8cc944cc3d0f954de04"
+      },
+      {
+        "index": 7,
+        "character": "네온 : 비전 아이",
+        "favorite_stage": 0,
+        "input_sha256": "eac74a6f10b132138a3a111144f79d5ce5be0cf17f105cef1888e8093d86183c"
+      }
+    ],
+    "all_inputs_match_original_metal": true,
+    "native_battles": 0,
+    "gpu_calls": 0,
+    "scope": "Input retention only; first intended Windows batch is Poli3 and D0, not all eight without memory measurement"
+  },
+  "intended_initial_windows_batch": [
+    {
+      "character": "폴리",
+      "favorite_stage": 3
+    },
+    {
+      "character": "D",
+      "favorite_stage": 0
+    }
+  ],
+  "remaining_six_are_preparation_only": true,
+  "windows_requested": false,
+  "new_standard_profiles": 0,
+  "goal_complete": false,
+  "prior_poli_failure": {
+    "owner": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+    "source_commit": "a4663e4716f46ba88460531ebfbc017375f242ae",
+    "old_generated": {
+      "cuda": "20749a50430c0ecdd6c01fb609ede1ccbd1ef1003919c98c1b730f38069f538f",
+      "metal": "0e22677bf73928f1fe9cf30b226d33297dcd6a9686788e3cc7069b9065b44030"
+    },
+    "current_generated": {
+      "cuda": "84ca925f66f2a60e882e46c4d9bf2b4d199adefff91369365d3824a15cf695e8",
+      "metal": "308692a0e201e294162f390c02533b795e1f70b85633f5c965913f7f782aca78"
+    },
+    "compiled_program_changed": true,
+    "existing_removal_scalar_snapshot_correction_in_current_source": true,
+    "original_failure_not_promoted": true,
+    "specific_poli_resolution_unverified": true,
+    "scope": "Different compiled program permits a corrected-source regression, not replay to reconstruct old evidence"
+  }
+}
