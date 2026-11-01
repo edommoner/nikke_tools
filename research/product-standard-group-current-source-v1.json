@@ -12,7 +12,7 @@
   "existing_registry_members_retained": 22,
   "new_independently_sealed_member": "fixed-group",
   "new_standard_profiles": 0,
-  "windows_requested": false,
+  "windows_requested": true,
   "goal_complete": false,
   "scope": "Existing common group program sealed for current source; not new normal API profile execution or CUDA verification",
   "own_cpu_tests": 136,
@@ -28,8 +28,9 @@
     "own_ptx_o1_plans_passed": true,
     "validation_deps_passed": true,
     "two_original_profile_inputs_and_m5_raw_hashes_retained": true,
-    "windows_requested": false,
+    "windows_requested": true,
     "prepared_shared_cuda_api_job": "two-group-api-job-v2.json",
     "prepared_shared_cuda_api_job_sha256": "296817264cd31a6112ca226be7d21ced0197a715c5e7804ab08af192c55ba8b7"
-  }
+  },
+  "windows_request_commit": "de8cee1e2ebf7d34778bf3256db6a932c4ac4a00"
 }

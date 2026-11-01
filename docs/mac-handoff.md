@@ -1,3 +1,15 @@
+## 2026-11-01 標準CUDA245/266の全原本照合完了、別6imageの17件を依頼
+
+Windows237件の最終原本a41b1ba1（77,750bytes/SHA90c8b698…）を取得し、全237profileのID/名前/育成段階/input/元M5 full readback、全30親のhash/byte/chunk/launch、90段階のmetricとenforced gate、driver総数をMacで照合。source00ed／owner032bbb76の標準fixedは先の8件と合わせ245/266。各30秒、30 POST/30GPU/retry0、SDK/事前battle/追加保存監査battle0。最大Job peak1,501,020,160bytes、90段階すべてpre/post2GiB・gate・empty・missing0、専用Node30/30停止。内部advisory240件のlimit=null/完全性false、service/whole/overallfalse、旧9451file/v1停止/claimを保持。未確認を成功へ付替えない。
+
+輸送de8cee1eの37file（72,603,089bytes、個人設定/raw/compiler本体なし）を共有し、既存chatへ残標準別17件だけを依頼。fixed-group2、fixed-target2→6、healing1、default-weighted1→3、default-cover1、ammo1の6image/最大8batch。各sealed ZIP/own PTX-O1計画/deps/元M5 API期待を同梱し、28 execution/audit/server/保護CPU/test filesが直近S4と全6でbyte一致を確認。6owner/sourceは元7d4000f4/dae26058のまま保持し、今rootへ付替えない。全17入力は自身のpacketで正しいshared selectorと静的input/full M5 raw保持を確認済み。
+
+各programは自身のfresh root/CLI/cwdでpaired生成1→PTX1→成立時O1 object1→成立時JIT1→provider admission時だけ通常API。既存coordinator/helpers/auditorsを再利用、own136/native事前/不変27guardを重複実行しない。各CLIの全immutable gateとGPU後fresh CPU全payload比較は保持。SDKchild60秒/2GiB/BelowNormal/freshJob、API53秒、静的/保存監査60秒、各outer180秒・直列。各小batch全計算/保存/Job/メモリ成立後だけ次へ。最初の差分/fallback/missing/query不全/timeout/cleanup/obs等で保存停止、retry0。正確なreadback chunk長/全ret0を要求し、partial観測falseを維持する。
+
+標準Metal最後262/266（5e1）、標準CUDA245/266（00ed）。残17のCUDA結果は未取得、4fallbackと新movement/range/cover合成は今回Windows未依頼。新合成は下記4条件の実Metal/CPU/API一致・独立seal・既存7program生成raw全bytes保持を確認済み。全goal未完了。次は依頼済み17件の同turn結果を取得し、失敗なら共通修正、成立なら残未接続/仕様条件へ進む。
+
+原本proofs/product-cuda-standard-current-v4-20261101/standard-remaining-fixed-normal-api-status-v2.json、小記録research/product-standard-current-source-v1.jsonと同名原本。旧停止結果は別v1のまま保持。以下は履歴。
+
 ## 2026-11-01 移動＋範囲／対象数＋遮蔽DEFを通常APIで合成、4条件のMetal全CPU一致
 
 前turnはCUDA8確認と残237のv2再開・他6入口のsealed準備で進捗。今回は個別または2モデルでしか使えなかった既存movement/named-range/cover consumersを、同じActorPool/時計/イベントへ接続した。CPU正本4file・効果数値・binary64/pow・normalizer・許容差は変更0。geometry一致と5人のcover base明示を要求し、未指定ゲーム仕様を推定しない。既存CLIのproduct-detail/data registryへ2programを追加、新suite/恒久tool0。

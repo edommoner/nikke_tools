@@ -99,7 +99,7 @@
   ],
   "remaining_six_are_preparation_only": true,
   "windows_requested": true,
-  "new_standard_profiles": 8,
+  "new_standard_profiles": 245,
   "goal_complete": false,
   "prior_poli_failure": {
     "owner": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
@@ -179,10 +179,10 @@
     "denominator": 266,
     "metal_last_full_normal_api": 262,
     "metal_last_full_source": "5e1f9c2a",
-    "cuda_current_fixed_source": 8,
+    "cuda_current_fixed_source": 245,
     "cuda_current_fixed_source_commit": "00ed1f529995ce206378255f6aa51e2619d54392",
     "cuda_historical_other_source_strict": 3,
-    "scope": "Current source-specific CUDA8; historical3 are separate and not silently carried to current source"
+    "scope": "Source-qualified standard fixed CUDA245; Metal last full262 at its recorded source; historical owners retained"
   },
   "windows_result": {
     "commit": "ff6674d030fbd219b4b3ab3f04b073e0284cabd0",
@@ -499,7 +499,7 @@
     "batches": 30,
     "max_cases": 8,
     "requested": true,
-    "result_received": false,
+    "result_received": true,
     "gpu_retries": 0,
     "sdk_calls": 0,
     "first8_gate_before_continuation": true,
@@ -531,5 +531,46 @@
       "new_standard_profiles": 0,
       "scope": "Correct API execution selector, no numeric input or verification policy change"
     }
+  },
+  "remaining_fixed_result": {
+    "report": "research/standard-remaining-fixed-normal-api-status-v2.json",
+    "bytes": 77750,
+    "sha256": "90c8b698685a7488c441bae56e90d529f43e339ed6b681e85814870850537953",
+    "completed_profiles": 237,
+    "completed_batches": 30,
+    "normal_api_verified": true,
+    "all_profile_hashes_and_identity_matched_mac": true,
+    "all_parent_hashes_and_chunks_matched_mac": true,
+    "all90_stage_metrics_and_gate_verdicts_checked": true,
+    "http_posts": 30,
+    "gpu_dispatches": 30,
+    "retries": 0,
+    "peak_job_memory_bytes": 1501020160,
+    "advisory_inner_snapshot_limits_null": 240,
+    "advisory_observation_complete": false,
+    "whole_environment_preservation_verified": false,
+    "overall_verified": false,
+    "other17_and_fallback4_unexecuted": true,
+    "commit": "a41b1ba1bf838dcde1ace457710951f0e29797ba"
+  },
+  "special_seventeen_request": {
+    "transport_commit": "de8cee1e2ebf7d34778bf3256db6a932c4ac4a00",
+    "cases": 17,
+    "programs": 6,
+    "maximum_posts": 8,
+    "maximum_gpu_dispatches": 8,
+    "requested": true,
+    "result_received": false,
+    "source_files": 37,
+    "source_bytes": 72603089,
+    "own_platform_28_files_exactly_retained": true,
+    "skip_duplicate_cpu_tests_and_native_preflight": true,
+    "api_after_gpu_fresh_cpu_full_payload_required": true,
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "retries": 0,
+    "three_model_composition_and_four_fallbacks_unrequested": true
   }
 }
