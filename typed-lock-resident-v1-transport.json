@@ -1,0 +1,69 @@
+{
+  "schema": "product-transport-v1",
+  "owner": "5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622",
+  "files": [
+    {
+      "path": "typed-lock-resident-v1-api-expected.json",
+      "bytes": 1804,
+      "sha256": "8476b937d78cfce513ce46c0b8c88b381bbb5456fea11725f56144ac00ddd1ea"
+    },
+    {
+      "path": "typed-lock-resident-v1-api-job.json",
+      "bytes": 21647,
+      "sha256": "92af9f63acedd9803be3f0016ff8926fb7675cf3685aca69dca3211aae41c722"
+    },
+    {
+      "path": "typed-lock-resident-v1-check-sdk.py",
+      "bytes": 4875,
+      "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d"
+    },
+    {
+      "path": "typed-lock-resident-v1-o1-plan.json",
+      "bytes": 735,
+      "sha256": "bf83d47de7a72a5fcf3bf99ae0f291aa286960ae819f45835c87e9e7896137cb"
+    },
+    {
+      "path": "typed-lock-resident-v1-prepare-api.py",
+      "bytes": 6413,
+      "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739"
+    },
+    {
+      "path": "typed-lock-resident-v1-ptx-plan.json",
+      "bytes": 707,
+      "sha256": "b2dd60b536a7bd4c81cb972439d80d157452e36b0f848281271533fa129dcebf"
+    },
+    {
+      "path": "typed-lock-resident-v1-request-validation.json",
+      "bytes": 601,
+      "sha256": "7e9194632eb05ae01642b3e5b35a67bfa48b572bb9df976c06a91aff9b66d2a0"
+    },
+    {
+      "path": "typed-lock-resident-v1-selected11.json",
+      "bytes": 847,
+      "sha256": "025ff9f18c28bb9a9fd0630c43acdd19da4a5748bd58c390b3184ad430385f6e"
+    },
+    {
+      "path": "typed-lock-resident-v1-validation-deps.json",
+      "bytes": 407,
+      "sha256": "c47bc5fbb3cbf190fe6b475a98e18011b19c9a01c65895e7964d657256e2875d"
+    },
+    {
+      "path": "typed-lock-resident-v1-verify-host-tests.py",
+      "bytes": 1924,
+      "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7"
+    },
+    {
+      "path": "typed-lock-resident-v1-windows-request.json",
+      "bytes": 11470,
+      "sha256": "f0505cbfc1f621a9a7577f9434694e46fcd55020cf460cae50b555fec4870aed"
+    },
+    {
+      "path": "typed-lock-resident-v1.zip",
+      "bytes": 12197616,
+      "sha256": "2925e775c01099e062a9c53ec67e4c43a12b63916e96b3ce15dc061c586994cb"
+    }
+  ],
+  "raw_or_settings_included": false,
+  "additional_battles": 0,
+  "additional_gpu": 0
+}

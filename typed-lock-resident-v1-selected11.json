@@ -1,0 +1,18 @@
+{
+  "schema": "unit-selection-v1",
+  "package_id": "5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622",
+  "patterns": {
+    "test_portable_detail.py": [
+      "test_portable_detail.PortableDetail.test_product_keeps_all_equipment_rows_and_uses_native_carrier_lifecycle"
+    ],
+    "test_product_detail_packet.py": [
+      "test_product_detail_packet.ProductPacket.test_each_program_uses_the_actual_static_product_input_and_exact_wire"
+    ],
+    "test_weighted_source_contract.py": null,
+    "test_product_reference_models.py": [
+      "test_product_reference_models.ProductReferenceModels.test_shared_typed_lock_unwinds_on_error_and_rejects_foreign_runtime",
+      "test_product_reference_models.ProductReferenceModels.test_typed_lock_rejects_different_or_nonprojectile_worlds_before_simulating"
+    ]
+  },
+  "expected_tests": 11
+}

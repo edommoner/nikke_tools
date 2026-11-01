@@ -1,0 +1,13 @@
+{
+  "schema": "product-request-integration-v1",
+  "owner": "5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622",
+  "request_sha256": "f0505cbfc1f621a9a7577f9434694e46fcd55020cf460cae50b555fec4870aed",
+  "selector_sha256": "025ff9f18c28bb9a9fd0630c43acdd19da4a5748bd58c390b3184ad430385f6e",
+  "managed_helper_sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7",
+  "managed_helper_request_selector_owner_ids_hashes_checked": true,
+  "selected11_passed": true,
+  "full172_windows_not_claimed": true,
+  "extra_native_battles": 0,
+  "sdk_calls": 0,
+  "gpu_calls": 0
+}

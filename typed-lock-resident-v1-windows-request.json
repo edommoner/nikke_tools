@@ -1,0 +1,240 @@
+{
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "minimum_available_ram_bytes": 4294967296,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "compile_recipe": {
+    "slang_generation": "Existing paired CUDA/MSL generation once, exact current owner/reflection/normalized baseline; require generation cache afterwards",
+    "ptx_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "object_options": [
+      "--gpu-name=sm_86",
+      "--opt-level=1",
+      "--fmad=false",
+      "--verbose",
+      "--compile-only"
+    ],
+    "runtime": "Pinned nvJitLink saved image; no full NVRTC battle rebuild or prior different-kernel image substitution",
+    "entry": "portableEvents",
+    "manual_main_cache_probe_forbidden": true
+  },
+  "report_policy": "Keep SDK outer/inner distinction, all advisory null/unknown, service/whole/overallfalse; bounded_job verified separately; no raw/PTX/compiler/auth/settings/external process details",
+  "other11_helpers_original_export_commit": "534f5601",
+  "other11_helpers_must_be_byte_unchanged": true,
+  "schema": "product-typed-lock-windows-request-v1",
+  "owner": "5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622",
+  "source_commit": "6ba2436f595067672b1e0aca065ea034c06df3d0",
+  "code_review_commit": "2cb84538e3966a9d8e0e0b2f179cbf3f26c2543d",
+  "package_working_tree_dirty": true,
+  "program": "typed-lock-accumulate",
+  "source": "gpu/product_typed_lock_battle_entry.slang",
+  "scope": "Original Heavy Arms live/broken4s2conditions: typed weapon interception and original projectile skill/Lock On in one resident-frame world. One new-source CUDA dispatch only, all raw/CPU/GPU/HTTP/Unicode equality mandatory. No ignored numeric fields or game-rule claims.",
+  "archive": "typed-lock-resident-v1.zip",
+  "archive_bytes": 12197616,
+  "archive_sha256": "2925e775c01099e062a9c53ec67e4c43a12b63916e96b3ce15dc061c586994cb",
+  "validation_deps": "typed-lock-resident-v1-validation-deps.json",
+  "ptx_plan": "typed-lock-resident-v1-ptx-plan.json",
+  "o1_plan": "typed-lock-resident-v1-o1-plan.json",
+  "input_words": 121392,
+  "output_words": 2558208,
+  "cases": [
+    {
+      "index": 0,
+      "member_index": 0,
+      "label": "product/typed-lock-accumulate-4s",
+      "variant": "accumulate-live",
+      "expected_input_sha256": "8b1838a091e87cc52d159637c2194f9bf8af053818fc7123efe49b02f2f030fc",
+      "expected_output_sha256": "a281d014c89830866f8b232777a5063b6dd25d7705a0f93e2b4b11865dfe6b0c",
+      "definition_count": 91,
+      "all_original_definitions_preserved": true,
+      "saved_metal_capture": "product-typed-lock-resident-v1-20261102/api-v1/captures/3001a93a5b2640dc86d381ad3da1f94d"
+    },
+    {
+      "index": 1,
+      "member_index": 1,
+      "label": "product/typed-lock-accumulate/broken-4s",
+      "variant": "accumulate-broken",
+      "expected_input_sha256": "12517f9a427ade23f595625db0d944f1cc3cde843395685a5d43cda611d5d56e",
+      "expected_output_sha256": "8567d29dd4d754eac2f854afb04f41813ac73a7a16b223e215ff9b592f2772b5",
+      "definition_count": 91,
+      "all_original_definitions_preserved": true,
+      "saved_metal_capture": "product-typed-lock-resident-v1-20261102/api-v1/captures/511e627b35d3449d9d1bb244608ec64b"
+    }
+  ],
+  "batches": [
+    {
+      "index": 0,
+      "batch_index": 0,
+      "member_indices": [
+        0,
+        1
+      ],
+      "original_profile_indices": [
+        0,
+        1
+      ],
+      "case_indices": [
+        0,
+        1
+      ],
+      "cases": 2,
+      "physical_cases": 2,
+      "physical_input_bytes": 971140,
+      "physical_input_sha256": "48ed28124b0e4d8e6e32f318d4b022c71cee8a424e5cb52e30ff607f781d2d75",
+      "physical_output_bytes": 20465664,
+      "physical_output_sha256": "9ea362eab9c008b074fa1b099fffd7661b5a283e74de9f335db10e87b5f5240a",
+      "readback_chunks": [
+        8388608,
+        8388608,
+        3688448
+      ],
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8388608,
+        3688448
+      ],
+      "api_job": "typed-lock-resident-v1-api-job.json",
+      "api_job_sha256": "92af9f63acedd9803be3f0016ff8926fb7675cf3685aca69dca3211aae41c722",
+      "api_expected": "typed-lock-resident-v1-api-expected.json",
+      "api_expected_sha256": "8476b937d78cfce513ce46c0b8c88b381bbb5456fea11725f56144ac00ddd1ea"
+    }
+  ],
+  "unit_selection": "typed-lock-resident-v1-selected11.json",
+  "unit_selection_sha256": "025ff9f18c28bb9a9fd0630c43acdd19da4a5748bd58c390b3184ad430385f6e",
+  "cpu_patterns": [
+    "test_portable_detail.py",
+    "test_product_detail_packet.py",
+    "test_weighted_source_contract.py",
+    "test_product_reference_models.py"
+  ],
+  "selected_case_ids": {
+    "test_portable_detail.py": [
+      "test_portable_detail.PortableDetail.test_product_keeps_all_equipment_rows_and_uses_native_carrier_lifecycle"
+    ],
+    "test_product_detail_packet.py": [
+      "test_product_detail_packet.ProductPacket.test_each_program_uses_the_actual_static_product_input_and_exact_wire"
+    ],
+    "test_product_reference_models.py": [
+      "test_product_reference_models.ProductReferenceModels.test_shared_typed_lock_unwinds_on_error_and_rejects_foreign_runtime",
+      "test_product_reference_models.ProductReferenceModels.test_typed_lock_rejects_different_or_nonprojectile_worlds_before_simulating"
+    ]
+  },
+  "windows_targeted_tests": 11,
+  "mac_own_cpu_tests": 172,
+  "unselected_windows_total_tests": 161,
+  "unselected_windows_model_tests": 83,
+  "mac_current_source_metal_profile_count": null,
+  "mac_selected_metal_cases": 2,
+  "mac_selected_independent_seal_passed": false,
+  "mac_release_own_cpu_deps_plans_passed": true,
+  "mac_normal_composition_api_cases": 8,
+  "additional_material_battles": 0,
+  "additional_material_gpu": 0,
+  "max_posts": 1,
+  "max_gpu_dispatches": 1,
+  "max_cases_per_api_batch": 2,
+  "retries": 0,
+  "standard266_rerun": false,
+  "configured_profile_delta": 0,
+  "unconfigured_standard_profile_delta": 0,
+  "report": "product-typed-lock-resident-windows-status-v1.json",
+  "full_goal_complete": false,
+  "activity_expectations": [
+    {
+      "variant": "accumulate-live",
+      "typed_attacks": 1,
+      "typed_receipts": 3,
+      "weapon_packets": 171,
+      "lock_pulses": 16,
+      "lock_shots": 2,
+      "complete_skill_rows": 14,
+      "remaining": [
+        98448172.0,
+        98448172.0,
+        93386269.0
+      ]
+    },
+    {
+      "variant": "accumulate-broken",
+      "typed_attacks": 0,
+      "typed_receipts": 0,
+      "weapon_packets": 12,
+      "lock_pulses": 16,
+      "lock_shots": 2,
+      "complete_skill_rows": 13,
+      "remaining": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "prior_add_result_commit": "9d31ddae8ca0987f93643aef175a4704b26770f5",
+  "prior_weighted_add_and_ammo_results_stops_claims_must_be_retained": true,
+  "distinct_original_profiles": 1,
+  "profile_indices_are_case_ordinals": true,
+  "mac_kernel_independent_seal_passed": true,
+  "mac_kernel_independent_seal_cases": [
+    "product/typed-lock-accumulate-4s",
+    "product/typed-lock-accumulate/broken-4s"
+  ],
+  "mac_selected_normal_api_and_saved_audit_passed": true,
+  "mac_last_standard_metal_profile_count": 263,
+  "mac_current_source_selected_profiles": 1,
+  "prior_coordinate_lock_stop_commit": "da4ea9d2",
+  "prior_coordinate_lock_trace_diagnostic_commit": "dc957eff",
+  "old_raw_gate_and_expected_hashes_retained": true,
+  "new_source_reason": "Existing32-frame resource codec removes2 lexical local Frame32 array declarations; +4096 global bytes/case. All8 previous M5 full outputs retained. Actual Windows memory effect unknown until this bounded first candidate run.",
+  "prior_api_peak_job_bytes": 2149621760,
+  "new_decode_avoids_large_prefix_copies": true,
+  "helper_install": [
+    {
+      "source": "typed-lock-resident-v1-check-sdk.py",
+      "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d",
+      "destination": "check-sdk.py",
+      "destination_scope": "outer-windows-directory"
+    },
+    {
+      "source": "typed-lock-resident-v1-prepare-api.py",
+      "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739",
+      "destination": "prepare-api.py",
+      "destination_scope": "outer-windows-directory"
+    },
+    {
+      "source": "typed-lock-resident-v1-verify-host-tests.py",
+      "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7",
+      "destination": "verify-host-tests.py",
+      "destination_scope": "program-directory"
+    }
+  ],
+  "steps": [
+    "Preserve all priorroots/stops/claims/results including old coordinate-lock v2 missing7 and2,138,112B recorded cap excess. This is first validation of new typed weapons+skill resident-frame source, not an old retry. No OS/SSH/reboot/service changes.",
+    "Fresh root product-typed-lock-resident-windows-v1, exact archive/manifest, own deps/PTX/O1 plans. Managed verify-host-tests validates request/selector/owner/AST case IDs and runs selected11 only. Full172 passed on Mac; unselected161 not run on Windows.",
+    "This exact new product source has no prior Windows SDK record. Use the existing bounded paired-generation -> compile-ptx -> O1 module-object -> pinned nvJitLink recipe once, exact entry portableEvents. Reuse only actual exact source/compiler/option receipt hits. Do not run legacy manual cache-probe with hardcoded main; it is not the execution entry. Keep old wrong-main failure unchanged. No legacy full NVRTC build or source partition.",
+    "Fresh RAM>=4GiB before expensive SDK and immediately before API. SDK/CPU/audit60s, API53s, each outer180s, BelowNormal/fresh startgate Job/2GiB. First numeric/timeout/missing/query/observation/cleanup failure stops; no measurement/retry loop.",
+    "Only one ordinary API POST, one real CUDA dispatch, complete parent/member input and readback SHA plus full CPU/GPU/HTTP/Unicode comparison. Actual cuInit/load/launch/sync/readback/destroy must return0. GPU admission cannot be inferred from source generation.",
+    "After API terminal/Nodegone/Jobempty/live0, existing Node/static-repack/full saved projection only, extra battle/GPU0. Official decoder activity: live171 weapon packets/1 typed skill/3receipts; broken12 weapon packets/0typed skills/0receipts; each16 pulses/2shots. Require full parent/member raw and CPU/GPU/HTTP/Unicode. Keep old failures and unknowns.",
+    "Export small saved JSON only to the same existing packet branch. Keep all outer/inner distinctions and unknown/service/whole/overallfalse. No process names/paths/commandlines/PIDs, settings, auth, PTX/raw/image in public summary. On disconnect read status/export only; never resend run."
+  ],
+  "mac_selected_inputs_and_full_raw_equal_independently_sealed_physical2_m5": true,
+  "api_job": "typed-lock-resident-v1-api-job.json",
+  "api_job_sha256": "92af9f63acedd9803be3f0016ff8926fb7675cf3685aca69dca3211aae41c722",
+  "api_expected": "typed-lock-resident-v1-api-expected.json",
+  "api_expected_sha256": "8476b937d78cfce513ce46c0b8c88b381bbb5456fea11725f56144ac00ddd1ea",
+  "prior_api_peak_limit_excess_bytes": 2138112,
+  "prior_missing7_cause": "unknown",
+  "prior_resource_diagnostic_commit": "1bfe3a3e24671356fecdd8c40292d6721e007863",
+  "windows_memory_improvement_claimed": false
+}
