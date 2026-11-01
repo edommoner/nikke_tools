@@ -308,5 +308,20 @@
     "Short CUDA differential for this triple composition",
     "Unconfigured Yuni/Yan/Heavy Arms standard profiles",
     "Unrestricted compositions and final current-source matrix"
-  ]
+  ],
+  "cuda_request": {
+    "transport_commit": "001e8d0edd551660be22553b22a961238e8a9492",
+    "owner": "836ade72e7dae4aa173038c4836d96e73bc0224d0d936113a8cc3f472a6815af",
+    "archive_sha256": "ad0a52a46e32b2be666d426c4c4d55c4e8aedcb165fa166c0c99bd383316e5b0",
+    "physical_cases": 2,
+    "windows_targeted_cpu_tests": 87,
+    "post_max": 1,
+    "gpu_max": 1,
+    "readback_bytes": 16391296,
+    "expected_readback_chunk_bytes": [
+      8388608,
+      8002688
+    ],
+    "status": "Sent to existing Windows chat; no result imported"
+  }
 }

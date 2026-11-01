@@ -1,3 +1,9 @@
+## 2026-11-01 新3者合成のCUDA差分2条件だけを依頼
+
+共有001e8d0eの7資料12,143,284byte、sealed owner836ade72/archivead0a52a4…から既存Windowsチャットへ初回差分を依頼済み。固定30秒baseline＋固定15秒の元Drake coverbuff発動中の2条件だけ、1POST/1GPU最大。親16,391,296byteとmember全M5 SHA、実8MiB chunks[8388608,8002688]、全CPU/GPU/HTTP/Unicode比較を要求。Mac保存全raw/source/inputをrelease自身で戦闘/GPU0再pack照合済み。
+
+対象CPU87件は既存67/11/7と新3者合成＋改訂した既存cover-groupの元ID2件だけ、他model61はWindows未実行と記録する。各SDK60秒/API53秒/outer180秒/2GiB/BelowNormal/freshJob gate/serial・全artifact/cache/Job/観測gate・初回異常停止retry0を維持。Rei/移動/全266再実行なし。結果原本は未取得、新合成CUDA未認定、標準CUDA/Metal263/266据置き。全goal未完了。以下は履歴。
+
 ## 2026-11-01 敵回復＋実射撃グループ＋遮蔽DEFの通常API6条件をMetal接続
 
 Ann/Belorta/Soldier O.W./Dora/Drakeの元定義を保持し、従来拒否していた回復＋実射撃group＋coverを既存の単一scheduler/actor poolへ接続。input120072/output2048912、回復end2032000と遮蔽start2032000は完全分離、groupの104400..104408 descriptorを予約paddingへ誤認しない。固定入口は既存のFIXED_COORDINATE制御フラグも共有する。計算本体/効果式/CPU正本4file/upstream/許容差変更0、新suite0。
