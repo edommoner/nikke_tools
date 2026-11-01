@@ -1,0 +1,31 @@
+{
+  "schema": "product-cuda-expected-v1",
+  "owner": "8abb7645fcf14ca911a1ddfa5abf36c6a74f010f68f35531525c1c66e8deb0d4",
+  "source_commit": "3d8913b6aa1d4ce531d79dfc28dfa47ccd6575bb",
+  "source": "gpu/product_coordinate_lock_battle_entry.slang",
+  "physical_cases": 1,
+  "input_words": 120816,
+  "output_words": 2558208,
+  "physical_input_bytes": 483268,
+  "physical_output_bytes": 10232832,
+  "physical_input_sha256": "edb52b56486b318c5c7393a6e5d2f2c592cc894d221f5462226d25c48ea96b92",
+  "physical_output_sha256": "33650b1e8b313f829a01873ff10371906c3279b790da35c73c8a90a8e5c79e79",
+  "readback_chunk_bytes": 8388608,
+  "expected_readback_chunk_bytes": [
+    8388608,
+    1844224
+  ],
+  "cases": [
+    {
+      "index": 0,
+      "member_index": 0,
+      "label": "product/coordinate-lock-accumulate-56s",
+      "variant": "long56-accumulate",
+      "expected_input_sha256": "edb52b56486b318c5c7393a6e5d2f2c592cc894d221f5462226d25c48ea96b92",
+      "expected_output_sha256": "33650b1e8b313f829a01873ff10371906c3279b790da35c73c8a90a8e5c79e79",
+      "definition_count": 91,
+      "all_original_definitions_preserved": true,
+      "saved_metal_capture": "product-coordinate-lock-v1-20261102/api-v1/captures/58051a2ab4da486d8868cd476fe2c8c6"
+    }
+  ]
+}

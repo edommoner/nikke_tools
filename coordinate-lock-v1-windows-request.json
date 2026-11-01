@@ -1,0 +1,176 @@
+{
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "minimum_available_ram_bytes": 4294967296,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "compile_recipe": {
+    "slang_generation": "Existing paired CUDA/MSL generation once, exact current owner/reflection/normalized baseline; require generation cache afterwards",
+    "ptx_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "object_options": [
+      "--gpu-name=sm_86",
+      "--opt-level=1",
+      "--fmad=false",
+      "--verbose",
+      "--compile-only"
+    ],
+    "runtime": "Pinned nvJitLink saved image; no full NVRTC battle rebuild or prior different-kernel image substitution",
+    "entry": "portableEvents",
+    "manual_main_cache_probe_forbidden": true
+  },
+  "report_policy": "Keep SDK outer/inner distinction, all advisory null/unknown, service/whole/overallfalse; bounded_job verified separately; no raw/PTX/compiler/auth/settings/external process details",
+  "other11_helpers_original_export_commit": "534f5601",
+  "other11_helpers_must_be_byte_unchanged": true,
+  "schema": "product-coordinate-lock-windows-request-v1",
+  "owner": "8abb7645fcf14ca911a1ddfa5abf36c6a74f010f68f35531525c1c66e8deb0d4",
+  "source_commit": "3d8913b6aa1d4ce531d79dfc28dfa47ccd6575bb",
+  "code_review_commit": "30f58203",
+  "package_working_tree_dirty": true,
+  "program": "coordinate-lock-accumulate",
+  "source": "gpu/product_coordinate_lock_battle_entry.slang",
+  "scope": "One original Heavy Arms56s ordinary API condition: coordinate sampling, declared Lock On, original all_projectiles skill and full219-row history. Declared model, not game rule verification; no other condition or standard profile rerun.",
+  "archive": "coordinate-lock-v1.zip",
+  "archive_bytes": 12186887,
+  "archive_sha256": "cccb2156b4beb00ea6c95e2f0491fbb0f4e45041686f845f8aa5108ab6b72602",
+  "validation_deps": "coordinate-lock-v1-validation-deps.json",
+  "ptx_plan": "coordinate-lock-v1-ptx-plan.json",
+  "o1_plan": "coordinate-lock-v1-o1-plan.json",
+  "input_words": 120816,
+  "output_words": 2558208,
+  "cases": [
+    {
+      "index": 0,
+      "member_index": 0,
+      "label": "product/coordinate-lock-accumulate-56s",
+      "variant": "long56-accumulate",
+      "expected_input_sha256": "edb52b56486b318c5c7393a6e5d2f2c592cc894d221f5462226d25c48ea96b92",
+      "expected_output_sha256": "33650b1e8b313f829a01873ff10371906c3279b790da35c73c8a90a8e5c79e79",
+      "definition_count": 91,
+      "all_original_definitions_preserved": true,
+      "saved_metal_capture": "product-coordinate-lock-v1-20261102/api-v1/captures/58051a2ab4da486d8868cd476fe2c8c6"
+    }
+  ],
+  "batches": [
+    {
+      "index": 0,
+      "batch_index": 0,
+      "member_indices": [
+        0
+      ],
+      "original_profile_indices": [
+        0
+      ],
+      "case_indices": [
+        0
+      ],
+      "cases": 1,
+      "physical_cases": 1,
+      "physical_input_bytes": 483268,
+      "physical_input_sha256": "edb52b56486b318c5c7393a6e5d2f2c592cc894d221f5462226d25c48ea96b92",
+      "physical_output_bytes": 10232832,
+      "physical_output_sha256": "33650b1e8b313f829a01873ff10371906c3279b790da35c73c8a90a8e5c79e79",
+      "readback_chunks": [
+        8388608,
+        1844224
+      ],
+      "expected_readback_chunk_bytes": [
+        8388608,
+        1844224
+      ],
+      "api_job": "coordinate-lock-v1-api-job.json",
+      "api_job_sha256": "e811cb3878b76648559c3f13b4261319ed712975f646655b97c390721b3faadc",
+      "api_expected": "coordinate-lock-v1-api-expected.json",
+      "api_expected_sha256": "9a2f7f15a3df1e68a8c6a905bf54f53b6d1cd99715645b29c72e6d7cc522f417"
+    }
+  ],
+  "unit_selection": "coordinate-lock-v1-selected11.json",
+  "unit_selection_sha256": "67b53be683b24b5b7839af56189601c8c828e3f9036ebf82dee3547ae4fa0f6b",
+  "cpu_patterns": [
+    "test_portable_detail.py",
+    "test_product_detail_packet.py",
+    "test_weighted_source_contract.py",
+    "test_product_reference_models.py"
+  ],
+  "selected_case_ids": {
+    "test_portable_detail.py": [
+      "test_portable_detail.PortableDetail.test_product_keeps_all_equipment_rows_and_uses_native_carrier_lifecycle"
+    ],
+    "test_product_detail_packet.py": [
+      "test_product_detail_packet.ProductPacket.test_each_program_uses_the_actual_static_product_input_and_exact_wire"
+    ],
+    "test_product_reference_models.py": [
+      "test_product_reference_models.ProductReferenceModels.test_coordinate_lock_preserves_all_definitions_and_disjoint_complete_arenas",
+      "test_product_reference_models.ProductReferenceModels.test_lock_on_invalid_policies_bindings_composition_and_source_fail_closed"
+    ]
+  },
+  "windows_targeted_tests": 11,
+  "mac_own_cpu_tests": 169,
+  "unselected_windows_total_tests": 158,
+  "unselected_windows_model_tests": 80,
+  "mac_current_source_metal_profile_count": 263,
+  "mac_selected_metal_cases": 1,
+  "mac_selected_independent_seal_passed": true,
+  "mac_release_own_cpu_deps_plans_passed": true,
+  "mac_normal_composition_api_cases": 14,
+  "additional_material_battles": 0,
+  "additional_material_gpu": 0,
+  "max_posts": 1,
+  "max_gpu_dispatches": 1,
+  "max_cases_per_api_batch": 1,
+  "retries": 0,
+  "standard266_rerun": false,
+  "configured_profile_delta": 0,
+  "unconfigured_standard_profile_delta": 0,
+  "report": "product-coordinate-lock-windows-status-v1.json",
+  "full_goal_complete": false,
+  "activity_expectations": {
+    "typed_attacks": 2,
+    "typed_receipts": 6,
+    "lock_pulses": 214,
+    "lock_shots": 29,
+    "complete_skill_rows": 219
+  },
+  "prior_add_result_commit": "9d31ddae8ca0987f93643aef175a4704b26770f5",
+  "prior_weighted_add_and_ammo_results_stops_claims_must_be_retained": true,
+  "helper_install": [
+    {
+      "source": "coordinate-lock-v1-check-sdk.py",
+      "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d",
+      "destination": "check-sdk.py",
+      "destination_scope": "outer-windows-directory"
+    },
+    {
+      "source": "coordinate-lock-v1-prepare-api.py",
+      "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739",
+      "destination": "prepare-api.py",
+      "destination_scope": "outer-windows-directory"
+    },
+    {
+      "source": "coordinate-lock-v1-verify-host-tests.py",
+      "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7",
+      "destination": "verify-host-tests.py",
+      "destination_scope": "program-directory"
+    }
+  ],
+  "steps": [
+    "Prior healing/diagnostic turns terminal; stop85ea5598 and missing7 diagnostic7df65cf9 imported on Mac, cause unknown retained. Preserve old roots/stops/claims/all successful artifacts and unknown statuses. This is a separate new source/condition, not a retry. No OS/SSH/reboot/service changes.",
+    "Fresh root, exact archive+manifest, own deps/plans. Existing managed verify-host-tests.py validates full request/selector/owner/ID/hash agreement and runs selected11 only. Full169 already passed on Mac; unselected158 not rerun on Windows. All original group and strict nonempty ID guards retained.",
+    "This exact new product source has no prior Windows SDK record. Use the existing bounded paired-generation -> compile-ptx -> O1 module-object -> pinned nvJitLink recipe once, exact entry portableEvents. Reuse only actual exact source/compiler/option receipt hits. Do not run legacy manual cache-probe with hardcoded main; it is not the execution entry. Keep old wrong-main failure unchanged. No legacy full NVRTC build or source partition.",
+    "Fresh RAM>=4GiB before expensive SDK and immediately before API. SDK/CPU/audit60s, API53s, each outer180s, BelowNormal/fresh startgate Job/2GiB. First numeric/timeout/missing/query/observation/cleanup failure stops; no measurement/retry loop.",
+    "Only one ordinary API POST, one real CUDA dispatch, complete parent/member input and readback SHA plus full CPU/GPU/HTTP/Unicode comparison. Actual cuInit/load/launch/sync/readback/destroy must return0. GPU admission cannot be inferred from source generation.",
+    "After API terminal/Nodegone/Jobempty/live0, reuse existing Node transport/static repack/full saved projection with extra battle/GPU0. Read activity with official metadata/decoder: original typed attacks2/receipts6, lock pulses214/shots29 and complete219 skill rows in activity_expectations. Complete parent/member raw/CPU/GPU/HTTP/Unicode checks remain mandatory.",
+    "Export small saved JSON only to the same existing packet branch. Keep all outer/inner distinctions and unknown/service/whole/overallfalse. No process names/paths/commandlines/PIDs, settings, auth, PTX/raw/image in public summary. On disconnect read status/export only; never resend run."
+  ]
+}

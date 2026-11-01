@@ -1,0 +1,69 @@
+{
+  "schema": "product-transport-v1",
+  "owner": "8abb7645fcf14ca911a1ddfa5abf36c6a74f010f68f35531525c1c66e8deb0d4",
+  "files": [
+    {
+      "path": "coordinate-lock-v1-api-expected.json",
+      "bytes": 1249,
+      "sha256": "9a2f7f15a3df1e68a8c6a905bf54f53b6d1cd99715645b29c72e6d7cc522f417"
+    },
+    {
+      "path": "coordinate-lock-v1-api-job.json",
+      "bytes": 8858,
+      "sha256": "e811cb3878b76648559c3f13b4261319ed712975f646655b97c390721b3faadc"
+    },
+    {
+      "path": "coordinate-lock-v1-check-sdk.py",
+      "bytes": 4875,
+      "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d"
+    },
+    {
+      "path": "coordinate-lock-v1-o1-plan.json",
+      "bytes": 735,
+      "sha256": "bfcd13c78c0bb55acad7f3355d3c3ebfcfaa656666665268b4b0712f5e7264b9"
+    },
+    {
+      "path": "coordinate-lock-v1-prepare-api.py",
+      "bytes": 6413,
+      "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739"
+    },
+    {
+      "path": "coordinate-lock-v1-ptx-plan.json",
+      "bytes": 707,
+      "sha256": "fe4190367c4b4254b739213d380b78596976348a4cbe2eba225acc52c1586842"
+    },
+    {
+      "path": "coordinate-lock-v1-request-validation.json",
+      "bytes": 601,
+      "sha256": "d6776279c53c408dc64d82a871abc998c21f1fd054493a7edde761dae4581f45"
+    },
+    {
+      "path": "coordinate-lock-v1-selected11.json",
+      "bytes": 853,
+      "sha256": "67b53be683b24b5b7839af56189601c8c828e3f9036ebf82dee3547ae4fa0f6b"
+    },
+    {
+      "path": "coordinate-lock-v1-validation-deps.json",
+      "bytes": 407,
+      "sha256": "83729c011feb6fa494b1bdb016ceb3fa9ea736cd23560002a924e95dc482d8b9"
+    },
+    {
+      "path": "coordinate-lock-v1-verify-host-tests.py",
+      "bytes": 1924,
+      "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7"
+    },
+    {
+      "path": "coordinate-lock-v1-windows-request.json",
+      "bytes": 8902,
+      "sha256": "c1af5dde5870c3aaa87cce92a1a60fa8c2328137eff9fefc6bb37989f0f2b2e6"
+    },
+    {
+      "path": "coordinate-lock-v1.zip",
+      "bytes": 12186887,
+      "sha256": "cccb2156b4beb00ea6c95e2f0491fbb0f4e45041686f845f8aa5108ab6b72602"
+    }
+  ],
+  "raw_or_settings_included": false,
+  "additional_battles": 0,
+  "additional_gpu": 0
+}
