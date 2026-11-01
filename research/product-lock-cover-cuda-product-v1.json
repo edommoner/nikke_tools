@@ -1,0 +1,237 @@
+{
+  "schema": "product-lock-cover-cuda-product-v1",
+  "date": "2026-11-01",
+  "status": "actual_gpu_failed_status64_saved_diagnosis",
+  "goal_complete": false,
+  "source": "gpu/product_lock_cover_fixed_battle_entry.slang",
+  "calculation_owner": "72638887e127795d92a39f0d86b28fa052e4ee7a9b793f4d6bedd944c69df481",
+  "calculation_source": "2d1e48332f10af038034ff2bc4db176857c8a199",
+  "host_owner": "17d2c94dfbabefbdb6cfde4fd81eafc86f79ec7ed8b2816253883d634b9e76db",
+  "host_source": "c7600d3f16fe25d284035f0d60e112936f9b70d6",
+  "transport_branch": "codex/product-cuda-origin-gates-v1-packet",
+  "evidence": [
+    {
+      "commit": "4827754683f64fa7ce0abe78277ce4117c7b62c3",
+      "path": "lock-cover-staged-compile-status-v2.json",
+      "bytes": 23804,
+      "sha256": "86acebf7a71c41185ea9a08d344b4d819da2b99392c562ba73451a228f0f4957"
+    },
+    {
+      "commit": "d4271a8f098f05bae8ec6103cd8a9760baa891f9",
+      "path": "lock-cover-jit-link-status-v3.json",
+      "bytes": 6723,
+      "sha256": "9e822c761b724bfdf5cd8288497d062fe73e03a90c9a3645df0a33a5e03ddaad"
+    },
+    {
+      "commit": "050675a41bc910285b39b9aeb060aeb902452b73",
+      "path": "lock-cover-normal-cuda-api-status-v3.json",
+      "bytes": 3987,
+      "sha256": "04a508bfb8fb953393bf9c8b3c371590179b9e3a8fd66b28224f70ee4e4706fa"
+    },
+    {
+      "commit": "c9e8b702ce28e8897c523392afb7646c02166035",
+      "path": "lock-cover-normal-cuda-api-status-v4.json",
+      "bytes": 7570,
+      "sha256": "da69a2fb2244112cbf859e7d50d8e5b793992184da50d0a04fd80a5bb88f022f"
+    },
+    {
+      "commit": "fb6757effdec332185698ef1bc902c3ab52c78cf",
+      "path": "lock-cover-saved-failure-diagnosis-v1.json",
+      "bytes": 6465,
+      "sha256": "f9094db8f08b3c28a5e0a318c10b1f51ca5f6b9e45d8ac1d9128a67e36f19348"
+    },
+    {
+      "commit": "fb6757effdec332185698ef1bc902c3ab52c78cf",
+      "path": "lock-cover-saved-readback-diff-v1.json",
+      "bytes": 1930,
+      "sha256": "ada3b51d485308af881269c87ac9a27c308886836df2d51766ddf62bab98058b"
+    },
+    {
+      "commit": "fb6757effdec332185698ef1bc902c3ab52c78cf",
+      "path": "lock-cover-saved-resource-summary-v1.json",
+      "bytes": 12844,
+      "sha256": "7629dd1c6fa1aecb4c5cd1d473c482ab788e4425a52cb3127042ff6d8f96d878"
+    }
+  ],
+  "compile": {
+    "own_cpu": 136,
+    "cleanup_cpu": 8,
+    "fake_linker_cpu": 15,
+    "fresh_native": true,
+    "paired_generation_calls": 2,
+    "nvrtc_calls": 1,
+    "ptxas_calls": 1,
+    "object_sha256": "070c3789c9e05f999aba742d21d4a78cd550a33cd6e0fb7ca9626c90c03cb4d5",
+    "link_calls": 1,
+    "cubin_sha256": "d8bfd9f7838d9a81bb09c2f6a66f9d85942902bf5a7491ae5c58f8f925b739b0",
+    "artifact_verified": true,
+    "environment_preservation_verified": false
+  },
+  "gpu_transport": {
+    "backend": "cuda",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "gpu_execution_verified": true,
+    "command_status": "completed",
+    "cases": 1,
+    "input_words": 109560,
+    "output_words": 2048912,
+    "input_bytes": 438244,
+    "readback_bytes": 8195648,
+    "host_dispatch_seconds": 0.31368570029735565,
+    "driver_init": 1,
+    "context_create": 1,
+    "module_load": 1,
+    "launch": 1,
+    "synchronize": 1,
+    "device_to_host_readback": 1,
+    "context_destroy": 1,
+    "all_recorded_returns_zero": true,
+    "gpu_state_supplied_by_cpu": false
+  },
+  "comparison": {
+    "input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+    "expected_input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+    "input_matched": true,
+    "readback_sha256": "fbdafa26ecfbc4fdb1e45086363195bd3b197296da312a944ad76452b3b84e25",
+    "expected_readback_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+    "readback_matched": false,
+    "readback_first_uint32": 64,
+    "http_all_body_fields_unicode_canonical_sha256": "d1b7f42873709d2aa22c7d45cfe05a2984d4939dd422f9055e7f3e2285f17155",
+    "http_body_unicode_preserved": true,
+    "api_cpu_gpu_payloads_match": null,
+    "cpu_verification": null,
+    "unicode_exclusions": [],
+    "payload_comparison_not_completed_reason": "Nonzero GPU status aborted decode before cpu-payload.json and gpu-payload.json were written. CPU fallback was returned instead.",
+    "calculation_verified": false
+  },
+  "failure": {
+    "primary_type": "UnsupportedPortable",
+    "primary_finite_reason": "Shared battle status: 64",
+    "root_cause": "unknown",
+    "secondary_helper_type": "FileNotFoundError",
+    "secondary_reason": "Post-result comparison attempted gpu-payload.json after the product fallback; that file did not exist.",
+    "helper_source_modified_after_run": false,
+    "retry_count": 0
+  },
+  "actual_calls": {
+    "http_post": 1,
+    "gpu_launch": 1,
+    "own_cpu_tests": 0,
+    "fresh_native_preflight": 0,
+    "slang_compiler": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "gpu_retries": 0,
+    "normal_post_gpu_comparison_completed": false,
+    "fallback_cpu_result_returned": true
+  },
+  "saved_diagnosis": {
+    "headers": {
+      "actual": {
+        "status": 64,
+        "queries": 0,
+        "trace_stored": 0,
+        "max_depth": 6,
+        "burst_stored": 0,
+        "trace_total": 3,
+        "burst_total": 0,
+        "frames": 74,
+        "ordered_carriers": 56,
+        "typed_initialized": true,
+        "typed_enabled": true,
+        "packet_fates_initialized": true,
+        "cover_initialized": true,
+        "skill_history_initialized": true,
+        "skill_history_count": 3,
+        "admission_marker": false,
+        "admission_stage": null,
+        "initialization_scope": "Only the specified magic checks; zeros are not initialization success. Uninitialized/partial sections remain uninterpreted."
+      },
+      "reference": {
+        "status": 0,
+        "queries": 1,
+        "trace_stored": 0,
+        "max_depth": 6,
+        "burst_stored": 9,
+        "trace_total": 168,
+        "burst_total": 9,
+        "frames": 1801,
+        "ordered_carriers": 76,
+        "typed_initialized": true,
+        "typed_enabled": true,
+        "packet_fates_initialized": true,
+        "cover_initialized": true,
+        "skill_history_initialized": true,
+        "skill_history_count": 168,
+        "admission_marker": false,
+        "admission_stage": null
+      },
+      "mapping_words": {
+        "status": 0,
+        "queries": 1,
+        "trace_stored": 2,
+        "max_depth": 3,
+        "burst_stored": 4,
+        "trace_total": 6,
+        "burst_total": 7,
+        "frames": 8,
+        "ordered_carriers": 9
+      },
+      "magic_words": {
+        "typed": 1145197617,
+        "typed_enabled": 1,
+        "packet_fates": 1346777137,
+        "cover": 1128546865,
+        "skill_history": 1465076529,
+        "admission": 0
+      },
+      "readback_sha256": "fbdafa26ecfbc4fdb1e45086363195bd3b197296da312a944ad76452b3b84e25",
+      "gpu_calls": 0
+    },
+    "changed_blocks": 142,
+    "total_blocks": 2001,
+    "root_cause": "unknown",
+    "memory_failure_ruled_out": false,
+    "readback_unchanged": true,
+    "additional_gpu_calls": 0,
+    "additional_native_battles": 0
+  },
+  "memory": {
+    "api_job_peak_bytes": 1929351168,
+    "job_limit_bytes": 2147483648,
+    "gpu_time_job_limit_observation_complete": false,
+    "memory_exhaustion_proven": false,
+    "planned_future_initial_standard_batch_size": 2,
+    "saved_launch_boundary": [
+      {
+        "position": "before",
+        "device_free_bytes": 7437549568,
+        "process_private_bytes": 390545408,
+        "historical_job_peak_bytes": 417964032
+      },
+      {
+        "position": "after",
+        "device_free_bytes": 6028263424,
+        "process_private_bytes": 1869824000,
+        "historical_job_peak_bytes": 1897242624
+      }
+    ],
+    "interpretation": "Saved before/after launch observations show host private and device usage rise; not atomic measurements or proof of stack size, allocation failure, or cause of status64."
+  },
+  "coverage": {
+    "standard_profiles": 266,
+    "metal_last_verified": 262,
+    "metal_last_full_source": "5e1f9c2a",
+    "cuda_historical_strict": 3,
+    "cuda_current_source": 0,
+    "new_standard_profiles": 0,
+    "declared_model_failure_not_standard_coverage": true
+  },
+  "preservation": {
+    "original_failures_claims_and_raw_unchanged": true,
+    "service_identity": "unverified",
+    "environment_preservation_verified": false
+  },
+  "next_action": "Inspect saved partial event semantics; do not rerun failed GPU. Standard fixed image preparation is separate and does not count as Windows execution."
+}

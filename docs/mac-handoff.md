@@ -1,3 +1,17 @@
+## 2026-11-01 Windows保存結果を回収：SDK/link成立、実CUDAは74frameでstatus64
+
+接続復旧後、既存transportの48277546/d4271a8f/c9e8b702/fb6757ef保存結果を取得し、原本bytes/SHAを照合した。owner72638887（source2d1e4833）のown136分割14群・fresh native・cleanup8・fake linker15は成功。paired Slang1組、NVRTC1、PTXAS O1 1、nvJitLink1でobject070c3789…/CUBIN d8bfd9f7…を生成。全SDK/link段階missing0・Job2GiB・終了後empty。serviceunverifiedのためpreservationfalse/outer exit2/overallfalseは保持。コンパイル成立を環境保全成功へ昇格しない。
+
+GPU source/計算を保持し、Node UTF-8修正2ファイルだけを適用した別host c7600d3f／owner17d2c94dを使用。1088計算関連fileとgoldenは全bytes同一。v3準備時のWindowsパスSyntaxErrorはPOST/GPU前0で停止、元停止保持。JSONパス＋Python7本AST/PS構文を確認したv4で通常API POST1・実RTX3070Ti dispatch1を実施。保存CUBINを使用しSlang/NVRTC/PTXAS/link再実行0、driver各呼出しret0、dispatch0.314秒。ただしShared battle status64でCPUへ切替、製品全payload比較は未完了。検証helperのgpu-payload.json欠落は二次失敗で、主因ではない。韓国語を含むHTTP bodyは保持。
+
+入力SHA07c3e787…はM5と同一。実CUDA readback fbdafa26…は期待772355d4…と不一致。接続復旧後のfile-only既存readback-compare/resource-summaryで、2001block中142相違/1859同一、typed/PF/cover/skill magic有効、frames74・trace_total3・queries0を確認。初期化前停止ではなく途中実行であるが、停止コード64の発生箇所/原因はunknown。admission markerは元M5にもなくstage不明。raw前後SHA同一、追加GPU/POST/driver/SDK/native0。既存decoderによる保存3skillのsemantic抽出だけを追加依頼中。同GPUの再送/時間短縮/期待値変更なし。
+
+API Job peak1,929,351,168bytesは上限2GiBに近い。保存launch前後ではprocess private 390,545,408→1,869,824,000bytes、device free 7,437,549,568→6,028,263,424bytes。増加はlaunch境界で観測されたが、stackサイズ/枯渇/status64の原因とは未確認。ただしGPU時間の保存観測8件ではJob limitがnullで観測不完全、メモリ枯渇を断定しない。制限は増やさず、次の独立したstandard検証が可能になった場合は初回batch2件を計画。新規current標準CUDA実績0、旧厳格3/266とMetal最終source5e1の262/266を保持。全goal未完了。
+
+独立準備として既存standard fixed入口（245profileが共用）のcurrent sourceをM5でown136/fresh native/実計算/別fresh独立seal・保存監査。旧fixedのinput/output/native/generatedは全bytes同一、source closureだけv26へ登録。他21member全保持、歴史7/登録10成功。root0faccfc0のrelease owner6b87a316…は自身のPTX/O1 compile-plan各60秒/2GiBとvalidation-deps成功、Windows SDK/GPU未依頼。準備を245件の実行実績へ加算しない。
+
+小記録research/product-lock-cover-cuda-product-v1.json。原本proofs/product-cuda-product-api-v3-20261101、standard準備proofs/product-cuda-standard-current-v3-20261101。古い停止・claim・raw・SDK成果を全保持。次は保存partial eventを照合して原因を限定し、根拠のある修正後だけ新sourceをMetal/CUDA共通に検証する。以下は履歴。
+
 ## 2026-11-01 移動＋名前付き範囲を通常APIで合成、30秒全履歴とUTF-8製品応答を実証
 
 前turnは分割packetの共有とWindows依頼で進捗。今回は62b53a3cで、別々にしか使えなかった既存movement/named-range consumerを同じActorPool/frame/イベント実行器へ接続した。明示した両モデルのcoord/geometryが完全に同じ場合だけ認め、86元効果を全保持。新suite/恒久監査ツール0、CPU正本/pinned/数値/normalizer/許容差変更0。CPU側も同じgeometry contextを1度だけ設置し、move/named rangeの全モデル結果を別々に保持する。
