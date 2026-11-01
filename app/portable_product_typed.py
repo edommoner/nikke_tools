@@ -16,6 +16,7 @@ def compile_product(prepared):
         return locks(prepared,typed_model=normalize_product(declarations['typed_targets']))
     if set(declarations)!={'typed_targets'}:raise UnsupportedPortable('Typed product composition requires its matching checked shared GPU consumer')
     spec=normalize_product(declarations['typed_targets'])
+    if spec.get('logical_geometry'):raise UnsupportedPortable('Typed logical ADD geometry requires its matching combined Lock On world; standalone GPU composition is not connected')
     if any(r['effect'].get('target') in ('all_projectiles','typed_point') for r in prepared['effects']):
         raise UnsupportedPortable('Original typed skill damage requires its checked common skill route; weapon typed admission cannot omit it')
     if any(p.get('kind') not in ('idle','summon') or p.get('kind')=='summon' and (p.get('spec',{}).get('attack') or p.get('spec',{}).get('self_destruct')) for p in prepared['enemy'].get('patterns',[])):

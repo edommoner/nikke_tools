@@ -1832,6 +1832,58 @@ class ProductReferenceModels(unittest.TestCase):
                         self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
                         self.assertEqual(prepared,original_prepared)
 
+    def test_typed_lock_logical_adds_share_one_world_and_existing_packet_route(self):
+        from portable_product_programs import cases_for_program
+        from portable_detail import prepare,compile_product
+        from destructible_world_runtime import DestructibleWorld
+        import coordinate_logical_actor_geometry as logical
+        for mode in ('fixed','accumulate'):
+            body=cases_for_program(ROOT,'typed-lock-'+mode)[-1][1]
+            before=copy.deepcopy(body);worlds=[];geometries=[]
+            make=DestructibleWorld.from_clock;geometry=logical.LogicalGeometry
+            def create(*a,**kw):
+                w=make(*a,**kw);worlds.append(w);return w
+            def capture(*a,**kw):
+                value=geometry(*a,**kw);geometries.append(value);return value
+            aliases=(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage)
+            with patch.object(DestructibleWorld,'from_clock',side_effect=create),patch.object(logical,'LogicalGeometry',side_effect=capture):
+                result=engine_worker.evaluate(body)
+            self.assertEqual(len(worlds),1);self.assertTrue(worlds[0].finished)
+            self.assertEqual(len(geometries),1)
+            packets=geometries[0].data['packets']
+            self.assertTrue(any(p['target'][0]==5 and p['damage']>0 for p in packets))
+            self.assertTrue(all(not g.pending and not g.frames and not g.routing for g in geometries))
+            self.assertTrue(any(any(h[0]==5 for h in shot['handles']) for shot in result['reference_models']['lock_on']['shots']))
+            self.assertGreater(result['reference_models']['typed_targets']['packet_count'],0)
+            self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU oracle in packing')):
+                pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
+            self.assertEqual((iw,ow),(121392,2558208))
+            self.assertEqual(len(meta['product_coordinate']['declarations']['coordinate']['logical_geometry']),2)
+
+    def test_typed_lock_requires_exact_logical_collider_registry_before_battle(self):
+        from portable_product_programs import cases_for_program
+        from portable_detail import prepare,compile_product
+        from portable_runtime import UnsupportedPortable
+        body=cases_for_program(ROOT,'typed-lock-accumulate')[-1][1]
+        for variant in ('missing','foreign'):
+            changed=copy.deepcopy(body);rows=changed['reference_models']['typed_targets']['logical_geometry']
+            if variant=='missing':rows.pop()
+            else:rows[-1]['label']='__enemy__:foreign#1'
+            with patch.object(sim,'execute',side_effect=AssertionError('Registry mismatch before CPU battle')):
+                pre,_=prepare(changed)
+                with self.assertRaises((ValueError,UnsupportedPortable)):compile_product(pre)
+
+    def test_standalone_typed_logical_geometry_is_explicitly_unsupported(self):
+        from portable_product_programs import cases_for_program
+        from portable_detail import prepare,compile_product
+        from portable_runtime import UnsupportedPortable
+        body=cases_for_program(ROOT,'typed-lock-accumulate')[-1][1]
+        del body['reference_models']['lock_on']
+        with patch.object(sim,'execute',side_effect=AssertionError('Unsupported must fail before battle')):
+            pre,_=prepare(body)
+            with self.assertRaisesRegex(UnsupportedPortable,'logical ADD geometry'):compile_product(pre)
+
     def test_typed_lock_rejects_different_or_nonprojectile_worlds_before_simulating(self):
         body=self.typed_lock_body();base=body['reference_models']
         variants=[]

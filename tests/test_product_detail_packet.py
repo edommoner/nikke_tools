@@ -121,7 +121,7 @@ class ProductPacket(unittest.TestCase):
             for name,config in PROGRAMS.items():
                 selected=cli.open_suite(dict(suite='product-detail',product_program=name))
                 rows,raw=selected.prepare()
-                self.assertEqual(len(rows),7 if name=='ammo-cover-fixed-group' else 2 if name.startswith(('coordinate-lock-','typed-lock-')) else 1)
+                self.assertEqual(len(rows),7 if name=='ammo-cover-fixed-group' else 3 if name.startswith('typed-lock-') else 2 if name.startswith('coordinate-lock-') else 1)
                 self.assertEqual((selected.SOURCE,selected.suite.INPUT,selected.suite.OUTPUT),(config['source'],config['input_words'],config['output_words']))
                 self.assertEqual(len(raw),4*(1+len(rows)*config['input_words']))
                 self.assertEqual(rows[0][2][0]['burst_gauge_mode'],config['mode'])

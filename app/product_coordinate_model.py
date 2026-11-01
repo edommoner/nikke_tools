@@ -22,6 +22,7 @@ def execution(spec,*,configure_run=False,typed_packets=False):
     import engine_worker
     from calculator import timeline,aim
     from coordinate_logical_actor_geometry import logical_actor_geometry
+    from coordinate_typed_geometry_runtime import logical_typed_geometry
     from battle_attack_group_runtime import battle_attack_groups
     from portable_coordinate_sample_v1 import sample
     # Reuse the independent common coordinate provider shipped with the proof
@@ -34,7 +35,7 @@ def execution(spec,*,configure_run=False,typed_packets=False):
         return evaluate((1 if shape.is_circle else 2,shape.x,shape.y,shape.r,shape.w,shape.h,shape.rot,px,py,0.,0.))['distance']
     state=timeline.random.getstate()
     try:
-        with (logical_actor_geometry(spec['logical_geometry']) if spec['logical_geometry'] else nullcontext()),battle_attack_groups(routing='native',coordinate_packets=True,coordinate_typed_packets=typed_packets),patch.object(timeline,'sample_landing',sample),patch.object(aim.Shape,'dist',distance):
+        with ((logical_typed_geometry if typed_packets else logical_actor_geometry)(spec['logical_geometry']) if spec['logical_geometry'] else nullcontext()),battle_attack_groups(routing='native',coordinate_packets=True,coordinate_typed_packets=typed_packets),patch.object(timeline,'sample_landing',sample),patch.object(aim.Shape,'dist',distance):
             if configure_run:
                 from runner import sim
                 original=sim.execute

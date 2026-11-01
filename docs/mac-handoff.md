@@ -5436,3 +5436,14 @@ input117632/output2032000の既存wire内で資源traceを最大15124件へ拡�
 今回Metal1profile／9条件、CUDA0。元11 gapのfresh静的compileは7通過／4拒否（Yuni／Yan／Heavy Arms／Rei）。静的数を実GPU数へ加算せず、歴史的255profileの現source全件再実行も未完了。未知の容量／武器変更・自爆最終queue・複数consumer・group/target specialization・長時間大量履歴を続ける。Windowsは追加依頼0、旧owner2195 object未完了／missing14原因不明／preservation=falseを保持。
 
 最終追補：b6ec340aからsealed ammo-fixed7c2aa379…／ammo-accumulate68d109ee…を作り、各packet自身のown92＋fresh native1／GPU0が成功。各CUBIN O1／2GiB／60秒のcompile-planもpolicy成功（compiler／GPU0）。exec14446はterminal。model-checkはd9de47b3段階のsource/dependency監査成功で、canonical stat5／public numeric／全合成未完了を保持する。V7の変更は登録基準／履歴inverseのみ。Windows追加依頼はなく、旧sourceのPTX/object／失敗／preservation=falseを再ラベルしない。全キャラ・全特殊効果の目標は継続。
+
+
+## 2026-11-02 武器迎撃・元Lock On・有限ADDの製品合成
+
+`reference_models.typed_targets.logical_geometry` を任意の明示フィールドとして追加。同一world／射撃snapshotで既存logical geometryとtyped physical selectionを合成し、既存landing/groupを使う。SlangのADD分岐を移動専用flagからlogical-actor flagへ接続した。新suite／新監査器／wire拡張／算術変更／CPU正本変更なし。未指定の旧リクエストは同じで、単独typed＋nonempty ADDは未接続理由付きfallback、combined lockでは全configured ADDのcollider一致が必須。
+
+不変packet72fbacbc…の実M5 CLI3case／GPU禁止独立seal3case成功。既存最初2caseのinput/output/native全anchorは不変、他41programを保持してv59へ登録。通常APIではHeavy Armsの元91定義・編成・装備を保持し、両mode×前／後／死亡／時間切れ／ADD再出現／ADDと飛翔体の同時再生成、計12条件が全CPU/GPU/HTTP一致。再出現はLock OnのADD handle generation>1を実確認。保存監査12は追加battle/GPU0、owned Node群は両方終了。実行器はCUDA/Metal同じSlangだが新sourceのCUDA実機0。
+
+最終release-v2のowner924d1499…はown175／fresh native3／deps成功、PTX・CUBIN O1 plan成功（compiler/GPU0）。最終sourceへ保存12のinput全byte／shader closure／CPU/GPU/HTTP全結果を追加battle/GPU0で再投影した。最初のrelease-v1は新baseline未追跡によるpayload不足でCPU開始前に拒否されたまま保全し、既存claimは再利用していない。静的source/dependency model-checkも成功だが全面対応を意味しない。証拠は `research/product-typed-lock-add-v1.json`、proof `product-typed-lock-add-run-v1-20261102`。
+
+今回は既存1profileの12条件を追加、new distinct profile0。直前の標準263/266＋明示3の実Metal記録はowner5f88…のまま保持し、新source全profile再認定へ読み替えない。全special-effect条件／任意合成は未完了。次は未接続consumer合成・単独typedのADD接続を優先する。Windows接続は復旧したが、residentの保存RAM1,438,969,856B<4GiB停止を保持し、SDK/API/GPU/RAMの再実行・再計測依頼0。ユーザーの外部RAM改善連絡が来るまでMac実装を進める。旧coordinate-lock v2 object/linkは成果物成功・外側終了2／環境保全falseとして保持。

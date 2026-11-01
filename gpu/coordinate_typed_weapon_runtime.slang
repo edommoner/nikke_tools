@@ -57,7 +57,7 @@ bool ctwBeforeCanonical(inout Runtime s,uint typed,uint canonical)
 {
     if(canonical==0)return true;
     uint p=DF_EXTRA(s),a=p+16+typed*18,node=commands[p+2328+typed*12];
-#ifdef PORTABLE_MOVING_TYPED
+#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS
     uint logical=lagActive(s)?lagShape(s,canonical):0;
     if(logical!=0)
     {
@@ -142,7 +142,7 @@ void ctwLand(inout Runtime s,uint who,uint hit,uint slot,bool extra,uint64_t whe
     ctwNotify(s,who,slot,generation,identity,0,attack,amount,when,r);
 }
 uint64_t ctwDeliverTargets(inout Runtime s,uint who,uint hit,bool reach,uint64_t when
-#ifdef PORTABLE_MOVING_TYPED
+#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS
     ,bool grouped
 #endif
 )
@@ -162,7 +162,7 @@ uint64_t ctwDeliverTargets(inout Runtime s,uint who,uint hit,bool reach,uint64_t
         {
             uint e=h+CS_FRAME+normal*4;normal++;uint targetKind=results[e+1];
             if(!(reach?(results[at+8+canonical/32]&(1U<<(canonical%32)))!=0:canonical==results[at]))continue;
-#ifdef PORTABLE_MOVING_TYPED
+#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS
             if(lagActive(s)&&targetKind==5)
             {
                 coordinateGroupDirectPacket(s,who,canonical,results[e+3],lagAmount(s,hit,5),when,reach,grouped);continue;

@@ -54,7 +54,7 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
     if typed_model is not None:
         from product_reference_models import normalize as normalize_models
         declarations=normalize_models(declarations)
-        coordinate_model=dict(coord=typed_model['coord'],logical_geometry=[])
+        coordinate_model=dict(coord=typed_model['coord'],logical_geometry=copy.deepcopy(typed_model.get('logical_geometry',[])))
     if set(declarations)!=({'lock_on','typed_targets'} if typed_model is not None else {'lock_on','coordinate'} if coordinate_model is not None else {'lock_on'}):
         error=UnsupportedPortable('Lock On requires explicit reference_models.lock_on candidate/delivery policies and typed bindings; composition is not connected')
         for r in prepared['effects']:
@@ -97,7 +97,7 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
                 lowered['typed_actor_policy']=copy.deepcopy(typed_model['actor_policy'])
                 aims={b['label']:129+i for i,b in enumerate(typed_model['bindings'])}
                 with compiler_policy(typed_model['bindings'],typed_model['actor_policy']):
-                    words,meta,coordinate_bindings,scene=compile_logical_geometry(lowered,[],allow_empty=True,typed_aim_targets=aims)
+                    words,meta,coordinate_bindings,scene=compile_logical_geometry(lowered,coordinate_model['logical_geometry'],allow_empty=True,typed_aim_targets=aims)
             if coordinate_bindings!=bindings:raise UnsupportedPortable('Coordinate and lock registries differ')
             if {b.label for b in bindings if int(b.kind)==5}!={r['label'] for r in coordinate_model['logical_geometry']}:raise UnsupportedPortable('Every configured ADD must have one explicit coordinate collider')
             meta['product_parts']=[dict(name=b.label,slot=i,node=b.run) for i,b in enumerate(bindings) if int(b.kind)==1 and parsed[b.run].id=='authored-live-parts']

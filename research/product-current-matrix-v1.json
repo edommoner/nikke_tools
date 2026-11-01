@@ -3862,5 +3862,15 @@
       "saved-audit-progress.json": "ecfbce317a3ab41dd8ff5f342c80ee65723d5b027eade043be0ef65e0251e387",
       "server-stop.json": "e90483caeca7ee933ceb3eaca2c1117f30572228b192401111def138a0733eca"
     }
+  },
+  "later_typed_lock_logical_add_product_validation": {
+    "report": "research/product-typed-lock-add-v1.json",
+    "metal_existing_profile": 1,
+    "new_distinct_profiles": 0,
+    "conditions": 12,
+    "full_standard_matrix_recertified_on_this_source": false,
+    "current_source_cuda_profiles": 0,
+    "previous_matrix_evidence_preserved": true,
+    "full_goal_complete": false
   }
 }

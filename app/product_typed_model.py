@@ -9,8 +9,9 @@ from portable_typed_geometry_specs import normalize as geometry_spec
 
 def normalize_product(value):
     required={'coord','bindings','geometry','aim_policy','actor_policy'}
-    if type(value) is not dict or set(value)!=required:raise ValueError('Typed targets require explicit coord, bindings, geometry, aim and actor policies')
-    spec=copy.deepcopy(value);coordinate=coordinate_spec(spec['coord'],[],allow_empty=True);spec['coord']=coordinate['coord']
+    if type(value) is not dict or not required<=set(value) or set(value)-required-{'logical_geometry'}:raise ValueError('Typed targets require explicit coord, bindings, geometry, aim and actor policies')
+    spec=copy.deepcopy(value);coordinate=coordinate_spec(spec['coord'],spec.get('logical_geometry',[]),allow_empty=True);spec['coord']=coordinate['coord']
+    if 'logical_geometry' in spec:spec['logical_geometry']=coordinate['logical_geometry']
     aim_spec(spec['aim_policy']);actor_spec(spec['actor_policy'])
     if spec['actor_policy']!={'mode':FIELD_MODE}:raise ValueError('Product typed targets require declared BODY-owned current fields')
     rows=spec['bindings']
@@ -71,7 +72,7 @@ def execution(spec,names,*,runtime=None):
     result={};duration=[];original=None
     def run(value,*args,**kwargs):
         duration.append(value.config['duration']);return original(value,*args,**kwargs)
-    with coordinates(dict(coord=spec['coord'],logical_geometry=[]),configure_run=True,typed_packets=True),typed_battle(spec['bindings'],modifier_model=True,typed_geometry=spec['geometry'],coordinate_weapon_targets=True,typed_aim_policy=spec['aim_policy'],typed_actor_policy=spec['actor_policy']) as data:
+    with coordinates(dict(coord=spec['coord'],logical_geometry=spec.get('logical_geometry',[])),configure_run=True,typed_packets=True),typed_battle(spec['bindings'],modifier_model=True,typed_geometry=spec['geometry'],coordinate_weapon_targets=True,typed_aim_policy=spec['aim_policy'],typed_actor_policy=spec['actor_policy']) as data:
         original=sim.execute
         if runtime is not None:
             if type(runtime) is not dict or runtime:raise ValueError('Fresh internal typed runtime holder required')
