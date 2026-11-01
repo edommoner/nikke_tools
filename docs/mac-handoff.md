@@ -1,3 +1,7 @@
+## Windows読取後続のlive handle
+
+read_threadで新しいread-only turn01a19711-c6cc-7930-8de0-1fc24ebb743aがinProgressを確認。SDK/API/CPU/RAMはこの後続で実行していない。既存product admissionは正しいPTX/object/link/claimを再検査しwrong-main診断自体を参照しないが、prepare-apiは「SDK metadataの参照元root」と「新API captureの作成root」を同じprogramへ固定している、というpeer所見を取得。次は保存されたconfig/source調査JSONを同packet branchから取得し、既存prepareへ明示したread-only SDK参照rootを渡す最小の汎用引数をレビューする。旧stop削除・旧成功/falseの付替え・SDK/CPU再実行・新per-feature runnerは不要。まだ保存調査の最終importと実装は未完了。再送しない。以下は履歴。
+
 ## 2026-11-01 配分＋実射撃groupの通常Metal12条件
 
 新しい計算式/CPU正本/pinned/suite/監査器を追加せず、元WeightedIncoming/actual-shot groupの同じSlang Runtimeと三phaseを接続。入力は元effect/marker row/AGS1 descriptor/literal weightsのみ。weighted compileは完全なplain/group prefixを検査し、groupは104408まで、weighted bank115680以降に分離。新2選択weighted-accumulate-group/weighted-fixed-group、registry70。薄いgroup entryの三phaseは元weighted entryと同じで、reserved paddingの開始だけ104408へ変える。元plain shader全byte不変。kind/owner/stride/全definition保持と未指定weightsの拒否を検査した。

@@ -377,5 +377,13 @@
     "diagnostic_probe_requirement_still_unsatisfied": true,
     "post_and_gpu0": true,
     "followup": "Read-only source/provenance continuation design only; SDK/CPU/GPU not re-requested"
+  },
+  "read_only_continuation_lookup": {
+    "turn": "01a19711-c6cc-7930-8de0-1fc24ebb743a",
+    "status": "inProgress",
+    "lookup": "read_thread succeeded; wait_threads fails",
+    "latest_finding": "Existing saved-image product admission rechecks correct PTX/object/link/claims independently of wrong-main diagnostic. prepare helper binds read-only SDK metadata root and writable API capture root together; explicit root separation argument is missing.",
+    "gpu_sdk_cpu_or_ram_runs_requested": false,
+    "saved_plan_not_yet_imported": true
   }
 }
