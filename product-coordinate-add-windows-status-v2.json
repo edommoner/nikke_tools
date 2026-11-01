@@ -1,0 +1,989 @@
+{
+  "schema": "product-coordinate-add-windows-status-v2",
+  "status": "requested-single-condition-completed",
+  "fixed_corrected_request_commit": "92656de58c14fed374310cbff2e098df87b8bc75",
+  "fixed_original_payload_commit": "816710fb9ac2825ca84f2435c4b7b867a291caa7",
+  "code_review_commit": "c5d661c4",
+  "owner": "b659740bb186a4acd141c2ca4f698609f991cb24fc581024dc233ffee2395ec9",
+  "source_commit": "8003819a7ac986ae3e90d4f69bbc1a72341845f8",
+  "source_working_tree_dirty": true,
+  "source": "gpu/product_coordinate_add_battle_entry.slang",
+  "entry": "portableEvents",
+  "scope": "One original6s ordinary API condition: Nihilister coordinate battle with two finite ADDs, each3 interval shots and final-shot retirement. All effects unchanged; declared model, not game-rule verification. No other suites/profile reruns.",
+  "report_name_policy": {
+    "immutable_request_still_names_v1": "product-coordinate-add-windows-status-v1.json",
+    "actual_new_file": "product-coordinate-add-windows-status-v2.json",
+    "prior_v1_stop_report_preserved": true
+  },
+  "transport": {
+    "original_file_count_including_inventory": 12,
+    "original_total_bytes": 12201716,
+    "correction_file_count_including_inventory": 3,
+    "all_transport_hashes_and_fixed_git_blobs_verified": true,
+    "archive_manifest_sha256": "2d643f0776e0d33ddb15281c0a2a3e4332eed3291a3d676bfe910ca9eff5243b",
+    "archive_manifest_files": 2790,
+    "all_manifest_bytes_hashes_verified_before_and_after": true,
+    "references": [
+      {
+        "file": "coordinate-add-v1-transport.json",
+        "bytes": 2063,
+        "sha256": "81f9871e65900732ddc4dbb2dabbf2484ac2161099c5c66669e524d38b48417b"
+      },
+      {
+        "file": "coordinate-add-v2-request-transport.json",
+        "bytes": 790,
+        "sha256": "45857a1b92c9a2cb585b7f76514b8e05967baedc00deb9b52d237510fbd1e83f"
+      },
+      {
+        "file": "coordinate-add-v2-windows-request.json",
+        "bytes": 9601,
+        "sha256": "34e740509c0621cc2dbd27739dd9a4373658be9bc8eb8d821e38d403f672b3de"
+      },
+      {
+        "file": "coordinate-add-v2-request-validation.json",
+        "bytes": 820,
+        "sha256": "f63e7881d43b59df04a1e9a2268891cc46e2ed586d89afec3b0eedc235cfc4f1"
+      },
+      {
+        "file": "coordinate-add-v1-api-job.json",
+        "bytes": 8770,
+        "sha256": "4c3edb8776a57e729c9888f1833e000679963c483ba9598bc419b809c70dcf92"
+      },
+      {
+        "file": "coordinate-add-v1-api-expected.json",
+        "bytes": 1207,
+        "sha256": "a8c8bd142c141362e9049ca116043d43834eed4bc767f7ee72cea4eb99a9c789"
+      },
+      {
+        "file": "coordinate-add-v1-selected12.json",
+        "bytes": 974,
+        "sha256": "b616d2138878bc91b36040bdcff33572d8b0b92c86bb83423bd12b9d2f8593ce"
+      }
+    ]
+  },
+  "request_correction": {
+    "request_selected_ids_equal_hashed_selector": true,
+    "selector_owner_and_order_and_expected12_equal_request": true,
+    "request_sha256": "34e740509c0621cc2dbd27739dd9a4373658be9bc8eb8d821e38d403f672b3de",
+    "selection_sha256": "b616d2138878bc91b36040bdcff33572d8b0b92c86bb83423bd12b9d2f8593ce",
+    "strict_guard_changed": false,
+    "old_v1_request_stop_rewritten": false,
+    "original_packet_selector_job_expected_and_plans_unchanged": true
+  },
+  "prior_history": {
+    "old_stop_claim_and_status_hashes": [
+      {
+        "file": "ammo-shared-seven-windows-v2/stop.json",
+        "bytes": 830,
+        "sha256": "2f8c2ceb3614e6290d38f6e2faffdc863b2503ae1789128ff45bb72abf705ee6"
+      },
+      {
+        "file": "ammo-shared-seven-windows-v2/ammo-cover-fixed-group/packet/compile-claimed-cuda.json",
+        "bytes": 253,
+        "sha256": "d91a9aae9faf5e35caf6abfb44b11b97f613343a38e9ab2c63b8519b5c922016"
+      },
+      {
+        "file": "ammo-shared-seven-windows-v2/ammo-cover-fixed-group/packet/jit-link-object-claimed-cuda.json",
+        "bytes": 25327,
+        "sha256": "63c2c28ce4fb6ebd547699e1bc007fcf5adc4575329dccb1a965201658c699db"
+      },
+      {
+        "file": "ammo-shared-seven-windows-v2/ammo-cover-fixed-group/packet/module-object-claimed-cuda.json",
+        "bytes": 23678,
+        "sha256": "bd0d82f3443ac8c4f2b56fe5c133be31d2074161b06793cda6367e3f1a67bde5"
+      },
+      {
+        "file": "ammo-shared-seven-windows-v2/ammo-cover-fixed-group/packet/packet-stage-claimed-compile-ptx-cuda.json",
+        "bytes": 255,
+        "sha256": "0ca9f58070683083f14d0ed33c3e809461df5be9dc3c460949a6aaa92702ae3b"
+      },
+      {
+        "file": "ammo-shared-seven-windows-v2/ammo-cover-fixed-group/packet/packet-stage-claimed-generation-cuda.json",
+        "bytes": 254,
+        "sha256": "100fa0c812dbab762a255e7ee34250ba5280df66b60c56532c7864e157d8c43b"
+      },
+      {
+        "file": "ammo-shared-seven-windows-v2/ammo-cover-fixed-group/packet/packet-stage-claimed-jit-link-object-cuda.json",
+        "bytes": 252,
+        "sha256": "696f672f857747d084d5d7cd1751dcdaeabe2d2f3049ebedf2c5f1b3d916a3dc"
+      },
+      {
+        "file": "ammo-shared-seven-windows-v2/ammo-cover-fixed-group/packet/packet-stage-claimed-module-object-cuda.json",
+        "bytes": 257,
+        "sha256": "ff838dd33c919c64b870d479954a025eb4b78666a5ae306a34730f3920fc33cb"
+      },
+      {
+        "file": "ammo-shared-seven-saved-image-api-windows-v2/stop.json",
+        "bytes": 168,
+        "sha256": "c6e4eda6ffb4c234fe321e11363065f7f6e247e3c1c9643d37f5aaf4b190d5e9"
+      },
+      {
+        "file": "ammo-shared-seven-saved-image-api-windows-v2/ammo-cover-fixed-group/stop.json",
+        "bytes": 168,
+        "sha256": "c6e4eda6ffb4c234fe321e11363065f7f6e247e3c1c9643d37f5aaf4b190d5e9"
+      },
+      {
+        "file": "transport/ammo-shared-seven-saved-image-api-status-v2.json",
+        "bytes": 28881,
+        "sha256": "e6f0338c63ecd52cbf931d354d73ba00108ad53151e27a9fb67b88749fb8bd7a"
+      },
+      {
+        "file": "transport/ammo-shared-seven-saved-image-missing3-diagnostic-v1.json",
+        "bytes": 40323,
+        "sha256": "735e66054a9b1360ec2ec3aa95b0f3c3c08d96529af99b22862ecdd3dbb7c312"
+      },
+      {
+        "file": "product-coordinate-add-windows-v1/stop.json",
+        "bytes": 439,
+        "sha256": "a463b40a0866b677def07808ab2394c7ef5f2185bc8335b3942064c1eec53a88"
+      },
+      {
+        "file": "transport/product-coordinate-add-windows-status-v1.json",
+        "bytes": 13623,
+        "sha256": "96c579895c1ddbfdf5d635fd44708f2a8fe1ff9ead3bf9cbfaa62d28638e0536"
+      },
+      {
+        "file": "transport/product-coordinate-weighted-windows-status-v1.json",
+        "bytes": 27718,
+        "sha256": "445fefa8328d77a51608923854e7f53e7cd3b220f608a5abfff3d0d1bd55a6bb"
+      },
+      {
+        "file": "product-coordinate-weighted-windows-v1/coordinate-weighted-accumulate/packet/gpu-package.json",
+        "bytes": 598857,
+        "sha256": "f8ea2682f5db2c0f1abfe3a5ab7f6cdaf40d9194bd40e0f58b44924620be4eab"
+      },
+      {
+        "file": "product-coordinate-weighted-windows-v1/coordinate-weighted-accumulate/program.json",
+        "bytes": 8491,
+        "sha256": "adc5fdc0a20465daadedb2c3e569c0032181cbd32537b1dd49ba25b6f07d4f7e"
+      },
+      {
+        "file": "product-coordinate-weighted-windows-v1/coordinate-weighted-accumulate/sdk-paths.json",
+        "bytes": 1365,
+        "sha256": "49beed05e0ae91ab8298f9294e9c6733e172de0cbfda1e644afe7efabe30c8d3"
+      },
+      {
+        "file": "product-coordinate-weighted-windows-v1/coordinate-weighted-accumulate/jit-link-object-verified.json",
+        "bytes": 1058,
+        "sha256": "b1ead25687865a38686e6839c428235500c40a55ae9b9c991c12d7c066041876"
+      },
+      {
+        "file": "product-coordinate-weighted-windows-v1/coordinate-weighted-accumulate/jit-link-v1/proof/jit-link.json",
+        "bytes": 76182,
+        "sha256": "8e6caf3a3e3cf555ff16bc463d8212b04cd031d49f95a5f63de4288512587480"
+      },
+      {
+        "file": "product-coordinate-weighted-windows-v1/coordinate-weighted-accumulate/jit-link-v1/proof/jit-linked.cubin",
+        "bytes": 6636048,
+        "sha256": "4ce917c2ea566f9fe201262f7e7b55d72a606acbb8a6d27650c87a0af155a0b7"
+      },
+      {
+        "file": "product-coordinate-weighted-windows-v1/coordinate-weighted-accumulate/packet/compile-claimed-cuda.json",
+        "bytes": 271,
+        "sha256": "67fa60d3d70bff779222d9355bedeedec8bdca1c94cb90bdd2fb0fae1b09937b"
+      },
+      {
+        "file": "product-coordinate-weighted-windows-v1/coordinate-weighted-accumulate/packet/jit-link-object-claimed-cuda.json",
+        "bytes": 31171,
+        "sha256": "63a0fe584990396471a378ece8c7f595a82f55777caa3d1fa3a69c08f5f66fe8"
+      },
+      {
+        "file": "product-coordinate-weighted-windows-v1/coordinate-weighted-accumulate/packet/module-object-claimed-cuda.json",
+        "bytes": 29522,
+        "sha256": "06728a82ed04714633f7a8826c9663f8466bc63deb56fec10fbd68a702e58dbb"
+      },
+      {
+        "file": "product-coordinate-weighted-windows-v1/coordinate-weighted-accumulate/packet/packet-stage-claimed-compile-ptx-cuda.json",
+        "bytes": 273,
+        "sha256": "83bbb5b9a050072f795c78480bcc8c9d2a6fe4630c70a02f06332e775920feeb"
+      },
+      {
+        "file": "product-coordinate-weighted-windows-v1/coordinate-weighted-accumulate/packet/packet-stage-claimed-generation-cuda.json",
+        "bytes": 272,
+        "sha256": "f7782af80ec26283da043d6b1ab9ac9489dcf000cbfd4c31f4faa2ef3cd64d73"
+      },
+      {
+        "file": "product-coordinate-weighted-windows-v1/coordinate-weighted-accumulate/packet/packet-stage-claimed-jit-link-object-cuda.json",
+        "bytes": 270,
+        "sha256": "23c315cf3a9d6baa29f27646bc8775cfc330cd34eb1b977d753cc6f36e815444"
+      },
+      {
+        "file": "product-coordinate-weighted-windows-v1/coordinate-weighted-accumulate/packet/packet-stage-claimed-module-object-cuda.json",
+        "bytes": 275,
+        "sha256": "14e7400a45145f280af7d9bf49ce7750126245e6e070d74a45a98a9034e5d249"
+      }
+    ],
+    "all_old_records_reverified_unchanged": true,
+    "weighted_source_files_reverified_unchanged": 2788,
+    "old_missing3_cause": "unknown",
+    "old_missing3_failed_outer_gate_and_stop_retained": true,
+    "prior_weighted_or_ammo_api_gpu_or_audit_reruns": 0,
+    "prior_ammo_unexecuted_cases_started": 0,
+    "old_wrong_main_probe_requirement_satisfied": false,
+    "os_ssh_or_restart_changes": 0,
+    "whole_host_stability_claimed": false
+  },
+  "helpers": {
+    "all_copied_bytes_reverified": true,
+    "copy_count": 47,
+    "managed3": [
+      {
+        "source": "coordinate-add-v1-check-sdk.py",
+        "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d",
+        "destination": "check-sdk.py",
+        "destination_scope": "outer-windows-directory"
+      },
+      {
+        "source": "coordinate-add-v1-prepare-api.py",
+        "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739",
+        "destination": "prepare-api.py",
+        "destination_scope": "outer-windows-directory"
+      },
+      {
+        "source": "coordinate-add-v1-verify-host-tests.py",
+        "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7",
+        "destination": "verify-host-tests.py",
+        "destination_scope": "program-directory"
+      }
+    ],
+    "other11_unchanged": true,
+    "new_suite_or_auditor_created": false
+  },
+  "cpu": {
+    "passed": true,
+    "selected_tests": 12,
+    "selected_unit_tests_verified": true,
+    "unit_tests_verified": false,
+    "all_registered_unit_tests_verified": false,
+    "selection_sha256": "b616d2138878bc91b36040bdcff33572d8b0b92c86bb83423bd12b9d2f8593ce",
+    "groups": [
+      {
+        "pattern": "test_portable_detail.py",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "elapsed_seconds": 0.7467765999026597,
+        "case_ids": [
+          "test_portable_detail.PortableDetail.test_add_product_reuses_existing_prefix_and_literal_attack_retirement_wire",
+          "test_portable_detail.PortableDetail.test_add_source_projection_rejects_unknown_slots_and_misbound_nodes"
+        ]
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "elapsed_seconds": 5.589495100080967,
+        "case_ids": [
+          "test_product_detail_packet.ProductPacket.test_each_program_uses_the_actual_static_product_input_and_exact_wire"
+        ]
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "elapsed_seconds": 6.177979900036007,
+        "case_ids": [
+          "test_weighted_source_contract.WeightedSourceContract.test_boss_history_recovers_exact_preimages_and_rejects_unreviewed_bytes",
+          "test_weighted_source_contract.WeightedSourceContract.test_changed_product_route_guard_and_arithmetic_are_rejected",
+          "test_weighted_source_contract.WeightedSourceContract.test_exact_later_product_inverse_keeps_original_ledger_and_old_sources",
+          "test_weighted_source_contract.WeightedSourceContract.test_exact_preimage_and_closure_match_historical_cover_seal",
+          "test_weighted_source_contract.WeightedSourceContract.test_product_history_and_added_helper_cannot_be_edited",
+          "test_weighted_source_contract.WeightedSourceContract.test_product_part_boundary_inverse_accepts_only_exact_current_and_preimage",
+          "test_weighted_source_contract.WeightedSourceContract.test_unreviewed_current_dependency_cannot_be_projected"
+        ]
+      },
+      {
+        "pattern": "test_product_reference_models.py",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "elapsed_seconds": 0.21060269977897406,
+        "case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_coordinate_add_preserves_original_shot_descriptors_scene_and_definitions",
+          "test_product_reference_models.ProductReferenceModels.test_coordinate_add_receipt_ownership_rejects_reserved_and_forged_retirement"
+        ]
+      }
+    ],
+    "strict_nonempty_case_id_guard_preserved": true,
+    "unselected150_executed": false,
+    "full_native_preflight_executed": false,
+    "extra_native_preflight_battles": 0,
+    "gpu_calls": 0
+  },
+  "own_pre_sdk_stages": {
+    "unpack": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 21.602468200027943,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "process_comparison_performed": true,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "owned_live_count": 0,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 70426624,
+      "below_normal": true
+    },
+    "plans": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 24.312898399773985,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "process_comparison_performed": true,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "owned_live_count": 0,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 68395008,
+      "below_normal": true
+    },
+    "host-tests": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 39.41224360000342,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "process_comparison_performed": true,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "owned_live_count": 0,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 179290112,
+      "below_normal": true
+    }
+  },
+  "ram_gates": {
+    "sdk-before-ram": {
+      "passed": true,
+      "gate": "Immediately before first API worker launch",
+      "observed_unix_ns": 1793543811657601000,
+      "observed_at_jst": "2026-11-01T23:36:51.657601+09:00",
+      "available_physical_bytes": 7078039552,
+      "required_available_bytes": 4294967296,
+      "ram_measurements_at_this_gate": 1,
+      "resampling_loop": false,
+      "sdk_calls": 0,
+      "gpu_calls": 0,
+      "bounded_job": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 0.13679100014269352,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "process_comparison_performed": false,
+        "missing_processes": null,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "owned_live_count": 0,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 10117120,
+        "below_normal": true
+      }
+    },
+    "api-before-000": {
+      "passed": true,
+      "gate": "Immediately before first API worker launch",
+      "observed_unix_ns": 1793544083119312500,
+      "observed_at_jst": "2026-11-01T23:41:23.119312+09:00",
+      "available_physical_bytes": 7307427840,
+      "required_available_bytes": 4294967296,
+      "ram_measurements_at_this_gate": 1,
+      "resampling_loop": false,
+      "sdk_calls": 0,
+      "gpu_calls": 0,
+      "bounded_job": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 0.13641490042209625,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "process_comparison_performed": false,
+        "missing_processes": null,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "owned_live_count": 0,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 10133504,
+        "below_normal": true
+      }
+    }
+  },
+  "sdk_stages": {
+    "generation": {
+      "outer": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 21.76312409993261,
+        "timeout_seconds": 59.765000000130385,
+        "timed_out": false,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "process_comparison_performed": true,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "owned_live_count": 0,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 608661504,
+        "below_normal": true
+      },
+      "runner_exit_code": 0,
+      "artifact_verified": true,
+      "reported_stage_verified": true,
+      "reported_stage_complete": true,
+      "whole_stage_process_preservation_verified": true,
+      "whole_stage_environment_preservation_verified": false
+    },
+    "compile-ptx": {
+      "outer": {
+        "child_exit_code": 2,
+        "reported_execution_passed": false,
+        "elapsed_seconds": 46.81670909980312,
+        "timeout_seconds": 179.81199999991804,
+        "timed_out": false,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "process_comparison_performed": true,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "owned_live_count": 0,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 391995392,
+        "below_normal": true
+      },
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "whole_stage_process_preservation_verified": true,
+      "whole_stage_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 36.997692099772394,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "process_comparison_performed": true,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "owned_live_count": 0,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 357384192,
+        "below_normal": true
+      }
+    },
+    "module-object": {
+      "outer": {
+        "child_exit_code": 2,
+        "reported_execution_passed": false,
+        "elapsed_seconds": 40.66352029982954,
+        "timeout_seconds": 179.82800000021234,
+        "timed_out": false,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "process_comparison_performed": true,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "owned_live_count": 0,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 516665344,
+        "below_normal": true
+      },
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "whole_stage_process_preservation_verified": true,
+      "whole_stage_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 25.14337889989838,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "process_comparison_performed": true,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "owned_live_count": 0,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 467968000,
+        "below_normal": true
+      }
+    },
+    "jit-link-object": {
+      "outer": {
+        "child_exit_code": 2,
+        "reported_execution_passed": false,
+        "elapsed_seconds": 53.9783982001245,
+        "timeout_seconds": 179.8289999999106,
+        "timed_out": false,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "process_comparison_performed": true,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "owned_live_count": 0,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 242081792,
+        "below_normal": true
+      },
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "whole_stage_process_preservation_verified": true,
+      "whole_stage_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 21.34842019993812,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "process_comparison_performed": true,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "owned_live_count": 0,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 130908160,
+        "below_normal": true
+      }
+    }
+  },
+  "sdk_artifacts": {
+    "paired_generation": {
+      "first_hit": false,
+      "first_compiler_invocations": 2,
+      "sealed_generated_baseline_verified": true,
+      "cache_key": "c740b65f5ecc13708ea509054091d7e1d713dbc4373c6e6cef7ae7f2021beefa",
+      "ptx_generation_hit": true,
+      "ptx_generation_compiler_invocations": 0
+    },
+    "ptx": {
+      "key": "00f2a827a50aa48330f9682c56815efbfec9f813e95e5ee03b4cdca1ef3ecc9a",
+      "hit": false,
+      "sha256": "7cdac07954d06161edc3f014e2ee1509b5c6cac93090b3e35b599bc863d2b122",
+      "bytes": 12857885,
+      "options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false",
+        "--split-compile=2"
+      ]
+    },
+    "object": {
+      "key": "a96a842d0b884d71f3c644ce7dd66035977dc39cadb8dd81bc26dc54ad4e2e8d",
+      "sha256": "b266554505011deb3a16d5293175f570e5e4d870e10ea96f2040dcd5921f0a13",
+      "bytes": 7239536,
+      "options": [
+        "--gpu-name=sm_86",
+        "--opt-level=1",
+        "--fmad=false",
+        "--verbose",
+        "--compile-only"
+      ],
+      "source_bytes_unchanged": true,
+      "source_partitioned": false
+    },
+    "linked_image": {
+      "key": "7c9b0f4fae78e5b7c64090d807e27c6f1e2663ddf83a20a780e134d1781fc9c6",
+      "sha256": "22dbda3e646b91239efeaa4ac0299622b938819e5a2fed918e32725fed5050ad",
+      "bytes": 6708240,
+      "all_native_returns0": true,
+      "api_returns": [
+        {
+          "api": "nvJitLinkVersion",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkCreate_12_4",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkAddData_12_4",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkComplete_12_4",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkGetErrorLogSize_12_4",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkGetInfoLogSize_12_4",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkGetLinkedCubinSize_12_4",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkGetLinkedCubin_12_4",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkDestroy_12_4",
+          "return_code": 0
+        }
+      ],
+      "program_driver_calls": 0
+    },
+    "source_closure_file_count": 271,
+    "source_closure_canonical_hash_map_sha256": "19fdd4b3f7479e9309923b3bcc1cccc4a114c4939bdd44742c7ee9d5e10c8478",
+    "api_source_closure_equals_saved_compiler": true
+  },
+  "api": {
+    "posts": 1,
+    "gpu_dispatches": 1,
+    "cases": 1,
+    "profile_index": 0,
+    "label": "product/coordinate-add-accumulate-6s",
+    "duration_seconds": 6,
+    "api_passed": true,
+    "gpu_execution_verified": true,
+    "complete_cpu_gpu_http_compute_payloads_equal": true,
+    "unicode_exclusions": [],
+    "full_m5_readback_equal": true,
+    "input_sha256": "cd142e3ab2ffd0d0a57478e6302f70bbe555965b107aed146b7a3df63a161e48",
+    "output_sha256": "5114999287f33c04ceee4da5d00aacba3e3df0e45bc09421aa554193e26d8aa5",
+    "input_bytes": 465860,
+    "output_bytes": 8128000,
+    "parent_member_slices_and_static_repack_equal": true,
+    "gpu_status": 0,
+    "expected_definition_count": 70,
+    "caller_sha256": "4c3edb8776a57e729c9888f1833e000679963c483ba9598bc419b809c70dcf92",
+    "caller_bytes_unchanged": true,
+    "result_cache_hit": false,
+    "host_dispatch_seconds": 1.119062699843198,
+    "http_seconds": 19.639515299815685,
+    "saved_product_image_admission": {
+      "returned": true,
+      "elapsed_seconds": 6.553550300188363,
+      "linked_origin_and_receipt_verified": true,
+      "source_loads": 1,
+      "live_compiler_calls": 0
+    },
+    "driver_calls": {
+      "cuInit": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0259868
+      },
+      "cuCtxCreate_v2": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0864439
+      },
+      "cuModuleLoadData": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0062264
+      },
+      "cuLaunchKernel": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0034869,
+        "grid": [
+          1,
+          1,
+          1
+        ],
+        "block": [
+          1,
+          1,
+          1
+        ],
+        "dynamic_shared_bytes": 0
+      },
+      "cuCtxSynchronize": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 1.1091074
+      },
+      "cuMemcpyDtoH_v2": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0013099,
+        "chunk_bytes": [
+          8128000
+        ],
+        "total_bytes": 8128000
+      },
+      "cuCtxDestroy_v2": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0497875
+      }
+    },
+    "resource_advisory": {
+      "snapshot_count": 8,
+      "observation_complete": false,
+      "inner_job_limit_unknown_count": 8,
+      "inner_job_limits": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "outer_enforced_limit_verified": true,
+      "outer_enforced_job_limit_bytes": 2147483648,
+      "outer_job_peak_bytes": 2071089152,
+      "process_private_peak_bytes": 2011017216,
+      "observed_private_max_bytes": 2011017216,
+      "device_free_min_bytes": 5826936832,
+      "device_free_max_bytes": 7445938176,
+      "device_total_bytes": 8589410304,
+      "memory_query_return_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "non_atomic": true,
+      "runtime": {
+        "input_bytes": 465860,
+        "output_bytes": 8128000,
+        "runtime_stride_bytes": 163576,
+        "runtime_buffer_bytes": 163576,
+        "runtime_element_capacity": 1
+      }
+    },
+    "stages": {
+      "static-preflight": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 12.303247999865562,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "process_comparison_performed": true,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "owned_live_count": 0,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 94244864,
+        "below_normal": true
+      },
+      "api-once-v1": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 24.492781000211835,
+        "timeout_seconds": 53,
+        "timed_out": false,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "process_comparison_performed": true,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "owned_live_count": 0,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 2071089152,
+        "below_normal": true
+      },
+      "saved-audit": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 13.723529399838299,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "process_comparison_performed": true,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "owned_live_count": 0,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 120893440,
+        "below_normal": true
+      }
+    },
+    "completion_before_saved_audit": {
+      "api_terminal": true,
+      "api_child_exit_code": 0,
+      "owned_node_stopped_record_matches": true,
+      "owned_node_alive": false,
+      "owned_node_exit_code": 1,
+      "job_empty": true,
+      "owned_live_count": 0,
+      "process_query_error": false,
+      "cleanup_error": null,
+      "observation_error": null
+    }
+  },
+  "activity_evidence": {
+    "add_shots": 6,
+    "retirements": 2,
+    "retirement_receipts": 2,
+    "actors_each_fired_three_and_retired_after_final_shot": true,
+    "retirement_receipts_summary": [
+      {
+        "fired": 3,
+        "retired_flag": 1,
+        "generation": 1,
+        "time": 0.7500000000000007
+      },
+      {
+        "fired": 3,
+        "retired_flag": 1,
+        "generation": 1,
+        "time": 0.7500000000000007
+      }
+    ],
+    "incoming_hits": 30,
+    "layout_from_unchanged_official_metadata": true,
+    "shader_layout_text_equals_metadata_renderer": true,
+    "readback_sha256": "5114999287f33c04ceee4da5d00aacba3e3df0e45bc09421aa554193e26d8aa5",
+    "metadata_source_hashes": {
+      "app/portable_add_attack_battle_wire.py": "79f16f5ff1c1b9e5c8d921acf4620be735f5167c216509675fce71cb9c90a063",
+      "app/portable_add_self_destruct_wire.py": "b298727c6ed3e1e43ef7b5dc275b98326358eb66f9d4c075f81587f7dc3e986b",
+      "app/portable_product_add_attack.py": "1ec4c3190d92b5af50f0980c861a15f8ccaff895a6a9d9b1e0fb66f43310cc35",
+      "gpu/world_add_attack_battle_layout.slang": "7c390a92e409ead0ae2c7d5ad37224f48789b34067803579c409321a5d263894",
+      "gpu/add_self_destruct_layout.slang": "aa379e2997f67743e757ecff0550b9f95b0efc9e83ba7acd2ad15d45003a6465"
+    },
+    "additional_cpu_battles": 0,
+    "additional_gpu": 0
+  },
+  "saved_audit": {
+    "passed": true,
+    "actual_node_input_used": true,
+    "node_version": "v24.22.1",
+    "original_and_effective_json_values_equal": true,
+    "representation_type_change_count": 0,
+    "original_job_sha256": "4c3edb8776a57e729c9888f1833e000679963c483ba9598bc419b809c70dcf92",
+    "roundtrip_input_sha256": "0b2fc8898c01fd72a9cef7b0482a714889a7300fa0e1b29ab68efb9ca370b585",
+    "roundtrip_output_sha256": "5c497860a020f61c49954390428edeae303c18e5a57899cffdf5b3b38722e653",
+    "parent_input_pre_post_equal": true,
+    "parent_output_pre_post_equal": true,
+    "static_preparation_calls": 1,
+    "readback_reprojection_calls": 1,
+    "additional_cpu_battles": 0,
+    "additional_gpu_calls": 0,
+    "additional_posts": 0,
+    "additional_sdk_calls": 0
+  },
+  "execution_totals": {
+    "api_posts": 1,
+    "gpu_dispatches": 1,
+    "gpu_retries": 0,
+    "post_resubmissions": 0,
+    "sdk_stage_attempts_each": 1,
+    "sdk_gpu_dispatches": 0,
+    "paired_slang_compiler_invocations": 2,
+    "api_slang_compiler_invocations": 0,
+    "api_nvrtc_ptxas_jit_link_calls": 0,
+    "legacy_main_probes": 0,
+    "additional_audit_battles": 0,
+    "additional_audit_gpu": 0,
+    "other_profile_or_condition_runs": 0,
+    "configured_profile_delta": 0,
+    "unconfigured_standard_profile_delta": 0
+  },
+  "limits_retained": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "minimum_available_ram_bytes": 4294967296,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "bounded_job_verified": true,
+  "current_run_all_monitored_processes_preserved": true,
+  "all_current_missing_query_timeout_cleanup_errors_zero": true,
+  "requested_one_condition_calculation_verified": true,
+  "declared_model_not_game_rule_verification": true,
+  "advisory_unknowns_reclassified": false,
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false
+}
