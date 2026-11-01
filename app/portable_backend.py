@@ -115,9 +115,15 @@ def validate_composed_stride(source,input_words,output_words):
         check_group_wire(ROOT)
         if (input_words,output_words)!=(GROUP_INPUT_WORDS,OUTPUT_WORDS):raise ValueError('Product group target requires its complete carrier and group wire')
         return
-    if source in ('gpu/world_weighted_incoming_entry.slang','gpu/world_weighted_incoming_diagnostic_entry.slang','gpu/product_weighted_battle_entry.slang','gpu/product_weighted_fixed_battle_entry.slang','gpu/product_weighted_group_battle_entry.slang','gpu/product_weighted_fixed_group_battle_entry.slang'):
+    if source in ('gpu/world_weighted_incoming_entry.slang','gpu/world_weighted_incoming_diagnostic_entry.slang','gpu/product_weighted_battle_entry.slang','gpu/product_weighted_fixed_battle_entry.slang','gpu/product_weighted_group_battle_entry.slang','gpu/product_weighted_fixed_group_battle_entry.slang','gpu/product_coordinate_weighted_battle_entry.slang','gpu/product_coordinate_weighted_fixed_battle_entry.slang'):
         from portable_weighted_battle_wire import check_schema,INPUT,OUTPUT
         check_schema(ROOT)
+        if source.startswith('gpu/product_coordinate_weighted_'):
+            from portable_logical_geometry_wire import check_schema as logical_schema,LAYOUT as G,SCRATCH
+            from portable_weighted_battle_wire import LAYOUT as W
+            logical_schema(ROOT)
+            if G['BASE']+G['WORDS']!=W['BASE'] or SCRATCH['OUTPUT_WORDS']!=W['OUTPUT_BASE']:
+                raise ValueError('Coordinate and weighted banks must remain disjoint and contiguous')
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Weighted incoming requires complete literal weights and owned receipt banks')
         return
     from portable_product_programs import PROGRAMS

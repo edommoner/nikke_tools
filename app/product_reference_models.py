@@ -38,11 +38,12 @@ def normalize(value):
     if value is None:return {}
     if type(value) is not dict or set(value)-{'coordinate','enemy_healing','weighted_incoming','cover_defense','enemy_ammo','enemy_movement','named_range','lock_on'}:
         raise ValueError('reference_modelsには接続済みのcoordinate／enemy_healing／weighted_incoming／cover_defense／enemy_ammo／enemy_movement／named_range／lock_onだけを指定してください。')
-    if 'coordinate' in value and set(value)-{'coordinate','cover_defense'}:raise ValueError('Coordinate composition requires a matching checked consumer wire')
+    if 'coordinate' in value and set(value)-{'coordinate','cover_defense','weighted_incoming'}:raise ValueError('Coordinate composition requires a matching checked consumer wire')
     if 'enemy_ammo' in value and set(value)-{'enemy_ammo','enemy_healing','cover_defense'}:raise ValueError('Enemy magazine composition requires a combined checked native consumer')
     if 'enemy_movement' in value and set(value)-({'enemy_movement','named_range','cover_defense'} if 'named_range' in value else {'enemy_movement','cover_defense'}):raise ValueError('Movement composition requires a combined checked native consumer')
     if 'named_range' in value and set(value)-({'named_range','enemy_movement','cover_defense'} if 'enemy_movement' in value else {'named_range','cover_defense'}):raise ValueError('Named range composition requires a combined checked native consumer')
     if 'lock_on' in value and set(value)-{'lock_on','cover_defense'}:raise ValueError('Lock composition requires a combined checked native consumer')
+    if {'weighted_incoming','cover_defense'}<=set(value):raise ValueError('Weighted allocation and independent cover DEF require a combined checked landing contract')
     result={}
     if 'coordinate' in value:
         from product_coordinate_model import normalize_product

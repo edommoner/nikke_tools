@@ -1429,6 +1429,36 @@ class ProductReferenceModels(unittest.TestCase):
             with self.assertRaisesRegex(UnsupportedPortable,'explicit.*weighted_incoming'):
                 product.compile_product(missing)
 
+    def test_weighted_coordinate_preserves_complete_scene_markers_and_disjoint_banks(self):
+        import portable_detail as product
+        from portable_product_programs import body_for_program
+        from portable_product_coordinate import compile_product as coordinates
+        from portable_weighted_battle_wire import compiler_policy,LAYOUT as W,MAGIC
+        from portable_backend import validate_composed_stride
+        from portable_runtime import UnsupportedPortable
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'coordinate-weighted-'+mode)
+            prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+            inner=dict(prepared,_product_weighted_compiled=True)
+            inner['reference_models']={'coordinate':prepared['reference_models']['coordinate']}
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle in GPU input')):
+                with compiler_policy():_,iw,ow,prefix,_=coordinates(inner)
+                source,wi,wo,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,before)
+            self.assertEqual((iw,ow),(115680,2032000));self.assertEqual(words[:iw],prefix)
+            self.assertEqual((wi,wo,len(words)),(115696,2048912,115696))
+            self.assertEqual(source,'gpu/product_coordinate_weighted_'+('fixed_' if mode=='fixed' else '')+'battle_entry.slang')
+            validate_composed_stride(source,wi,wo)
+            self.assertEqual(words[W['BASE']:W['BASE']+4],[MAGIC,1,5,0])
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+            self.assertEqual(set(meta['product_weighted_incoming']['declarations']),{'weighted_incoming'})
+            self.assertEqual(set(meta['product_coordinate']['declarations']),{'coordinate'})
+            self.assertTrue(meta['product_coordinate_weighted'])
+            missing=copy.deepcopy(prepared);missing['reference_models'].pop('weighted_incoming')
+            with self.assertRaisesRegex(UnsupportedPortable,'explicit.*weights'):product.compile_product(missing)
+            mixed=copy.deepcopy(body['reference_models']);mixed['cover_defense']=[dict(name=n,base_defense=100.) for n in body['squad']]
+            with self.assertRaisesRegex(ValueError,'combined checked landing'):normalize(mixed)
+
     def test_weighted_missing_weights_and_unsupported_composition_fail_before_dispatch(self):
         from portable_weighted_battle_cases import fixtures
         from portable_runtime import UnsupportedPortable

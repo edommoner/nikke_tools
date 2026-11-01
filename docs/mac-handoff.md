@@ -1,3 +1,15 @@
+## 2026-11-01 配分＋座標・実多対象を通常Metalへ接続
+
+前turnは保存CUDA4条件の取得/監査missing3切分けでprogress、Windows原因unknown停止は保持。今回の通常製品missingはweighted＋coordinate/native多対象。既存座標entryに既にあるweighted hookと同じSlang Runtimeを使い、配分compilerがcoordinate prefix115680/2032000を完全保持して既存weighted16word/receipt bankを連結。backendで両bankの隣接/strideを検査。薄いentry2本のみ、式/CPU正本4file/pinned/元shader/suite/監査器変更0。model envelopeをcoordinate/weightedで分離して元結果形式へmerge。coordinate+weighted+independent cover DEFは未契約として拒否のまま。
+
+元Bay/Belorta/Miranda/Dora/Drakeの全定義を保持、明示finite ADD4/colliderでBODY含む5対象を実命中。最初の座標PART pattern案は通常scalar入力検証で拒否、制限/CPUを変えず既存ADD規約へ変更。ADD colliderのcanonical __enemy__: label漏れもGPU前に検出・修正、旧log保持。P1packageは新shader未trackedで拒否、stage後P2へ。P2自身160CPU/新native1/実M5/別GPU禁止独立sealが成功。14groupsすべて5対象、元Belorta multi_hit:4通知14が実発火。旧単BODYの通知0と区別する。
+
+通常HTTP1POST/2physicalM5で両mode×active30s/late-expire30s/inactive3sの6条件が全CPU/GPU/HTTP/Unicode一致。通知は14/3/1を両mode、late-expireで実対象1↔5、配分snapshot6/6/0、active cover実消費。静的事前確認は追加CPU battle0、元独立API比較は維持。既存保存監査6と最終releaseの全6raw再投影も追加battle/GPU0で成功、owned Node group absent。
+
+v50へ独立seal済みcoordinate-weighted-accumulate member1だけ追加、旧36member全byte保持。fixedは通常API実証済み・独立CLI baseline未登録なので--develop。最初release-v1はbaseline未trackedのためCPU開始前拒否、stage後fresh release-v2で自身160CPU/依存/PTX/O1計画成功。最終owner ee61a02993e6dc49fb5a5a0351fb40f944a6ce6002c06a319450f1ffaf71dd48、GPU後計算scope差はGOLDEN pointer/strict ledger SHAだけ。proof: .portable-recovery/proofs/product-coordinate-weighted-v1-20261101。構造化record research/product-coordinate-weighted-v1.json。
+
+標準Metal/CUDA従来記録各263/266、明示条件別original各266/266は据置、今回は合成6条件で標準profile加算0。新合成CUDA実機未確認、実機の配分比/colliderは宣言モデルで検証済みゲーム仕様へ昇格しない。全効果/任意合成/全goal未完了。次は同一kernelのaccumulate30sの1条件だけ、既存Windows helper/共通CLI/89選択/Job/2GiB/53s/RAM4GiBで短く検証する資料を準備中。元ammo残3/実行済4/停止監査を再送しない。以下は履歴。
+
 ## 2026-11-01 保存imageから通常CUDA4条件が全数値一致、監査観測で停止
 
 helper cfe8467fを輸送3e1a0e4bで共有し、旧EF packet/SDK rootをread-onlyにしたfresh API rootから開始。最初はhost hold ef45926bで準備前停止、GPU/SDK/CPU0。保存情報で先の接続設定はterminal/owned process absent/DISM終了、SSH成功false、CBS/WU restart flagsの由来unknownと確認。0eb398d0で「flagだけではGPU不能と断定しない、ホスト全体未確認として保持、既存RAM/Job/source/観測/時間を計算のgateにする」と条件を明確化。OS/SSH/flag変更や再起動なし、旧holdは変更せず新rootへ進んだ。

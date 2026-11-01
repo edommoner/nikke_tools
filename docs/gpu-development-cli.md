@@ -1,3 +1,9 @@
+## 配分と座標・複数対象の通常製品経路
+
+`reference_models.coordinate`と`weighted_incoming`を同じ通常リクエストで指定できます。既存座標サンプラー・native ADD・実命中group・配分consumerを同じ共通Runtimeで実行し、CPU由来の命中先やscheduleはGPU入力へ渡しません。両bankの完全prefix/所有/strideを検査し、結果の両モデルを元envelopeへ統合します。独立cover DEFとの同時合成は未接続のため拒否します。
+
+`coordinate-weighted-accumulate`は独立Metal/native seal済みv50、旧36基準保持。`coordinate-weighted-fixed`は通常HTTP成功、CLI基準は未登録のため`--develop`が必要です。両modeのactive/ADD出現消滅/inactive6条件で通常APIのCPU/GPU/全返却値が一致し、元multi_hit:4が実発火しました。新CUDA実機・ゲームの配分比/宣言colliderは未検証です。[証拠と失敗保持](../research/product-coordinate-weighted-v1.json)。
+
 ## 保存image継続の実CUDA確認範囲
 
 管理`prepare-api.py`のSDK参照分離はWindowsで動作し、再コンパイル/CPU unit再実行なしで元7件中の最初4件を通常APIから実CUDA実行しました。全CPU/GPU/HTTP/Unicodeと全readback SHAがM5と一致しています。監査stageまで通過したのは最初2件で、次2件のCPU-only再投影は数値成功後にmissing3の観測条件で停止、残3件は未実行です。計算一致と監査/ホスト保全を同一の成功へまとめません。[独立したM5 hash再照合と範囲](../research/product-sdk-reference-cuda-import-v1.json)。

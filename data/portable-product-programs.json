@@ -490,6 +490,20 @@
       "output_words": 2048912,
       "mode": "accumulate",
       "kind": "group"
+    },
+    "coordinate-weighted-accumulate": {
+      "source": "gpu/product_coordinate_weighted_battle_entry.slang",
+      "input_words": 115696,
+      "output_words": 2048912,
+      "mode": "accumulate",
+      "kind": ""
+    },
+    "coordinate-weighted-fixed": {
+      "source": "gpu/product_coordinate_weighted_fixed_battle_entry.slang",
+      "input_words": 115696,
+      "output_words": 2048912,
+      "mode": "fixed",
+      "kind": ""
     }
   }
 }

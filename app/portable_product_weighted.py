@@ -18,16 +18,18 @@ def compile_product(prepared,producer):
     from portable_product_world_contract import has_incoming_attacks
     if unspecified and has_incoming_attacks(prepared):
         raise UnsupportedPortable('Weighted incoming requires explicit reference_models.weighted_incoming weights; game ratios are unverified')
-    if set(declarations)-{'weighted_incoming'}:
+    if set(declarations)-{'weighted_incoming','coordinate'}:
         raise UnsupportedPortable('Weighted product consumer composition requires a matching combined wire')
     check_schema();names=[c['name'] for c in prepared['chars']]
     if not unspecified:pack(declarations['weighted_incoming'],names)
     inner=dict(prepared,_product_weighted_compiled=True);inner.pop('reference_models',None)
+    if 'coordinate' in declarations:inner['reference_models']={'coordinate':declarations['coordinate']}
     with compiler_policy():source,iw,ow,words,meta=producer(inner)
     prefixes={'gpu/product_battle_entry.slang':(104400,786432),'gpu/product_fixed_battle_entry.slang':(104400,786432),
-        'gpu/product_group_battle_entry.slang':(104408,1048576),'gpu/product_fixed_group_battle_entry.slang':(104408,1048576)}
+        'gpu/product_group_battle_entry.slang':(104408,1048576),'gpu/product_fixed_group_battle_entry.slang':(104408,1048576),
+        'gpu/product_coordinate_battle_entry.slang':(115680,2032000),'gpu/product_coordinate_fixed_battle_entry.slang':(115680,2032000)}
     if source not in prefixes or (iw,ow)!=prefixes[source]:
-        raise UnsupportedPortable('Weighted product composition requires a checked plain or actual-shot group battle entry')
+        raise UnsupportedPortable('Weighted product composition requires a checked plain, actual-shot group or coordinate battle entry')
     indices=[i for i,r in enumerate(prepared['effects']) if r['effect'].get('stat')=='received_dmg_split']
     if len(indices)!=2 or {prepared['effects'][i]['effect']['target'] for i in indices}!={'all_allies','self_cover'}:
         raise UnsupportedPortable('Weighted product requires exactly one original body and cover marker')
@@ -38,11 +40,14 @@ def compile_product(prepared,producer):
         if words[at+F['KIND']]!=4 or words[at+F['STAT']]!=0:raise ValueError('Weighted product placeholder changed')
         rows.append(row)
     bank=([MAGIC,1,5,1]+[0]*6+[r+1 for r in rows]+[0]*4 if unspecified else pack(declarations['weighted_incoming'],names,rows))
-    meta['product_weighted_incoming']=dict(declarations=declarations,source_rows=rows,unspecified_quantities=unspecified,
+    coordinate='coordinate' in declarations
+    if coordinate:meta['product_coordinate_weighted']=True
+    weighted_declarations={k:v for k,v in declarations.items() if k=='weighted_incoming'}
+    meta['product_weighted_incoming']=dict(declarations=weighted_declarations,source_rows=rows,unspecified_quantities=unspecified,
         source_name=next(prepared['effects'][i]['effect']['name'] for i in indices if prepared['effects'][i]['effect']['target']=='all_allies'),
         cover_name=next(prepared['effects'][i]['effect']['name'] for i in indices if prepared['effects'][i]['effect']['target']=='self_cover'),
         cpu_state_or_schedule_supplied=False)
-    return ('gpu/product_weighted_'+('fixed_' if 'fixed_' in source else '')+('group_' if 'group_' in source else '')+'battle_entry.slang',INPUT,OUTPUT,
+    return ('gpu/product_'+('coordinate_weighted_' if coordinate else 'weighted_')+('fixed_' if 'fixed_' in source else '')+('group_' if 'group_' in source else '')+'battle_entry.slang',INPUT,OUTPUT,
         list(words)+[0]*(W['BASE']-len(words))+bank,meta)
 
 def read_result(block,metadata,names,duration):

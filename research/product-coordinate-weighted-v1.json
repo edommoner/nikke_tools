@@ -1,0 +1,272 @@
+{
+  "schema": "product-coordinate-weighted-v1",
+  "implementation": {
+    "common_cuda_metal_runtime": true,
+    "new_suites": 0,
+    "new_auditors": 0,
+    "new_calculation_formulas": 0,
+    "canonical_cpu_changes": 0,
+    "pinned_changes": 0,
+    "numeric_rules_or_tolerances_changed": false,
+    "registry_programs": 72,
+    "new_thin_programs": [
+      "coordinate-weighted-accumulate",
+      "coordinate-weighted-fixed"
+    ],
+    "preserved_all_original_effects": true,
+    "wire_boundary": "Complete coordinate prefix115680/2032000 plus existing literal weighted16-word input/owned receipt bank; compile and backend enforce adjacency",
+    "input_has_cpu_battle_or_targets_or_schedule": false,
+    "original_gpu_sources_byte_unchanged": true
+  },
+  "normal_api": {
+    "conditions": 6,
+    "posts": 1,
+    "physical_gpu_dispatches": 2,
+    "seconds": 28.529371207987424,
+    "all_full_cpu_gpu_http_equal": true,
+    "preflight_extra_cpu_battles": 0,
+    "saved_audit_additional_battles": 0,
+    "saved_audit_additional_gpu": 0,
+    "release_projection_additional_battles": 0,
+    "release_projection_additional_gpu": 0,
+    "owned_node_process_group_absent": true,
+    "rows": [
+      {
+        "variant": "active-fixed",
+        "source": "gpu/product_coordinate_weighted_fixed_battle_entry.slang",
+        "definitions": 74,
+        "group_count": 14,
+        "group_notifications": 14,
+        "distinct_targets_per_group": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "group_resources_released": true,
+        "active_multitarget_callback_verified": true,
+        "weighted_snapshots": 6,
+        "cover_receipts": 6,
+        "active_weighted_cover": true,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "69195ced9a16991579088647ecdf542a584d4d98df704811f015d13c34af4822",
+        "output_sha256": "a3fe9e570cd13be339de21bd917be89f56e355265800dc7202d353d5ea6cbe92"
+      },
+      {
+        "variant": "late-expire-fixed",
+        "source": "gpu/product_coordinate_weighted_fixed_battle_entry.slang",
+        "definitions": 74,
+        "group_count": 14,
+        "group_notifications": 3,
+        "distinct_targets_per_group": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          5,
+          5,
+          5,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "group_resources_released": true,
+        "active_multitarget_callback_verified": true,
+        "weighted_snapshots": 6,
+        "cover_receipts": 6,
+        "active_weighted_cover": true,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "0c2267b467ff90ef8ec3e91f23672d313f2296640b8c58843d272f9a9b512103",
+        "output_sha256": "7f9bc7749f2cea077ebf0ac07a704af230b486402215cc90f82309fb85905f90"
+      },
+      {
+        "variant": "inactive-fixed",
+        "source": "gpu/product_coordinate_weighted_fixed_battle_entry.slang",
+        "definitions": 74,
+        "group_count": 1,
+        "group_notifications": 1,
+        "distinct_targets_per_group": [
+          5
+        ],
+        "group_resources_released": true,
+        "active_multitarget_callback_verified": true,
+        "weighted_snapshots": 0,
+        "cover_receipts": 0,
+        "active_weighted_cover": false,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "450b009fe45f6c8304a5132411a400871d1836f49a90f759e79e9459418f3d64",
+        "output_sha256": "151da6356f5622e121ab41ab65a40a83f456446f5a774065977dca4302295fa8"
+      },
+      {
+        "variant": "active-accumulate",
+        "source": "gpu/product_coordinate_weighted_battle_entry.slang",
+        "definitions": 74,
+        "group_count": 14,
+        "group_notifications": 14,
+        "distinct_targets_per_group": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "group_resources_released": true,
+        "active_multitarget_callback_verified": true,
+        "weighted_snapshots": 6,
+        "cover_receipts": 6,
+        "active_weighted_cover": true,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "539e4b6aa6e1567c4fc2f9c3b01e2d098b88bb9f79588621489fe0117cc958ef",
+        "output_sha256": "87a1bb42aa36bcc55f6ae39b1e1bbd748be308bdd3c90eef95856cc8efd3ab8f"
+      },
+      {
+        "variant": "late-expire-accumulate",
+        "source": "gpu/product_coordinate_weighted_battle_entry.slang",
+        "definitions": 74,
+        "group_count": 14,
+        "group_notifications": 3,
+        "distinct_targets_per_group": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          5,
+          5,
+          5,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "group_resources_released": true,
+        "active_multitarget_callback_verified": true,
+        "weighted_snapshots": 6,
+        "cover_receipts": 6,
+        "active_weighted_cover": true,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "d9ab6c4b1d1e37a3e8a9282804af02a572f98c868a0df464d8ba223f5f9e69fa",
+        "output_sha256": "9675a5a83ee6457d3a4a25041fa55bcee25e7c7cf2f88ea241f11bfcf6faf6a4"
+      },
+      {
+        "variant": "inactive-accumulate",
+        "source": "gpu/product_coordinate_weighted_battle_entry.slang",
+        "definitions": 74,
+        "group_count": 1,
+        "group_notifications": 1,
+        "distinct_targets_per_group": [
+          5
+        ],
+        "group_resources_released": true,
+        "active_multitarget_callback_verified": true,
+        "weighted_snapshots": 0,
+        "cover_receipts": 0,
+        "active_weighted_cover": false,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "7ced64302dcbbcca9e764a7fbcc58d614e9399597792690d8d40eb46b2bb6116",
+        "output_sha256": "f980bbc3a9ab274c140644f239676966e2fb616f838294d43c42350519ede020"
+      }
+    ]
+  },
+  "cli": {
+    "program": "coordinate-weighted-accumulate",
+    "development_owner": "d38f22118f225e77e4c0e19de1003d7d46d2dde21dda6e4ff4cea26a4fd0b374",
+    "independent_native_and_metal_cases": 1,
+    "independent_audit": {
+      "package_id": "d38f22118f225e77e4c0e19de1003d7d46d2dde21dda6e4ff4cea26a4fd0b374",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-coordinate-weighted-v1-20261101/metal-v2",
+      "child_pid": 38914,
+      "input_count": 1,
+      "native_cases": 1,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 2.006063832959626,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "539e4b6aa6e1567c4fc2f9c3b01e2d098b88bb9f79588621489fe0117cc958ef",
+      "output_sha256": "87a1bb42aa36bcc55f6ae39b1e1bbd748be308bdd3c90eef95856cc8efd3ab8f",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "baseline_version": 50,
+    "old36_members_unchanged": true,
+    "fixed_mode_api_verified": true,
+    "fixed_mode_independent_cli_baseline_registered": false
+  },
+  "release": {
+    "owner": "ee61a02993e6dc49fb5a5a0351fb40f944a6ce6002c06a319450f1ffaf71dd48",
+    "own_unit_tests": 160,
+    "own_cpu_deps_ptx_o1_plans_passed": true,
+    "only_calculation_scope_delta_after_gpu": [
+      "app/portable_product_programs.py",
+      "app/portable_weighted_incoming_source_contract.py"
+    ],
+    "all6_saved_raw_reprojected_exact": true
+  },
+  "failures_retained": [
+    {
+      "log": "models-v1.log",
+      "reason": "Literal coordinate PART pattern rejected by existing ordinary scalar-pattern boundary; CPU/input restrictions unchanged, uses existing finite ADD/collider contract instead"
+    },
+    {
+      "log": "models-v2.log",
+      "reason": "ADD labels lacked canonical __enemy__: prefix; fixture corrected without changing effects or expected values"
+    },
+    {
+      "log": "package-v1.log",
+      "reason": "New shader not staged/tracked, rejected before package execution; staged source and built fresh packet-v2"
+    },
+    {
+      "log": "release-v1/cpu.log",
+      "reason": "New v50 baseline absent from tracked immutable payload, rejected before tests/battle/GPU; staged baseline and built fresh release-v2"
+    }
+  ],
+  "standard_product_profiles": {
+    "metal": 263,
+    "cuda_recorded": 263,
+    "total": 266,
+    "new_standard_profiles": 0,
+    "configured_original_historical_each": 266,
+    "current_full_cuda_matrix_revalidated": false
+  },
+  "new_composition_cuda_verified": false,
+  "weights_and_colliders_game_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Short CUDA difference verification of this same product entry",
+    "Weighted with independent cover DEF/typed target/movement/lock compositions remain guarded",
+    "Other unconnected declared consumer compositions and arbitrary world conditions"
+  ]
+}

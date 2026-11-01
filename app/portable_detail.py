@@ -88,6 +88,9 @@ def _compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
     from portable_product_cover import required as cover_required,compile_product as compile_cover
     if 'coordinate' in prepared.get('reference_models',{}):
+        from portable_product_weighted import required as weighted_required,compile_product as compile_weighted
+        if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):
+            return compile_weighted(prepared,compile_product)
         if not prepared.get('_product_cover_compiled') and cover_required(prepared):
             return compile_cover(prepared,compile_product)
         from portable_product_coordinate import compile_product as coordinates
@@ -292,7 +295,7 @@ def decode_payload(body, prepared, run, metadata, block):
     models=[]
     if metadata.get('product_coordinate'):
         from portable_product_coordinate import read_result,OUTPUT as COORDINATE_OUTPUT
-        models.append(read_result(block[:COORDINATE_OUTPUT] if metadata.get('product_coordinate_cover') else block,metadata))
+        models.append(read_result(block[:COORDINATE_OUTPUT] if metadata.get('product_coordinate_cover') or metadata.get('product_coordinate_weighted') else block,metadata))
     if metadata.get('product_enemy_healing'):
         from portable_product_healing import read_result
         from portable_enemy_healing_wire import OUTPUT as healing_output

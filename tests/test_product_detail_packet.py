@@ -62,8 +62,8 @@ class ProductPacket(unittest.TestCase):
         cli=self.cli();base=cli.SUITES['product-detail']
         self.assertIs(configuration(cli.SUITES,'product-detail'),base)
         self.assertIs(configuration(cli.SUITES,dict(suite='product-detail')),base)
-        self.assertEqual(len(PROGRAMS),70)
-        self.assertEqual({n for n in PROGRAMS if n.startswith('coordinate-')},{'coordinate-fixed','coordinate-accumulate','coordinate-cover-fixed','coordinate-cover-accumulate'})
+        self.assertEqual(len(PROGRAMS),72)
+        self.assertEqual({n for n in PROGRAMS if n.startswith('coordinate-')},{'coordinate-fixed','coordinate-accumulate','coordinate-cover-fixed','coordinate-cover-accumulate','coordinate-weighted-fixed','coordinate-weighted-accumulate'})
         self.assertEqual({n for n in PROGRAMS if n.startswith('healing-') and n.endswith('-group')},
                          {'healing-fixed-group','healing-accumulate-group','healing-cover-fixed-group','healing-cover-accumulate-group'})
         self.assertEqual({n for n in PROGRAMS if n.startswith('movement-range-cover-')},
