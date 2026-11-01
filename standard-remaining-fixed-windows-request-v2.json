@@ -1122,7 +1122,7 @@
   ],
   "other_programs_and_four_fallbacks_not_requested": true,
   "full_goal_complete": false,
-  "report": "standard-remaining-fixed-normal-api-status-v1.json",
+  "report": "standard-remaining-fixed-normal-api-status-v2.json",
   "report_policy": "Small per-profile hashes/outcomes plus bounded stage/memory/driver aggregates, precise completed count and first failure. No raw buffers, full API payloads or compiler distributions in GitHub report.",
   "correction": {
     "previous_request_static_failed_before_post": true,
@@ -1134,5 +1134,10 @@
     "no_old_post_or_gpu_claim_consumed": true,
     "new_fresh_capture_required": true,
     "do_not_relax_selector_guard": true
+  },
+  "prior_stopped_report": {
+    "name": "standard-remaining-fixed-normal-api-status-v1.json",
+    "sha256": "da116f3f7a4e36ddb95bc28356c2fabdcc75e58b2f41d23b2ed23536449d7f99",
+    "must_retain_unchanged": true
   }
 }
