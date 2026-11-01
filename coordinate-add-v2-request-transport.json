@@ -1,0 +1,21 @@
+{
+  "schema": "product-request-correction-transport-v1",
+  "owner": "b659740bb186a4acd141c2ca4f698609f991cb24fc581024dc233ffee2395ec9",
+  "files": [
+    {
+      "path": "coordinate-add-v2-request-validation.json",
+      "bytes": 820,
+      "sha256": "f63e7881d43b59df04a1e9a2268891cc46e2ed586d89afec3b0eedc235cfc4f1"
+    },
+    {
+      "path": "coordinate-add-v2-windows-request.json",
+      "bytes": 9601,
+      "sha256": "34e740509c0621cc2dbd27739dd9a4373658be9bc8eb8d821e38d403f672b3de"
+    }
+  ],
+  "prior_unchanged_payload_commit": "816710fb9ac2825ca84f2435c4b7b867a291caa7",
+  "prior_preexecution_stop_commit": "a71a0718ee06d3a60a409e1cda7c97b047c60532",
+  "source_packet_selector_job_expected_plans_changed": false,
+  "sdk_or_gpu_retry": false,
+  "raw_or_settings_included": false
+}

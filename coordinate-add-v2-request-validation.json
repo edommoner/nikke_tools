@@ -1,0 +1,17 @@
+{
+  "schema": "product-request-integration-v1",
+  "owner": "b659740bb186a4acd141c2ca4f698609f991cb24fc581024dc233ffee2395ec9",
+  "corrected_request_sha256": "34e740509c0621cc2dbd27739dd9a4373658be9bc8eb8d821e38d403f672b3de",
+  "original_published_request_sha256": "5a6ca2ff0f3afc20ae8c4c02d38cfca43e649d887f85187f4f2f684c663b192b",
+  "only_request_id_projection_corrected": true,
+  "selector_sha256": "b616d2138878bc91b36040bdcff33572d8b0b92c86bb83423bd12b9d2f8593ce",
+  "packet_selector_job_expected_plans_unchanged": true,
+  "managed_helper_sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7",
+  "managed_helper_run_passed": true,
+  "selected_tests": 12,
+  "selected_unit_scope_only": true,
+  "full_unit_tests_verified": false,
+  "extra_native_battles": 0,
+  "sdk_calls": 0,
+  "gpu_calls": 0
+}
