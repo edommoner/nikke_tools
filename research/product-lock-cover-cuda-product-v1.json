@@ -51,6 +51,12 @@
       "path": "lock-cover-saved-resource-summary-v1.json",
       "bytes": 12844,
       "sha256": "7629dd1c6fa1aecb4c5cd1d473c482ab788e4425a52cb3127042ff6d8f96d878"
+    },
+    {
+      "commit": "23e65e7762db1566aa130ccb7ea813a394ad6bf8",
+      "path": "lock-cover-saved-skill-history-v1.json",
+      "bytes": 6435,
+      "sha256": "defaa17799e3924092917e6ac757c513089d65bea037941ffefc80ecac648626"
     }
   ],
   "compile": {
@@ -195,7 +201,52 @@
     "memory_failure_ruled_out": false,
     "readback_unchanged": true,
     "additional_gpu_calls": 0,
-    "additional_native_battles": 0
+    "additional_native_battles": 0,
+    "partial_skill_prefix": {
+      "count": 3,
+      "all_semantic_fields_match_m5_prefix": true,
+      "rows": [
+        78,
+        78,
+        7
+      ],
+      "last_created": 1.2000000000000006,
+      "last_landed": 1.2166666666666672,
+      "last_recipients": [
+        0,
+        1,
+        2
+      ],
+      "full_m5_count": 168,
+      "partial_prefix_not_complete_calculation": true,
+      "additional_gpu_calls": 0,
+      "additional_native_battles": 0
+    },
+    "lock_header": {
+      "constant": "LP_HEAD",
+      "absolute_word": 1068432,
+      "header_words": 16,
+      "expected_magic": 1280323633,
+      "magic_matches": true,
+      "values": {
+        "LP_HEAD+0": 1280323633,
+        "LP_HEAD+1": 5,
+        "LP_HEAD+2": 5,
+        "LP_HEAD+3": 0,
+        "LP_HEAD+4": 0,
+        "LP_HEAD+5": 0,
+        "LP_HEAD+6": 0,
+        "LP_HEAD+7": 0,
+        "LP_HEAD+8": 0,
+        "LP_HEAD+9": 0,
+        "LP_HEAD+10": 0,
+        "LP_HEAD+11": 0,
+        "LP_HEAD+12": 0,
+        "LP_HEAD+13": 0,
+        "LP_HEAD+14": 0,
+        "LP_HEAD+15": 0
+      }
+    }
   },
   "memory": {
     "api_job_peak_bytes": 1929351168,
@@ -233,5 +284,5 @@
     "service_identity": "unverified",
     "environment_preservation_verified": false
   },
-  "next_action": "Inspect saved partial event semantics; do not rerun failed GPU. Standard fixed image preparation is separate and does not count as Windows execution."
+  "next_action": "First three recorded skill rows match M5 exactly; inspect downstream first Lock On enqueue/drain and callback paths before proposing a shared source correction. No GPU retry."
 }
