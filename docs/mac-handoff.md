@@ -6,7 +6,7 @@
 
 輸送ddeed4beの既存request1fileを共有し、残237の同fixedだけを30batch（最大8、最後5）へ依頼済み。各親input/output hashと転送chunk長を元M5 rawからCPUだけで計算し、既存static table245を使用。最初8件の全計算/保存/Job実測を確認してから続け、以後もbatchごと停止条件を適用。APIhelper53秒/2GiB/BelowNormal/freshJob+gate、静的・監査60秒、各outer180秒以内・直列。whole30を1長時間outerに入れない。旧8件再実行/追加SDK/native事前/全testなし、GPU後fresh CPU比較は維持。全CPU/GPU/API/M5・親slice/source/hashを要求し、差分/fallback/missing/観測不全/timeout等で保存停止、retry0。別program17件と4fallbackは今回未依頼。残237結果は未取得。
 
-Macでは既存fixed-group（標準Belorta/Nihilisterの2件用）をsourcee078から不変development owner2a519d52…で用意。own136 CPU・fresh native・実M5代表30秒・GPU禁止fresh独立sealに成功。代表Belortaは旧通常M5のinput4a8cbfd2…と全readback f7d44e60…が元bytesと一致。新GPU/効果/数値/比較器0。未登録だったfixed-groupを独立seal後v30へ追加、旧22member全保持。GOLDEN pathの厳密な88cda履歴inverse/SHAも同時更新し、既存履歴7/製品10成功。これはCLI準備で新通常API profile/CUDA加算0、まだsealed release/Windows未依頼。
+Macでは既存fixed-group（標準Belorta/Nihilisterの2件用）をsourcee078から不変development owner2a519d52…で用意。own136 CPU・fresh native・実M5代表30秒・GPU禁止fresh独立sealに成功。代表Belortaは旧通常M5のinput4a8cbfd2…と全readback f7d44e60…が元bytesと一致。新GPU/効果/数値/比較器0。未登録だったfixed-groupを独立seal後v30へ追加、旧22member全保持。GOLDEN pathの厳密な88cda履歴inverse/SHAも同時更新し、既存履歴7/製品10成功。これはCLI準備で新通常API profile/CUDA加算0、sealed release owner1a29d920…／source7d4000f4（archive12,069,087bytes/SHA1de3803b…）とown PTX/O1 60秒/2GiB計画・depsも成功。元Belorta/Nihilisterの2要求を自身でsimulate/GPU禁止静的再packし全input/元M5 rawを保持。Windowsは残237の既存turnを優先し、当groupは未依頼。
 
 原本proofs/product-cuda-standard-current-v4-20261101、product-cuda-standard-group-current-v1-20261101。小記録research/product-standard-current-source-v1.json、product-standard-group-current-source-v1.jsonと標準status原本3file。全goalは未完了。次は既存237件turnを再送せず追跡し、groupのsealed release準備と他入口へ進む。以下は履歴。
 

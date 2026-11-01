@@ -19,5 +19,15 @@
   "post_registration_history_tests": 7,
   "post_registration_product_packet_tests": 10,
   "registered_golden": "research/portable-product-programs-v30-expected.json",
-  "independent_audit_receipt_sha256": "bf701f97c1ca4358368ec37f5c439d3db6d9d18f90d76a0ffe0e4d743b45ccbb"
+  "independent_audit_receipt_sha256": "bf701f97c1ca4358368ec37f5c439d3db6d9d18f90d76a0ffe0e4d743b45ccbb",
+  "sealed_release": {
+    "owner": "1a29d9203b787276e9caec33df3c918f57000e579328d901e28042d294e3203c",
+    "source_commit": "7d4000f4899d5f7f83356e0694d63715a1c48c81",
+    "archive_bytes": 12069087,
+    "archive_sha256": "1de3803b1a8b42d89f92260eb18d2819190e2edae0aacf8402da04cc0d524dba",
+    "own_ptx_o1_plans_passed": true,
+    "validation_deps_passed": true,
+    "two_original_profile_inputs_and_m5_raw_hashes_retained": true,
+    "windows_requested": false
+  }
 }
