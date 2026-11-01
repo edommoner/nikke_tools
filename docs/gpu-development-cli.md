@@ -1,3 +1,11 @@
+## 敵弾倉と実射撃グループの通常API
+
+`reference_models.enemy_ammo`と元の散弾／同時命中listenerを含む編成を、既存の単一時計・ActorPool・ADD攻撃実行器で合成できます。`cover_defense`／手動遮蔽も併用できます。攻撃するBODY/ADDには各弾倉の容量・初期値・再装填秒数を明示し、遮蔽DEFは独立した5人の明示値を使います。未宣言値は推定しません。自爆付き敵弾倉とtarget modifierの合成は引き続き理由付きCPU fallbackです。
+
+既存`product-detail`の`ammo-fixed-group`／`ammo-accumulate-group`／`ammo-cover-fixed-group`／`ammo-cover-accumulate-group`を選択します。新suiteはありません。`ammo-cover-fixed-group`は実M5・fresh native・GPU禁止の独立seal済みv45へ登録し、旧34memberは全保持しました。`package --suite product-detail --product-program ammo-cover-fixed-group --compact --out NEW.zip`を使います。他3入口は通常APIのMetal成功済み、独立CLI基準未登録なので`--develop`が必要です。
+
+通常APIは固定／実蓄積×15／30秒×遮蔽あり／なしの8条件で全CPU/GPU/HTTP一致、実減弾・再装填・射撃groupを確認済みです。最初のGPUは成功したが、結果変換で遮蔽tailをADD固定長readerへ渡す不具合を検出。各領域の全検査は維持してhost受け渡しだけ修正し、同じ完全readbackを既存CLI replayで再利用、追加GPU0で独立seal成功。旧失敗も保存しています。[範囲・入力／出力SHA・残件](../research/product-ammo-group-v1.json)。現合成のCUDA実機は未確認です。
+
 ## 通常の名前付きmodifier carrier
 
 `named-carriers-fixed` / `named-carriers-accumulate`は、対象数・範囲modifierの値・宛先・寿命を保持して通常の共通carrierへ渡す。全definitionに一致するtarget_effect名がない場合だけ受け付け、一致するスキルを追加するとhost/GPU両方で既存の宣言named_range consumerを要求する。半径・距離・対象数規則を推定しない。

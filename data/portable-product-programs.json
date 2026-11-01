@@ -420,6 +420,34 @@
       "output_words": 2048912,
       "mode": "accumulate",
       "kind": "group"
+    },
+    "ammo-fixed-group": {
+      "source": "gpu/product_ammo_fixed_group_battle_entry.slang",
+      "input_words": 117632,
+      "output_words": 2032000,
+      "mode": "fixed",
+      "kind": "group"
+    },
+    "ammo-accumulate-group": {
+      "source": "gpu/product_ammo_group_battle_entry.slang",
+      "input_words": 117632,
+      "output_words": 2032000,
+      "mode": "accumulate",
+      "kind": "group"
+    },
+    "ammo-cover-fixed-group": {
+      "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+      "input_words": 117656,
+      "output_words": 2048912,
+      "mode": "fixed",
+      "kind": "group"
+    },
+    "ammo-cover-accumulate-group": {
+      "source": "gpu/product_ammo_cover_group_battle_entry.slang",
+      "input_words": 117656,
+      "output_words": 2048912,
+      "mode": "accumulate",
+      "kind": "group"
     }
   }
 }

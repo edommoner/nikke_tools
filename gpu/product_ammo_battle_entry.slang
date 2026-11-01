@@ -9,7 +9,11 @@
 #define RESOURCE_TRACE_ENABLED(s) true
 #define RESOURCE_TRACE_AT(output,index) ((index)<128U ? (output)+P_RESOURCE_TRACE_BASE+(index)*8U : (output)+EAM_OUTPUT_BASE+EAM_RESOURCE_BASE+((index)-128U)*8U)
 #define portableEvents unusedProductAmmoBaseEntry
+#ifdef PORTABLE_PRODUCT_AMMO_GROUP
+#include "product_group_battle_entry.slang"
+#else
 #include "product_battle_entry.slang"
+#endif
 #undef portableEvents
 #include "world_add_attack_cursor.slang"
 #include "world_add_attack_battle_runtime.slang"

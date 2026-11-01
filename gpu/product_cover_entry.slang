@@ -13,7 +13,13 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     WORLD_TEAM_INPUT(input,output)
     for(uint i=786432U;i<CDF_OUTPUT_WORDS;i++)results[output+i]=0;
 #if defined(PORTABLE_PRODUCT_COVER_AMMO)
-    for(uint i=104400U;i<ADB_BASE;i++)if(commands[input+i]!=0){results[output]=64;return;}
+    for(uint i=
+#ifdef PORTABLE_PRODUCT_AMMO_GROUP
+        104408U
+#else
+        104400U
+#endif
+        ;i<ADB_BASE;i++)if(commands[input+i]!=0){results[output]=64;return;}
 #elif defined(PORTABLE_PRODUCT_COVER_HEALING)
     for(uint i=
 #ifdef PORTABLE_PRODUCT_HEALING_GROUP

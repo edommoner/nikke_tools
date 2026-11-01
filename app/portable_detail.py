@@ -372,7 +372,9 @@ def decode_payload(body, prepared, run, metadata, block):
             if kind==2 and arg not in (1,2,3,4):
                 raise UnsupportedPortable('Unknown product world closing outcome')
         from portable_product_add_attack import query_sources
-        sources=query_sources(block,metadata,ammo_attempts=ammo_attempts)
+        # Cover receipts were completely validated above. The ADD/ammo
+        # reader owns its original full prefix, not the appended cover bank.
+        sources=query_sources(ammo_block if metadata.get('product_ammo_cover') else block,metadata,ammo_attempts=ammo_attempts)
         world=read_histories(block,nodes,attack_sources=sources)
         if any(not math.isfinite(row['time']) or row['time']<0 for row in world['boss_log']):
             raise UnsupportedPortable('Invalid product world history time')

@@ -1,3 +1,13 @@
+## 2026-11-01 敵弾倉＋実射撃group＋遮蔽を通常APIへ接続、M5全8条件一致
+
+WindowsはRAM2.09GiBで停止したterminalのまま、追加依頼0。Macで次の未対応consumer合成を進めた。Velvet＋Belortaの元81定義（遮蔽はSoldier O.W.入り79定義）を全保持し、敵弾倉/ADD攻撃と実射撃groupを同じ時計・ActorPoolへ接続。group descriptor104400..104408をzero paddingから区別し、残りpaddingを全検査。遮蔽併用も同じprefixを使い、ammo end2032000/cover start2032000の独立領域を保持。算術・効果式・CPU正本4file/upstream・許容差変更0。新suite0、既存product-detailの薄い選択4本。
+
+最初の実M5自体は成功、host結果変換が遮蔽付き全長をADD固定長readerへ渡しInvalid product ADD source receipt。CPU/GPUraw/source/input/失敗/claimを保持。cover read_resultで全tail検査後、ADD readerへ元の完全ammo prefixだけ渡すhost修正で解決。同じGPU source/input/output全byteを既存CLI replayで厳密再利用、fresh native比較・独立GPU禁止seal成功（追加GPU0）。input0a040630…/output36b2aafa…。own151 CPU（67/11/7/66）成功。初回未tracked入口の梱包停止、呼出し旧archive名の展開前停止、registry60→64検査前停止も原本保持。
+
+不変packet-v4の通常API1POST/4physicalGPUbatchで、固定/実蓄積×15/30秒×遮蔽有無の8条件全CPU/GPU/HTTP/Unicode一致。全条件の実group・非ゼロ減弾・敵攻撃64attempt・reload4receipt、遮蔽側の実landingを確認。保存親/member全raw/input/sourceとpayload再投影監査8成功、追加battle/GPU0、専用Node group消滅。v45はammo-cover-fixed-groupだけ追加し旧34member全保持。他3新入口はAPI成功・独立CLI基準未登録。最終release ownerb2bcd854369ba2b307d6ad7a55a4e25a593405b595296df751c79b06aad142e6自身151CPU/deps/PTX60秒/O1計画成功。最終releaseでも全8保存raw/input/source/全payload再投影一致、追加battle/GPU0。packet-v4とのapp/gpu/data差はGOLDEN44→45とledgerSHAだけ。小記録research/product-ammo-group-v1.json、原本proofs/product-ammo-group-v1-20261101。
+
+新合成CUDAは未確認。標準Metal/CUDA累積263/266、宣言別Metal266/CUDA265のまま、標準追加0。自爆付き敵弾倉、target modifier/他consumer合成、未指定ゲームモデル・全特殊効果・任意合成は未完了。WindowsのRAM待ちだけにせず、次はこれらの既存consumer接続を優先。全goal未完了。以下は履歴。
+
 ## 2026-11-01 保存object/link取得、APIはRAM admissionで未開始
 
 Heavy元30秒の保存継続報告2本（3484abbf/17899a50、11,418/6,160byte）を取得し、相互SHA、元owner/manifest/request/job/expected、PTX/imageの横断identityをMac照合した。PTXの再コンパイル0、初回object5,642,480byte/9ef5e297…とlink image5,269,840byte/c92e26e4…はinner0/19.292・22.347秒、outer2/35.861・55.425秒。missing0/2GiB/prepost/empty/cleanup正常でもouter環境falseは保持し、旧PTX outer missing7/未admitを成功へ変更しない。raw binary/Job receiptはMac未import、保存small summaryの整合確認と区別する。

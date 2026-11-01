@@ -194,6 +194,40 @@ class ProductReferenceModels(unittest.TestCase):
         block[1769856]=1
         with self.assertRaisesRegex(UnsupportedPortable,'coordinate product history'):read_result(block,metadata)
 
+    def test_enemy_ammo_shot_groups_keep_original_definitions_and_both_literal_banks(self):
+        from portable_runtime import UnsupportedPortable
+        from portable_product_programs import body_for_program
+        from portable_detail import prepare,compile_product
+        from portable_backend import validate_composed_stride
+        from portable_enemy_ammo_wire import LAYOUT as E,MAGIC
+        from portable_add_attack_battle_wire import LAYOUT as A
+        from portable_cover_defense_wire import LAYOUT as C,MAGIC as COVER_MAGIC
+        for cover in (False,True):
+            for mode in ('fixed','accumulate'):
+                name=('ammo-cover-' if cover else 'ammo-')+mode+'-group'
+                body=body_for_program(ROOT,name);original=copy.deepcopy(body)
+                with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle as input')):
+                    prepared,_=prepare(body);before=copy.deepcopy(prepared)
+                    source,iw,ow,words,meta=compile_product(prepared)
+                self.assertEqual(body,original);self.assertEqual(prepared,before)
+                self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+                self.assertEqual(words[104400:104402],[0x41475331,2])
+                self.assertFalse(any(words[104408:A['BASE']]))
+                self.assertEqual(words[E['BASE']],MAGIC)
+                self.assertEqual(meta['product_enemy_ammo']['declarations'],{'enemy_ammo':body['reference_models']['enemy_ammo']})
+                self.assertFalse(meta['product_enemy_ammo']['cpu_state_or_schedule_supplied'])
+                self.assertIn('product_add_attacks',meta)
+                self.assertEqual(iw,E['INPUT_WORDS']+(C['WORDS'] if cover else 0))
+                self.assertEqual(iw,len(words));validate_composed_stride(source,iw,ow)
+                self.assertEqual(source,'gpu/product_'+('ammo_cover_' if cover else 'ammo_')+('fixed_' if mode=='fixed' else '')+'group_battle_entry.slang')
+                if cover:
+                    self.assertEqual(words[E['INPUT_WORDS']],COVER_MAGIC)
+                    self.assertEqual(meta['product_cover_defense']['declarations'],{'cover_defense':body['reference_models']['cover_defense']})
+                missing=copy.deepcopy(body);missing['reference_models'].pop('enemy_ammo')
+                with patch.object(sim,'execute',side_effect=AssertionError('Reject before CPU battle')):
+                    with self.assertRaisesRegex(UnsupportedPortable,'explicit.*magazines'):
+                        missing_prepared,_=prepare(missing);compile_product(missing_prepared)
+
     def test_healing_group_preserves_original_effects_and_shared_wire(self):
         from portable_product_programs import body_for_program
         from portable_detail import prepare,compile_product

@@ -27,10 +27,13 @@ def compile_product(prepared,producer):
     if any(p.summon and p.summon.self_destruct for p in patterns):raise UnsupportedPortable('Product enemy magazines with retired self-destruct queues require the combined consumer')
     check_schema();inner=dict(prepared,_product_ammo_compiled=True);inner.pop('reference_models',None)
     with compiler_policy():source,iw,ow,words,meta=producer(inner)
-    if source in ('gpu/product_battle_entry.slang','gpu/product_fixed_battle_entry.slang') and iw==104400:
+    grouped=source in ('gpu/product_group_battle_entry.slang','gpu/product_fixed_group_battle_entry.slang','gpu/product_add_group_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang')
+    plain_prefixes={'gpu/product_battle_entry.slang':(104400,786432),'gpu/product_fixed_battle_entry.slang':(104400,786432),
+        'gpu/product_group_battle_entry.slang':(104408,1048576),'gpu/product_fixed_group_battle_entry.slang':(104408,1048576)}
+    if source in plain_prefixes and (iw,ow)==plain_prefixes[source]:
         words=list(words)+[0]*(A['BASE']-len(words))+pack_add(patterns,bindings,raw)
-    elif source not in ('gpu/product_add_battle_entry.slang','gpu/product_add_fixed_battle_entry.slang') or iw!=A['INPUT_WORDS']:
-        raise UnsupportedPortable('Enemy magazines require the plain shared BODY/ADD product prefix')
+    elif source not in ('gpu/product_add_battle_entry.slang','gpu/product_add_fixed_battle_entry.slang','gpu/product_add_group_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang') or (iw,ow)!=(A['INPUT_WORDS'],A['OUTPUT_WORDS']):
+        raise UnsupportedPortable('Enemy magazines require a checked plain or actual-shot group BODY/ADD product prefix')
     if len(words)!=E['BASE']:raise ValueError('Enemy magazine product prefix changed')
     if spec is not None:bank=pack(spec,patterns,bindings)
     else:
@@ -43,7 +46,8 @@ def compile_product(prepared,producer):
         bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],
         cpu_state_or_schedule_supplied=False)
     fixed='fixed_' in source
-    return ('gpu/product_ammo_fixed_battle_entry.slang' if fixed else 'gpu/product_ammo_battle_entry.slang',E['INPUT_WORDS'],E['OUTPUT_WORDS'],words+bank,meta)
+    stem=('fixed_' if fixed else '')+('group_' if grouped else '')
+    return ('gpu/product_ammo_'+stem+'battle_entry.slang',E['INPUT_WORDS'],E['OUTPUT_WORDS'],words+bank,meta)
 
 def read_result(block,meta):
     from portable_enemy_ammo_readback import read_ammo
