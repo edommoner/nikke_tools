@@ -1,0 +1,34 @@
+{
+  "schema": "healing-group-cover-cuda-expected-v1",
+  "owner": "836ade72e7dae4aa173038c4836d96e73bc0224d0d936113a8cc3f472a6815af",
+  "source_commit": "394546cd4d370631b36c09cfb41c36f6230a8ec3",
+  "source": "gpu/product_healing_cover_fixed_group_battle_entry.slang",
+  "physical_cases": 2,
+  "input_words": 120072,
+  "output_words": 2048912,
+  "physical_input_bytes": 960580,
+  "physical_output_bytes": 16391296,
+  "physical_input_sha256": "3d846641cccb13396086c8c1e7ee46b39a19c0b71b31601e6f69d8a41f55b8b8",
+  "physical_output_sha256": "48d137c6fedf8a0653ba83569505333b3c6e49404d161c8a03e9c7783e741df7",
+  "readback_chunk_bytes": 8388608,
+  "expected_readback_chunk_bytes": [
+    8388608,
+    8002688
+  ],
+  "cases": [
+    {
+      "index": 0,
+      "label": "fixed-30s",
+      "expected_input_sha256": "a91c853d0451e302edeb4535827dbd84e8dd6dee4b387744b361f6fb73936b63",
+      "expected_output_sha256": "4eded901094fda6a2f9a5bb9be2b2074b8654d1f023e852a3465bfd25d7e8d00",
+      "saved_metal_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-healing-group-cover-v1-20261101/api-v2/captures/fe1c1e5db3d347f9883524f99e198771"
+    },
+    {
+      "index": 1,
+      "label": "fixed-15s-cover-active-top-atk",
+      "expected_input_sha256": "40c7369e56c8c35ed0fcbc720a72c1a50333743308b8ac3dddb651b449fb0c53",
+      "expected_output_sha256": "e0b4b09b84ac4a3984c7d684ab0fefafb9cc71ea8dba13d64e1b1e7e80e818a2",
+      "saved_metal_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-healing-group-cover-v1-20261101/api-v3/captures/6689a72555df42c3af2eaf1788aee3e7"
+    }
+  ]
+}

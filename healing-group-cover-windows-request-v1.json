@@ -1,0 +1,70 @@
+{
+  "schema": "healing-group-cover-windows-request-v1",
+  "owner": "836ade72e7dae4aa173038c4836d96e73bc0224d0d936113a8cc3f472a6815af",
+  "source_commit": "394546cd4d370631b36c09cfb41c36f6230a8ec3",
+  "code_review_commit": "0ffd272f",
+  "scope": "Two declared product conditions: original Anne/Belorta/Soldier plus real groups, finite ADD healing, explicit cover DEF and original active cover buff",
+  "program": "healing-cover-fixed-group",
+  "source": "gpu/product_healing_cover_fixed_group_battle_entry.slang",
+  "archive": "healing-group-cover-fixed-v1.zip",
+  "archive_bytes": 12115993,
+  "archive_sha256": "ad0a52a46e32b2be666d426c4c4d55c4e8aedcb165fa166c0c99bd383316e5b0",
+  "api_job": "healing-group-cover-fixed-v1-api-job.json",
+  "api_job_sha256": "4e2eab10fb70ba9219807d3bd8da79da2dc58352669bc4b00bc70ba46f8a5e13",
+  "api_expected": "healing-group-cover-fixed-v1-api-expected.json",
+  "cpu_patterns": [
+    "test_portable_detail.py",
+    "test_product_detail_packet.py",
+    "test_weighted_source_contract.py",
+    "test_product_reference_models.py"
+  ],
+  "selected_case_ids": {
+    "test_product_reference_models.py": [
+      "test_product_reference_models.ProductReferenceModels.test_cover_and_original_group_listeners_share_one_product_input",
+      "test_product_reference_models.ProductReferenceModels.test_healing_cover_and_original_shot_groups_preserve_all_three_consumers"
+    ]
+  },
+  "windows_targeted_tests": 87,
+  "mac_own_tests": 148,
+  "unselected_windows_model_tests": 61,
+  "mac_normal_api_cases": 6,
+  "mac_metal_fresh_native_and_independent_seal_passed": true,
+  "release_own_cpu_only_plans_deps_passed": true,
+  "physical_cases": 2,
+  "input_words": 120072,
+  "output_words": 2048912,
+  "physical_input_sha256": "3d846641cccb13396086c8c1e7ee46b39a19c0b71b31601e6f69d8a41f55b8b8",
+  "physical_output_sha256": "48d137c6fedf8a0653ba83569505333b3c6e49404d161c8a03e9c7783e741df7",
+  "physical_output_bytes": 16391296,
+  "expected_readback_chunk_bytes": [
+    8388608,
+    8002688
+  ],
+  "max_posts": 1,
+  "max_gpu_dispatches": 1,
+  "retries": 0,
+  "standard266_rerun": false,
+  "standard_profile_delta": 0,
+  "report": "healing-group-cover-fixed-normal-api-status-v1.json",
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "steps": [
+    "Fresh immutable root/own CLI/golden/deps/PTX/O1 plans; all older roots/claims/raw/failures retained",
+    "Existing selected-case executor: detail67+packet11+source7+two original model IDs=87; other61 models not executed on Windows",
+    "Paired generation once, exact current PTX once, O1 object once, pinned nvJitLink once; all source/artifact/cache/Job gates required",
+    "Supplied2-case onePOST/oneGPU, all M5 parent/member SHA and freshCPU/GPU/HTTP/Unicode exact; first30s baseline and second15s active top-ATK Drake cover DEF2285.7/applied97714.3",
+    "Actual Node effective request for saved reprojection/static repack; zero extra battles/GPU",
+    "Stop first difference/timeout/query/missing/cleanup/observation issue; no retries/limit increases/artifact substitutions"
+  ],
+  "report_policy": "Small JSON only; keep SDK outerexit2/inner0 and advisory null/unknown; service/whole/overallfalse; no raw/compiler/settings/auth",
+  "full_goal_complete": false
+}
