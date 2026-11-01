@@ -1,6 +1,6 @@
 {
   "schema": "product-lock-token-snapshot-v1",
-  "scope": "Correct the observed shared queue snapshot lowering; full CUDA battle regression pending",
+  "scope": "Correct the observed shared queue snapshot lowering; one declared normal CUDA API case verified against fresh CPU and full saved Metal output",
   "fix_source_commit": "2485f1e1e7178e682fff94b6ca5abcfc0b0fb39f",
   "failure_evidence": {
     "commit": "f6c1a966ff14dccfaf46a220a997f903f05ffe17",
@@ -92,7 +92,7 @@
     "invalid_packet_does_not_clear": true,
     "gpu_calls": 0,
     "native_battles": 0,
-    "scope": "Host execution of actual generated CUDA functions with only RW buffer binding stub; full CUDA battle confirmation pending"
+    "scope": "Host execution of actual generated CUDA functions with only RW buffer binding stub; distinct from actual CUDA battle evidence below"
   },
   "metal": {
     "owner": "e14078ac17574223a2dbd0f75c2e2ebe9f925b5a0c615a26ca819c1d50480a80",
@@ -111,7 +111,7 @@
     "normalizer_unchanged": true,
     "expectations_unchanged": true
   },
-  "cuda_fix_execution_verified": false,
+  "cuda_fix_execution_verified": true,
   "new_standard_profiles": 0,
   "goal_complete": false,
   "windows_regression": {
@@ -129,11 +129,60 @@
     },
     "platform_files_retained": 17,
     "requested": "one paired generation, PTX, conditional O1 object, conditional JIT link, conditional original normal API POST/GPU at most once; existing CLI gates retained",
-    "result_received": false,
+    "result_received": true,
     "each_sdk_child_seconds": 60,
     "each_stage_outer_seconds": 180,
     "api_helper_child_seconds": 53,
     "memory_mib": 2048,
-    "old_failures_and_claims_retained": true
+    "old_failures_and_claims_retained": true,
+    "result_commit": "84d9f15d6747d5daca5df00926ca3e940a77a3ee",
+    "saved_results": {
+      "lock-token-snapshot-sdk-status-v1.json": {
+        "path": "research/lock-token-snapshot-sdk-status-v1.json",
+        "bytes": 11143,
+        "sha256": "504583b76c4a3e928eb31595e7386715bc9e008bf800bdb0d8941ad49379c298"
+      },
+      "lock-token-snapshot-normal-api-status-v1.json": {
+        "path": "research/lock-token-snapshot-normal-api-status-v1.json",
+        "bytes": 6728,
+        "sha256": "125eb1e2d20d8fa20d52764a9100709c6fbb64307b2ad56f5d83b45ef299af28"
+      }
+    },
+    "normal_api_verified": true,
+    "numerical_case_verified": true,
+    "fresh_cpu_comparison": {
+      "performed": true,
+      "api_gpu_matched": true,
+      "gpu_cpu_matched": true,
+      "api_compute_matched": true,
+      "unicode_exclusions": [],
+      "excluded_transport_metadata": [
+        "compute",
+        "cache_hit"
+      ],
+      "api_gpu_differing_fields": [],
+      "gpu_cpu_differing_fields": []
+    },
+    "input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+    "output_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+    "paired_generated_matches_independent_metal_seal": true,
+    "gpu_execution_count": 1,
+    "gpu_retry_count": 0,
+    "output_bytes": 8195648,
+    "all_metal_bytes_equal": true,
+    "status64_reproduced": false,
+    "timing": {
+      "http_seconds": 22.05895680002868,
+      "product_elapsed_ms": 18179.65089995414,
+      "host_dispatch_seconds": 3.6758929998613894
+    },
+    "api_peak_memory_bytes": 1923284992,
+    "owned_server_stopped": true,
+    "sdk_inner_exit_codes": 0,
+    "sdk_outer_exit_codes": 2,
+    "sdk_outer_exit_scope": "Artifact verified; service and whole environment preservation unverified, reported stage verification remains false",
+    "overall_verified": false,
+    "whole_environment_preservation_verified": false,
+    "identified_service_preservation_verified": false
   }
 }

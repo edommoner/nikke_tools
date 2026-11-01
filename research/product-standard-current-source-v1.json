@@ -98,7 +98,7 @@
     }
   ],
   "remaining_six_are_preparation_only": true,
-  "windows_requested": false,
+  "windows_requested": true,
   "new_standard_profiles": 0,
   "goal_complete": false,
   "prior_poli_failure": {
@@ -117,5 +117,29 @@
     "original_failure_not_promoted": true,
     "specific_poli_resolution_unverified": true,
     "scope": "Different compiled program permits a corrected-source regression, not replay to reconstruct old evidence"
+  },
+  "windows_result_received": false,
+  "windows_request": {
+    "transport_commit": "6c983c21ff01f65bda257a7a7822863faf045cd9",
+    "source_commit": "00ed1f529995ce206378255f6aa51e2619d54392",
+    "owner": "032bbb7646fe850b222c0c23097b16cd820f2ad4295c5ce7b00510171d7be071",
+    "archive_bytes": 14500684,
+    "archive_sha256": "11609648d7781dd7a3ca698d6f388d11affd20aa8f9a23d8a94ee088d8e73bd0",
+    "physical_batch_cases": 2,
+    "expected_physical_input_sha256": "e7cebc56ccbb29b1b9786d82633c289fdc554f29fbbf2d5ef9667ca33695ca5f",
+    "platform_files_byte_identical_to_just_verified_windows_owner": 28,
+    "limits": {
+      "sdk_child_seconds": 60,
+      "each_stage_outer_seconds": 180,
+      "api_helper_child_seconds": 53,
+      "memory_mib": 2048,
+      "priority": "BelowNormal",
+      "fresh_job_gate": true,
+      "permission_mode": "require_escalated",
+      "serial_only": true
+    },
+    "gpu_dispatch_max": 1,
+    "gpu_retries": 0,
+    "remaining_six_not_requested": true
   }
 }

@@ -1,0 +1,200 @@
+{
+  "schema": 1,
+  "owner": "9975b5dc700615394cd628e76788fcd37c2192a43761911500ebdee4e6fd0078",
+  "source_commit": "cbee4f078ada1c8549472b1dcc64a197d3a581ac",
+  "archive_sha256": "50e290e8d06dd05799575f273656277679766e4707297b262bfca87246f686a2",
+  "scope": "One declared Lock On + cover case, original 30 second body; no default-profile admission",
+  "profile_coverage_added": 0,
+  "overall_verified": false,
+  "whole_environment_preservation_verified": false,
+  "identified_service_preservation_verified": false,
+  "full_goal_complete": false,
+  "old_failure_records_relabelled": false,
+  "old_files_rehashed_unchanged": 254,
+  "report": "lock-token-snapshot-normal-api-status-v1",
+  "numerical_case_verified": true,
+  "normal_api_verified": true,
+  "body_sha256": "958800b6a1f739506c7c372b7f0664121723b72051ccfda6a08e53e7c5077151",
+  "all_request_fields_unchanged": true,
+  "duration_seconds": 30,
+  "input_words": 109560,
+  "output_words": 2048912,
+  "input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+  "output_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+  "job_id": "efd22390-35f2-47dd-ae51-4eea822cb4f6",
+  "capture_id": "4d034aebefe247bba2834be319c4ae72",
+  "capture_ref": "lock-token-snapshot-regression-v1/normal-api-v1/api-once-v1/detail-captures/4d034aebefe247bba2834be319c4ae72",
+  "path_base": "Documents/Codex",
+  "normal_http_post_count": 1,
+  "gpu_execution_count": 1,
+  "gpu_retry_count": 0,
+  "cache_hit": false,
+  "device": "NVIDIA GeForce RTX 3070 Ti",
+  "cpu_battle_used_as_gpu_input": false,
+  "fresh_cpu_comparison": {
+    "performed": true,
+    "api_gpu_matched": true,
+    "gpu_cpu_matched": true,
+    "api_compute_matched": true,
+    "unicode_exclusions": [],
+    "excluded_transport_metadata": [
+      "compute",
+      "cache_hit"
+    ],
+    "api_gpu_differing_fields": [],
+    "gpu_cpu_differing_fields": []
+  },
+  "compute_cpu_verification": {
+    "matched": true,
+    "differing_fields": []
+  },
+  "request_canonical_sha256": "d1b7f42873709d2aa22c7d45cfe05a2984d4939dd422f9055e7f3e2285f17155",
+  "unicode_preserved": true,
+  "artifact_provider": "saved-module-jit-cubin",
+  "artifact": {
+    "bytes": 5200976,
+    "sha256": "49624f6d2ff45661a6f835e6f240a7060fc4ed1f08d1678cc2bcea16197e6d59"
+  },
+  "paired_cache": {
+    "key": "51040b761126c692e9ab1ed8b39a7237512733185d7f1551d60993a7e60ec33a",
+    "hit": true,
+    "compiler_invocations": 0
+  },
+  "api_compiler_invocations": {
+    "slang": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "nvjitlink": 0
+  },
+  "cuda_api_counts": {
+    "cuInit": {
+      "entered": 1,
+      "returned": 1,
+      "return_code": 0,
+      "elapsed_seconds": 0.0182448
+    },
+    "cuCtxCreate_v2": {
+      "entered": 1,
+      "returned": 1,
+      "return_code": 0,
+      "elapsed_seconds": 0.0682071
+    },
+    "cuModuleLoadData": {
+      "entered": 1,
+      "returned": 1,
+      "return_code": 0,
+      "elapsed_seconds": 0.0038288
+    },
+    "cuLaunchKernel": {
+      "entered": 1,
+      "returned": 1,
+      "return_code": 0,
+      "elapsed_seconds": 0.0020406
+    },
+    "cuCtxSynchronize": {
+      "entered": 1,
+      "returned": 1,
+      "return_code": 0,
+      "elapsed_seconds": 3.6690523
+    },
+    "cuMemcpyDtoH_v2": {
+      "entered": 1,
+      "returned": 1,
+      "return_code": 0,
+      "elapsed_seconds": 0.0008991
+    },
+    "cuCtxDestroy_v2": {
+      "entered": 1,
+      "returned": 1,
+      "return_code": 0,
+      "elapsed_seconds": 0.0265295
+    }
+  },
+  "elapsed": {
+    "http_seconds": 22.05895680002868,
+    "product_elapsed_ms": 18179.65089995414,
+    "host_dispatch_seconds": 3.6758929998613894
+  },
+  "execution": {
+    "static-preflight": {
+      "child_exit_code": 0,
+      "elapsed_seconds": 11.749292900320143,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "job_records": 1,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 97411072,
+      "below_normal": true,
+      "identified_service_preservation_verified": false,
+      "whole_environment_preservation_verified": false
+    },
+    "api-once-v1": {
+      "child_exit_code": 0,
+      "elapsed_seconds": 26.34656269988045,
+      "timeout_seconds": 53,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "job_records": 1,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 1923284992,
+      "below_normal": true,
+      "identified_service_preservation_verified": false,
+      "whole_environment_preservation_verified": false
+    },
+    "saved-compare": {
+      "child_exit_code": 0,
+      "elapsed_seconds": 4.170649100095034,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "job_records": 1,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 49422336,
+      "below_normal": true,
+      "identified_service_preservation_verified": false,
+      "whole_environment_preservation_verified": false
+    }
+  },
+  "owned_server_stopped": true,
+  "secondary_helper_error": false,
+  "saved_readback_comparison": {
+    "schema": "readback-block-diff-v1",
+    "reference_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+    "actual_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+    "bytes": 8195648,
+    "blocks": 2001,
+    "changed_blocks": [],
+    "all_blocks_equal": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "failure_diagnostics": [],
+    "failure_diagnostic_scope": "Hash-checked saved values only; no source identity, root cause, or calculation certification",
+    "readback_available": true,
+    "comparison_performed": true,
+    "raw_samples_omitted": true,
+    "sample_blocks": 0,
+    "raw_samples_generated": 0,
+    "reader_source_sha256": "d921b979d6dc1eb203ecd77568bd991be2ed541175f4dc97d0e07fd5b3928bd1",
+    "readback_pre_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+    "readback_post_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1"
+  },
+  "prior_status64_reproduced": false,
+  "scope_limitations": [
+    "Numerical agreement applies only to this declared case.",
+    "Service preservation remains unverified; overall verification stays false.",
+    "No performance or all-character coverage conclusion follows from this case."
+  ]
+}
