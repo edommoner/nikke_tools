@@ -2997,6 +2997,54 @@
           "after": "    if sources is None:\n        from portable_weighted_incoming_source_contract import boss_source_preimages\n        out=boss_source_preimages(root)\n"
         }
       ]
+    },
+    "app/portable_cpu_tests.py": {
+      "before_sha256": "5a520d65f493a1aca622cb1c4ee7bac4ccc6011cc6798cc1d0b866e932a0aa36",
+      "after_sha256": "be694e96dcfdb9b2e3426a08ef6fb64d952dfa1048eaebc19a6cbfa48600c807",
+      "hunks": [
+        {
+          "start": 150,
+          "end": 547,
+          "before": "AUDIT_FILES = {'test_weighted_source_contract.py': ('research/portable-cover-defense-modifiers-v1-expected.json',),\n",
+          "after": "AUDIT_FILES = {'test_weighted_source_contract.py': ('research/portable-cover-defense-modifiers-v1-expected.json','tests/fixtures/portable-product-boss-debuff-source-delta.json'),\n    'test_quantity_visited.py': ('tests/fixtures/quantity-visited-source-change-v1.json','tests/fixtures/portable-coordinate-full-burst-source-delta.json','tests/fixtures/portable-max-ammo-scaling-source-delta.json'),\n"
+        },
+        {
+          "start": 10170,
+          "end": 12877,
+          "before": "def run_groups(root,capture,patterns,write):\n",
+          "after": "def discovered_cases(root,pattern):\n    \"\"\"Discover original test IDs without executing fixtures or test bodies.\"\"\"\n    validate_groups(Path(root),[pattern]);before=list(sys.path)\n    def flatten(suite):\n        for item in suite:\n            if isinstance(item,unittest.TestSuite):yield from flatten(item)\n            else:yield item\n    try:\n        cases=list(flatten(unittest.TestLoader().discover(str(Path(root)/'tests'),pattern=pattern)))\n    finally:sys.path[:]=before\n    ids=[case.id() for case in cases]\n    if not ids or len(ids)!=len(set(ids)) or any(type(case).__name__=='_FailedTest' for case in cases):\n        raise ValueError('CPU test discovery incomplete or ambiguous')\n    return cases\n\n\nAUDIT_FILES['test_portable_gpu_cli.py']=tuple(AUDIT_FILES.get('test_portable_gpu_cli.py',()))+(\n    'scripts/windows-product/prepare-api.py',\n    'scripts/windows-product/check-sdk.py',\n    'scripts/windows-product/verify-host-tests.py')\n\n\ndef selection_request(document,patterns,package_id):\n    \"\"\"Bind an explicit unit subset to one owner and every registered group.\"\"\"\n    if (type(document) is not dict or set(document)!={'schema','package_id','patterns','expected_tests'}\n        or document['schema']!='unit-selection-v1' or document['package_id']!=package_id\n        or type(document['patterns']) is not dict or list(document['patterns'])!=list(patterns)\n        or type(document['expected_tests']) is not int or document['expected_tests']<=0):\n        raise ValueError('Unit selection requires exact package, registry order and positive expected count')\n    for ids in document['patterns'].values():\n        if ids is not None and (type(ids) is not list or not ids or any(type(x) is not str for x in ids)\n            or len(ids)!=len(set(ids))):\n            raise ValueError('Unit selection requires nonempty unique test IDs or null for a complete group')\n    return document\n\n\ndef resolve_selection(root,patterns,document,package_id):\n    \"\"\"Discover only in the fresh CPU child, then reuse run_groups admission.\"\"\"\n    selection_request(document,patterns,package_id);selected={}\n    for pattern in patterns:\n        available=[case.id() for case in discovered_cases(root,pattern)]\n        ids=document['patterns'][pattern]\n        if ids is None:ids=available\n        if not ids or ids!=[name for name in available if name in ids]:\n            raise ValueError('Selected CPU test IDs missing, duplicated or reordered')\n        selected[pattern]=ids\n    if sum(map(len,selected.values()))!=document['expected_tests']:\n        raise ValueError('Selected CPU test count differs from explicit request')\n    return selected\n\n\ndef run_groups(root,capture,patterns,write,*,selected_cases=None):\n"
+        },
+        {
+          "start": 13032,
+          "end": 13214,
+          "before": "",
+          "after": "    if selected_cases is not None and (type(selected_cases) is not dict or set(selected_cases)!=set(patterns)):\n        raise ValueError('Exact selected CPU test patterns required')\n"
+        },
+        {
+          "start": 13578,
+          "end": 13905,
+          "before": "",
+          "after": "        # Standard unittest discovery keeps this path during test bodies.\n        # Selected discovery restores its private import path, so retain the\n        # same sibling-fixture imports here and restore it on every exit.\n        test_root=str(root/'tests')\n        if test_root not in sys.path:sys.path.insert(0,test_root)\n"
+        },
+        {
+          "start": 14208,
+          "end": 14984,
+          "before": "                suite=loader.discover(str(root/'tests'),pattern=pattern)\n",
+          "after": "                selected=None\n                if selected_cases is None:suite=loader.discover(str(root/'tests'),pattern=pattern)\n                else:\n                    selected=selected_cases[pattern];cases=discovered_cases(root,pattern);available={case.id():case for case in cases}\n                    if (type(selected) is not list or not selected or any(type(x) is not str for x in selected)\n                        or len(selected)!=len(set(selected)) or any(x not in available for x in selected)\n                        or selected!=[case.id() for case in cases if case.id() in selected]):\n                        raise ValueError('Selected CPU test IDs missing, duplicated or reordered')\n                    suite=unittest.TestSuite([available[x] for x in selected])\n"
+        },
+        {
+          "start": 15069,
+          "end": 15195,
+          "before": "                success=result.wasSuccessful() and result.testsRun>0\n",
+          "after": "                success=result.wasSuccessful() and result.testsRun>0 and (selected is None or result.testsRun==len(selected))\n"
+        },
+        {
+          "start": 15559,
+          "end": 15631,
+          "before": "",
+          "after": "            if selected is not None:rows[-1]['case_ids']=list(selected)\n"
+        }
+      ]
     }
   },
   "added_sources": {

@@ -142,6 +142,41 @@ def discovered_cases(root,pattern):
     return cases
 
 
+AUDIT_FILES['test_portable_gpu_cli.py']=tuple(AUDIT_FILES.get('test_portable_gpu_cli.py',()))+(
+    'scripts/windows-product/prepare-api.py',
+    'scripts/windows-product/check-sdk.py',
+    'scripts/windows-product/verify-host-tests.py')
+
+
+def selection_request(document,patterns,package_id):
+    """Bind an explicit unit subset to one owner and every registered group."""
+    if (type(document) is not dict or set(document)!={'schema','package_id','patterns','expected_tests'}
+        or document['schema']!='unit-selection-v1' or document['package_id']!=package_id
+        or type(document['patterns']) is not dict or list(document['patterns'])!=list(patterns)
+        or type(document['expected_tests']) is not int or document['expected_tests']<=0):
+        raise ValueError('Unit selection requires exact package, registry order and positive expected count')
+    for ids in document['patterns'].values():
+        if ids is not None and (type(ids) is not list or not ids or any(type(x) is not str for x in ids)
+            or len(ids)!=len(set(ids))):
+            raise ValueError('Unit selection requires nonempty unique test IDs or null for a complete group')
+    return document
+
+
+def resolve_selection(root,patterns,document,package_id):
+    """Discover only in the fresh CPU child, then reuse run_groups admission."""
+    selection_request(document,patterns,package_id);selected={}
+    for pattern in patterns:
+        available=[case.id() for case in discovered_cases(root,pattern)]
+        ids=document['patterns'][pattern]
+        if ids is None:ids=available
+        if not ids or ids!=[name for name in available if name in ids]:
+            raise ValueError('Selected CPU test IDs missing, duplicated or reordered')
+        selected[pattern]=ids
+    if sum(map(len,selected.values()))!=document['expected_tests']:
+        raise ValueError('Selected CPU test count differs from explicit request')
+    return selected
+
+
 def run_groups(root,capture,patterns,write,*,selected_cases=None):
     """Execute in registry order; failure stops before any later group or GPU."""
     root=Path(root);capture=Path(capture);validate_groups(root,patterns)
@@ -153,6 +188,11 @@ def run_groups(root,capture,patterns,write,*,selected_cases=None):
             if (capture/(pattern+suffix)).exists():raise FileExistsError('Fresh CPU test logs required')
     before_path=list(sys.path);rows=[];loader=unittest.TestLoader()
     try:
+        # Standard unittest discovery keeps this path during test bodies.
+        # Selected discovery restores its private import path, so retain the
+        # same sibling-fixture imports here and restore it on every exit.
+        test_root=str(root/'tests')
+        if test_root not in sys.path:sys.path.insert(0,test_root)
         for pattern in patterns:
             started=time.perf_counter()
             with (capture/(pattern+'.stdout.log')).open('x',encoding='utf-8') as stdout,(capture/(pattern+'.stderr.log')).open('x',encoding='utf-8') as stderr,contextlib.redirect_stdout(stdout),contextlib.redirect_stderr(stderr):

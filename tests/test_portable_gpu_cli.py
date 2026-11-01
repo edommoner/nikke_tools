@@ -26,6 +26,58 @@ def smoke_data_files(root=None):
 
 
 class PacketTests(unittest.TestCase):
+    def product_windows_prepare_fixture(self,base,*,separate=True):
+        import hashlib,shutil
+        work=base/'windows';work.mkdir();name='owned';program=work/name;program.mkdir()
+        shutil.copyfile(ROOT/'scripts/windows-product/prepare-api.py',work/'prepare-api.py')
+        oldbase=base/'standard-remaining-fixed-windows-v2';oldbase.mkdir();cli.write(oldbase/'base-paths.json',{})
+        cli.write(program/'sdk-paths.json',dict(packet=str(base/'packet')))
+        cli.write(program/'jit-link-object-verified.json',dict(passed=True))
+        (program/'jit-link-v1/proof').mkdir(parents=True);(program/'compile-ptx-v1/proof').mkdir(parents=True)
+        cli.write(program/'jit-link-v1/proof/jit-link.json',dict(receipt=dict(artifact=dict(bytes=123,sha256='image'))))
+        cli.write(program/'compile-ptx-v1/proof/generation-cache.json',dict(key='paired'))
+        for stage in ('static-preflight','api-once-v1','saved-audit'):
+            path=work/'api-templates'/stage/'coordinator.py';path.parent.mkdir(parents=True);path.write_text('# fixture only; no process or GPU\n')
+        job=dict(kind='batch',evaluations=[dict(compute_backend='cuda_shared_detail',duration=26,verify_detail=True,fixture_label='回復')])
+        cli.write(work/'job.json',job);digest=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+        expected=dict(owner='owner',source_commit='abc',cases=[dict(index=17,expected_input_sha256='1'*64,expected_output_sha256='2'*64)])
+        cli.write(work/'expected.json',expected)
+        batch=dict(index=0,member_indices=[0],original_profile_indices=[17],cases=1,
+            physical_input_bytes=16,physical_output_bytes=32,physical_input_sha256='3'*64,
+            physical_output_sha256='4'*64,expected_readback_chunk_bytes=[32])
+        files=dict(api_job='job.json',api_job_sha256=digest(work/'job.json'),api_expected='expected.json',api_expected_sha256=digest(work/'expected.json'))
+        request=dict(owner='owner',source_commit='abcdef',source='gpu/source.slang',program='existing',input_words=3,output_words=8,batches=[batch])
+        (batch if separate else request).update(files);cli.write(program/'program.json',request)
+        return work,program,job,request
+    def test_windows_prepare_preserves_separate_and_legacy_job_bytes_and_expectations(self):
+        for separate in (False,True):
+            with self.subTest(separate=separate),tempfile.TemporaryDirectory() as temp:
+                work,program,job,request=self.product_windows_prepare_fixture(Path(temp),separate=separate)
+                done=subprocess.run([sys.executable,str(work/'prepare-api.py'),'owned','0'],capture_output=True,text=True,timeout=10)
+                self.assertEqual(done.returncode,0,done.stderr)
+                batch=program/'batch-000';self.assertEqual((batch/'job.json').read_bytes(),(work/'job.json').read_bytes())
+                expected=cli.load(batch/'expected.json');self.assertEqual(expected['cases'][0]['index'],17)
+                self.assertEqual(expected['cases'][0]['duration'],26);self.assertEqual(expected['physical_output_sha256'],'4'*64)
+                self.assertEqual(cli.load(batch/'job.json'),job)
+                # Fresh-state guard rejects a second preparation, without touching output.
+                original=cli.file_records(batch,[p.relative_to(batch).as_posix() for p in batch.rglob('*') if p.is_file()])
+                done=subprocess.run([sys.executable,str(work/'prepare-api.py'),'owned','0'],capture_output=True,timeout=10)
+                self.assertNotEqual(done.returncode,0);cli.check_records(batch,original)
+    def test_windows_prepare_rejects_missing_or_changed_independent_documents_before_capture(self):
+        for mutation in ('job-hash','expected-hash','incomplete-batch','owner','prior-stop','missing-link'):
+            with self.subTest(mutation=mutation),tempfile.TemporaryDirectory() as temp:
+                work,program,job,request=self.product_windows_prepare_fixture(Path(temp))
+                batch=request['batches'][0]
+                if mutation=='job-hash':batch['api_job_sha256']='0'*64
+                elif mutation=='expected-hash':batch['api_expected_sha256']='0'*64
+                elif mutation=='incomplete-batch':del batch['api_expected_sha256']
+                elif mutation=='owner':request['owner']='other'
+                elif mutation=='prior-stop':cli.write(work/'stop.json',dict(stopped=True))
+                else:(program/'jit-link-object-verified.json').unlink()
+                cli.write(program/'program.json',request)
+                done=subprocess.run([sys.executable,str(work/'prepare-api.py'),'owned','0'],capture_output=True,timeout=10)
+                self.assertNotEqual(done.returncode,0);self.assertFalse((program/'batch-000').exists())
+
     def test_list_reports_diagnostic_without_sealed_golden(self):
         import contextlib,io
         stdout=io.StringIO()

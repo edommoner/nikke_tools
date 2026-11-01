@@ -20,6 +20,74 @@ class StagedTestGroupsTests(unittest.TestCase):
             self.addCleanup(lambda n=name:sys.modules.pop(n[:-3],None))
         self.f.c.SUITES['fixture']['tests']=self.names
         self.f.m['files']=cli.file_records(self.f.pkg,['tests/'+n for n in self.names]);cli.write(self.f.pkg/'gpu-package.json',self.f.m)
+    def unit_selection(self):
+        name=self.names[0];p=self.testroot/name
+        p.write_text(p.read_text()+' def test_second(self):self.assertTrue(True)\n')
+        self.f.m['files']=cli.file_records(self.f.pkg,['tests/'+n for n in self.names])
+        ids=[case.id() for case in worker.discovered_cases(self.f.pkg,name)]
+        self.assertEqual(len(ids),2)
+        return dict(schema='unit-selection-v1',package_id=self.f.m['package_id'],
+            patterns={n:(ids[:1] if n==name else None) for n in self.names},expected_tests=3)
+    def test_explicit_unit_subset_preserves_all_registry_groups_and_exact_ids(self):
+        document=self.unit_selection()
+        selected=worker.resolve_selection(self.f.pkg,self.names,document,self.f.m['package_id'])
+        proof=self.f.root/'selected-unit';proof.mkdir()
+        rows=worker.run_groups(self.f.pkg,proof,self.names,cli.write,selected_cases=selected)
+        self.assertTrue(worker.complete(rows,self.names))
+        self.assertTrue(staged.selected_coverage(rows,selected))
+        self.assertEqual([row['tests'] for row in rows],[1,1,1])
+        self.assertEqual(sum(row['tests'] for row in rows),3)
+    def test_selected_worker_keeps_sibling_fixture_imports_then_restores_sys_path(self):
+        document=self.unit_selection();helper='owned_fixture_'+uuid.uuid4().hex
+        (self.testroot/(helper+'.py')).write_text('VALUE=42\n')
+        self.addCleanup(lambda:sys.modules.pop(helper,None))
+        first=self.names[0];module=sys.modules[first[:-3]]
+        original=module.TestOwned.test_owned
+        def check_import(test):
+            imported=__import__(helper);test.assertEqual(imported.VALUE,42)
+        module.TestOwned.test_owned=check_import
+        self.addCleanup(lambda:setattr(module.TestOwned,'test_owned',original))
+        selection=worker.resolve_selection(self.f.pkg,self.names,document,self.f.m['package_id'])
+        proof=self.f.root/'selected-sibling';proof.mkdir();before=list(sys.path)
+        rows=worker.run_groups(self.f.pkg,proof,self.names,cli.write,selected_cases=selection)
+        self.assertTrue(worker.complete(rows,self.names));self.assertEqual(sys.path,before)
+
+    def test_unit_selection_rejects_foreign_owner_missing_reordered_duplicate_unknown_and_wrong_count(self):
+        document=self.unit_selection();owner=self.f.m['package_id'];first=self.names[0]
+        mutations=[]
+        for change in [dict(package_id='other'),dict(expected_tests=True),dict(expected_tests=4),dict(schema='other')]:
+            mutations.append(dict(document,**change))
+        mutations.append(dict(document,patterns={n:document['patterns'][n] for n in self.names[::-1]}))
+        mutations.append(dict(document,patterns={n:v for n,v in document['patterns'].items() if n!=first}))
+        for ids in [[],['unknown'],document['patterns'][first]*2,
+            [case.id() for case in worker.discovered_cases(self.f.pkg,first)][::-1]]:
+            patterns=dict(document['patterns']);patterns[first]=ids
+            mutations.append(dict(document,patterns=patterns))
+        for value in mutations:
+            with self.subTest(value=value),self.assertRaises(ValueError):
+                worker.resolve_selection(self.f.pkg,self.names,value,owner)
+    def test_unit_capture_subset_is_not_full_unit_or_calculation_admission(self):
+        document=self.unit_selection();source=self.f.root/'selection.json';source.write_text(__import__('json').dumps(document))
+        def run(m,capture,selection):
+            selected=worker.resolve_selection(self.f.pkg,self.names,selection,m['package_id'])
+            cli.write(capture/'unit-selection.json',selection)
+            cli.write(capture/'selected-test-cases.json',selected)
+            return worker.run_groups(self.f.pkg,capture,self.names,cli.write,selected_cases=selected)
+        with patch.object(cli,'ROOT',self.f.pkg),patch.object(cli,'verify_package',return_value=self.f.m),\
+             patch.object(cli,'suite_config',return_value=dict(tests=self.names)),\
+             patch.object(cli,'registered_entry_wire_preflight',return_value=None),patch.object(cli,'cpu_test_groups',side_effect=run):
+            capture=self.f.root/'selected-result'
+            result=cli.unit_capture(capture,source,cli.sha(source.read_bytes()))
+            self.assertTrue(result['passed']);self.assertTrue(result['selected_unit_tests_verified'])
+            for key in ('unit_tests_verified','all_registered_unit_tests_verified','calculation_verified','gpu_execution_verified'):
+                self.assertFalse(result[key])
+            self.assertEqual((capture/'unit-selection-input.json').read_bytes(),source.read_bytes())
+            with self.assertRaisesRegex(ValueError,'SHA256'):
+                cli.unit_capture(self.f.root/'wrong-sha',source,'0'*64)
+            self.assertFalse((self.f.root/'wrong-sha').exists())
+            with self.assertRaisesRegex(ValueError,'together'):
+                cli.unit_capture(self.f.root/'missing-hash',source)
+
     def begin(self):return flow.begin(self.f.c,self.f.tx,'metal',self.f.gpu,2,test_group_size=2)
     def run_group(self,index):
         proxy=SimpleNamespace(getpid=lambda:8000+index)

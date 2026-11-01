@@ -2543,7 +2543,7 @@ def cpu_test_environment(capture):
     return env
 
 
-def cpu_test_groups(m,capture,smoke=False):
+def cpu_test_groups(m,capture,smoke=False,selection=None):
     """Keep discovery/import in one fresh CPU process; never skip a registry group."""
     from portable_cpu_tests import validate_groups,validate_dependency_files,complete
     patterns=SMOKE_TESTS if smoke else suite_config(m)['tests']
@@ -2558,6 +2558,13 @@ def cpu_test_groups(m,capture,smoke=False):
         write(capture/'cpu-tests.json',[]);return []
     command=[sys.executable,str(Path(__file__).resolve()),'_tests','--capture',str(capture)]
     if smoke:command.append('--smoke')
+    if selection is not None:
+        if smoke:raise ValueError('Selected unit groups cannot replace smoke admission')
+        from portable_cpu_tests import selection_request
+        selection_request(selection,patterns,m['package_id'])
+        selection_path=capture/'unit-selection.json'
+        write(selection_path,selection)
+        command.extend(['--selection',str(selection_path),'--selection-sha256',sha(selection_path.read_bytes())])
     started=time.perf_counter();timed_out=False;completed=None
     try:
         completed=subprocess.run(command,cwd=ROOT,capture_output=True,timeout=timeout,env=cpu_test_environment(capture))
@@ -2567,7 +2574,7 @@ def cpu_test_groups(m,capture,smoke=False):
         raise
     finally:
         write(capture/'cpu-batch.json',dict(schema=1,mode='single-process-unittest',patterns=list(patterns),timeout_seconds=timeout,
-            timeout_policy='shared-smoke' if smoke else 'suite-unit-tests',
+            timeout_policy='shared-smoke' if smoke else 'selected-suite-unit-tests' if selection is not None else 'suite-unit-tests',
             elapsed_seconds=time.perf_counter()-started,timed_out=timed_out,exit_code=completed.returncode if completed else None,
             gpu_calls=0,scope='Python group output in per-group logs; inherited native subprocess output in batch logs'))
     (capture/'cpu-batch.stdout.log').write_bytes(completed.stdout);(capture/'cpu-batch.stderr.log').write_bytes(completed.stderr)
@@ -2575,12 +2582,25 @@ def cpu_test_groups(m,capture,smoke=False):
     if completed.returncode or not complete(rows,patterns):
         failed=next((r['pattern'] for r in rows if r.get('exit_code')!=0),'incomplete batch')
         raise ValueError('CPU tests failed: '+failed)
+    if selection is not None:
+        from portable_staged_tests import selected_coverage
+        selected=load(capture/'selected-test-cases.json')
+        if (not selected_coverage(rows,selected) or sum(r['tests'] for r in rows)!=selection['expected_tests']
+            or load(capture/'unit-selection.json')!=selection):
+            raise ValueError('Selected unit receipts differ from exact requested coverage')
     return rows
 
 
-def unit_capture(capture):
+def unit_capture(capture,selection_file=None,selection_sha256=None):
     """Check immutable packet unit groups; never substitute for run/native/seal."""
     m=verify_package(ROOT)
+    selection=None
+    if (selection_file is None)!=(selection_sha256 is None):raise ValueError('Unit selection file and SHA256 must be supplied together')
+    if selection_file is not None:
+        from portable_cpu_tests import selection_request
+        raw=Path(selection_file).read_bytes()
+        if sha(raw)!=selection_sha256:raise ValueError('Unit selection SHA256 mismatch')
+        selection=selection_request(json.loads(raw),suite_config(m)['tests'],m['package_id'])
     if not suite_config(m).get('tests'):raise ValueError('Unit-check requires registered nonempty unit groups')
     wire=registered_entry_wire_preflight(suite_config(m))
     capture=Path(capture);capture.mkdir(parents=True,exist_ok=False)
@@ -2589,8 +2609,13 @@ def unit_capture(capture):
                 calculation_verified=False,gpu_execution_verified=False,gpu_calls=0,full_character_verified=0,full_goal_complete=False)
     try:
         if wire is not None:write(capture/'entry-wire-preflight.json',wire)
-        with forbid_gpu():rows=cpu_test_groups(m,capture)
-        result.update(passed=True,unit_tests_verified=True,groups=len(rows),tests=sum(r['tests'] for r in rows))
+        if selection is not None:(capture/'unit-selection-input.json').write_bytes(raw)
+        with forbid_gpu():rows=cpu_test_groups(m,capture,**(dict(selection=selection) if selection is not None else {}))
+        result.update(passed=True,unit_tests_verified=selection is None,groups=len(rows),tests=sum(r['tests'] for r in rows))
+        if selection is not None:
+            result.update(selected_unit_tests_verified=True,all_registered_unit_tests_verified=False,
+                selection_sha256=selection_sha256,normalized_selection_sha256=sha((capture/'unit-selection.json').read_bytes()),
+                scope='Explicit selected unit tests only; no full unit, native or GPU admission')
         return result
     except BaseException as error:
         result['error']=type(error).__name__+': '+str(error)
@@ -3992,12 +4017,12 @@ def main(argv=None):
         if storage_command=='archive-raw':a.add_argument('--remove-original',action='store_true')
     a=sub.add_parser('storage-check',help='CPU-only free-space budget check; does not archive or delete files')
     a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=1024**3);a.add_argument('--path',type=Path,default=ROOT)
-    a=sub.add_parser('unit-check',help='Bounded immutable unit groups only; no full native preflight or GPU proof');a.add_argument('--capture',type=Path,required=True)
+    a=sub.add_parser('unit-check',help='Bounded immutable unit groups only; no full native preflight or GPU proof');a.add_argument('--capture',type=Path,required=True);a.add_argument('--selection',type=Path);a.add_argument('--selection-sha256')
     a=sub.add_parser('source-baseline',help='Registered or verified development source closure only; no calculation proof')
     group=a.add_mutually_exclusive_group(required=True);group.add_argument('--suite');group.add_argument('--all-registered',action='store_true');a.add_argument('--product-program',choices=PRODUCT_PROGRAMS);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('_prepared_child',help=argparse.SUPPRESS)
     a.add_argument('--capture',type=Path,required=True);a.add_argument('--claim-sha256',required=True)
-    a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
+    a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true');a.add_argument('--selection',type=Path);a.add_argument('--selection-sha256')
     a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--product-program',choices=PRODUCT_PROGRAMS);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--native-baseline-package',type=Path,help='Reuse expected native hashes only when CPU dependencies and prepared inputs match; fresh run/seal checks stay mandatory');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1','coordinate-owner-counter-field-decoder-v1'])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True);a.add_argument('--reuse-payload-from',type=Path,help='Share exact payload bytes with an existing immutable package on the same filesystem; never edit either payload')
     for name in ('run','_child','staged-run'):
@@ -4382,7 +4407,7 @@ def main(argv=None):
         outside(a.out,[ROOT,a.transaction,a.gpu_capture])
         with forbid_gpu():result=admit(SimpleNamespace(**globals()),verify_package(ROOT),a.transaction,a.backend,a.gpu_capture)
         write(a.out,result)
-    elif a.command=='unit-check':result=unit_capture(a.capture)
+    elif a.command=='unit-check':result=unit_capture(a.capture,a.selection,a.selection_sha256)
     elif a.command=='source-baseline':
         from portable_source_baseline import check as source_baseline_check,inventory as source_inventory
         if a.out.exists():raise ValueError('Source baseline output already exists')
@@ -4397,8 +4422,18 @@ def main(argv=None):
         from portable_phase_audit import Journal
         m=Journal(a.capture/'preparation.jsonl').invoke('cpu_worker_verify_package',verify_package,ROOT)
         patterns=SMOKE_TESTS if a.smoke else suite_config(m)['tests']
-        rows=run_groups(ROOT,a.capture,patterns,write)
-        print(json.dumps(dict(cpu_tests_verified=complete(rows,patterns),groups=len(rows),gpu_calls=0)))
+        selection=None
+        if (a.selection is None)!=(a.selection_sha256 is None):raise ValueError('Unit selection file and SHA256 must be supplied together')
+        if a.selection is not None:
+            if a.smoke:raise ValueError('Selected unit groups cannot replace smoke admission')
+            from portable_cpu_tests import resolve_selection
+            raw=a.selection.read_bytes()
+            if sha(raw)!=a.selection_sha256:raise ValueError('Unit selection SHA256 mismatch')
+            selection=resolve_selection(ROOT,patterns,json.loads(raw),m['package_id'])
+            write(a.capture/'selected-test-cases.json',selection)
+        rows=run_groups(ROOT,a.capture,patterns,write,**(dict(selected_cases=selection) if selection is not None else {}))
+        print(json.dumps(dict(cpu_tests_verified=complete(rows,patterns) and selection is None,
+            selected_cpu_tests_verified=complete(rows,patterns) and selection is not None,groups=len(rows),gpu_calls=0)))
         if not complete(rows,patterns):raise SystemExit(1)
         return
     elif a.command=='_prepared_child':

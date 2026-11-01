@@ -1,3 +1,15 @@
+## 共通CPU検査の選択実行とWindows分割job
+
+全件検査は従来の`unit-check --capture NEW`を使います。短い差分検査は同じ入口へ`--selection FILE --selection-sha256 SHA256`を追加できます。選択JSONは`schema: unit-selection-v1`、不変packetの`package_id`、登録順の全test patternをkeyにした`patterns`、正確な`expected_tests`を持ちます。patternの値は全件なら`null`、選択なら元のdiscovery順に並べた重複なしの完全test ID配列です。登録groupを省略できません。既存の依存検査・fresh CPU child・60秒上限・run_groupsを使用し、未知IDや件数差はtest実行前に拒否します。
+
+選択成功は`selected_unit_tests_verified=true`、`unit_tests_verified=false`、`all_registered_unit_tests_verified=false`です。全件検査、native比較、GPU admissionの代替にはしません。入力JSONの元bytesとSHA、正規化JSON、解決した全ID、各groupの元logをcaptureへ保存します。選択時もsibling fixtureのimportを標準unittestと同じ範囲で許し、終了時に元sys.pathへ戻します。
+
+`scripts/windows-product/`は既存Windows helper3役の管理されたsourceです。`verify-host-tests.py`はpacket自身の選択unit CLIを呼び、`check-sdk.py`はprogramに固定した件数と選択SHAを検査します。programには`unit_selection`、`unit_selection_sha256`、`windows_targeted_tests`、`cpu_patterns`、`selected_case_ids`を設定します。87/91等の件数をsourceへ埋め込み直す必要はありません。
+
+`prepare-api.py`は従来のprogram全体のjobに加え、各batchの`api_job`、`api_job_sha256`、`api_expected`、`api_expected_sha256`を受け取ります。独立batch指定は4項目すべて必須です。`member_indices`はそのjob内のindex、`original_profile_indices`は元のcase identityを保持します。caller/期待数値を変更せず、consumerに必要なbody SHAとdurationだけを既存形式で付加します。既存のfresh capture/前batch終端/リンク済み条件を維持し、2/2/2/1を逐次扱えます。
+
+実行は従来のJob/start gate、BelowNormal、2GiB、各SDK/CPU/監査60秒・API53秒・outer180秒、SDK前とAPI直前の空きRAM4GiBを保ちます。配置時は管理sourceを新rootへbyteコピーし、元停止/claim/旧helperを上書きしません。他11helperのJob/RAM/SDK/API/保存監査は元sourceのまま使用します。Macで選択91/全158と実caller7件の分割準備を確認済みですが、これはWindowsやGPU実行の証明ではありません。[検証・元source・失敗保持](../research/product-unit-selection-v1.json)。
+
 ## 対象modifier・有限ADD・敵回復の合成
 
 通常の`reference_models.enemy_healing`は、元の対象別modifier carrierと非攻撃の有限ADDを含む編成でも既存共通実行器へ接続します。固定/実蓄積、明示cover_defenseとの組み合わせを通常APIでMetal検証済みです。新しいprogramやsuiteは追加していません。攻撃しない世界では空のmagazineを明示的に検査し、敵攻撃があれば`reference_models.enemy_ammo`を要求します。敵弾倉の容量や攻撃規則は推定しません。

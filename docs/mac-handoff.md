@@ -1,3 +1,13 @@
+## 2026-11-01 共通unit CLI選択と既存Windows3helperを汎用化
+
+前ターンのMetal12条件は完了済み、今回はWindows7ケースの実行前stopを解消する準備を実装。既存unit-checkへ--selection FILE/--selection-sha256を追加。owner/全登録group順/ID順/件数を固定し、既存run_groups/selected_coverage/依存検査/freshCPU child/timeoutを再利用。選択成功でも全件unit/native/GPUはfalse。元JSONbyteと正規化入力、全ID、group logを保持する。P1の選択91はtests pathが戻るためsibling fixture import2件で失敗、旧packet/capture/logを保持。run_groups中だけ標準discoveryと同じtests pathを置きfinally復元する修正後、P2で91/158と未知IDのtest前拒否が成功した。
+
+Windowsの停止保存ef4dbe4bと読取export534f5601はGitHubで取得済み。元14helperのUTF8 byte/全SHAを検証してresearch/product-windows-helper-source-v1.jsonへ保存。source3役のみscripts/windows-productへ管理対象化。verify-host-testsはpacketの選択unit CLIへ委譲、check-sdkはprogramの件数/選択SHAを検査。既存gate関数ASTは完全同一。prepare-apiは各batchのjob/expectedの4filename/SHA項目にも対応し、従来global job形式も保持。partial/SHA差/停止/未リンク/再準備はcapture前拒否。他11helperのJob/RAM/SDK/API/保存監査sourceは不変で、新per-feature suite/監査器は追加0。
+
+最終owner99a4c4cbのP2はCLIのみ、中央helperを含む最終packet-v3のownerはresearch/product-unit-selection-v1.json参照。P3は自身の管理verify-host-testsをMacで実際に呼び91成功（67/11/7/6、全件未実施表示）。従来unit入口158も成功。rootの選択/path16、CLI+Windows prepare55、packet source7成功。実際の元7callerを2/2/2/1へ準備し、全caller byte・全元expected fields・親input/output hashを保持。SDK/キャッシュ/Job画像は明示したdata-only fixtureであり、Windows/GPUのadmissionや実行証拠には使わない。実SDK/POST/GPU0。全runtime1458fileは最終P3と完全一致。元のMetal実績/標準profile数は変化0。
+
+同Windows chatへの接続は最後のcursor46/turn01a196d4 active以降利用不可、末尾pollも失敗でterminalとは断定していない。新runは依頼していない。次は新コード/selectorと最終P3を共有し、未実行7ケースだけをfresh RAM/Job/source/時間gateで検証する。旧8dfの停止root/claimを再開・削除せず、新ownerで準備。source_commitは3cb7bda7のdirty snapshot、owner/file SHAをidentityにする。4caller/期待値の数値hashは旧packetと同じ、owner/source_commitの結合だけ新packetへ明示し、case/source graph一致を静的確認する。new model test1をWindowsで選ばないため、P3のmodel未選択は67（旧8dfでは66）と記録する。source/current全CUDA再認定、全効果合成、全goalは未完了。以下は履歴。
+
 ## 2026-11-01 対象modifier＋非攻撃ADD＋敵回復を通常Metalへ接続
 
 新しい計算式/Shader/suite/監査器は追加していない。portable_product_add_attack.lowerは元のtarget modifierがある有限summon世界も既存ADD prefixへ保持し、既にlower済みのflagでは再変換しない。portable_product_healingはtarget carrierがある場合、既存のdisjointなammo/target/ADD/healing runtimeへ渡す。非攻撃世界の空magazineだけを許し、incomingは明示enemy_ammo容量が無ければ拒否。元definition/axis/ActorPool/回復bank/遮蔽を保持し、CPU正本4file/pinnedは不変。
