@@ -106,6 +106,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #else
     for(uint i=1769856U;i<LAG_OUTPUT_WORDS;i++)results[output+i]=0;
 #endif
+#ifdef PORTABLE_PRODUCT_MOVEMENT_RANGE
+    for(uint i=LAG_OUTPUT_WORDS;i<P_OUTPUT_WORDS;i++)results[output+i]=0;
+#endif
     if(!validLogicalActorGeometry(s)){results[output]=64;return;}
 #ifdef PORTABLE_NAMED_RANGE_BATTLE
     if(!initializeNamedRangeBattle(s)){results[output]=64;return;}

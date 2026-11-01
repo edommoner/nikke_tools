@@ -25,11 +25,11 @@ class ProductReferenceModels(unittest.TestCase):
 
     def test_movement_range_keeps_all_definitions_and_disjoint_literal_banks(self):
         import portable_detail as product
-        from portable_product_movement_range import INPUT,OUTPUT,OUT,END,check_schema
+        from portable_product_movement_range import INPUT,OUTPUT,OUT,END,CAPACITY,check_schema
         from portable_enemy_movement_wire import INPUT as MI,BASE as MB,END as ME,MAGIC as MM
         from portable_named_range_battle_wire import WORDS as RW,MAGIC as RM
         from portable_backend import validate_composed_stride
-        self.assertEqual(OUT,ME);self.assertEqual(INPUT,MI+RW);self.assertLessEqual(END,OUTPUT);check_schema(ROOT)
+        self.assertGreater(OUT,ME);self.assertEqual(CAPACITY,8192);self.assertEqual(INPUT,MI+RW);self.assertLessEqual(END,OUTPUT);check_schema(ROOT)
         for mode in ('fixed','accumulate'):
             body=self.movement_range_body();body['burst_gauge_mode']=mode;before=copy.deepcopy(body)
             with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle input')):

@@ -41,9 +41,9 @@ def compile_product(prepared):
     return source,INPUT,OUTPUT,words,meta
 
 
-def read_result(block,meta,duration,*,out=OUT):
+def read_result(block,meta,duration,*,out=OUT,output=OUTPUT):
     def fail():raise UnsupportedPortable('Invalid or incomplete product named range cast history')
-    if len(block)!=OUTPUT or block[0]!=0:fail()
+    if len(block)!=output or block[0]!=0:fail()
     end=out+(END-OUT)
     if type(out) is not int or out<OUT or end>len(block):fail()
     h=list(block[out:out+OUT_HEADER]);count=h[2]

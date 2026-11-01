@@ -250,7 +250,7 @@ static const uint P_PROTECTION_BUILD_BASE = 133824U;
 static const uint P_OUTPUT_WORDS = 2048912U;
 #elif defined(PORTABLE_MOVING_MANY)
 static const uint P_OUTPUT_WORDS = 10422672U;
-#elif defined(PORTABLE_MOVING_TYPED)
+#elif defined(PORTABLE_MOVING_TYPED) || defined(PORTABLE_PRODUCT_MOVEMENT_RANGE)
 static const uint P_OUTPUT_WORDS = 2165136U;
 #elif defined(PORTABLE_LOCK_TYPED_COMPOSITION)
 static const uint P_OUTPUT_WORDS = 1310720U;

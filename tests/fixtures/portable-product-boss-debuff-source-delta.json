@@ -1134,35 +1134,41 @@
     },
     "gpu/portable_schema.slang": {
       "before_sha256": "2ce1648b1b484f3d64806c48520f98dbfaab24e7a299e2afe1a66fb5abbd5334",
-      "after_sha256": "3d7ae08f1784215a477efacdf36ded0511d2dd7b275cca85d4a588ffc986395b",
+      "after_sha256": "65206417fd03d607fd4799258502c84c08740c05fce0017ed69b0180ac77a1bb",
       "hunks": [
         {
-          "start": 27623,
-          "end": 27659,
+          "start": 11107,
+          "end": 11151,
+          "before": "",
+          "after": ") || defined(PORTABLE_PRODUCT_MOVEMENT_RANGE"
+        },
+        {
+          "start": 27667,
+          "end": 27703,
           "before": "",
           "after": "boss_dot = 95U;\nstatic const uint S_"
         },
         {
-          "start": 28556,
-          "end": 28598,
+          "start": 28600,
+          "end": 28642,
           "before": "",
           "after": "S_cover_disabled = 71U;\nstatic const uint "
         },
         {
-          "start": 29264,
-          "end": 29267,
+          "start": 29308,
+          "end": 29311,
           "before": "",
           "after": "267"
         },
         {
-          "start": 29268,
-          "end": 29274,
+          "start": 29312,
+          "end": 29318,
           "before": "28482303",
           "after": "965951"
         },
         {
-          "start": 29404,
-          "end": 29405,
+          "start": 29448,
+          "end": 29449,
           "before": "2",
           "after": "5"
         }
@@ -2658,7 +2664,7 @@
     },
     "gpu/world_coordinate_area_entry.slang": {
       "before_sha256": "292d819a97c4fc8f4b8351f14e901cbf87f1b4cab280709e9b502ce81e98fb4c",
-      "after_sha256": "ab2afad621163513b34eed7d75b165e4651598755931dfafa1b538942caa1a37",
+      "after_sha256": "00c0b51a8689679ccae3a1f165ef4645229bebb728ff5ea758f3a83ee1f3ab30",
       "hunks": [
         {
           "start": 720,
@@ -2667,8 +2673,14 @@
           "after": "if defined(PORTABLE_PRODUCT_MOVEMENT_RANGE)\n    uint input=1+id.x*NRB_INPUT,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;\n#elif defined(PORTABLE_PRODUCT_COVER_MOVEMENT)\n    uint input=1+id.x*(EMB_INPUT+CDF_WORDS),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;\n#elif defined(PORTABLE_PRODUCT_COVER_NAMED_RANGE)\n    uint input=1+id.x*(NRB_INPUT+CDF_WORDS),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;\n#el"
         },
         {
-          "start": 6776,
-          "end": 6982,
+          "start": 5869,
+          "end": 5989,
+          "before": "",
+          "after": "#ifdef PORTABLE_PRODUCT_MOVEMENT_RANGE\n    for(uint i=LAG_OUTPUT_WORDS;i<P_OUTPUT_WORDS;i++)results[output+i]=0;\n#endif\n"
+        },
+        {
+          "start": 6896,
+          "end": 7102,
           "before": "",
           "after": "#if defined(PORTABLE_PRODUCT_COVER_MOVEMENT) || defined(PORTABLE_PRODUCT_COVER_NAMED_RANGE)\n    for(uint i=0;i<CDF_DEPTH*CDF_SNAPSHOT_WORDS;i++)results[output+CDF_OUTPUT_BASE+CDF_SNAPSHOT_BASE+i]=0;\n#endif\n"
         }
@@ -2977,6 +2989,18 @@
           "end": 5597,
           "before": "(block,domain,*,sampled_coefficients=None,sampled_rows=None,sampled_packets=None,sampled_skill_metadata=None):\n    c,m,b=domain;assert block[0]==0,('battle status',block[0]);assert block[786432]==0x44425431 and not any(block[786434:786448])\n    header=789248;assert block[header+2]==1 and block[header+3] in (0,1) and block[header+4]==1 and not any(block[header+5:header+16])\n    assert not any(block[787456+len(c['typed_bindings'])*14:787456+128*14]),'Unbound typed state'\n    state=[]\n    for i in range(len(c['typed_bindings'])):\n        at=787456+i*14\n        if block[at+2]==0:assert not any(block[at:at+14]);state.append(None);continue\n        assert block[at+3] in (0,1)\n        state.append(dict(handle=list(block[at:at+3]),alive=bool(block[at+3]),remaining=number(block,at+4),capacity=number(block,at+6),expires=number(block,at+8),owner=None if block[at+10]==0xffffffff else list(block[at+10:at+13])))\n        assert block[at+13]==0\n    attacks=[];count=block[786433];assert count<=c['max_attacks']\n    if sampled_coefficients is not None:assert len(sampled_coefficients)==count,'Native coefficient sample count'\n    if sampled_rows is not None:assert len(sampled_rows)==count,'Native source sample count'\n    if sampled_packets is not None:assert len(sampled_packets)==count,'Native packet sample count'\n    if sampled_skill_metadata is not None:assert len(sampled_skill_metadata)==count,'Native skill metadata count'\n    for i in range(count):\n        at=790000+i*1040;selected=block[at+3];assert 1<=selected<=128 and block[at+10] in (0,1)\n        source=sampled_rows[i] if sampled_rows is not None else next(j for j,e in enumerate(c['effects']) if e.get('target')=='all_projectiles')\n        if source is None:\n            assert sampled_packets is not None and sampled_coefficients is not None,'Explicit native weapon samples required'\n            assert list(block[at+11:at+16])==[0,1,int(sampled_packets[i]),0,0],'Weapon packet family/mode'\n            source_row=0xffffffff;sampled_coefficient=sampled_coefficients[i]\n        else:\n            if sampled_skill_metadata is None:assert not any(block[at+11:at+16]),'Unused skill packet metadata'\n            else:assert list(block[at+11:at+16])==sampled_skill_metadata[i],'Original skill family/selector metadata'\n            owner=c['owners'][source];source_row=m['binding_source_indices'].index(source)\n            sampled_coefficient=(sampled_coefficients[i] if sampled_coefficients is not None else coefficient(c['effects'][source],dict(name=roster_names(c)[owner],skill_levels=skill_levels(c)[owner])))\n        assert block[at+1]==source_row and struct.pack('<II',*block[at+6:at+8])==struct.pack('<d',sampled_coefficient),'Sampled typed coefficient/source'\n        receipts=[]\n        for j in range(selected):\n            p=at+16+j*8;assert block[p+4] in (0,1) and block[p+5] in (0,1)\n            receipts.append(dict(slot=block[p],handle=list(block[p+1:p+4]),delivered=bool(block[p+4]),broken=bool(block[p+5]),took=number(block,p+6)))\n        assert not any(block[at+16+selected*8:at+1040]),'Unused typed receipts'\n        attacks.append(dict(attack_id=block[at],owner=block[at+2],time=number(block,at+4),damage=number(block,at+8),completed=bool(block[at+10]),receipts=receipts))\n    assert not any(block[790000+count*1040:790000+128*1040]),'Unused typed attacks'\n    return dict(time=number(block,header),finished=bool(block[header+3]),state=state,attacks=attacks)",
           "after": ""
+        }
+      ]
+    },
+    "app/portable_specs.py": {
+      "before_sha256": "56f4bce83a64a6ae51ceba90d9bc7bae0196f1e8a3435d7df2e3fe6a81fcf322",
+      "after_sha256": "9cbfbbe217d835920b364d1e991f7851f9ef48bd15a9b428efa5fa20963eabbd",
+      "hunks": [
+        {
+          "start": 23070,
+          "end": 23114,
+          "before": "",
+          "after": " || defined(PORTABLE_PRODUCT_MOVEMENT_RANGE)"
         }
       ]
     }

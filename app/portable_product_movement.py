@@ -42,15 +42,17 @@ def compile_product(prepared):
     return source,INPUT,OUTPUT,words,meta
 
 
-def read_result(block,meta,duration):
+def read_result(block,meta,duration,*,capacity=CAPACITY,output=OUTPUT):
     """Decode every movement word; reject gaps, reserved data or partial history."""
     def fail():raise UnsupportedPortable('Invalid or incomplete product movement history')
-    if len(block)!=OUTPUT or block[0]!=0:fail()
+    if type(capacity) is not int or capacity<CAPACITY:fail()
+    segment_base=FRAMES+capacity*FRAME_WORDS;bank_end=OUT+segment_base+capacity*SEGMENT_WORDS
+    if bank_end>output or len(block)!=output or block[0]!=0:fail()
     n,m=block[OUT+1:OUT+3]
-    if block[OUT]!=MAGIC or n>CAPACITY or m>CAPACITY:fail()
+    if block[OUT]!=MAGIC or n>capacity or m>capacity:fail()
     info=meta['product_enemy_movement'];spec=info['declarations']['enemy_movement']
     bindings=info['bindings'];labels={r['label'] for r in spec['motion']['actors']}
-    canonical=[0]*(END-OUT);canonical[:3]=[MAGIC,n,m]
+    canonical=[0]*(bank_end-OUT);canonical[:3]=[MAGIC,n,m]
     def num(at):
         x=struct.unpack('<d',struct.pack('<II',*block[OUT+at:OUT+at+2]))[0]
         if not math.isfinite(x):fail()
@@ -72,7 +74,7 @@ def read_result(block,meta,duration):
             left=prior['time'];before=prior['position']
         segments=[]
         for j in range(count):
-            out=SEGMENTS+cursor*SEGMENT_WORDS;cursor+=1
+            out=segment_base+cursor*SEGMENT_WORDS;cursor+=1
             s,g,flags=block[OUT+out:OUT+out+3]
             if (s,g)!=(slot,gen) or flags>3:fail()
             canonical[out:out+3]=[s,g,flags]
@@ -88,6 +90,6 @@ def read_result(block,meta,duration):
         at=STATE+slot*STATE_WORDS;canonical[at:at+2]=[frame['actor'][2],int(frame['alive'])];canonical[at+8]=1
         for offset,value in ((2,frame['time']),(4,frame['position'][0]),(6,frame['position'][1])):
             canonical[at+offset:at+offset+2]=struct.unpack('<II',struct.pack('<d',value))
-    if list(block[OUT:END])!=canonical:fail()
+    if list(block[OUT:bank_end])!=canonical:fail()
     data=dict(model='declared-add-motion-v1',policies={k:spec['motion'][k] for k in ('precedence','force_policy','recipient_policy')},generations=generations,frames=frames)
     return dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(info['declarations']),enemy_movement=data)

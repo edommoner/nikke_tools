@@ -5,7 +5,6 @@
 #define PORTABLE_NAMED_RANGE_BATTLE
 #define PORTABLE_EFFECT_TARGET_COUNT
 #define PORTABLE_NAMED_ENEMY
-#include "enemy_movement_layout.slang"
 #include "product_movement_range_layout.slang"
 #include "coordinate_area_hooks.slang"
 #undef captureCoordinateCast
