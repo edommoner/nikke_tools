@@ -1,3 +1,9 @@
+## 保存SDKを参照する新しいAPI検証先
+
+管理済み`prepare-api.py`は新しいprogramの`sdk-paths.json`に`sdk_program_root`を明示すると、既存SDKを読み取り、新しいAPI captureを別rootへ作れます。値は絶対pathです。source/targetのowner・source commit・kernel・input/output stride・不変packet pathを完全一致させ、packetの親はSDK rootと一致させます。root同士の包含も拒否します。未指定時は従来の同一root動作です。
+
+SDK metadataと旧stopのSHAを`sdk-source-reference.json`へ保持し、準備の前後で元bytesが変わらないことを確認します。旧stop/claimを削除せず、新しいtargetのstop・前batch終端・未作成captureの条件を維持します。これは設定準備だけで、image/source/claim/phaseのadmissionは既存product機構で別途通す必要があります。Job・RAM・時間・優先度・保存監査・歴史的falseは従来どおりです。[57検査と全7callerのデータ専用確認](../research/product-sdk-reference-v1.json)。
+
 ## 配分と実射撃groupの通常製品経路
 
 `reference_models.weighted_incoming`と元の`multi_hit` listenerを含む編成は、同じ配分・射撃group・イベント実行器へ接続します。固定/実蓄積の両modeを通常APIで確認しました。入力には元のmarker/全effectとliteral weightsだけを渡し、groupや配分時刻・recipient maskをCPU戦闘から作りません。元のplain weighted shaderは全byte不変です。

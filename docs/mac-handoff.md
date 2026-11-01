@@ -1,3 +1,11 @@
+## 2026-11-01 保存SDK参照rootと新API captureを分離
+
+管理prepare-apiへsdk-paths.jsonのoptional sdk_program_rootを追加。絶対path/非包含root/exact owner・source commit・source・input-output stride/同一immutable packetを要求し、既存static/check-apiがpacket.parentを使うのでその親もSに一致させる。未指定は旧同一root動作。旧SDK5metadata＋旧parent stopのSHAを前後で検査し新captureのsdk-source-reference.jsonへ保存、元stop/claim/旧SDKは書換0。実image/source/claim/phaseのadmissionは既存product機構のまま、Job/RAM/SDK/API/保存監査11helperのsource変更0。
+
+root/source差・packet差・祖先/子孫・相対path・未リンク・target既存stop等を既存CLI検査で確認、57件成功。元7caller/expectedと元ownerEFの完全unpack packetを使ったdata-only integrationも2/2/2/1すべて一致。2790file（packet＋fixture SDK metadata/旧stop）の全byte保持。fixtureは実SDK image/claim/Jobを持たずadmission未実行、SDK/POST/GPU0。元/v1testはMac /varと/private/varの表記差だけで失敗したため、実装は変えずassertをresolve、失敗log保持。research/product-sdk-reference-v1.json。新しい計算やMetal再実行は不要、標準profile数不変。
+
+Windowsの同chatはread-only後続turn01a19711の中で直接ユーザーから接続/SSH設定の別依頼を受けている様子がread_threadで見えた。こちらからSSH設定の指示は出していない。次は修正helperを共有し、直接ユーザー依頼が完了してから保存EF imageの未実行7ケースだけを継続する。old wrong-main stop/outer2-inner0/wholefalse/claimをそのまま、既存EF packetとold SDK sourceを参照するfresh rootを設定。CPU91/SDKを再実行しない。新しい前SDK probeで旧失敗を上書きせず、正しい保存imageの既存admissionから始める。元CUDA request-v2のcaller・全input/output hashは不変。以下は履歴。
+
 ## Windows読取後続のlive handle
 
 read_threadで新しいread-only turn01a19711-c6cc-7930-8de0-1fc24ebb743aがinProgressを確認。SDK/API/CPU/RAMはこの後続で実行していない。既存product admissionは正しいPTX/object/link/claimを再検査しwrong-main診断自体を参照しないが、prepare-apiは「SDK metadataの参照元root」と「新API captureの作成root」を同じprogramへ固定している、というpeer所見を取得。次は保存されたconfig/source調査JSONを同packet branchから取得し、既存prepareへ明示したread-only SDK参照rootを渡す最小の汎用引数をレビューする。旧stop削除・旧成功/falseの付替え・SDK/CPU再実行・新per-feature runnerは不要。まだ保存調査の最終importと実装は未完了。再送しない。以下は履歴。

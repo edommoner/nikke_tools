@@ -49,6 +49,64 @@ class PacketTests(unittest.TestCase):
         request=dict(owner='owner',source_commit='abcdef',source='gpu/source.slang',program='existing',input_words=3,output_words=8,batches=[batch])
         (batch if separate else request).update(files);cli.write(program/'program.json',request)
         return work,program,job,request
+    def external_windows_sdk_fixture(self,base):
+        import shutil
+        work,program,job,request=self.product_windows_prepare_fixture(base)
+        source=base/'old-sdk-root'/'source';source.mkdir(parents=True)
+        for relative in ('program.json','sdk-paths.json','jit-link-object-verified.json',
+                'jit-link-v1/proof/jit-link.json','compile-ptx-v1/proof/generation-cache.json'):
+            destination=source/relative;destination.parent.mkdir(parents=True,exist_ok=True)
+            shutil.copyfile(program/relative,destination)
+        # Preserve both old stop and claim as evidence, never as a new-stage proof.
+        cli.write(source.parent/'stop.json',dict(stage='old-diagnostic-entry',passed=False))
+        cli.write(source/'old-claim.json',dict(consumed=True))
+        (program/'jit-link-object-verified.json').unlink()
+        cfg=cli.load(program/'sdk-paths.json');cfg['sdk_program_root']=str(source);cfg['packet']=str(source/'packet')
+        (source/'packet').mkdir();cli.write(source/'sdk-paths.json',dict(packet=cfg['packet']))
+        cli.write(program/'sdk-paths.json',cfg)
+        return work,program,source,job,request
+    def test_windows_prepare_references_readonly_sdk_and_preserves_old_stop_and_claim(self):
+        with tempfile.TemporaryDirectory() as temp:
+            work,program,source,job,request=self.external_windows_sdk_fixture(Path(temp))
+            names=[p.relative_to(source.parent).as_posix() for p in source.parent.rglob('*') if p.is_file()]
+            before=cli.file_records(source.parent,names)
+            done=subprocess.run([sys.executable,str(work/'prepare-api.py'),'owned','0'],capture_output=True,text=True,timeout=10)
+            self.assertEqual(done.returncode,0,done.stderr)
+            cli.check_records(source.parent,before)
+            capture=program/'batch-000';reference=cli.load(capture/'sdk-source-reference.json')
+            self.assertTrue(reference['external_read_only_source']);self.assertTrue(reference['old_source_stop_retained'])
+            self.assertEqual(reference['source_program_root'],str(source.resolve()))
+            self.assertEqual(cli.load(capture/'job.json'),job)
+            self.assertEqual(cli.load(capture/'paths.json')['image_sha256'],'image')
+            self.assertIn(str((source.parent/'stop.json').resolve()),reference['source_metadata_sha256'])
+    def test_windows_prepare_rejects_external_sdk_identity_packet_root_or_prior_target_stop(self):
+        mutations=['owner','source_commit','source','input_words','output_words',
+            'packet','packet-outside-source','relative-root','source-inside-target','source-contains-target','missing-link','target-stop']
+        for mutation in mutations:
+            with self.subTest(mutation=mutation),tempfile.TemporaryDirectory() as temp:
+                work,program,source,job,request=self.external_windows_sdk_fixture(Path(temp))
+                if mutation in ('owner','source_commit','source','input_words','output_words'):
+                    value=cli.load(source/'program.json');value[mutation]='mismatch';cli.write(source/'program.json',value)
+                elif mutation=='packet':
+                    value=cli.load(source/'sdk-paths.json');value['packet']=str(Path(temp)/'other-packet');cli.write(source/'sdk-paths.json',value)
+                elif mutation=='packet-outside-source':
+                    for config in (source/'sdk-paths.json',program/'sdk-paths.json'):
+                        value=cli.load(config);value['packet']=str(Path(temp)/'not-in-sdk-root');cli.write(config,value)
+                elif mutation in ('relative-root','source-inside-target','source-contains-target'):
+                    value=cli.load(program/'sdk-paths.json')
+                    if mutation=='relative-root':value['sdk_program_root']='../old-sdk-root/source'
+                    elif mutation=='source-inside-target':
+                        nested=program/'nested';nested.mkdir();value['sdk_program_root']=str(nested)
+                    else:value['sdk_program_root']=str(work)
+                    cli.write(program/'sdk-paths.json',value)
+                elif mutation=='missing-link':(source/'jit-link-object-verified.json').unlink()
+                else:cli.write(work/'stop.json',dict(stage='prior-target-failure'))
+                names=[p.relative_to(source.parent).as_posix() for p in source.parent.rglob('*') if p.is_file()]
+                before=cli.file_records(source.parent,names)
+                done=subprocess.run([sys.executable,str(work/'prepare-api.py'),'owned','0'],capture_output=True,timeout=10)
+                self.assertNotEqual(done.returncode,0);self.assertFalse((program/'batch-000').exists())
+                cli.check_records(source.parent,before)
+
     def test_windows_prepare_preserves_separate_and_legacy_job_bytes_and_expectations(self):
         for separate in (False,True):
             with self.subTest(separate=separate),tempfile.TemporaryDirectory() as temp:
