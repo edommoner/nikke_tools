@@ -1,0 +1,659 @@
+{
+  "schema": "named-carriers-fixed-normal-api-status-v1",
+  "request_transport_commit": "6d2e4c2409142962dd71f7605cf465961d92d0a3",
+  "owner": "2dc37ccb07a04842c3ac1b307f8b2cdf6f5020a5ecdf4945def0954529a56971",
+  "source_commit": "e3f0ada573838ef7a3c697a63b4f8d674b5bff7c",
+  "source": "gpu/product_named_carriers_fixed_battle_entry.slang",
+  "scope": "Original Rei standard profile251, favorite0, fixed30s; initial source execution only",
+  "numeric_verification_passed": true,
+  "original_request_documents_unchanged": [
+    {
+      "file": "named-carriers-fixed-v1-api-expected.json",
+      "bytes": 1374,
+      "sha256": "839cebfae30e7841289cf105c6d5a9aad7783920e40379ee24efd69a60f56a1d"
+    },
+    {
+      "file": "named-carriers-fixed-v1-api-job.json",
+      "bytes": 7509,
+      "sha256": "f9aa60b0dcc5930659cd9ed8b95a5b58e451e392e13043f1ec4b223b6cef742e"
+    },
+    {
+      "file": "named-carriers-fixed-v1-o1-plan.json",
+      "bytes": 735,
+      "sha256": "d8320bbfdac0adb231bf9592910857f4b440ef0d495e0c37954699de33a8f429"
+    },
+    {
+      "file": "named-carriers-fixed-v1-ptx-plan.json",
+      "bytes": 707,
+      "sha256": "6c26c4f06e6166e523e3f074477959073b5abb0733c4b181058742580254866e"
+    },
+    {
+      "file": "named-carriers-fixed-v1-validation-deps.json",
+      "bytes": 407,
+      "sha256": "be1893b9115e9cab5480520cb1ec6ba7ecb1e5196257204cfd2f21c509f8dac5"
+    },
+    {
+      "file": "named-carriers-fixed-v1.zip",
+      "bytes": 12107486,
+      "sha256": "214d67712ec0ecbe281a00a059703b21cdf06c2710c7e722fa411645b92f396d"
+    },
+    {
+      "file": "named-carriers-windows-request-v1.json",
+      "bytes": 3823,
+      "sha256": "a920b0f3923f35eae8ac7247ba27ecea0e06ec87292a12b1f82444408dc9370b"
+    }
+  ],
+  "cpu": {
+    "passed": true,
+    "tests": 86,
+    "groups": [
+      {
+        "pattern": "test_portable_detail.py",
+        "exit_code": 0,
+        "elapsed_seconds": 9.171041999943554,
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.6907795001752675,
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.9435803000815213,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_product_reference_models.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.15995510015636683,
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_original_named_carriers_keep_every_definition_and_reject_matching_consumer"
+        ]
+      }
+    ],
+    "selected_case_ids": {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_original_named_carriers_keep_every_definition_and_reject_matching_consumer"
+      ]
+    },
+    "owner": "2dc37ccb07a04842c3ac1b307f8b2cdf6f5020a5ecdf4945def0954529a56971",
+    "source_commit": "e3f0ada573838ef7a3c697a63b4f8d674b5bff7c",
+    "full146_windows_claimed": false,
+    "unselected_model60_executed": false,
+    "old_source_results_reused": false,
+    "extra_native_preflight_battles": 0,
+    "sdk_calls": 0,
+    "gpu_calls": 0
+  },
+  "sdk_stages": {
+    "unpack": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 15.72015619976446,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 73248768,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "plans": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 17.88584990007803,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 70021120,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "host-tests": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 25.717758500017226,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 147599360,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "generation": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 18.810414399951696,
+      "timeout_seconds": 59.842999999877065,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 575832064,
+      "below_normal": true,
+      "runner_exit_code": 0,
+      "artifact_verified": true,
+      "reported_stage_verified": true,
+      "reported_stage_complete": true,
+      "reported_whole_environment_preservation_verified": false
+    },
+    "compile-ptx": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "elapsed_seconds": 33.855909100268036,
+      "timeout_seconds": 179.84299999987707,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 348721152,
+      "below_normal": true,
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "reported_whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 25.83086230000481,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 314204160,
+        "below_normal": true
+      }
+    },
+    "module-object": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "elapsed_seconds": 29.6911152000539,
+      "timeout_seconds": 179.86000000033528,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 415924224,
+      "below_normal": true,
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "reported_whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 16.543278300203383,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 369070080,
+        "below_normal": true
+      }
+    },
+    "jit-link-object": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "elapsed_seconds": 42.82742900028825,
+      "timeout_seconds": 179.84400000004098,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 237613056,
+      "below_normal": true,
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "reported_whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 17.087379099801183,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 115736576,
+        "below_normal": true
+      }
+    }
+  },
+  "artifact": {
+    "ptx": {
+      "key": "1e91d034f19954ecec1d48af124d14ec26616444f69da2a4ff275a58fcb998ac",
+      "artifact_sha256": "6c22da60cf32fe42e94d47519962dbe9584c9bd2d3c988389712e4dd45436dda",
+      "artifact_bytes": 10260165
+    },
+    "object_sha256": "4dae928d18111259bea4a826b1cc5dd2492eeb87e70b9fdbb7dfbe5a0097f7d3",
+    "linked_image_sha256": "35a73aacf2f5fbabcf4b3aa6bad726c4abbd90092674734dbf262a97642f8781",
+    "linked_image_bytes": 5472080,
+    "object_origin_source_bytes_unchanged": true,
+    "object_origin_source_partitioned": false
+  },
+  "paired_cache": {
+    "key": "216fc2d6d2bf52aff69a95460c73c4512e0bf7dca3e7a5afb2d162521f385dff",
+    "hit": true,
+    "compiler_invocations": 0
+  },
+  "execution_counts": {
+    "paired_generation_runs": 1,
+    "ptx_compile_runs": 1,
+    "o1_object_runs": 1,
+    "pinned_jit_link_runs": 1,
+    "posts": 1,
+    "physical_gpu_dispatches": 1,
+    "physical_cases": 1,
+    "retries": 0,
+    "additional_audit_cpu_battles": 0,
+    "additional_audit_gpu_calls": 0,
+    "unchanged_sdk_smoke_runs": 0,
+    "standard266_runs": 0
+  },
+  "normal_api": {
+    "batch_index": 0,
+    "cases": 1,
+    "profile_indices": [
+      251
+    ],
+    "passed": true,
+    "job_id": "f234cadd-c883-4c14-8e49-7cf0e0654d73",
+    "parent_capture_id": "407e7045efa34ff7aba4535fd5109691",
+    "physical_input_sha256": "87978e6b1340e03b51f5189876e591c25ee622a94ddfd94a13ed382355bf87f1",
+    "physical_output_sha256": "571dfde47565f9760fa6c142c184cc960f19b5ad03ad56c8657c13f63650a902",
+    "physical_input_bytes": 417604,
+    "physical_output_bytes": 3145728,
+    "members": [
+      {
+        "profile_index": 251,
+        "character": "레이 (가칭)",
+        "favorite_stage": 0,
+        "capture_id": "407e7045efa34ff7aba4535fd5109691",
+        "input_sha256": "87978e6b1340e03b51f5189876e591c25ee622a94ddfd94a13ed382355bf87f1",
+        "output_sha256": "571dfde47565f9760fa6c142c184cc960f19b5ad03ad56c8657c13f63650a902",
+        "status": 0,
+        "full_cpu_gpu_api_equal": true,
+        "m5_full_readback_equal": true,
+        "parent_slices_and_static_repack_equal": true
+      }
+    ],
+    "cuda_api_counts": {
+      "cuInit": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0173876
+      },
+      "cuCtxCreate_v2": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.066096
+      },
+      "cuModuleLoadData": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0033979
+      },
+      "cuLaunchKernel": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0013921,
+        "grid": [
+          1,
+          1,
+          1
+        ],
+        "block": [
+          1,
+          1,
+          1
+        ],
+        "dynamic_shared_bytes": 0
+      },
+      "cuCtxSynchronize": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 2.0169297
+      },
+      "cuMemcpyDtoH_v2": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0003525,
+        "chunk_bytes": [
+          3145728
+        ],
+        "total_bytes": 3145728
+      },
+      "cuCtxDestroy_v2": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0250602
+      }
+    },
+    "resource": {
+      "snapshot_count": 8,
+      "observation_complete": false,
+      "inner_job_limit_unknown_count": 8,
+      "inner_job_limits": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "outer_enforced_limit_verified": true,
+      "outer_enforced_job_limit_bytes": 2147483648,
+      "outer_job_peak_bytes": 1382219776,
+      "process_private_peak_bytes": 1326223360,
+      "observed_private_max_bytes": 1326223360,
+      "device_free_min_bytes": 6533677056,
+      "device_free_max_bytes": 7448035328,
+      "device_total_bytes": 8589410304,
+      "memory_query_return_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "non_atomic": true,
+      "runtime": {
+        "input_bytes": 417604,
+        "output_bytes": 3145728,
+        "runtime_stride_bytes": 167680,
+        "runtime_buffer_bytes": 167680,
+        "runtime_element_capacity": 1
+      }
+    },
+    "stages": {
+      "static-preflight": {
+        "child_exit_code": 0,
+        "elapsed_seconds": 9.745326299685985,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "job_records": 1,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 94990336,
+        "below_normal": true
+      },
+      "api-once-v1": {
+        "child_exit_code": 0,
+        "elapsed_seconds": 19.722294100094587,
+        "timeout_seconds": 53,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "job_records": 1,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 1382219776,
+        "below_normal": true
+      },
+      "saved-audit": {
+        "child_exit_code": 0,
+        "elapsed_seconds": 10.000313400290906,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "job_records": 1,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 104861696,
+        "below_normal": true
+      }
+    },
+    "http_seconds": 15.41152839967981,
+    "host_dispatch_seconds": 2.022712000180036,
+    "paired_cache_hit": true,
+    "paired_cache_compiler_invocations": 0,
+    "owned_node_stopped": true,
+    "additional_saved_audit_battles": 0,
+    "additional_saved_audit_gpu_calls": 0,
+    "unicode_exclusions": [],
+    "overall_verified": false,
+    "service_preservation_verified": false
+  },
+  "node_saved_audit": {
+    "schema": "coordinate-public-saved-node-roundtrip-audit-v1",
+    "passed": true,
+    "owner": "2dc37ccb07a04842c3ac1b307f8b2cdf6f5020a5ecdf4945def0954529a56971",
+    "source_commit": "e3f0ada573838ef7a3c697a63b4f8d674b5bff7c",
+    "cases": [
+      {
+        "index": 0,
+        "variant": null,
+        "duration_seconds": 30,
+        "capture_id": "407e7045efa34ff7aba4535fd5109691",
+        "original_document_canonical_sha256": "eec0e0399d0cb91a56a5f61d0d056a7f8d3f18ea7cd87259076b3e38aab75cb0",
+        "node_effective_document_canonical_sha256": "eec0e0399d0cb91a56a5f61d0d056a7f8d3f18ea7cd87259076b3e38aab75cb0",
+        "product_record_request_sha256": "eec0e0399d0cb91a56a5f61d0d056a7f8d3f18ea7cd87259076b3e38aab75cb0",
+        "node_effective_request_hash_matches_record": true,
+        "input_sha256": "87978e6b1340e03b51f5189876e591c25ee622a94ddfd94a13ed382355bf87f1",
+        "output_sha256": "571dfde47565f9760fa6c142c184cc960f19b5ad03ad56c8657c13f63650a902",
+        "static_repack_equal": true,
+        "parent_input_slice_equal": true,
+        "parent_output_slice_equal": true,
+        "m5_full_readback_equal": true,
+        "gpu_status": 0,
+        "full_saved_gpu_cpu_http_and_reprojection_equal": true,
+        "spec_text_compared_without_exclusion": true
+      }
+    ],
+    "node": {
+      "version": "v24.22.1",
+      "operation": "JSON.parse(stdin UTF-8) then JSON.stringify with the configured server Node executable",
+      "operation_code_sha256": "2fd6f3e90f9ac78b31216b705580d15d3d09fdb83507598719f2b9c9cb05e93c",
+      "wire_reconstruction": "Same json.dumps(payload,ensure_ascii=False).encode() as saved HTTP helper; reconstructed bytes, not a new network capture",
+      "http_helper_sha256": "1e4ab8fab4e6800b6c67ba7e742fb987c857da176cc16b0d239975780f4c8e5c",
+      "original_job_file_sha256": "f9aa60b0dcc5930659cd9ed8b95a5b58e451e392e13043f1ec4b223b6cef742e",
+      "roundtrip_input_bytes": 3700,
+      "roundtrip_input_sha256": "3ce72ab51c61985f4b8d0ef525690b78baad63bc201dd2e3cc28cd2ff88d4464",
+      "roundtrip_output_bytes": 3303,
+      "roundtrip_output_sha256": "d0d666055ac41f8cd408b909634fea38adf49c3b39c8175957f4b175448fd4e6",
+      "stderr_bytes": 0,
+      "process_return_code": 0
+    },
+    "original_and_effective_json_values_equal": true,
+    "representation_type_changes": [],
+    "no_caller_values_or_expected_hashes_changed": true,
+    "comparison": "Strict recursive JSON value equality with exact numbers, bool/type separation and full string/Unicode equality; no tolerance",
+    "unicode_exclusions": [],
+    "excluded_transport_metadata": [
+      "compute",
+      "cache_hit"
+    ],
+    "source_packet_unchanged": true,
+    "saved_audit_uses_actual_node_input_from_start": true,
+    "original_packet_and_old_claims_retained": true,
+    "anchors_unchanged": true,
+    "anchor_count": 8,
+    "parent_input_pre_sha256": "87978e6b1340e03b51f5189876e591c25ee622a94ddfd94a13ed382355bf87f1",
+    "parent_input_post_sha256": "87978e6b1340e03b51f5189876e591c25ee622a94ddfd94a13ed382355bf87f1",
+    "parent_output_pre_sha256": "571dfde47565f9760fa6c142c184cc960f19b5ad03ad56c8657c13f63650a902",
+    "parent_output_post_sha256": "571dfde47565f9760fa6c142c184cc960f19b5ad03ad56c8657c13f63650a902",
+    "static_preparation_calls": 1,
+    "readback_reprojection_calls": 1,
+    "additional_cpu_battles": 0,
+    "additional_sdk_calls": 0,
+    "additional_posts": 0,
+    "additional_gpu_calls": 0,
+    "raw_input_output_documents_shared": false,
+    "raw_buffers_shared": false,
+    "overall_verified": false,
+    "physical_cases": 1,
+    "source": "gpu/product_named_carriers_fixed_battle_entry.slang",
+    "parent_capture_id": "407e7045efa34ff7aba4535fd5109691",
+    "parent_input_sha256": "87978e6b1340e03b51f5189876e591c25ee622a94ddfd94a13ed382355bf87f1",
+    "parent_output_sha256": "571dfde47565f9760fa6c142c184cc960f19b5ad03ad56c8657c13f63650a902",
+    "physical_input_bytes": 417604,
+    "physical_output_bytes": 3145728,
+    "members": [
+      {
+        "index": 0,
+        "variant": null,
+        "duration_seconds": 30,
+        "capture_id": "407e7045efa34ff7aba4535fd5109691",
+        "original_document_canonical_sha256": "eec0e0399d0cb91a56a5f61d0d056a7f8d3f18ea7cd87259076b3e38aab75cb0",
+        "node_effective_document_canonical_sha256": "eec0e0399d0cb91a56a5f61d0d056a7f8d3f18ea7cd87259076b3e38aab75cb0",
+        "product_record_request_sha256": "eec0e0399d0cb91a56a5f61d0d056a7f8d3f18ea7cd87259076b3e38aab75cb0",
+        "node_effective_request_hash_matches_record": true,
+        "input_sha256": "87978e6b1340e03b51f5189876e591c25ee622a94ddfd94a13ed382355bf87f1",
+        "output_sha256": "571dfde47565f9760fa6c142c184cc960f19b5ad03ad56c8657c13f63650a902",
+        "static_repack_equal": true,
+        "parent_input_slice_equal": true,
+        "parent_output_slice_equal": true,
+        "m5_full_readback_equal": true,
+        "gpu_status": 0,
+        "full_saved_gpu_cpu_http_and_reprojection_equal": true,
+        "spec_text_compared_without_exclusion": true,
+        "original_profile_index": 251,
+        "status": 0,
+        "full_cpu_gpu_api_payload_equal": true
+      }
+    ]
+  },
+  "named_carriers": {
+    "all_original_definitions_values_lifetimes_recipients_retained": true,
+    "host_matching_consumer_rejection_test_passed": true,
+    "definition_name_scope": "all static definitions",
+    "matching_consumers_require_declared_matching_model": true,
+    "device_guard_source_sha256": "cb44eaeead3efcdf04d6d5d7f3e848e168dd58863a5fabe6a581eecf1209b187",
+    "host_compiler_source_sha256": "88d0f5f38b1821ac9b2d5bc61f59ae721ea06cbef1a92db187667fd2b266d20f",
+    "device_positive_status": 0,
+    "windows_raw_consumer_negative_gpu_case_executed": false,
+    "mac_raw_negative_result": "Supplied Mac evidence only; not claimed as a Windows dispatch"
+  },
+  "readback_policy": {
+    "source": "app/portable_backend.py",
+    "source_sha256": "f13f412e8d58c26b379e31638cab20f2bdefbd19ddf6ac4a9b74956419493b22",
+    "constant_line": 21,
+    "chunk_limit_bytes": 8388608,
+    "actual_chunk_bytes": [
+      3145728
+    ],
+    "physical_output_bytes": 3145728,
+    "full_m5_sha256": "571dfde47565f9760fa6c142c184cc960f19b5ad03ad56c8657c13f63650a902",
+    "matched": true
+  },
+  "preservation": {
+    "prior_protected_files": 41238,
+    "missing": 0,
+    "changed": 0,
+    "old_claims_failures_sources_and_raw_retained": true,
+    "initial7documents_unchanged": true
+  },
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "no_ssh_or_os_configuration_changed": true,
+  "full146_windows_claimed": false,
+  "remaining60_model_tests_executed": false,
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "raw_buffers_shared": false,
+  "compiler_distributions_shared": false,
+  "settings_or_auth_shared": false
+}
