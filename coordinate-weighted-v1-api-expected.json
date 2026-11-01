@@ -1,0 +1,30 @@
+{
+  "schema": "product-cuda-expected-v1",
+  "owner": "ee61a02993e6dc49fb5a5a0351fb40f944a6ce6002c06a319450f1ffaf71dd48",
+  "source_commit": "a5e3ce00a45e3b8efc035135468b2629787e0d40",
+  "source": "gpu/product_coordinate_weighted_battle_entry.slang",
+  "physical_cases": 1,
+  "input_words": 115696,
+  "output_words": 2048912,
+  "physical_input_bytes": 462788,
+  "physical_output_bytes": 8195648,
+  "physical_input_sha256": "539e4b6aa6e1567c4fc2f9c3b01e2d098b88bb9f79588621489fe0117cc958ef",
+  "physical_output_sha256": "87a1bb42aa36bcc55f6ae39b1e1bbd748be308bdd3c90eef95856cc8efd3ab8f",
+  "readback_chunk_bytes": 8388608,
+  "expected_readback_chunk_bytes": [
+    8195648
+  ],
+  "cases": [
+    {
+      "index": 0,
+      "member_index": 0,
+      "label": "product/coordinate-weighted-accumulate-30s",
+      "variant": null,
+      "expected_input_sha256": "539e4b6aa6e1567c4fc2f9c3b01e2d098b88bb9f79588621489fe0117cc958ef",
+      "expected_output_sha256": "87a1bb42aa36bcc55f6ae39b1e1bbd748be308bdd3c90eef95856cc8efd3ab8f",
+      "definition_count": 74,
+      "all_original_definitions_preserved": true,
+      "saved_metal_capture": "product-coordinate-weighted-v1-20261101/api-v1/684901d905634feba5c856af3368bb1a"
+    }
+  ]
+}

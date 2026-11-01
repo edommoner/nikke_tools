@@ -1,0 +1,64 @@
+{
+  "schema": "product-transport-v1",
+  "owner": "ee61a02993e6dc49fb5a5a0351fb40f944a6ce6002c06a319450f1ffaf71dd48",
+  "files": [
+    {
+      "path": "coordinate-weighted-v1-api-expected.json",
+      "bytes": 1223,
+      "sha256": "ab40bc517075993a903914c120e8b250ac00b4f8dd3f8b16074ddeb4620b06b9"
+    },
+    {
+      "path": "coordinate-weighted-v1-api-job.json",
+      "bytes": 11775,
+      "sha256": "511302b6c278c7dd059d5947e4f1f904405caa2593af2ef997042a192bc1cb0c"
+    },
+    {
+      "path": "coordinate-weighted-v1-check-sdk.py",
+      "bytes": 4875,
+      "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d"
+    },
+    {
+      "path": "coordinate-weighted-v1-o1-plan.json",
+      "bytes": 735,
+      "sha256": "b3187c258f4c79d4dcdd8df1d24e8f200bc0f69d326b7462c4c565d10a1b17d8"
+    },
+    {
+      "path": "coordinate-weighted-v1-prepare-api.py",
+      "bytes": 6413,
+      "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739"
+    },
+    {
+      "path": "coordinate-weighted-v1-ptx-plan.json",
+      "bytes": 707,
+      "sha256": "540f8125d5f151c5bae46e547abe3e8271f008c0155f2cf4ff2f68801a6a1315"
+    },
+    {
+      "path": "coordinate-weighted-v1-selected89.json",
+      "bytes": 900,
+      "sha256": "50d01b4bddb48f895b1ac9e48b3e0b65e1a8536cb35a4290ffb947c16523977a"
+    },
+    {
+      "path": "coordinate-weighted-v1-validation-deps.json",
+      "bytes": 407,
+      "sha256": "80d1cb64da3e94f0f785d538f7e1da5523f5faba2952704b3516970a04036275"
+    },
+    {
+      "path": "coordinate-weighted-v1-verify-host-tests.py",
+      "bytes": 1924,
+      "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7"
+    },
+    {
+      "path": "coordinate-weighted-v1-windows-request.json",
+      "bytes": 8491,
+      "sha256": "adc5fdc0a20465daadedb2c3e569c0032181cbd32537b1dd49ba25b6f07d4f7e"
+    },
+    {
+      "path": "coordinate-weighted-v1.zip",
+      "bytes": 12160664,
+      "sha256": "a99d788b664dee4fbe8a8a285b09d1693127b825f3107a4f4cf07aee5072c9fe"
+    }
+  ],
+  "raw_or_settings_included": false,
+  "additional_battles": 0,
+  "additional_gpu": 0
+}

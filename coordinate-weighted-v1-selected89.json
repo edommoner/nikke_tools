@@ -1,0 +1,16 @@
+{
+  "schema": "unit-selection-v1",
+  "package_id": "ee61a02993e6dc49fb5a5a0351fb40f944a6ce6002c06a319450f1ffaf71dd48",
+  "patterns": {
+    "test_portable_detail.py": null,
+    "test_product_detail_packet.py": null,
+    "test_weighted_source_contract.py": null,
+    "test_product_reference_models.py": [
+      "test_product_reference_models.ProductReferenceModels.test_weighted_coordinate_preserves_complete_scene_markers_and_disjoint_banks",
+      "test_product_reference_models.ProductReferenceModels.test_weighted_missing_weights_and_unsupported_composition_fail_before_dispatch",
+      "test_product_reference_models.ProductReferenceModels.test_weighted_original_product_consumes_real_markers_and_preserves_definitions",
+      "test_product_reference_models.ProductReferenceModels.test_weighted_readback_rejects_overflow_scratch_and_unaccounted_cover_receipts"
+    ]
+  },
+  "expected_tests": 89
+}
