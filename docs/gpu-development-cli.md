@@ -1,3 +1,11 @@
+## 飛翔体・HPシールドと既存スキルの製品経路
+
+通常APIの`reference_models.typed_targets`は、明示した座標・形状・照準・BODY所有の飛翔体またはHPシールドを既存共通武器実行器へ接続します。`typed-accumulate`は独立seal済み、`typed-fixed`は通常API検証済みでCLIは`--develop`です。両モード計16条件の全CPU/GPU/HTTPが一致しました。[検証範囲](../research/product-typed-targets-v1.json)。
+
+Heavy Armsの元`all_projectiles`スキルは、既存`reference_models.lock_on`経路の`typed_bindings`で扱います。共通結果読取器へ元定義・明示skill levelから求めた係数を渡し、GPUのsource/係数/receiptを厳密照合します。研究observerをimportせず、通常APIの両モード×生存/破壊4条件で全返却値が一致しました。`lock-accumulate`の現行source基準はv54、旧入力・全出力・native entryは完全同一、他39基準は保持しています。[出所と失敗記録](../research/product-lock-skill-import-v1.json)。
+
+座標typed武器とtypedスキルの同時利用、混在kind、hit shield、non-BODY owner、未接続consumerとの合成は理由付きCPU fallbackを維持します。宣言モデルの検証は実ゲーム規則の確認とは別です。
+
 ## 座標と有限ADDの敵回復
 
 `reference_models.coordinate`と`enemy_healing`を通常リクエストで併用できます。既存の有限HP/世代/回復量減少/上限のconsumerを座標実行器へ接続し、CPUのHPや予定時刻は入力へ渡しません。回復履歴と未使用領域を既存decoderで検証してから、両モデルを既存envelopeへ統合します。他consumer bankとの未接続合成は理由付きfallbackを維持します。

@@ -8,6 +8,28 @@ spec=importlib.util.spec_from_file_location('product_packet',ROOT/'research/veri
 adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
 
 class ProductPacket(unittest.TestCase):
+    def test_typed_skill_decoder_uses_exact_static_coefficient_without_research_imports(self):
+        import builtins,struct
+        from portable_world_result import read_typed_battle
+        block=[0]*1048576;block[786432]=0x44425431;block[786433]=1
+        block[789250]=1;block[789251]=1;block[789252]=1
+        at=790000;block[at:at+4]=[1,0,0,1];block[at+10]=1
+        for offset,value in [(4,1.),(6,3.),(8,7.),(22,2.)]:
+            block[at+offset:at+offset+2]=struct.unpack('<II',struct.pack('<d',value))
+        block[at+16:at+22]=[0,2,10,1,1,0]
+        case=dict(typed_bindings=[{}],max_attacks=128,effects=[dict(target='all_projectiles')],owners=[0])
+        meta=dict(binding_source_indices=[0]);original=builtins.__import__
+        def guarded(name,*args,**kwargs):
+            if name in ('world_frame_native','world_authored_roster'):
+                raise ImportError('Research module deliberately unavailable')
+            return original(name,*args,**kwargs)
+        with patch('builtins.__import__',side_effect=guarded):
+            result=read_typed_battle(block,(case,meta,()),sampled_coefficients=[3.])
+            with self.assertRaises(AssertionError):
+                read_typed_battle(block,(case,meta,()),sampled_coefficients=[4.])
+        self.assertEqual(result['attacks'][0]['damage'],7.)
+        self.assertEqual(result['attacks'][0]['receipts'][0]['took'],2.)
+
     def test_weapon_only_typed_decoder_has_no_research_import_dependency(self):
         import builtins,struct
         from portable_world_result import read_typed_battle

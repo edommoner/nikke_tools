@@ -213,7 +213,13 @@ def read_result(block,meta,duration):
     suppressed=sum(flags)
     if any(v not in (0,1) for v in flags) or list(block[fates.HEAD:fates.FLAGS])!=[fates.MAGIC,suppressed,suppressed,suppressed]+[0]*12 or any(block[fates.FLAGS+first:fates.END]):fail()
     from portable_world_result import read_typed_battle
-    try:typed=read_typed_battle(block[:OUTPUT],(info['typed_case'],meta,bindings))
+    # The original effect/levels are literal preparation data. Decode without
+    # importing the research observer graph into an ordinary product worker.
+    from destructible_skill_specs import coefficient
+    case=info['typed_case'];source=info['typed_source'];typed_count=block[786433]
+    if typed_count>128:fail()
+    value=coefficient(case['effects'][source],dict(name=spec['owner'],skill_levels=case['skill_levels'][owner]))
+    try:typed=read_typed_battle(block[:OUTPUT],(case,meta,bindings),sampled_coefficients=[value]*typed_count)
     except (AssertionError,ValueError,IndexError,struct.error):fail()
     if not 0<=typed['time']<=duration or typed['finished'] is not True:fail()
     if len(typed['state'])!=len(spec['typed_bindings']):fail()

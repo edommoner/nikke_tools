@@ -1,3 +1,15 @@
+## 2026-11-02 Heavy Arms飛翔体スキルの製品読取器を分離、通常Metal4条件
+
+前turnはtyped武器16条件までprogress。今回は実original all_projectilesを調査し、該当はHeavy Armsの元burst_cast skill1定義と確認。既存Lock On製品経路にはこのskillを処理する共通typed frameがあるので、同じ計算本体を再利用。portable_world_result.read_typed_battleのskill分岐に研究用roster observer importが残っていたため、portable_product_locksから元effect/owner/skill_levelsだけで求めた静的係数を渡し、既存の完全なsource/係数binary照合を維持した。sampled係数がある場合は研究moduleをimportしない。新shader/式/suite/program/監査器0、CPU正本4file/pinned/数値規約変更0。
+
+共通decoderに研究module不在の実skill receipt正例と係数不一致負例を追加。開発不変packet自身168CPU/依存成功。元30秒Lock On1caseの実M5/独立seal成功、新旧のinput/full output/全native entryは完全同一。ソース出所だけ更新したv54へlock-accumulateを登録し、他39memberを全byte保持。旧v53 golden/失敗claimを上書きしない。新golden未追跡のrelease-v3はpayload欠落でpreflight前停止、追跡後のrelease-v4が通常package/自身168CPU/依存/PTX/O1計画を全成功。最終ownerはresearch/product-lock-skill-import-v1.json参照。release-v1旧source closure拒否・release-v2のdevelopment compile-plan拒否も保持、SDK/GPUの再試行はしていない。
+
+元Heavy Armsの両mode×three-projectiles/broken-projectiles30s、通常HTTP1POST/2physicalM5/9.774秒、全CPU/GPU/HTTP一致。各1skill attack×3receipts、生存残量各99,709,612・破壊時0を確認。元定義/equipment保持、元のdeclared Lock On規約のままでゲーム距離検証と区別。保存監査4と最終release再投影4は追加battle/GPU0、元snapshot/member slices/全raw/source/input/全payload一致、研究observer2moduleのimportを禁止した状態でもdecode成功。owned Node group absent。
+
+通常製品の新profile加算0、元Heavy1profileの追加4条件。直近標準Metal263/266・CUDA従来263/266、明示モデル別の元historical各266/266、current全CUDA再認定なし。Windows追加依頼/SDK/GPU0、前のmissing7 unknown/stopを保持。
+
+座標typed武器と元typed skillの同時実行は未接続。旧privateではskill receipt128×1040と通常skill履歴が同じ領域、武器scratchとtyped DFSも同じ領域を使うため、route guardだけを開いてはいけない。Heavyには元Lock On consumerも必要で、正本のlock定義を削ってtyped単独へ入れることはしない。次は全履歴/128attack容量を保持する領域分離と、座標Lock On・typed skillの共通接続を進める。新機能ごとのsuite追加は不要。全goal未完了。以下は履歴。
+
 ## 2026-11-02 飛翔体・HPシールドの通常Metal16条件、Windows保存結果の取得
 
 共通GPU開発スキルと既存CLI/監査器を再利用。公開reference_models.typed_targetsを追加し、既存coordinate sampling・typed actor/aim/BODY owner・武器receipt実行器を通常製品APIへ接続。CUDA/Metal共通Slangを使う2薄entry、全original効果定義保持、canonical CPU4file/pinned/数値規約変更0。混在kind、hit shield、non-BODY owner、typed skill all_projectiles/typed_point、incoming等との合成は明示未対応を維持。宣言モデルをゲーム実証へ昇格しない。

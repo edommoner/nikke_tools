@@ -238,11 +238,14 @@ def read_typed_battle(block,domain,*,sampled_coefficients=None,sampled_rows=None
         else:
             if sampled_skill_metadata is None:assert not any(block[at+11:at+16]),'Unused skill packet metadata'
             else:assert list(block[at+11:at+16])==sampled_skill_metadata[i],'Original skill family/selector metadata'
-            from world_frame_native import roster_names
-            from world_authored_roster import skill_levels
-            from destructible_skill_specs import coefficient
             owner=c['owners'][source];source_row=m['binding_source_indices'].index(source)
-            sampled_coefficient=(sampled_coefficients[i] if sampled_coefficients is not None else coefficient(c['effects'][source],dict(name=roster_names(c)[owner],skill_levels=skill_levels(c)[owner])))
+            if sampled_coefficients is not None:
+                sampled_coefficient=sampled_coefficients[i]
+            else:
+                from world_frame_native import roster_names
+                from world_authored_roster import skill_levels
+                from destructible_skill_specs import coefficient
+                sampled_coefficient=coefficient(c['effects'][source],dict(name=roster_names(c)[owner],skill_levels=skill_levels(c)[owner]))
         assert block[at+1]==source_row and struct.pack('<II',*block[at+6:at+8])==struct.pack('<d',sampled_coefficient),'Sampled typed coefficient/source'
         receipts=[]
         for j in range(selected):
