@@ -319,5 +319,64 @@
     "Initial local model test: trigger is a timing dictionary, corrected test traversal",
     "Old triple-composition rejection reached invalid healing declaration; explicit checked-combined-wire rejection restored before packing",
     "Initial local preparation missing scripts import path, corrected launcher path; no battle/GPU"
-  ]
+  ],
+  "sealed_release": {
+    "source_commit": "79d67a5555dc99b4b2ddc21cb595fe1feae42afc",
+    "package_id": "8931c83766f29b1b27204a318fde0c6daed3d76e0ee49f3f5805df970f612c3d",
+    "archive_bytes": 12085581,
+    "archive_sha256": "0dfc31a50a63c8775264f566193f68f21c100e3fa5ba78edea6378f7d338b7be",
+    "directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-healing-group-v1-20261101/release-v1",
+    "ptx_plan": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "8931c83766f29b1b27204a318fde0c6daed3d76e0ee49f3f5805df970f612c3d",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "ptx",
+      "ptxas_level": null,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    },
+    "o1_plan": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "8931c83766f29b1b27204a318fde0c6daed3d76e0ee49f3f5805df970f612c3d",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "cubin",
+      "ptxas_level": 1,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=sm_86",
+        "--fmad=false",
+        "--ptxas-options",
+        "-O1"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    },
+    "validation_dependencies_passed": true,
+    "windows_requested": false
+  }
 }

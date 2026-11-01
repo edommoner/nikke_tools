@@ -6,7 +6,7 @@ Ann＋Belorta＋Miranda＋Dolla＋Drakeの元74効果を全保持して静的pac
 
 同じpacket自身の通常APIで固定/実蓄積×15/30秒の4条件、1POST/2physical batch×2件を実行。Metal/freshCPU/HTTP全payload・Unicode完全一致、wall21.368秒。15秒2回復receipt/30秒4receipt、両30秒で元Annの実倍率0.2106999999999999も一致。既存親member/hash/全raw/source/静的repack/製品再投影監査4成功（追加battle/GPU0）。専用Node/プロセス群消滅確認、ユーザー4317/4327不操作。旧標準Ann inputと生成CUDA/MSL全raw bytes保持もCPUのみ確認。新suite/恒久監査器追加0。
 
-原本proofs/product-healing-group-v1-20261101、small研究記録research/product-healing-group-v1.json。最初のローカルtest2件の不備とimport path失敗を記録、GPU前の修正のみ。新標準profile0/CUDA実行0。標準実績は最後のMetal262/266（5e1）、Mac原本照合済みCUDA245/266（00ed）のまま。Windows同turnは追加15/17一致報告、残cover/ammoを継続中・最終原本未取得。別ownerへ認定を付替えない。全goal未完了、default4/公開sampling/未接続合成を保持。以下は履歴。
+原本proofs/product-healing-group-v1-20261101、small研究記録research/product-healing-group-v1.json。source79d67a55のsealed releaseもrelease-v1へ準備、own PTX/O1 60秒2GiB計画・deps成功。Windows未依頼。最初のローカルtest2件の不備とimport path失敗を記録、GPU前の修正のみ。新標準profile0/CUDA実行0。標準実績は最後のMetal262/266（5e1）、Mac原本照合済みCUDA245/266（00ed）のまま。Windows同turnは追加15/17一致報告、残cover/ammoを継続中・最終原本未取得。別ownerへ認定を付替えない。全goal未完了、default4/公開sampling/未接続合成を保持。以下は履歴。
 
 ## 2026-11-01 接続復旧確認、3モデル実蓄積を独立sealしてCLI v33へ登録
 
