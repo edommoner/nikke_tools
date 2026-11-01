@@ -12,6 +12,8 @@ Windows e53f5bf6の元56秒1POST/1CUDAは、全CPU/GPU/HTTP/Unicode・input・21
 
 次のWindows差分はsource修正後の4秒×生存/破壊2条件を1POST/1CUDAだけで確認する候補。必要なのは非zero batch indexを含む相対参照確認。前の56秒API job peak2,136,633,344Bと2GiB capを保持し、既存BelowNormal/RAM4GiB/Job/時間/逐次/最初異常停止を維持する。旧停止の再送はしない。sourceを新たに渡す場合は、Macの実管理helperへrequest/selectorを与えるID/owner/SHA照合から実施。全goal未完了。以下は履歴。
 
+修正版Windows差分を輸送ad8df482で共有（13file/12,236,958B、manifest SHA145ac56c…、Git全blob照合）。selectedはsource同一のshort-live/short-broken各4s、2conditions/元Heavy1profile、1POST/1CUDA physical2。case ordinalはprepare-api.pyの契約どおり[0,1]、元profile数とは区別。期待raw20,465,664Bは実M5 parentそのもの、3chunks[8388608,8388608,3688448]。CLI seal2case(30/56s)とselected normal API2case(4/4s)の証拠範囲も分けた。共有前のordinal候補はtransport-v2-before-case-index-checkに保存し、corrected request/selectorの実管理helper選択11を再成功。旧stop/期待値は不変、新source初回のみ、他158/標準266はWindows未実行。新turn01a19826-c47d-7672-a360-c58e8168ef05がactive/inProgressと開始commentaryをread_threadで確認。新CUDA結果未取得。以後は同handleのstatus/exportのみ、run再送しない。research/product-coordinate-lock-cuda-request-v2.json参照。
+
 ## 2026-11-02 座標＋Lock On／元飛翔体スキルを通常Metal14条件で接続
 
 前turnは非座標Heavy Armsの製品decoder修正までprogress。今回は通常reference_models.coordinate＋lock_onを同じRuntimeへ接続。既存の座標/論理ADD入力115680wordを全保持し、元typed descriptor5136wordを追加。出力は完全な座標＋2048skill履歴2032000wordの後ろへ、元typed/lock arena786432..1310720をSHIFT1245568で一括移設し、fate継続1920wordを追加。OUTPUT2558208、input120816。typed attack128/skill2048/lock shot31等の容量を削らない。両modeの2薄entry、元Slang/効果/CPU adapter/strict readerを再利用、新suite/監査器/式0、CPU正本4file/pinned/数値規約変更0。Swift/Python wireとschema生成器も同時登録。

@@ -530,6 +530,7 @@
     "release_own_unit_tests": 169,
     "release_own_cpu_deps_ptx_o1_plans_passed": true,
     "new_cuda_source_verified": false,
-    "new_cuda_candidate": "Single GPU launch of short-live/short-broken4s product requests, checks nonzero batch member; previous API job peak2136633344 vs2GiB cap retained"
+    "new_cuda_candidate": "Single GPU launch of short-live/short-broken4s product requests, checks nonzero batch member; previous API job peak2136633344 vs2GiB cap retained",
+    "cuda_request_record": "research/product-coordinate-lock-cuda-request-v2.json"
   }
 }
