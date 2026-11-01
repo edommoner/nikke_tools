@@ -1,0 +1,785 @@
+{
+  "schema": "lock-cover-staged-compile-status-v2",
+  "status": "requested_compile_scope_completed",
+  "overall_passed": false,
+  "permission_mode": "require_escalated",
+  "approval_denied": false,
+  "package_id": "72638887e127795d92a39f0d86b28fa052e4ee7a9b793f4d6bedd944c69df481",
+  "source_commit": "2d1e48332f10af038034ff2bc4db176857c8a199",
+  "transport_commit": "c20943434975da4ef47dd06e53dc022be877b1a2",
+  "original_packet_archive": {
+    "name": "product-consumer-fix-sealed-v2.zip",
+    "bytes": 14495247,
+    "sha256": "84b91531a861029385016533315eef664305d2d3849bfccd7c9458b4384f5af3",
+    "immutable_payload_files_unchanged": 4244,
+    "new_unpack_performed": false
+  },
+  "prior_cleanup_8": {
+    "reexecuted": false,
+    "retained_success_status_commit": "ae05d799712548a41ba381d859a087f1f05bb3fe"
+  },
+  "device_linker_15": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "forbid_gpu": true,
+    "execution": {
+      "seconds": 18.948599699884653,
+      "exit_code": 0,
+      "bounded_passed": true,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "job_pre_gate_verified": true,
+      "job_empty_after": true,
+      "job_limit_bytes_before_after": [
+        [
+          2147483648,
+          2147483648
+        ]
+      ],
+      "peak_job_memory_bytes": 72486912,
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "environment_preservation_verified": false,
+      "wait_completed_utc": "2026-11-01T00:11:15.750441Z"
+    }
+  },
+  "staged_plan": {
+    "groups": 14,
+    "reference_ids": 52,
+    "missing_ids": 0,
+    "duplicate_ids": 0,
+    "gpu_claim_reserved": true,
+    "gpu_execution_performed": false,
+    "execution": {
+      "seconds": 17.623843599576503,
+      "exit_code": 0,
+      "bounded_passed": true,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "job_pre_gate_verified": true,
+      "job_empty_after": true,
+      "job_limit_bytes_before_after": [
+        [
+          2147483648,
+          2147483648
+        ]
+      ],
+      "peak_job_memory_bytes": 137977856,
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "environment_preservation_verified": false,
+      "wait_completed_utc": "2026-11-01T00:12:14.947420Z"
+    }
+  },
+  "own_cpu": {
+    "tests": 136,
+    "reference_ids": 52,
+    "all_original_groups_and_case_ids_covered_once": true,
+    "old_receipts_reused": false,
+    "groups": [
+      {
+        "index": 0,
+        "pattern": "test_portable_detail.py",
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_seconds": 7.303753700107336,
+        "execution": {
+          "seconds": 24.841384999919683,
+          "exit_code": 0,
+          "bounded_passed": true,
+          "timed_out": false,
+          "cleanup_error": null,
+          "observation_error": null,
+          "missing": 0,
+          "job_pre_gate_verified": true,
+          "job_empty_after": true,
+          "job_limit_bytes_before_after": [
+            [
+              2147483648,
+              2147483648
+            ]
+          ],
+          "peak_job_memory_bytes": 143437824,
+          "service_before": "unverified",
+          "service_after": "unverified",
+          "environment_preservation_verified": false,
+          "wait_completed_utc": "2026-11-01T00:13:44.180713Z"
+        }
+      },
+      {
+        "index": 1,
+        "pattern": "test_product_detail_packet.py",
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_seconds": 3.3132846001535654,
+        "execution": {
+          "seconds": 20.458360200282186,
+          "exit_code": 0,
+          "bounded_passed": true,
+          "timed_out": false,
+          "cleanup_error": null,
+          "observation_error": null,
+          "missing": 0,
+          "job_pre_gate_verified": true,
+          "job_empty_after": true,
+          "job_limit_bytes_before_after": [
+            [
+              2147483648,
+              2147483648
+            ]
+          ],
+          "peak_job_memory_bytes": 153546752,
+          "service_before": "unverified",
+          "service_after": "unverified",
+          "environment_preservation_verified": false,
+          "wait_completed_utc": "2026-11-01T00:14:14.624880Z"
+        }
+      },
+      {
+        "index": 2,
+        "pattern": "test_weighted_source_contract.py",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_seconds": 3.8017768003046513,
+        "execution": {
+          "seconds": 21.143902700394392,
+          "exit_code": 0,
+          "bounded_passed": true,
+          "timed_out": false,
+          "cleanup_error": null,
+          "observation_error": null,
+          "missing": 0,
+          "job_pre_gate_verified": true,
+          "job_empty_after": true,
+          "job_limit_bytes_before_after": [
+            [
+              2147483648,
+              2147483648
+            ]
+          ],
+          "peak_job_memory_bytes": 135086080,
+          "service_before": "unverified",
+          "service_after": "unverified",
+          "environment_preservation_verified": false,
+          "wait_completed_utc": "2026-11-01T00:14:42.477090Z"
+        }
+      },
+      {
+        "index": 3,
+        "pattern": "test_product_reference_models.py",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_seconds": 0.7142086001113057,
+        "execution": {
+          "seconds": 18.476076200138777,
+          "exit_code": 0,
+          "bounded_passed": true,
+          "timed_out": false,
+          "cleanup_error": null,
+          "observation_error": null,
+          "missing": 0,
+          "job_pre_gate_verified": true,
+          "job_empty_after": true,
+          "job_limit_bytes_before_after": [
+            [
+              2147483648,
+              2147483648
+            ]
+          ],
+          "peak_job_memory_bytes": 138883072,
+          "service_before": "unverified",
+          "service_after": "unverified",
+          "environment_preservation_verified": false,
+          "wait_completed_utc": "2026-11-01T00:15:08.039026Z"
+        }
+      },
+      {
+        "index": 4,
+        "pattern": "test_product_reference_models.py",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_seconds": 1.313720100093633,
+        "execution": {
+          "seconds": 18.79931529983878,
+          "exit_code": 0,
+          "bounded_passed": true,
+          "timed_out": false,
+          "cleanup_error": null,
+          "observation_error": null,
+          "missing": 0,
+          "job_pre_gate_verified": true,
+          "job_empty_after": true,
+          "job_limit_bytes_before_after": [
+            [
+              2147483648,
+              2147483648
+            ]
+          ],
+          "peak_job_memory_bytes": 137347072,
+          "service_before": "unverified",
+          "service_after": "unverified",
+          "environment_preservation_verified": false,
+          "wait_completed_utc": "2026-11-01T00:15:33.231370Z"
+        }
+      },
+      {
+        "index": 5,
+        "pattern": "test_product_reference_models.py",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_seconds": 0.4964148001745343,
+        "execution": {
+          "seconds": 17.771417499985546,
+          "exit_code": 0,
+          "bounded_passed": true,
+          "timed_out": false,
+          "cleanup_error": null,
+          "observation_error": null,
+          "missing": 0,
+          "job_pre_gate_verified": true,
+          "job_empty_after": true,
+          "job_limit_bytes_before_after": [
+            [
+              2147483648,
+              2147483648
+            ]
+          ],
+          "peak_job_memory_bytes": 135798784,
+          "service_before": "unverified",
+          "service_after": "unverified",
+          "environment_preservation_verified": false,
+          "wait_completed_utc": "2026-11-01T00:15:59.462168Z"
+        }
+      },
+      {
+        "index": 6,
+        "pattern": "test_product_reference_models.py",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_seconds": 0.6653194003738463,
+        "execution": {
+          "seconds": 19.12351220007986,
+          "exit_code": 0,
+          "bounded_passed": true,
+          "timed_out": false,
+          "cleanup_error": null,
+          "observation_error": null,
+          "missing": 0,
+          "job_pre_gate_verified": true,
+          "job_empty_after": true,
+          "job_limit_bytes_before_after": [
+            [
+              2147483648,
+              2147483648
+            ]
+          ],
+          "peak_job_memory_bytes": 136515584,
+          "service_before": "unverified",
+          "service_after": "unverified",
+          "environment_preservation_verified": false,
+          "wait_completed_utc": "2026-11-01T00:16:27.587180Z"
+        }
+      },
+      {
+        "index": 7,
+        "pattern": "test_product_reference_models.py",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_seconds": 2.7283234000205994,
+        "execution": {
+          "seconds": 20.232605299912393,
+          "exit_code": 0,
+          "bounded_passed": true,
+          "timed_out": false,
+          "cleanup_error": null,
+          "observation_error": null,
+          "missing": 0,
+          "job_pre_gate_verified": true,
+          "job_empty_after": true,
+          "job_limit_bytes_before_after": [
+            [
+              2147483648,
+              2147483648
+            ]
+          ],
+          "peak_job_memory_bytes": 139350016,
+          "service_before": "unverified",
+          "service_after": "unverified",
+          "environment_preservation_verified": false,
+          "wait_completed_utc": "2026-11-01T00:16:56.166623Z"
+        }
+      },
+      {
+        "index": 8,
+        "pattern": "test_product_reference_models.py",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_seconds": 10.557281299959868,
+        "execution": {
+          "seconds": 28.256095400080085,
+          "exit_code": 0,
+          "bounded_passed": true,
+          "timed_out": false,
+          "cleanup_error": null,
+          "observation_error": null,
+          "missing": 0,
+          "job_pre_gate_verified": true,
+          "job_empty_after": true,
+          "job_limit_bytes_before_after": [
+            [
+              2147483648,
+              2147483648
+            ]
+          ],
+          "peak_job_memory_bytes": 188403712,
+          "service_before": "unverified",
+          "service_after": "unverified",
+          "environment_preservation_verified": false,
+          "wait_completed_utc": "2026-11-01T00:17:31.756948Z"
+        }
+      },
+      {
+        "index": 9,
+        "pattern": "test_product_reference_models.py",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_seconds": 8.964474199805409,
+        "execution": {
+          "seconds": 27.03820709977299,
+          "exit_code": 0,
+          "bounded_passed": true,
+          "timed_out": false,
+          "cleanup_error": null,
+          "observation_error": null,
+          "missing": 0,
+          "job_pre_gate_verified": true,
+          "job_empty_after": true,
+          "job_limit_bytes_before_after": [
+            [
+              2147483648,
+              2147483648
+            ]
+          ],
+          "peak_job_memory_bytes": 145350656,
+          "service_before": "unverified",
+          "service_after": "unverified",
+          "environment_preservation_verified": false,
+          "wait_completed_utc": "2026-11-01T00:18:07.585351Z"
+        }
+      },
+      {
+        "index": 10,
+        "pattern": "test_product_reference_models.py",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_seconds": 5.987845600116998,
+        "execution": {
+          "seconds": 25.080166900064796,
+          "exit_code": 0,
+          "bounded_passed": true,
+          "timed_out": false,
+          "cleanup_error": null,
+          "observation_error": null,
+          "missing": 0,
+          "job_pre_gate_verified": true,
+          "job_empty_after": true,
+          "job_limit_bytes_before_after": [
+            [
+              2147483648,
+              2147483648
+            ]
+          ],
+          "peak_job_memory_bytes": 197697536,
+          "service_before": "unverified",
+          "service_after": "unverified",
+          "environment_preservation_verified": false,
+          "wait_completed_utc": "2026-11-01T00:18:38.305593Z"
+        }
+      },
+      {
+        "index": 11,
+        "pattern": "test_product_reference_models.py",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_seconds": 11.018148599658161,
+        "execution": {
+          "seconds": 28.765641399659216,
+          "exit_code": 0,
+          "bounded_passed": true,
+          "timed_out": false,
+          "cleanup_error": null,
+          "observation_error": null,
+          "missing": 0,
+          "job_pre_gate_verified": true,
+          "job_empty_after": true,
+          "job_limit_bytes_before_after": [
+            [
+              2147483648,
+              2147483648
+            ]
+          ],
+          "peak_job_memory_bytes": 186150912,
+          "service_before": "unverified",
+          "service_after": "unverified",
+          "environment_preservation_verified": false,
+          "wait_completed_utc": "2026-11-01T00:19:14.013437Z"
+        }
+      },
+      {
+        "index": 12,
+        "pattern": "test_product_reference_models.py",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_seconds": 2.103544699959457,
+        "execution": {
+          "seconds": 21.066668899729848,
+          "exit_code": 0,
+          "bounded_passed": true,
+          "timed_out": false,
+          "cleanup_error": null,
+          "observation_error": null,
+          "missing": 0,
+          "job_pre_gate_verified": true,
+          "job_empty_after": true,
+          "job_limit_bytes_before_after": [
+            [
+              2147483648,
+              2147483648
+            ]
+          ],
+          "peak_job_memory_bytes": 136228864,
+          "service_before": "unverified",
+          "service_after": "unverified",
+          "environment_preservation_verified": false,
+          "wait_completed_utc": "2026-11-01T00:19:43.686899Z"
+        }
+      },
+      {
+        "index": 13,
+        "pattern": "test_product_reference_models.py",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_seconds": 0.9754528999328613,
+        "execution": {
+          "seconds": 19.71181910019368,
+          "exit_code": 0,
+          "bounded_passed": true,
+          "timed_out": false,
+          "cleanup_error": null,
+          "observation_error": null,
+          "missing": 0,
+          "job_pre_gate_verified": true,
+          "job_empty_after": true,
+          "job_limit_bytes_before_after": [
+            [
+              2147483648,
+              2147483648
+            ]
+          ],
+          "peak_job_memory_bytes": 137154560,
+          "service_before": "unverified",
+          "service_after": "unverified",
+          "environment_preservation_verified": false,
+          "wait_completed_utc": "2026-11-01T00:20:10.376501Z"
+        }
+      }
+    ]
+  },
+  "fresh_native": {
+    "cases": 1,
+    "verified": true,
+    "entries": [
+      {
+        "case_index": 0,
+        "input_sha256": "9d729a757266bb6387074190ffa5f4bf629cc0a1d225bae2dbfe504b798493e3",
+        "native_sha256": "a18be44c35bb71af1740dbd8f43553e486fe2e941fc50db127443a60b543aa0a"
+      }
+    ],
+    "execution": {
+      "seconds": 20.850211599841714,
+      "exit_code": 0,
+      "bounded_passed": true,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "job_pre_gate_verified": true,
+      "job_empty_after": true,
+      "job_limit_bytes_before_after": [
+        [
+          2147483648,
+          2147483648
+        ]
+      ],
+      "peak_job_memory_bytes": 139612160,
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "environment_preservation_verified": false,
+      "wait_completed_utc": "2026-11-01T00:21:00.648598Z"
+    }
+  },
+  "cpu_admission_and_compile_plans": {
+    "all_native_preflight_verified": true,
+    "compile_plan_ptx": {
+      "passed": true,
+      "artifact_kind": "ptx",
+      "ptxas_level": null,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "compiler_calls": 0,
+      "claim_created": false
+    },
+    "compile_plan_cubin_o1": {
+      "passed": true,
+      "artifact_kind": "cubin",
+      "ptxas_level": 1,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "compiler_calls": 0,
+      "claim_created": false
+    },
+    "execution": {
+      "seconds": 30.294925899710506,
+      "exit_code": 0,
+      "bounded_passed": true,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "job_pre_gate_verified": true,
+      "job_empty_after": true,
+      "job_limit_bytes_before_after": [
+        [
+          2147483648,
+          2147483648
+        ]
+      ],
+      "peak_job_memory_bytes": 129290240,
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "environment_preservation_verified": false,
+      "wait_completed_utc": "2026-11-01T00:22:17.031486Z"
+    }
+  },
+  "compile_ptx": {
+    "compiler_verified": true,
+    "containment_verified": true,
+    "passed": false,
+    "preservation_verified": false,
+    "outer": {
+      "seconds": 44.85502160014585,
+      "exit_code": 2,
+      "bounded_passed": false,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "job_pre_gate_verified": true,
+      "job_empty_after": true,
+      "job_limit_bytes_before_after": [
+        [
+          2147483648,
+          2147483648
+        ]
+      ],
+      "peak_job_memory_bytes": 635772928,
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "environment_preservation_verified": false,
+      "wait_completed_utc": "2026-11-01T00:24:30.878548Z"
+    },
+    "sdk_child": {
+      "seconds": 34.53225179994479,
+      "exit_code": 0,
+      "bounded_passed": true,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "job_pre_gate_verified": true,
+      "job_empty_after": true,
+      "job_limit_bytes_before_after": [
+        [
+          2147483648,
+          2147483648
+        ]
+      ],
+      "peak_job_memory_bytes": 599261184,
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "environment_preservation_verified": false,
+      "wait_completed_utc": "2026-11-01T00:24:28.431275Z"
+    },
+    "strict_sealed_source_and_generated_baseline_matched": true,
+    "paired_generation": {
+      "pair_count": 1,
+      "compiler_invocations": 2,
+      "cache_hit": false,
+      "separate_generation_stage": false,
+      "cache_key": "4e7620a1900224219b4374d67061cf37fd7c88195952edfe9208bf7079c42b8f",
+      "raw_sha256": {
+        "cuda": "a6b17f8420121cbe0bbe5d0c7ce3da06d2fd76e63aa8b8e6eb01b91fe2e828e1",
+        "metal": "00a33a8caa255bbae1cd10ec1d5e08f5b8f18b3141d5fb168783a4e73aec62ff"
+      },
+      "normalized_sha256": {
+        "cuda": "364ac05a9c259d227f4a472239b6c774db1ef61252f8cb099a7179808b58afae",
+        "metal": "4c0a7461c141b1a66bb7fdf178105218553e6a91f8a536ca0825e7111811e3e4"
+      }
+    },
+    "ptx": {
+      "bytes": 9746146,
+      "sha256": "52ebd5ec67ebd1771062cfaf749710f3ff9c75cffd42f46847701c04514084c4",
+      "cache_key": "87a33a69007b8e6be2610cfa3d3599784842240a670214f7588e8f3b06dcf6d7"
+    },
+    "compiler_receipt_sha256": "a6d57871c52657a4e6fd6ef813c5f133e2b89bc0ff69053ae8688f750b7a9915",
+    "journal_sha256": "0fb94158c8962200e587044a905a629ebd01479e4cb968b2847de46661026ac6"
+  },
+  "module_object_o1": {
+    "object_verified": true,
+    "containment_verified": true,
+    "passed": false,
+    "preservation_verified": false,
+    "outer": {
+      "seconds": 34.677752499934286,
+      "exit_code": 2,
+      "bounded_passed": false,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "job_pre_gate_verified": true,
+      "job_empty_after": true,
+      "job_limit_bytes_before_after": [
+        [
+          2147483648,
+          2147483648
+        ]
+      ],
+      "peak_job_memory_bytes": 401182720,
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "environment_preservation_verified": false,
+      "wait_completed_utc": "2026-11-01T00:25:49.800819Z"
+    },
+    "sdk_child": {
+      "seconds": 18.445149099919945,
+      "exit_code": 0,
+      "bounded_passed": true,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "job_pre_gate_verified": true,
+      "job_empty_after": true,
+      "job_limit_bytes_before_after": [
+        [
+          2147483648,
+          2147483648
+        ]
+      ],
+      "peak_job_memory_bytes": 354955264,
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "environment_preservation_verified": false,
+      "wait_completed_utc": "2026-11-01T00:25:41.417868Z"
+    },
+    "options": [
+      "--gpu-name=sm_86",
+      "--opt-level=1",
+      "--fmad=false",
+      "--verbose",
+      "--compile-only"
+    ],
+    "object": {
+      "bytes": 5557168,
+      "sha256": "070c3789c9e05f999aba742d21d4a78cd550a33cd6e0fb7ca9626c90c03cb4d5"
+    },
+    "ptxas_seconds": 8.208427099976689,
+    "whole_current_ptx_origin_verified": true,
+    "preflight_child_post_origin_audits": true,
+    "receipt_sha256": "b8f4928c5f4db7e03ac17a6760d92a86288a06bbedc81cd5533a1e6a1e046a2c",
+    "portableEvents_resources": {
+      "registers": 40,
+      "stack_bytes": 32,
+      "spill_store_bytes": 0,
+      "spill_load_bytes": 0,
+      "shared_bytes": null,
+      "local_bytes": null,
+      "shared_local_scope": "Not emitted in the saved portableEvents block; unavailable, not inferred zero."
+    }
+  },
+  "actual_sdk_calls": {
+    "slang_compilers": 2,
+    "paired_slang_builds": 1,
+    "nvrtc": 1,
+    "ptxas": 1,
+    "link": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0,
+    "retries": 0
+  },
+  "qualification": {
+    "compiler_verified": true,
+    "object_verified": true,
+    "cuda_calculation_verified": false,
+    "environment_preservation_verified": false,
+    "service_status": "unverified",
+    "outer_compiler_and_object_exit_code": 2,
+    "outer_stage_verified": false,
+    "exit_scope": "Inner SDK jobs exit0 and artifacts verify; owner CLI retains exit2 because service preservation is unverified. No false result was promoted.",
+    "profile_coverage_added": 0
+  },
+  "integrity": {
+    "old_original_records_checked_unchanged": 39,
+    "prior_cleanup_status_byte_hash_matched": true,
+    "old_failures_and_claims_retained": true,
+    "old_missing_unknown_preservation_false_retained": true,
+    "product_packet_edited": false
+  },
+  "capture": {
+    "path_base": "Documents/Codex",
+    "relative_directory": "lock-cover-cleanup-repair-v2"
+  },
+  "execution_handle_status": {
+    "all_started_children_terminal": true,
+    "all_observed_jobs_empty": true,
+    "known_live_handle": null
+  },
+  "next_action": "Stopped at module-object; no automatic link, GPU or HTTP continuation."
+}
