@@ -155,5 +155,27 @@
   "new_standard_profiles": 0,
   "cuda_reruns": 0,
   "root_cause_confirmation_on_cuda_pending": true,
-  "overall_verified": false
+  "overall_verified": false,
+  "sealed_release": {
+    "source_commit": "325a3994",
+    "owner": "d337ffbdf13004bcb8629f52c6c2de3ed3934b703e4b1e60577358624b4dbb25",
+    "archive_bytes": 12087661,
+    "archive_sha256": "5843424a301fe6fc5efbb072842999c8774632358f77a06f33b10860db6d324d",
+    "own_ptx_o1_60s_2gib_plans_passed": true,
+    "own_validation_deps_passed": true,
+    "original_cuda_api_input_repacked_without_battle": true
+  },
+  "windows_request": {
+    "transport_commit": "8b64705b75ffac713acdae9a235d8d8686d7ce47",
+    "payload_files": 7,
+    "payload_bytes": 12108145,
+    "request_file": "ammo-noinline-windows-request-v1.json",
+    "request_sha256": "14f5b3d2f89ce78f1004e95426df8014842562d7ab7fba8a3e2878c056f4c61d",
+    "thread_turn": "01a19588-b760-7422-8d03-22625c83ae42",
+    "profiles": 1,
+    "maximum_posts": 1,
+    "maximum_gpu_dispatches": 1,
+    "retries": 0,
+    "terminal_result_received": false
+  }
 }
