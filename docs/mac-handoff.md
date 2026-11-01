@@ -1,3 +1,15 @@
+## 2026-11-01 保存imageから通常CUDA4条件が全数値一致、監査観測で停止
+
+helper cfe8467fを輸送3e1a0e4bで共有し、旧EF packet/SDK rootをread-onlyにしたfresh API rootから開始。最初はhost hold ef45926bで準備前停止、GPU/SDK/CPU0。保存情報で先の接続設定はterminal/owned process absent/DISM終了、SSH成功false、CBS/WU restart flagsの由来unknownと確認。0eb398d0で「flagだけではGPU不能と断定しない、ホスト全体未確認として保持、既存RAM/Job/source/観測/時間を計算のgateにする」と条件を明確化。OS/SSH/flag変更や再起動なし、旧holdは変更せず新rootへ進んだ。
+
+Windows live turn01a1973f-fd38-71e3-bca9-3d865028f2d9をread_threadで確認。**最初の4ケース(0..3)が2POST/2CUDA dispatchで成功、全CPU/GPU/HTTP/Unicodeと全M5 raw SHA一致。** 保存Node往復/再投影の数値も4件成功、追加battle/GPU0。最初2件は監査stage全gate通過。次2件のCPU-only saved auditはinner exit0/projection passedだが、outer observationでpre-existing missing3を検出してstage=false、progress未作成。affiliation/cause unknownのまま停止、残4/5/6は未実行。失敗監査や4件GPU/APIの再試行を依頼していない。current Jobは全stageでpre/post2GiB/BelowNormal/empty/live0成立、missing3の原因をメモリ/ユーザー操作等と推定しない。whole/service/overallfalse・advisory inner limits16件unknown・旧wrong-main/outer2-inner0/host flagsを保持。
+
+source image ae3f641e…/5,710,096Bを既存admissionで各1回検査、8.78/8.29秒、compiler calls0、paired f47…cachehit/compiler0。GPU cuInit/context/module/launch/sync/readback/destroy全ret0、各grid2、readback8MiB+8,002,688B=16,391,296B。GPU sync4.708/2.785秒、API Job36.149/31.849秒、peak2,072,891,392/2,082,377,728B<2GiB。CPU91/Slang/NVRTC/ptxas/link/diagnostic probe/newunpackは再実行0。SDK metadata/claim/old stop/manifest2783 filesは全byte不変。新sdk_program_root設定がWindowsの実環境で動作した。
+
+保存報告7713f7a0を取得し、Macで元M5の全4member/全2physical input/output hash、元caller/expected、localEF manifest、215file closure digest110f2b03…を再計算して一致。CUDA原raw自体はMac未取得と区別。research/product-sdk-reference-cuda-import-v1.jsonとraw small report2件参照。数値一致4、全監査stage通過2、残3という範囲を保持。標準profile追加0、Metal/CUDA各263/266の従来記録は不変。全7完了/全効果/全goalは未完了。
+
+保存ログ限定診断4dd7157eを取得・SHA検証。Job22件のchild/creation identity、wrapper、Node、phase記録に欠落3件をowned/observer-ownedと断定する根拠なし。親子関係だけでは所属を確定しない。原因unknown・旧停止・数値4件成功/全監査2件成功を保持。新観測/PID照会/RAM/SDK/CPU battle/GPU/監査retry/guard変更すべて0。research/ammo-shared-seven-saved-image-missing3-diagnostic-v1.json参照。接続はread_threadで復旧確認済み。Macの次の未対応はweighted＋coordinate/native多対象callback等。以下は履歴。
+
 ## 2026-11-01 保存SDK参照rootと新API captureを分離
 
 管理prepare-apiへsdk-paths.jsonのoptional sdk_program_rootを追加。絶対path/非包含root/exact owner・source commit・source・input-output stride/同一immutable packetを要求し、既存static/check-apiがpacket.parentを使うのでその親もSに一致させる。未指定は旧同一root動作。旧SDK5metadata＋旧parent stopのSHAを前後で検査し新captureのsdk-source-reference.jsonへ保存、元stop/claim/旧SDKは書換0。実image/source/claim/phaseのadmissionは既存product機構のまま、Job/RAM/SDK/API/保存監査11helperのsource変更0。

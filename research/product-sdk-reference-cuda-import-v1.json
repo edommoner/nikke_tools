@@ -1,0 +1,76 @@
+{
+  "schema": "product-sdk-reference-cuda-import-v1",
+  "source_result_commit": "7713f7a0",
+  "result_sha256": "e6f0338c63ecd52cbf931d354d73ba00108ad53151e27a9fb67b88749fb8bd7a",
+  "source_owner": "ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168",
+  "manifest_sha256": "9b4eb7ded3a34437b0bf49bb279a531d4bf6621d0a653e4eb1065dc925900678",
+  "local_mac_source_closure_sha256": "110f2b03b1111885d2386010412d6f480a719c05053d53bdcf7edff515e64be4",
+  "numerical_cuda_case_indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "full_audit_gate_verified_case_indices": [
+    0,
+    1
+  ],
+  "unexecuted_indices": [
+    4,
+    5,
+    6
+  ],
+  "rows": [
+    {
+      "batch": 0,
+      "indices": [
+        0,
+        1
+      ],
+      "local_m5_parent_input_sha256": "a2902bab275b1e5194337f3f93b95744f034e6f179c0dcba86a4c07c6867c176",
+      "local_m5_parent_output_sha256": "55018a3ccbae52fe7da162af150d6b950b856e80192186fe12a520cccace53ee",
+      "cuda_reported_full_raw_matches": true,
+      "source_closure_exact": true,
+      "saved_numeric_reprojection_passed": true,
+      "full_audit_stage_verified": true,
+      "api_job_peak_bytes": 2072891392,
+      "api_seconds": 36.1490780999884,
+      "gpu_sync_seconds": 4.7083436,
+      "artifact_admission_seconds": 8.78418349986896
+    },
+    {
+      "batch": 1,
+      "indices": [
+        2,
+        3
+      ],
+      "local_m5_parent_input_sha256": "9c43b928d97371db74ddb5f078664a6831a3a321f91b1cc80295e742941010be",
+      "local_m5_parent_output_sha256": "958d90c9c3d295efc2f459c9c11e048ae02b3c0a3cdd1e6526c8940fb41c3843",
+      "cuda_reported_full_raw_matches": true,
+      "source_closure_exact": true,
+      "saved_numeric_reprojection_passed": true,
+      "full_audit_stage_verified": false,
+      "api_job_peak_bytes": 2082377728,
+      "api_seconds": 31.849227899685502,
+      "gpu_sync_seconds": 2.785196,
+      "artifact_admission_seconds": 8.28627819987014
+    }
+  ],
+  "original_case_input_and_m5_full_output_hashes_recomputed": true,
+  "original_cuda_raw_read_on_mac": false,
+  "proof_scope": "Windows host performed full CUDA raw/CPU/GPU/HTTP/Unicode and saved projection comparisons; Mac independently rehashed original full M5 raw/member/physical batches and matched preserved report and exact source/manifest. Original CUDA raw not transferred.",
+  "sdk_cpu_and_diagnostic_reexecutions": 0,
+  "additional_gpu_reexecution": 0,
+  "first_observation_failure_preserved": true,
+  "missing_processes": 3,
+  "missing_cause": "unknown",
+  "failed_stage": "CPU-only saved audit after second API; arithmetic/projection output completed before outer observation failure",
+  "read_only_saved_log_diagnostic_requested": true,
+  "standard_profile_delta": 0,
+  "standard_metal_profiles": 263,
+  "standard_cuda_recorded_profiles": 263,
+  "new_conditions_only": true,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false
+}

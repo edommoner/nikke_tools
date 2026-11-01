@@ -1,3 +1,7 @@
+## 保存image継続の実CUDA確認範囲
+
+管理`prepare-api.py`のSDK参照分離はWindowsで動作し、再コンパイル/CPU unit再実行なしで元7件中の最初4件を通常APIから実CUDA実行しました。全CPU/GPU/HTTP/Unicodeと全readback SHAがM5と一致しています。監査stageまで通過したのは最初2件で、次2件のCPU-only再投影は数値成功後にmissing3の観測条件で停止、残3件は未実行です。計算一致と監査/ホスト保全を同一の成功へまとめません。[独立したM5 hash再照合と範囲](../research/product-sdk-reference-cuda-import-v1.json)。
+
 ## 保存SDKを参照する新しいAPI検証先
 
 管理済み`prepare-api.py`は新しいprogramの`sdk-paths.json`に`sdk_program_root`を明示すると、既存SDKを読み取り、新しいAPI captureを別rootへ作れます。値は絶対pathです。source/targetのowner・source commit・kernel・input/output stride・不変packet pathを完全一致させ、packetの親はSDK rootと一致させます。root同士の包含も拒否します。未指定時は従来の同一root動作です。
