@@ -77,5 +77,20 @@
   },
   "new_standard_profiles": 0,
   "cuda_execution": false,
-  "goal_complete": false
+  "goal_complete": false,
+  "windows_preparation": {
+    "source_commit": "bd19f2bfc0c8c3b0ec891ab2684f10db43527f54",
+    "owner": "aef09ee5d04a4442fb8b1231f23cb20de073a8d9e2a9f60f9ca3f68e6801ce1e",
+    "transport_commit": "8fb760c0",
+    "archive_bytes": 14498389,
+    "archive_sha256": "91a8a0528907c793fc0a21d0f79d2880b9fad3258f6262f5019faa0d8e485971",
+    "compile_plans_passed": [
+      "ptx",
+      "cubin-o1"
+    ],
+    "validation_deps_passed": true,
+    "sdk_job_protected_files_retained": 18,
+    "requested": "paired generation once, PTX once, conditional O1 object once; no link/driver/GPU/HTTP",
+    "windows_result_received": false
+  }
 }
