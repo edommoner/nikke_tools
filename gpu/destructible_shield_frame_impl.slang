@@ -31,9 +31,11 @@ uint64_t modifierFrameDamage(inout Runtime s,uint who,uint64_t coefficient,uint6
     return destructibleModifierDamage(s,DT_INPUT(s,5168),who,kind,coefficient,when,factor5,projectile,shield);
 #endif
 }
+#ifndef PORTABLE_EXTERNAL_DESTRUCTIBLE_FRAME
 #define damageValue modifierFrameDamage
 #include "destructible_frame_runtime.slang"
 #undef damageValue
+#endif
 bool validBattleModifierAxes(inout Runtime s)
 {
     uint descriptor=DT_INPUT(s,5136);
@@ -57,7 +59,7 @@ bool validShieldBattleRoutes(inout Runtime s)
 {
     uint base=DT_INPUT(s,5680);
     bool weapons=false;
-#ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+#if defined(PORTABLE_COORDINATE_TYPED_WEAPONS) && !defined(PORTABLE_PRODUCT_TYPED_LOCK)
     if(coordinateTypedWeapons(s))
     {
         if(commands[DF_DESCRIPTOR(s)]!=0xffffffffU)return false;

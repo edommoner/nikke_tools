@@ -21,7 +21,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 {
     if(id.x>=commands[0])return;
-#if defined(PORTABLE_PRODUCT_COORDINATE_LOCK)
+#if defined(PORTABLE_PRODUCT_TYPED_LOCK)
+    uint input=1+id.x*121392U,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
+#elif defined(PORTABLE_PRODUCT_COORDINATE_LOCK)
     uint input=1+id.x*120816U,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_PRODUCT_COVER_MOVEMENT_RANGE)
     uint input=1+id.x*(NRB_INPUT+CDF_WORDS),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
@@ -93,7 +95,7 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     for(uint i=CP_BASE;i<P_OUTPUT_WORDS;i++)results[output+i]=0;
 #endif
     results[output+CP_BASE]=0x43534b31U;
-#ifdef PORTABLE_COORDINATE_TYPED_TARGETS
+#if defined(PORTABLE_COORDINATE_TYPED_TARGETS) && !defined(PORTABLE_PRODUCT_TYPED_LOCK)
     if(!initializeCoordinateTypedTargets(s)){results[output]=64;return;}
 #endif
 #if defined(PORTABLE_COVER_DEFENSE) && !defined(PORTABLE_PRODUCT_COVER_MOVEMENT_RANGE)

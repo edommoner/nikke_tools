@@ -11,7 +11,10 @@ def compile_product(prepared):
     from calculator.timeline import CharState,_when_label
     from calculator.boss_pattern import validate
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
-    if set(declarations)!={'typed_targets'}:raise UnsupportedPortable('Typed weapon and Lock On composition requires its matching checked shared GPU consumer')
+    if set(declarations)=={'typed_targets','lock_on'}:
+        from portable_product_locks import compile_product as locks
+        return locks(prepared,typed_model=normalize_product(declarations['typed_targets']))
+    if set(declarations)!={'typed_targets'}:raise UnsupportedPortable('Typed product composition requires its matching checked shared GPU consumer')
     spec=normalize_product(declarations['typed_targets'])
     if any(r['effect'].get('target') in ('all_projectiles','typed_point') for r in prepared['effects']):
         raise UnsupportedPortable('Original typed skill damage requires its checked common skill route; weapon typed admission cannot omit it')
@@ -66,33 +69,43 @@ def read_result(block,metadata,names,duration):
         c=dict(typed_bindings=spec['bindings'],max_attacks=128,effects=[],names=names)
         state=read_typed_battle(TypedStateView(block),(c,metadata,()))
         if state['attacks'] or not state['finished'] or state['time']!=duration:fail('typed clock')
-        h=BASE+170976;keep=2048;width=24;count=block[h+2]
-        if list(block[h:h+2])!=[0x43545731,1] or count>keep or list(block[h+3:h+6])!=[count,keep,width] or block[h+7]!=(count*width)%16 or block[h+40]!=1 or any(block[h+41:h+64]):fail('physical history capacity/header')
-        rows=[];last=0.
-        for i in range(count):
-            row=list(block[h+64+i*width:h+64+(i+1)*width]);slot=row[5]
-            if row[1]>=5 or slot>=len(spec['bindings']) or row[2]!=spec['bindings'][slot]['kind'] or row[3]!=spec['bindings'][slot]['identity'] or row[4]==0 or any(row[22:]) or any(row[k]>1 for k in (14,15,17,18,19)):fail('physical identity')
-            values=[struct.unpack('<d',struct.pack('<II',*row[at:at+2]))[0] for at in (6,8,10,12)]
-            if any(not math.isfinite(x) or x<0 for x in values) or not last<=values[0]<=duration or values[3]>values[2] or not row[14] and (values[3] or row[15]):fail('physical amounts/order')
-            last=values[0];rows.append(row)
-        raw=array.array('I',(x for row in rows for x in row))
-        if __import__('sys').byteorder!='little':raw.byteswap()
-        digest=list(struct.unpack('>8I',hashlib.sha256(raw.tobytes()).digest()))
-        if list(block[h+8:h+16])!=digest or list(block[h+32:h+40])!=digest or any(block[h+64+count*width:BASE+220224]):fail('complete physical history digest/tail')
-        pending=(count*width)%16;tail=[int.from_bytes(x.to_bytes(4,'little'),'big') for x in list(raw)[-pending:]] if pending else []
-        tail.append(0x80000000);tail += [0]*(14-len(tail));bits=count*width*32;tail += [bits>>32,bits&0xffffffff]
-        if list(block[h+16:h+32])!=tail:fail('completed SHA block')
-        from portable_coordinate_typed_aim_specs import HEAD as AIM_HEAD,WORDS as AIM_WORDS
-        aim=BASE+AIM_HEAD;n=block[aim+6];when=struct.unpack('<d',struct.pack('<II',*block[aim+4:aim+6]))[0]
-        if list(block[aim:aim+2])!=[0x43544131,1] or block[aim+2]==0 or n>len(spec['bindings']) or block[aim+7]>1 or not math.isfinite(when) or not 0<=when<=duration or any(block[aim+12:aim+32]):fail('aim frame header')
-        candidates=[];seen=set();nodes=[r['id'] for r in metadata['product_world']['nodes']]
-        for i in range(n):
-            row=list(block[aim+32+i*4:aim+36+i*4]);slot=row[0]-129
-            if not 0<=slot<len(spec['bindings']) or row[1]==0 or row[2]!=nodes.index(spec['bindings'][slot]['node']) or row[3]!=spec['bindings'][slot]['identity'] or slot in seen:fail('aim final candidates')
-            seen.add(slot);candidates.append(row)
-        if block[aim+3]!=(candidates[0][0] if candidates else 0) or any(block[aim+32+n*4:aim+AIM_WORDS]) or any(block[aim+AIM_WORDS:]):fail('aim unused tail/candidate')
-        model=public_from_words(spec,state['state'],rows,names,duration);model['shot_count']=block[h+6];model['skill_attacks']=[]
-        model['aim_state']=dict(frames=block[aim+2],time=when,candidate=block[aim+3],canonical_has_adds=bool(block[aim+7]),rows=candidates,stream_fingerprints=[format(block[aim+8]|block[aim+9]<<32,'016x'),format(block[aim+10]|block[aim+11]<<32,'016x')])
+        model=read_weapon_history(block,metadata,names,duration,state,base=BASE)
     except (AssertionError,IndexError,KeyError,ValueError,struct.error) as error:
         raise UnsupportedPortable('Invalid or incomplete typed product history') from error
     return dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(metadata['product_typed_targets']['declarations']),typed_targets=model)
+
+
+def read_weapon_history(block,metadata,names,duration,state,*,base=BASE,tail_start=None):
+    """The same complete physical packet/aim decoder for standalone and locks."""
+    from portable_coordinate_typed_aim_specs import WORDS as AIM_WORDS
+    from product_typed_model import public_from_words
+    spec=metadata['product_typed_targets']['declarations']['typed_targets']
+    def fail(message):raise UnsupportedPortable('Invalid or incomplete typed product readback: '+message)
+    h=base+170976;keep=2048;width=24;count=block[h+2]
+    if list(block[h:h+2])!=[0x43545731,1] or count>keep or list(block[h+3:h+6])!=[count,keep,width] or block[h+7]!=(count*width)%16 or block[h+40]!=1 or any(block[h+41:h+64]):fail('physical history capacity/header')
+    rows=[];last=0.
+    for i in range(count):
+        row=list(block[h+64+i*width:h+64+(i+1)*width]);slot=row[5]
+        if row[1]>=5 or slot>=len(spec['bindings']) or row[2]!=spec['bindings'][slot]['kind'] or row[3]!=spec['bindings'][slot]['identity'] or row[4]==0 or any(row[22:]) or any(row[k]>1 for k in (14,15,17,18,19)):fail('physical identity')
+        values=[struct.unpack('<d',struct.pack('<II',*row[at:at+2]))[0] for at in (6,8,10,12)]
+        if any(not math.isfinite(x) or x<0 for x in values) or not last<=values[0]<=duration or values[3]>values[2] or not row[14] and (values[3] or row[15]):fail('physical amounts/order')
+        last=values[0];rows.append(row)
+    raw=array.array('I',(x for row in rows for x in row))
+    if __import__('sys').byteorder!='little':raw.byteswap()
+    digest=list(struct.unpack('>8I',hashlib.sha256(raw.tobytes()).digest()))
+    if list(block[h+8:h+16])!=digest or list(block[h+32:h+40])!=digest or any(block[h+64+count*width:base+220224]):fail('complete physical history digest/tail')
+    pending=(count*width)%16;tail=[int.from_bytes(x.to_bytes(4,'little'),'big') for x in list(raw)[-pending:]] if pending else []
+    tail.append(0x80000000);tail += [0]*(14-len(tail));bits=count*width*32;tail += [bits>>32,bits&0xffffffff]
+    if list(block[h+16:h+32])!=tail:fail('completed SHA block')
+    from portable_coordinate_typed_aim_specs import HEAD as AIM_HEAD,WORDS as AIM_WORDS
+    aim=base+AIM_HEAD;n=block[aim+6];when=struct.unpack('<d',struct.pack('<II',*block[aim+4:aim+6]))[0]
+    if list(block[aim:aim+2])!=[0x43544131,1] or block[aim+2]==0 or n>len(spec['bindings']) or block[aim+7]>1 or not math.isfinite(when) or not 0<=when<=duration or any(block[aim+12:aim+32]):fail('aim frame header')
+    candidates=[];seen=set();nodes=[r['id'] for r in metadata['product_world']['nodes']]
+    for i in range(n):
+        row=list(block[aim+32+i*4:aim+36+i*4]);slot=row[0]-129
+        if not 0<=slot<len(spec['bindings']) or row[1]==0 or row[2]!=nodes.index(spec['bindings'][slot]['node']) or row[3]!=spec['bindings'][slot]['identity'] or slot in seen:fail('aim final candidates')
+        seen.add(slot);candidates.append(row)
+    if block[aim+3]!=(candidates[0][0] if candidates else 0) or any(block[aim+32+n*4:aim+AIM_WORDS]) or any(block[aim+AIM_WORDS:base+tail_start] if tail_start is not None else block[aim+AIM_WORDS:]):fail('aim unused tail/candidate')
+    model=public_from_words(spec,state['state'],rows,names,duration);model['shot_count']=block[h+6];model['skill_attacks']=[]
+    model['aim_state']=dict(frames=block[aim+2],time=when,candidate=block[aim+3],canonical_has_adds=bool(block[aim+7]),rows=candidates,stream_fingerprints=[format(block[aim+8]|block[aim+9]<<32,'016x'),format(block[aim+10]|block[aim+11]<<32,'016x')])
+    return model

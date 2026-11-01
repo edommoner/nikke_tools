@@ -3,8 +3,11 @@
 static const uint CTW_MAGIC=0x43545731U,CTW_KEEP=2048U,CTW_WORDS=24U;
 bool coordinateTypedWeapons(inout Runtime s){return commands[DF_EXTRA(s)]==0x54474731U&&commands[DF_EXTRA(s)+13]==1;}
 uint ctwHead(inout Runtime s){return DT_OUTPUT(s.resourceOutput,170976);}
-uint ctwPellet(inout Runtime s,uint hit){return DF_SCRATCH(s.resourceOutput,0)+hit*8;}
-uint ctwGenerations(inout Runtime s){return DF_SCRATCH(s.resourceOutput,0)+8192;}
+#ifndef CTW_SCRATCH
+#define CTW_SCRATCH(s) DF_SCRATCH((s).resourceOutput,0)
+#endif
+uint ctwPellet(inout Runtime s,uint hit){return CTW_SCRATCH(s)+hit*8;}
+uint ctwGenerations(inout Runtime s){return CTW_SCRATCH(s)+8192;}
 void ctwCompress(uint h)
 {
     uint hash[8],block[16];for(uint i=0;i<8;i++)hash[i]=results[h+8+i];for(uint i=0;i<16;i++)block[i]=results[h+16+i];

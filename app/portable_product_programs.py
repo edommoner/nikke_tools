@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v56-expected.json'
+GOLDEN = 'research/portable-product-programs-v57-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -18,7 +18,8 @@ for _name,_program in PROGRAMS.items():
         raise ValueError('Invalid product program declaration')
     _mode,_kind=_program['mode'],_program['kind']
     _default=_name.startswith('default-');_selector=_name[8:] if _default else _name
-    _typed=_selector.startswith('typed-')
+    _typed_lock=_selector.startswith('typed-lock-')
+    _typed=_selector.startswith('typed-') and not _typed_lock
     _named_carriers=_selector.startswith('named-carriers-')
     _coordinate_lock=_selector.startswith('coordinate-lock-')
     _coordinate_healing=_selector.startswith('coordinate-healing-')
@@ -31,11 +32,11 @@ for _name,_program in PROGRAMS.items():
     _movement_range_cover=_selector.startswith('movement-range-cover-')
     _movement_cover=_selector.startswith('movement-cover-');_ammo_cover=_selector.startswith('ammo-cover-');_healing_cover=_selector.startswith('healing-cover-');_add=_selector.startswith('add-');_healing=_selector.startswith('healing-');_weighted=_selector.startswith('weighted-');_cover=_selector.startswith('cover-');_ammo=_selector.startswith('ammo-');_movement=_selector.startswith('movement-');_range=_selector.startswith('named-range-');_lock=_selector.startswith('lock-')
     if _default and (not (_weighted or _cover) or _mode!='fixed' or _kind):raise ValueError('Invalid default-world product program')
-    _prefix=('default-' if _default else '')+('typed-' if _typed else 'named-carriers-' if _named_carriers else 'coordinate-lock-' if _coordinate_lock else 'coordinate-healing-' if _coordinate_healing else 'coordinate-add-' if _coordinate_add else 'coordinate-weighted-' if _coordinate_weighted else 'coordinate-cover-' if _coordinate_cover else 'coordinate-' if _coordinate else 'add-' if _add else 'ammo-cover-' if _ammo_cover else 'healing-cover-' if _healing_cover else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else 'ammo-' if _ammo else 'movement-range-cover-' if _movement_range_cover else 'movement-cover-' if _movement_cover else 'movement-' if _movement else 'named-range-cover-' if _range_cover else 'named-range-' if _range else 'lock-cover-' if _lock_cover else 'lock-' if _lock else '')
-    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or (_typed or _named_carriers or _coordinate_lock or _coordinate_healing or _coordinate_add or _coordinate_weighted or _coordinate_cover or _coordinate or _movement or _range or _lock) and _kind!='' or _weighted and _kind not in ('','group') or (_ammo or _ammo_cover) and _kind not in ('','group','target') or _healing and _kind not in ('','group') or _healing_cover and _kind not in ('','group') or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
+    _prefix=('default-' if _default else '')+('typed-lock-' if _typed_lock else 'typed-' if _typed else 'named-carriers-' if _named_carriers else 'coordinate-lock-' if _coordinate_lock else 'coordinate-healing-' if _coordinate_healing else 'coordinate-add-' if _coordinate_add else 'coordinate-weighted-' if _coordinate_weighted else 'coordinate-cover-' if _coordinate_cover else 'coordinate-' if _coordinate else 'add-' if _add else 'ammo-cover-' if _ammo_cover else 'healing-cover-' if _healing_cover else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else 'ammo-' if _ammo else 'movement-range-cover-' if _movement_range_cover else 'movement-cover-' if _movement_cover else 'movement-' if _movement else 'named-range-cover-' if _range_cover else 'named-range-' if _range else 'lock-cover-' if _lock_cover else 'lock-' if _lock else '')
+    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or (_typed_lock or _typed or _named_carriers or _coordinate_lock or _coordinate_healing or _coordinate_add or _coordinate_weighted or _coordinate_cover or _coordinate or _movement or _range or _lock) and _kind!='' or _weighted and _kind not in ('','group') or (_ammo or _ammo_cover) and _kind not in ('','group','target') or _healing and _kind not in ('','group') or _healing_cover and _kind not in ('','group') or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
         raise ValueError('Invalid product program identity')
     _stem=('fixed_' if _mode=='fixed' else '')+(_kind.replace('-','_')+'_' if _kind else '')
-    if _program['source']!='gpu/product_'+('typed_' if _typed else 'named_carriers_' if _named_carriers else 'coordinate_lock_' if _coordinate_lock else 'coordinate_healing_' if _coordinate_healing else 'coordinate_add_' if _coordinate_add else 'coordinate_weighted_' if _coordinate_weighted else 'coordinate_cover_' if _coordinate_cover else 'coordinate_' if _coordinate else 'add_' if _add else 'ammo_cover_' if _ammo_cover else 'healing_cover_' if _healing_cover else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else 'ammo_' if _ammo else 'movement_range_cover_' if _movement_range_cover else 'movement_cover_' if _movement_cover else 'movement_' if _movement else 'named_range_cover_' if _range_cover else 'named_range_' if _range else 'lock_cover_' if _lock_cover else 'lock_' if _lock else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
+    if _program['source']!='gpu/product_'+('typed_lock_' if _typed_lock else 'typed_' if _typed else 'named_carriers_' if _named_carriers else 'coordinate_lock_' if _coordinate_lock else 'coordinate_healing_' if _coordinate_healing else 'coordinate_add_' if _coordinate_add else 'coordinate_weighted_' if _coordinate_weighted else 'coordinate_cover_' if _coordinate_cover else 'coordinate_' if _coordinate else 'add_' if _add else 'ammo_cover_' if _ammo_cover else 'healing_cover_' if _healing_cover else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else 'ammo_' if _ammo else 'movement_range_cover_' if _movement_range_cover else 'movement_cover_' if _movement_cover else 'movement_' if _movement else 'named_range_cover_' if _range_cover else 'named_range_' if _range else 'lock_cover_' if _lock_cover else 'lock_' if _lock else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
         raise ValueError('Invalid product source or wire declaration')
 
 
@@ -51,7 +52,7 @@ def configuration(suites, selection):
     program = PROGRAMS[name]
     return dict(base, product_program=name, source=program['source'], golden=GOLDEN,
                 input_words=program['input_words'], output_words=program['output_words'],
-                inputs=7 if name=='ammo-cover-fixed-group' else 2 if name.startswith('coordinate-lock-') else 1,native=7 if name=='ammo-cover-fixed-group' else 2 if name.startswith('coordinate-lock-') else 1)
+                inputs=7 if name=='ammo-cover-fixed-group' else 2 if name.startswith(('coordinate-lock-','typed-lock-')) else 1,native=7 if name=='ammo-cover-fixed-group' else 2 if name.startswith(('coordinate-lock-','typed-lock-')) else 1)
 
 
 def registered_golden(root, config, *, allow_unsealed=False):
@@ -76,7 +77,18 @@ def body_for_program(root, name=None):
     if name is not None and (not isinstance(name,str) or name not in PROGRAMS):
         raise ValueError('Invalid product program body')
     program = PROGRAMS.get(name, dict(mode='accumulate', kind=''))
-    if name is not None and name.startswith('typed-'):
+    if name is not None and name.startswith('typed-lock-'):
+        from coordinate_typed_actor_policy import FIELD_MODE
+        from coordinate_typed_aim_runtime import POLICY
+        body=body_for_program(root,'coordinate-lock-'+program['mode']);body['duration']=4.
+        body['enemy']['patterns'][0]['until']['time']=5.
+        models=body['reference_models'];locks=copy.deepcopy(models['lock_on'])
+        for i,row in enumerate(locks['typed_bindings']):row.update(owner=[0,0,1],label='projectile-'+str(i))
+        typed=dict(coord=models['coordinate']['coord'],bindings=copy.deepcopy(locks['typed_bindings']),
+            geometry=dict(point_source='caster_aim',shapes=[dict(x=0.,y=0.,r=1000.,z=float(i)) for i in range(3)]),
+            aim_policy={'mode':POLICY},actor_policy={'mode':FIELD_MODE})
+        body['reference_models']=dict(typed_targets=typed,lock_on=locks)
+    elif name is not None and name.startswith('typed-'):
         from portable_coordinate_typed_owner_cases import fixtures
         case=next(row for row in fixtures() if row['name'].endswith('/body'))
         body=copy.deepcopy(case['body']);body['duration']=3.
@@ -263,6 +275,11 @@ def cases_for_program(root,name=None):
     if name is not None and name.startswith('coordinate-lock-'):
         body=copy.deepcopy(base);body['duration']=56.;body['enemy']['patterns'][0]['until']['time']=57.
         rows.append(('long56',body))
+    if name is not None and name.startswith('typed-lock-'):
+        body=copy.deepcopy(base)
+        for model,key in ((body['reference_models']['lock_on'],'typed_bindings'),(body['reference_models']['typed_targets'],'bindings')):
+            for row in model[key]:row['capacity']=1.
+        rows.append(('broken',body))
     if name=='ammo-cover-fixed-group':
         from portable_enemy_ammo_self_destruct_cases import fixtures
         for case in fixtures():

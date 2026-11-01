@@ -305,10 +305,13 @@ def decode_payload(body, prepared, run, metadata, block):
         burst_gauge_mode=body.get('burst_gauge_mode','fixed'), hypothetical=hypothetical,
         engine_revision=engine_worker.REVISION, app_warnings=warnings)
     models=[]
-    if metadata.get('product_typed_targets'):
+    if metadata.get('product_typed_lock'):
+        from portable_product_typed_lock import read_result
+        models.append(read_result(block,metadata,names,run.config['duration']))
+    if metadata.get('product_typed_targets') and not metadata.get('product_typed_lock'):
         from portable_product_typed import read_result as typed_result
         models.append(typed_result(block,metadata,names,run.config['duration']))
-    if metadata.get('product_coordinate'):
+    if metadata.get('product_coordinate') and not metadata.get('product_typed_lock'):
         from portable_product_coordinate import read_result,OUTPUT as COORDINATE_OUTPUT
         coordinate_block=(memoryview(block)[:COORDINATE_OUTPUT] if isinstance(block,array.array) else block[:COORDINATE_OUTPUT]) if metadata.get('product_coordinate_lock') else block[:COORDINATE_OUTPUT] if metadata.get('product_coordinate_cover') or metadata.get('product_coordinate_weighted') else block
         models.append(read_result(coordinate_block,metadata,names=names,duration=run.config['duration']))
@@ -345,7 +348,7 @@ def decode_payload(body, prepared, run, metadata, block):
         ammo_attempts=model['enemy_ammo']['attempts'] if model is not None else []
         if model is not None:
             models.append(model)
-    if metadata.get('product_lock_on'):
+    if metadata.get('product_lock_on') and not metadata.get('product_typed_lock'):
         from portable_product_locks import read_result
         if metadata.get('product_coordinate_lock'):
             from portable_product_coordinate_lock import read_result

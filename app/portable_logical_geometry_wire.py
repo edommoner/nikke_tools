@@ -110,10 +110,10 @@ def validate(words,base_words,bindings,*,allow_empty=False):
     return dict(colliders=count,actors=len(bindings),gpu_admitted=False,health_copied=False,
                 lifecycle_copied=False,rotation_policy='coordinate-area-matrix-common-v1')
 
-def compile_logical_geometry(prepared,spec,*,allow_empty=False):
+def compile_logical_geometry(prepared,spec,*,allow_empty=False,typed_aim_targets=None):
     from portable_coordinate_roster_input import compile_coordinate_battle
     check_schema()
-    words,meta,bindings,scene=compile_coordinate_battle(prepared)
+    words,meta,bindings,scene=compile_coordinate_battle(prepared,typed_aim_targets=typed_aim_targets)
     bank=pack(spec,bindings,allow_empty=allow_empty);report=validate(bank,words,bindings,allow_empty=allow_empty)
     meta['logical_actor_geometry_wire']=dict(report,model='literal-add-colliders-v1',
         input_words=LAYOUT['BASE']+LAYOUT['WORDS'],gpu_wire_connected=False)

@@ -33,15 +33,38 @@
 #include "product_coordinate_lock_layout.slang"
 #include "world_coordinate_logical_actor_entry.slang"
 #include "live_lock_delivery_runtime.slang"
+#ifdef PORTABLE_PRODUCT_TYPED_LOCK
+#include "coordinate_typed_geometry_runtime.slang"
+#define PORTABLE_EXTERNAL_DESTRUCTIBLE_FRAME
+#include "destructible_shield_frame_impl.slang"
+#undef PORTABLE_EXTERNAL_DESTRUCTIBLE_FRAME
+#include "coordinate_typed_weapon_runtime.slang"
+#include "coordinate_typed_aim_runtime.slang"
+#include "coordinate_typed_actor_runtime.slang"
+#include "coordinate_typed_owner_runtime.slang"
+#else
 #include "destructible_target_core.slang"
 #include "destructible_world_runtime.slang"
 #include "destructible_battle_runtime.slang"
+#endif
 #include "packet_fates_runtime.slang"
 #include "lock_enemy_carrier_runtime.slang"
 #define pushSkillHit compositionPushSkillHit
+#ifdef PORTABLE_PRODUCT_TYPED_LOCK
+#define damageValue modifierFrameDamage
+#endif
 #include "destructible_frame_runtime.slang"
+#ifdef PORTABLE_PRODUCT_TYPED_LOCK
+#undef damageValue
+#endif
 #undef pushSkillHit
 bool initializeCoordinateLocks(inout Runtime s)
 {
-    return initializePhysicalLocks(s)&&initializeLockPackets(s)&&initializeDestructibleBattle(s)&&initializePacketFates(s);
+    bool ready=initializePhysicalLocks(s)&&initializeLockPackets(s)&&initializeDestructibleBattle(s)&&initializePacketFates(s);
+#ifdef PORTABLE_PRODUCT_TYPED_LOCK
+    ready=ready&&validBattleModifierAxes(s)&&validShieldBattleRoutes(s);
+    for(uint row=0;row<256;row++)
+        if(commands[DT_INPUT(s,5424)+row]!=(row==commands[DF_DESCRIPTOR(s)]?2U:0U))ready=false;
+#endif
+    return ready;
 }

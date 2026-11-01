@@ -39,7 +39,7 @@ def required(prepared):
     return 'lock_on' in prepared.get('reference_models',{}) or any(r['effect'].get('stat')=='lock_on' for r in prepared['effects'])
 
 
-def compile_product(prepared,*,coordinate_model=None):
+def compile_product(prepared,*,coordinate_model=None,typed_model=None):
     from portable_projectile_roster_input import compile_projectile_battle
     from portable_effect_target_count_shot_specs import compile_case as pack_count
     from effect_target_count_policy import MODEL
@@ -51,7 +51,11 @@ def compile_product(prepared,*,coordinate_model=None):
     from portable_original_lock_layout import check
     from portable_lock_typed_layout import check as check_locks
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
-    if set(declarations)!=({'lock_on','coordinate'} if coordinate_model is not None else {'lock_on'}):
+    if typed_model is not None:
+        from product_reference_models import normalize as normalize_models
+        declarations=normalize_models(declarations)
+        coordinate_model=dict(coord=typed_model['coord'],logical_geometry=[])
+    if set(declarations)!=({'lock_on','typed_targets'} if typed_model is not None else {'lock_on','coordinate'} if coordinate_model is not None else {'lock_on'}):
         error=UnsupportedPortable('Lock On requires explicit reference_models.lock_on candidate/delivery policies and typed bindings; composition is not connected')
         for r in prepared['effects']:
             e=r['effect']
@@ -83,7 +87,17 @@ def compile_product(prepared,*,coordinate_model=None):
         else:
             from portable_logical_geometry_wire import compile_logical_geometry
             lowered['enemy']['coord']=copy.deepcopy(coordinate_model['coord'])
-            words,meta,coordinate_bindings,scene=compile_logical_geometry(lowered,coordinate_model['logical_geometry'],allow_empty=True)
+            if typed_model is None:
+                words,meta,coordinate_bindings,scene=compile_logical_geometry(lowered,coordinate_model['logical_geometry'],allow_empty=True)
+            else:
+                from portable_target_modifier_input import lower_effect
+                from portable_coordinate_typed_owner_input import compiler_policy
+                for item in lowered['effects']:item['effect']=lower_effect(item['effect'])
+                lowered['typed_aim_policy']=copy.deepcopy(typed_model['aim_policy'])
+                lowered['typed_actor_policy']=copy.deepcopy(typed_model['actor_policy'])
+                aims={b['label']:129+i for i,b in enumerate(typed_model['bindings'])}
+                with compiler_policy(typed_model['bindings'],typed_model['actor_policy']):
+                    words,meta,coordinate_bindings,scene=compile_logical_geometry(lowered,[],allow_empty=True,typed_aim_targets=aims)
             if coordinate_bindings!=bindings:raise UnsupportedPortable('Coordinate and lock registries differ')
             if {b.label for b in bindings if int(b.kind)==5}!={r['label'] for r in coordinate_model['logical_geometry']}:raise UnsupportedPortable('Every configured ADD must have one explicit coordinate collider')
             meta['product_parts']=[dict(name=b.label,slot=i,node=b.run) for i,b in enumerate(bindings) if int(b.kind)==1 and parsed[b.run].id=='authored-live-parts']
@@ -99,8 +113,18 @@ def compile_product(prepared,*,coordinate_model=None):
     for i,r in enumerate(typed_rows):
         at=2328+i*12;owner=[0xffffffff,0,0] if r.owner is None else [int(r.owner.kind),r.owner.identity,r.owner.generation]
         extra[at:at+8]=[r.node,int(r.handle.kind),r.handle.identity,*struct.unpack('<II',struct.pack('<d',r.capacity)),*owner]
-    extra[5120:5124]=[typed_bound[0],128,1,0x44425431];words.extend(extra)
-    expected_input=INPUT if coordinate_model is None else 120816
+    extra[5120:5124]=[typed_bound[0],128,1,0x44425431]
+    if typed_model is not None:
+        from portable_original_modifier_probe_input import pack_target_input
+        from portable_typed_geometry_specs import pack as pack_geometry
+        extra,axes=pack_target_input(words,meta,prepared['effects'],patterns,spec['typed_bindings'],typed,2,128)
+        geometry,geometry_meta=pack_geometry(typed_model['geometry'],len(typed_rows),2)
+        extra[:2320]=geometry;extra[12:16]=[1,1,1,2]
+        meta['typed_geometry']=geometry_meta
+        meta['product_typed_targets']=dict(declarations={'typed_targets':copy.deepcopy(typed_model)},cpu_state_or_schedule_supplied=False)
+        meta['product_typed_lock']=True
+    words.extend(extra)
+    expected_input=121392 if typed_model is not None else INPUT if coordinate_model is None else 120816
     if len(words)!=expected_input or set(meta['binding_source_indices'])!=set(range(len(effects))):raise UnsupportedPortable('Complete original Lock On definitions and wire required')
     meta['product_lock_on']=dict(declarations={'lock_on':copy.deepcopy(spec)},names=names,packet_source=packet,typed_source=typed,
         bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],
@@ -113,8 +137,8 @@ def compile_product(prepared,*,coordinate_model=None):
     if coordinate_model is not None:
         from portable_product_coordinate_lock import INPUT as CI,OUTPUT as CO
         meta['product_coordinate_lock']=True
-        source='gpu/product_coordinate_lock_'+('fixed_' if fixed_values is not None else '')+'battle_entry.slang'
-        return source,CI,CO,words,meta
+        source='gpu/product_'+('typed_lock_' if typed_model is not None else 'coordinate_lock_')+('fixed_' if fixed_values is not None else '')+'battle_entry.slang'
+        return source,121392 if typed_model is not None else CI,CO,words,meta
     return source,INPUT,OUTPUT,words,meta
 
 

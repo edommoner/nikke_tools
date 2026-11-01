@@ -1,3 +1,5 @@
+共通製品経路の追加：`typed-lock-accumulate` は、同一worldの武器迎撃＋元Lock On／飛翔体スキルを独立seal2caseと通常Metal API8条件（両mode・30秒を含む）で確認済み。既存 `product-detail --product-program` を使い、個別suiteは追加しない。`typed-lock-fixed` はAPI実証のみでCLIの独立baselineは未登録。CUDAと全current profile再認定は未完了。[範囲・出所・失敗保持](../research/product-typed-lock-v1.json)。
+
 ## バッチ内位置に依存しない内部trace参照
 
 `coordinate-lock-accumulate`のv56は、元30秒caseを先頭に保持した30秒＋56秒の2caseを同じ物理起動で検証します。元先頭のinput/output/native entryは完全同一で、他40基準も保持しています。

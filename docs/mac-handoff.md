@@ -1,3 +1,15 @@
+## 2026-11-02 武器迎撃＋元Lock Onを同一共通世界の通常Metal APIへ接続
+
+前turnのCPU単一worldとfallbackを基準として、既存coordinate-lockへtyped武器/aim/owner/modifierを接続。新しい数値式・CPU正本/pinned変更0、新suite/監査器0。同じSlangをCUDA/Metalへ生成する薄い2entryと、既存product-detail内2programを追加（registry82）。input121392、output2558208。元Heavy91定義を保持。元typed DFS153568..170976、武器全2048packet170976..220224、aim220224..220768、別pellet/generation/通知scratch220768..229104、残tail229104..262144はzero要求。typed攻撃128・全skill2048・Lock31snapshot等は削減しない。武器とスキルが同じ敵HPを更新する。
+
+P1はDF macro不足でSlangコンパイル停止、GPU dispatchなし。P2実M5は両case status0、GPU0.517秒、破壊case完全一致、生存はpublic notice fieldだけ不足。breakなら既存世界と同じhandle/owner/time、非breakならnullを返すようdecoderのみ修正。GPU source/input/native指紋不変のP3で既存CLI replay、追加GPU0で2case完全一致・fresh独立seal。旧P1/P2失敗/capture/期待値は不変、v57へtyped-lock-accumulate2caseを登録、旧41member完全保持。fixedは通常API実証済みだがCLI独立baseline未登録。
+
+通常/api/jobs 1POSTで8条件＝両mode×生存/武器破壊/設定HP境界/30秒、2physicalM5・51.466秒、全CPU/GPU/HTTP/Unicode一致。30秒は実1178weapon packet。accumulateのHP境界では元all_projectilesが2対象を破壊し非null notice2、fixed同容量条件のnoticeは0なのでfixedのスキル破壊実証と主張しない。最初の追加assertは両modeにnotice2を要求していたため停止し、実保存結果に基づく範囲を診断記録へ明示。比較値・raw・実行を変えず、8保存監査と最終release8再投影成功。10改ざん（予約領域/weapon amount/aim/typed slot・identity・超過took/全skill未使用末尾/物理trace参照/切断wire）を拒否。いずれも追加battle/GPU0、product decodeの研究observer import禁止、owned Node group gone。
+
+最終release owner7e83b9101a304bbd20fb34732fbf5c67a1167e22e8566363487dcda72c3b404a、自身172CPU検査・native期待値2・依存・PTX/O1計画成功。P3からの差はGOLDEN pointer/strict ledger SHA/receipt identity・量の追加拒否だけ、全GPU/入力/元計算不変を検査。独立seal producerと最終decoder再投影の範囲を区別する。以前のtyped武器単独16保存出力も現在decoderで再投影し、計算全field完全保持。evaluatorのVCS stampは旧168561d6と新a657409bで異なると明記し、数値差とは分類しない。
+
+元Heavy1profileの追加8条件で新profile加算0。標準Metal直近263/266、CUDA従来263/266、明示モデル別historical各266/266は不変、current全matrix再認定なし。現typed武器＋Lock OnのCUDAは未実証。旧Windows missing7と記録Job peak超過を保持し、Windowsは保存resource timeline診断だけ依頼、追加SDK/GPU/APIなし。宣言shape/aim/owner/順序をゲーム確認済み仕様へ昇格しない。残件は同時ADD/cover/ammo/healing/weighted、現在source全profile再認定とbounded CUDA。research/product-typed-lock-v1.json参照。Windows保存resource診断1bfe3a3eも取得し、31,194B/SHA76914f79…/Git blobを照合。8sampleではcuLaunchKernel before/afterでprivate peak416,358,400→2,097,238,016B（+1,680,879,616B）、sample Job peak最大2,126,282,752B。最終outer2,149,621,760Bの上限超過時刻・原因はunknown。新query/sample/SDK/GPU/API0、欠損7/上限超過/旧stop不変。今後のCUDAはこのlaunch付近の作業領域とdriver確保を保存ソースから検討してから必要最小差分だけ依頼する。全goal未完了。以下は履歴。
+
 ## 2026-11-02 typed武器＋Lock OnのCPU共有世界と通常API fallbackを接続
 
 前turnは保存CUDA2条件の計算一致とmissing7/記録Job peak超過の証拠取得でprogress。今回は次の未接続組合せのnative基準を実装。従来のproduct_typed_modelとproduct_lock_modelを別々にネストすると同じ敵に2つのDestructibleWorldを作るため、前者のactiveな内部runtimeを後者へ渡し、生成前・binding順/容量/owner/label全一致を要求。受け渡しはrequest fieldではなく内部contextだけ。新規の数値式やCPU正本/pinned変更なし。normalizeはtyped_targets＋lock_onのみ新たに許可し、非projectile/順序/容量の不一致を戦闘前に拒否する。

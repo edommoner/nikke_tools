@@ -98,7 +98,7 @@ class ProductPacket(unittest.TestCase):
         cli=self.cli();base=cli.SUITES['product-detail']
         self.assertIs(configuration(cli.SUITES,'product-detail'),base)
         self.assertIs(configuration(cli.SUITES,dict(suite='product-detail')),base)
-        self.assertEqual(len(PROGRAMS),80)
+        self.assertEqual(len(PROGRAMS),82)
         self.assertEqual({n for n in PROGRAMS if n.startswith('coordinate-')},{'coordinate-fixed','coordinate-accumulate','coordinate-cover-fixed','coordinate-cover-accumulate','coordinate-weighted-fixed','coordinate-weighted-accumulate','coordinate-add-fixed','coordinate-add-accumulate','coordinate-healing-fixed','coordinate-healing-accumulate','coordinate-lock-fixed','coordinate-lock-accumulate'})
         self.assertEqual({n for n in PROGRAMS if n.startswith('healing-') and n.endswith('-group')},
                          {'healing-fixed-group','healing-accumulate-group','healing-cover-fixed-group','healing-cover-accumulate-group'})
@@ -121,7 +121,7 @@ class ProductPacket(unittest.TestCase):
             for name,config in PROGRAMS.items():
                 selected=cli.open_suite(dict(suite='product-detail',product_program=name))
                 rows,raw=selected.prepare()
-                self.assertEqual(len(rows),7 if name=='ammo-cover-fixed-group' else 2 if name.startswith('coordinate-lock-') else 1)
+                self.assertEqual(len(rows),7 if name=='ammo-cover-fixed-group' else 2 if name.startswith(('coordinate-lock-','typed-lock-')) else 1)
                 self.assertEqual((selected.SOURCE,selected.suite.INPUT,selected.suite.OUTPUT),(config['source'],config['input_words'],config['output_words']))
                 self.assertEqual(len(raw),4*(1+len(rows)*config['input_words']))
                 self.assertEqual(rows[0][2][0]['burst_gauge_mode'],config['mode'])

@@ -1822,12 +1822,14 @@ class ProductReferenceModels(unittest.TestCase):
                         self.assertTrue(all(not t['alive'] and t['remaining']==0 for t in typed['state']))
                         self.assertTrue(any(p['broken'] for p in typed['weapon_packets']))
                     # Static preparation may not execute a CPU battle or silently
-                    # admit the unfinished shared GPU consumer.
+                    # omit any original skill while admitting the shared GPU consumer.
                     with patch.object(sim,'execute',side_effect=AssertionError('No battle as GPU input')):
                         prepared,_=prepare(body)
                         original_prepared=copy.deepcopy(prepared)
-                        with self.assertRaisesRegex(UnsupportedPortable,'composition.*checked.*consumer'):
-                            compile_product(prepared)
+                        source,iw,ow,words,meta=compile_product(prepared)
+                        self.assertEqual((iw,ow,len(words)),(121392,2558208,121392))
+                        self.assertTrue(meta['product_typed_lock'])
+                        self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
                         self.assertEqual(prepared,original_prepared)
 
     def test_typed_lock_rejects_different_or_nonprojectile_worlds_before_simulating(self):
