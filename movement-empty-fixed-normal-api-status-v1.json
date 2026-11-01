@@ -1,0 +1,902 @@
+{
+  "schema": "movement-empty-fixed-normal-api-status-v1",
+  "request_transport_commit": "887500ad7625f8f1b809040b420958575493c58e",
+  "owner": "0e164a2058b1b9a07b28927afb3631d219ec0de84285ec11e2563d956bb26ed3",
+  "source_commit": "5f9e93c6eee590dcb2ecabf18127c5dad6ecb955",
+  "code_review_commit": "394546cd4d370631b36c09cfb41c36f6230a8ec3",
+  "snapshot_note": "Exact tested immutable v3 snapshot created before code commit; manifest retains original source_base and payload hashes, never relabelled",
+  "manifest_sha256": "45c06bcb7aedba93c8159bfbf2082b18dc5718ca19710dc042346afb2827ba79",
+  "source": "gpu/product_movement_fixed_battle_entry.slang",
+  "scope": "Explicit ADD-only movement: Yuni empty, Yan empty, previous nonempty baseline; no standard profile additions",
+  "numeric_verification_passed": true,
+  "original_request_documents_unchanged": [
+    {
+      "file": "movement-empty-fixed-v1-api-expected.json",
+      "bytes": 2268,
+      "sha256": "06fb67b23a397a36bab5c30ec4e5343e0a88a359e7c217ec9e94685b264d08cc"
+    },
+    {
+      "file": "movement-empty-fixed-v1-api-job.json",
+      "bytes": 25456,
+      "sha256": "1b1e4dbf83c13d8f9fcb5375138ee5b7c964ccdde7c912cc7ebdae7d377da376"
+    },
+    {
+      "file": "movement-empty-fixed-v1-o1-plan.json",
+      "bytes": 735,
+      "sha256": "67b08088027b1f41807a6216881d94f0b153af00cf2f0b84edd0d39bb155db47"
+    },
+    {
+      "file": "movement-empty-fixed-v1-ptx-plan.json",
+      "bytes": 707,
+      "sha256": "edfc5b12210989ba0b82c5e58f4d8fc73e5f8cfbe965264bb1438f10a968e816"
+    },
+    {
+      "file": "movement-empty-fixed-v1-validation-deps.json",
+      "bytes": 407,
+      "sha256": "5ab6092db08c0ee14f6d6ec03b6356dc5ae2a7f40f035355e9b2d71f6c759a25"
+    },
+    {
+      "file": "movement-empty-fixed-v1.zip",
+      "bytes": 12115566,
+      "sha256": "01a1c5ec8b59845dd1452b45b3290feffa47e6f7da66097ae6bc4de8e62a5996"
+    },
+    {
+      "file": "movement-empty-windows-request-v1.json",
+      "bytes": 3608,
+      "sha256": "da302a2b024f020632364bf92c8c3b09b89df8f70fc9e452156038b999f81517"
+    }
+  ],
+  "cpu": {
+    "passed": true,
+    "tests": 86,
+    "groups": [
+      {
+        "pattern": "test_portable_detail.py",
+        "exit_code": 0,
+        "elapsed_seconds": 10.570966800209135,
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.958335599862039,
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "exit_code": 0,
+        "elapsed_seconds": 5.026254800148308,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_product_reference_models.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.6831816998310387,
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_explicit_empty_movement_preserves_duration_carriers_and_rejects_future_add"
+        ]
+      }
+    ],
+    "selected_case_ids": {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_explicit_empty_movement_preserves_duration_carriers_and_rejects_future_add"
+      ]
+    },
+    "owner": "0e164a2058b1b9a07b28927afb3631d219ec0de84285ec11e2563d956bb26ed3",
+    "source_commit": "5f9e93c6eee590dcb2ecabf18127c5dad6ecb955",
+    "full147_windows_claimed": false,
+    "unselected_model61_executed": false,
+    "old_source_results_reused": false,
+    "extra_native_preflight_battles": 0,
+    "sdk_calls": 0,
+    "gpu_calls": 0
+  },
+  "sdk_stages": {
+    "unpack": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 18.787718600127846,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 73371648,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "plans": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 20.1406694999896,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 70311936,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "host-tests": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 30.939197899773717,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 146325504,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "generation": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 25.5823977002874,
+      "timeout_seconds": 59.84400000004098,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 643022848,
+      "below_normal": true,
+      "runner_exit_code": 0,
+      "artifact_verified": true,
+      "reported_stage_verified": true,
+      "reported_stage_complete": true,
+      "reported_whole_environment_preservation_verified": false
+    },
+    "compile-ptx": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "elapsed_seconds": 43.978409099858254,
+      "timeout_seconds": 179.84400000004098,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 407457792,
+      "below_normal": true,
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "reported_whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 34.34486410021782,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 372015104,
+        "below_normal": true
+      }
+    },
+    "module-object": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "elapsed_seconds": 39.51493589999154,
+      "timeout_seconds": 179.82799999974668,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 520962048,
+      "below_normal": true,
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "reported_whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 23.79864509962499,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 473436160,
+        "below_normal": true
+      }
+    },
+    "jit-link-object": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "elapsed_seconds": 50.982686600182205,
+      "timeout_seconds": 179.84400000004098,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 241344512,
+      "below_normal": true,
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "reported_whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 20.719309700187296,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 129818624,
+        "below_normal": true
+      }
+    }
+  },
+  "artifact": {
+    "ptx": {
+      "key": "8e384a4f80e88e14f6b3f5064ed9b267007c393bc468f2f13d29133dc567d634",
+      "artifact_sha256": "7d0bf291b3c38d8b0ed28ac90d1bacea010d5f7efc7c2ee274d3c7cbcc3ba3d8",
+      "artifact_bytes": 12897918
+    },
+    "object_sha256": "cf75a2d34c919256477253e08f4e51921a59af8ba0a31c1d5ca11fba4632c265",
+    "linked_image_sha256": "e112b3f87ecf1c5bb21cb0dca3327ea406486dd87ba332ef55f11b005bccbb64",
+    "linked_image_bytes": 6704656,
+    "object_origin_source_bytes_unchanged": true,
+    "object_origin_source_partitioned": false
+  },
+  "paired_cache": {
+    "key": "5e055ad6f12394fd07aea3421143fff86f585dc0a2e083fcc11ae0e86b45fb85",
+    "hit": true,
+    "compiler_invocations": 0
+  },
+  "execution_counts": {
+    "paired_generation_runs": 1,
+    "ptx_compile_runs": 1,
+    "o1_object_runs": 1,
+    "pinned_jit_link_runs": 1,
+    "posts": 1,
+    "physical_gpu_dispatches": 1,
+    "physical_cases": 3,
+    "retries": 0,
+    "additional_audit_cpu_battles": 0,
+    "additional_audit_gpu_calls": 0,
+    "unchanged_sdk_smoke_runs": 0,
+    "standard266_runs": 0,
+    "previous_rei_runs": 0
+  },
+  "normal_api": {
+    "batch_index": 0,
+    "cases": 3,
+    "profile_indices": [
+      0,
+      1,
+      2
+    ],
+    "passed": true,
+    "job_id": "df6e41bd-885f-4f56-aef6-0552537c49fd",
+    "parent_capture_id": "batch-f115ca0f210f4eb18fa8ecc48013d94e",
+    "physical_input_sha256": "b83280977022d5cc4de3806cbea63910c079a0c1fae5c27654571d822c358597",
+    "physical_output_sha256": "b783131f3a9e2b9991f65a2a0bd09fc1d1ab4fe4d239e456f70d69d65c83a351",
+    "physical_input_bytes": 1409716,
+    "physical_output_bytes": 24384000,
+    "members": [
+      {
+        "profile_index": 0,
+        "label": "유니-empty-fixed",
+        "character": null,
+        "favorite_stage": null,
+        "capture_id": "d67c44b0bc0e40cdb24c3fbdd10e6bad",
+        "input_sha256": "787f537c7c00d9d24acc9f931106228d04babf60cfc121ad429a5a78fa743193",
+        "output_sha256": "4f98034477055f1b3b5a342321ea508edc0c6dcadfd51aa71a575301f8e3c4d3",
+        "status": 0,
+        "full_cpu_gpu_api_equal": true,
+        "m5_full_readback_equal": true,
+        "parent_slices_and_static_repack_equal": true
+      },
+      {
+        "profile_index": 1,
+        "label": "얀-empty-fixed",
+        "character": null,
+        "favorite_stage": null,
+        "capture_id": "4845431230d744978f135a43164f4b0c",
+        "input_sha256": "9b5180903d62ccef05684c9b8f0b71e2912c9d7a47b6f053922ce6d85a6e95f0",
+        "output_sha256": "0e094f4b65958baeadd072d761a9b213cd144802dfa5d43a28cae638972120a0",
+        "status": 0,
+        "full_cpu_gpu_api_equal": true,
+        "m5_full_readback_equal": true,
+        "parent_slices_and_static_repack_equal": true
+      },
+      {
+        "profile_index": 2,
+        "label": "existing-two-add-fixed",
+        "character": null,
+        "favorite_stage": null,
+        "capture_id": "a8663206ff304489871a9525f9f71a06",
+        "input_sha256": "3ff51c006f6ca444761ba64c00eb54a945b7f4fb536667fd1d0fd5c86fd2b15f",
+        "output_sha256": "0cd3194c40b7114f6e4eb694c1f90c7e1725a51611e9aee7aa47690755238a0a",
+        "status": 0,
+        "full_cpu_gpu_api_equal": true,
+        "m5_full_readback_equal": true,
+        "parent_slices_and_static_repack_equal": true
+      }
+    ],
+    "cuda_api_counts": {
+      "cuInit": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0445065
+      },
+      "cuCtxCreate_v2": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.1041706
+      },
+      "cuModuleLoadData": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0056705
+      },
+      "cuLaunchKernel": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0017651,
+        "grid": [
+          3,
+          1,
+          1
+        ],
+        "block": [
+          1,
+          1,
+          1
+        ],
+        "dynamic_shared_bytes": 0
+      },
+      "cuCtxSynchronize": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 3.2426291
+      },
+      "cuMemcpyDtoH_v2": {
+        "entered": 3,
+        "returned": 3,
+        "return_codes": [
+          0,
+          0,
+          0
+        ],
+        "elapsed_seconds": 0.0032064,
+        "chunk_bytes": [
+          8388608,
+          8388608,
+          7606784
+        ],
+        "total_bytes": 24384000
+      },
+      "cuCtxDestroy_v2": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.039649
+      }
+    },
+    "resource": {
+      "snapshot_count": 8,
+      "observation_complete": false,
+      "inner_job_limit_unknown_count": 8,
+      "inner_job_limits": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "outer_enforced_limit_verified": true,
+      "outer_enforced_job_limit_bytes": 2147483648,
+      "outer_job_peak_bytes": 1548283904,
+      "process_private_peak_bytes": 1494757376,
+      "observed_private_max_bytes": 1494757376,
+      "device_free_min_bytes": 6393167872,
+      "device_free_max_bytes": 7445938176,
+      "device_total_bytes": 8589410304,
+      "memory_query_return_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "non_atomic": true,
+      "runtime": {
+        "input_bytes": 1409716,
+        "output_bytes": 24384000,
+        "runtime_stride_bytes": 167680,
+        "runtime_buffer_bytes": 503040,
+        "runtime_element_capacity": 3
+      }
+    },
+    "stages": {
+      "static-preflight": {
+        "child_exit_code": 0,
+        "elapsed_seconds": 12.146266600117087,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "job_records": 1,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 96292864,
+        "below_normal": true
+      },
+      "api-once-v1": {
+        "child_exit_code": 0,
+        "elapsed_seconds": 31.166006699670106,
+        "timeout_seconds": 53,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "job_records": 1,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 1548283904,
+        "below_normal": true
+      },
+      "saved-audit": {
+        "child_exit_code": 0,
+        "elapsed_seconds": 13.460646299645305,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "job_records": 1,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 166236160,
+        "below_normal": true
+      }
+    },
+    "http_seconds": 25.920723899733275,
+    "host_dispatch_seconds": 3.250199300237,
+    "paired_cache_hit": true,
+    "paired_cache_compiler_invocations": 0,
+    "owned_node_stopped": true,
+    "additional_saved_audit_battles": 0,
+    "additional_saved_audit_gpu_calls": 0,
+    "unicode_exclusions": [],
+    "overall_verified": false,
+    "service_preservation_verified": false
+  },
+  "node_saved_audit": {
+    "schema": "coordinate-public-saved-node-roundtrip-audit-v1",
+    "passed": true,
+    "owner": "0e164a2058b1b9a07b28927afb3631d219ec0de84285ec11e2563d956bb26ed3",
+    "source_commit": "5f9e93c6eee590dcb2ecabf18127c5dad6ecb955",
+    "cases": [
+      {
+        "index": 0,
+        "variant": null,
+        "label": "유니-empty-fixed",
+        "duration_seconds": 30,
+        "capture_id": "d67c44b0bc0e40cdb24c3fbdd10e6bad",
+        "original_document_canonical_sha256": "871c87c4e709eb9d536eb78a7552fb3dcc8afc622b5e070441da6dcf790710c6",
+        "node_effective_document_canonical_sha256": "871c87c4e709eb9d536eb78a7552fb3dcc8afc622b5e070441da6dcf790710c6",
+        "product_record_request_sha256": "871c87c4e709eb9d536eb78a7552fb3dcc8afc622b5e070441da6dcf790710c6",
+        "node_effective_request_hash_matches_record": true,
+        "input_sha256": "787f537c7c00d9d24acc9f931106228d04babf60cfc121ad429a5a78fa743193",
+        "output_sha256": "4f98034477055f1b3b5a342321ea508edc0c6dcadfd51aa71a575301f8e3c4d3",
+        "static_repack_equal": true,
+        "parent_input_slice_equal": true,
+        "parent_output_slice_equal": true,
+        "m5_full_readback_equal": true,
+        "gpu_status": 0,
+        "full_saved_gpu_cpu_http_and_reprojection_equal": true,
+        "spec_text_compared_without_exclusion": true
+      },
+      {
+        "index": 1,
+        "variant": null,
+        "label": "얀-empty-fixed",
+        "duration_seconds": 30,
+        "capture_id": "4845431230d744978f135a43164f4b0c",
+        "original_document_canonical_sha256": "904b5a89a7882bb43ccc750ea10adf2f99ee04148ce8f478198858c1e640debd",
+        "node_effective_document_canonical_sha256": "904b5a89a7882bb43ccc750ea10adf2f99ee04148ce8f478198858c1e640debd",
+        "product_record_request_sha256": "904b5a89a7882bb43ccc750ea10adf2f99ee04148ce8f478198858c1e640debd",
+        "node_effective_request_hash_matches_record": true,
+        "input_sha256": "9b5180903d62ccef05684c9b8f0b71e2912c9d7a47b6f053922ce6d85a6e95f0",
+        "output_sha256": "0e094f4b65958baeadd072d761a9b213cd144802dfa5d43a28cae638972120a0",
+        "static_repack_equal": true,
+        "parent_input_slice_equal": true,
+        "parent_output_slice_equal": true,
+        "m5_full_readback_equal": true,
+        "gpu_status": 0,
+        "full_saved_gpu_cpu_http_and_reprojection_equal": true,
+        "spec_text_compared_without_exclusion": true
+      },
+      {
+        "index": 2,
+        "variant": null,
+        "label": "existing-two-add-fixed",
+        "duration_seconds": 30,
+        "capture_id": "a8663206ff304489871a9525f9f71a06",
+        "original_document_canonical_sha256": "315ddade69a114a232944dcf7a114527f42992fba0cb5cb59b89596e51c21e47",
+        "node_effective_document_canonical_sha256": "3d861d3f398c17b259e648b210d3d76e08d5cbdb55ae81b8c283a961e6306fc1",
+        "product_record_request_sha256": "3d861d3f398c17b259e648b210d3d76e08d5cbdb55ae81b8c283a961e6306fc1",
+        "node_effective_request_hash_matches_record": true,
+        "input_sha256": "3ff51c006f6ca444761ba64c00eb54a945b7f4fb536667fd1d0fd5c86fd2b15f",
+        "output_sha256": "0cd3194c40b7114f6e4eb694c1f90c7e1725a51611e9aee7aa47690755238a0a",
+        "static_repack_equal": true,
+        "parent_input_slice_equal": true,
+        "parent_output_slice_equal": true,
+        "m5_full_readback_equal": true,
+        "gpu_status": 0,
+        "full_saved_gpu_cpu_http_and_reprojection_equal": true,
+        "spec_text_compared_without_exclusion": true
+      }
+    ],
+    "node": {
+      "version": "v24.22.1",
+      "operation": "JSON.parse(stdin UTF-8) then JSON.stringify with the configured server Node executable",
+      "operation_code_sha256": "2fd6f3e90f9ac78b31216b705580d15d3d09fdb83507598719f2b9c9cb05e93c",
+      "wire_reconstruction": "Same json.dumps(payload,ensure_ascii=False).encode() as saved HTTP helper; reconstructed bytes, not a new network capture",
+      "http_helper_sha256": "1e4ab8fab4e6800b6c67ba7e742fb987c857da176cc16b0d239975780f4c8e5c",
+      "original_job_file_sha256": "1b1e4dbf83c13d8f9fcb5375138ee5b7c964ccdde7c912cc7ebdae7d377da376",
+      "roundtrip_input_bytes": 12489,
+      "roundtrip_input_sha256": "8c4c3a56e29f8ba8c904ffb89c72d99619bd06a27500b68202aa9c31e8bf2bfc",
+      "roundtrip_output_bytes": 11139,
+      "roundtrip_output_sha256": "5167bad984d3974585f5f9878177c2b194085c23094c852ae65df9cc67068b5f",
+      "stderr_bytes": 0,
+      "process_return_code": 0
+    },
+    "original_and_effective_json_values_equal": true,
+    "representation_type_changes": [
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.coord.auto_aim[0]",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.coord.auto_aim[1]",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.coord.pierce_px",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.coord.explosion_scale",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.logical_geometry[0].shape.x",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.logical_geometry[0].shape.y",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.logical_geometry[0].shape.r",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.logical_geometry[0].shape.z",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.logical_geometry[1].shape.x",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.logical_geometry[1].shape.y",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.logical_geometry[1].shape.r",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.logical_geometry[1].shape.z",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.motion.actors[0].velocity[0]",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.motion.actors[0].velocity[1]",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.motion.actors[0].force_center[0]",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.motion.actors[0].force_center[1]",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.motion.actors[1].velocity[0]",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.motion.actors[1].velocity[1]",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.motion.actors[1].force_center[0]",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      },
+      {
+        "path": ".evaluations[2].reference_models.enemy_movement.motion.actors[1].force_center[1]",
+        "from_type": "integer-valued float",
+        "to_type": "JSON integer representation"
+      }
+    ],
+    "no_caller_values_or_expected_hashes_changed": true,
+    "comparison": "Strict recursive JSON value equality with exact numbers, bool/type separation and full string/Unicode equality; no tolerance",
+    "unicode_exclusions": [],
+    "excluded_transport_metadata": [
+      "compute",
+      "cache_hit"
+    ],
+    "source_packet_unchanged": true,
+    "saved_audit_uses_actual_node_input_from_start": true,
+    "original_packet_and_old_claims_retained": true,
+    "anchors_unchanged": true,
+    "anchor_count": 8,
+    "parent_input_pre_sha256": "b83280977022d5cc4de3806cbea63910c079a0c1fae5c27654571d822c358597",
+    "parent_input_post_sha256": "b83280977022d5cc4de3806cbea63910c079a0c1fae5c27654571d822c358597",
+    "parent_output_pre_sha256": "b783131f3a9e2b9991f65a2a0bd09fc1d1ab4fe4d239e456f70d69d65c83a351",
+    "parent_output_post_sha256": "b783131f3a9e2b9991f65a2a0bd09fc1d1ab4fe4d239e456f70d69d65c83a351",
+    "static_preparation_calls": 3,
+    "readback_reprojection_calls": 3,
+    "additional_cpu_battles": 0,
+    "additional_sdk_calls": 0,
+    "additional_posts": 0,
+    "additional_gpu_calls": 0,
+    "raw_input_output_documents_shared": false,
+    "raw_buffers_shared": false,
+    "overall_verified": false,
+    "physical_cases": 3,
+    "source": "gpu/product_movement_fixed_battle_entry.slang",
+    "parent_capture_id": "batch-f115ca0f210f4eb18fa8ecc48013d94e",
+    "parent_input_sha256": "b83280977022d5cc4de3806cbea63910c079a0c1fae5c27654571d822c358597",
+    "parent_output_sha256": "b783131f3a9e2b9991f65a2a0bd09fc1d1ab4fe4d239e456f70d69d65c83a351",
+    "physical_input_bytes": 1409716,
+    "physical_output_bytes": 24384000,
+    "members": [
+      {
+        "index": 0,
+        "variant": null,
+        "label": "유니-empty-fixed",
+        "duration_seconds": 30,
+        "capture_id": "d67c44b0bc0e40cdb24c3fbdd10e6bad",
+        "original_document_canonical_sha256": "871c87c4e709eb9d536eb78a7552fb3dcc8afc622b5e070441da6dcf790710c6",
+        "node_effective_document_canonical_sha256": "871c87c4e709eb9d536eb78a7552fb3dcc8afc622b5e070441da6dcf790710c6",
+        "product_record_request_sha256": "871c87c4e709eb9d536eb78a7552fb3dcc8afc622b5e070441da6dcf790710c6",
+        "node_effective_request_hash_matches_record": true,
+        "input_sha256": "787f537c7c00d9d24acc9f931106228d04babf60cfc121ad429a5a78fa743193",
+        "output_sha256": "4f98034477055f1b3b5a342321ea508edc0c6dcadfd51aa71a575301f8e3c4d3",
+        "static_repack_equal": true,
+        "parent_input_slice_equal": true,
+        "parent_output_slice_equal": true,
+        "m5_full_readback_equal": true,
+        "gpu_status": 0,
+        "full_saved_gpu_cpu_http_and_reprojection_equal": true,
+        "spec_text_compared_without_exclusion": true,
+        "original_profile_index": 0,
+        "status": 0,
+        "full_cpu_gpu_api_payload_equal": true
+      },
+      {
+        "index": 1,
+        "variant": null,
+        "label": "얀-empty-fixed",
+        "duration_seconds": 30,
+        "capture_id": "4845431230d744978f135a43164f4b0c",
+        "original_document_canonical_sha256": "904b5a89a7882bb43ccc750ea10adf2f99ee04148ce8f478198858c1e640debd",
+        "node_effective_document_canonical_sha256": "904b5a89a7882bb43ccc750ea10adf2f99ee04148ce8f478198858c1e640debd",
+        "product_record_request_sha256": "904b5a89a7882bb43ccc750ea10adf2f99ee04148ce8f478198858c1e640debd",
+        "node_effective_request_hash_matches_record": true,
+        "input_sha256": "9b5180903d62ccef05684c9b8f0b71e2912c9d7a47b6f053922ce6d85a6e95f0",
+        "output_sha256": "0e094f4b65958baeadd072d761a9b213cd144802dfa5d43a28cae638972120a0",
+        "static_repack_equal": true,
+        "parent_input_slice_equal": true,
+        "parent_output_slice_equal": true,
+        "m5_full_readback_equal": true,
+        "gpu_status": 0,
+        "full_saved_gpu_cpu_http_and_reprojection_equal": true,
+        "spec_text_compared_without_exclusion": true,
+        "original_profile_index": 1,
+        "status": 0,
+        "full_cpu_gpu_api_payload_equal": true
+      },
+      {
+        "index": 2,
+        "variant": null,
+        "label": "existing-two-add-fixed",
+        "duration_seconds": 30,
+        "capture_id": "a8663206ff304489871a9525f9f71a06",
+        "original_document_canonical_sha256": "315ddade69a114a232944dcf7a114527f42992fba0cb5cb59b89596e51c21e47",
+        "node_effective_document_canonical_sha256": "3d861d3f398c17b259e648b210d3d76e08d5cbdb55ae81b8c283a961e6306fc1",
+        "product_record_request_sha256": "3d861d3f398c17b259e648b210d3d76e08d5cbdb55ae81b8c283a961e6306fc1",
+        "node_effective_request_hash_matches_record": true,
+        "input_sha256": "3ff51c006f6ca444761ba64c00eb54a945b7f4fb536667fd1d0fd5c86fd2b15f",
+        "output_sha256": "0cd3194c40b7114f6e4eb694c1f90c7e1725a51611e9aee7aa47690755238a0a",
+        "static_repack_equal": true,
+        "parent_input_slice_equal": true,
+        "parent_output_slice_equal": true,
+        "m5_full_readback_equal": true,
+        "gpu_status": 0,
+        "full_saved_gpu_cpu_http_and_reprojection_equal": true,
+        "spec_text_compared_without_exclusion": true,
+        "original_profile_index": 2,
+        "status": 0,
+        "full_cpu_gpu_api_payload_equal": true
+      }
+    ]
+  },
+  "movement_model": {
+    "explicit_add_only": true,
+    "conditions": [
+      "Yuni empty ADD0 fixed30s",
+      "Yan empty ADD0 fixed30s",
+      "Existing two ADD baseline fixed30s"
+    ],
+    "standard_profile_delta": 0,
+    "all_original_definitions_retained_test_passed": true,
+    "duration_carriers_retained_test_passed": true,
+    "configured_future_add_rejected_test_passed": true,
+    "missing_declared_geometry_rejected_test_passed": true,
+    "selected_test_checks_fixed_and_accumulate": true,
+    "native_guard_future_add_rejected_in_selected_test": true,
+    "host_source_sha256": "2eefb888288cc2f92e92ab93e125f52dd007af73b7743e646b0877ecdfeb8f23",
+    "model_source_sha256": "0343fe3fc7f07a38fb8c25b26861295cd0eee9431b576cbf9ecb4eea48673e8f",
+    "device_source_sha256": "5718a2576bb149c46f6905136981601dfe324bf4f1bb5cfc7e902d551665fb7d",
+    "device_positive_statuses": [
+      0,
+      0,
+      0
+    ],
+    "windows_raw_negative_gpu_case_executed": false,
+    "mac_raw_negative_result": "Supplied Mac evidence only; not claimed as a Windows dispatch"
+  },
+  "readback_policy": {
+    "source": "app/portable_backend.py",
+    "source_sha256": "f13f412e8d58c26b379e31638cab20f2bdefbd19ddf6ac4a9b74956419493b22",
+    "constant_line": 21,
+    "chunk_limit_bytes": 8388608,
+    "actual_chunk_bytes": [
+      8388608,
+      8388608,
+      7606784
+    ],
+    "physical_output_bytes": 24384000,
+    "full_m5_sha256": "b783131f3a9e2b9991f65a2a0bd09fc1d1ab4fe4d239e456f70d69d65c83a351",
+    "parent_and_all_member_sha256_matched": true
+  },
+  "preservation": {
+    "prior_protected_files": 44309,
+    "missing": 0,
+    "changed": 0,
+    "old_claims_failures_sources_and_raw_retained": true,
+    "previous_rei_result_retained": true,
+    "initial7documents_unchanged": true
+  },
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "no_ssh_or_os_configuration_changed": true,
+  "full147_windows_claimed": false,
+  "remaining61_model_tests_executed": false,
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "raw_buffers_shared": false,
+  "compiler_distributions_shared": false,
+  "settings_or_auth_shared": false
+}
