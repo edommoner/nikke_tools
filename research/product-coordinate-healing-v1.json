@@ -440,5 +440,149 @@
     "Short CUDA difference verification of this same coordinate healing product entry",
     "Coordinate healing with ADD attacks/ammo/cover/weighted consumer banks is not yet composed",
     "Typed projectile/shield public product worlds and other uncovered mixed conditions"
-  ]
+  ],
+  "previous_coordinate_saved_compatibility": {
+    "scope": "Previous ADD12 and weighted6 exact input/GPU-source/raw/current-decoder compatibility; canonical CPU/dedicated reference adapters unchanged; extra native/GPU0",
+    "owner": "fa22d9b5406ceb73bd8fcf0924267d37835796471ccf4fa60219868ead76c47d",
+    "rows": [
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "alive-fixed",
+        "input_sha256": "2136a969c61792639483ddecd0f6981e1867695d09e29638396d6d1e776b9255",
+        "output_sha256": "fcfe2b8221654c384806c6f43d1a75c6df4f5d63c473f52a4ae1283822414168",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "spaced-fixed",
+        "input_sha256": "adc6e004cb78cbc3c81b133aee7368035d17238bfd53b92fc83ec2ba9c70ceb3",
+        "output_sha256": "4d6943e82f6d94e393d52c6a88e621cf2933e19074c7ee2f55580a7f1a7a595e",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "coincident-fixed",
+        "input_sha256": "9bdc6f26974f211bdd941d9bcb1ef79fce41eabe96a137341f471e8f18d139fa",
+        "output_sha256": "98a512d00fd35846228669be31e53e2df289d6dbe5e08ac0699800a4e5c66eb6",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "renewal-fixed",
+        "input_sha256": "b5599e96cf60e6a0f983a85f70e1f92098bfcb417511b77a888f0ee0ccb350ee",
+        "output_sha256": "2702e5e2f2e37dab0e8ff57781d830f9a5e3be9849c176103b3b0f5c37a38332",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "hp-before-shot-fixed",
+        "input_sha256": "eab12bc25e556bb2f722edba2403826f2179c162c783f1f0a4c2b1aee6217b03",
+        "output_sha256": "53f860f24a3144ced99a1dc7597cf0c827d0eb950fa66f0b3fb7981780e56b45",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "time-close-fixed",
+        "input_sha256": "fd19d0831a468c39dba365f59e4651f00bd79b20fd99f196209dc27996ba1121",
+        "output_sha256": "fbe95c8dc1be70f2179d15de9f125312b59d7e77e3eb89f77e6bda6f33f5edea",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "alive-accumulate",
+        "input_sha256": "aba619d139caeb1058614385d9bf73b6344cde013d9e03572e0e0d3babd4ef45",
+        "output_sha256": "635706e29799bd62e1986664c9753ebf5236f31567487c592f9390f0a16bcd00",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "spaced-accumulate",
+        "input_sha256": "cd142e3ab2ffd0d0a57478e6302f70bbe555965b107aed146b7a3df63a161e48",
+        "output_sha256": "5114999287f33c04ceee4da5d00aacba3e3df0e45bc09421aa554193e26d8aa5",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "coincident-accumulate",
+        "input_sha256": "cbe68e423cfad717de1d84d84e9a9353a7ce6eb9e3be8f69c5c9b35db5335ddf",
+        "output_sha256": "11bd9dfb565a2cd499161e5189db43d1700428168449bd3ac9d00021eabc934f",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "renewal-accumulate",
+        "input_sha256": "363ef21ae6f7faca4f3888db6a77eb11fac34bf4d4524933a70d180012fb7b5a",
+        "output_sha256": "dbbd5e7c2638017486641cb3d6fba98acd29f1c7d0627977fb41a5af92dbad7f",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "hp-before-shot-accumulate",
+        "input_sha256": "b21a9e23b5a1894591531a8d626737061738eaacde6b63724e366c21f61c65dd",
+        "output_sha256": "f341c3108756fc874b1d5b354833e0bc327cde20963f44bf10dfcbeb8f8bfe04",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "time-close-accumulate",
+        "input_sha256": "d8c247df841feb5997bbcc648d340a0765a4ab14afb969cfe56a85bc45e6e525",
+        "output_sha256": "eb49d82efd20024a8c5d4f48e2ddfa858f09469625c6eda9308f2c5914d3e195",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-weighted-v1-20261101",
+        "variant": "active-fixed",
+        "input_sha256": "69195ced9a16991579088647ecdf542a584d4d98df704811f015d13c34af4822",
+        "output_sha256": "a3fe9e570cd13be339de21bd917be89f56e355265800dc7202d353d5ea6cbe92",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-weighted-v1-20261101",
+        "variant": "late-expire-fixed",
+        "input_sha256": "0c2267b467ff90ef8ec3e91f23672d313f2296640b8c58843d272f9a9b512103",
+        "output_sha256": "7f9bc7749f2cea077ebf0ac07a704af230b486402215cc90f82309fb85905f90",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-weighted-v1-20261101",
+        "variant": "inactive-fixed",
+        "input_sha256": "450b009fe45f6c8304a5132411a400871d1836f49a90f759e79e9459418f3d64",
+        "output_sha256": "151da6356f5622e121ab41ab65a40a83f456446f5a774065977dca4302295fa8",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-weighted-v1-20261101",
+        "variant": "active-accumulate",
+        "input_sha256": "539e4b6aa6e1567c4fc2f9c3b01e2d098b88bb9f79588621489fe0117cc958ef",
+        "output_sha256": "87a1bb42aa36bcc55f6ae39b1e1bbd748be308bdd3c90eef95856cc8efd3ab8f",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-weighted-v1-20261101",
+        "variant": "late-expire-accumulate",
+        "input_sha256": "d9ab6c4b1d1e37a3e8a9282804af02a572f98c868a0df464d8ba223f5f9e69fa",
+        "output_sha256": "9675a5a83ee6457d3a4a25041fa55bcee25e7c7cf2f88ea241f11bfcf6faf6a4",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-weighted-v1-20261101",
+        "variant": "inactive-accumulate",
+        "input_sha256": "7ced64302dcbbcca9e764a7fbcc58d614e9399597792690d8d40eb46b2bb6116",
+        "output_sha256": "f980bbc3a9ab274c140644f239676966e2fb616f838294d43c42350519ede020",
+        "full_projection_equal": true
+      }
+    ],
+    "additional_battles": 0,
+    "additional_gpu": 0
+  },
+  "planned_windows_unit_selection": {
+    "tests": 11,
+    "all_registered_tests": 164,
+    "unselected": 153,
+    "mac_packet_own_managed_helper_passed": true,
+    "request_case_ids_derived_from_actual_source_AST": true,
+    "request_selector_owner_ids_hashes_exact": true,
+    "all_registered_group_nonempty_guards_retained": true,
+    "scope": "One equipment-row input invariant, packet exact wire preparation, source contract7, new coordinate healing2; full Windows unit/native proof not claimed"
+  }
 }
