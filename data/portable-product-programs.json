@@ -378,6 +378,20 @@
       "output_words": 2032000,
       "mode": "accumulate",
       "kind": ""
+    },
+    "coordinate-cover-fixed": {
+      "source": "gpu/product_coordinate_cover_fixed_battle_entry.slang",
+      "input_words": 115704,
+      "output_words": 2048912,
+      "mode": "fixed",
+      "kind": ""
+    },
+    "coordinate-cover-accumulate": {
+      "source": "gpu/product_coordinate_cover_battle_entry.slang",
+      "input_words": 115704,
+      "output_words": 2048912,
+      "mode": "accumulate",
+      "kind": ""
     }
   }
 }

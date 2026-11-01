@@ -121,6 +121,15 @@ def validate_composed_stride(source,input_words,output_words):
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Weighted incoming requires complete literal weights and owned receipt banks')
         return
     from portable_product_programs import PROGRAMS
+    coordinate_cover_sources={p['source'] for n,p in PROGRAMS.items() if n.startswith('coordinate-cover-')}
+    if source in coordinate_cover_sources:
+        from portable_cover_defense_wire import check_schema,LAYOUT as C,INPUT,OUTPUT
+        from portable_logical_geometry_wire import check_schema as coordinate_schema,LAYOUT as G,SCRATCH
+        check_schema(ROOT);coordinate_schema(ROOT)
+        if G['BASE']+G['WORDS']!=C['BASE'] or SCRATCH['OUTPUT_WORDS']!=C['OUTPUT_BASE']:
+            raise ValueError('Coordinate and cover banks must remain disjoint and contiguous')
+        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Coordinate/cover requires both complete input and receipt banks')
+        return
     range_cover_sources={p['source'] for n,p in PROGRAMS.items() if n.startswith('named-range-cover-')}
     if source in range_cover_sources:
         from portable_cover_defense_wire import check_schema,LAYOUT as C,OUTPUT

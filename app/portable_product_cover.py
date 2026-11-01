@@ -17,7 +17,7 @@ def compile_product(prepared,producer):
     if unspecified and has_incoming_attacks(prepared):
         raise UnsupportedPortable('Independent cover DEF requires explicit reference_models.cover_defense bases; no body DEF or level curve is inferred')
     combined_motion_range=set(declarations)-{'cover_defense'}=={'enemy_movement','named_range'}
-    if set(declarations)-{'cover_defense','enemy_healing','enemy_ammo','enemy_movement','named_range','lock_on'} or len(set(declarations)-{'cover_defense'})>1 and not combined_motion_range:
+    if set(declarations)-{'coordinate','cover_defense','enemy_healing','enemy_ammo','enemy_movement','named_range','lock_on'} or len(set(declarations)-{'cover_defense'})>1 and not combined_motion_range:
         raise UnsupportedPortable('Cover DEF product composition requires a matching combined consumer wire')
     check_schema();names=[c['name'] for c in prepared['chars']]
     # Product-only unavailable flag; zero payload is reserved padding, not a
@@ -55,7 +55,8 @@ def compile_product(prepared,producer):
         # requests with no incoming hit that would otherwise mask the error.
         if len({cover_stat,COUNT_STAT,RANGE_STAT})!=3:
             raise ValueError('Cover DEF, target count and named range require disjoint stat identifiers')
-    kind='movement_range' if movement_range else 'healing' if healing else 'ammo' if ammo else 'movement' if movement else 'named_range' if named_range else 'lock' if locks else None
+    coordinate=source in ('gpu/product_coordinate_battle_entry.slang','gpu/product_coordinate_fixed_battle_entry.slang') and (iw,ow)==(115680,2032000)
+    kind='coordinate' if coordinate else 'movement_range' if movement_range else 'healing' if healing else 'ammo' if ammo else 'movement' if movement else 'named_range' if named_range else 'lock' if locks else None
     if locks:
         from portable_product_locks import check_cover_history
         from pathlib import Path
@@ -91,6 +92,10 @@ def compile_product(prepared,producer):
             words[base+1]=3
             words[base+5:base+8]=[tap_mask,0xffffffff,0x4d435631]
         attach_fixed(words,meta,prepared,fixed_values)
+    if coordinate:
+        meta['product_coordinate_cover']=True
+        if len(words)!=C['BASE']:raise ValueError('Complete coordinate prefix required before cover bank')
+        return ('gpu/product_coordinate_cover_'+('fixed_' if fixed_values is not None else '')+'battle_entry.slang',INPUT,OUTPUT,list(words)+bank,meta)
     if movement_range:
         meta['product_movement_range_cover']=dict(output_base=COVER_OUT,end=COVER_END)
         if len(words)!=MR_INPUT:raise ValueError('Complete movement/range prefix required before cover bank')

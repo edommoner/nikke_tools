@@ -86,10 +86,12 @@ def validate_world_frame_readback(block,metadata):
 
 def _compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
+    from portable_product_cover import required as cover_required,compile_product as compile_cover
     if 'coordinate' in prepared.get('reference_models',{}):
+        if not prepared.get('_product_cover_compiled') and cover_required(prepared):
+            return compile_cover(prepared,compile_product)
         from portable_product_coordinate import compile_product as coordinates
         return coordinates(prepared)
-    from portable_product_cover import required as cover_required,compile_product as compile_cover
     from portable_product_movement import required as movement_required,compile_product as compile_movement
     from portable_product_locks import required as locks_required,compile_product as compile_locks
     from portable_product_named_range import required as range_required,compile_product as compile_range
@@ -284,8 +286,8 @@ def decode_payload(body, prepared, run, metadata, block):
         engine_revision=engine_worker.REVISION, app_warnings=warnings)
     models=[]
     if metadata.get('product_coordinate'):
-        from portable_product_coordinate import read_result
-        models.append(read_result(block,metadata))
+        from portable_product_coordinate import read_result,OUTPUT as COORDINATE_OUTPUT
+        models.append(read_result(block[:COORDINATE_OUTPUT] if metadata.get('product_coordinate_cover') else block,metadata))
     if metadata.get('product_enemy_healing'):
         from portable_product_healing import read_result
         from portable_enemy_healing_wire import OUTPUT as healing_output

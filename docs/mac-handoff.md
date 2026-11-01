@@ -1,3 +1,15 @@
+## 2026-11-01 座標・遮蔽を同じ共通実行器へ接続、通常API4条件Metal全一致
+
+明示reference_models.coordinateとcover_defense、および手動遮蔽を、既存座標・actor・burst・遮蔽consumerへ接続。両bankはinput115680+24/output2032000+16912の完全分離を検査。新2入口は既存共通本体をincludeし、完了後の遮蔽snapshot scratchだけを所有入口でclear。既存のGPU本体・数値/許容差/CPU正本4fileは変更0。他の未接続モデル合成は拒否を維持。
+
+不変packet-v2自身145 CPU/fresh native/実M5固定30秒/GPU禁止fresh独立seal成功、v39へcoordinate-cover-fixedだけ追加し旧31member不変。実蓄積のCLI独立基準は未登録だが通常API成功。最初のv1は結果control/control_detail差で停止、遮蔽所有者metadataの不足を訂正した。旧入力・全readbackは新v2と全bytes完全一致（input58d82004…/output732176ca…）、保存再投影+freshCPU全一致もGPU0で確認。旧failure/claim/logは保持。
+
+同packetの通常APIでMarciana BODYと元Belorta ADD3体×固定/実蓄積4条件、1POST/2physical batch、27.033秒、実M5/freshCPU/HTTP全payload完全一致。各条件に遮蔽receipt2件・明示DEF100・applied900を確認。既存保存監査4成功（追加battle/GPU0）、専用Node全process group消滅。最初の保存監査ではPythonのliteral2.0とNodeがworkerへ渡すJSON整数2のspec表示だけが異なったため、元要求を保存したまま実際と同じNode JSON.parse/stringify輸送を入力へ適用。数値/raw/payload/比較対象や許容差は変更せず全項目一致。変換・hashを記録。
+
+Windowsの別件standalone座標は停止原本5957642f/14,989byte/SHA6aba6623…を取得照合。成功85receipt、全stageの2GiB/gate/empty/missing0/query/cleanup、SDK/POST/GPU0を確認。旧source不変性と85完了を再利用し、未完了の元model59件だけを別の同じ60秒childで処理する継続d9a09996を依頼。同144件合算の再実行・上限延長はなし。全144件の成功時だけ元未実行SDK/API3条件を初実行し、異常なら再び停止。結果原本はまだ未取得でCUDA加算0。
+
+原本proofs/product-coordinate-cover-v1-20261101、small記録[product-coordinate-cover-v1](../research/product-coordinate-cover-v1.json)。標準Metal/CUDA262/266据置き、旧sourceを新sourceへ付替えない。次はWindows保存結果の照合、残合成・未指定4profile、実蓄積/遮蔽CLI基準。全goal未完了。以下は履歴。
+
 ## 2026-11-01 Windowsの座標host検査が合算60秒で停止、CUDA未実行
 
 同turn01a195b7のhost-testsが60秒上限に達した。保存進捗の報告はdetail67/製品11/履歴7の完了85件成功、最後のmodel59群は完了receiptなし。後続Slang/PTX/object/link/POST/GPUは0、再試行0。停止後Job empty/missing0/cleanup正常はWindows報告段階で、最終小JSON原本のimport/独立照合は未実施。これをCUDA不一致や成功へ読み替えない。追加の実行指示は送らず、保存結果共有のみ依頼した。

@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "original_commit": "5957642f09f9ff3dad4a4d989a71c92a14f251cb14",
+  "bytes": 14989,
+  "sha256": "6aba6623f3071f1be9f12aeb6b3c01eb067df683636a4938ac031af8a8d3233d",
+  "owner_matches": true,
+  "archive_matches": true,
+  "completed_receipts_verified": 85,
+  "incomplete_group_admitted": false,
+  "stages_budget_observation_and_cleanup_verified": true,
+  "sdk_invocations": 0,
+  "posts": 0,
+  "gpu_calls": 0,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false
+}

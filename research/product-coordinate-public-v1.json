@@ -571,13 +571,17 @@
     "cases": 3,
     "posts_max": 1,
     "gpu_max": 1,
-    "status": "Stopped during aggregate host-tests at60s; original report import pending",
+    "status": "Original stopped report imported and audited; remaining59-only bounded continuation requested",
     "reported_completed_tests": 85,
     "incomplete_group": "test_product_reference_models.py (59 discovered; no completion receipt)",
     "sdk_executions": 0,
     "api_posts": 0,
     "gpu_dispatches": 0,
     "retries": 0,
-    "existing_cpu_partition_plan": "Four complete file groups supported by existing portable_staged_tests.plan; locally prepared read-only, no claims/tests executed"
+    "existing_cpu_partition_plan": "Four complete file groups supported by existing portable_staged_tests.plan; locally prepared read-only, no claims/tests executed",
+    "stop_original_commit": "5957642f09f9ff3dad4a4d989a71c92a14f251cb14",
+    "stop_original_sha256": "6aba6623f3071f1be9f12aeb6b3c01eb067df683636a4938ac031af8a8d3233d",
+    "stop_import_audit": "research/coordinate-public-windows-stop-import-v1.json",
+    "continuation_request_commit": "d9a0999639b630d2b72ee386e00d18ebb85799e9"
   }
 }

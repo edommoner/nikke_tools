@@ -9,6 +9,26 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_coordinate_cover_combines_literal_banks_without_cpu_battle(self):
+        from portable_product_programs import body_for_program
+        from portable_detail import prepare,compile_product
+        from portable_backend import validate_composed_stride
+        from portable_cover_defense_wire import LAYOUT as C
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'coordinate-cover-'+mode);before=copy.deepcopy(body)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle input')):
+                prepared,run=prepare(body);original=copy.deepcopy(prepared)
+                source,iw,ow,words,metadata=compile_product(prepared)
+            self.assertEqual(body,before);self.assertEqual(prepared,original)
+            self.assertEqual((iw,ow,len(words)),(115704,2048912,115704));validate_composed_stride(source,iw,ow)
+            self.assertEqual(set(metadata['binding_source_indices']),set(range(len(prepared['effects']))))
+            self.assertTrue(metadata['product_coordinate_cover'])
+            self.assertEqual(metadata['product_manual_cover_owners'],[0])
+            self.assertEqual(words[C['BASE']:C['BASE']+4],[0x43444231,1,5,0])
+            self.assertFalse(metadata['product_cover_defense']['cpu_state_or_schedule_supplied'])
+            self.assertFalse(run.expected)
+            with self.assertRaises(ValueError):validate_composed_stride(source,115680,2032000)
+
     def test_coordinate_public_preserves_all_definitions_and_explicit_empty_scene(self):
         from portable_product_programs import body_for_program
         from portable_detail import prepare,compile_product

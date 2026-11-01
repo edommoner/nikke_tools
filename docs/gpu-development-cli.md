@@ -1,3 +1,9 @@
+## 座標と手動遮蔽の通常API
+
+明示`reference_models.coordinate`と`cover_defense`を併用できる。`manual_cover_sequences`も同じ実行器へ入り、BODY/ADDの座標サンプリングと独立遮蔽DEFを同じ時計で処理する。敵攻撃時のDEFを推定せず、未接続の他モデル合成は拒否する。
+
+`package --suite product-detail --product-program coordinate-cover-fixed --compact --out NEW.zip`は独立seal済みv39を使う。`coordinate-cover-accumulate`は通常APIの実Metal/freshCPU一致済みだが独立CLI基準未登録なので`--develop`を使う。BODY/ADD3体×両modeの4条件・遮蔽receipt・全製品payload・保存監査を確認。新sourceのCUDAは未実行。[範囲・失敗保持・実輸送JSONの監査](../research/product-coordinate-cover-v1.json)。
+
 ## 通常APIの明示座標・乱数モデル
 
 `reference_models.coordinate`は`coord`（明示auto_aim、pierce_px、explosion_scale）と`logical_geometry`を受け取り、既存の共通binary64/seeded MT19937 sampler・actor実行器を使う。BODYだけなら空配列を明示し、ADDは全てのliteral colliderが必要。確認済みゲーム仕様とは区別して画面/APIへ表示する。他の宣言モデルとの合成・手動遮蔽はチェック済みwire未接続のため拒否する。

@@ -12,7 +12,7 @@ def compile_product(prepared):
     declarations=normalize(prepared.get('reference_models'))
     if set(declarations)!={'coordinate'}:raise UnsupportedPortable('Explicit standalone coordinate model required')
     spec=declarations['coordinate'];original=prepared
-    if any(a.get('action')=='cover' for c in prepared['chars'] for a in c.get('control',{}).get('sequence',[])):
+    if not prepared.get('_product_cover_compiled') and any(a.get('action')=='cover' for c in prepared['chars'] for a in c.get('control',{}).get('sequence',[])):
         raise UnsupportedPortable('Coordinate plus manual cover requires its independent checked cover consumer')
     inner,fixed=lower(prepared);inner=copy.deepcopy(inner);inner.pop('reference_models',None)
     inner['enemy']['coord']=copy.deepcopy(spec['coord']);inner['_product_native_equipment_carriers']=True
@@ -20,6 +20,7 @@ def compile_product(prepared):
     configured={b.label for b in bindings if int(b.kind)==5}
     if configured!={r['label'] for r in spec['logical_geometry']}:raise UnsupportedPortable('Every configured ADD must have one explicit coordinate collider')
     meta['product_coordinate']=dict(declarations=declarations,cpu_state_or_schedule_supplied=False)
+    meta['product_manual_cover_owners']=[i for i,c in enumerate(inner['chars']) if any(a.get('action')=='cover' for a in c.get('control',{}).get('sequence',[]))]
     meta['product_control_labels']=[[dict(mode=e['mode'],producer=_when_label(e)) for e in CharState(c,atk,inner['enemy'].get('code'))._click_sched] for c,atk in zip(inner['chars'],inner['base_atk'])]
     nodes=validate(copy.deepcopy(inner['enemy'].get('patterns') or [dict(id='portable-empty-world',kind='idle')]),coord=True)
     meta['product_world']=dict(nodes=[dict(id=p.id,kind=p.kind) for p in nodes],literal_pattern_identity_only=True,cpu_schedule_or_state_supplied=False)
