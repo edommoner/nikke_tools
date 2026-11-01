@@ -962,10 +962,15 @@ class PortableDetail(unittest.TestCase):
         from portable_original_identity_inventory import selected_profile_bodies
         body=selected_profile_bodies(['아스카'],0)[0][2]
         prepared,_=product.prepare(body)
-        for key,value in [('patterns',[dict(id='wave',kind='summon',spec=dict(count=1,hp=100))]),
-                          ('has_parts',True),('part_break_interval',1),('coord',{})]:
+        for key,value in [('has_parts',True),('part_break_interval',1),('coord',{})]:
             case=copy.deepcopy(prepared);case['enemy'][key]=value
             with self.subTest(key=key),self.assertRaisesRegex(ValueError,'plain body'):product.compile_product(case)
+        finite=copy.deepcopy(prepared);finite['enemy']['patterns']=[dict(id='wave',kind='summon',spec=dict(count=1,hp=100))]
+        source,iw,ow,words,meta=product.compile_product(finite)
+        self.assertEqual(source,'gpu/product_add_target_battle_entry.slang')
+        self.assertEqual(meta['product_world']['nodes'],[dict(id='wave',kind='summon')])
+        self.assertEqual(meta['real_prepared_input']['target_modifier_carriers']['original_effects'],prepared['effects'])
+        self.assertEqual(meta['product_add_attacks']['source_nodes'],[-1,0])
         unknown=copy.deepcopy(prepared);unknown['enemy']['new_typed_targets']=[]
         with self.assertRaisesRegex(ValueError,'Unknown real enemy fields'):product.compile_product(unknown)
         grouped=copy.deepcopy(prepared);grouped['effects'][0]['effect']['trigger']['timing'].append('multi_hit:2')
@@ -999,7 +1004,11 @@ class PortableDetail(unittest.TestCase):
             self.assertEqual(axes['axis_rows'][row],axis)
             if axis:self.assertEqual(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['KIND']],4)
         bad=copy.deepcopy(prepared);bad['enemy']['patterns']=[{'id':'new','kind':'summon','spec':{'count':1,'hp':100}}]
-        with self.assertRaisesRegex(ValueError,'plain body'):product.compile_product(bad)
+        source,iw,ow,words,meta=product.compile_product(bad)
+        self.assertEqual(source,'gpu/product_add_group_target_battle_entry.slang')
+        self.assertEqual(meta['product_world']['nodes'],[dict(id='new',kind='summon')])
+        self.assertEqual(meta['real_prepared_input']['target_modifier_carriers'],axes)
+        self.assertEqual(meta['product_add_attacks']['source_nodes'],[-1,0])
         bad=copy.deepcopy(prepared)
         next(r['effect'] for r in bad['effects'] if modifier_axis(r['effect']))['trigger']['timing']=['multi_hit:2']
         with self.assertRaisesRegex(ValueError,'itself a multi_hit'):product.compile_product(bad)

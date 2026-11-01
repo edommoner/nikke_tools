@@ -3005,7 +3005,7 @@
     "app/product_reference_models.py": "c9205a13b1b1fcb0c14411b7e22b1b913177bd645c74e03bd925a00ba755a09b",
     "gpu/product_movement_range_cover_battle_entry.slang": "1cdac26aa6548cddb68f651eb60accee4990ad68ff81b087ca51068f6dbe03c3",
     "gpu/product_movement_range_cover_fixed_battle_entry.slang": "6710f79e3ce475933c752dce08f219a0bfcc24530bb6d258e9adf788cad40e39",
-    "app/portable_product_healing.py": "2ff8e67a147630ad59313d7520818e74c8c43f39f380ed521dfffbf2f255dfae",
+    "app/portable_product_healing.py": "8ee0c0f844921f9b7f5742a17a4ef1395c67ef1ca3fc7d269085fc69f7acac5f",
     "gpu/product_healing_battle_entry.slang": "3e3c01f618c1d08abc7899b38709ff4cc2d016c1bb6c0b01f873689dcb424eef",
     "gpu/product_healing_entry.slang": "43330293f55791e6114f08017e25640ee18f15549ee056c901b5f20e6a27d3b4",
     "gpu/product_healing_group_battle_entry.slang": "26032567136b61af7829c0c1574d58f7b2129916481cfcade268a54b46c09ce5",
@@ -3042,6 +3042,7 @@
     "gpu/product_ammo_fixed_target_battle_entry.slang": "65ff7f6e32e7e1628cbeeb2eea4b3d4d039cbb887013dd00d5eb9a2fbd136233",
     "gpu/product_ammo_target_battle_entry.slang": "9aa917d533bc6f1242d2e57662f790067e3679684df6403084b867f5405e0603",
     "gpu/product_group_target_axes.slang": "a77bd8f0445001015e1ec43e43073b262a03d270efc9d608e96559251452cb8c",
-    "gpu/enemy_healing_ammo_layout.slang": "391084c7a458263ec31d82fa92facb0a189d6211ef8e899766c6c473aea19fad"
+    "gpu/enemy_healing_ammo_layout.slang": "391084c7a458263ec31d82fa92facb0a189d6211ef8e899766c6c473aea19fad",
+    "app/portable_product_add_attack.py": "03612750aa7da61a55ae6f0c4298fc3a78e23c976f2a1ffa2e65e184ef6b3272"
   }
 }

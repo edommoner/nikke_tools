@@ -18,6 +18,13 @@ def compile_product(prepared,producer):
     from portable_runtime import UnsupportedPortable
     from calculator.boss_pattern import validate as patterns_for
     from portable_actor_specs import compile_registry
+    from destructible_damage_policy import modifier_axis
+    if any(modifier_axis(row['effect']) for row in prepared['effects']):
+        # The existing magazine executor already owns disjoint target, ADD
+        # and healing banks. Its empty-magazine mode is admitted only for a
+        # world without incoming attacks; no capacity is inferred here.
+        from portable_product_ammo import compile_product as compile_combined
+        return compile_combined(prepared,producer)
     check_schema();declarations=copy.deepcopy(prepared.get('reference_models',{}))
     inner=dict(prepared,_product_healing_compiled=True);inner.pop('reference_models',None)
     with compiler_policy():source,iw,ow,words,metadata=producer(inner)

@@ -1,3 +1,9 @@
+## 対象modifier・有限ADD・敵回復の合成
+
+通常の`reference_models.enemy_healing`は、元の対象別modifier carrierと非攻撃の有限ADDを含む編成でも既存共通実行器へ接続します。固定/実蓄積、明示cover_defenseとの組み合わせを通常APIでMetal検証済みです。新しいprogramやsuiteは追加していません。攻撃しない世界では空のmagazineを明示的に検査し、敵攻撃があれば`reference_models.enemy_ammo`を要求します。敵弾倉の容量や攻撃規則は推定しません。
+
+回復先・回復sourceは従来の宣言モデルです。座標/移動/Lock On/配分/typed projectileやshieldとの未接続合成は引き続き理由付きCPU fallbackへ戻します。[検証12条件と失敗保持](../research/product-healing-target-v1.json)を参照してください。今回の新合成はCUDA未検証です。
+
 ## 元Heavy Arms30秒の保存CUDA再開結果
 
 元Heavy Arms210/favorite0/固定30秒＋既存明示Lock On1条件は、保存PTX/object/imageを再コンパイルせず通常APIの初回1POST/1GPUで成功しました。全91定義/110pulses/15shots、CPU/GPU/HTTP/Unicode、全5,242,880byte readback SHAがM5原本と一致。保存監査ではbattle/GPU0、SDK/CPU87の再実行0です。Macは保存Windows報告のdriver/Job/Node値と出所を照合し、ローカルM5原本の全hashを再計算しました。CUDA raw自体はMacへ転送していません。[取り込み範囲](../research/product-heavy-original-success-import-v1.json)。

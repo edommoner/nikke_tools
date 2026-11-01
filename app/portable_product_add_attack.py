@@ -7,8 +7,17 @@ from portable_add_attack_battle_wire import LAYOUT as A
 
 def lower(prepared):
     from calculator.boss_pattern import validate
+    if prepared.get('_product_add_attacks') is True:
+        return prepared, None
     raw = prepared['enemy'].get('patterns') or []
-    if not any(p.get('kind') == 'summon' and p.get('spec', {}).get('attack') for p in raw):
+    attacking = any(p.get('kind') == 'summon' and p.get('spec', {}).get('attack') for p in raw)
+    from destructible_damage_policy import modifier_axis
+    # Target carriers use the same finite ActorPool even when a summon does
+    # not attack. Keep those literal actors in the checked ADD prefix rather
+    # than rejecting them as an untyped BODY world.
+    stationary_targets = (any(p.get('kind') == 'summon' for p in raw)
+        and any(modifier_axis(row['effect']) for row in prepared['effects']))
+    if not attacking and not stationary_targets:
         return prepared, None
     patterns = validate(copy.deepcopy(raw), squad_size=5)
     lowered = copy.deepcopy(prepared)

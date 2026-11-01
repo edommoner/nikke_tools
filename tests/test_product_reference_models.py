@@ -1485,6 +1485,48 @@ class ProductReferenceModels(unittest.TestCase):
         self.assertTrue(any(r.get('effective_gain',0)>0 for r in receipts))
         self.assertIn(WARNING,result['app_warnings'])
 
+    def test_target_carriers_and_stationary_add_healing_share_existing_executor(self):
+        import portable_detail as product
+        from detail_coverage import body_for
+        from portable_enemy_healing_cases import fixtures
+        from portable_enemy_ammo_wire import LAYOUT as A, MAGIC as AM
+        from portable_enemy_healing_wire import AMMO_LAYOUT as H, MAGIC as HM
+        from portable_backend import validate_composed_stride
+        from portable_runtime import UnsupportedPortable
+        case=fixtures()[0]
+        for grouped in (False,True):
+            names=['앤 : 미라클 페어리','사쿠라' if grouped else '아스카',
+                '벨로타' if grouped else '미란다','도라','드레이크']
+            for mode in ('fixed','accumulate'):
+                for cover in (False,True):
+                    body=copy.deepcopy(case['body']);body.update(squad=names,
+                        profile=body_for(names,26)['profile'],duration=26,burst_gauge_mode=mode,
+                        reference_models={'enemy_healing':copy.deepcopy(case['enemy_healing'])})
+                    if cover:
+                        body['reference_models']['cover_defense']=[dict(name=n,base_defense=1000.) for n in names]
+                        body['manual_cover_sequences']={names[-1]:[dict(action='cover',t=.5,duration=.25)]}
+                    prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+                    with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle during packing')):
+                        source,iw,ow,words,meta=product.compile_product(prepared)
+                    with self.subTest(grouped=grouped,mode=mode,cover=cover):
+                        self.assertEqual(prepared,before)
+                        self.assertEqual(source,'gpu/product_ammo_'+('cover_' if cover else '')+
+                            ('fixed_' if mode=='fixed' else '')+('group_' if grouped else 'target_')+'battle_entry.slang')
+                        validate_composed_stride(source,iw,ow)
+                        self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+                        self.assertEqual(words[A['BASE']:A['BASE']+4],[AM,1,0,len(meta['product_enemy_ammo']['bindings'])])
+                        self.assertEqual(words[H['BASE']],HM)
+                        self.assertEqual(meta['product_enemy_ammo']['declarations'],{})
+                        self.assertEqual(meta['product_enemy_healing']['declarations'],{'enemy_healing':body['reference_models']['enemy_healing']})
+                        self.assertTrue(meta['product_add_attacks'])
+                    # An attacking world cannot inherit guessed magazines
+                    # from the stationary empty-magazine admission.
+                    attack=copy.deepcopy(body);attack['enemy']['patterns'].append(dict(id='incoming',kind='attack',spec=dict(atk=100,coeff=100,hits=1,target='all')))
+                    incoming,_=product.prepare(attack)
+                    if not cover:
+                        with self.assertRaisesRegex(UnsupportedPortable,'explicit.*enemy_ammo'):
+                            product.compile_product(incoming)
+
     def test_missing_sources_reject_before_shared_dispatch_and_legacy_stays_closed(self):
         from portable_product_programs import body_for_program
         import portable_detail as product

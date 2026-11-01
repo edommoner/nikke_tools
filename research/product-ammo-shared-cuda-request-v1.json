@@ -279,15 +279,25 @@
     "host": "remote-control:env_e_6ac12920046c8331afb50b0234aeba48",
     "thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
     "turn": "01a196d4-16ea-79b1-b86a-e0174ab3f51d",
-    "cursor": "20f61e43-c193-4c3d-95b9-55e58cc5d5d8:41",
-    "status": "accepted_in_progress",
-    "execution_result_observed": false,
-    "latest_observed_progress": "Received; checking transport hashes and existing helper compatibility. No execution result observed."
+    "cursor": "20f61e43-c193-4c3d-95b9-55e58cc5d5d8:46",
+    "status": "blocked_before_validation_stages_by_existing_helper_contract",
+    "execution_result_observed": true,
+    "latest_observed_progress": "Received; checking transport hashes and existing helper compatibility. No execution result observed.",
+    "saved_report_commit": "ef4dbe4b",
+    "saved_report_sha256": "3aca4567f3ea77781e075f5f7ffaab3dabd294083b0279dc60bbc139ae939f03",
+    "validated_cases": 0,
+    "followup_scope": "read-only export of fixed count/single-job helper source requested; no execution restart",
+    "thread_status": "unavailable_after_last_confirmed_active_turn"
   },
   "previous_heavy_success_import_already_complete": true,
   "previous_execution_resent": false,
   "new_cuda_cases_verified": 0,
   "new_profile_coverage": 0,
   "runtime_source_changes": false,
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "windows_stop_import_verified": {
+    "all14_transported_hashes_recomputed": true,
+    "all_stage_counts_zero": true,
+    "no_numeric_or_gpu_result_claimed": true
+  }
 }

@@ -1,3 +1,13 @@
+## 2026-11-01 対象modifier＋非攻撃ADD＋敵回復を通常Metalへ接続
+
+新しい計算式/Shader/suite/監査器は追加していない。portable_product_add_attack.lowerは元のtarget modifierがある有限summon世界も既存ADD prefixへ保持し、既にlower済みのflagでは再変換しない。portable_product_healingはtarget carrierがある場合、既存のdisjointなammo/target/ADD/healing runtimeへ渡す。非攻撃世界の空magazineだけを許し、incomingは明示enemy_ammo容量が無ければ拒否。元definition/axis/ActorPool/回復bank/遮蔽を保持し、CPU正本4file/pinnedは不変。
+
+owner5d2daf21の不変packet自身158unitと、CPU前確認12条件が成功。通常HTTP1POST/12physical実M5で、回復ありtarget/group×fixed/accumulate×cover有無8件と、回復なしfiniteADD target/group×両mode4件が全CPU/GPU/HTTP一致。回復あり8件は26秒、25秒のAnn倍率減少と実回復gainを実際に消費。全12rawのSHA/元input/current source/再投影を既存監査で確認し、追加battle/GPU0、専用Node group消滅。旧v48登録7件は全input/source graph不変を静的確認、golden/native fingerprintは変更0。既存基準7件のGPUは繰り返していない。
+
+最初のpacket-v1/unit-v1は6failureでGPU前停止として保持。4件は二重lowerで既存prefixに再ADD tailを足した問題、2件は旧の非攻撃summon拒否の期待。二重変換を修正し、後者は定義/axis/world/ActorPoolが保存される正例へ変更。has_parts/coord/unknown fields等の負例は保持。CPU前確認はcanonical/固定data/全CPU adapter同一を確認し修正版へ12件再利用、通常APIの独立CPU照合は維持。新実績は合成12条件で、標準profile加算0。標準Metal263/266・CUDA記録263/266、明示モデル別記録両266/266は従来source横断実績のまま、今回current全matrix再認定はしていない。research/product-healing-target-v1.json参照。
+
+Windowsの前依頼は実行前helper契約差で停止した。ef4dbe4bの保存ammo-shared-seven-normal-api-status-v1.jsonをGitHub経由で取得し、輸送14file全SHAと各stage count0をMac照合。own unpack/CPU/SDK/GPU/APIは0。CPU wrapperの件数87固定とprepare-apiの単一program.api_job/api_expectedが、91件+4batch指定を扱えないためで、数値/GPU不一致ではない。旧停止を成功へ付け替えない。既存helper sourceと固定argument/guardを読むだけの追加調査を同chatへ送信済みで、helper変更・run再送は依頼していない。最後の確認cursor46/turn01a196d4 active後、接続取得は一時利用不可。次は同handleまたは既存GitHub packet branchの保存exportだけを取得し、再実行しない。受理だけだった前記録はresearch/product-ammo-shared-cuda-request-v1.jsonへ停止importを追記済み。次のCUDA作業は汎用引数対応を既存guardを保ってレビューすることであり、新suiteや新per-feature runnerを増やさない。全goal未完了。以下は履歴。
+
 ## 2026-11-01 共通弾倉・自爆・対象modifier・敵回復7入力のCUDA差分を依頼
 
 ユーザーの接続復旧後、Windows同chatがidleでHeavy成功a55c10b4だったことを確認。元Heavyのobject/link/APIを再送せず、既に取り込み済み成功を保持した。新しい差分は実M5/独立seal済みowner8dfc8849の既存ammo-cover-fixed-group全7件。元5件＋回復2件のinput/全readback/source graph/全definitionを静的に再照合し、追加CPU battle/GPU0。新suite/監査器/数値変更0。既存immutable ZIPとown deps/PTX/O1計画、4batchの元caller/期待hashを輸送commit4569a8c2へ共有（15file、約12.2MB、raw/個人設定なし）。source_commit455b7883はdirty snapshotの元commitであり、ownerと全file SHAをidentityにし、後続review c70c37cd/404859a3との一致と区別する。
