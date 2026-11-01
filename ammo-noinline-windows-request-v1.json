@@ -1,0 +1,227 @@
+{
+  "schema": "ammo-world-schedule-noinline-cuda-request-v1",
+  "scope": "Corrected shared source, original Velvet standard profile168 only; not a retry of old source/claim",
+  "programs": [
+    {
+      "program": "ammo-fixed",
+      "owner": "d337ffbdf13004bcb8629f52c6c2de3ed3934b703e4b1e60577358624b4dbb25",
+      "source_commit": "325a3994",
+      "source": "gpu/product_ammo_fixed_battle_entry.slang",
+      "input_words": 117632,
+      "output_words": 2032000,
+      "archive": "ammo-noinline-v1.zip",
+      "archive_bytes": 12087661,
+      "archive_sha256": "5843424a301fe6fc5efbb072842999c8774632358f77a06f33b10860db6d324d",
+      "api_job": "ammo-noinline-v1-api-job.json",
+      "api_job_sha256": "38c467672ccaa6216bac4524033aff700ed48c417ee6f28e5123c92a878e9052",
+      "api_expected": "ammo-noinline-v1-api-expected.json",
+      "own_ptx_o1_plans_passed": true,
+      "own_validation_deps_passed": true,
+      "own_metal_cpu_tests": 141,
+      "own_fresh_native_and_independent_seal": true,
+      "batches": [
+        {
+          "index": 0,
+          "member_indices": [
+            0
+          ],
+          "original_profile_indices": [
+            168
+          ],
+          "cases": 1,
+          "physical_input_sha256": "1bcd913dd2f6dfb61a7db6bf241dcc2d58e00d75883692d8535c832bcf743d13",
+          "physical_output_sha256": "c79d2a07675205c25060416600f34b70760a0a258e1060e110e7670206da0c70",
+          "physical_input_bytes": 470532,
+          "physical_output_bytes": 8128000,
+          "expected_readback_chunk_bytes": [
+            8128000
+          ],
+          "post_max": 1,
+          "gpu_dispatch_max": 1,
+          "retries": 0
+        }
+      ]
+    }
+  ],
+  "platform_files": [
+    {
+      "path": "scripts/nikke_gpu.py",
+      "sha256": "6877d406d665dbdf79a26b64020a6f741500518f59a5774426ea78013da11e3b",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "scripts/run-gpu-packet.py",
+      "sha256": "c7c763e1b7609bbcb8a92d86c78cd2f7d46b1ec775c81a2b53a20e508ccd528b",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "research/run-world-bounded.py",
+      "sha256": "494df8bc60201989a4e8fb451dc5aa0742d7f93098bc52d5f79722eebb123a88",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "research/windows_validation_observer.py",
+      "sha256": "97d7405ff8771cf413f5e58c14ebea98037afb8a3691417d12e7b21d2d45fdd3",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/portable_backend.py",
+      "sha256": "e3580c0d5420949cda93b60ea5c7a153c0354a23fc644e3acdafd1ecaef71d87",
+      "same_as_previous_standard_packet": false
+    },
+    {
+      "path": "app/portable_slang_generation.py",
+      "sha256": "a3285cc9b372e4bb592fd70fdc18e44b07b6803a2c432eca8a8f0493eae76dac",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/portable_generation_cache.py",
+      "sha256": "72f279db869974159c7ef80642310af8defead82ea91d704cb7a7cf3bf189e2f",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/portable_scope_snapshot_audit.py",
+      "sha256": "1f638c2bc7e46c63c3817ff6394103887639e0fd1d0c28d678aaf17d6b3385c4",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/portable_compile_cache.py",
+      "sha256": "d1dcc7cf1a5c7197b1dd63dd0d6bd1cc90192356eb42ad4a4e6b2f641c5cc505",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/portable_offline_assembler.py",
+      "sha256": "e5b625d9c8db8910429d618df8526e52350bfacf4d840e75ceaf1433d8087d94",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/portable_partition_object.py",
+      "sha256": "22a5a3f4b4be713130dd1897ec8d18719bbc7075bcb7509a582f3b725063b513",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/portable_jit_link.py",
+      "sha256": "7638916f0c63046855e877a5d3b4ccb00431ae11c4855f93c3d386b88afa0f97",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/portable_jit_link_run.py",
+      "sha256": "6a0ec1012a4354b7ccb3a0aa299d0fb7aa67d496a0e1cdab4ea1d27f8e3fd779",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/portable_linked_artifact.py",
+      "sha256": "3bb3e2bf687ace0b7d0c28faedd6d5ce1974b6b3501040010ca0b0ad118315a9",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/portable_product_artifact.py",
+      "sha256": "651d17988f3cfd543a407ed8b77222591971ed8a67aec11fd8e3bac56ba628d0",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/portable_detail.py",
+      "sha256": "04561777345037965636a29e1aa3056022310f8310e5d4e4debb5c5207ae75fa",
+      "same_as_previous_standard_packet": false
+    },
+    {
+      "path": "app/detail_gpu.py",
+      "sha256": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/engine_worker.py",
+      "sha256": "52832891066bd4b59b8c60783151e81ec0db0c116e59441c0dabbefc4c4a3fa1",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/effect_spec.py",
+      "sha256": "a6655815582048966dbb0bf3a97081e1c2585fb2f549be7c635aabda36effb9b",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/engine_compat.py",
+      "sha256": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "server.mjs",
+      "sha256": "9d03fc904206276152a870aadb1aef5ca70848a997fee04bf4f0118744cb80eb",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "tests/server.test.mjs",
+      "sha256": "848a37e535d6f27ea90c6db9e89f38e7812bdb9a29001c6135105e93e9a0fd8e",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "tests/test_portable_scope_snapshot_audit.py",
+      "sha256": "56cf65e805e98936da9b8f47c090bec79de78b3724ebbca6e6d97ad832311a4f",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "tests/test_portable_generation_cache.py",
+      "sha256": "97f68413099fac271bddeebd52224003522669b1f9860e3d80b6c4ac466d909f",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "app/portable_readback_blocks.py",
+      "sha256": "d921b979d6dc1eb203ecd77568bd991be2ed541175f4dc97d0e07fd5b3928bd1",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "tests/test_portable_readback_blocks.py",
+      "sha256": "a57e9d2127d9379f77612fb5b76376172233897bcd84bb2e276ed250f9b70789",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "tests/test_portable_windows_cleanup.py",
+      "sha256": "7528aaa49b8790ce4da24ff9fc9110ac71a56e0f4297e57df32365b5c6ab6999",
+      "same_as_previous_standard_packet": true
+    },
+    {
+      "path": "tests/test_portable_device_linker.py",
+      "sha256": "449a22de9302a6d4c6c64a866f7a87b07c234115dd670997d5d3f98eb1896195",
+      "same_as_previous_standard_packet": true
+    }
+  ],
+  "platform_unchanged_files": 26,
+  "steps": [
+    "Fresh immutable unpack/root/own CLI and plans/dependencies/source/golden gates; reuse existing coordinators and auditors in a new proof directory",
+    "Within existing 60s/2GiB BelowNormal CPU bound, run only changed host admission tests test_portable_detail.py (67) and test_product_detail_packet.py (11); no native preflight battle, no repeating unchanged SDK27 tests or model56 already passed on Mac",
+    "Paired generation once against own sealed M5 baseline; exact cache key then one PTX compile; no cache substitution",
+    "Read saved generated CUDA/PTX using existing lexical reader: actorPoolsCleared must be a separate noinline function called from worldFrameBegin; old inline ActorBits zeroing must not overwrite the live clock local before wsBegin. If absent/unclear/mismatch stop and share saved diagnosis; no additional compilation",
+    "Only valid current PTX origin -> O1 module object once; only valid current object -> pinned nvJitLink once; same original budgets",
+    "Admitted saved image plus own paired cache -> one supplied normal API request only, exact original input and full M5 c79d2a07 readback, fresh post-GPU CPU full payload equality and host world-clock guard required",
+    "Saved parent/member/source/raw hash/static re-pack/full response audit using existing auditors; additional battle/GPU0",
+    "Stop first gate/artifact/cache/source/timeout/missing/query/cleanup/observation/fallback/nonzero GPU status/CPU/M5 mismatch; preserve all partial data, old stop/claims/source and no retry"
+  ],
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "preservation": "All prior failures/raw/claims remain; service/whole/overallfalse remain false. Inner advisory null Job limits stay unknown/false; enforced outer pre/post limit/membership query must complete.",
+  "sdk_policy": "No artifact substitution, source/key/claim deletion, normalized-only NVRTC cache reuse or require-cache miss fallback. Cache-key exact raw code/options/compiler/headers only after strict paired baseline.",
+  "previous_failure": {
+    "commit": "cdf5cdde9bb43fbc19c9437e15e9a0a5adcb3a6d",
+    "owner": "a5f405c447a07b20d27f260fcd3efbec3807906698a6dc0b041513e00caefb81",
+    "capture": "d187e57c56104d039d6af0fe19296b51",
+    "root_word_wrong": 784,
+    "root_word_expected": 160528,
+    "retained": true
+  },
+  "report": "ammo-noinline-normal-api-status-v1.json",
+  "cases": 1,
+  "max_total_api_posts": 1,
+  "max_total_gpu_dispatches": 1,
+  "retries": 0,
+  "report_policy": "Small diagnostic/status only. Keep SDK outer exit2/whole/service/overall false visible separately from artifact/inner success. Do not treat whole environment as verified. No raw buffers/compiler distribution/private settings/auth. No new suite/tool.",
+  "full_goal_complete": false
+}

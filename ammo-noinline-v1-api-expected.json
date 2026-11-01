@@ -1,0 +1,26 @@
+{
+  "schema": "ammo-noinline-cuda-api-expected-v1",
+  "owner": "d337ffbdf13004bcb8629f52c6c2de3ed3934b703e4b1e60577358624b4dbb25",
+  "source_commit": "325a3994",
+  "source": "gpu/product_ammo_fixed_battle_entry.slang",
+  "compute_backend": "cuda_shared_detail",
+  "body_sha256": "38c467672ccaa6216bac4524033aff700ed48c417ee6f28e5123c92a878e9052",
+  "physical_cases": 1,
+  "input_words": 117632,
+  "output_words": 2032000,
+  "physical_input_bytes": 470532,
+  "physical_output_bytes": 8128000,
+  "physical_input_sha256": "1bcd913dd2f6dfb61a7db6bf241dcc2d58e00d75883692d8535c832bcf743d13",
+  "physical_output_sha256": "c79d2a07675205c25060416600f34b70760a0a258e1060e110e7670206da0c70",
+  "cases": [
+    {
+      "index": 168,
+      "character": "벨벳",
+      "favorite_stage": 0,
+      "expected_input_sha256": "1bcd913dd2f6dfb61a7db6bf241dcc2d58e00d75883692d8535c832bcf743d13",
+      "expected_output_sha256": "c79d2a07675205c25060416600f34b70760a0a258e1060e110e7670206da0c70"
+    }
+  ],
+  "cpu_battles": 0,
+  "gpu_calls": 0
+}
