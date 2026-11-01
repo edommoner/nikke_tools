@@ -1,0 +1,202 @@
+{
+  "schema": "lock-cover-normal-cuda-api-status-v4",
+  "status": "stopped_after_single_gpu_result_failure",
+  "overall_passed": false,
+  "permission_mode": "require_escalated",
+  "approval_denied": false,
+  "host_owner": "17d2c94dfbabefbdb6cfde4fd81eafc86f79ec7ed8b2816253883d634b9e76db",
+  "host_source": "c7600d3f16fe25d284035f0d60e112936f9b70d6",
+  "calculation_owner": "72638887e127795d92a39f0d86b28fa052e4ee7a9b793f4d6bedd944c69df481",
+  "calculation_source": "2d1e48332f10af038034ff2bc4db176857c8a199",
+  "source": "gpu/product_lock_cover_fixed_battle_entry.slang",
+  "prior_preparation_failure": {
+    "status_commit": "050675a41bc910285b39b9aeb060aeb902452b73",
+    "unchanged": true,
+    "not_promoted_to_pass": true
+  },
+  "launch_preparation": {
+    "all_paths_from_json": true,
+    "python_sources_ast_checked": 7,
+    "powershell_syntax_checked": true,
+    "old_v3_files_edited": false
+  },
+  "host_retention": {
+    "passed": true,
+    "host_owner": "17d2c94dfbabefbdb6cfde4fd81eafc86f79ec7ed8b2816253883d634b9e76db",
+    "calculation_owner": "72638887e127795d92a39f0d86b28fa052e4ee7a9b793f4d6bedd944c69df481",
+    "payload_files": 4244,
+    "changed_files": [
+      "server.mjs",
+      "tests/server.test.mjs"
+    ],
+    "all_other_payload_hashes_identical": true,
+    "entire_golden_identical": true,
+    "new_host_source": "c7600d3f16fe25d284035f0d60e112936f9b70d6",
+    "calculation_source": "2d1e48332f10af038034ff2bc4db176857c8a199"
+  },
+  "static_preflight": {
+    "source_and_input_verified": true,
+    "cpu_battle_used": false,
+    "execution": {
+      "seconds": 12.72448890004307,
+      "child_timeout_seconds": 60,
+      "exit_code": 0,
+      "bounded_passed": true,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "below_normal_priority": true,
+      "job_pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "job_memory_values": [
+        {
+          "before_bytes": 2147483648,
+          "after_bytes": 2147483648,
+          "peak_bytes": 99991552
+        }
+      ],
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "environment_preservation_verified": false
+    }
+  },
+  "normal_api": {
+    "post_attempts": 1,
+    "post_marker_saved_before_send": true,
+    "job_id_saved_immediately": true,
+    "job_id": "68bd3304-d6a5-4426-ab3d-71c485b4493a",
+    "gpu_capture_id": "a00b6137f7784452a8cac64e954b95f6",
+    "poll_same_job_only": true,
+    "job_status": "complete",
+    "result_count": 1,
+    "port": 4453,
+    "duration": 30,
+    "backend_returned": "cpu",
+    "requested_backend": "cuda_shared_detail",
+    "cache_hit": false,
+    "saved_cubin_admission": "verified",
+    "fallback": true,
+    "helper_elapsed_seconds": 19.281334800180048,
+    "execution": {
+      "seconds": 23.40420570038259,
+      "child_timeout_seconds": 53,
+      "exit_code": 1,
+      "bounded_passed": false,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "below_normal_priority": true,
+      "job_pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "job_memory_values": [
+        {
+          "before_bytes": 2147483648,
+          "after_bytes": 2147483648,
+          "peak_bytes": 1929351168
+        }
+      ],
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "environment_preservation_verified": false
+    },
+    "owned_server_finally_stopped": true,
+    "server_return_code": 1,
+    "other_servers_stopped": false
+  },
+  "gpu_transport": {
+    "backend": "cuda",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "gpu_execution_verified": true,
+    "command_status": "completed",
+    "cases": 1,
+    "input_words": 109560,
+    "output_words": 2048912,
+    "input_bytes": 438244,
+    "readback_bytes": 8195648,
+    "host_dispatch_seconds": 0.31368570029735565,
+    "driver_init": 1,
+    "context_create": 1,
+    "module_load": 1,
+    "launch": 1,
+    "synchronize": 1,
+    "device_to_host_readback": 1,
+    "context_destroy": 1,
+    "all_recorded_returns_zero": true,
+    "gpu_state_supplied_by_cpu": false
+  },
+  "comparison": {
+    "input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+    "expected_input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+    "input_matched": true,
+    "readback_sha256": "fbdafa26ecfbc4fdb1e45086363195bd3b197296da312a944ad76452b3b84e25",
+    "expected_readback_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+    "readback_matched": false,
+    "readback_first_uint32": 64,
+    "http_all_body_fields_unicode_canonical_sha256": "d1b7f42873709d2aa22c7d45cfe05a2984d4939dd422f9055e7f3e2285f17155",
+    "http_body_unicode_preserved": true,
+    "api_cpu_gpu_payloads_match": null,
+    "cpu_verification": null,
+    "unicode_exclusions": [],
+    "payload_comparison_not_completed_reason": "Nonzero GPU status aborted decode before cpu-payload.json and gpu-payload.json were written. CPU fallback was returned instead.",
+    "calculation_verified": false
+  },
+  "failure": {
+    "primary_type": "UnsupportedPortable",
+    "primary_finite_reason": "Shared battle status: 64",
+    "root_cause": "unknown",
+    "secondary_helper_type": "FileNotFoundError",
+    "secondary_reason": "Post-result comparison attempted gpu-payload.json after the product fallback; that file did not exist.",
+    "helper_source_modified_after_run": false,
+    "retry_count": 0
+  },
+  "saved_image_and_cache": {
+    "provider": "saved-module-jit-cubin",
+    "image_bytes": 5184976,
+    "image_sha256": "d8bfd9f7838d9a81bb09c2f6a66f9d85942902bf5a7491ae5c58f8f925b739b0",
+    "artifact_receipt_key": "f96f34f035fd2b1823465623ec7078b1af630c8c24b13999f73a562c89248196",
+    "generation_cache_hit": true,
+    "generation_compiler_invocations": 0,
+    "generation_cache_key": "4e7620a1900224219b4374d67061cf37fd7c88195952edfe9208bf7079c42b8f",
+    "live_nvrtc_forbidden": true,
+    "saved_image_masqueraded_as_nvrtc_cache": false
+  },
+  "actual_calls_this_request": {
+    "http_post": 1,
+    "gpu_launch": 1,
+    "own_cpu_tests": 0,
+    "fresh_native_preflight": 0,
+    "slang_compiler": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "gpu_retries": 0,
+    "normal_post_gpu_comparison_completed": false,
+    "fallback_cpu_result_returned": true
+  },
+  "integrity": {
+    "protected_old_and_prepared_records_checked_unchanged": 596,
+    "new_host_payload_files_checked_unchanged": 4244,
+    "old_future_staged_gpu_claim_unchanged": true,
+    "old_future_staged_gpu_not_executed": true,
+    "old_ptx_object_cubin_raw_and_all_failures_retained": true,
+    "service_status": "unverified",
+    "environment_preservation_verified": false,
+    "known_live_handle": null,
+    "all_observed_jobs_empty": true,
+    "profile_coverage_added": 0
+  },
+  "evidence_sha256": {
+    "api_final": "1578da93f62a4686e6c8fd67d408a2eaa26c9da626f7ac950dbe321170ceb013",
+    "post_attempt_marker": "7b425e4b14d1ac47e22b7e9097c5e5ff059c7d4dcd313d553fd75ba236283998",
+    "gpu_evidence": "bc4ace84351eea9858f2e5d6f4c1c9e10bcf6d580842293cfcb79f6e4a343590",
+    "gpu_phases": "a7802e9e43ac1a1375f78c094776be7635f9e7a9e9e88dddc247c5035ad8ad3e",
+    "product_result": "05b6ac26cc78e4d515e719c4852ca94e4dc924cbbc1980acf07539836962f184"
+  },
+  "capture": {
+    "path_base": "Documents/Codex",
+    "relative_directory": "lock-cover-normal-api-v3/api-launch-v4"
+  },
+  "next_action": "Stopped after the sole POST and GPU launch; no resubmission, extra calculation or diagnosis."
+}
