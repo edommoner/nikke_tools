@@ -1,0 +1,245 @@
+{
+  "schema": "product-coordinate-weighted-cuda-request-v1",
+  "transport_commit": "f41d96f360d7e2ae22eb6681aa43d503c820822e",
+  "source_review_commit": "604a0d98",
+  "transport_manifest": {
+    "schema": "product-transport-v1",
+    "owner": "ee61a02993e6dc49fb5a5a0351fb40f944a6ce6002c06a319450f1ffaf71dd48",
+    "files": [
+      {
+        "path": "coordinate-weighted-v1-api-expected.json",
+        "bytes": 1223,
+        "sha256": "ab40bc517075993a903914c120e8b250ac00b4f8dd3f8b16074ddeb4620b06b9"
+      },
+      {
+        "path": "coordinate-weighted-v1-api-job.json",
+        "bytes": 11775,
+        "sha256": "511302b6c278c7dd059d5947e4f1f904405caa2593af2ef997042a192bc1cb0c"
+      },
+      {
+        "path": "coordinate-weighted-v1-check-sdk.py",
+        "bytes": 4875,
+        "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d"
+      },
+      {
+        "path": "coordinate-weighted-v1-o1-plan.json",
+        "bytes": 735,
+        "sha256": "b3187c258f4c79d4dcdd8df1d24e8f200bc0f69d326b7462c4c565d10a1b17d8"
+      },
+      {
+        "path": "coordinate-weighted-v1-prepare-api.py",
+        "bytes": 6413,
+        "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739"
+      },
+      {
+        "path": "coordinate-weighted-v1-ptx-plan.json",
+        "bytes": 707,
+        "sha256": "540f8125d5f151c5bae46e547abe3e8271f008c0155f2cf4ff2f68801a6a1315"
+      },
+      {
+        "path": "coordinate-weighted-v1-selected89.json",
+        "bytes": 900,
+        "sha256": "50d01b4bddb48f895b1ac9e48b3e0b65e1a8536cb35a4290ffb947c16523977a"
+      },
+      {
+        "path": "coordinate-weighted-v1-validation-deps.json",
+        "bytes": 407,
+        "sha256": "80d1cb64da3e94f0f785d538f7e1da5523f5faba2952704b3516970a04036275"
+      },
+      {
+        "path": "coordinate-weighted-v1-verify-host-tests.py",
+        "bytes": 1924,
+        "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7"
+      },
+      {
+        "path": "coordinate-weighted-v1-windows-request.json",
+        "bytes": 8491,
+        "sha256": "adc5fdc0a20465daadedb2c3e569c0032181cbd32537b1dd49ba25b6f07d4f7e"
+      },
+      {
+        "path": "coordinate-weighted-v1.zip",
+        "bytes": 12160664,
+        "sha256": "a99d788b664dee4fbe8a8a285b09d1693127b825f3107a4f4cf07aee5072c9fe"
+      }
+    ],
+    "raw_or_settings_included": false,
+    "additional_battles": 0,
+    "additional_gpu": 0
+  },
+  "request": {
+    "limits": {
+      "sdk_child_seconds": 60,
+      "api_helper_seconds": 53,
+      "cpu_audit_seconds": 60,
+      "each_outer_seconds": 180,
+      "memory_mib": 2048,
+      "minimum_available_ram_bytes": 4294967296,
+      "priority": "BelowNormal",
+      "fresh_job_gate": true,
+      "permission_mode": "require_escalated",
+      "serial_only": true
+    },
+    "compile_recipe": {
+      "slang_generation": "Existing paired CUDA/MSL generation once, exact current owner/reflection/normalized baseline; require generation cache afterwards",
+      "ptx_options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false",
+        "--split-compile=2"
+      ],
+      "object_options": [
+        "--gpu-name=sm_86",
+        "--opt-level=1",
+        "--fmad=false",
+        "--verbose",
+        "--compile-only"
+      ],
+      "runtime": "Pinned nvJitLink saved image; no full NVRTC battle rebuild or prior different-kernel image substitution",
+      "entry": "portableEvents",
+      "manual_main_cache_probe_forbidden": true
+    },
+    "report_policy": "Keep SDK outer/inner distinction, all advisory null/unknown, service/whole/overallfalse; bounded_job verified separately; no raw/PTX/compiler/auth/settings/external process details",
+    "schema": "product-coordinate-weighted-windows-request-v1",
+    "owner": "ee61a02993e6dc49fb5a5a0351fb40f944a6ce6002c06a319450f1ffaf71dd48",
+    "source_commit": "a5e3ce00a45e3b8efc035135468b2629787e0d40",
+    "package_working_tree_dirty": true,
+    "program": "coordinate-weighted-accumulate",
+    "source": "gpu/product_coordinate_weighted_battle_entry.slang",
+    "scope": "One original30s ordinary API condition, Bay weighted incoming plus original Belorta multi-hit4 on native BODY+4 finite ADD. All effects unchanged; declared model, not game-rule verification. No other suites/profile reruns.",
+    "archive": "coordinate-weighted-v1.zip",
+    "archive_bytes": 12160664,
+    "archive_sha256": "a99d788b664dee4fbe8a8a285b09d1693127b825f3107a4f4cf07aee5072c9fe",
+    "validation_deps": "coordinate-weighted-v1-validation-deps.json",
+    "ptx_plan": "coordinate-weighted-v1-ptx-plan.json",
+    "o1_plan": "coordinate-weighted-v1-o1-plan.json",
+    "input_words": 115696,
+    "output_words": 2048912,
+    "cases": [
+      {
+        "index": 0,
+        "member_index": 0,
+        "label": "product/coordinate-weighted-accumulate-30s",
+        "variant": null,
+        "expected_input_sha256": "539e4b6aa6e1567c4fc2f9c3b01e2d098b88bb9f79588621489fe0117cc958ef",
+        "expected_output_sha256": "87a1bb42aa36bcc55f6ae39b1e1bbd748be308bdd3c90eef95856cc8efd3ab8f",
+        "definition_count": 74,
+        "all_original_definitions_preserved": true,
+        "saved_metal_capture": "product-coordinate-weighted-v1-20261101/api-v1/684901d905634feba5c856af3368bb1a"
+      }
+    ],
+    "batches": [
+      {
+        "index": 0,
+        "batch_index": 0,
+        "member_indices": [
+          0
+        ],
+        "original_profile_indices": [
+          0
+        ],
+        "case_indices": [
+          0
+        ],
+        "cases": 1,
+        "physical_cases": 1,
+        "physical_input_bytes": 462788,
+        "physical_input_sha256": "539e4b6aa6e1567c4fc2f9c3b01e2d098b88bb9f79588621489fe0117cc958ef",
+        "physical_output_bytes": 8195648,
+        "physical_output_sha256": "87a1bb42aa36bcc55f6ae39b1e1bbd748be308bdd3c90eef95856cc8efd3ab8f",
+        "readback_chunks": [
+          8195648
+        ],
+        "expected_readback_chunk_bytes": [
+          8195648
+        ],
+        "api_job": "coordinate-weighted-v1-api-job.json",
+        "api_job_sha256": "511302b6c278c7dd059d5947e4f1f904405caa2593af2ef997042a192bc1cb0c",
+        "api_expected": "coordinate-weighted-v1-api-expected.json",
+        "api_expected_sha256": "ab40bc517075993a903914c120e8b250ac00b4f8dd3f8b16074ddeb4620b06b9"
+      }
+    ],
+    "unit_selection": "coordinate-weighted-v1-selected89.json",
+    "unit_selection_sha256": "50d01b4bddb48f895b1ac9e48b3e0b65e1a8536cb35a4290ffb947c16523977a",
+    "cpu_patterns": [
+      "test_portable_detail.py",
+      "test_product_detail_packet.py",
+      "test_weighted_source_contract.py",
+      "test_product_reference_models.py"
+    ],
+    "selected_case_ids": {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_weighted_coordinate_preserves_complete_scene_markers_and_disjoint_banks",
+        "test_product_reference_models.ProductReferenceModels.test_weighted_missing_weights_and_unsupported_composition_fail_before_dispatch",
+        "test_product_reference_models.ProductReferenceModels.test_weighted_original_product_consumes_real_markers_and_preserves_definitions",
+        "test_product_reference_models.ProductReferenceModels.test_weighted_readback_rejects_overflow_scratch_and_unaccounted_cover_receipts"
+      ]
+    },
+    "windows_targeted_tests": 89,
+    "mac_own_cpu_tests": 160,
+    "unselected_windows_model_tests": 71,
+    "mac_current_source_metal_profile_count": 263,
+    "mac_selected_metal_cases": 1,
+    "mac_selected_independent_seal_passed": true,
+    "mac_release_own_cpu_deps_plans_passed": true,
+    "mac_normal_composition_api_cases": 6,
+    "additional_material_battles": 0,
+    "additional_material_gpu": 0,
+    "max_posts": 1,
+    "max_gpu_dispatches": 1,
+    "max_cases_per_api_batch": 1,
+    "retries": 0,
+    "standard266_rerun": false,
+    "configured_profile_delta": 0,
+    "unconfigured_standard_profile_delta": 0,
+    "report": "product-coordinate-weighted-windows-status-v1.json",
+    "full_goal_complete": false,
+    "original_missing3_stop_retained": true,
+    "prior_unexecuted_ammo_cases_not_in_this_request": true,
+    "other11_helpers_original_export_commit": "534f5601",
+    "other11_helpers_must_be_byte_unchanged": true,
+    "steps": [
+      "Preserve all old stops/claims/failures including unresolved missing3. This is a distinct new product source/condition, not a retry of old four or three remaining ammo cases. No OS/SSH/reboot/service changes.",
+      "Fresh root, exact archive+manifest validation, own dependency and compile-plan receipts, selected89 CPU-only via packet CLI. Keep full-unit false. Original11 helpers byte unchanged; provided3 are the packet managed helpers.",
+      "This exact new product source has no prior Windows SDK record. Use the existing bounded paired-generation -> compile-ptx -> O1 module-object -> pinned nvJitLink recipe once, exact entry portableEvents. Reuse only actual exact source/compiler/option receipt hits. Do not run legacy manual cache-probe with hardcoded main; it is not the execution entry. Keep old wrong-main failure unchanged. No legacy full NVRTC build or source partition.",
+      "Fresh RAM>=4GiB before expensive SDK and immediately before API. SDK/CPU/audit60s, API53s, each outer180s, BelowNormal/fresh startgate Job/2GiB. First numeric/timeout/missing/query/observation/cleanup failure stops; no measurement/retry loop.",
+      "Only one ordinary API POST, one real CUDA dispatch, complete parent/member input and readback SHA plus full CPU/GPU/HTTP/Unicode comparison. Actual cuInit/load/launch/sync/readback/destroy must return0. GPU admission cannot be inferred from source generation.",
+      "After terminal API, owned Node gone, Job empty/live0, reuse saved Node transport/static repack/full projection with no extra battle/GPU. Report group targets5/notifications14 and weighted snapshots6 as activity evidence; exact full raw and payload comparisons remain mandatory.",
+      "Export small saved JSON only to the same existing packet branch. Keep all outer/inner distinctions and unknown/service/whole/overallfalse. No process names/paths/commandlines/PIDs, settings, auth, PTX/raw/image in public summary. On disconnect read status/export only; never resend run."
+    ],
+    "helper_install": [
+      {
+        "source": "coordinate-weighted-v1-check-sdk.py",
+        "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d",
+        "destination": "check-sdk.py",
+        "destination_scope": "outer-windows-directory"
+      },
+      {
+        "source": "coordinate-weighted-v1-prepare-api.py",
+        "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739",
+        "destination": "prepare-api.py",
+        "destination_scope": "outer-windows-directory"
+      },
+      {
+        "source": "coordinate-weighted-v1-verify-host-tests.py",
+        "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7",
+        "destination": "verify-host-tests.py",
+        "destination_scope": "program-directory"
+      }
+    ],
+    "code_review_commit": "604a0d98",
+    "mac_selected89_passed": true,
+    "mac_selected_unit_scope": "Explicit selected unit tests, not full-unit/native/GPU proof"
+  },
+  "shared_git_payloads_rehashed": true,
+  "mac_packet_own_selected89_passed": true,
+  "additional_material_battles": 0,
+  "additional_material_gpu": 0,
+  "previous_ammo_missing3_unknown_stop_retained": true,
+  "previous_ammo_api_or_audit_or_unexecuted_retries": 0,
+  "send_accepted": true,
+  "live_turn": "01a1976c-8066-7c00-b650-74a00fbee5c3",
+  "live_turn_status": "inProgress",
+  "actual_new_sdk_or_gpu_results_received": false,
+  "standard_profile_delta": 0,
+  "full_goal_complete": false
+}

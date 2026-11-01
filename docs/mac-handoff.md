@@ -8,7 +8,7 @@
 
 v50へ独立seal済みcoordinate-weighted-accumulate member1だけ追加、旧36member全byte保持。fixedは通常API実証済み・独立CLI baseline未登録なので--develop。最初release-v1はbaseline未trackedのためCPU開始前拒否、stage後fresh release-v2で自身160CPU/依存/PTX/O1計画成功。最終owner ee61a02993e6dc49fb5a5a0351fb40f944a6ce6002c06a319450f1ffaf71dd48、GPU後計算scope差はGOLDEN pointer/strict ledger SHAだけ。proof: .portable-recovery/proofs/product-coordinate-weighted-v1-20261101。構造化record research/product-coordinate-weighted-v1.json。
 
-標準Metal/CUDA従来記録各263/266、明示条件別original各266/266は据置、今回は合成6条件で標準profile加算0。新合成CUDA実機未確認、実機の配分比/colliderは宣言モデルで検証済みゲーム仕様へ昇格しない。全効果/任意合成/全goal未完了。次は同一kernelのaccumulate30sの1条件だけ、既存Windows helper/共通CLI/89選択/Job/2GiB/53s/RAM4GiBで短く検証する資料を準備中。元ammo残3/実行済4/停止監査を再送しない。以下は履歴。
+標準Metal/CUDA従来記録各263/266、明示条件別original各266/266は据置、今回は合成6条件で標準profile加算0。新合成CUDA実機未確認、実機の配分比/colliderは宣言モデルで検証済みゲーム仕様へ昇格しない。全効果/任意合成/全goal未完了。同一kernelのaccumulate30sの1条件だけを輸送f41d96f3で共有（12file/12,200,233B、全11payloadのGit object bytes/SHAを再計算）。最終packet自身の選択89も成功、全件unit/native/GPUと区別。Windows同chatへ既存helper/共通CLI/89選択/Job/2GiB/API53s/RAM4GiBの新規1POST/1GPUだけを依頼し、read_threadでlive turn01a1976c-8066-7c00-b650-74a00fbee5c3 inProgress・新規受付commentaryを確認。GPU結果は未取得。research/product-coordinate-weighted-cuda-request-v1.json参照。次は同handleのstatus/exportだけを読む。元ammo残3/実行済4/停止監査を再送しない。以下は履歴。
 
 ## 2026-11-01 保存imageから通常CUDA4条件が全数値一致、監査観測で停止
 
