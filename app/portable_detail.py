@@ -86,6 +86,9 @@ def validate_world_frame_readback(block,metadata):
 
 def _compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
+    if 'coordinate' in prepared.get('reference_models',{}):
+        from portable_product_coordinate import compile_product as coordinates
+        return coordinates(prepared)
     from portable_product_cover import required as cover_required,compile_product as compile_cover
     from portable_product_movement import required as movement_required,compile_product as compile_movement
     from portable_product_locks import required as locks_required,compile_product as compile_locks
@@ -197,10 +200,16 @@ def prepare(body):
     import portable_roster_input
     original = portable_roster_input.prepare_static_inputs
     captured = {}
+    coordinate_spec=None
+    if 'coordinate' in body.get('reference_models',{}):
+        from product_coordinate_model import normalize_product
+        coordinate_spec=normalize_product(body['reference_models']['coordinate'])
     def capture(run, stats):
         if captured:
             raise RuntimeError('Expected one original preparation')
         captured['run'] = run
+        if coordinate_spec is not None:
+            run.enemy['coord']=copy.deepcopy(coordinate_spec['coord'])
         def observe(manager):
             # Constructor metadata only: do not execute a CPU battle to obtain it.
             run._portable_detail_model_warnings = manager.effect_model_warnings()
@@ -209,7 +218,7 @@ def prepare(body):
         prepared = engine_worker.evaluate({**body, '_portable_static_inputs': True})
     if not captured or prepared['cpu_battle_executed'] is not False:
         raise RuntimeError('Original static preparation did not complete')
-    if set(prepared.get('reference_models',{}))&{'enemy_movement','named_range'}:
+    if set(prepared.get('reference_models',{}))&{'coordinate','enemy_movement','named_range'}:
         captured['run'].expected=False
         captured['run'].config['rng_mode']='random'
     return prepared, captured['run']
@@ -274,6 +283,9 @@ def decode_payload(body, prepared, run, metadata, block):
         burst_gauge_mode=body.get('burst_gauge_mode','fixed'), hypothetical=hypothetical,
         engine_revision=engine_worker.REVISION, app_warnings=warnings)
     models=[]
+    if metadata.get('product_coordinate'):
+        from portable_product_coordinate import read_result
+        models.append(read_result(block,metadata))
     if metadata.get('product_enemy_healing'):
         from portable_product_healing import read_result
         from portable_enemy_healing_wire import OUTPUT as healing_output

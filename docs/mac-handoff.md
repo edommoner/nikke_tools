@@ -1,3 +1,13 @@
+## 2026-11-01 宣言した座標・乱数を通常APIの共通実行器へ接続
+
+`reference_models.coordinate`に既存common binary64/MT19937 point samplerを公開。明示auto_aimとlogical_geometryを入力にし、BODYのみは明示空配列、ADDは全対象のcolliderを必須にする。旧private wireの空配列拒否は維持し、新product入口だけ限定許可。CPU正本4file変更0。固定/実蓄積は同じ実行器と既存制御・バースト・元全効果を使用し、CPU戦闘状態/予定表を入力にしない。モデル併用と手動遮蔽の未接続組合せは拒否。
+
+不変packet-v2自身の144 CPU検査/fresh native/実M5固定30秒/GPU禁止fresh独立seal成功。v37へcoordinate-fixedだけ追加し旧29member不変。実蓄積のCLI独立基準は未登録。最初のv1は制御v6に対するfixed-coordinate指定不足でstatus64を返し停止、claim/raw/log保持。既存movement固定wrapperと同じ指定を加えた新packetだけを実行し、期待値/数値/許容差を変更していない。
+
+同packet自身の通常APIでBODYのseed2301/2302×固定/実蓄積4条件、元BelortaのADD3体/1体射程外×固定/実蓄積4条件、計8条件が実M5/freshCPU/API全payload完全一致。2POST/4physical batch、全8保存raw/source/static repack/再投影監査成功、監査追加battle/GPU0。専用Nodeの全プロセス群消滅を確認、ユーザー4317/4327不操作。旧標準profile数の増加ではない。旧source横断のMetal/CUDA262/266を新sourceへ付替えない。新coordinate sourceのCUDA未実行、Windowsはidleで追加依頼0。
+
+原本proofs/product-coordinate-public-v1-20261101、small記録[product-coordinate-public-v1](../research/product-coordinate-public-v1.json)。次はこのsealed固定入口の必要最小CUDA差分と実蓄積CLI独立基準、未指定4profile/未接続合成。全goal未完了。以下は履歴。
+
 ## 2026-11-01 Velvetの共通時計欠落を実CUDAで解消、記録済みsource横断262/266
 
 修正版の原本5cdf2f1be31dc98f3f2b0e359044e6c1951d3f55（18,449bytes/SHA41443046…）を取得。自身のsealed ZIP/owner d337ffbd/source325a3994・元要求・M5独立sealと照合。元input1bcd913d…と全8,128,000byteのreadbackc79d2a07…が完全一致、CUDA/freshCPU/API全payloadとUnicode全一致。旧誤書込みword784はM5 zero指紋へ戻り、root word160528もM5 literal32指紋へ復元、製品clock guardを通過した。新PTXの独立actorPoolsCleared b32 call1、wsBegin前のlocal初期化4store/旧ActorBits零化なしを検査。共有noinline1関数修正が両backend実機で成立、期待値/効果/数値/許容差変更0。

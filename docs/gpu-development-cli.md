@@ -1,3 +1,9 @@
+## 通常APIの明示座標・乱数モデル
+
+`reference_models.coordinate`は`coord`（明示auto_aim、pierce_px、explosion_scale）と`logical_geometry`を受け取り、既存の共通binary64/seeded MT19937 sampler・actor実行器を使う。BODYだけなら空配列を明示し、ADDは全てのliteral colliderが必要。確認済みゲーム仕様とは区別して画面/APIへ表示する。他の宣言モデルとの合成・手動遮蔽はチェック済みwire未接続のため拒否する。
+
+`package --suite product-detail --product-program coordinate-fixed --compact --out NEW.zip`で独立seal済みv37基準を利用する。`coordinate-accumulate`は通常APIで実Metal/CPU一致済みだが独立CLI基準未登録のため`--develop`が必要。BODY seed2種類・ADD3体/1体射程外を両modeで通常API計8条件確認、保存監査済み。新sourceのCUDA実機は未確認。[範囲と失敗保持](../research/product-coordinate-public-v1.json)。
+
 `product-detail` の `movement-range-cover-fixed` / `movement-range-cover-accumulate` は、移動・範囲／対象数・独立遮蔽DEFを同じActorPool/時計/イベントへ接続する。通常APIの `reference_models` に `enemy_movement` / `named_range` / `cover_defense` を指定する。前2モデルのcoord/logical_geometryは完全一致、遮蔽baseは5人の明示値が必要で、ゲーム既定値は推定しない。固定は `package --suite product-detail --product-program movement-range-cover-fixed --compact --out NEW.zip`、実蓄積は現在 `--develop` を使う。通常APIの15/30秒・固定/実蓄積4条件でM5/CPU/HTTP全項目・保存独立監査が一致。固定だけv32へ独立seal登録済み。標準profileやCUDA実機の追加実績とは別である。[検証範囲](../research/product-movement-range-cover-v1.json)。
 
 保存module objectの `linked_object_origin` は、元manifest/artifacts/claimを読み取った同じbytesでparse/hashし、監査前後でcapture inventoryとraw PTX/objectの記録を照合する。rawがmetadata inventory外にある履歴は直接hashして保持し、過去inventoryを書き換えない。欠落プロセスがある元objectは引き続き拒否する。既存のhistorical link bindingはobject失敗の解除には使えない。Mac/Windowsのraw生成CUDA差を、既存strict normalizer後の一致と混同しない。[外部レビューと確認した修正範囲](../research/product-cuda-object-admission-review-v1.json)。

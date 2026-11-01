@@ -1,0 +1,520 @@
+{
+  "schema": 1,
+  "scope": "Explicit standalone coordinate model, common sampler and actor executor through normal API; declared model, not game verification",
+  "package_id": "900ffa696d76de2f4a498623544e16edd74df03428fc18954a60ba2f716db6b6",
+  "archive": {
+    "bytes": 12096741,
+    "sha256": "56af84c4c357b05f9c9341099ab159972ae3ab60c5022cb6e68ead0e428555ca"
+  },
+  "proof_root": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-coordinate-public-v1-20261101",
+  "shared_sources": [
+    "gpu/product_coordinate_battle_entry.slang",
+    "gpu/product_coordinate_fixed_battle_entry.slang",
+    "gpu/logical_actor_geometry_runtime.slang"
+  ],
+  "protected_cpu_files_changed": [],
+  "cpu_tests": 144,
+  "independent_audit": {
+    "package_id": "900ffa696d76de2f4a498623544e16edd74df03428fc18954a60ba2f716db6b6",
+    "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-coordinate-public-v1-20261101/metal-v2",
+    "child_pid": 14167,
+    "input_count": 1,
+    "native_cases": 1,
+    "live_parent_receipt_present": false,
+    "elapsed_seconds": 1.7113247910165228,
+    "gpu_calls": 0,
+    "calculation_verified": true,
+    "input_sha256": "7eeca53c67a37430a615cc539046d775399a303873209a0adb2ad5b86ee66309",
+    "output_sha256": "c2d0f37bfa17fe608647835632da9d5e83125c108e180950133d34ff5e724a5e",
+    "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+    "schema": "independent-metal-audit-v1"
+  },
+  "cli_comparison": {
+    "calculation_verified": true,
+    "entries": [
+      {
+        "name": "product/coordinate-fixed-30s",
+        "input_sha256": "e5c5b602908d21702265d210ab07ca4303284b95cceb379aa6107c12a4f88b82",
+        "output_sha256": "c2d0f37bfa17fe608647835632da9d5e83125c108e180950133d34ff5e724a5e",
+        "native_sha256": "111acfa2e8bb062a2d7b0014dc99aa91ac80ea6b402d2b3beb7e8af1410efd89"
+      }
+    ],
+    "mismatches": [],
+    "input_count": 1,
+    "native_oracles": 1,
+    "input_sha256": "7eeca53c67a37430a615cc539046d775399a303873209a0adb2ad5b86ee66309",
+    "output_sha256": "c2d0f37bfa17fe608647835632da9d5e83125c108e180950133d34ff5e724a5e",
+    "generated_normalized": {
+      "cuda": "a1ed2615d3a3339dd1b9926739eabfceaeb1cca53266567419ab7a6d38a2cb25",
+      "metal": "a8be6f9c570b3166521b97037637a364973ba156587b8840b5c9b9a0b5607ff3"
+    },
+    "audit_gpu_calls": 0,
+    "parent_oracles": {
+      "scope": "live-parent-preflight",
+      "reused_native_cases": 1,
+      "fresh_native_cases": 0,
+      "rejection_cases": 0,
+      "saved_results_used": false,
+      "independent_audit_reuse": false
+    }
+  },
+  "api": [
+    {
+      "folder": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-coordinate-public-v1-20261101/api-v2",
+      "seconds": 25.962252874975093,
+      "cases": [
+        {
+          "character": "마르차나",
+          "variant": "fixed-seed-2301",
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "c3231d83286642b7b74aff2a58a390c9",
+            "device": "Apple M5",
+            "elapsed_ms": 3714.024916989729,
+            "gpu_execution_verified": true,
+            "input_sha256": "7eeca53c67a37430a615cc539046d775399a303873209a0adb2ad5b86ee66309",
+            "output_sha256": "c2d0f37bfa17fe608647835632da9d5e83125c108e180950133d34ff5e724a5e",
+            "source": "gpu/product_coordinate_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.5407338750083,
+            "batch": {
+              "capture_id": "batch-38d53afc542b45d49c467f62658c0669",
+              "index": 0,
+              "cases": 2,
+              "input_words": 115680,
+              "output_words": 2032000,
+              "input_sha256": "7eeca53c67a37430a615cc539046d775399a303873209a0adb2ad5b86ee66309",
+              "output_sha256": "c2d0f37bfa17fe608647835632da9d5e83125c108e180950133d34ff5e724a5e",
+              "transport_input_sha256": "42021bf94fe4426e7bffc26d779d9f5749bcd8f613be10cc455e2c55aefca56f",
+              "transport_output_sha256": "db9471ac56f6317ac65f8e6f973a849f8c71b02e1cae1716dd52970f61515542",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        },
+        {
+          "character": "마르차나",
+          "variant": "fixed-seed-2302",
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "3da9f64c95a94020836d8e420a194f76",
+            "device": "Apple M5",
+            "elapsed_ms": 4055.3815829916857,
+            "gpu_execution_verified": true,
+            "input_sha256": "e97cd3ee70153c0cc4ada05ae878e811a37630da9fd0ca050e1c3addd658deef",
+            "output_sha256": "cdc8fbdabee4413e8e35e436a7ca396ce6b5013eb3636616f4488335bc6e41e9",
+            "source": "gpu/product_coordinate_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.5407338750083,
+            "batch": {
+              "capture_id": "batch-38d53afc542b45d49c467f62658c0669",
+              "index": 1,
+              "cases": 2,
+              "input_words": 115680,
+              "output_words": 2032000,
+              "input_sha256": "e97cd3ee70153c0cc4ada05ae878e811a37630da9fd0ca050e1c3addd658deef",
+              "output_sha256": "cdc8fbdabee4413e8e35e436a7ca396ce6b5013eb3636616f4488335bc6e41e9",
+              "transport_input_sha256": "42021bf94fe4426e7bffc26d779d9f5749bcd8f613be10cc455e2c55aefca56f",
+              "transport_output_sha256": "db9471ac56f6317ac65f8e6f973a849f8c71b02e1cae1716dd52970f61515542",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        },
+        {
+          "character": "마르차나",
+          "variant": "accumulate-seed-2301",
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "44cc545e4f4a4e8584036a1fde117e65",
+            "device": "Apple M5",
+            "elapsed_ms": 24194.332332990598,
+            "gpu_execution_verified": true,
+            "input_sha256": "034399358b8e5739a0ec268df1ee5215fd224fb71ed717a2745d0e0c8344e5c3",
+            "output_sha256": "ab993881e1b8231974828c90ba5ee414ffac5804ae5a9f1e30ec0be74aad8609",
+            "source": "gpu/product_coordinate_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.621259875013493,
+            "batch": {
+              "capture_id": "batch-00f5e6f0e9df4501aeae47bc32a27600",
+              "index": 0,
+              "cases": 2,
+              "input_words": 115680,
+              "output_words": 2032000,
+              "input_sha256": "034399358b8e5739a0ec268df1ee5215fd224fb71ed717a2745d0e0c8344e5c3",
+              "output_sha256": "ab993881e1b8231974828c90ba5ee414ffac5804ae5a9f1e30ec0be74aad8609",
+              "transport_input_sha256": "ebeffac4022a4c589d4b4fb24a36f07c0017ae57f2b55a30496b307d4267bc39",
+              "transport_output_sha256": "26635484f1890771409eb7d471f0b8e2c3835ba6106301c1057d70ac845c19a9",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        },
+        {
+          "character": "마르차나",
+          "variant": "accumulate-seed-2302",
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "9a770d6244384936bfb7dbc3d5781668",
+            "device": "Apple M5",
+            "elapsed_ms": 24567.270917003043,
+            "gpu_execution_verified": true,
+            "input_sha256": "56036a94adac1918c0840fe2ad5ef6e0dd02266f97ced8e215f4e7b0133b894b",
+            "output_sha256": "0c567f2bde9279a02c52993a89103c5c0d44491e156a37aa336cd78d6905e135",
+            "source": "gpu/product_coordinate_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.621259875013493,
+            "batch": {
+              "capture_id": "batch-00f5e6f0e9df4501aeae47bc32a27600",
+              "index": 1,
+              "cases": 2,
+              "input_words": 115680,
+              "output_words": 2032000,
+              "input_sha256": "56036a94adac1918c0840fe2ad5ef6e0dd02266f97ced8e215f4e7b0133b894b",
+              "output_sha256": "0c567f2bde9279a02c52993a89103c5c0d44491e156a37aa336cd78d6905e135",
+              "transport_input_sha256": "ebeffac4022a4c589d4b4fb24a36f07c0017ae57f2b55a30496b307d4267bc39",
+              "transport_output_sha256": "26635484f1890771409eb7d471f0b8e2c3835ba6106301c1057d70ac845c19a9",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        }
+      ],
+      "audit": {
+        "rows": [
+          {
+            "index": 0,
+            "profile": "마르차나",
+            "variant": "fixed-seed-2301",
+            "capture": "c3231d83286642b7b74aff2a58a390c9",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": true,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 1,
+            "profile": "마르차나",
+            "variant": "fixed-seed-2302",
+            "capture": "3da9f64c95a94020836d8e420a194f76",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": true,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 2,
+            "profile": "마르차나",
+            "variant": "accumulate-seed-2301",
+            "capture": "44cc545e4f4a4e8584036a1fde117e65",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": true,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 3,
+            "profile": "마르차나",
+            "variant": "accumulate-seed-2302",
+            "capture": "9a770d6244384936bfb7dbc3d5781668",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": true,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          }
+        ],
+        "audited": 4,
+        "native_battle_calls": 0,
+        "gpu_calls": 0
+      },
+      "server_stop": {
+        "pid": 14173,
+        "exit_code": -15,
+        "process_group_absent": true
+      }
+    },
+    {
+      "folder": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-coordinate-public-v1-20261101/api-add-v2",
+      "seconds": 9.68191837501945,
+      "cases": [
+        {
+          "character": "벨로타",
+          "variant": "fixed-four-live-long",
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "f3a527adfa07405097e5f3548d55ada0",
+            "device": "Apple M5",
+            "elapsed_ms": 3537.0142920291983,
+            "gpu_execution_verified": true,
+            "input_sha256": "cf9d2f95a4144ddd361a9abe9fcb079be71527458230356a38f8aaf665aa3eeb",
+            "output_sha256": "a103bc4afe419ebbdd2bb586f6e4eee1824169d17d06a073bd42a8dc75f37fa8",
+            "source": "gpu/product_coordinate_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.5042437499505468,
+            "batch": {
+              "capture_id": "batch-7f76baa58cb844e8a96d4e5b8f4315d6",
+              "index": 0,
+              "cases": 2,
+              "input_words": 115680,
+              "output_words": 2032000,
+              "input_sha256": "cf9d2f95a4144ddd361a9abe9fcb079be71527458230356a38f8aaf665aa3eeb",
+              "output_sha256": "a103bc4afe419ebbdd2bb586f6e4eee1824169d17d06a073bd42a8dc75f37fa8",
+              "transport_input_sha256": "4a82a0829e6274633675aa1099bfa249d187962b6df5da39fd10a112c1277a34",
+              "transport_output_sha256": "4d0d649f396a3bd9e50aa4d3abbecf4d0adbe1f411970265cba3c7267b27d38b",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        },
+        {
+          "character": "벨로타",
+          "variant": "fixed-one-outside",
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "40fcd81d389c46fcb13b45d315f2c6e4",
+            "device": "Apple M5",
+            "elapsed_ms": 4060.095666034613,
+            "gpu_execution_verified": true,
+            "input_sha256": "43b62a2b1dda606945d4ff8a20b1ebf612cf9dfca11cedc7aeaea71578d32eeb",
+            "output_sha256": "a59c8a2c0284872993a8fa2a7b3fe42452b9104a49fe47c27d4f113006359e3b",
+            "source": "gpu/product_coordinate_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.5042437499505468,
+            "batch": {
+              "capture_id": "batch-7f76baa58cb844e8a96d4e5b8f4315d6",
+              "index": 1,
+              "cases": 2,
+              "input_words": 115680,
+              "output_words": 2032000,
+              "input_sha256": "43b62a2b1dda606945d4ff8a20b1ebf612cf9dfca11cedc7aeaea71578d32eeb",
+              "output_sha256": "a59c8a2c0284872993a8fa2a7b3fe42452b9104a49fe47c27d4f113006359e3b",
+              "transport_input_sha256": "4a82a0829e6274633675aa1099bfa249d187962b6df5da39fd10a112c1277a34",
+              "transport_output_sha256": "4d0d649f396a3bd9e50aa4d3abbecf4d0adbe1f411970265cba3c7267b27d38b",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        },
+        {
+          "character": "벨로타",
+          "variant": "accumulate-four-live-long",
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "eeda1cbf50ea4a6bb430b068e19c5d4f",
+            "device": "Apple M5",
+            "elapsed_ms": 7694.615208019968,
+            "gpu_execution_verified": true,
+            "input_sha256": "d38b2c9199cdf904b0e60f4e1c8fb022441a8c3b3374fb141eac6f3c9693acc4",
+            "output_sha256": "f7c003859d66ebc454dc0d60c1e30da3eeb5a58af2cc81cea1adbc8dc1cbd281",
+            "source": "gpu/product_coordinate_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.543584125000052,
+            "batch": {
+              "capture_id": "batch-919ef54e00a24f49996097afd9672bbf",
+              "index": 0,
+              "cases": 2,
+              "input_words": 115680,
+              "output_words": 2032000,
+              "input_sha256": "d38b2c9199cdf904b0e60f4e1c8fb022441a8c3b3374fb141eac6f3c9693acc4",
+              "output_sha256": "f7c003859d66ebc454dc0d60c1e30da3eeb5a58af2cc81cea1adbc8dc1cbd281",
+              "transport_input_sha256": "c5a141b087292e93349962e4d03f3c84160d4c536417d391cd241b82e03397bb",
+              "transport_output_sha256": "c7dae633cb3af8700971cb0aa181cf123f299e7fc26b6b5670608a10472f0765",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        },
+        {
+          "character": "벨로타",
+          "variant": "accumulate-one-outside",
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "75f8b1e6255442d2975b808aa9b20de7",
+            "device": "Apple M5",
+            "elapsed_ms": 8240.222583990544,
+            "gpu_execution_verified": true,
+            "input_sha256": "dde1c323c31ba2209d95f601fe67f18ea9a82c18e30b98e647b4366d78e7e9bc",
+            "output_sha256": "3078fb04f25ff2310a7cc6d6c5f7e26143796afdadcf04c3c5bc2d7a916dc567",
+            "source": "gpu/product_coordinate_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.543584125000052,
+            "batch": {
+              "capture_id": "batch-919ef54e00a24f49996097afd9672bbf",
+              "index": 1,
+              "cases": 2,
+              "input_words": 115680,
+              "output_words": 2032000,
+              "input_sha256": "dde1c323c31ba2209d95f601fe67f18ea9a82c18e30b98e647b4366d78e7e9bc",
+              "output_sha256": "3078fb04f25ff2310a7cc6d6c5f7e26143796afdadcf04c3c5bc2d7a916dc567",
+              "transport_input_sha256": "c5a141b087292e93349962e4d03f3c84160d4c536417d391cd241b82e03397bb",
+              "transport_output_sha256": "c7dae633cb3af8700971cb0aa181cf123f299e7fc26b6b5670608a10472f0765",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        }
+      ],
+      "audit": {
+        "rows": [
+          {
+            "index": 0,
+            "profile": "벨로타",
+            "variant": "fixed-four-live-long",
+            "capture": "f3a527adfa07405097e5f3548d55ada0",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": true,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 1,
+            "profile": "벨로타",
+            "variant": "fixed-one-outside",
+            "capture": "40fcd81d389c46fcb13b45d315f2c6e4",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": true,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 2,
+            "profile": "벨로타",
+            "variant": "accumulate-four-live-long",
+            "capture": "eeda1cbf50ea4a6bb430b068e19c5d4f",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": true,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 3,
+            "profile": "벨로타",
+            "variant": "accumulate-one-outside",
+            "capture": "75f8b1e6255442d2975b808aa9b20de7",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": true,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          }
+        ],
+        "audited": 4,
+        "native_battle_calls": 0,
+        "gpu_calls": 0
+      },
+      "server_stop": {
+        "pid": 14242,
+        "exit_code": -15,
+        "process_group_absent": true
+      }
+    }
+  ],
+  "retained_failure": {
+    "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-coordinate-public-v1-20261101/metal-v1",
+    "status": 64,
+    "cause": "Fixed coordinate control-v6 lacked PORTABLE_PRODUCT_FIXED_COORDINATE; active burstControls rejected !manualControls after RNG initialization",
+    "corrected_by": "Existing fixed-coordinate macro and resident frame stack as in checked movement wrapper; no numeric/expected/tolerance changes"
+  },
+  "baselines": {
+    "new": "coordinate-fixed",
+    "version": 37,
+    "previous_members_unchanged": 29,
+    "coordinate_accumulate": "normal API verified; standalone independent CLI baseline not registered"
+  },
+  "coverage": {
+    "historical_source_metal_profiles": 262,
+    "historical_source_cuda_profiles": 262,
+    "total_profiles": 266,
+    "new_default_profiles": 0,
+    "new_source_cuda_verified": false,
+    "whole_environment_preservation_verified": false,
+    "overall_verified": false,
+    "full_goal_complete": false
+  },
+  "limitations": [
+    "Standalone coordinate declarations only; combined independent models explicitly reject",
+    "Every configured ADD requires an explicit collider; no inferred geometry",
+    "Manual cover combination explicitly rejects",
+    "Default movement/distance/target policy gaps and unrestricted mixed compositions remain",
+    "No actual CUDA execution on this coordinate source yet"
+  ]
+}

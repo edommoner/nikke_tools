@@ -24,7 +24,7 @@
     },
     "app/portable_detail.py": {
       "before_sha256": "085c7ccdcebfa6641bf124d95e6c320c337405202e4b148ae64dca08cb11db06",
-      "after_sha256": "04561777345037965636a29e1aa3056022310f8310e5d4e4debb5c5207ae75fa",
+      "after_sha256": "89797fe5b7fdfce37b366d2ea74b5ca6ce02d134b82907136e0f0c9ae7c633b5",
       "hunks": [
         {
           "start": 1759,
@@ -45,872 +45,884 @@
           "after": "source,iw,ow,words,metadata=_compile_product(prepared)\n    from portable_specs import LIMITS as L\n    at=L['WORLD_FRAME_INPUT_BASE']\n    if len(words)>at and words[at]!=0:\n        if words[at]!=0x57533031 or not 1<=words[at+1]<=32:\n            raise UnsupportedPortable('Invalid shared world clock input contract')\n        metadata['product_world_frame_contract']=dict(nodes=words[at+1])\n    return source,iw,ow,words,metadata\n\n\ndef validate_world_frame_readback(block,metadata):\n    \"\"\"Every compiled world, including an empty boss, must retain its clock.\"\"\"\n    contract=metadata.get('product_world_frame_contract')\n    if contract is None:return\n    from portable_specs import LIMITS as L\n    base=L['WORLD_FRAME_OUTPUT_BASE'];count=contract['nodes']\n    if (len(block)<base+788 or block[base]!=0 or not 1<=block[base+1]<=512 or list(block[base+784:base+788])!=[32,0,0,0]\n        or any(block[base+16+i*24]!=0 for i in range(count))):\n        raise UnsupportedPortable('Shared world clock readback is missing or incomplete; the GPU result is rejected')\n\n\ndef _compile_product(prepared):\n    "
         },
         {
-          "start": 3952,
-          "end": 6018,
+          "start": 3933,
+          "end": 6175,
           "before": "",
-          "after": "product_cover import required as cover_required,compile_product as compile_cover\n    from portable_product_movement import required as movement_required,compile_product as compile_movement\n    from portable_product_locks import required as locks_required,compile_product as compile_locks\n    from portable_product_named_range import required as range_required,compile_product as compile_range\n    if not prepared.get('_product_cover_compiled') and cover_required(prepared) and (range_required(prepared) or movement_required(prepared) or locks_required(prepared)):\n        return compile_cover(prepared,compile_product)\n    if range_required(prepared) and movement_required(prepared):\n        from portable_product_movement_range import compile_product as compile_movement_range\n        return compile_movement_range(prepared)\n    if locks_required(prepared):return compile_locks(prepared)\n    if range_required(prepared):return compile_range(prepared)\n    if movement_required(prepared):return compile_movement(prepared)\n    if not prepared.get('_product_cover_compiled') and cover_required(prepared):\n        return compile_cover(prepared,compile_product)\n    from portable_product_ammo import required as ammo_required,compile_product as compile_ammo\n    if not prepared.get('_product_ammo_compiled') and ammo_required(prepared):\n        return compile_ammo(prepared,compile_product)\n    from portable_product_weighted import required as weighted_required,compile_product as compile_weighted\n    if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):\n        return compile_weighted(prepared,compile_product)\n    from portable_product_healing import required,compile_product as compile_healing\n    if not prepared.get('_product_healing_compiled') and required(prepared):\n        return compile_healing(prepared,compile_product)\n    if prepared.get('reference_models'):\n        raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared GPU product wire; no model may be silently omitted')\n    from portable_"
+          "after": "\n    if 'coordinate' in prepared.get('reference_models',{}):\n        from portable_product_coordinate import compile_product as coordinates\n        return coordinates(prepared)\n    from portable_product_cover import required as cover_required,compile_product as compile_cover\n    from portable_product_movement import required as movement_required,compile_product as compile_movement\n    from portable_product_locks import required as locks_required,compile_product as compile_locks\n    from portable_product_named_range import required as range_required,compile_product as compile_range\n    if not prepared.get('_product_cover_compiled') and cover_required(prepared) and (range_required(prepared) or movement_required(prepared) or locks_required(prepared)):\n        return compile_cover(prepared,compile_product)\n    if range_required(prepared) and movement_required(prepared):\n        from portable_product_movement_range import compile_product as compile_movement_range\n        return compile_movement_range(prepared)\n    if locks_required(prepared):return compile_locks(prepared)\n    if range_required(prepared):return compile_range(prepared)\n    if movement_required(prepared):return compile_movement(prepared)\n    if not prepared.get('_product_cover_compiled') and cover_required(prepared):\n        return compile_cover(prepared,compile_product)\n    from portable_product_ammo import required as ammo_required,compile_product as compile_ammo\n    if not prepared.get('_product_ammo_compiled') and ammo_required(prepared):\n        return compile_ammo(prepared,compile_product)\n    from portable_product_weighted import required as weighted_required,compile_product as compile_weighted\n    if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):\n        return compile_weighted(prepared,compile_product)\n    from portable_product_healing import required,compile_product as compile_healing\n    if not prepared.get('_product_healing_compiled') and required(prepared):\n        return compile_healing(prepared,compile_product)\n    if prepared.get('reference_models'):\n        raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared GPU product wire; no model may be silently omitted')"
         },
         {
-          "start": 6088,
-          "end": 6216,
+          "start": 6264,
+          "end": 6392,
           "before": "",
           "after": "# The product promises the canonical battle's named-carrier lifecycle.\n    # Keep every equipment definition and let the existin"
         },
         {
-          "start": 6217,
-          "end": 6220,
+          "start": 6393,
+          "end": 6396,
           "before": "",
           "after": " sh"
         },
         {
-          "start": 6221,
-          "end": 6246,
+          "start": 6397,
+          "end": 6422,
           "before": "u",
           "after": "red GPU carrier\n    # mer"
         },
         {
-          "start": 6248,
-          "end": 6260,
+          "start": 6424,
+          "end": 6436,
           "before": "_",
           "after": "/refresh the"
         },
         {
-          "start": 6261,
-          "end": 6281,
+          "start": 6437,
+          "end": 6457,
           "before": "",
           "after": " exactly as native d"
         },
         {
-          "start": 6282,
-          "end": 6290,
+          "start": 6458,
+          "end": 6466,
           "before": "",
           "after": "es. Stan"
         },
         {
-          "start": 6291,
-          "end": 6295,
+          "start": 6467,
+          "end": 6471,
           "before": "",
           "after": "alon"
         },
         {
-          "start": 6296,
-          "end": 6388,
+          "start": 6472,
+          "end": 6564,
           "before": "=",
           "after": " component-quantity\n    # proofs retain their distinct, explicitly documented contract.\n    "
         },
         {
-          "start": 6396,
-          "end": 6398,
+          "start": 6572,
+          "end": 6574,
           "before": "['pol",
           "after": "=d"
         },
         {
-          "start": 6400,
-          "end": 6400,
+          "start": 6576,
+          "end": 6576,
           "before": "ies']['config'].ge",
           "after": ""
         },
         {
-          "start": 6402,
-          "end": 6402,
+          "start": 6578,
+          "end": 6578,
           "before": "'burst_gauge_mode','fixed')\n    if gauge_mode not in ('fixed','accumulate'):raise UnsupportedPortable('Unported burst gauge mode')\n    fixed=gauge_mode=='fixed'\n    if fixed:\n        cfg=",
           "after": ""
         },
         {
-          "start": 6410,
-          "end": 6412,
+          "start": 6586,
+          "end": 6588,
           "before": "['",
           "after": ",_"
         },
         {
-          "start": 6413,
-          "end": 6414,
+          "start": 6589,
+          "end": 6590,
           "before": "",
           "after": "r"
         },
         {
-          "start": 6415,
-          "end": 6423,
+          "start": 6591,
+          "end": 6599,
           "before": "l",
           "after": "duct_nat"
         },
         {
-          "start": 6424,
-          "end": 6437,
+          "start": 6600,
+          "end": 6613,
           "before": "",
           "after": "ve_equipment_"
         },
         {
-          "start": 6438,
-          "end": 6441,
+          "start": 6614,
+          "end": 6617,
           "before": "",
           "after": "arr"
         },
         {
-          "start": 6443,
-          "end": 6444,
+          "start": 6619,
+          "end": 6620,
           "before": "",
           "after": "r"
         },
         {
-          "start": 6445,
-          "end": 6451,
+          "start": 6621,
+          "end": 6627,
           "before": "']['config']",
           "after": "=True)"
         },
         {
-          "start": 6456,
-          "end": 6467,
+          "start": 6632,
+          "end": 6643,
           "before": "    fi",
           "after": "manual_cove"
         },
         {
-          "start": 6468,
-          "end": 6468,
+          "start": 6644,
+          "end": 6644,
           "before": "st",
           "after": ""
         },
         {
-          "start": 6469,
-          "end": 6474,
+          "start": 6645,
+          "end": 6650,
           "before": "cfg",
           "after": "any(a"
         },
         {
-          "start": 6480,
-          "end": 6482,
+          "start": 6656,
+          "end": 6658,
           "before": "first_burst_",
           "after": "ac"
         },
         {
-          "start": 6484,
-          "end": 6494,
+          "start": 6660,
+          "end": 6670,
           "before": "m",
           "after": "on')=='cov"
         },
         {
-          "start": 6495,
-          "end": 6496,
+          "start": 6671,
+          "end": 6672,
           "before": "",
           "after": "r"
         },
         {
-          "start": 6497,
-          "end": 6497,
+          "start": 6673,
+          "end": 6673,
           "before": ",3.)\n        regen=[c.get('burst_regen_time',2.)",
           "after": ""
         },
         {
-          "start": 6524,
-          "end": 6570,
+          "start": 6700,
+          "end": 6746,
           "before": "",
           "after": " for a in c.get('control',{}).get('sequence',["
         },
         {
-          "start": 6571,
-          "end": 6594,
+          "start": 6747,
+          "end": 6770,
           "before": "",
           "after": "))\n    if manual_cover:"
         },
         {
-          "start": 6606,
-          "end": 6606,
+          "start": 6782,
+          "end": 6782,
           "before": "any(type(v) ",
           "after": ""
         },
         {
-          "start": 6610,
-          "end": 6611,
+          "start": 6786,
+          "end": 6787,
           "before": "in (int,float) or not math.isfinite(v) or not 0<=v<=180 for v in [first,*",
           "after": "p"
         },
         {
-          "start": 6613,
-          "end": 6619,
+          "start": 6789,
+          "end": 6795,
           "before": "",
           "after": "pared."
         },
         {
-          "start": 6621,
-          "end": 6648,
+          "start": 6797,
+          "end": 6824,
           "before": "n]",
           "after": "t('_product_cover_compiled'"
         },
         {
-          "start": 6690,
-          "end": 6700,
+          "start": 6866,
+          "end": 6876,
           "before": "Fix",
           "after": "Manual cov"
         },
         {
-          "start": 6701,
-          "end": 6701,
+          "start": 6877,
+          "end": 6877,
           "before": "d bu",
           "after": ""
         },
         {
-          "start": 6702,
-          "end": 6702,
+          "start": 6878,
+          "end": 6878,
           "before": "st delays",
           "after": ""
         },
         {
-          "start": 6710,
-          "end": 6711,
+          "start": 6886,
+          "end": 6887,
           "before": "",
           "after": "s"
         },
         {
-          "start": 6712,
-          "end": 6712,
+          "start": 6888,
+          "end": 6888,
           "before": "fini",
           "after": ""
         },
         {
-          "start": 6713,
-          "end": 6714,
+          "start": 6889,
+          "end": 6890,
           "before": "",
           "after": "h"
         },
         {
-          "start": 6716,
-          "end": 6716,
+          "start": 6892,
+          "end": 6892,
           "before": "binary64 se",
           "after": ""
         },
         {
-          "start": 6719,
-          "end": 6719,
+          "start": 6895,
+          "end": 6895,
           "before": "ds in [0,180]')\n        # Reuse existing static lowering; readi",
           "after": ""
         },
         {
-          "start": 6721,
-          "end": 6722,
+          "start": 6897,
+          "end": 6898,
           "before": "ss i",
           "after": "c"
         },
         {
-          "start": 6723,
-          "end": 6723,
+          "start": 6899,
+          "end": 6899,
           "before": "self is suppli",
           "after": ""
         },
         {
-          "start": 6726,
-          "end": 6728,
+          "start": 6902,
+          "end": 6904,
           "before": "bel",
           "after": "pr"
         },
         {
-          "start": 6729,
-          "end": 6733,
+          "start": 6905,
+          "end": 6909,
           "before": "w.\n        # This",
           "after": "duct"
         },
         {
-          "start": 6736,
-          "end": 6736,
+          "start": 6912,
+          "end": 6912,
           "before": "py is validation input only, ne",
           "after": ""
         },
         {
-          "start": 6740,
-          "end": 6748,
+          "start": 6916,
+          "end": 6924,
           "before": "a",
           "after": "consumer"
         },
         {
-          "start": 6749,
-          "end": 6751,
+          "start": 6925,
+          "end": 6927,
           "before": "simula",
           "after": "en"
         },
         {
-          "start": 6752,
-          "end": 6756,
+          "start": 6928,
+          "end": 6932,
           "before": "ed CPU schedule.",
           "after": "ry')"
         },
         {
-          "start": 6774,
-          "end": 6804,
+          "start": 6950,
+          "end": 6980,
           "before": "",
           "after": "dict(prepared,_product_manual_"
         },
         {
-          "start": 6806,
-          "end": 6825,
+          "start": 6982,
+          "end": 7001,
           "before": "",
           "after": "ver=True)\n    from "
         },
         {
-          "start": 6826,
-          "end": 6837,
+          "start": 7002,
+          "end": 7013,
           "before": "y.",
           "after": "ortable_pro"
         },
         {
-          "start": 6838,
-          "end": 6845,
+          "start": 7014,
+          "end": 7021,
           "before": "",
           "after": "uct_fix"
         },
         {
-          "start": 6846,
-          "end": 6905,
+          "start": 7022,
+          "end": 7081,
           "before": "",
           "after": "d import lower as lower_fixed,attach as attach_fixed\n    pr"
         },
         {
-          "start": 6907,
-          "end": 6926,
+          "start": 7083,
+          "end": 7102,
           "before": "c",
           "after": "ared,fixed_values=l"
         },
         {
-          "start": 6927,
-          "end": 6936,
+          "start": 7103,
+          "end": 7112,
           "before": "py",
           "after": "wer_fixed"
         },
         {
-          "start": 6951,
-          "end": 6982,
+          "start": 7127,
+          "end": 7158,
           "before": "",
           "after": "fixed=fixed_values is not None\n"
         },
         {
-          "start": 6985,
-          "end": 7132,
+          "start": 7161,
+          "end": 7308,
           "before": "",
           "after": " from portable_product_add_attack import lower as lower_add_attacks\n    prepared,add_patterns=lower_add_attacks(prepared)\n    if 'burst_pattern' in"
         },
         {
-          "start": 7163,
-          "end": 7205,
+          "start": 7339,
+          "end": 7381,
           "before": "['",
           "after": ":\n        prepared=dict(prepared,_product_"
         },
         {
-          "start": 7211,
-          "end": 7212,
+          "start": 7387,
+          "end": 7388,
           "before": "gauge_mode']='accumul",
           "after": "p"
         },
         {
-          "start": 7214,
-          "end": 7215,
+          "start": 7390,
+          "end": 7391,
           "before": "",
           "after": "t"
         },
         {
-          "start": 7216,
-          "end": 7225,
+          "start": 7392,
+          "end": 7401,
           "before": "'",
           "after": "rns=True)"
         },
         {
-          "start": 7279,
-          "end": 7470,
+          "start": 7455,
+          "end": 7646,
           "before": "",
           "after": ")\n    if any(p.get('kind') in ('attack','debuff') and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):\n        prepared=dict(prepared,_product_boss_debuffs=True"
         },
         {
-          "start": 7896,
-          "end": 8098,
+          "start": 8072,
+          "end": 8274,
           "before": "",
           "after": ")]\n        if manual_cover:\n            metadata['product_manual_cover_owners']=[i for i,c in enumerate(original['chars']) if any(a.get('action')=='cover' for a in c.get('control',{}).get('sequence',[])"
         },
         {
-          "start": 8707,
-          "end": 8828,
+          "start": 8883,
+          "end": 9004,
           "before": "",
           "after": "registry_nodes=validate(copy.deepcopy(prepared['enemy']['patterns'])) if add_patterns is not None else nodes\n            "
         },
         {
-          "start": 8856,
-          "end": 8865,
+          "start": 9032,
+          "end": 9041,
           "before": "",
           "after": "registry_"
         },
         {
-          "start": 9348,
-          "end": 9350,
+          "start": 9524,
+          "end": 9526,
           "before": "from por",
           "after": "at"
         },
         {
-          "start": 9352,
-          "end": 9358,
+          "start": 9528,
+          "end": 9534,
           "before": "bl",
           "after": "ch_fix"
         },
         {
-          "start": 9359,
-          "end": 9359,
+          "start": 9535,
+          "end": 9535,
           "before": "_specs import LIMITS as limits\n            base=limits['WORLD_CONTROL_INPUT_BASE']\n            version=wor",
           "after": ""
         },
         {
-          "start": 9360,
-          "end": 9360,
+          "start": 9536,
+          "end": 9536,
           "before": "s[base+1]\n            tap_mask=words[base+5] if version==2 else 0\n            if (version not in (1,2) or version==1 and any",
           "after": ""
         },
         {
-          "start": 9366,
-          "end": 9366,
+          "start": 9542,
+          "end": 9542,
           "before": "[base+5:base+16])\n                    or version==2 and (not 0<tap_mask<32 or any(words[base+6:base+16]))):\n                raise UnsupportedPortable('Fixed burst requires a canonical automatic or tap control header')\n            words[base+1]=5 if tap_mask else 4\n            if tap_mask:words[base+10]=tap_mask\n            words[base+5:base+10]=[0x46424731",
           "after": ""
         },
         {
-          "start": 9367,
-          "end": 9367,
+          "start": 9543,
+          "end": 9543,
           "before": "*struct.unpack('<II',struct.pack('<d',first)),*struct.unpack('<II',struct.pack('<d',max(regen)))]\n            ",
           "after": ""
         },
         {
-          "start": 9375,
-          "end": 9376,
+          "start": 9551,
+          "end": 9552,
           "before": "['real_prepared_input']['policy']=copy.deepcopy(",
           "after": ","
         },
         {
-          "start": 9384,
-          "end": 9385,
+          "start": 9560,
+          "end": 9561,
           "before": "['policies'])\n            metadata['product_",
           "after": ","
         },
         {
-          "start": 9391,
-          "end": 9394,
+          "start": 9567,
+          "end": 9570,
           "before": "b",
           "after": "val"
         },
         {
-          "start": 9395,
-          "end": 9395,
+          "start": 9571,
+          "end": 9571,
           "before": "rst']=dict(first_seconds=first,member_regen_seconds=regen,\n                readin",
           "after": ""
         },
         {
-          "start": 9397,
-          "end": 9397,
+          "start": 9573,
+          "end": 9573,
           "before": "s_regen_seconds=max(regen),CPU_state_or_schedule_as_input=False",
           "after": ""
         },
         {
-          "start": 9470,
-          "end": 10305,
+          "start": 9646,
+          "end": 10481,
           "before": "",
           "after": ")\n        if prepared.get('_product_burst_patterns'):\n            from portable_burst_control_specs import product_patterns\n            from portable_specs import LIMITS as limits\n            names=[c['name'] for c in prepared['chars']]\n            patterns=prepared['policies']['config']['burst_pattern']\n            packed=product_patterns(names,patterns)\n            for who,value in enumerate(packed):\n                words[limits['WEAPON_BASE']+who*limits['WEAPON_WORDS']+3]|=value\n            if any(packed):metadata['product_burst_patterns']=dict(patterns=copy.deepcopy(patterns),encoded=packed,cpu_schedule_or_state_supplied=False)\n        if add_patterns is not None:\n            from portable_product_add_attack import attach\n            return attach(source,words,metadata,prepared,add_patterns,original['enemy']['patterns']"
         },
         {
-          "start": 12678,
-          "end": 12851,
+          "start": 12141,
+          "end": 12367,
           "before": "",
-          "after": "if set(prepared.get('reference_models',{}))&{'enemy_movement','named_range'}:\n        captured['run'].expected=False\n        captured['run'].config['rng_mode']='random'\n    "
+          "after": "coordinate_spec=None\n    if 'coordinate' in body.get('reference_models',{}):\n        from product_coordinate_model import normalize_product\n        coordinate_spec=normalize_product(body['reference_models']['coordinate'])\n    "
         },
         {
-          "start": 12948,
-          "end": 13224,
+          "start": 12510,
+          "end": 12621,
+          "before": "",
+          "after": "\n        if coordinate_spec is not None:\n            run.enemy['coord']=copy.deepcopy(coordinate_spec['coord'])"
+        },
+        {
+          "start": 13191,
+          "end": 13377,
+          "before": "",
+          "after": "if set(prepared.get('reference_models',{}))&{'coordinate','enemy_movement','named_range'}:\n        captured['run'].expected=False\n        captured['run'].config['rng_mode']='random'\n    "
+        },
+        {
+          "start": 13474,
+          "end": 13750,
           "before": "",
           "after": "ammo_attempts=None\n    if not block or block[0]!=0:\n        raise UnsupportedPortable('Shared battle status: '+str(block[0] if block else 'missing')+(' (history capacity exceeded)' if block and block[0] in (2,8) else ''))\n    validate_world_frame_readback(block,metadata)\n    "
         },
         {
-          "start": 13238,
-          "end": 13287,
+          "start": 13764,
+          "end": 13813,
           "before": "",
           "after": "block if metadata.get('product_enemy_ammo') else "
         },
         {
-          "start": 13990,
-          "end": 14022,
+          "start": 14516,
+          "end": 14548,
           "before": "",
           "after": "'],burst_trace=view['burst_trace"
         },
         {
-          "start": 16812,
-          "end": 20344,
+          "start": 17338,
+          "end": 21024,
           "before": "",
-          "after": "models=[]\n    if metadata.get('product_enemy_healing'):\n        from portable_product_healing import read_result\n        from portable_enemy_healing_wire import OUTPUT as healing_output\n        healing_block=block[:healing_output['OUTPUT_WORDS']] if metadata.get('product_healing_cover') else block\n        model=read_result(healing_block,metadata,names,run.config['duration'])\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_weighted_incoming'):\n        from portable_product_weighted import read_result\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_cover_defense'):\n        from portable_product_cover import read_result\n        options={}\n        if metadata.get('product_movement_range_cover'):\n            from portable_product_movement_range import COVER_OUT,OUTPUT as MRO,check_cover_schema\n            check_cover_schema();options=dict(out=COVER_OUT,output=MRO)\n        model=read_result(block,metadata,names,run.config['duration'],**options)\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_enemy_ammo'):\n        from portable_product_ammo import read_result\n        from portable_enemy_ammo_wire import LAYOUT as AMMO\n        ammo_block=block[:AMMO['OUTPUT_WORDS']] if metadata.get('product_ammo_cover') else block\n        model=read_result(ammo_block,metadata)\n        ammo_attempts=model['enemy_ammo']['attempts'] if model is not None else []\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_lock_on'):\n        from portable_product_locks import read_result\n        model=read_result(block,metadata,run.config['duration'])\n        models.append(model)\n    if metadata.get('product_movement_range'):\n        from portable_product_movement_range import read_result as read_movement_range\n        models.extend(read_movement_range(block,metadata,run.config['duration']))\n    if metadata.get('product_enemy_movement') and not metadata.get('product_movement_range'):\n        from portable_product_movement import read_result\n        from portable_enemy_movement_wire import OUTPUT as MOVEMENT_OUTPUT\n        movement_block=block[:MOVEMENT_OUTPUT] if metadata.get('product_movement_cover') else block\n        model=read_result(movement_block,metadata,run.config['duration'])\n        models.append(model)\n    if metadata.get('product_named_range') and not metadata.get('product_movement_range'):\n        from portable_product_named_range import read_result\n        from portable_named_range_battle_wire import OUTPUT as RANGE_OUTPUT\n        range_block=block[:RANGE_OUTPUT] if metadata.get('product_named_range_cover') else block\n        model=read_result(range_block,metadata,run.config['duration'])\n        models.append(model)\n    if models:\n        from product_reference_models import combine_public,warning\n        payload['reference_models']=combine_public(models)\n        # Match the product CPU order: base, effect models, declarations,\n        # optional policy and hypothetical-growth notices. Keep list equality\n        # strict; a later declaration must not reorder the other notices.\n        payload['app_warnings'].insert(1+len(run._portable_detail_model_warnings),\n            warning(payload['reference_models']['declarations']))\n    if 'manual_cover_sequences' in body:\n        payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])\n    "
+          "after": "models=[]\n    if metadata.get('product_coordinate'):\n        from portable_product_coordinate import read_result\n        models.append(read_result(block,metadata))\n    if metadata.get('product_enemy_healing'):\n        from portable_product_healing import read_result\n        from portable_enemy_healing_wire import OUTPUT as healing_output\n        healing_block=block[:healing_output['OUTPUT_WORDS']] if metadata.get('product_healing_cover') else block\n        model=read_result(healing_block,metadata,names,run.config['duration'])\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_weighted_incoming'):\n        from portable_product_weighted import read_result\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_cover_defense'):\n        from portable_product_cover import read_result\n        options={}\n        if metadata.get('product_movement_range_cover'):\n            from portable_product_movement_range import COVER_OUT,OUTPUT as MRO,check_cover_schema\n            check_cover_schema();options=dict(out=COVER_OUT,output=MRO)\n        model=read_result(block,metadata,names,run.config['duration'],**options)\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_enemy_ammo'):\n        from portable_product_ammo import read_result\n        from portable_enemy_ammo_wire import LAYOUT as AMMO\n        ammo_block=block[:AMMO['OUTPUT_WORDS']] if metadata.get('product_ammo_cover') else block\n        model=read_result(ammo_block,metadata)\n        ammo_attempts=model['enemy_ammo']['attempts'] if model is not None else []\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_lock_on'):\n        from portable_product_locks import read_result\n        model=read_result(block,metadata,run.config['duration'])\n        models.append(model)\n    if metadata.get('product_movement_range'):\n        from portable_product_movement_range import read_result as read_movement_range\n        models.extend(read_movement_range(block,metadata,run.config['duration']))\n    if metadata.get('product_enemy_movement') and not metadata.get('product_movement_range'):\n        from portable_product_movement import read_result\n        from portable_enemy_movement_wire import OUTPUT as MOVEMENT_OUTPUT\n        movement_block=block[:MOVEMENT_OUTPUT] if metadata.get('product_movement_cover') else block\n        model=read_result(movement_block,metadata,run.config['duration'])\n        models.append(model)\n    if metadata.get('product_named_range') and not metadata.get('product_movement_range'):\n        from portable_product_named_range import read_result\n        from portable_named_range_battle_wire import OUTPUT as RANGE_OUTPUT\n        range_block=block[:RANGE_OUTPUT] if metadata.get('product_named_range_cover') else block\n        model=read_result(range_block,metadata,run.config['duration'])\n        models.append(model)\n    if models:\n        from product_reference_models import combine_public,warning\n        payload['reference_models']=combine_public(models)\n        # Match the product CPU order: base, effect models, declarations,\n        # optional policy and hypothetical-growth notices. Keep list equality\n        # strict; a later declaration must not reorder the other notices.\n        payload['app_warnings'].insert(1+len(run._portable_detail_model_warnings),\n            warning(payload['reference_models']['declarations']))\n    if 'manual_cover_sequences' in body:\n        payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])\n    "
         },
         {
-          "start": 21320,
-          "end": 21322,
+          "start": 22000,
+          "end": 22002,
           "before": "",
           "after": ",8"
         },
         {
-          "start": 21598,
-          "end": 21734,
+          "start": 22278,
+          "end": 22414,
           "before": "",
           "after": "from portable_product_add_attack import query_sources\n        sources=query_sources(block,metadata,ammo_attempts=ammo_attempts)\n        "
         },
         {
-          "start": 21764,
-          "end": 21787,
+          "start": 22444,
+          "end": 22467,
           "before": "",
           "after": "es,attack_sources=sourc"
         },
         {
-          "start": 23209,
-          "end": 23222,
+          "start": 23889,
+          "end": 23902,
           "before": "",
           "after": "hit.get('by',"
         },
         {
-          "start": 23224,
-          "end": 23225,
+          "start": 23904,
+          "end": 23905,
           "before": "",
           "after": ")"
         },
         {
-          "start": 23294,
-          "end": 23295,
+          "start": 23974,
+          "end": 23975,
           "before": "",
           "after": "_"
         },
         {
-          "start": 23302,
-          "end": 23305,
+          "start": 23982,
+          "end": 23985,
           "before": "e",
           "after": "ion"
         },
         {
-          "start": 23320,
-          "end": 23340,
+          "start": 24000,
+          "end": 24020,
           "before": "O",
           "after": "Prepare and finish o"
         },
         {
-          "start": 23342,
-          "end": 23342,
+          "start": 24022,
+          "end": 24022,
           "before": " isolated product",
           "after": ""
         },
         {
-          "start": 23350,
-          "end": 23350,
+          "start": 24030,
+          "end": 24030,
           "before": ";",
           "after": ""
         },
         {
-          "start": 23351,
-          "end": 23352,
+          "start": 24031,
+          "end": 24032,
           "before": "",
           "after": "a"
         },
         {
-          "start": 23353,
-          "end": 23354,
+          "start": 24033,
+          "end": 24034,
           "before": "eject ",
           "after": "o"
         },
         {
-          "start": 23356,
-          "end": 23360,
+          "start": 24036,
+          "end": 24040,
           "before": "",
           "after": "d a "
         },
         {
-          "start": 23361,
-          "end": 23371,
+          "start": 24041,
+          "end": 24051,
           "before": "uppo",
           "after": "ingle defe"
         },
         {
-          "start": 23372,
-          "end": 23373,
+          "start": 24052,
+          "end": 24053,
           "before": "t",
           "after": "r"
         },
         {
-          "start": 23376,
-          "end": 23381,
+          "start": 24056,
+          "end": 24061,
           "before": "c",
           "after": "GPU b"
         },
         {
-          "start": 23382,
-          "end": 23383,
+          "start": 24062,
+          "end": 24063,
           "before": "",
           "after": "u"
         },
         {
-          "start": 23385,
-          "end": 23386,
+          "start": 24065,
+          "end": 24066,
           "before": "itions befo",
           "after": "a"
         },
         {
-          "start": 23387,
-          "end": 23388,
+          "start": 24067,
+          "end": 24068,
           "before": "e dispatch",
           "after": "y"
         },
         {
-          "start": 25626,
-          "end": 25628,
+          "start": 26306,
+          "end": 26308,
           "before": "w",
           "after": "ev"
         },
         {
-          "start": 25629,
-          "end": 25629,
+          "start": 26309,
+          "end": 26309,
           "before": "th patch.",
           "after": ""
         },
         {
-          "start": 25630,
-          "end": 25630,
+          "start": 26310,
+          "end": 26310,
           "before": "ict(os.",
           "after": ""
         },
         {
-          "start": 25632,
-          "end": 25632,
+          "start": 26312,
+          "end": 26312,
           "before": "viron,policy) if policy else nullcontext():\n            context=saved_program(sour",
           "after": ""
         },
         {
-          "start": 25635,
-          "end": 25635,
+          "start": 26315,
+          "end": 26315,
           "before": "folder) if explicit_image else nullcontext()\n            with context as ",
           "after": ""
         },
         {
-          "start": 25651,
-          "end": 25736,
+          "start": 26331,
+          "end": 26416,
           "before": ":",
           "after": ",member = yield dict(source=source,input_words=input_words,output_words=output_words,"
         },
         {
-          "start": 25749,
-          "end": 25750,
+          "start": 26429,
+          "end": 26430,
           "before": "    history=artif",
           "after": "p"
         },
         {
-          "start": 25752,
-          "end": 25752,
+          "start": 26432,
+          "end": 26432,
           "before": "t_receipt['identity'].get('historical_link_environment') if artifact_receipt is not None else None\n                if history is not None:\n                    from portable_lin",
           "after": ""
         },
         {
-          "start": 25755,
-          "end": 25757,
+          "start": 26435,
+          "end": 26437,
           "before": "_artif",
           "after": "=p"
         },
         {
-          "start": 25759,
-          "end": 25800,
+          "start": 26439,
+          "end": 26480,
           "before": "",
           "after": "ked,backend=backend,policy=policy,explici"
         },
         {
-          "start": 25801,
-          "end": 25802,
+          "start": 26481,
+          "end": 26482,
           "before": " ",
           "after": "_"
         },
         {
-          "start": 25804,
-          "end": 25810,
+          "start": 26484,
+          "end": 26490,
           "before": "",
           "after": "age=ex"
         },
         {
-          "start": 25811,
-          "end": 25811,
+          "start": 26491,
+          "end": 26491,
           "before": "ort va",
           "after": ""
         },
         {
-          "start": 25813,
-          "end": 25826,
+          "start": 26493,
+          "end": 26506,
           "before": "",
           "after": "cit_image,fol"
         },
         {
-          "start": 25827,
-          "end": 25827,
+          "start": 26507,
+          "end": 26507,
           "before": "at",
           "after": ""
         },
         {
-          "start": 25828,
-          "end": 25831,
+          "start": 26508,
+          "end": 26511,
           "before": "_hist",
           "after": "r=f"
         },
         {
-          "start": 25832,
-          "end": 25835,
+          "start": 26512,
+          "end": 26515,
           "before": "",
           "after": "lde"
         },
         {
-          "start": 25836,
-          "end": 25837,
+          "start": 26516,
+          "end": 26517,
           "before": "ical_environment",
           "after": ","
         },
         {
-          "start": 25838,
-          "end": 25838,
+          "start": 26518,
+          "end": 26518,
           "before": "                    validate_historical_environment(history)\n        ",
           "after": ""
         },
         {
-          "start": 25867,
-          "end": 25867,
+          "start": 26547,
+          "end": 26547,
           "before": ".update(historical_link_preservation_verified",
           "after": ""
         },
         {
-          "start": 25868,
-          "end": 25868,
+          "start": 26548,
+          "end": 26548,
           "before": "False,\n                        historical_link_missing_processes_count=len(history['missing_identities']),historical_link_termination_cause=history['termination_cause'])\n                    record.update(",
           "after": ""
         },
         {
-          "start": 25885,
-          "end": 25886,
+          "start": 26565,
+          "end": 26566,
           "before": ")\n                ",
           "after": ","
         },
         {
-          "start": 25887,
-          "end": 25887,
+          "start": 26567,
+          "end": 26567,
           "before": "aw, evidence = ex",
           "after": ""
         },
         {
-          "start": 25889,
-          "end": 25889,
+          "start": 26569,
+          "end": 26569,
           "before": "ute(source,'portableEvents',packed,input_w",
           "after": ""
         },
         {
-          "start": 25892,
-          "end": 25896,
+          "start": 26572,
+          "end": 26576,
           "before": "s,output_w",
           "after": "=rec"
         },
         {
-          "start": 25899,
-          "end": 25899,
+          "start": 26579,
+          "end": 26579,
           "before": "s,backend,readback_path=folder/'readback.bin')\n                if raw is not None:raise RuntimeError('Expected bounded file readback')\n                (folder/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8'",
           "after": ""
         },
         {
-          "start": 26332,
-          "end": 26371,
+          "start": 27012,
+          "end": 27051,
           "before": "",
           "after": ",cases=member['cases'] if member else 1"
         },
         {
-          "start": 26372,
-          "end": 26539,
+          "start": 27052,
+          "end": 27219,
           "before": "",
           "after": "\n        input_hash=member['input_sha256'] if member else evidence['input_sha256']\n        output_hash=member['output_sha256'] if member else evidence['output_sha256']"
         },
         {
-          "start": 26633,
-          "end": 26633,
+          "start": 27313,
+          "end": 27313,
           "before": "evidence['",
           "after": ""
         },
         {
-          "start": 26639,
-          "end": 26641,
+          "start": 27319,
+          "end": 27321,
           "before": "",
           "after": "ha"
         },
         {
-          "start": 26643,
-          "end": 26643,
+          "start": 27323,
+          "end": 27323,
           "before": "a256']",
           "after": ""
         },
         {
-          "start": 26658,
-          "end": 26658,
+          "start": 27338,
+          "end": 27338,
           "before": "evidence['",
           "after": ""
         },
         {
-          "start": 26665,
-          "end": 26667,
+          "start": 27345,
+          "end": 27347,
           "before": "",
           "after": "ha"
         },
         {
-          "start": 26669,
-          "end": 26698,
+          "start": 27349,
+          "end": 27378,
           "before": "",
           "after": ")\n        if member:record['b"
         },
         {
-          "start": 26699,
-          "end": 26702,
+          "start": 27379,
+          "end": 27382,
           "before": "256",
           "after": "tch"
         },
         {
-          "start": 26704,
-          "end": 26711,
+          "start": 27384,
+          "end": 27391,
           "before": ")",
           "after": "=member"
         },
         {
-          "start": 27167,
-          "end": 27167,
+          "start": 27847,
+          "end": 27847,
           "before": "evidence['",
           "after": ""
         },
         {
-          "start": 27173,
-          "end": 27175,
+          "start": 27853,
+          "end": 27855,
           "before": "",
           "after": "ha"
         },
         {
-          "start": 27177,
-          "end": 27177,
+          "start": 27857,
+          "end": 27857,
           "before": "a256']",
           "after": ""
         },
         {
-          "start": 27192,
-          "end": 27192,
+          "start": 27872,
+          "end": 27872,
           "before": "evidence['",
           "after": ""
         },
         {
-          "start": 27199,
-          "end": 27201,
+          "start": 27879,
+          "end": 27881,
           "before": "",
           "after": "ha"
         },
         {
-          "start": 27203,
-          "end": 27203,
+          "start": 27883,
+          "end": 27883,
           "before": "a256']",
           "after": ""
         },
         {
-          "start": 27350,
-          "end": 27655,
+          "start": 28030,
+          "end": 28335,
           "before": "",
           "after": "\n        if member:\n            payload['compute']['batch']=member\n            payload['compute']['input_sha256_scope']='logical single-case framing; physical transfer is batch.transport_input_sha256'\n            payload['compute']['timing_scope']='shared batch transport; not an individual case duration'"
         },
         {
-          "start": 29731,
-          "end": 37126,
+          "start": 30411,
+          "end": 37806,
           "before": "",
           "after": "\n\nMAX_PRODUCT_BATCH=8\n\n\ndef _execute_prepared(plans):\n    \"\"\"One actual transport for compatible prepared cases, with honest views.\"\"\"\n    first=plans[0];count=len(plans)\n    if not 1<=count<=MAX_PRODUCT_BATCH:raise ValueError('Shared detail batch exceeds its bounded case count')\n    key=lambda p:(p['source'],p['input_words'],p['output_words'],p['backend'],p['policy'],p['explicit_image'],p['folder'].parent)\n    if any(key(p)!=key(first) for p in plans):raise ValueError('Shared detail transport requires identical source, wire, policy and capture root')\n    folder=first['folder'] if count==1 else first['folder'].parent/('batch-'+uuid.uuid4().hex)\n    if count>1:folder.mkdir(exist_ok=False)\n    packed=first['packed'] if count==1 else struct.pack('<I',count)+b''.join(p['packed'][4:] for p in plans)\n    if any(len(p['packed'])!=4+4*first['input_words'] or p['packed'][:4]!=struct.pack('<I',1) for p in plans):\n        raise ValueError('Complete single-case framing required before batching')\n    if count>1:(folder/'input.bin').write_bytes(packed)\n    write=lambda name,value:(folder/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\n    try:\n        if count>1:\n            from portable_capture_storage import space_status\n            budget=space_status(folder,len(packed)+2*count*first['output_words']*4)\n            write('storage-budget.json',budget)\n            if not budget['passed']:raise RuntimeError('Insufficient space for shared batch and complete member readbacks')\n        with patch.dict(os.environ,first['policy']) if first['policy'] else nullcontext():\n            context=saved_program(first['source'],folder) if first['explicit_image'] else nullcontext()\n            with context as receipt:\n                history=receipt['identity'].get('historical_link_environment') if receipt is not None else None\n                if history is not None:\n                    from portable_linked_artifact import validate_historical_environment\n                    validate_historical_environment(history)\n                    for p in plans:\n                        p['historical_status'].update(historical_link_preservation_verified=False,\n                            historical_link_missing_processes_count=len(history['missing_identities']),historical_link_termination_cause=history['termination_cause'])\n                        p['record'].update(p['historical_status'])\n                raw,evidence=execute(first['source'],'portableEvents',packed,first['input_words'],first['output_words'],first['backend'],readback_path=folder/'readback.bin')\n                if raw is not None:raise RuntimeError('Expected bounded file readback')\n                write('evidence.json',evidence)\n        if count==1:return [(evidence,receipt,None)]\n        if receipt is not None and evidence.get('transport',{}).get('compile_artifact')!=receipt:\n            raise RuntimeError('Saved product CUBIN transport receipt mismatch')\n        verified_transport(evidence,first['backend'],cases=count)\n        data=(folder/'readback.bin').read_bytes();stride=first['output_words']*4\n        if (len(data)!=count*stride or hashlib.sha256(packed).hexdigest()!=evidence['input_sha256']\n                or hashlib.sha256(data).hexdigest()!=evidence['output_sha256']):\n            raise RuntimeError('Shared batch full input/readback digest mismatch')\n        members=[];returned=[]\n        for index,p in enumerate(plans):\n            block=data[index*stride:(index+1)*stride]\n            member=dict(capture_id=folder.name,index=index,cases=count,input_words=first['input_words'],output_words=first['output_words'],\n                input_sha256=hashlib.sha256(p['packed']).hexdigest(),output_sha256=hashlib.sha256(block).hexdigest(),\n                transport_input_sha256=evidence['input_sha256'],transport_output_sha256=evidence['output_sha256'],\n                input_scope='single-case framing of this exact physical batch member',output_scope='exact readback slice')\n            (p['folder']/'readback.bin').write_bytes(block)\n            (p['folder']/'batch-member.json').write_text(json.dumps(member,indent=2)+'\\n')\n            (p['folder']/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\\n')\n            members.append(dict(member,capture_id=p['folder'].name));returned.append((evidence,receipt,member))\n        write('result.json',dict(schema='product-batch-transport-v1',source=first['source'],backend=first['backend'],cases=count,\n            gpu_execution_verified=True,scope='Shared physical transport only; each member has its own complete CPU result check',members=members))\n        return returned\n    except Exception as error:\n        if count>1:write('result.json',dict(schema='product-batch-transport-v1',source=first['source'],backend=first['backend'],cases=count,\n            scope='Failed shared transport; preserve all member failures',error=str(error),error_type=type(error).__name__,gpu_execution_verified=False))\n        raise\n\n\ndef _finish_evaluation(generator,*,outcome=None,error=None):\n    try:\n        if error is None:generator.send(outcome)\n        else:generator.throw(error)\n    except StopIteration as finished:return finished.value\n    raise RuntimeError('A product request may have only one GPU execution boundary')\n\n\ndef evaluate(body):\n    \"\"\"Original single-request behavior through the same batch-capable engine.\"\"\"\n    generator=_evaluation(body)\n    try:\n        try:plan=next(generator)\n        except StopIteration as finished:return finished.value\n        try:outcome=_execute_prepared([plan])[0]\n        except Exception as error:return _finish_evaluation(generator,error=error)\n        return _finish_evaluation(generator,outcome=outcome)\n    finally:generator.close()\n\n\ndef evaluate_many(bodies):\n    \"\"\"Preserve row identity and per-case CPU checks in bounded shared dispatches.\"\"\"\n    if not isinstance(bodies,list) or not 1<=len(bodies)<=MAX_PRODUCT_BATCH:\n        raise ValueError('Shared detail evaluations must contain one to eight requests')\n    results=[None]*len(bodies);groups={};generators=[]\n    try:\n        for index,body in enumerate(bodies):\n            generator=_evaluation(body);generators.append(generator)\n            try:plan=next(generator)\n            except StopIteration as finished:results[index]=dict(result=finished.value);continue\n            except (Exception,SystemExit) as error:results[index]=dict(error=str(error));continue\n            key=(plan['source'],plan['input_words'],plan['output_words'],plan['backend'],tuple(sorted(plan['policy'].items())),plan['explicit_image'],str(plan['folder'].parent))\n            groups.setdefault(key,[]).append((index,generator,plan))\n        for group in groups.values():\n            try:\n                outcomes=_execute_prepared([p for _,_,p in group]);error=None\n                if len(outcomes)!=len(group):raise RuntimeError('Shared batch result count mismatch')\n            except Exception as failure:outcomes=[None]*len(group);error=failure\n            for (index,generator,_),outcome in zip(group,outcomes):\n                try:results[index]=dict(result=_finish_evaluation(generator,outcome=outcome,error=error))\n                except (Exception,SystemExit) as failure:results[index]=dict(error=str(failure))\n        return results\n    finally:\n        for generator in generators:generator.close()\n"
         }
@@ -1764,7 +1776,7 @@
     },
     "app/portable_backend.py": {
       "before_sha256": "56d708fa4162b19d35cb2ec16498380f762e11dea17162c57ceb37c651c9f8ac",
-      "after_sha256": "e3580c0d5420949cda93b60ea5c7a153c0354a23fc644e3acdafd1ecaef71d87",
+      "after_sha256": "e2aa8b188bc246e4614d1b2d1c755e20d5dd3ee2243e23560b52fe1fd32fea74",
       "hunks": [
         {
           "start": 3872,
@@ -1899,44 +1911,56 @@
           "after": ",'gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang','gpu/product_healing_group_battle_entry.slang','gpu/product_healing_fixed_group_battle_entry.slang')"
         },
         {
-          "start": 39186,
-          "end": 39317,
+          "start": 16515,
+          "end": 16520,
+          "before": "==",
+          "after": " in ("
+        },
+        {
+          "start": 16568,
+          "end": 16663,
+          "before": "",
+          "after": ",'gpu/product_coordinate_battle_entry.slang','gpu/product_coordinate_fixed_battle_entry.slang')"
+        },
+        {
+          "start": 39284,
+          "end": 39415,
           "before": "",
           "after": "if cuda_split_compile_threads()==2:\n                signatures['nvrtcVersion']=[C.POINTER(C.c_int),C.POINTER(C.c_int)]\n            "
         },
         {
-          "start": 46071,
-          "end": 46328,
+          "start": 46169,
+          "end": 46426,
           "before": "",
           "after": "split_compile_threads():\n    value=os.environ.get('NIKKE_CUDA_SPLIT_COMPILE','1')\n    if value not in ('1','2'):\n        raise ValueError('NIKKE_CUDA_SPLIT_COMPILE must be1 or2; automatic/all-core compilation is forbidden')\n    return int(value)\n\n\ndef cuda_"
         },
         {
-          "start": 46361,
-          "end": 46384,
+          "start": 46459,
+          "end": 46482,
           "before": "",
           "after": "=None, *, split_compile"
         },
         {
-          "start": 46782,
-          "end": 47184,
+          "start": 46880,
+          "end": 47282,
           "before": "",
           "after": "\n    threads=cuda_split_compile_threads() if split_compile is None else split_compile\n    if type(threads) is not int or threads not in (1,2):raise ValueError('NVRTC compiler threads must be1 or2')\n    # Opt-in only: default argv/cache identities stay byte-identical. The\n    # parallel optimizer count participates in the ordinary exact cache key.\n    if threads==2:options.append('--split-compile=2')"
         },
         {
-          "start": 47860,
-          "end": 47901,
+          "start": 47958,
+          "end": 47999,
           "before": "",
           "after": "threads=cuda_split_compile_threads()\n    "
         },
         {
-          "start": 47988,
-          "end": 48010,
+          "start": 48086,
+          "end": 48108,
           "before": "",
           "after": ",split_compile=threads"
         },
         {
-          "start": 48608,
-          "end": 48890,
+          "start": 48706,
+          "end": 48988,
           "before": "",
           "after": "')\n        if threads==2:\n            major,minor=C.c_int(),C.c_int()\n            check(lib.nvrtcVersion(C.byref(major),C.byref(minor)))\n            if major.value!=12 or minor.value<4:\n                raise ValueError('Two-thread NVRTC compilation requires verified NVRTC12.4..12.x"
         }
@@ -2172,47 +2196,47 @@
     },
     "app/portable_product_programs.py": {
       "before_sha256": "51d18a2191c24ef3b68f2d1cf71d792cdb9e8e01ed209e5c793827ce5b7d056d",
-      "after_sha256": "08f6c8bc6e8d0349a498f22b24e3d1239ddcd16b92028c20a4d6fcd3c8c0f8c5",
+      "after_sha256": "eb5256836443cd30a4d3ee07540b4f6238e6eb30ac9d2f002a35a127ee8f5349",
       "hunks": [
         {
           "start": 364,
           "end": 366,
           "before": "1",
-          "after": "36"
+          "after": "37"
         },
         {
           "start": 1043,
-          "end": 2427,
+          "end": 2513,
           "before": "",
-          "after": "_default=_name.startswith('default-');_selector=_name[8:] if _default else _name\n    _lock_cover=_selector.startswith('lock-cover-')\n    _range_cover=_selector.startswith('named-range-cover-')\n    _movement_range_cover=_selector.startswith('movement-range-cover-')\n    _movement_cover=_selector.startswith('movement-cover-');_ammo_cover=_selector.startswith('ammo-cover-');_healing_cover=_selector.startswith('healing-cover-');_add=_selector.startswith('add-');_healing=_selector.startswith('healing-');_weighted=_selector.startswith('weighted-');_cover=_selector.startswith('cover-');_ammo=_selector.startswith('ammo-');_movement=_selector.startswith('movement-');_range=_selector.startswith('named-range-');_lock=_selector.startswith('lock-')\n    if _default and (not (_weighted or _cover) or _mode!='fixed' or _kind):raise ValueError('Invalid default-world product program')\n    _prefix=('default-' if _default else '')+('add-' if _add else 'ammo-cover-' if _ammo_cover else 'healing-cover-' if _healing_cover else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else 'ammo-' if _ammo else 'movement-range-cover-' if _movement_range_cover else 'movement-cover-' if _movement_cover else 'movement-' if _movement else 'named-range-cover-' if _range_cover else 'named-range-' if _range else 'lock-cover-' if _lock_cover else 'lock-' if _lock else '')\n    "
+          "after": "_default=_name.startswith('default-');_selector=_name[8:] if _default else _name\n    _coordinate=_selector.startswith('coordinate-')\n    _lock_cover=_selector.startswith('lock-cover-')\n    _range_cover=_selector.startswith('named-range-cover-')\n    _movement_range_cover=_selector.startswith('movement-range-cover-')\n    _movement_cover=_selector.startswith('movement-cover-');_ammo_cover=_selector.startswith('ammo-cover-');_healing_cover=_selector.startswith('healing-cover-');_add=_selector.startswith('add-');_healing=_selector.startswith('healing-');_weighted=_selector.startswith('weighted-');_cover=_selector.startswith('cover-');_ammo=_selector.startswith('ammo-');_movement=_selector.startswith('movement-');_range=_selector.startswith('named-range-');_lock=_selector.startswith('lock-')\n    if _default and (not (_weighted or _cover) or _mode!='fixed' or _kind):raise ValueError('Invalid default-world product program')\n    _prefix=('default-' if _default else '')+('coordinate-' if _coordinate else 'add-' if _add else 'ammo-cover-' if _ammo_cover else 'healing-cover-' if _healing_cover else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else 'ammo-' if _ammo else 'movement-range-cover-' if _movement_range_cover else 'movement-cover-' if _movement_cover else 'movement-' if _movement else 'named-range-cover-' if _range_cover else 'named-range-' if _range else 'lock-cover-' if _lock_cover else 'lock-' if _lock else '')\n    "
         },
         {
-          "start": 2522,
-          "end": 2666,
+          "start": 2608,
+          "end": 2767,
           "before": "",
-          "after": "(_weighted or _ammo or _movement or _range or _lock) and _kind!='' or _healing and _kind not in ('','group') or _healing_cover and _kind!='' or "
+          "after": "(_coordinate or _weighted or _ammo or _movement or _range or _lock) and _kind!='' or _healing and _kind not in ('','group') or _healing_cover and _kind!='' or "
         },
         {
-          "start": 2673,
-          "end": 2681,
+          "start": 2774,
+          "end": 2782,
           "before": "",
           "after": "_prefix+"
         },
         {
-          "start": 2912,
-          "end": 3369,
+          "start": 3013,
+          "end": 3504,
           "before": "",
-          "after": "+('add_' if _add else 'ammo_cover_' if _ammo_cover else 'healing_cover_' if _healing_cover else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else 'ammo_' if _ammo else 'movement_range_cover_' if _movement_range_cover else 'movement_cover_' if _movement_cover else 'movement_' if _movement else 'named_range_cover_' if _range_cover else 'named_range_' if _range else 'lock_cover_' if _lock_cover else 'lock_' if _lock else '')"
+          "after": "+('coordinate_' if _coordinate else 'add_' if _add else 'ammo_cover_' if _ammo_cover else 'healing_cover_' if _healing_cover else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else 'ammo_' if _ammo else 'movement_range_cover_' if _movement_range_cover else 'movement_cover_' if _movement_cover else 'movement_' if _movement else 'named_range_cover_' if _range_cover else 'named_range_' if _range else 'lock_cover_' if _lock_cover else 'lock_' if _lock else '')"
         },
         {
-          "start": 5338,
-          "end": 12199,
+          "start": 5473,
+          "end": 12744,
           "before": "",
-          "after": "name is not None and name.startswith('movement-range-cover-'):\n        from detail_coverage import body_for\n        body=body_for_program(root,'named-range-'+program['mode'])\n        motion=body_for_program(root,'movement-'+program['mode'])['reference_models']['enemy_movement']\n        roster=body['squad'][:2]+['솔져 O.W.','유니','얀'];body['squad']=roster;body['duration']=30\n        body['profile']=body_for(roster,30)['profile']\n        spec=body['reference_models']['named_range']\n        motion['coord']=copy.deepcopy(spec['coord']);motion['logical_geometry']=copy.deepcopy(spec['logical_geometry'])\n        motion['motion']['actors']=[dict(label=r['label'],velocity=[.1,0.],force_center=[0.,0.]) for r in spec['logical_geometry']]\n        body['reference_models'].update(enemy_movement=motion,cover_defense=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(roster)])\n        body['manual_cover_sequences']={roster[2]:[dict(action='cover',t=10,duration=2)]}\n        body['enemy']['patterns'].append(dict(id='declared-incoming',kind='attack',delay=10.25,spec=dict(atk=1000,coeff=100,target='all',hits=5,interval=.5)))\n    elif name is not None and name.startswith('lock-cover-'):\n        from detail_coverage import body_for\n        body=body_for_program(root,'lock-'+program['mode'])\n        roster=body['squad'][:-1]+['솔져 O.W.'];literal=body_for(roster,body['duration'])\n        body['squad']=roster;body['profile']=literal['profile']\n        body['reference_models']['cover_defense']=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(roster)]\n        body['manual_cover_sequences']={roster[0]:[dict(action='cover',t=10,duration=2)]}\n        body['enemy']['patterns']=[dict(id='lock-wave',kind='summon',spec=dict(count=2,hp=1e30)),dict(id='declared-incoming',kind='attack',delay=10.25,spec=dict(atk=1000,coeff=100,target='all',hits=5,interval=.5))]\n    elif name is not None and name.startswith('lock-'):\n        import engine_worker\n        from portable_heavyarms_lock_cases import fixtures,NAME,source_definitions\n        from product_lock_model import ORDER,MARKER,DELIVERY_MODEL\n        body=copy.deepcopy(fixtures()[1]['body'])\n        body['reference_models']={'lock_on':dict(owner=NAME,marker=MARKER,packet_skill=source_definitions()[8]['name'],candidate_order=ORDER,delivery=DELIVERY_MODEL,typed_bindings=[])}\n    elif name is not None and name.startswith('named-range-cover-'):\n        from detail_coverage import body_for\n        body=body_for_program(root,'named-range-'+program['mode'])\n        roster=body['squad'][:-1]+['솔져 O.W.'];literal=body_for(roster,body['duration'])\n        body['squad']=roster;body['profile']=literal['profile']\n        body['reference_models']['cover_defense']=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(roster)]\n        body['manual_cover_sequences']={roster[0]:[dict(action='cover',t=10,duration=2)]}\n        body['enemy']['patterns'].append(dict(id='declared-incoming',kind='attack',delay=10.25,spec=dict(atk=1000,coeff=100,target='all',hits=5,interval=.5)))\n    elif name is not None and name.startswith('named-range-'):\n        from portable_named_range_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'named_range':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),rules=copy.deepcopy(case['named_range_rules']))}\n    elif name is not None and name.startswith('movement-cover-'):\n        body=body_for_program(root,'movement-'+program['mode'])\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('movement-'):\n        import engine_worker\n        from portable_enemy_movement_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'enemy_movement':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),motion=copy.deepcopy(case['enemy_movement']))}\n    elif name is not None and name.startswith('ammo-cover-'):\n        from detail_coverage import body_for\n        body=body_for(['벨벳','솔져 O.W.','미란다','도라','드레이크'],30)\n        body['manual_cover_sequences']={body['squad'][1]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('ammo-'):\n        if program['mode']=='fixed':\n            from portable_original_identity_inventory import selected_profile_bodies\n            body=selected_profile_bodies(['벨벳'],0)[0][2]\n        else:\n            import engine_worker\n            from portable_enemy_ammo_cases import fixtures\n            case=fixtures()[0];body=copy.deepcopy(case['body'])\n            body['reference_models']={'enemy_ammo':copy.deepcopy(case['enemy_ammo'])}\n    elif name is not None and name.startswith('default-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['베이' if name.startswith('default-weighted-') else '솔져 O.W.'],0)[0][2]\n    elif name is not None and name.startswith('cover-') and program['kind']:\n        body=body_for_program(root,program['mode']+'-'+program['kind'])\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('cover-'):\n        from portable_cover_defense_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'cover_defense':copy.deepcopy(case['cover_defense'])}\n        body['manual_cover_sequences']=copy.deepcopy(case['declared_manual_sequences'])\n    elif name is not None and name.startswith('weighted-'):\n        from portable_weighted_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}\n    elif name is not None and name.startswith('healing-cover-'):\n        from detail_coverage import body_for\n        body=body_for(['앤 : 미라클 페어리','솔져 O.W.','미란다','도라','드레이크'],30)\n        body['manual_cover_sequences']={body['squad'][1]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('healing-') and program['kind']=='group':\n        from detail_coverage import body_for\n        from portable_enemy_healing_cases import fixtures\n        case=fixtures()[0];roster=['앤 : 미라클 페어리','벨로타','미란다','도라','드레이크']\n        body=body_for(roster,30);body['enemy']['patterns']=copy.deepcopy(case['patterns'])\n        body['reference_models']={'enemy_healing':copy.deepcopy(case['enemy_healing'])}\n    elif name is not None and name.startswith('healing-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]\n    elif "
+          "after": "name is not None and name.startswith('coordinate-'):\n        import engine_worker\n        from portable_coordinate_original_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body']);body['duration']=30\n        body['enemy']['patterns']=copy.deepcopy(case['patterns'])\n        body['reference_models']={'coordinate':dict(coord=copy.deepcopy(case['coord']),logical_geometry=[])}\n    elif name is not None and name.startswith('movement-range-cover-'):\n        from detail_coverage import body_for\n        body=body_for_program(root,'named-range-'+program['mode'])\n        motion=body_for_program(root,'movement-'+program['mode'])['reference_models']['enemy_movement']\n        roster=body['squad'][:2]+['솔져 O.W.','유니','얀'];body['squad']=roster;body['duration']=30\n        body['profile']=body_for(roster,30)['profile']\n        spec=body['reference_models']['named_range']\n        motion['coord']=copy.deepcopy(spec['coord']);motion['logical_geometry']=copy.deepcopy(spec['logical_geometry'])\n        motion['motion']['actors']=[dict(label=r['label'],velocity=[.1,0.],force_center=[0.,0.]) for r in spec['logical_geometry']]\n        body['reference_models'].update(enemy_movement=motion,cover_defense=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(roster)])\n        body['manual_cover_sequences']={roster[2]:[dict(action='cover',t=10,duration=2)]}\n        body['enemy']['patterns'].append(dict(id='declared-incoming',kind='attack',delay=10.25,spec=dict(atk=1000,coeff=100,target='all',hits=5,interval=.5)))\n    elif name is not None and name.startswith('lock-cover-'):\n        from detail_coverage import body_for\n        body=body_for_program(root,'lock-'+program['mode'])\n        roster=body['squad'][:-1]+['솔져 O.W.'];literal=body_for(roster,body['duration'])\n        body['squad']=roster;body['profile']=literal['profile']\n        body['reference_models']['cover_defense']=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(roster)]\n        body['manual_cover_sequences']={roster[0]:[dict(action='cover',t=10,duration=2)]}\n        body['enemy']['patterns']=[dict(id='lock-wave',kind='summon',spec=dict(count=2,hp=1e30)),dict(id='declared-incoming',kind='attack',delay=10.25,spec=dict(atk=1000,coeff=100,target='all',hits=5,interval=.5))]\n    elif name is not None and name.startswith('lock-'):\n        import engine_worker\n        from portable_heavyarms_lock_cases import fixtures,NAME,source_definitions\n        from product_lock_model import ORDER,MARKER,DELIVERY_MODEL\n        body=copy.deepcopy(fixtures()[1]['body'])\n        body['reference_models']={'lock_on':dict(owner=NAME,marker=MARKER,packet_skill=source_definitions()[8]['name'],candidate_order=ORDER,delivery=DELIVERY_MODEL,typed_bindings=[])}\n    elif name is not None and name.startswith('named-range-cover-'):\n        from detail_coverage import body_for\n        body=body_for_program(root,'named-range-'+program['mode'])\n        roster=body['squad'][:-1]+['솔져 O.W.'];literal=body_for(roster,body['duration'])\n        body['squad']=roster;body['profile']=literal['profile']\n        body['reference_models']['cover_defense']=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(roster)]\n        body['manual_cover_sequences']={roster[0]:[dict(action='cover',t=10,duration=2)]}\n        body['enemy']['patterns'].append(dict(id='declared-incoming',kind='attack',delay=10.25,spec=dict(atk=1000,coeff=100,target='all',hits=5,interval=.5)))\n    elif name is not None and name.startswith('named-range-'):\n        from portable_named_range_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'named_range':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),rules=copy.deepcopy(case['named_range_rules']))}\n    elif name is not None and name.startswith('movement-cover-'):\n        body=body_for_program(root,'movement-'+program['mode'])\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('movement-'):\n        import engine_worker\n        from portable_enemy_movement_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'enemy_movement':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),motion=copy.deepcopy(case['enemy_movement']))}\n    elif name is not None and name.startswith('ammo-cover-'):\n        from detail_coverage import body_for\n        body=body_for(['벨벳','솔져 O.W.','미란다','도라','드레이크'],30)\n        body['manual_cover_sequences']={body['squad'][1]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('ammo-'):\n        if program['mode']=='fixed':\n            from portable_original_identity_inventory import selected_profile_bodies\n            body=selected_profile_bodies(['벨벳'],0)[0][2]\n        else:\n            import engine_worker\n            from portable_enemy_ammo_cases import fixtures\n            case=fixtures()[0];body=copy.deepcopy(case['body'])\n            body['reference_models']={'enemy_ammo':copy.deepcopy(case['enemy_ammo'])}\n    elif name is not None and name.startswith('default-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['베이' if name.startswith('default-weighted-') else '솔져 O.W.'],0)[0][2]\n    elif name is not None and name.startswith('cover-') and program['kind']:\n        body=body_for_program(root,program['mode']+'-'+program['kind'])\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('cover-'):\n        from portable_cover_defense_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'cover_defense':copy.deepcopy(case['cover_defense'])}\n        body['manual_cover_sequences']=copy.deepcopy(case['declared_manual_sequences'])\n    elif name is not None and name.startswith('weighted-'):\n        from portable_weighted_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}\n    elif name is not None and name.startswith('healing-cover-'):\n        from detail_coverage import body_for\n        body=body_for(['앤 : 미라클 페어리','솔져 O.W.','미란다','도라','드레이크'],30)\n        body['manual_cover_sequences']={body['squad'][1]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('healing-') and program['kind']=='group':\n        from detail_coverage import body_for\n        from portable_enemy_healing_cases import fixtures\n        case=fixtures()[0];roster=['앤 : 미라클 페어리','벨로타','미란다','도라','드레이크']\n        body=body_for(roster,30);body['enemy']['patterns']=copy.deepcopy(case['patterns'])\n        body['reference_models']={'enemy_healing':copy.deepcopy(case['enemy_healing'])}\n    elif name is not None and name.startswith('healing-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]\n    elif "
         },
         {
-          "start": 12821,
-          "end": 13254,
+          "start": 13366,
+          "end": 13799,
           "before": "",
           "after": "if name is not None and name.startswith('add-'):\n        body['enemy']['patterns']=[dict(id='product-escort',kind='summon',until=dict(targets_cleared=True),spec=dict(\n            name='Escort',count=2,hp=1e12,attack_at=.25,self_destruct=True,\n            attack=dict(atk=1000,coeff=100,hits=2,interval=.5,target='all',debuffs=[\n                dict(stat='atk_pct',value=-10),dict(stat='dot',coeff=10,interval=.5,duration=1)])))]\n    "
         }
@@ -3378,13 +3402,13 @@
     },
     "data/portable-product-programs.json": {
       "before_sha256": "405a435c57a5f6296534a9090b79ded81c67537ec663d27242cf9f7340a85e4c",
-      "after_sha256": "2ca264cc27396ab3c685d5fa070c6c9d9fa042a076efcc0b47d20f6af76e9db2",
+      "after_sha256": "fcd34cfc62f0234ac2893b8fb2a2a291523d26af3a2d7be455195871950ba1a3",
       "hunks": [
         {
           "start": 1619,
-          "end": 10659,
+          "end": 11063,
           "before": "",
-          "after": ",\n    \"add-accumulate\": {\n      \"source\": \"gpu/product_add_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"add-accumulate-group\": {\n      \"source\": \"gpu/product_add_group_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"add-accumulate-target\": {\n      \"source\": \"gpu/product_add_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"target\"\n    },\n    \"add-accumulate-group-target\": {\n      \"source\": \"gpu/product_add_group_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group-target\"\n    },\n    \"add-fixed\": {\n      \"source\": \"gpu/product_add_fixed_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"add-fixed-group\": {\n      \"source\": \"gpu/product_add_fixed_group_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"add-fixed-target\": {\n      \"source\": \"gpu/product_add_fixed_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"target\"\n    },\n    \"add-fixed-group-target\": {\n      \"source\": \"gpu/product_add_fixed_group_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"group-target\"\n    },\n    \"healing-accumulate\": {\n      \"source\": \"gpu/product_healing_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"healing-fixed\": {\n      \"source\": \"gpu/product_healing_fixed_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"weighted-accumulate\": {\n      \"source\": \"gpu/product_weighted_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"weighted-fixed\": {\n      \"source\": \"gpu/product_weighted_fixed_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"cover-accumulate\": {\n      \"source\": \"gpu/product_cover_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"default-weighted-fixed\": {\n      \"source\": \"gpu/product_weighted_fixed_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"default-cover-fixed\": {\n      \"source\": \"gpu/product_cover_fixed_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"ammo-accumulate\": {\n      \"source\": \"gpu/product_ammo_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"ammo-fixed\": {\n      \"source\": \"gpu/product_ammo_fixed_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-accumulate\": {\n      \"source\": \"gpu/product_movement_battle_entry.slang\",\n      \"input_words\": 117476,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"named-range-accumulate\": {\n      \"source\": \"gpu/product_named_range_battle_entry.slang\",\n      \"input_words\": 116224,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"lock-accumulate\": {\n      \"source\": \"gpu/product_lock_battle_entry.slang\",\n      \"input_words\": 109536,\n      \"output_words\": 1310720,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"lock-fixed\": {\n      \"source\": \"gpu/product_lock_fixed_battle_entry.slang\",\n      \"input_words\": 109536,\n      \"output_words\": 1310720,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-fixed\": {\n      \"source\": \"gpu/product_movement_fixed_battle_entry.slang\",\n      \"input_words\": 117476,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"named-range-fixed\": {\n      \"source\": \"gpu/product_named_range_fixed_battle_entry.slang\",\n      \"input_words\": 116224,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"cover-fixed\": {\n      \"source\": \"gpu/product_cover_fixed_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"cover-fixed-group\": {\n      \"source\": \"gpu/product_cover_fixed_group_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"cover-accumulate-group\": {\n      \"source\": \"gpu/product_cover_group_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"cover-fixed-target\": {\n      \"source\": \"gpu/product_cover_fixed_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"target\"\n    },\n    \"cover-fixed-group-target\": {\n      \"source\": \"gpu/product_cover_fixed_group_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"group-target\"\n    },\n    \"cover-accumulate-target\": {\n      \"source\": \"gpu/product_cover_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"target\"\n    },\n    \"cover-accumulate-group-target\": {\n      \"source\": \"gpu/product_cover_group_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group-target\"\n    },\n    \"healing-cover-fixed\": {\n      \"source\": \"gpu/product_healing_cover_fixed_battle_entry.slang\",\n      \"input_words\": 120072,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"healing-cover-accumulate\": {\n      \"source\": \"gpu/product_healing_cover_battle_entry.slang\",\n      \"input_words\": 120072,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"ammo-cover-fixed\": {\n      \"source\": \"gpu/product_ammo_cover_fixed_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"ammo-cover-accumulate\": {\n      \"source\": \"gpu/product_ammo_cover_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"movement-cover-fixed\": {\n      \"source\": \"gpu/product_movement_cover_fixed_battle_entry.slang\",\n      \"input_words\": 117500,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-cover-accumulate\": {\n      \"source\": \"gpu/product_movement_cover_battle_entry.slang\",\n      \"input_words\": 117500,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"named-range-cover-fixed\": {\n      \"source\": \"gpu/product_named_range_cover_fixed_battle_entry.slang\",\n      \"input_words\": 116248,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"named-range-cover-accumulate\": {\n      \"source\": \"gpu/product_named_range_cover_battle_entry.slang\",\n      \"input_words\": 116248,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"lock-cover-fixed\": {\n      \"source\": \"gpu/product_lock_cover_fixed_battle_entry.slang\",\n      \"input_words\": 109560,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"lock-cover-accumulate\": {\n      \"source\": \"gpu/product_lock_cover_battle_entry.slang\",\n      \"input_words\": 109560,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"movement-range-cover-fixed\": {\n      \"source\": \"gpu/product_movement_range_cover_fixed_battle_entry.slang\",\n      \"input_words\": 118044,\n      \"output_words\": 2165136,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-range-cover-accumulate\": {\n      \"source\": \"gpu/product_movement_range_cover_battle_entry.slang\",\n      \"input_words\": 118044,\n      \"output_words\": 2165136,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"healing-fixed-group\": {\n      \"source\": \"gpu/product_healing_fixed_group_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"healing-accumulate-group\": {\n      \"source\": \"gpu/product_healing_group_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    }"
+          "after": ",\n    \"add-accumulate\": {\n      \"source\": \"gpu/product_add_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"add-accumulate-group\": {\n      \"source\": \"gpu/product_add_group_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"add-accumulate-target\": {\n      \"source\": \"gpu/product_add_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"target\"\n    },\n    \"add-accumulate-group-target\": {\n      \"source\": \"gpu/product_add_group_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group-target\"\n    },\n    \"add-fixed\": {\n      \"source\": \"gpu/product_add_fixed_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"add-fixed-group\": {\n      \"source\": \"gpu/product_add_fixed_group_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"add-fixed-target\": {\n      \"source\": \"gpu/product_add_fixed_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"target\"\n    },\n    \"add-fixed-group-target\": {\n      \"source\": \"gpu/product_add_fixed_group_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"group-target\"\n    },\n    \"healing-accumulate\": {\n      \"source\": \"gpu/product_healing_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"healing-fixed\": {\n      \"source\": \"gpu/product_healing_fixed_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"weighted-accumulate\": {\n      \"source\": \"gpu/product_weighted_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"weighted-fixed\": {\n      \"source\": \"gpu/product_weighted_fixed_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"cover-accumulate\": {\n      \"source\": \"gpu/product_cover_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"default-weighted-fixed\": {\n      \"source\": \"gpu/product_weighted_fixed_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"default-cover-fixed\": {\n      \"source\": \"gpu/product_cover_fixed_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"ammo-accumulate\": {\n      \"source\": \"gpu/product_ammo_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"ammo-fixed\": {\n      \"source\": \"gpu/product_ammo_fixed_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-accumulate\": {\n      \"source\": \"gpu/product_movement_battle_entry.slang\",\n      \"input_words\": 117476,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"named-range-accumulate\": {\n      \"source\": \"gpu/product_named_range_battle_entry.slang\",\n      \"input_words\": 116224,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"lock-accumulate\": {\n      \"source\": \"gpu/product_lock_battle_entry.slang\",\n      \"input_words\": 109536,\n      \"output_words\": 1310720,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"lock-fixed\": {\n      \"source\": \"gpu/product_lock_fixed_battle_entry.slang\",\n      \"input_words\": 109536,\n      \"output_words\": 1310720,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-fixed\": {\n      \"source\": \"gpu/product_movement_fixed_battle_entry.slang\",\n      \"input_words\": 117476,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"named-range-fixed\": {\n      \"source\": \"gpu/product_named_range_fixed_battle_entry.slang\",\n      \"input_words\": 116224,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"cover-fixed\": {\n      \"source\": \"gpu/product_cover_fixed_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"cover-fixed-group\": {\n      \"source\": \"gpu/product_cover_fixed_group_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"cover-accumulate-group\": {\n      \"source\": \"gpu/product_cover_group_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"cover-fixed-target\": {\n      \"source\": \"gpu/product_cover_fixed_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"target\"\n    },\n    \"cover-fixed-group-target\": {\n      \"source\": \"gpu/product_cover_fixed_group_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"group-target\"\n    },\n    \"cover-accumulate-target\": {\n      \"source\": \"gpu/product_cover_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"target\"\n    },\n    \"cover-accumulate-group-target\": {\n      \"source\": \"gpu/product_cover_group_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group-target\"\n    },\n    \"healing-cover-fixed\": {\n      \"source\": \"gpu/product_healing_cover_fixed_battle_entry.slang\",\n      \"input_words\": 120072,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"healing-cover-accumulate\": {\n      \"source\": \"gpu/product_healing_cover_battle_entry.slang\",\n      \"input_words\": 120072,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"ammo-cover-fixed\": {\n      \"source\": \"gpu/product_ammo_cover_fixed_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"ammo-cover-accumulate\": {\n      \"source\": \"gpu/product_ammo_cover_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"movement-cover-fixed\": {\n      \"source\": \"gpu/product_movement_cover_fixed_battle_entry.slang\",\n      \"input_words\": 117500,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-cover-accumulate\": {\n      \"source\": \"gpu/product_movement_cover_battle_entry.slang\",\n      \"input_words\": 117500,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"named-range-cover-fixed\": {\n      \"source\": \"gpu/product_named_range_cover_fixed_battle_entry.slang\",\n      \"input_words\": 116248,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"named-range-cover-accumulate\": {\n      \"source\": \"gpu/product_named_range_cover_battle_entry.slang\",\n      \"input_words\": 116248,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"lock-cover-fixed\": {\n      \"source\": \"gpu/product_lock_cover_fixed_battle_entry.slang\",\n      \"input_words\": 109560,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"lock-cover-accumulate\": {\n      \"source\": \"gpu/product_lock_cover_battle_entry.slang\",\n      \"input_words\": 109560,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"movement-range-cover-fixed\": {\n      \"source\": \"gpu/product_movement_range_cover_fixed_battle_entry.slang\",\n      \"input_words\": 118044,\n      \"output_words\": 2165136,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-range-cover-accumulate\": {\n      \"source\": \"gpu/product_movement_range_cover_battle_entry.slang\",\n      \"input_words\": 118044,\n      \"output_words\": 2165136,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"healing-fixed-group\": {\n      \"source\": \"gpu/product_healing_fixed_group_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"healing-accumulate-group\": {\n      \"source\": \"gpu/product_healing_group_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"coordinate-fixed\": {\n      \"source\": \"gpu/product_coordinate_fixed_battle_entry.slang\",\n      \"input_words\": 115680,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"coordinate-accumulate\": {\n      \"source\": \"gpu/product_coordinate_battle_entry.slang\",\n      \"input_words\": 115680,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    }"
         }
       ]
     },
@@ -3399,18 +3423,106 @@
           "after": "\n// The caller keeps a live WorldSchedule while evaluating this predicate.\n// Keep ActorBits scratch in this callee: NVRTC12.4 otherwise reused the live\n// 16-byte schedule local for the zero ActorBits temporary in saved ammo PTX.\n[noinline]"
         }
       ]
+    },
+    "app/portable_logical_geometry_wire.py": {
+      "before_sha256": "2887509a985c68bb3f93c64460f78897416e27ca224e4246b828bbe17507482e",
+      "after_sha256": "76a0e32ed3740255dc9c78cde0c003e93f1f897d325811d6031f329816f26e98",
+      "hunks": [
+        {
+          "start": 3464,
+          "end": 3484,
+          "before": "",
+          "after": ",*,allow_empty=False"
+        },
+        {
+          "start": 3496,
+          "end": 3555,
+          "before": "",
+          "after": "[] if allow_empty and type(spec) is list and not spec else "
+        },
+        {
+          "start": 3851,
+          "end": 3993,
+          "before": "",
+          "after": "\n    if allow_empty and not rows and any(int(b.kind)==5 for b in bindings):raise ValueError('Every configured ADD requires explicit geometry')"
+        },
+        {
+          "start": 4656,
+          "end": 4676,
+          "before": "",
+          "after": ",*,allow_empty=False"
+        },
+        {
+          "start": 5228,
+          "end": 5251,
+          "before": "",
+          "after": "(0 if allow_empty else "
+        },
+        {
+          "start": 5252,
+          "end": 5253,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 6352,
+          "end": 6376,
+          "before": "",
+          "after": ",allow_empty=allow_empty"
+        },
+        {
+          "start": 6686,
+          "end": 6706,
+          "before": "",
+          "after": ",*,allow_empty=False"
+        },
+        {
+          "start": 6896,
+          "end": 6920,
+          "before": "",
+          "after": ",allow_empty=allow_empty"
+        },
+        {
+          "start": 6957,
+          "end": 6981,
+          "before": "",
+          "after": ",allow_empty=allow_empty"
+        }
+      ]
+    },
+    "gpu/logical_actor_geometry_runtime.slang": {
+      "before_sha256": "80eefe10fbe2a80589d07019f7c8a80776cb5bd2c4ef35fac8d8da2b6b79e230",
+      "after_sha256": "1a35884a50ac7571a28c3f00aa659ee14c1decc97f2ae25e0cbc3a0b1e957f1a",
+      "hunks": [
+        {
+          "start": 825,
+          "end": 825,
+          "before": "==0||count",
+          "after": ""
+        },
+        {
+          "start": 882,
+          "end": 1105,
+          "before": "",
+          "after": "\n#ifndef PORTABLE_PRODUCT_COORDINATE\n    if(count==0)return false;\n#else\n    for(uint slot=1;slot<actorPoolCount(s);slot++)\n        if(commands[actorBinding(s,slot)]==5&&commands[p+LAG_MAP_BASE+slot]==0)return false;\n#endif"
+        }
+      ]
     }
   },
   "added_sources": {
     "app/portable_product_cover.py": "8ad0a8bc9293574b44c7f715d98bec02f8425f3af6d15ddfd6a179df205385d3",
     "app/portable_product_movement_range.py": "adf8a59cab44d09ed6cc142c2e18d2d91d6f82c8ec5ef238c677fa7784fa4758",
-    "app/product_reference_models.py": "b0ed184419ad633befed2dc8474110843816b509288dd4ef1de71e60a6b605a6",
+    "app/product_reference_models.py": "195bcd46e7e37ed37a768440e3908df3614cbeb8313debd8819e664f2e758ee6",
     "gpu/product_movement_range_cover_battle_entry.slang": "1cdac26aa6548cddb68f651eb60accee4990ad68ff81b087ca51068f6dbe03c3",
     "gpu/product_movement_range_cover_fixed_battle_entry.slang": "6710f79e3ce475933c752dce08f219a0bfcc24530bb6d258e9adf788cad40e39",
     "app/portable_product_healing.py": "03df73a1d2dec8f103428f09ded6c785d87264c02664a242b0950d6c894bf2e4",
     "gpu/product_healing_battle_entry.slang": "3e3c01f618c1d08abc7899b38709ff4cc2d016c1bb6c0b01f873689dcb424eef",
     "gpu/product_healing_entry.slang": "43330293f55791e6114f08017e25640ee18f15549ee056c901b5f20e6a27d3b4",
     "gpu/product_healing_group_battle_entry.slang": "26032567136b61af7829c0c1574d58f7b2129916481cfcade268a54b46c09ce5",
-    "gpu/product_healing_fixed_group_battle_entry.slang": "dabbb38018d459632d1056bd2f1e62e188c82dc162e51fc7757726c841ce2288"
+    "gpu/product_healing_fixed_group_battle_entry.slang": "dabbb38018d459632d1056bd2f1e62e188c82dc162e51fc7757726c841ce2288",
+    "app/product_coordinate_model.py": "04f2fd39c34362ebcc08c6abe0a03f0fd07d250a1e194aa48b30fcfcbe068447",
+    "app/portable_product_coordinate.py": "b0e46a9c72034f39887ee8c1f2d801f4c61e8dbd5741d18a273dd86288298e38",
+    "gpu/product_coordinate_battle_entry.slang": "3edb233369fe2c2626ef67d04917cea614f5b8aee0a4058735aaa7b89cfd6443",
+    "gpu/product_coordinate_fixed_battle_entry.slang": "6f5c0b717ebd5684f6e2982bc014941a9a615020a6dec3f2d05bbd98ac551b82"
   }
 }

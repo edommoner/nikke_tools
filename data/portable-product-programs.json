@@ -364,6 +364,20 @@
       "output_words": 2032000,
       "mode": "accumulate",
       "kind": "group"
+    },
+    "coordinate-fixed": {
+      "source": "gpu/product_coordinate_fixed_battle_entry.slang",
+      "input_words": 115680,
+      "output_words": 2032000,
+      "mode": "fixed",
+      "kind": ""
+    },
+    "coordinate-accumulate": {
+      "source": "gpu/product_coordinate_battle_entry.slang",
+      "input_words": 115680,
+      "output_words": 2032000,
+      "mode": "accumulate",
+      "kind": ""
     }
   }
 }

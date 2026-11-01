@@ -13,10 +13,11 @@ COVER_WARNING='宣言した独立遮蔽DEFモデルを使用しています。�
 AMMO_WARNING='宣言した敵弾倉モデルを使用しています。実ゲームの弾数・再装填規則を確認した意味ではありません。'
 LOCK_WARNING='宣言したLock OnのBODY優先・ADD出現順と生存凍結対象モデルを使用しています。実ゲームの距離順位・失効時の再対象化を確認した意味ではありません。'
 RANGE_WARNING='宣言した名前付き範囲・対象数モデルを使用しています。実ゲームの基礎半径・形状・距離順位を確認した意味ではありません。'
+COORDINATE_WARNING='宣言した座標・共通命中サンプリング規約を使用しています。実ゲームの位置・命中分布を確認した意味ではありません。'
 MOVEMENT_WARNING='宣言したADD移動・座標モデルと共通サンプリング規約を使用しています。実ゲームの位置・範囲・移動優先規則を確認した意味ではありません。'
 
 def warning(declarations):
-    return ' '.join(text for key,text in [('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING),('cover_defense',COVER_WARNING),('enemy_ammo',AMMO_WARNING),('enemy_movement',MOVEMENT_WARNING),('named_range',RANGE_WARNING),('lock_on',LOCK_WARNING)] if key in declarations)
+    return ' '.join(text for key,text in [('coordinate',COORDINATE_WARNING),('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING),('cover_defense',COVER_WARNING),('enemy_ammo',AMMO_WARNING),('enemy_movement',MOVEMENT_WARNING),('named_range',RANGE_WARNING),('lock_on',LOCK_WARNING)] if key in declarations)
 
 def combine_public(models):
     """Join independent checked readbacks without overwriting any consumer."""
@@ -35,13 +36,17 @@ def combine_public(models):
 
 def normalize(value):
     if value is None:return {}
-    if type(value) is not dict or set(value)-{'enemy_healing','weighted_incoming','cover_defense','enemy_ammo','enemy_movement','named_range','lock_on'}:
-        raise ValueError('reference_modelsには接続済みのenemy_healing／weighted_incoming／cover_defense／enemy_ammo／enemy_movement／named_range／lock_onだけを指定してください。')
+    if type(value) is not dict or set(value)-{'coordinate','enemy_healing','weighted_incoming','cover_defense','enemy_ammo','enemy_movement','named_range','lock_on'}:
+        raise ValueError('reference_modelsには接続済みのcoordinate／enemy_healing／weighted_incoming／cover_defense／enemy_ammo／enemy_movement／named_range／lock_onだけを指定してください。')
+    if 'coordinate' in value and set(value)!={'coordinate'}:raise ValueError('Coordinate composition requires a matching checked consumer wire')
     if 'enemy_ammo' in value and set(value)-{'enemy_ammo','cover_defense'}:raise ValueError('Enemy magazine composition requires a combined checked native consumer')
     if 'enemy_movement' in value and set(value)-({'enemy_movement','named_range','cover_defense'} if 'named_range' in value else {'enemy_movement','cover_defense'}):raise ValueError('Movement composition requires a combined checked native consumer')
     if 'named_range' in value and set(value)-({'named_range','enemy_movement','cover_defense'} if 'enemy_movement' in value else {'named_range','cover_defense'}):raise ValueError('Named range composition requires a combined checked native consumer')
     if 'lock_on' in value and set(value)-{'lock_on','cover_defense'}:raise ValueError('Lock composition requires a combined checked native consumer')
     result={}
+    if 'coordinate' in value:
+        from product_coordinate_model import normalize_product
+        result['coordinate']=normalize_product(value['coordinate'])
     if 'enemy_healing' in value:
         from enemy_healing_model import normalize as healing
         result['enemy_healing']=healing(value['enemy_healing'])
@@ -101,6 +106,10 @@ def execution(declarations,names=None):
     from enemy_healing_model import enemy_healing
     result=dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(declarations))
     with ExitStack() as stack:
+        if 'coordinate' in declarations:
+            from product_coordinate_model import execution as coordinates,public as coordinate_public
+            stack.enter_context(coordinates(declarations['coordinate'],configure_run=True))
+            result['coordinate']=coordinate_public(declarations['coordinate'])
         healing=stack.enter_context(enemy_healing(declarations['enemy_healing'])) if 'enemy_healing' in declarations else None
         if 'weighted_incoming' in declarations:
             from weighted_incoming_battle_model import weighted_incoming

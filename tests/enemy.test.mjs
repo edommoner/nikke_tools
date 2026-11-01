@@ -92,3 +92,14 @@ test('actual UI application rejects a foreign manual-cover owner before mutating
  context.candidate.manual_cover_sequences={a:[{action:'cover',t:1,duration:.5}]};
  runInNewContext(code,context);assert.deepEqual(state.declaredScenarios[0].manual_cover_sequences,context.candidate.manual_cover_sequences);assert.ok(calls.length>0);
 });
+
+test('explicit coordinate scenario stays visible through team persistence without changing scalar enemy input',()=>{
+ const coordinate={coord:{auto_aim:[0,0],pierce_px:10,explosion_scale:1},logical_geometry:[]};
+ const original={squad:['a'],enemy:{def:42,distance:25},seed:2301};
+ const declared=normalizeDeclaredScenario({reference_models:{coordinate}});
+ const teams=normalizeDeclaredTeams(JSON.parse(JSON.stringify({'0':declared})));
+ const result=applyDeclaredScenario(original,teams[0]);
+ assert.deepEqual(result.enemy,original.enemy);assert.equal(result.seed,2301);
+ assert.deepEqual(result.reference_models.coordinate,coordinate);assert.equal(declaredScenarioLabel(declared),'座標・命中');
+ result.reference_models.coordinate.coord.auto_aim[0]=100;assert.equal(coordinate.coord.auto_aim[0],0);
+});

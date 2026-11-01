@@ -1,7 +1,7 @@
 import {elementLabels,presetFields} from './roster-model.mjs';
 import {normalizePatterns} from './phase-model.mjs';
 
-const declaredNames={enemy_healing:'敵回復',weighted_incoming:'ダメージ配分',cover_defense:'遮蔽DEF',enemy_ammo:'敵弾倉',enemy_movement:'敵移動',named_range:'範囲・対象数',lock_on:'Lock On'};
+const declaredNames={coordinate:'座標・命中',enemy_healing:'敵回復',weighted_incoming:'ダメージ配分',cover_defense:'遮蔽DEF',enemy_ammo:'敵弾倉',enemy_movement:'敵移動',named_range:'範囲・対象数',lock_on:'Lock On'};
 const record=value=>value!==null&&typeof value==='object'&&!Array.isArray(value)&&[Object.prototype,null].includes(Object.getPrototypeOf(value));
 function finiteJson(value,depth=0){
  if(depth>32)return false;

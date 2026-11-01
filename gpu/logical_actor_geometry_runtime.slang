@@ -19,7 +19,13 @@ bool lagActive(inout Runtime s){return results[lagHead(s)]!=0;}
 bool validLogicalActorGeometry(inout Runtime s)
 {
     uint p=lagInput(s),count=commands[p+2];
-    if(commands[p]!=LAG_MAGIC||commands[p+1]!=LAG_VERSION||count==0||count>LAG_ROWS||commands[p+3]!=actorPoolCount(s))return false;
+    if(commands[p]!=LAG_MAGIC||commands[p+1]!=LAG_VERSION||count>LAG_ROWS||commands[p+3]!=actorPoolCount(s))return false;
+#ifndef PORTABLE_PRODUCT_COORDINATE
+    if(count==0)return false;
+#else
+    for(uint slot=1;slot<actorPoolCount(s);slot++)
+        if(commands[actorBinding(s,slot)]==5&&commands[p+LAG_MAP_BASE+slot]==0)return false;
+#endif
     for(uint i=4;i<LAG_HEADER;i++)if(commands[p+i]!=0)return false;
     for(uint index=0;index<LAG_ROWS;index++)
     {

@@ -246,7 +246,7 @@ def validate_composed_stride(source,input_words,output_words):
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT_WORDS,OUTPUT['OUTPUT_WORDS']):raise ValueError('Enemy healing requires its complete declared source wire')
         return
-    if source=='gpu/world_coordinate_logical_actor_entry.slang':
+    if source in ('gpu/world_coordinate_logical_actor_entry.slang','gpu/product_coordinate_battle_entry.slang','gpu/product_coordinate_fixed_battle_entry.slang'):
         from portable_logical_geometry_wire import check_schema,LAYOUT,SCRATCH
         check_schema(ROOT)
         if (input_words,output_words)!=(LAYOUT['BASE']+LAYOUT['WORDS'],SCRATCH['OUTPUT_WORDS']):raise ValueError('Logical ADD geometry requires its complete registered wire')

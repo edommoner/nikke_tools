@@ -62,7 +62,8 @@ class ProductPacket(unittest.TestCase):
         cli=self.cli();base=cli.SUITES['product-detail']
         self.assertIs(configuration(cli.SUITES,'product-detail'),base)
         self.assertIs(configuration(cli.SUITES,dict(suite='product-detail')),base)
-        self.assertEqual(len(PROGRAMS),52)
+        self.assertEqual(len(PROGRAMS),54)
+        self.assertEqual({n for n in PROGRAMS if n.startswith('coordinate-')},{'coordinate-fixed','coordinate-accumulate'})
         self.assertEqual({n for n in PROGRAMS if n.startswith('healing-') and n.endswith('-group')},
                          {'healing-fixed-group','healing-accumulate-group'})
         self.assertEqual({n for n in PROGRAMS if n.startswith('movement-range-cover-')},
@@ -89,7 +90,7 @@ class ProductPacket(unittest.TestCase):
                 self.assertEqual(len(raw),4*(1+config['input_words']))
                 self.assertEqual(rows[0][2][0]['burst_gauge_mode'],config['mode'])
                 self.assertFalse(rows[0][2][1]['cpu_battle_executed'])
-                self.assertEqual(rows[0][1][LIMITS['WORLD_CONTROL_INPUT_BASE']+1],6 if config['mode']=='fixed' and name.startswith(('movement-','named-range-','cover-','default-cover-','healing-cover-','ammo-cover-','lock-cover-')) else 3 if name.startswith(('cover-','movement-','named-range-','healing-cover-','ammo-cover-','lock-cover-')) else 4 if config['mode']=='fixed' else 1)
+                self.assertEqual(rows[0][1][LIMITS['WORLD_CONTROL_INPUT_BASE']+1],6 if config['mode']=='fixed' and name.startswith(('coordinate-','movement-','named-range-','cover-','default-cover-','healing-cover-','ammo-cover-','lock-cover-')) else 3 if name.startswith(('coordinate-','cover-','movement-','named-range-','healing-cover-','ammo-cover-','lock-cover-')) else 4 if config['mode']=='fixed' else 1)
                 self.assertTrue(cli.registered_battle_source(dict(suite='product-detail',product_program=name)))
     def test_program_baseline_is_explicit_and_unsealed_members_do_not_fall_back(self):
         from portable_product_programs import registered_golden,configuration,GOLDEN

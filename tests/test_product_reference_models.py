@@ -9,6 +9,61 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_coordinate_public_preserves_all_definitions_and_explicit_empty_scene(self):
+        from portable_product_programs import body_for_program
+        from portable_detail import prepare,compile_product
+        from portable_backend import validate_composed_stride
+        from portable_logical_geometry_wire import LAYOUT
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'coordinate-'+mode);before=copy.deepcopy(body)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle input')):
+                prepared,run=prepare(body);original=copy.deepcopy(prepared)
+                source,iw,ow,words,metadata=compile_product(prepared)
+            self.assertEqual(body,before);self.assertEqual(prepared,original)
+            self.assertFalse(run.expected);self.assertEqual(run.config['rng_mode'],'random')
+            self.assertEqual((iw,ow,len(words)),(115680,2032000,115680));validate_composed_stride(source,iw,ow)
+            self.assertEqual(words[LAYOUT['BASE']+2],0)
+            self.assertEqual(set(metadata['binding_source_indices']),set(range(len(prepared['effects']))))
+            self.assertFalse(metadata['product_coordinate']['cpu_state_or_schedule_supplied'])
+            self.assertEqual(run.enemy['coord'],body['reference_models']['coordinate']['coord'])
+            with self.assertRaisesRegex(ValueError,'matching checked'):
+                normalize({**body['reference_models'],'enemy_healing':[]})
+
+    def test_coordinate_model_configures_only_request_run_and_restores_global_aliases(self):
+        from product_coordinate_model import normalize_product
+        from types import SimpleNamespace
+        spec=normalize_product(dict(coord=dict(auto_aim=[0.,0.],pierce_px=10.,explosion_scale=1.),logical_geometry=[]))
+        run=SimpleNamespace(enemy={},expected=True,config={'rng_mode':'expected'})
+        def native(value):
+            self.assertIs(value,run);self.assertFalse(value.expected);self.assertEqual(value.config['rng_mode'],'random')
+            self.assertEqual(value.enemy['coord'],spec['coord']);return 'native'
+        state=timeline.random.getstate()
+        with patch.object(sim,'execute',side_effect=native) as original:
+            with execution({'coordinate':spec},['a','b','c','d','e']) as result:
+                self.assertEqual(sim.execute(run),'native')
+            self.assertIs(sim.execute,original)
+        self.assertEqual(timeline.random.getstate(),state)
+        self.assertEqual(result['coordinate']['logical_colliders'],0)
+
+    def test_coordinate_empty_add_geometry_is_explicit_and_unowned_output_rejected(self):
+        from portable_logical_geometry_wire import pack
+        from types import SimpleNamespace
+        from portable_product_coordinate import read_result,OUTPUT
+        from portable_runtime import UnsupportedPortable
+        from portable_specs import LIMITS as L
+        from product_coordinate_model import normalize_product
+        body=SimpleNamespace(kind=0,identity=0,label='__enemy__',run=-1)
+        add=SimpleNamespace(kind=5,identity=0,label='wave#1',run=0)
+        with self.assertRaises(ValueError):pack([],[body])
+        self.assertEqual(pack([],[body],allow_empty=True)[2],0)
+        with self.assertRaisesRegex(ValueError,'Every configured ADD'):pack([],[body,add],allow_empty=True)
+        block=array.array('I',[0])*OUTPUT;block[L['WORLD_SKILL_HEAD_BASE']]=0x57534b31
+        spec=normalize_product(dict(coord={'auto_aim':[0.,0.]},logical_geometry=[]))
+        metadata={'binding_source_indices':[0],'product_coordinate':{'declarations':{'coordinate':spec}}}
+        self.assertEqual(read_result(block,metadata)['coordinate']['logical_colliders'],0)
+        block[1769856]=1
+        with self.assertRaisesRegex(UnsupportedPortable,'coordinate product history'):read_result(block,metadata)
+
     def test_healing_group_preserves_original_effects_and_shared_wire(self):
         from portable_product_programs import body_for_program
         from portable_detail import prepare,compile_product

@@ -65,11 +65,12 @@ def _row(binding,slot,shape):
             1 if shape['r']>0 else 2,0]+sum((bits(v) for v in
             (*(shape[k] for k in FIELDS),co,si)),[])+[0]*6
 
-def pack(spec,bindings):
-    rows=normalize(spec)
+def pack(spec,bindings,*,allow_empty=False):
+    rows=[] if allow_empty and type(spec) is list and not spec else normalize(spec)
     if not 1<=len(bindings)<=128 or int(bindings[0].kind)!=0:raise ValueError('Complete BODY-first actor registry required')
     if len({b.label for b in bindings})!=len(bindings):raise ValueError('Ambiguous actor labels')
     lookup={b.label:(i,b) for i,b in enumerate(bindings)}
+    if allow_empty and not rows and any(int(b.kind)==5 for b in bindings):raise ValueError('Every configured ADD requires explicit geometry')
     words=[0]*LAYOUT['WORDS'];words[:4]=[MAGIC,VERSION,len(rows),len(bindings)]
     for index,row in enumerate(rows):
         selected=lookup.get(row['label'])
@@ -81,7 +82,7 @@ def pack(spec,bindings):
         words[LAYOUT['MAP_BASE']+slot]=index+1
     return words
 
-def validate(words,base_words,bindings):
+def validate(words,base_words,bindings,*,allow_empty=False):
     """Reject malformed raw banks and any mismatch with the packed actor owner.
 
     Rotation bytes must be the declared common numeric compiler's output; this
@@ -90,7 +91,7 @@ def validate(words,base_words,bindings):
     if len(words)!=LAYOUT['WORDS'] or any(type(v) is not int or not 0<=v<=0xffffffff for v in words):raise ValueError('Logical geometry requires uint32 wire')
     if len(base_words)!=LAYOUT['BASE']:raise ValueError('Complete coordinate input required')
     count=words[2]
-    if words[:2]!=[MAGIC,VERSION] or not 1<=count<=127 or words[3]!=len(bindings):raise ValueError('Invalid logical geometry header')
+    if words[:2]!=[MAGIC,VERSION] or not (0 if allow_empty else 1)<=count<=127 or words[3]!=len(bindings):raise ValueError('Invalid logical geometry header')
     registry_header=L['WORLD_ACTOR_INPUT_BASE']
     from portable_actor_specs import MAGIC as ACTOR_MAGIC
     if base_words[registry_header:registry_header+2]!=[ACTOR_MAGIC,len(bindings)]:raise ValueError('Actor registry header mismatch')
@@ -105,15 +106,15 @@ def validate(words,base_words,bindings):
         if base_words[registry:registry+8]!=expected:raise ValueError('Collider registry owner mismatch')
         values=struct.unpack('<7d',struct.pack('<14I',*words[at+8:at+22]))
         spec.append(dict(label=b.label,shape=dict(zip(FIELDS,values))))
-    if words!=pack(spec,bindings):raise ValueError('Noncanonical logical geometry bytes or nonzero reserved bank')
+    if words!=pack(spec,bindings,allow_empty=allow_empty):raise ValueError('Noncanonical logical geometry bytes or nonzero reserved bank')
     return dict(colliders=count,actors=len(bindings),gpu_admitted=False,health_copied=False,
                 lifecycle_copied=False,rotation_policy='coordinate-area-matrix-common-v1')
 
-def compile_logical_geometry(prepared,spec):
+def compile_logical_geometry(prepared,spec,*,allow_empty=False):
     from portable_coordinate_roster_input import compile_coordinate_battle
     check_schema()
     words,meta,bindings,scene=compile_coordinate_battle(prepared)
-    bank=pack(spec,bindings);report=validate(bank,words,bindings)
+    bank=pack(spec,bindings,allow_empty=allow_empty);report=validate(bank,words,bindings,allow_empty=allow_empty)
     meta['logical_actor_geometry_wire']=dict(report,model='literal-add-colliders-v1',
         input_words=LAYOUT['BASE']+LAYOUT['WORDS'],gpu_wire_connected=False)
     return words+bank,meta,bindings,scene
