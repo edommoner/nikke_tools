@@ -1,3 +1,11 @@
+## 2026-11-01 接続復旧確認、3モデル実蓄積を独立sealしてCLI v33へ登録
+
+Windowsの同turn 01a1954fは応答・処理継続を確認。追加17入力のうち11入力が元M5 full readback一致との報告、残default-weighted/default-cover/ammoを継続中。再送/retry0。最終原本未取得のため標準CUDA確認済み245/266は増やさない。cursor573時点でweighted自身のpaired生成/計画成立、PTX段階。結果待ちを失敗扱いしない。
+
+Macは既存movement-range-cover-accumulateをsource e1dc4ff3の不変packet自身でown139 CPU・fresh native・実M5・GPU禁止fresh独立seal。owner be7fcedb05ed9116fe0342d3c106dddd8af6864ae78d00d982cffba7675c61ca、input fd658bcf…／全readback 6d87e80b…は先の通常API実蓄積30秒と全bytes一致。新数値実装/効果変更0。v33に当1memberだけ追加し旧26member完全保持。厳密88cda inverse/SHA更新、履歴7/製品10成功。登録基準27、宣言program50は別の数。新標準profile/CUDA実行0。service/whole/overallの成功認定ではない。
+
+原本proofs/product-movement-range-cover-v1-20261101/accumulate-v1（packet/metal/独立seal）、小記録research/product-movement-range-cover-accumulate-registration-v1.json。次は既存Windows17件の保存原本を取得・照合し、最初の不成立時は保存停止。全goal未完了、default4と他の未接続合成を保持する。以下は履歴。
+
 ## 2026-11-01 標準CUDA245/266の全原本照合完了、別6imageの17件を依頼
 
 Windows237件の最終原本a41b1ba1（77,750bytes/SHA90c8b698…）を取得し、全237profileのID/名前/育成段階/input/元M5 full readback、全30親のhash/byte/chunk/launch、90段階のmetricとenforced gate、driver総数をMacで照合。source00ed／owner032bbb76の標準fixedは先の8件と合わせ245/266。各30秒、30 POST/30GPU/retry0、SDK/事前battle/追加保存監査battle0。最大Job peak1,501,020,160bytes、90段階すべてpre/post2GiB・gate・empty・missing0、専用Node30/30停止。内部advisory240件のlimit=null/完全性false、service/whole/overallfalse、旧9451file/v1停止/claimを保持。未確認を成功へ付替えない。

@@ -1,0 +1,70 @@
+{
+  "schema": "product-movement-range-cover-accumulate-registration-v1",
+  "source_commit": "e1dc4ff3",
+  "package_id": "be7fcedb05ed9116fe0342d3c106dddd8af6864ae78d00d982cffba7675c61ca",
+  "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-movement-range-cover-v1-20261101/accumulate-v1",
+  "cpu_tests": [
+    {
+      "pattern": "test_portable_detail.py",
+      "exit_code": 0,
+      "elapsed_seconds": 3.481114666967187,
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 8414
+    },
+    {
+      "pattern": "test_product_detail_packet.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.502473583968822,
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 8414
+    },
+    {
+      "pattern": "test_weighted_source_contract.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.2838547920109704,
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 8414
+    },
+    {
+      "pattern": "test_product_reference_models.py",
+      "exit_code": 0,
+      "elapsed_seconds": 20.775542750023305,
+      "tests": 55,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 8414
+    }
+  ],
+  "independent_audit": {
+    "package_id": "be7fcedb05ed9116fe0342d3c106dddd8af6864ae78d00d982cffba7675c61ca",
+    "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-movement-range-cover-v1-20261101/accumulate-v1/metal",
+    "child_pid": 8472,
+    "input_count": 1,
+    "native_cases": 1,
+    "live_parent_receipt_present": false,
+    "elapsed_seconds": 2.737851459009107,
+    "gpu_calls": 0,
+    "calculation_verified": true,
+    "input_sha256": "fd658bcf5de0564f5c7600cbbdb1769be39d5bf6f05eb039bc1aa47b17f8b467",
+    "output_sha256": "6d87e80b1ac77121634194bb408c92879930d823ab7ac1568f7d17f2a626b0e3",
+    "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+    "schema": "independent-metal-audit-v1"
+  },
+  "independent_seal_sha256": "d17b09b0c2e5448f9ab4d11bbac989806303e6d97a3ee78414aa0f60c53e345a",
+  "old_registered_programs_unchanged": 26,
+  "registered_programs": 27,
+  "input_output_equal_to_existing_normal_api_accumulate_30s": true,
+  "new_standard_profiles": 0,
+  "cuda_dispatches": 0,
+  "overall_verified": false
+}
