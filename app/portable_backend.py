@@ -271,6 +271,11 @@ def validate_composed_stride(source,input_words,output_words):
                 raise ValueError('Coordinate and healing require adjacent complete banks')
         if (input_words,output_words)!=(INPUT_WORDS,OUTPUT['OUTPUT_WORDS']):raise ValueError('Enemy healing requires its complete declared source wire')
         return
+    if source in ('gpu/product_coordinate_lock_battle_entry.slang','gpu/product_coordinate_lock_fixed_battle_entry.slang'):
+        from portable_product_coordinate_lock import check_schema,INPUT,OUTPUT
+        check_schema(ROOT)
+        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Coordinate Lock On requires complete disjoint arenas')
+        return
     if source in ('gpu/product_typed_battle_entry.slang','gpu/product_typed_fixed_battle_entry.slang'):
         from portable_coordinate_typed_specs import check_layout,INPUT_WORDS,OUTPUT_WORDS
         from portable_skill_history import check_layout as history_layout

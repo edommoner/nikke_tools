@@ -71,8 +71,10 @@ bool advanceDestructibleSkillFrame(inout Runtime s,inout DISPATCH_FRAMES(frames)
         uint selected=0;
         if(f.repeatLeft!=0&&DF_HAS_SAMPLE(s,row))
         {
-#ifdef PORTABLE_COORDINATE_TYPED_TARGETS
+#ifdef PORTABLE_COORDINATE_SAMPLED_SKILLS
             beginSampledSkillFrame(s,uint(depth),row);
+#endif
+#ifdef PORTABLE_COORDINATE_TYPED_TARGETS
             if(commands[DT_INPUT(s,5424)+row]==5)results[scratch+536]=typedGeometryPick(s);
 #endif
             frames[depth].healthPrevious=damageValue(s,d.owner,f.healthValue,f.time,false,s.coreBonus,d.damageFlags,ONE,false,false,row);

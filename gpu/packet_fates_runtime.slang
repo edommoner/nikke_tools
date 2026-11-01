@@ -1,4 +1,6 @@
+#ifndef PORTABLE_CUSTOM_PACKET_FATES_LAYOUT
 #include "packet_fates_layout.slang"
+#endif
 #ifndef PF_FLAG_AT
 #define PF_FLAG_AT(output,index) ((output)+PF_FLAGS+(index))
 #endif

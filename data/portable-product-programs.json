@@ -546,6 +546,20 @@
       "output_words": 2032000,
       "mode": "fixed",
       "kind": ""
+    },
+    "coordinate-lock-fixed": {
+      "source": "gpu/product_coordinate_lock_fixed_battle_entry.slang",
+      "input_words": 120816,
+      "output_words": 2558208,
+      "mode": "fixed",
+      "kind": ""
+    },
+    "coordinate-lock-accumulate": {
+      "source": "gpu/product_coordinate_lock_battle_entry.slang",
+      "input_words": 120816,
+      "output_words": 2558208,
+      "mode": "accumulate",
+      "kind": ""
     }
   }
 }

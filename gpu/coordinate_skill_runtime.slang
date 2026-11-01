@@ -59,6 +59,15 @@ void storeCoordinatePacket(inout Runtime s,uint landing,LandingReceipt r)
     uint index=(landing-s.resourceOutput-P_LANDING_STATE_BASE)/P_LANDING_WORDS;
     if(index>=CP_PACKET_COUNT||r.depth==0||r.depth>CP_CASTS){s.error=64;return;}
     uint from=s.resourceOutput+CP_CAST+(r.depth-1)*CP_SNAPSHOT_WORDS,to=s.resourceOutput+CP_PACKETS+index*CP_SNAPSHOT_WORDS;
+#ifdef PORTABLE_PRODUCT_COORDINATE_LOCK
+    // The typed frame already delivered this original projectile skill. Its
+    // queued BODY proposal is disposition history, with no coordinate cast.
+    if(r.row==commands[DF_DESCRIPTOR(s)])
+    {
+        for(uint i=0;i<CP_SNAPSHOT_WORDS;i++)results[to+i]=0;
+        return;
+    }
+#endif
     if(results[from+1]!=0x43505331U||results[from+2]!=r.row||results[from]>127){s.error=64;return;}
     for(uint i=0;i<CP_SNAPSHOT_WORDS;i++)results[to+i]=results[from+i];
     uint head=s.resourceOutput+CP_BASE,n=results[head+3],count=results[to],words=4+count*4;

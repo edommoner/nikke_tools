@@ -1429,6 +1429,27 @@ class ProductReferenceModels(unittest.TestCase):
             with self.assertRaisesRegex(UnsupportedPortable,'explicit.*weighted_incoming'):
                 product.compile_product(missing)
 
+    def test_coordinate_lock_preserves_all_definitions_and_disjoint_complete_arenas(self):
+        import portable_detail as product
+        from portable_product_programs import body_for_program
+        from portable_product_coordinate_lock import check_schema,LockView,SHIFT,OUTPUT,FATE_EXTRA
+        from portable_product_locks import COVER_SKILL_BASE,COVER_FATE_BASE
+        from portable_skill_history import BASE
+        check_schema(ROOT)
+        body=body_for_program(ROOT,'coordinate-lock-accumulate');before=copy.deepcopy(body)
+        with patch.object(sim,'execute',side_effect=AssertionError('No native schedule in input')):
+            prepared,_=product.prepare(body);source,iw,ow,words,meta=product.compile_product(prepared)
+        self.assertEqual(body,before);self.assertEqual((iw,ow,len(words)),(120816,2558208,120816))
+        self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+        self.assertEqual(words[115680+5120],meta['binding_source_indices'].index(meta['product_lock_on']['typed_source']))
+        self.assertEqual(words[115680+2320],3)
+        raw=[0]*OUTPUT
+        for at,value in [(787456+SHIFT,11),(BASE,22),(FATE_EXTRA,33)]:raw[at]=value
+        view=LockView(raw)
+        self.assertEqual([view[787456],view[COVER_SKILL_BASE],view[COVER_FATE_BASE]],[11,22,33])
+        bad=copy.deepcopy(body['reference_models']);bad['enemy_healing']=[]
+        with self.assertRaisesRegex(ValueError,'matching|combined'):normalize(bad)
+
     def test_typed_product_model_rejects_unknown_alias_mixed_owner_and_fixed_geometry(self):
         from portable_product_programs import body_for_program
         from product_typed_model import normalize_product

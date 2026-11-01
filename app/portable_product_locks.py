@@ -39,7 +39,7 @@ def required(prepared):
     return 'lock_on' in prepared.get('reference_models',{}) or any(r['effect'].get('stat')=='lock_on' for r in prepared['effects'])
 
 
-def compile_product(prepared):
+def compile_product(prepared,*,coordinate_model=None):
     from portable_projectile_roster_input import compile_projectile_battle
     from portable_effect_target_count_shot_specs import compile_case as pack_count
     from effect_target_count_policy import MODEL
@@ -51,7 +51,7 @@ def compile_product(prepared):
     from portable_original_lock_layout import check
     from portable_lock_typed_layout import check as check_locks
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
-    if set(declarations)!={'lock_on'}:
+    if set(declarations)!=({'lock_on','coordinate'} if coordinate_model is not None else {'lock_on'}):
         error=UnsupportedPortable('Lock On requires explicit reference_models.lock_on candidate/delivery policies and typed bindings; composition is not connected')
         for r in prepared['effects']:
             e=r['effect']
@@ -60,12 +60,12 @@ def compile_product(prepared):
     from portable_product_fixed import lower as lower_fixed,attach as attach_fixed
     original=prepared
     prepared,fixed_values=lower_fixed(prepared)
-    if prepared['enemy'].get('coord') is not None:raise UnsupportedPortable('Coordinate Lock On needs a combined declared coordinate consumer')
+    if coordinate_model is None and prepared['enemy'].get('coord') is not None:raise UnsupportedPortable('Coordinate Lock On needs a combined declared coordinate consumer')
     spec=normalize(declarations['lock_on']);effects=[r['effect'] for r in prepared['effects']];owners=[r['owner'] for r in prepared['effects']]
     pulse,packet,typed=validate_effects(effects,owners,spec)
     names=[c['name'] for c in prepared['chars']]
     patterns=copy.deepcopy(prepared['enemy'].get('patterns') or [dict(id='portable-empty-world',kind='idle')])
-    parsed=validate(copy.deepcopy(patterns));_,bindings=compile_registry(parsed,pools=True)
+    parsed=validate(copy.deepcopy(patterns),coord=coordinate_model is not None);_,bindings=compile_registry(parsed,pools=True)
     typed_rows=compile_bindings([dict(id=p['id']) for p in patterns],spec['typed_bindings'])[2] if spec['typed_bindings'] else ()
     root=Path(__file__).resolve().parents[1];check(root);check_locks(root)
     case=dict(names=names,base_atk=prepared['base_atk'],effects=copy.deepcopy(effects),owners=[names.index(n) for n in owners],
@@ -78,7 +78,16 @@ def compile_product(prepared):
         lowered['effects'][typed]['effect']['target']='boss'
         lowered['_product_native_equipment_carriers']=True
         if any(a.get('action')=='cover' for ch in prepared['chars'] for a in ch.get('control',{}).get('sequence',[])):lowered['_product_manual_cover']=True
-        words,meta=compile_projectile_battle(lowered,trace='full')
+        if coordinate_model is None:
+            words,meta=compile_projectile_battle(lowered,trace='full')
+        else:
+            from portable_logical_geometry_wire import compile_logical_geometry
+            lowered['enemy']['coord']=copy.deepcopy(coordinate_model['coord'])
+            words,meta,coordinate_bindings,scene=compile_logical_geometry(lowered,coordinate_model['logical_geometry'],allow_empty=True)
+            if coordinate_bindings!=bindings:raise UnsupportedPortable('Coordinate and lock registries differ')
+            if {b.label for b in bindings if int(b.kind)==5}!={r['label'] for r in coordinate_model['logical_geometry']}:raise UnsupportedPortable('Every configured ADD must have one explicit coordinate collider')
+            meta['product_parts']=[dict(name=b.label,slot=i,node=b.run) for i,b in enumerate(bindings) if int(b.kind)==1 and parsed[b.run].id=='authored-live-parts']
+            meta['product_coordinate']=dict(declarations={'coordinate':copy.deepcopy(coordinate_model)},cpu_state_or_schedule_supplied=False)
         return words,meta,bindings
     with patch.object(sys,'path',[str(root/p) for p in ('research','scripts')]+sys.path):
         words,meta,bindings=pack_count(SimpleNamespace(compile_case=world),case,model=MODEL)
@@ -91,8 +100,9 @@ def compile_product(prepared):
         at=2328+i*12;owner=[0xffffffff,0,0] if r.owner is None else [int(r.owner.kind),r.owner.identity,r.owner.generation]
         extra[at:at+8]=[r.node,int(r.handle.kind),r.handle.identity,*struct.unpack('<II',struct.pack('<d',r.capacity)),*owner]
     extra[5120:5124]=[typed_bound[0],128,1,0x44425431];words.extend(extra)
-    if len(words)!=INPUT or set(meta['binding_source_indices'])!=set(range(len(effects))):raise UnsupportedPortable('Complete original Lock On definitions and wire required')
-    meta['product_lock_on']=dict(declarations=declarations,names=names,packet_source=packet,typed_source=typed,
+    expected_input=INPUT if coordinate_model is None else 120816
+    if len(words)!=expected_input or set(meta['binding_source_indices'])!=set(range(len(effects))):raise UnsupportedPortable('Complete original Lock On definitions and wire required')
+    meta['product_lock_on']=dict(declarations={'lock_on':copy.deepcopy(spec)},names=names,packet_source=packet,typed_source=typed,
         bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],
         typed_case=dict(names=names,effects=copy.deepcopy(effects),owners=[names.index(n) for n in owners],skill_levels=[c['skill_levels'] for c in prepared['chars']],typed_bindings=spec['typed_bindings'],max_attacks=128),cpu_state_or_schedule_supplied=False)
     meta['product_manual_cover_owners']=[i for i,c in enumerate(prepared['chars']) if any(a.get('action')=='cover' for a in c.get('control',{}).get('sequence',[]))]
@@ -100,6 +110,11 @@ def compile_product(prepared):
     meta['product_world']=dict(nodes=[dict(id=p.id,kind=p.kind) for p in parsed],literal_pattern_identity_only=True,cpu_schedule_or_state_supplied=False)
     attach_fixed(words,meta,original,fixed_values)
     source='gpu/product_lock_fixed_battle_entry.slang' if fixed_values is not None else SOURCE
+    if coordinate_model is not None:
+        from portable_product_coordinate_lock import INPUT as CI,OUTPUT as CO
+        meta['product_coordinate_lock']=True
+        source='gpu/product_coordinate_lock_'+('fixed_' if fixed_values is not None else '')+'battle_entry.slang'
+        return source,CI,CO,words,meta
     return source,INPUT,OUTPUT,words,meta
 
 

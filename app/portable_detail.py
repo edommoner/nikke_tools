@@ -91,6 +91,9 @@ def _compile_product(prepared):
         return typed_product(prepared)
     from portable_product_cover import required as cover_required,compile_product as compile_cover
     if 'coordinate' in prepared.get('reference_models',{}):
+        if 'lock_on' in prepared['reference_models']:
+            from portable_product_locks import compile_product as locks
+            return locks(prepared,coordinate_model=prepared['reference_models']['coordinate'])
         from portable_product_weighted import required as weighted_required,compile_product as compile_weighted
         if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):
             return compile_weighted(prepared,compile_product)
@@ -307,7 +310,7 @@ def decode_payload(body, prepared, run, metadata, block):
         models.append(typed_result(block,metadata,names,run.config['duration']))
     if metadata.get('product_coordinate'):
         from portable_product_coordinate import read_result,OUTPUT as COORDINATE_OUTPUT
-        models.append(read_result(block[:COORDINATE_OUTPUT] if metadata.get('product_coordinate_cover') or metadata.get('product_coordinate_weighted') else block,metadata,names=names,duration=run.config['duration']))
+        models.append(read_result(block[:COORDINATE_OUTPUT] if metadata.get('product_coordinate_cover') or metadata.get('product_coordinate_weighted') or metadata.get('product_coordinate_lock') else block,metadata,names=names,duration=run.config['duration']))
     if metadata.get('product_enemy_healing') and not metadata.get('product_coordinate_healing'):
         from portable_product_healing import read_result
         from portable_enemy_healing_wire import OUTPUT as healing_output
@@ -343,6 +346,8 @@ def decode_payload(body, prepared, run, metadata, block):
             models.append(model)
     if metadata.get('product_lock_on'):
         from portable_product_locks import read_result
+        if metadata.get('product_coordinate_lock'):
+            from portable_product_coordinate_lock import read_result
         model=read_result(block,metadata,run.config['duration'])
         models.append(model)
     if metadata.get('product_movement_range'):

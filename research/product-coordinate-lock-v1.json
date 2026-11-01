@@ -1,0 +1,472 @@
+{
+  "schema": "product-coordinate-lock-v1",
+  "implementation": {
+    "shared_cuda_metal": true,
+    "new_formulas": 0,
+    "new_suites": 0,
+    "new_auditors": 0,
+    "canonical_cpu_changes": 0,
+    "pinned_changes": 0,
+    "numeric_rules_or_tolerances_changed": false,
+    "all_original_definitions_preserved": true,
+    "prepared_definitions": 91,
+    "input_words": 120816,
+    "output_words": 2558208,
+    "typed_attack_capacity": 128,
+    "complete_skill_history_capacity": 2048,
+    "coordinate_prefix_words": 115680,
+    "legacy_output_shift": 1245568,
+    "wire_description": "Complete original coordinate+logical geometry prefix, followed by original5136-word typed binding descriptor. Entire original typed/lock output arena relocated after complete coordinate/2048-skill-history output, with1920 additional fate flags. No precomputed CPU state or schedule.",
+    "registry_programs": 80
+  },
+  "normal_api": {
+    "original_profiles": 1,
+    "new_profiles": 0,
+    "conditions": 14,
+    "posts": 1,
+    "physical_gpu_dispatches": 3,
+    "seconds": 48.86748875002377,
+    "all_full_cpu_gpu_http_equal": true,
+    "maximum_complete_skill_rows": 219,
+    "saved_audit_extra_battles": 0,
+    "saved_audit_extra_gpu": 0,
+    "final_projection_extra_battles": 0,
+    "final_projection_extra_gpu": 0,
+    "owned_node_process_group_absent": true,
+    "rows": [
+      {
+        "variant": "body-only-fixed",
+        "capture_id": "0c78f99622614d8f846d11346b1091ee",
+        "duration": 30,
+        "input_sha256": "8369e72c7bd4b87cef9e9f4d93600ff296dc6b02ed797fb5d145a2ac95471256",
+        "output_sha256": "b84ad3ccdc01b7495ff6be1a108f9ad54a76d6630a6e9db5b8f14455244f677a",
+        "pulses": 110,
+        "shots": 15,
+        "attacks": 0,
+        "receipts": 0,
+        "generations": [],
+        "remaining": [],
+        "skill_history": 112,
+        "full_cpu_gpu_http_equal": true,
+        "current_release_projection_equal": true
+      },
+      {
+        "variant": "projectiles-fixed",
+        "capture_id": "3f6212d916264b2a8e560134d999f87c",
+        "duration": 30,
+        "input_sha256": "93fffa503fd773867d58326239ad245472e25114df3b6b4864148c3f34d26e1c",
+        "output_sha256": "473fe9bbd25aa11d6da4d70db9ff6feac87fb65b529e213653801130236967f2",
+        "pulses": 110,
+        "shots": 15,
+        "attacks": 1,
+        "receipts": 3,
+        "generations": [
+          1,
+          1,
+          1
+        ],
+        "remaining": [
+          99752831,
+          99752831,
+          99752831
+        ],
+        "skill_history": 113,
+        "full_cpu_gpu_http_equal": true,
+        "current_release_projection_equal": true
+      },
+      {
+        "variant": "broken-fixed",
+        "capture_id": "7170376ff34f4486af90456bddb830b1",
+        "duration": 30,
+        "input_sha256": "c4d29a7011e78e5ebee8813bb0498b2fc2e4f173e1bbaacdfd3820bca731cfd3",
+        "output_sha256": "7d2eca50a775920cf7f3d67a32fb8a6e08dcc9fb803d39d9e06624bf1ac907f7",
+        "pulses": 110,
+        "shots": 15,
+        "attacks": 1,
+        "receipts": 3,
+        "generations": [
+          1,
+          1,
+          1
+        ],
+        "remaining": [
+          0,
+          0,
+          0
+        ],
+        "skill_history": 113,
+        "full_cpu_gpu_http_equal": true,
+        "current_release_projection_equal": true
+      },
+      {
+        "variant": "not-born-fixed",
+        "capture_id": "73213ea78a7049d693041ba06b083f71",
+        "duration": 30,
+        "input_sha256": "880d6c8cacf0b8e567ee33178758312f93769ba05d8290ccd89cd93dba5e46ee",
+        "output_sha256": "20121fafe373ec81d56155f976d2a87e580ac76e80e2d28dab300a4eaae9fb61",
+        "pulses": 110,
+        "shots": 15,
+        "attacks": 0,
+        "receipts": 0,
+        "generations": [
+          1,
+          1,
+          1
+        ],
+        "remaining": [
+          100000000,
+          100000000,
+          100000000
+        ],
+        "skill_history": 112,
+        "full_cpu_gpu_http_equal": true,
+        "current_release_projection_equal": true
+      },
+      {
+        "variant": "renewal-fixed",
+        "capture_id": "543faa4ba66c4b14b70c3f5ebad153e7",
+        "duration": 30,
+        "input_sha256": "16d296694d6244908f3930a0393fbb218006a7d6939552fc367c510862ad4285",
+        "output_sha256": "5b887d0d1360498edcddce95a01b8aef598d972955489899525acef9ac00c898",
+        "pulses": 110,
+        "shots": 15,
+        "attacks": 1,
+        "receipts": 3,
+        "generations": [
+          3,
+          3,
+          3
+        ],
+        "remaining": [
+          100000000,
+          100000000,
+          100000000
+        ],
+        "skill_history": 113,
+        "full_cpu_gpu_http_equal": true,
+        "current_release_projection_equal": true
+      },
+      {
+        "variant": "two-adds-fixed",
+        "capture_id": "516228f0b45c4ea88781707f8dbb7861",
+        "duration": 30,
+        "input_sha256": "0d3c9e1a49540b7d0e06d7f3078b52b777ecb281adf4d66478b65ad9bc4d0c8e",
+        "output_sha256": "9871a6fee39e47adcfac5a0cd1fbe3c863fad0d13b6be4840cb344eed544ad68",
+        "pulses": 110,
+        "shots": 15,
+        "attacks": 1,
+        "receipts": 3,
+        "generations": [
+          1,
+          1,
+          1
+        ],
+        "remaining": [
+          99752831,
+          99752831,
+          99752831
+        ],
+        "skill_history": 113,
+        "full_cpu_gpu_http_equal": true,
+        "current_release_projection_equal": true
+      },
+      {
+        "variant": "long56-fixed",
+        "capture_id": "1c021f648eb144c1b129d771ebe5f72d",
+        "duration": 56,
+        "input_sha256": "cbc2620f59f5485e380a7f429a38802d87f0a4c6262ca51f74611daef930e4e5",
+        "output_sha256": "b3c91070a3841a8252e6df12e1578aae81831fd5666083324b9520ba95a2cdef",
+        "pulses": 214,
+        "shots": 29,
+        "attacks": 2,
+        "receipts": 6,
+        "generations": [
+          1,
+          1,
+          1
+        ],
+        "remaining": [
+          99604875,
+          99604875,
+          99604875
+        ],
+        "skill_history": 219,
+        "full_cpu_gpu_http_equal": true,
+        "current_release_projection_equal": true
+      },
+      {
+        "variant": "body-only-accumulate",
+        "capture_id": "e28d6a41950e41a4826a3cfa2e2e85d5",
+        "duration": 30,
+        "input_sha256": "3524e7532a11fb2fa83ed2ef84ab7c8b428a5cd84279f96a5a9883b9248a6c3c",
+        "output_sha256": "7bcb5b4665400693b1ffaff0d986d26309f6920e1d2f1247960b84b1c8d7e9d7",
+        "pulses": 110,
+        "shots": 15,
+        "attacks": 0,
+        "receipts": 0,
+        "generations": [],
+        "remaining": [],
+        "skill_history": 112,
+        "full_cpu_gpu_http_equal": true,
+        "current_release_projection_equal": true
+      },
+      {
+        "variant": "projectiles-accumulate",
+        "capture_id": "04fd3f14b547429dbfb03be05b4ae92f",
+        "duration": 30,
+        "input_sha256": "37bb5ace2c997fcfbb00bbd7ee77ce1d80f585330de387cb258971415ee346cd",
+        "output_sha256": "9df21ce47375e3b0d534879e70ce1c928a23b7160f7550618ec9b11dde7376e9",
+        "pulses": 110,
+        "shots": 15,
+        "attacks": 1,
+        "receipts": 3,
+        "generations": [
+          1,
+          1,
+          1
+        ],
+        "remaining": [
+          99752831,
+          99752831,
+          99752831
+        ],
+        "skill_history": 113,
+        "full_cpu_gpu_http_equal": true,
+        "current_release_projection_equal": true
+      },
+      {
+        "variant": "broken-accumulate",
+        "capture_id": "f1ddd4636e6d4f4cba863cdf2de98742",
+        "duration": 30,
+        "input_sha256": "8a7b5d33394c6f87313ae189440af0f5d8e567ff9d0301bd067d529e9b0dac3f",
+        "output_sha256": "bf1ae054d160ed1d8da0fa8cf1377728d98d047050080cdfdaa24190fe1db4ef",
+        "pulses": 110,
+        "shots": 15,
+        "attacks": 1,
+        "receipts": 3,
+        "generations": [
+          1,
+          1,
+          1
+        ],
+        "remaining": [
+          0,
+          0,
+          0
+        ],
+        "skill_history": 113,
+        "full_cpu_gpu_http_equal": true,
+        "current_release_projection_equal": true
+      },
+      {
+        "variant": "not-born-accumulate",
+        "capture_id": "961c48f798b64a93be635b0c54b55450",
+        "duration": 30,
+        "input_sha256": "004516f4ee06cf035e9eb794c719e3de1995c151c721103272e6b65d25a5a679",
+        "output_sha256": "86c57794129abb387c07316af68751a68b0094685dd256d24e944a3cd8198b8e",
+        "pulses": 110,
+        "shots": 15,
+        "attacks": 0,
+        "receipts": 0,
+        "generations": [
+          1,
+          1,
+          1
+        ],
+        "remaining": [
+          100000000,
+          100000000,
+          100000000
+        ],
+        "skill_history": 112,
+        "full_cpu_gpu_http_equal": true,
+        "current_release_projection_equal": true
+      },
+      {
+        "variant": "renewal-accumulate",
+        "capture_id": "6047ed1cb9d14777b07c2cc6f9b20c2d",
+        "duration": 30,
+        "input_sha256": "d33f9fe800c7f270ad8987f253ac468367606f0f3f0cf0543fa747a7aaec46dc",
+        "output_sha256": "46ef3225fb8395697f0b412c2b0d30bfc494962e40988103f14811267f47bde1",
+        "pulses": 110,
+        "shots": 15,
+        "attacks": 1,
+        "receipts": 3,
+        "generations": [
+          3,
+          3,
+          3
+        ],
+        "remaining": [
+          100000000,
+          100000000,
+          100000000
+        ],
+        "skill_history": 113,
+        "full_cpu_gpu_http_equal": true,
+        "current_release_projection_equal": true
+      },
+      {
+        "variant": "two-adds-accumulate",
+        "capture_id": "7d5beaca5b6445f995f0b7b5059afd8c",
+        "duration": 30,
+        "input_sha256": "0be04d8a04f19fda5143d0c78e92d932c467726be0cbef6368ec2ecb5f2ce897",
+        "output_sha256": "54a039fa94e79e208a589c5b145516a3a463202d500e4f95142042e5b05f43ae",
+        "pulses": 110,
+        "shots": 15,
+        "attacks": 1,
+        "receipts": 3,
+        "generations": [
+          1,
+          1,
+          1
+        ],
+        "remaining": [
+          99752831,
+          99752831,
+          99752831
+        ],
+        "skill_history": 113,
+        "full_cpu_gpu_http_equal": true,
+        "current_release_projection_equal": true
+      },
+      {
+        "variant": "long56-accumulate",
+        "capture_id": "58051a2ab4da486d8868cd476fe2c8c6",
+        "duration": 56,
+        "input_sha256": "edb52b56486b318c5c7393a6e5d2f2c592cc894d221f5462226d25c48ea96b92",
+        "output_sha256": "33650b1e8b313f829a01873ff10371906c3279b790da35c73c8a90a8e5c79e79",
+        "pulses": 214,
+        "shots": 29,
+        "attacks": 2,
+        "receipts": 6,
+        "generations": [
+          1,
+          1,
+          1
+        ],
+        "remaining": [
+          99604875,
+          99604875,
+          99604875
+        ],
+        "skill_history": 219,
+        "full_cpu_gpu_http_equal": true,
+        "current_release_projection_equal": true
+      }
+    ]
+  },
+  "cli": {
+    "independent_native_and_m5_cases": 1,
+    "independent_seal_passed": true,
+    "baseline_version": 55,
+    "new_sealed_member": "coordinate-lock-accumulate",
+    "old40_members_preserved": true,
+    "fixed_api_verified": true,
+    "fixed_independent_cli_baseline_registered": false
+  },
+  "release": {
+    "owner": "8abb7645fcf14ca911a1ddfa5abf36c6a74f010f68f35531525c1c66e8deb0d4",
+    "own_unit_tests": 169,
+    "own_cpu_deps_ptx_o1_plans_passed": true,
+    "changed_paths_after_gpu": [
+      "app/portable_product_coordinate_lock.py",
+      "app/portable_product_programs.py",
+      "app/portable_weighted_incoming_source_contract.py"
+    ],
+    "only_golden_pointer_guard_sha_and_additional_unowned_bank_rejection": true
+  },
+  "negative_saved_output_guards": [
+    {
+      "name": "typed reserved prefix",
+      "word": 2032016,
+      "rejected": true
+    },
+    {
+      "name": "typed clock gap",
+      "word": 2034832,
+      "rejected": true
+    },
+    {
+      "name": "typed receipt gap",
+      "word": 2168688,
+      "rejected": true
+    },
+    {
+      "name": "typed clear tail",
+      "word": 2202976,
+      "rejected": true
+    },
+    {
+      "name": "unused full fate tail",
+      "word": 2558207,
+      "rejected": true
+    },
+    {
+      "name": "skill coefficient binary",
+      "word": 2035574,
+      "rejected": true
+    },
+    {
+      "name": "skill source",
+      "word": 2035569,
+      "rejected": true
+    },
+    {
+      "name": "lock owner",
+      "word": 2294148,
+      "rejected": true
+    },
+    {
+      "name": "unused complete skill page",
+      "word": 1865583,
+      "rejected": true
+    }
+  ],
+  "retained_failures": [
+    {
+      "stage": "static scout1",
+      "reason": "Updated shared shader output branch before its generator; exact schema guard stopped before CPU/GPU. Updated generator too."
+    },
+    {
+      "stage": "registry unit",
+      "reason": "Explicit coordinate program set needed new two entries; math unchanged."
+    },
+    {
+      "stage": "Metal P1",
+      "status": 16,
+      "reason": "Typed skill continuation did not initialize common sampled coordinate coefficient frame; added existing shared sampled-skill hook."
+    },
+    {
+      "stage": "Metal P2",
+      "status": 64,
+      "reason": "Already-delivered typed skill queued its disposition-only BODY proposal without an ordinary coordinate cast. Existing coordinate queue store now explicitly skips/clears coordinate snapshot for this checked typed source, while preserving full proposal/fate/ordinary history."
+    }
+  ],
+  "native_contract": {
+    "p1_p2_p3_input_hash_exact": true,
+    "p1_p2_p3_native_fingerprints_exact": true,
+    "expected_hashes_not_changed_to_hide_mismatch": true
+  },
+  "windows": {
+    "new_coordinate_lock_cuda_verified": false,
+    "new_request_sent": false,
+    "old_missing7_stop_preserved_unknown": true
+  },
+  "standard_profiles": {
+    "metal_previous_verified": 263,
+    "cuda_historical_verified": 263,
+    "total": 266,
+    "new_profiles": 0,
+    "current_full_matrix_revalidated": false,
+    "configured_original_historical_each": 266
+  },
+  "declared_coordinate_and_lock_models_game_verified": false,
+  "whole_environment_preservation_verified": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Typed weapon interception and Lock On combined in the same declared typed geometry world",
+    "Independent cover/ammo/healing/weighted consumer combinations with coordinate Lock On",
+    "Short current CUDA verification and saved full output comparison"
+  ]
+}

@@ -1,3 +1,11 @@
+## 座標とLock On・元飛翔体スキル
+
+通常APIで`reference_models.coordinate`と`lock_on`を併用できます。元のBODY優先・ADD出現順・生存凍結対象規約のまま、実座標の武器計算と元`all_projectiles`スキルを共通実行器へ接続します。飛翔体は`lock_on.typed_bindings`の明示対象で、武器による形状迎撃を加えた意味ではありません。
+
+`coordinate-lock-accumulate`は独立Metal/native seal済みv55で旧40基準保持。`coordinate-lock-fixed`は通常API実証済み、CLIは`--develop`です。両mode×生存/破壊/未出現/世代更新/ADD併存/56秒を含む14条件がCPU/GPU/全返却値一致し、56秒の219skill rowsを完全保持しました。既存typed attack128とskill2048の容量を維持し、結果は元の厳密なdecoderで読み取ります。
+
+input120816/output2558208wordはPython/Swift双方で登録済みです。全履歴を持つ座標prefixの後ろへ元typed/lock領域全体を移しており、CPUのHP・target list・scheduleはGPU入力へ渡しません。cover/ammo/healing/weightedやtyped武器迎撃との未接続合成は理由付きfallbackを維持します。新CUDA実機・ゲーム距離規則は未検証です。[検証と失敗保持](../research/product-coordinate-lock-v1.json)。
+
 ## 飛翔体・HPシールドと既存スキルの製品経路
 
 通常APIの`reference_models.typed_targets`は、明示した座標・形状・照準・BODY所有の飛翔体またはHPシールドを既存共通武器実行器へ接続します。`typed-accumulate`は独立seal済み、`typed-fixed`は通常API検証済みでCLIは`--develop`です。両モード計16条件の全CPU/GPU/HTTPが一致しました。[検証範囲](../research/product-typed-targets-v1.json)。

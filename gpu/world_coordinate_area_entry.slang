@@ -21,7 +21,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 {
     if(id.x>=commands[0])return;
-#if defined(PORTABLE_PRODUCT_COVER_MOVEMENT_RANGE)
+#if defined(PORTABLE_PRODUCT_COORDINATE_LOCK)
+    uint input=1+id.x*120816U,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
+#elif defined(PORTABLE_PRODUCT_COVER_MOVEMENT_RANGE)
     uint input=1+id.x*(NRB_INPUT+CDF_WORDS),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_PRODUCT_MOVEMENT_RANGE)
     uint input=1+id.x*NRB_INPUT,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
@@ -132,6 +134,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 #ifdef PORTABLE_ENEMY_AMMO
     if(!initializeEnemyAmmo(s)){results[output]=64;return;}
+#endif
+#ifdef PORTABLE_PRODUCT_COORDINATE_LOCK
+    if(!initializeCoordinateLocks(s)){results[output]=64;return;}
 #endif
     uint queries;executePortableCommands(s,input,output,queries);
     for(uint i=5;i<16;i++)results[output+CP_BASE+i]=0;

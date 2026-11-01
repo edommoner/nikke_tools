@@ -1,3 +1,15 @@
+## 2026-11-02 座標＋Lock On／元飛翔体スキルを通常Metal14条件で接続
+
+前turnは非座標Heavy Armsの製品decoder修正までprogress。今回は通常reference_models.coordinate＋lock_onを同じRuntimeへ接続。既存の座標/論理ADD入力115680wordを全保持し、元typed descriptor5136wordを追加。出力は完全な座標＋2048skill履歴2032000wordの後ろへ、元typed/lock arena786432..1310720をSHIFT1245568で一括移設し、fate継続1920wordを追加。OUTPUT2558208、input120816。typed attack128/skill2048/lock shot31等の容量を削らない。両modeの2薄entry、元Slang/効果/CPU adapter/strict readerを再利用、新suite/監査器/式0、CPU正本4file/pinned/数値規約変更0。Swift/Python wireとschema生成器も同時登録。
+
+元Heavy91定義とequipment全保持。静的scout1はshader出力branchとgenerator差でpre-device拒否、双方修正。CLI registryの明示set更新も数値変更なし。P1実M5 status16は共通typed継続に座標のsampled係数frame初期化がなく、元の共有begin hookを使用するよう修正。P2 status64はtyped着弾後の記録用BODY proposalが普通の座標cast無しでqueue storeへ入っていたため、checked typed sourceだけ座標snapshotをclear/skipし、元proposal/fate/通常skill履歴は保持。P1/P2/P3の全inputとnative指紋は完全同一、旧claim/raw/失敗を保持。P3実M5＋GPU禁止独立seal成功。
+
+通常API14条件＝両mode×BODY-only/projectiles/broken/not-born/renewal/two-adds/long56、1POST/3physicalM5/48.867秒、全CPU/GPU/HTTP一致。破壊/未出現/再出現/有限ADD/56秒を確認し、long56は実219skill rowsで元128を超えた全履歴を保持。保存監査14と最終release再投影14は追加battle/GPU0、parent/member slice/全raw/input/current Slang/全payload一致、専用Node group absent。typed reserved4領域/未使用fate末尾/係数binary/source/Lock owner/完全skillページ末尾の9改ざんもstrict readerで拒否。
+
+最終owner8abb7645fcf14ca911a1ddfa5abf36c6a74f010f68f35531525c1c66e8deb0d4、自身169CPU/依存/PTX/O1計画成功。GPU後のapp差はGOLDEN pointer/strict ledger SHA/未所有bankの追加拒否だけ。v55へcoordinate-lock-accumulate1member追加、旧40全保持、fixedは通常API成功・独立CLI未登録。research/product-coordinate-lock-v1.json、proofs/product-coordinate-lock-v1-20261102参照。
+
+新profile加算0、元Heavy1profileの追加14条件。標準Metal263/266・CUDA従来263/266、明示モデル別historical各266/266は不変、current全matrix再認定ではない。新coordinate Lock OnのCUDAはまだ未検証。Windows旧healing missing7 unknown/停止は保持し、同処理は再依頼していない。最新read_threadでは同chat idle/診断terminalを確認。次の候補は同じ新kernelのlong56-accumulate1条件だけで、元M5のfull219skill/2typed attacks/6receipts/214pulses/29shotsを比較する。未接続はtyped武器の形状による迎撃とLock Onの同時世界、cover/ammo/healing/weightedとの合成。declared modelをゲーム仕様へ昇格しない。全goal未完了。以下は履歴。
+
 ## 2026-11-02 Heavy Arms飛翔体スキルの製品読取器を分離、通常Metal4条件
 
 前turnはtyped武器16条件までprogress。今回は実original all_projectilesを調査し、該当はHeavy Armsの元burst_cast skill1定義と確認。既存Lock On製品経路にはこのskillを処理する共通typed frameがあるので、同じ計算本体を再利用。portable_world_result.read_typed_battleのskill分岐に研究用roster observer importが残っていたため、portable_product_locksから元effect/owner/skill_levelsだけで求めた静的係数を渡し、既存の完全なsource/係数binary照合を維持した。sampled係数がある場合は研究moduleをimportしない。新shader/式/suite/program/監査器0、CPU正本4file/pinned/数値規約変更0。
