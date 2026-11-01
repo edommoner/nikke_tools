@@ -1,0 +1,665 @@
+{
+  "schema": "product-typed-long30-v1",
+  "scope": "Ordinary30s declared product,3moving ADDs, original Elegg/Yuni/Yan and optional Heavy Arms. Complete public physical/movement/shot-quota histories across previous capacity boundaries; game policies remain declared.",
+  "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-typed-long-run-v2-20261102",
+  "execution_owners": {
+    "lock": "63660cf1ae07558b04fe6e5bf45dd730185caffff8f7d6006fa6c24c35f73007",
+    "standalone": "7d92294287d347e09434305b670534c4306173ca029d3f526b6b96e54c9f55b7"
+  },
+  "release_owner": "1d5a81cd625233bf1c4df21d67c0a2beae209969fc2cf9d3bd63710c63094b53",
+  "diagnosed_old_limits": {
+    "rows": [
+      {
+        "program": "typed-accumulate",
+        "frames": 5403,
+        "segments": 5400,
+        "weapon_packets": 2484,
+        "nearby_casts": 10,
+        "lock_shots": 0
+      },
+      {
+        "program": "typed-lock-accumulate",
+        "frames": 5403,
+        "segments": 5400,
+        "weapon_packets": 2094,
+        "nearby_casts": 10,
+        "lock_shots": 15
+      }
+    ],
+    "old_movement_capacity": 4096,
+    "old_weapon_capacity": 2048,
+    "gpu_calls": 0
+  },
+  "implementation": {
+    "shared_cuda_metal_slang": true,
+    "new_suites": 0,
+    "new_auditors": 0,
+    "new_shader_entries": 0,
+    "new_modules": 0,
+    "new_layout_files": 0,
+    "input_words_unchanged": 123732,
+    "standalone_output_words": 2345384,
+    "lock_output_words": 2945320,
+    "movement_frames_and_segments_capacity": 8192,
+    "weapon_packet_capacity": 4096,
+    "weapon_first2048_rows_original_addresses": true,
+    "weapon_overflow_scratch_explicitly_owned": true,
+    "lock_shot_quota_capacity": 4096,
+    "lock_first2048_quotas_original_addresses": true,
+    "lock_team_event_capacity": 8192,
+    "lock_first4096_team_rows_original_addresses": true,
+    "unused_spill_and_tail_words_checked": true,
+    "one_complete_physical_sha_over_prefix_and_spill": true,
+    "canonical_cpu_changed": false,
+    "pinned_changed": false,
+    "numerical_rules_changed": false,
+    "tolerances_changed": false,
+    "effects_omitted": false
+  },
+  "product": {
+    "base_compositions": 2,
+    "conditions": 12,
+    "additional_original_inventory_profiles": 0,
+    "all12_motion_frames_exceed_old_capacity": true,
+    "conditions_with_weapon_history_beyond2048": 8,
+    "conditions_with_quotas_beyond2048": 4,
+    "positive_nearby_conditions": 8,
+    "inactive_nearby_conditions": 4,
+    "renewal_generation4_conditions": 4,
+    "physical_dispatches": 8,
+    "physical_cases": 12,
+    "rows": [
+      {
+        "variant": "typed-fixed-nearby-30s",
+        "original_effects": 72,
+        "duration": 30.0,
+        "movement_frames": 5403,
+        "movement_segments": 5400,
+        "weapon_packets": 2484,
+        "weapon_spill_rows": 436,
+        "shot_quotas": 0,
+        "quota_spill_rows": 0,
+        "lock_shots": 0,
+        "nearby_casts": 10,
+        "max_generation": 1,
+        "preexisting_standalone_diagnostic_omission_counters": {
+          "fraction_omitted": 2860,
+          "team_omitted": 3884
+        },
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "a3d67ebad8e04f118b99e2ba0e2b1b0b",
+        "input_sha256": "07046c7920f66f0a2e8b819bb6ebbff6128e11822676f309831054d0e24df1b2",
+        "output_sha256": "f343305d23e337a19ca710ae62b97999f9daa85c1d17259c37ba76ac3e6c19d2"
+      },
+      {
+        "variant": "typed-fixed-renewal-30s",
+        "original_effects": 72,
+        "duration": 30.0,
+        "movement_frames": 5403,
+        "movement_segments": 5388,
+        "weapon_packets": 2484,
+        "weapon_spill_rows": 436,
+        "shot_quotas": 0,
+        "quota_spill_rows": 0,
+        "lock_shots": 0,
+        "nearby_casts": 7,
+        "max_generation": 4,
+        "preexisting_standalone_diagnostic_omission_counters": {
+          "fraction_omitted": 2860,
+          "team_omitted": 3884
+        },
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "835f52855dc944bb8923d9bb4f8f2d6f",
+        "input_sha256": "a7526158aa8f072293acfb3e35592899fe775513d44cd1761f9fa99b70701b6f",
+        "output_sha256": "99d44c0ea546922d829b10419698504fc1f9c92c7d4d526c3c7f0210993567c9"
+      },
+      {
+        "variant": "typed-accumulate-nearby-30s",
+        "original_effects": 72,
+        "duration": 30.0,
+        "movement_frames": 5403,
+        "movement_segments": 5400,
+        "weapon_packets": 2484,
+        "weapon_spill_rows": 436,
+        "shot_quotas": 0,
+        "quota_spill_rows": 0,
+        "lock_shots": 0,
+        "nearby_casts": 10,
+        "max_generation": 1,
+        "preexisting_standalone_diagnostic_omission_counters": {
+          "fraction_omitted": 2860,
+          "team_omitted": 3884
+        },
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "ef1b63e824f748ea87f361f26a0be04b",
+        "input_sha256": "9f3fb191a0240a76aaf46f49f06d35a4cab6882ce8a732207eb97a364e59d721",
+        "output_sha256": "099d6cd66a457a9c4708e9f0b72a239e91c3809f39c79cf4891d068e26d9a626"
+      },
+      {
+        "variant": "typed-accumulate-renewal-30s",
+        "original_effects": 72,
+        "duration": 30.0,
+        "movement_frames": 5403,
+        "movement_segments": 5388,
+        "weapon_packets": 2484,
+        "weapon_spill_rows": 436,
+        "shot_quotas": 0,
+        "quota_spill_rows": 0,
+        "lock_shots": 0,
+        "nearby_casts": 5,
+        "max_generation": 4,
+        "preexisting_standalone_diagnostic_omission_counters": {
+          "fraction_omitted": 2860,
+          "team_omitted": 3884
+        },
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "5cb252e374de452dbb5ea2a337356e10",
+        "input_sha256": "9b33f86faad8c222a6217d8844239b59e5f58d01ff1f97d4a30b2705939ac9b8",
+        "output_sha256": "8858f9b8cb8c29a053574323516d4a2c0b79244eb192d29452a9194748fa4ea6"
+      },
+      {
+        "variant": "typed-lock-fixed-nearby-30s",
+        "original_effects": 92,
+        "duration": 30.0,
+        "movement_frames": 5403,
+        "movement_segments": 5400,
+        "weapon_packets": 2094,
+        "weapon_spill_rows": 46,
+        "shot_quotas": 2049,
+        "quota_spill_rows": 1,
+        "lock_shots": 15,
+        "nearby_casts": 10,
+        "max_generation": 1,
+        "preexisting_standalone_diagnostic_omission_counters": {
+          "fraction_omitted": 0,
+          "team_omitted": 0
+        },
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "8311380d9b98491caa7104ac23f96c73",
+        "input_sha256": "924dac998adbc8b930b35a118077ca7f09240dfc5b978976147535121c676c14",
+        "output_sha256": "0b7543720c673aacc612ea23db5e8c7c659bee228fdff23aa9fcc59822be82d7"
+      },
+      {
+        "variant": "typed-lock-fixed-renewal-30s",
+        "original_effects": 92,
+        "duration": 30.0,
+        "movement_frames": 5403,
+        "movement_segments": 5388,
+        "weapon_packets": 2094,
+        "weapon_spill_rows": 46,
+        "shot_quotas": 2049,
+        "quota_spill_rows": 1,
+        "lock_shots": 15,
+        "nearby_casts": 7,
+        "max_generation": 4,
+        "preexisting_standalone_diagnostic_omission_counters": {
+          "fraction_omitted": 0,
+          "team_omitted": 0
+        },
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "4a74534b591846e2801d3a52267e7c8b",
+        "input_sha256": "5a11c1de6a9f86c918dd09a6e0b2ff97c174fc8b91dcbb04bff3487d16419363",
+        "output_sha256": "ed9e2c25b60f42377b1bdac0c516c2b3594fe5449a32595081ed204699fa3f34"
+      },
+      {
+        "variant": "typed-lock-accumulate-nearby-30s",
+        "original_effects": 92,
+        "duration": 30.0,
+        "movement_frames": 5403,
+        "movement_segments": 5400,
+        "weapon_packets": 2094,
+        "weapon_spill_rows": 46,
+        "shot_quotas": 2049,
+        "quota_spill_rows": 1,
+        "lock_shots": 15,
+        "nearby_casts": 10,
+        "max_generation": 1,
+        "preexisting_standalone_diagnostic_omission_counters": {
+          "fraction_omitted": 0,
+          "team_omitted": 0
+        },
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "a1fed52fbff14813bab35eab71fceb56",
+        "input_sha256": "5ddcb91771da543280ce233ef7df42928074c7877f70d33438b708d7a1b8adca",
+        "output_sha256": "efaf831baa7c32adb6235a10c5d0ef47e0d0337f9293bad5a06572981c3527d5"
+      },
+      {
+        "variant": "typed-lock-accumulate-renewal-30s",
+        "original_effects": 92,
+        "duration": 30.0,
+        "movement_frames": 5403,
+        "movement_segments": 5388,
+        "weapon_packets": 2094,
+        "weapon_spill_rows": 46,
+        "shot_quotas": 2049,
+        "quota_spill_rows": 1,
+        "lock_shots": 15,
+        "nearby_casts": 5,
+        "max_generation": 4,
+        "preexisting_standalone_diagnostic_omission_counters": {
+          "fraction_omitted": 0,
+          "team_omitted": 0
+        },
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "bac4e9544b754bcea65d8fe40b10e537",
+        "input_sha256": "0f3eb06949581572fe0e5236167e66213d8999429b11934b7b61cccc388b68c3",
+        "output_sha256": "0711db6721ab2bc6f4ca26b077b5428d8b61a0e2d9473ec064b28dc07e1ab2e3"
+      },
+      {
+        "variant": "typed-fixed-force-first-30s",
+        "original_effects": 72,
+        "duration": 30.0,
+        "movement_frames": 5403,
+        "movement_segments": 5412,
+        "weapon_packets": 1863,
+        "weapon_spill_rows": 0,
+        "shot_quotas": 0,
+        "quota_spill_rows": 0,
+        "lock_shots": 0,
+        "nearby_casts": 0,
+        "max_generation": 1,
+        "preexisting_standalone_diagnostic_omission_counters": {
+          "fraction_omitted": 1588,
+          "team_omitted": 2612
+        },
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "441839998d0f4adca7ba5ea21811dc70",
+        "input_sha256": "dc6204591c3bafcdf28ada643b0bd879965cd047f42840060f7bfcc5df848934",
+        "output_sha256": "900a8568389bdb4d09e3d47f73322f0c24d2a84d4fc9fcb2aa5016ee8e536d20"
+      },
+      {
+        "variant": "typed-accumulate-force-first-30s",
+        "original_effects": 72,
+        "duration": 30.0,
+        "movement_frames": 5403,
+        "movement_segments": 5412,
+        "weapon_packets": 1863,
+        "weapon_spill_rows": 0,
+        "shot_quotas": 0,
+        "quota_spill_rows": 0,
+        "lock_shots": 0,
+        "nearby_casts": 0,
+        "max_generation": 1,
+        "preexisting_standalone_diagnostic_omission_counters": {
+          "fraction_omitted": 1588,
+          "team_omitted": 2612
+        },
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "408137bd0d454002997ec77c9b71bfe7",
+        "input_sha256": "4eb5d0c3e4d49b474a2182afec56b9b7feb75a20f5caa64a3c2377674954b27b",
+        "output_sha256": "8bef8eec29b1a532505e8ac1542c9b9ff180a3b88ff73e378ded58fd747bf91b"
+      },
+      {
+        "variant": "typed-lock-fixed-force-first-30s",
+        "original_effects": 92,
+        "duration": 30.0,
+        "movement_frames": 5403,
+        "movement_segments": 5412,
+        "weapon_packets": 1473,
+        "weapon_spill_rows": 0,
+        "shot_quotas": 1413,
+        "quota_spill_rows": 0,
+        "lock_shots": 15,
+        "nearby_casts": 0,
+        "max_generation": 1,
+        "preexisting_standalone_diagnostic_omission_counters": {
+          "fraction_omitted": 0,
+          "team_omitted": 0
+        },
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "ac21baa4e4974dacb3df6a91a3644db5",
+        "input_sha256": "59c2a482e884f059e568f8b3fae6aa532269d78cf4020d90723e6bd03e6f6d73",
+        "output_sha256": "5c22de9fe66d79d991971ee8c082ac81040491f57ca267a84534f0a950f6155d"
+      },
+      {
+        "variant": "typed-lock-accumulate-force-first-30s",
+        "original_effects": 92,
+        "duration": 30.0,
+        "movement_frames": 5403,
+        "movement_segments": 5412,
+        "weapon_packets": 1473,
+        "weapon_spill_rows": 0,
+        "shot_quotas": 1413,
+        "quota_spill_rows": 0,
+        "lock_shots": 15,
+        "nearby_casts": 0,
+        "max_generation": 1,
+        "preexisting_standalone_diagnostic_omission_counters": {
+          "fraction_omitted": 0,
+          "team_omitted": 0
+        },
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "4d0e0c8d4c91431f9932d4e9ddb16554",
+        "input_sha256": "8f046cd5c305b2f73d47d2d1eaaad8b5d6afab24fed0867fca5f229314d6de2b",
+        "output_sha256": "9c0955d93881f89a95096902aeee0aa803c4f488d75bb4a4135d9aea53ed5150"
+      }
+    ],
+    "api_seconds": 117.44624520896468,
+    "saved_audits": 12,
+    "final_release_projections": 12,
+    "extra_audit_battles": 0,
+    "extra_audit_gpu": 0,
+    "owned_node_process_group_absent": true
+  },
+  "cli": {
+    "programs": [
+      "typed-accumulate",
+      "typed-lock-accumulate"
+    ],
+    "actual_metal_cases_each": 6,
+    "independent_gpu_forbidden_audits": [
+      {
+        "package_id": "63660cf1ae07558b04fe6e5bf45dd730185caffff8f7d6006fa6c24c35f73007",
+        "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-typed-long-run-v2-20261102/metal-v1",
+        "child_pid": 66525,
+        "input_count": 6,
+        "native_cases": 6,
+        "live_parent_receipt_present": false,
+        "elapsed_seconds": 7.0216234169201925,
+        "gpu_calls": 0,
+        "calculation_verified": true,
+        "input_sha256": "617d965c221cf1f9629ff151406cfbe95f40a9b659cff2138cbc2a2c51c6a689",
+        "output_sha256": "b2611acff55e6d5f04bee0cfc27354b9e6f764f8ef11703780b47b640f8fc1b6",
+        "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+        "schema": "independent-metal-audit-v1"
+      },
+      {
+        "package_id": "7d92294287d347e09434305b670534c4306173ca029d3f526b6b96e54c9f55b7",
+        "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-typed-long-run-v2-20261102/standalone-metal-v1",
+        "child_pid": 66654,
+        "input_count": 6,
+        "native_cases": 6,
+        "live_parent_receipt_present": false,
+        "elapsed_seconds": 4.95293824991677,
+        "gpu_calls": 0,
+        "calculation_verified": true,
+        "input_sha256": "d83a3b2c9ee32c5eda1d506688e1fc537617a3af3384bfe0da76cb0804c00ca9",
+        "output_sha256": "9dd9893b854ac88de33eb22982e8b66694d6fdd1fa45fcad6bc19b8206fe78ad",
+        "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+        "schema": "independent-metal-audit-v1"
+      }
+    ],
+    "old5_native_hashes_each_exact": true,
+    "retention": {
+      "rows": [
+        {
+          "program": "lock",
+          "index": 0,
+          "full_input_exact": true,
+          "old_nonmovement_bytes_exact_except_explicit_capacity_field": true,
+          "capacity_field": {
+            "word": 2202980,
+            "old": 2048,
+            "new": 4096
+          },
+          "old_movement_header_state_frames_exact": true,
+          "all_old_segment_rows_relocated_byte_exact": true,
+          "added_frame_segment_and_other_spill_words_zero": true,
+          "raw_values_masked": false
+        },
+        {
+          "program": "lock",
+          "index": 1,
+          "full_input_exact": true,
+          "old_nonmovement_bytes_exact_except_explicit_capacity_field": true,
+          "capacity_field": {
+            "word": 2202980,
+            "old": 2048,
+            "new": 4096
+          },
+          "old_movement_header_state_frames_exact": true,
+          "all_old_segment_rows_relocated_byte_exact": true,
+          "added_frame_segment_and_other_spill_words_zero": true,
+          "raw_values_masked": false
+        },
+        {
+          "program": "lock",
+          "index": 2,
+          "full_input_exact": true,
+          "old_nonmovement_bytes_exact_except_explicit_capacity_field": true,
+          "capacity_field": {
+            "word": 2202980,
+            "old": 2048,
+            "new": 4096
+          },
+          "old_movement_header_state_frames_exact": true,
+          "all_old_segment_rows_relocated_byte_exact": true,
+          "added_frame_segment_and_other_spill_words_zero": true,
+          "raw_values_masked": false
+        },
+        {
+          "program": "lock",
+          "index": 3,
+          "full_input_exact": true,
+          "old_nonmovement_bytes_exact_except_explicit_capacity_field": true,
+          "capacity_field": {
+            "word": 2202980,
+            "old": 2048,
+            "new": 4096
+          },
+          "old_movement_header_state_frames_exact": true,
+          "all_old_segment_rows_relocated_byte_exact": true,
+          "added_frame_segment_and_other_spill_words_zero": true,
+          "raw_values_masked": false
+        },
+        {
+          "program": "lock",
+          "index": 4,
+          "full_input_exact": true,
+          "old_nonmovement_bytes_exact_except_explicit_capacity_field": true,
+          "capacity_field": {
+            "word": 2202980,
+            "old": 2048,
+            "new": 4096
+          },
+          "old_movement_header_state_frames_exact": true,
+          "all_old_segment_rows_relocated_byte_exact": true,
+          "added_frame_segment_and_other_spill_words_zero": true,
+          "raw_values_masked": false
+        },
+        {
+          "program": "standalone",
+          "index": 0,
+          "full_input_exact": true,
+          "old_nonmovement_bytes_exact_except_explicit_capacity_field": true,
+          "capacity_field": {
+            "word": 1940836,
+            "old": 2048,
+            "new": 4096
+          },
+          "old_movement_header_state_frames_exact": true,
+          "all_old_segment_rows_relocated_byte_exact": true,
+          "added_frame_segment_and_other_spill_words_zero": true,
+          "raw_values_masked": false
+        },
+        {
+          "program": "standalone",
+          "index": 1,
+          "full_input_exact": true,
+          "old_nonmovement_bytes_exact_except_explicit_capacity_field": true,
+          "capacity_field": {
+            "word": 1940836,
+            "old": 2048,
+            "new": 4096
+          },
+          "old_movement_header_state_frames_exact": true,
+          "all_old_segment_rows_relocated_byte_exact": true,
+          "added_frame_segment_and_other_spill_words_zero": true,
+          "raw_values_masked": false
+        },
+        {
+          "program": "standalone",
+          "index": 2,
+          "full_input_exact": true,
+          "old_nonmovement_bytes_exact_except_explicit_capacity_field": true,
+          "capacity_field": {
+            "word": 1940836,
+            "old": 2048,
+            "new": 4096
+          },
+          "old_movement_header_state_frames_exact": true,
+          "all_old_segment_rows_relocated_byte_exact": true,
+          "added_frame_segment_and_other_spill_words_zero": true,
+          "raw_values_masked": false
+        },
+        {
+          "program": "standalone",
+          "index": 3,
+          "full_input_exact": true,
+          "old_nonmovement_bytes_exact_except_explicit_capacity_field": true,
+          "capacity_field": {
+            "word": 1940836,
+            "old": 2048,
+            "new": 4096
+          },
+          "old_movement_header_state_frames_exact": true,
+          "all_old_segment_rows_relocated_byte_exact": true,
+          "added_frame_segment_and_other_spill_words_zero": true,
+          "raw_values_masked": false
+        },
+        {
+          "program": "standalone",
+          "index": 4,
+          "full_input_exact": true,
+          "old_nonmovement_bytes_exact_except_explicit_capacity_field": true,
+          "capacity_field": {
+            "word": 1940836,
+            "old": 2048,
+            "new": 4096
+          },
+          "old_movement_header_state_frames_exact": true,
+          "all_old_segment_rows_relocated_byte_exact": true,
+          "added_frame_segment_and_other_spill_words_zero": true,
+          "raw_values_masked": false
+        }
+      ],
+      "new_gpu": 0,
+      "native_battles": 0,
+      "raw_numeric_fields_masked": false
+    },
+    "golden": "research/portable-product-programs-v65-expected.json",
+    "other40_baselines_unchanged": true
+  },
+  "verification_reuse": {
+    "runtime_files_checked": 1806,
+    "only_delta": [
+      "app/portable_product_programs.py",
+      "app/portable_weighted_incoming_source_contract.py",
+      "tests/fixtures/portable-product-boss-debuff-source-delta.json"
+    ],
+    "calculation_and_unit_test_sources_byte_exact": true,
+    "previous_full_cpu_tests": 182,
+    "full_cpu_test_receipt_reused": true,
+    "new_ledger_negative_tests": 7,
+    "new_native_battles": 0,
+    "new_gpu": 0,
+    "scope": "Final registration changes only golden pointer and its exact source inverse; full execution preflight and independent seals remain in their original owners"
+  },
+  "source_dependency_audit": {
+    "passed": true,
+    "sha256": "da6f4c5ff446b5f44f2af945f124e820ee909c22aaa529ac0b8d89243163df64"
+  },
+  "compile_policy_plans": {
+    "ptx": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "1d5a81cd625233bf1c4df21d67c0a2beae209969fc2cf9d3bd63710c63094b53",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "ptx",
+      "ptxas_level": null,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    },
+    "cubin": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "1d5a81cd625233bf1c4df21d67c0a2beae209969fc2cf9d3bd63710c63094b53",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "cubin",
+      "ptxas_level": 1,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=sm_86",
+        "--fmad=false",
+        "--ptxas-options",
+        "-O1"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    }
+  },
+  "retained_failure": {
+    "path": "product-typed-long-run-v1-20261102",
+    "gpu_executions": 1,
+    "old5_cases_verified": true,
+    "new30s_case_failed": true,
+    "error": "status64 at shot2049; target-count shot history had count2048",
+    "diagnostic": {
+      "status": 64,
+      "target_count_shot_header": [
+        1413698353,
+        1,
+        2048,
+        13,
+        5,
+        128,
+        0,
+        0
+      ],
+      "physical_shots_begun": 2049,
+      "capacity": 2048,
+      "missing_final_packet": 1,
+      "gpu_reruns": 0
+    },
+    "resolution": "Extended original Lock On quota trace and team trace into owned disjoint tails; corrected v2 source, input retained, full fresh preflight and independent seal",
+    "old_claim_and_raw_preserved": true
+  },
+  "diagnostic_scope": "Unrelated standalone roster fraction/team diagnostic omission counters remain explicit in raw and report. No public physical, movement or Lock On quota history is truncated in these cases. No claim of universal complete private histories.",
+  "windows": {
+    "new_requests": 0,
+    "new_compiler": 0,
+    "new_gpu": 0,
+    "new_ram_samples": 0,
+    "existing_ram_stop_and_environment_false_preserved": true
+  },
+  "coverage": {
+    "last_full_standard_metal": 263,
+    "total_standard_profiles": 266,
+    "last_full_declared_extra": 3,
+    "current_full_matrix_recertified": false,
+    "historical_standard_cuda": 263,
+    "current_composite_cuda": 0,
+    "all_special_effects_verified": false,
+    "game_motion_distance_rules_verified": false,
+    "full_goal_complete": false
+  },
+  "remaining": [
+    "Larger/longer scenes can still exceed the explicit capacities; never turn omitted public histories into success.",
+    "Incoming/ammo/healing/cover and ADD-owned typed attachment compositions remain incomplete.",
+    "Check whether the3standard BODY-only fallback profiles can use existing execution without making an active game-policy choice; preserve canonical CPU and compare original output first.",
+    "Current full profile source recertification and bounded CUDA remain incomplete; Windows RAM gate is unchanged."
+  ]
+}

@@ -35,6 +35,16 @@
 #define WORLD_PACKET_CAPTURE(s,r,index,fallback) if(compositionSuppressedReceipt(s,r,index,when)) return s.error==0; if(!lockDeliveryCapture(s,r,index)) { fallback }
 #endif
 #include "product_coordinate_lock_layout.slang"
+#ifdef PORTABLE_PRODUCT_TYPED_MOTION
+#undef TCS_TRACE_CAPACITY
+#define TCS_TRACE_CAPACITY PTQ_KEEP
+#undef TCS_TRACE_AT
+#define TCS_TRACE_AT(s,index) ((s).resourceOutput+((index)<PTQ_PREFIX?PTQ_PREFIX_BASE+(index)*20U:PTQ_EXTRA+((index)-PTQ_PREFIX)*20U))
+#undef WT_TRACE_CAPACITY
+#define WT_TRACE_CAPACITY PTT_KEEP
+#undef WT_TRACE_AT
+#define WT_TRACE_AT(s,index) ((s).resourceOutput+((index)<PTT_PREFIX?PTT_PREFIX_BASE+(index)*8U:PTT_EXTRA+((index)-PTT_PREFIX)*8U))
+#endif
 #include "world_coordinate_logical_actor_entry.slang"
 #include "live_lock_delivery_runtime.slang"
 #ifdef PORTABLE_PRODUCT_TYPED_LOCK

@@ -1,6 +1,18 @@
 // Typed physical recipients reuse the actual sampled shot and common scalar.
 // Scratch is exclusive to the weapon-only descriptor (all skill routes zero).
-static const uint CTW_MAGIC=0x43545731U,CTW_KEEP=2048U,CTW_WORDS=24U;
+static const uint CTW_MAGIC=0x43545731U,CTW_WORDS=24U;
+#ifdef PORTABLE_PRODUCT_TYPED_MOTION
+static const uint CTW_KEEP=PTW_KEEP;
+#else
+static const uint CTW_KEEP=2048U;
+#endif
+uint ctwRecord(inout Runtime s,uint index)
+{
+#ifdef PORTABLE_PRODUCT_TYPED_MOTION
+    if(index>=PTW_PREFIX)return s.resourceOutput+PTW_EXTRA+(index-PTW_PREFIX)*CTW_WORDS;
+#endif
+    return DT_OUTPUT(s.resourceOutput,170976)+64+index*CTW_WORDS;
+}
 bool coordinateTypedWeapons(inout Runtime s){return commands[DF_EXTRA(s)]==0x54474731U&&commands[DF_EXTRA(s)+13]==1;}
 uint ctwHead(inout Runtime s){return DT_OUTPUT(s.resourceOutput,170976);}
 #ifndef CTW_SCRATCH
@@ -166,7 +178,7 @@ void ctwLand(inout Runtime s,uint who,uint hit,uint slot,bool extra,uint64_t whe
     uint generation=results[ctwGenerations(s)+slot],attack=0x800000U+count+1,meta=csMeta(s);uint64_t amount=ctwAmount(s,hit,slot);
     WorldSchedule clock=frameSchedule(s);DWReceipt r=dwLand(clock,DF_BASE(s.resourceOutput),commands[DF_EXTRA(s)+2320],DF_HEADER(s.resourceOutput),slot,kind,identity,generation,2,amount,ONE,when);
     if(clock.error!=0){s.error=clock.error;return;}
-    uint at=h+64+min(count,CTW_KEEP)*CTW_WORDS;for(uint i=0;i<CTW_WORDS;i++)results[at+i]=0;
+    uint at=ctwRecord(s,min(count,CTW_KEEP));for(uint i=0;i<CTW_WORDS;i++)results[at+i]=0;
     results[at]=attack;results[at+1]=who;results[at+2]=kind;results[at+3]=identity;results[at+4]=generation;results[at+5]=slot;
     storeNumber(at+6,when);storeNumber(at+8,actorNumber(meta+48));storeNumber(at+10,amount);storeNumber(at+12,r.took);
     results[at+14]=r.delivered;results[at+15]=r.broken;results[at+16]=0;results[at+17]=uint(extra);results[at+18]=results[csRow(s,hit)+1]&1;

@@ -1486,7 +1486,7 @@ class ProductReferenceModels(unittest.TestCase):
                 source,iw,ow,words,meta=product.compile_product(prepared)
             self.assertEqual(body,before);self.assertEqual(prepared,original)
             self.assertFalse(run.expected);self.assertEqual(run.config['rng_mode'],'random')
-            self.assertEqual((iw,ow,len(words)),(123732,2165136,123732));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(123732,2345384,123732));validate_composed_stride(source,iw,ow)
             self.assertEqual(source,'gpu/product_typed_'+('fixed_' if mode=='fixed' else '')+'battle_entry.slang')
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
             self.assertFalse(meta['product_typed_targets']['cpu_state_or_schedule_supplied'])
@@ -1827,7 +1827,7 @@ class ProductReferenceModels(unittest.TestCase):
                         prepared,_=prepare(body)
                         original_prepared=copy.deepcopy(prepared)
                         source,iw,ow,words,meta=compile_product(prepared)
-                        self.assertEqual((iw,ow,len(words)),(123732,2691344,123732))
+                        self.assertEqual((iw,ow,len(words)),(123732,2945320,123732))
                         self.assertTrue(meta['product_typed_lock'])
                         self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
                         self.assertEqual(prepared,original_prepared)
@@ -1858,7 +1858,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
             with patch.object(sim,'execute',side_effect=AssertionError('No CPU oracle in packing')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow),(123732,2691344))
+            self.assertEqual((iw,ow),(123732,2945320))
             self.assertEqual(len(meta['product_coordinate']['declarations']['coordinate']['logical_geometry']),2)
 
     def test_typed_motion_uses_one_geometry_world_and_live_nearby_positions(self):
@@ -1888,8 +1888,38 @@ class ProductReferenceModels(unittest.TestCase):
             if name.startswith('typed-lock-'):self.assertTrue(result['lock_on']['shots'])
             with patch.object(sim,'execute',side_effect=AssertionError('No native positions in input')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow),(123732,2691344 if name.startswith('typed-lock-') else 2165136));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow),(123732,2945320 if name.startswith('typed-lock-') else 2345384));validate_composed_stride(source,iw,ow)
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
+
+    def test_typed_physical_history_preserves_order_across_spill_and_rejects_unowned_words(self):
+        import array
+        from portable_product_typed_movement import weapon_rows,END,LOCK_END,OUTPUT,LOCK_OUTPUT,WEAPON_CAPACITY,WEAPON_PREFIX_CAPACITY,SPILL_WORDS
+        for base,spill,size in ((1769856,END,OUTPUT),(2032000,LOCK_END,LOCK_OUTPUT)):
+            block=array.array('I',[0])*size
+            first=base+170976+64
+            block[first]=101;block[first+(WEAPON_PREFIX_CAPACITY-1)*24]=202;block[spill]=303
+            rows=weapon_rows(block,base,WEAPON_PREFIX_CAPACITY+1,spill)
+            self.assertEqual((len(rows),rows[0][0],rows[-2][0],rows[-1][0]),(2049,101,202,303))
+            for at in (base+220192,spill+24,spill+SPILL_WORDS-1):
+                block[at]=1
+                with self.assertRaises(ValueError):weapon_rows(block,base,2049,spill)
+                block[at]=0
+            with self.assertRaises(ValueError):weapon_rows(block,base,WEAPON_CAPACITY+1,spill)
+            with self.assertRaises(ValueError):weapon_rows(block,base,2049,spill+1)
+
+    def test_typed_lock_extended_histories_reject_unused_quota_and_team_spill(self):
+        import array
+        from portable_product_typed_movement import quota_rows,team_rows,QUOTA_EXTRA,QUOTA_END,TEAM_EXTRA,TEAM_END,LOCK_OUTPUT
+        from portable_original_lock_layout import QUOTAS,TEAMS
+        from portable_product_coordinate_lock import SHIFT
+        for reader,start,spill,end,limit,width in ((quota_rows,QUOTAS+SHIFT,QUOTA_EXTRA,QUOTA_END,2048,20),(team_rows,TEAMS+SHIFT,TEAM_EXTRA,TEAM_END,4096,8)):
+            block=array.array('I',[0])*LOCK_OUTPUT;block[start]=101;block[start+(limit-1)*width]=202;block[spill]=303
+            rows=reader(block,limit+1);self.assertEqual((rows[0][0],rows[-2][0],rows[-1][0]),(101,202,303))
+            for at in (spill+width,end-1):
+                block[at]=1
+                with self.assertRaises(ValueError):reader(block,limit+1)
+                block[at]=0
+            with self.assertRaises(ValueError):reader(block,limit*2+1)
 
     def test_typed_motion_rejects_disagreeing_colliders_and_unowned_history(self):
         from portable_product_programs import cases_for_program
@@ -1934,7 +1964,7 @@ class ProductReferenceModels(unittest.TestCase):
                 self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
                 with patch.object(sim,'execute',side_effect=AssertionError('No native world state in input')):
                     pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-                self.assertEqual((iw,ow,len(words)),(123732,2691344,123732));validate_composed_stride(source,iw,ow)
+                self.assertEqual((iw,ow,len(words)),(123732,2945320,123732));validate_composed_stride(source,iw,ow)
                 self.assertEqual(words[115680+3],0 if len(set(kinds))>1 else kinds[0]);self.assertEqual(words[121394],1)
                 self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
 
@@ -1958,7 +1988,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
             with patch.object(sim,'execute',side_effect=AssertionError('No CPU-selected recipients in GPU input')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow,len(words)),(123732,2165136,123732));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(123732,2345384,123732));validate_composed_stride(source,iw,ow)
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
             self.assertEqual(words[121392:121395],[0x4e524231,1,1])
             self.assertEqual(words[121392+32+5],1)
@@ -2024,7 +2054,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(body,before)
             with patch.object(sim,'execute',side_effect=AssertionError('No native state in packing')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow,len(words)),(123732,2165136,123732));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(123732,2345384,123732));validate_composed_stride(source,iw,ow)
             self.assertEqual(words[115680:115683],[0x4c414731,1,2])
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
             missing=copy.deepcopy(body);missing['reference_models']['typed_targets']['logical_geometry'].pop()

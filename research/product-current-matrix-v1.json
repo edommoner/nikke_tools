@@ -4088,5 +4088,15 @@
     "current_composite_cuda": 0,
     "full_matrix_recertified_on_this_source": false,
     "full_goal_complete": false
+  },
+  "later_typed_long30_validation": {
+    "report": "research/product-typed-long30-v1.json",
+    "base_compositions": 2,
+    "metal_conditions": 12,
+    "duration": 30,
+    "additional_original_inventory_profiles": 0,
+    "current_composite_cuda": 0,
+    "current_full_matrix_recertified": false,
+    "full_goal_complete": false
   }
 }

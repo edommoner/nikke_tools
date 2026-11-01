@@ -1,3 +1,17 @@
+## 2026-11-02 通常30秒：移動・物理着弾・射撃対象数の履歴容量を解消
+
+元の30秒・ADD3体でCPU実測すると、移動frame5403／segment5400、物理着弾standalone2484／Lock On2094。旧4096／2048上限を両方超えていた。既存movement schemaのcapacity8192を再利用し、物理履歴は4096へ。最初2048件は旧番地、追加分だけmovement終端後のtailへ置き、連結した全件の同じSHAと未使用／overflow scratchの0を検査。input123732は不変、standalone output2345384／typed Lock On2945320。新suite／監査器／shader entry／module／layout file0、CPU正本・pinned・数値規約・許容差変更0。
+
+初版Metalの旧5件は成功、新30秒は終了直前status64。保存rawで対象数履歴count2048、開始済み射撃2049、最後の着弾1件不足を確認し、既存targetCountShotBeforeの上限と一致した。対象数の前後履歴も4096へ拡張。関連team通知は8192へ拡張し、元の2048quota／4096teamは旧番地、追加だけ別のowned tailへ保存。元のstrict readerへ全行を渡し、旧prefix一致・全行値・未使用領域を検査。元失敗／claim／rawはproduct-typed-long-run-v1-20261102へ保持。修正版v2は全CPU事前検査と独立sealを新実行し、GPU retry扱いの再送はしていない。
+
+2基本編成、固定／蓄積×通常移動・再出現・強制移動優先の30秒12条件が通常APIの実M5／CPU／HTTPで全一致。全12でframe5403、segmentも旧4096超え。物理旧2048超え8条件、quota旧2048超え4条件、nearby発動8／非発動4、再出現4条件はgeneration4／12birth。物理dispatch8、保存監査12と最終コード再投影12は追加battle/GPU0、owned Node群終了。新original inventory profile加算0。standaloneの既存fraction/team診断省略counterはrawとreportへ明記し、無省略へ読み替えない。今回の公開physical／movement／Lock On quotaは全件保存し、Lock Onのfraction/team診断省略は0。
+
+既存typed-accumulate／typed-lock-accumulate各6caseの実Metal＋GPU禁止独立seal成功。v65はこの2programだけ更新、他40基準は保持。各旧5のnative SHAと全入力は完全同一。旧readbackの数値は全てbit一致で、差は明示capacity field2048→4096とmovement segment番地移動。旧全segmentは新番地へbyte一致、追加領域0、数値maskなし。最終owner1d5a81cd…、proof product-typed-long-run-v2-20261102、report research/product-typed-long30-v1.json。PTX／CUBIN O1 plan成功はcompiler/GPU0。
+
+最終登録はgolden pointerとその厳密なinverse台帳だけを変更。計算・全test・pinned・transportが実行ownerとbyte一致することを検査し、元ownerのCPU182事前検査を再利用、台帳負例7は新実行。最終登録のためだけに同じ戦闘や全testを再計算していない。元のfresh native6と独立seal6の出所は保持。
+
+残件：より長時間／多対象では明示capacityを超え得る。敵攻撃／弾倉／回復／cover／ADD所有typed attachment合成、全特殊効果分岐、現在全profile source再認定、CUDAは未完了。次は標準266の残3について、元CPUとBODY-only宣言結果を保存分から比較し、有効なゲーム規則を選ばず接続できる空対象条件があるか調べる。距離・移動規則を勝手に既定化しない。標準263/266＋宣言3はmatrix v4の歴史を維持。Windows新依頼／compile／GPU／RAM計測0、既存RAM停止・環境保全falseも保持。以下は過去記録。
+
 ## 2026-11-02 Typed＋移動＋nearby＋Lock Onを同じ実行器へ接続
 
 既存enemy_movement宣言をtyped_targets／任意lock_onと併用可能にした。coordとlogical_geometryは順序まで完全一致必須。CPUはmovement runtimeを先に設置し、typedの1つのgeometryへattach、nearbyへ同じ現在frameのgeometry providerを渡す。GPUは既存movement1796wordをtyped/nearby prefix後へ追加、input123732。standalone出力2165136／Lock On2691344、移動bankはそれぞれ旧出力終端2032000／2558208から始まり、末尾512wordは0必須。未宣言時はbank全0・履歴全0で、架空の速度0モデルを作らない。primaryと候補の両方で既存enemyMovementPositionを読む。新suite／監査器／shader entry0、合成adapter1／生成layout1、CPU正本・pinned・数値規約・許容差は変更0。

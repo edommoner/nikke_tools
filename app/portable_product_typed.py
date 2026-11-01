@@ -123,7 +123,7 @@ def read_result(block,metadata,names,duration):
         c=dict(typed_bindings=spec['bindings'],max_attacks=128,effects=[],names=names)
         state=read_typed_battle(TypedStateView(block),(c,metadata,()))
         if state['attacks'] or not state['finished'] or state['time']!=duration:fail('typed clock')
-        model=read_weapon_history(memoryview(block)[:2032000],metadata,names,duration,state,base=BASE)
+        model=read_weapon_history(block,metadata,names,duration,state,base=BASE,tail_start=262144)
         if spec.get('nearby_rules'):model['nearby_casts']=nearby
     except (AssertionError,IndexError,KeyError,ValueError,struct.error) as error:
         raise UnsupportedPortable('Invalid or incomplete typed product history') from error
@@ -136,17 +136,18 @@ def read_result(block,metadata,names,duration):
     return result
 
 
-def read_weapon_history(block,metadata,names,duration,state,*,base=BASE,tail_start=None):
+def read_weapon_history(block,metadata,names,duration,state,*,base=BASE,tail_start=None,locked=False):
     """The same complete physical packet/aim decoder for standalone and locks."""
     from portable_coordinate_typed_aim_specs import WORDS as AIM_WORDS
     from product_typed_model import public_from_words
     spec=metadata['product_typed_targets']['declarations']['typed_targets']
     def fail(message):raise UnsupportedPortable('Invalid or incomplete typed product readback: '+message)
-    h=base+170976;keep=2048;width=24;count=block[h+2]
+    from portable_product_typed_movement import WEAPON_CAPACITY,weapon_rows,END,LOCK_END
+    h=base+170976;keep=WEAPON_CAPACITY;width=24;count=block[h+2]
     if list(block[h:h+2])!=[0x43545731,1] or count>keep or list(block[h+3:h+6])!=[count,keep,width] or block[h+7]!=(count*width)%16 or block[h+40]!=1 or any(block[h+41:h+64]):fail('physical history capacity/header')
     rows=[];last=0.
-    for i in range(count):
-        row=list(block[h+64+i*width:h+64+(i+1)*width]);slot=row[5]
+    for row in weapon_rows(block,base,count,LOCK_END if locked else END):
+        slot=row[5]
         if row[1]>=5 or slot>=len(spec['bindings']) or row[2]!=spec['bindings'][slot]['kind'] or row[3]!=spec['bindings'][slot]['identity'] or row[4]==0 or any(row[22:]) or any(row[k]>1 for k in (14,15,17,18,19)):fail('physical identity')
         values=[struct.unpack('<d',struct.pack('<II',*row[at:at+2]))[0] for at in (6,8,10,12)]
         if any(not math.isfinite(x) or x<0 for x in values) or not last<=values[0]<=duration or values[3]>values[2] or not row[14] and (values[3] or row[15]):fail('physical amounts/order')
@@ -154,7 +155,7 @@ def read_weapon_history(block,metadata,names,duration,state,*,base=BASE,tail_sta
     raw=array.array('I',(x for row in rows for x in row))
     if __import__('sys').byteorder!='little':raw.byteswap()
     digest=list(struct.unpack('>8I',hashlib.sha256(raw.tobytes()).digest()))
-    if list(block[h+8:h+16])!=digest or list(block[h+32:h+40])!=digest or any(block[h+64+count*width:base+220224]):fail('complete physical history digest/tail')
+    if list(block[h+8:h+16])!=digest or list(block[h+32:h+40])!=digest:fail('complete physical history digest/tail')
     pending=(count*width)%16;tail=[int.from_bytes(x.to_bytes(4,'little'),'big') for x in list(raw)[-pending:]] if pending else []
     tail.append(0x80000000);tail += [0]*(14-len(tail));bits=count*width*32;tail += [bits>>32,bits&0xffffffff]
     if list(block[h+16:h+32])!=tail:fail('completed SHA block')

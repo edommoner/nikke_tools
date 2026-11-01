@@ -164,7 +164,7 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
     return source,INPUT,OUTPUT,words,meta
 
 
-def read_result(block,meta,duration):
+def read_result(block,meta,duration,*,quota_history=None,team_history=None):
     """Read full lock/typed histories from GPU counts, without a CPU oracle."""
     import math
     from portable_specs import LIMITS as L
@@ -175,6 +175,7 @@ def read_result(block,meta,duration):
     from portable_lock_typed_layout import OFFSET,LOCK_END
     from portable_effect_target_count_shot_specs import HEAD as QUOTA_HEAD,decode as quotas
     def fail():raise UnsupportedPortable('Invalid or incomplete product Lock On history')
+    if (quota_history is None)!=(team_history is None):fail()
     composed=bool(meta.get('product_lock_cover'))
     from portable_cover_defense_wire import OUTPUT as COVER_OUTPUT,LAYOUT as C
     if len(block)!=(COVER_OUTPUT if composed else OUTPUT) or block[0]!=0:fail()
@@ -238,7 +239,14 @@ def read_result(block,meta,duration):
             or row[15]!=packet.MAGIC or row[14]>1):fail()
         if time(banks.PACKETS+i*16+8)!=snapshots[token-1]['time']:fail()
     if any(block[packet.TRACE+OFFSET:LOCK_END]):fail()
-    qcount=block[QUOTA_HEAD+2];qrows=bank(banks.QUOTAS,20,qcount,banks.QUOTA_CAPACITY)
+    qcount=block[QUOTA_HEAD+2]
+    if quota_history is None:qrows=bank(banks.QUOTAS,20,qcount,banks.QUOTA_CAPACITY)
+    else:
+        from portable_product_typed_movement import QUOTA_CAPACITY
+        if not meta.get('product_typed_lock') or qcount>QUOTA_CAPACITY or len(quota_history)!=qcount:fail()
+        prefix=min(qcount,banks.QUOTA_CAPACITY)
+        if quota_history[:prefix]!=bank(banks.QUOTAS,20,prefix,banks.QUOTA_CAPACITY):fail()
+        qrows=quota_history
     try:quota=quotas(block,meta,trace_rows=qrows)
     except (ValueError,IndexError,struct.error):fail()
     for row in quota:
@@ -247,11 +255,18 @@ def read_result(block,meta,duration):
             v=row[side]
             if not 0<=v['capacity']<=128 or v['remaining']>0x7fffffff or any(not math.isfinite(v[k]) for k in ('additional','activated')):fail()
     for start,capacity,head,events in ((banks.FRACTIONS,banks.FRACTION_CAPACITY,L['WORLD_FRACTION_HEAD_BASE'],(22,23)),(banks.TEAMS,banks.TEAM_CAPACITY,L['WORLD_TEAM_HEAD_BASE'],(44,45))):
-        rows=bank(start,8,block[head+1],capacity)
+        count=block[head+1]
+        if events==(44,45) and team_history is not None:
+            from portable_product_typed_movement import TEAM_CAPACITY
+            if not meta.get('product_typed_lock') or count>TEAM_CAPACITY or len(team_history)!=count:fail()
+            prefix=min(count,capacity)
+            if team_history[:prefix]!=bank(start,8,prefix,capacity):fail()
+            rows=team_history
+        else:rows=bank(start,8,count,capacity)
         for i,row in enumerate(rows):
             if row[0] not in events or row[1]>31 or (row[1]&7)>=5:fail()
-            time(start+i*8+2)
-            if number(start+i*8+4)<0 or number(start+i*8+6)<0:fail()
+            values=[struct.unpack('<d',struct.pack('<II',*row[at:at+2]))[0] for at in (2,4,6)]
+            if any(not math.isfinite(v) for v in values) or not 0<=values[0]<=duration or values[1]<0 or values[2]<0:fail()
     if any(block[banks.END:OUTPUT]):fail()
     skill_count=block[L['WORLD_SKILL_HEAD_BASE']+1]
     if skill_count>(COVER_HISTORY_CAPACITY if composed else fates.CAPACITY):fail()

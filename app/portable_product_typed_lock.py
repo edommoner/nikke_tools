@@ -20,7 +20,8 @@ def check_schema(root):
     source=(Path(root)/'gpu/product_typed_lock_battle_entry.slang').read_text()
     if '#define CTW_SCRATCH(s) DT_OUTPUT((s).resourceOutput,220768U)' not in source:
         raise ValueError('Typed weapon scratch must be disjoint from synchronous skill DFS')
-    return dict(input_words=INPUT,output_words=OUTPUT,skill_capacity=2048,typed_attack_capacity=128,weapon_history_capacity=2048)
+    from portable_product_typed_movement import WEAPON_CAPACITY
+    return dict(input_words=INPUT,output_words=OUTPUT,skill_capacity=2048,typed_attack_capacity=128,weapon_history_capacity=WEAPON_CAPACITY)
 
 
 class LockReadback:
@@ -54,9 +55,13 @@ def read_result(block,metadata,names,duration):
         raise UnsupportedPortable('Nonzero unowned typed weapon/Lock On tail')
     if any(block[L['COUNTER_CONTEXT_BASE']:L['COUNTER_CONTEXT_BASE']+1096]):
         raise UnsupportedPortable('Unrestored shared typed notification context')
-    locked=locks(LockReadback(memoryview(block)[:LOCK_PREFIX]),metadata,duration)
+    from portable_product_typed_movement import quota_rows,team_rows
+    from portable_effect_target_count_shot_specs import HEAD as QUOTA_HEAD
+    quota=quota_rows(block,block[QUOTA_HEAD+2])
+    teams=team_rows(block,block[L['WORLD_TEAM_HEAD_BASE']+1])
+    locked=locks(LockReadback(memoryview(block)[:LOCK_PREFIX]),metadata,duration,quota_history=quota,team_history=teams)
     state=locked['lock_on']['typed']
-    physical=read_weapon_history(block,metadata,names,duration,state,base=COORDINATE_OUTPUT,tail_start=WEAPON_SCRATCH)
+    physical=read_weapon_history(block,metadata,names,duration,state,base=COORDINATE_OUTPUT,tail_start=WEAPON_SCRATCH,locked=True)
     from portable_product_typed import read_nearby_history
     nearby=read_nearby_history(memoryview(block)[:COORDINATE_OUTPUT],metadata,duration)
     if metadata['product_typed_targets']['declarations']['typed_targets'].get('nearby_rules'):physical['nearby_casts']=nearby

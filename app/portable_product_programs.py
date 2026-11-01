@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v64-expected.json'
+GOLDEN = 'research/portable-product-programs-v65-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -52,7 +52,7 @@ def configuration(suites, selection):
     program = PROGRAMS[name]
     return dict(base, product_program=name, source=program['source'], golden=GOLDEN,
                 input_words=program['input_words'], output_words=program['output_words'],
-                inputs=7 if name=='ammo-cover-fixed-group' else 5 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1,native=7 if name=='ammo-cover-fixed-group' else 5 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1)
+                inputs=7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1,native=7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1)
 
 
 def registered_golden(root, config, *, allow_unsealed=False):
@@ -356,4 +356,8 @@ def cases_for_program(root,name=None):
         motion=dict(precedence='disable-before-force',force_policy='snap-to-declared-center',recipient_policy='canonical-all-in-range',actors=[dict(label=row['label'],velocity=[v,0.],force_center=[0.,0.]) for row,v in zip(typed['logical_geometry'],[4.,-3.,-8.],strict=True)])
         body['reference_models']['enemy_movement']=dict(coord=copy.deepcopy(typed['coord']),logical_geometry=copy.deepcopy(typed['logical_geometry']),motion=motion)
         rows.append(('moving-nearby',body))
+        body=copy.deepcopy(body);body['duration']=30.
+        for pattern in body['enemy']['patterns']:
+            if 'time' in pattern.get('until',{}):pattern['until']['time']=31.
+        rows.append(('moving-long30',body))
     return rows

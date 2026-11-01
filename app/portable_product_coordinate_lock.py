@@ -68,7 +68,7 @@ def validate_trace_addresses(block):
             raise UnsupportedPortable('Typed trace pointer must be relative to its logical result')
 
 
-def read_result(block,metadata,duration):
+def read_result(block,metadata,duration,*,quota_history=None,team_history=None):
     from portable_product_locks import read_result as locks
     if len(block)!=OUTPUT or block[0]!=0:raise UnsupportedPortable('Complete coordinate/Lock On readback required')
     for start,end in ((16,1024),(2832,3568),(136688,153568),(170976,262144)):
@@ -78,4 +78,4 @@ def read_result(block,metadata,duration):
     # Every real bank is validated by the original strict reader. The virtual
     # cover suffix is zero only after the coordinate history owner is checked.
     copied=copy.copy(metadata);copied['product_lock_cover']=True
-    return locks(LockView(block),copied,duration)
+    return locks(LockView(block),copied,duration,quota_history=quota_history,team_history=team_history)
