@@ -571,6 +571,13 @@
     "cases": 3,
     "posts_max": 1,
     "gpu_max": 1,
-    "status": "requested; terminal report not imported"
+    "status": "Stopped during aggregate host-tests at60s; original report import pending",
+    "reported_completed_tests": 85,
+    "incomplete_group": "test_product_reference_models.py (59 discovered; no completion receipt)",
+    "sdk_executions": 0,
+    "api_posts": 0,
+    "gpu_dispatches": 0,
+    "retries": 0,
+    "existing_cpu_partition_plan": "Four complete file groups supported by existing portable_staged_tests.plan; locally prepared read-only, no claims/tests executed"
   }
 }

@@ -1,3 +1,9 @@
+## 2026-11-01 Windowsの座標host検査が合算60秒で停止、CUDA未実行
+
+同turn01a195b7のhost-testsが60秒上限に達した。保存進捗の報告はdetail67/製品11/履歴7の完了85件成功、最後のmodel59群は完了receiptなし。後続Slang/PTX/object/link/POST/GPUは0、再試行0。停止後Job empty/missing0/cleanup正常はWindows報告段階で、最終小JSON原本のimport/独立照合は未実施。これをCUDA不一致や成功へ読み替えない。追加の実行指示は送らず、保存結果共有のみ依頼した。
+
+既存portable_staged_tests.planで同packet a077d3b3を4ファイルの独立群へ分ける計画をCPU/GPU/claim作成0で用意（release-v1/existing-file-split-plan.json）。既存case_planでも59元IDを欠落/重複なしの3件群へ分割可能なことを静的確認（23群）。まず原本timing/進捗から合算と単一群のどちらが遅いか確認し、必要最小の分割を選ぶ。上限延長・成功値の書換え・旧claim削除で進めない。Mac実蓄積v38/通常API8条件は成功のまま、標準Metal/CUDA262/266据置き。全goal未完了。以下は履歴。
+
 ## 2026-11-01 座標実蓄積をCLI独立基準へ登録、限定CUDA3条件を依頼
 
 source170cf08dの実蓄積不変packet自身で144 CPU/fresh native/実M5/GPU禁止fresh独立seal成功。v38へcoordinate-accumulateのみ追加、旧30基準不変。固定/実蓄積とも同じproduct-detail CLIから通常のsealed配布を使える。CLI監査・基準登録を標準profile追加認定へ数えない。
