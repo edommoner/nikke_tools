@@ -1,0 +1,310 @@
+{
+  "schema": "lock-cover-packet-diagnostic-compile-status-v1",
+  "status": "requested_compile_scope_completed",
+  "overall_passed": false,
+  "permission_mode": "require_escalated",
+  "approval_denied": false,
+  "transport_commit": "8fb760c042ca58c19ad954b9f3aad1357ab25a70",
+  "source_commit": "bd19f2bfc0c8c3b0ec891ab2684f10db43527f54",
+  "package_id": "aef09ee5d04a4442fb8b1231f23cb20de073a8d9e2a9f60f9ca3f68e6801ce1e",
+  "archive": {
+    "name": "lock-cover-packet-diagnostic-v1.zip",
+    "bytes": 14498389,
+    "sha256": "91a8a0528907c793fc0a21d0f79d2880b9fad3258f6262f5019faa0d8e485971",
+    "byte_hash_verified": true,
+    "own_immutable_payload_verified": true,
+    "payload_files_unchanged": 4244
+  },
+  "compile_only_policy": {
+    "own_source_golden_plan_verified": true,
+    "own_plan_ptx": {
+      "passed": true,
+      "artifact_kind": "ptx",
+      "ptxas_level": null,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "compiler_calls": 0,
+      "claim_created": false
+    },
+    "own_plan_o1": {
+      "passed": true,
+      "artifact_kind": "cubin",
+      "ptxas_level": 1,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "compiler_calls": 0,
+      "claim_created": false
+    },
+    "deps_metadata_passed": true,
+    "platform_18_files_byte_exact": true,
+    "platform_reference_owner": "17d2c94dfbabefbdb6cfde4fd81eafc86f79ec7ed8b2816253883d634b9e76db",
+    "old_windows_cpu_receipts_relabelled": false,
+    "own136_reexecuted": false,
+    "native_battle_reexecuted": false,
+    "golden_input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+    "golden_output_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+    "golden_is_current_windows_calculation_proof": false
+  },
+  "unpack": {
+    "seconds": 20.55458420002833,
+    "timeout_seconds": 60,
+    "exit_code": 0,
+    "bounded_passed": true,
+    "timed_out": false,
+    "cleanup_error": null,
+    "observation_error": null,
+    "missing": 0,
+    "below_normal_priority": true,
+    "pre_gate_verified": true,
+    "post_wait_job_empty": true,
+    "memory_values": [
+      {
+        "before_bytes": 2147483648,
+        "after_bytes": 2147483648,
+        "peak_bytes": 77996032
+      }
+    ],
+    "service_before": "unverified",
+    "service_after": "unverified",
+    "preservation_verified": false
+  },
+  "own_plan_metadata_stage": {
+    "seconds": 31.113525099586695,
+    "timeout_seconds": 60,
+    "exit_code": 0,
+    "bounded_passed": true,
+    "timed_out": false,
+    "cleanup_error": null,
+    "observation_error": null,
+    "missing": 0,
+    "below_normal_priority": true,
+    "pre_gate_verified": true,
+    "post_wait_job_empty": true,
+    "memory_values": [
+      {
+        "before_bytes": 2147483648,
+        "after_bytes": 2147483648,
+        "peak_bytes": 74649600
+      }
+    ],
+    "service_before": "unverified",
+    "service_after": "unverified",
+    "preservation_verified": false
+  },
+  "paired_generation": {
+    "execution": {
+      "seconds": 19.1642973003909,
+      "timeout_seconds": 59.84400000004098,
+      "exit_code": 0,
+      "bounded_passed": true,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "below_normal_priority": true,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "memory_values": [
+        {
+          "before_bytes": 2147483648,
+          "after_bytes": 2147483648,
+          "peak_bytes": 578686976
+        }
+      ],
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "preservation_verified": false
+    },
+    "sealed_generated_baseline_verified": true,
+    "pairs": 1,
+    "compiler_invocations": 2,
+    "cache_hit": false,
+    "cache_key": "d4806f6c8ca72fdd68b4c27189226aa426b4f37d962f65d750f46e7b6d1dd8ce",
+    "raw_sha256": {
+      "cuda": "3d5821b1699f9522b05a1d10dbc98f3b7ea50daf0fdea110cbe8904ceb81cfb8",
+      "metal": "76c19e7b7c53300845492106a7b2ae4918d370491fc355a8e1303e60aa05aebf"
+    },
+    "normalized_sha256": {
+      "cuda": "3d8f3c6bcdaa8e764735223fa47b6ccaa62d94b00c0c328f93a10acdf0c7c038",
+      "metal": "e2cfa19daa40b7fda2836fd7239752c835f841053fe880d2bf92aa907df28c3f"
+    }
+  },
+  "ptx": {
+    "compiler_verified": true,
+    "containment_verified": true,
+    "passed": false,
+    "preservation_verified": false,
+    "outer": {
+      "seconds": 37.802652600221336,
+      "timeout_seconds": 179.8589999997057,
+      "exit_code": 2,
+      "bounded_passed": false,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "below_normal_priority": true,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "memory_values": [
+        {
+          "before_bytes": 2147483648,
+          "after_bytes": 2147483648,
+          "peak_bytes": 340885504
+        }
+      ],
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "preservation_verified": false
+    },
+    "sdk_child": {
+      "seconds": 26.73612520005554,
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "bounded_passed": true,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "below_normal_priority": true,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "memory_values": [
+        {
+          "before_bytes": 2147483648,
+          "after_bytes": 2147483648,
+          "peak_bytes": 303321088
+        }
+      ],
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "preservation_verified": false
+    },
+    "artifact": {
+      "bytes": 9779062,
+      "sha256": "541740a399e3eeefad8f0ab4009ba0a0ae269b601cb9c22947a6531e434aa0f0",
+      "cache_key": "de4c28753362f53da2acdf820ef0d9ffbcccffe1f746a292a70a2ca27aeb0e5a"
+    },
+    "nvrtc_compile_seconds": 15.0493451,
+    "paired_cache_required": true,
+    "paired_cache_hit": true,
+    "additional_slang_invocations": 0,
+    "strict_current_source_and_generated_match": true,
+    "compiler_receipt_sha256": "caa5d27d4244c186e8043def20b22baacdca31366b8dd0f4ac814e1f5d0cc226"
+  },
+  "module_object_o1": {
+    "object_verified": true,
+    "containment_verified": true,
+    "passed": false,
+    "preservation_verified": false,
+    "outer": {
+      "seconds": 36.71170840039849,
+      "timeout_seconds": 179.82800000021234,
+      "exit_code": 2,
+      "bounded_passed": false,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "below_normal_priority": true,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "memory_values": [
+        {
+          "before_bytes": 2147483648,
+          "after_bytes": 2147483648,
+          "peak_bytes": 409513984
+        }
+      ],
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "preservation_verified": false
+    },
+    "sdk_child": {
+      "seconds": 19.39213960012421,
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "bounded_passed": true,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "below_normal_priority": true,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "memory_values": [
+        {
+          "before_bytes": 2147483648,
+          "after_bytes": 2147483648,
+          "peak_bytes": 361422848
+        }
+      ],
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "preservation_verified": false
+    },
+    "artifact": {
+      "bytes": 5574448,
+      "sha256": "1b08d0c63b7019459d7758e81cfd31abd927976fb90c1d2cfffdb16b44516648"
+    },
+    "options": [
+      "--gpu-name=sm_86",
+      "--opt-level=1",
+      "--fmad=false",
+      "--verbose",
+      "--compile-only"
+    ],
+    "ptxas_seconds": 8.510791399981827,
+    "same_current_full_ptx_origin_verified": true,
+    "preflight_child_post_audits_verified": true,
+    "object_receipt_sha256": "102add7d2c29fd198c95e8855037c092f175f7148e2b3507cb09f9e466f5e64e",
+    "portableEvents": {
+      "registers": 40,
+      "stack_bytes": 32,
+      "spill_store_bytes": 0,
+      "spill_load_bytes": 0,
+      "shared_bytes": null,
+      "local_bytes": null,
+      "shared_local_note": "Not emitted in saved portableEvents block; unknown, not inferred zero."
+    }
+  },
+  "actual_calls": {
+    "paired_slang_builds": 1,
+    "slang_compiler_invocations": 2,
+    "nvrtc": 1,
+    "ptxas": 1,
+    "link": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0,
+    "own_cpu_tests": 0,
+    "native_battle": 0,
+    "retries": 0
+  },
+  "qualification": {
+    "compiler_verified": true,
+    "object_verified": true,
+    "calculation_verified": false,
+    "environment_preservation_verified": false,
+    "service_status": "unverified",
+    "compiler_and_object_owner_cli_exit_code": 2,
+    "outer_stage_verified": false,
+    "false_results_not_promoted": true,
+    "profile_coverage_added": 0
+  },
+  "integrity": {
+    "old_raw_claim_and_failure_files_checked_unchanged": 25,
+    "old_status64_retained": true,
+    "old_missing_unknown_preservation_false_retained": true,
+    "new_product_packet_edited": false,
+    "all_started_children_terminal": true,
+    "all_observed_jobs_empty": true,
+    "known_live_handle": null
+  },
+  "capture": {
+    "path_base": "Documents/Codex",
+    "relative_directory": "lock-cover-packet-diagnostic-compile-v1"
+  },
+  "next_action": "Stopped at object O1; no link, driver, GPU or HTTP continuation."
+}
