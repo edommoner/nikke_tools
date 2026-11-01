@@ -66,10 +66,10 @@ void physicalLockPulse(inout Runtime s,uint row,uint64_t when)
 void physicalLockSnapshot(inout Runtime s,uint who,uint64_t when)
 {
     if(who!=s.locks.who)return;
-    if(s.lockShotCount>=31){s.error=64;return;}
-    if(!generationLockSnapshotAt(s,s.resourceOutput+PL_SNAPSHOTS+s.lockShotCount*P_WORLD_ACTOR_SET_WORDS,0)){s.error=64;return;}
+    if(s.lockShotCount>=PL_SHOT_CAPACITY){s.error=64;return;}
+    if(!generationLockSnapshotAt(s,PL_SNAPSHOT_AT(s,s.lockShotCount),0)){s.error=64;return;}
 #ifdef PORTABLE_LOCK_PACKET_BINDINGS
-    storeNumber(s.resourceOutput+LP_SHOT_TIMES+s.lockShotCount*2,when);
+    storeNumber(LP_SHOT_TIME_AT(s,s.lockShotCount),when);
 #endif
     s.lockShotCount++;results[physicalLockHead(s)+2]=s.lockShotCount;
 }

@@ -233,6 +233,9 @@ def validate_composed_stride(source,input_words,output_words):
         if source in ('gpu/world_original_lock_composition_entry.slang','gpu/world_original_lock_health_parts_entry.slang','gpu/product_lock_battle_entry.slang','gpu/product_lock_fixed_battle_entry.slang'):
             from portable_original_lock_layout import check as check_original
             check_original(ROOT)
+        if source in ('gpu/product_lock_battle_entry.slang','gpu/product_lock_fixed_battle_entry.slang'):
+            from portable_original_lock_layout import PRODUCT_OUTPUT
+            OUTPUT=PRODUCT_OUTPUT
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Lock/projectile composition requires its complete disjoint arenas')
         return
     if source in ('gpu/world_lock_packet_entry.slang','gpu/world_lock_delivery_entry.slang'):

@@ -720,7 +720,7 @@ class ProductReferenceModels(unittest.TestCase):
         aliases=(timeline.simulate,sim.simulate,timeline.random.getstate());paths=list(sys.path);body=self.lock_body();original=copy.deepcopy(body)
         with patch.object(sim,'execute',side_effect=AssertionError('No CPU lock selection before GPU')):
             prepared,run=product.prepare(body);before=copy.deepcopy(prepared);source,iw,ow,words,meta=product.compile_product(prepared)
-        self.assertEqual((source,iw,ow,len(words)),('gpu/product_lock_battle_entry.slang',109536,1310720,109536))
+        self.assertEqual((source,iw,ow,len(words)),('gpu/product_lock_battle_entry.slang',109536,2032000,109536))
         validate_composed_stride(source,iw,ow)
         with self.assertRaises(ValueError):validate_composed_stride(source,iw,ow-1)
         self.assertEqual(prepared,before);self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
@@ -860,7 +860,9 @@ class ProductReferenceModels(unittest.TestCase):
 
     def test_lock_on_decoder_checks_complete_arenas_and_reserved_words(self):
         import portable_detail as product
-        from portable_product_locks import read_result,OUTPUT
+        from portable_product_locks import read_result
+        from portable_original_lock_layout import PRODUCT_OUTPUT as OUTPUT
+        from portable_specs import LIMITS as L
         from portable_lock_typed_layout import OFFSET
         from portable_physical_lock_layout import HEAD
         from portable_lock_packet_layout import HEAD as PACKET_HEAD,MAGIC
@@ -871,17 +873,20 @@ class ProductReferenceModels(unittest.TestCase):
         b=array.array('I',[0])*OUTPUT;owner=meta['product_lock_on']['names'].index(meta['product_lock_on']['declarations']['lock_on']['owner'])
         b[HEAD+OFFSET]=0x504c3031;b[HEAD+OFFSET+4]=owner;b[HEAD+OFFSET+5]=meta['physical_lock_pulse_row']
         marker=meta['named_count_physical']['marker'];b[QUOTA_HEAD:QUOTA_HEAD+6]=array.array('I',[QUOTA_MAGIC,1,0,meta['states'][marker],5,128])
+        b[L['WORLD_SKILL_HEAD_BASE']]=0x57534b31
         b[PACKET_HEAD+OFFSET]=MAGIC;b[FATE_HEAD]=FATE_MAGIC;b[786432]=0x44425431
         b[789250:789253]=array.array('I',[1,1,1])
         self.assertEqual(read_result(b,meta,3)['lock_on']['typed'],dict(time=0.,finished=True,state=[],attacks=[]))
-        for at,value in ((HEAD+OFFSET+1,257),(HEAD+OFFSET+6,1),(PACKET_HEAD+OFFSET+1,1),(QUOTA_HEAD+2,2049),(FATE_HEAD+1,1),(OUTPUT-1,1),(787456,1),(789252,0)):
+        for at,value in ((HEAD+OFFSET+1,1025),(HEAD+OFFSET+6,1),(PACKET_HEAD+OFFSET+1,1),(QUOTA_HEAD+2,8193),(FATE_HEAD+1,1),(OUTPUT-1,1),(787456,1),(789252,0)):
             bad=array.array('I',b);bad[at]=value
             with self.subTest(at=at),self.assertRaises(UnsupportedPortable):read_result(bad,meta,3)
         with self.assertRaises(UnsupportedPortable):read_result(b[:-1],meta,3)
 
     def test_lock_on_typed_no_expiry_sentinel_is_exact_and_bound_to_declared_target(self):
         import portable_detail as product
-        from portable_product_locks import read_result,OUTPUT
+        from portable_product_locks import read_result
+        from portable_original_lock_layout import PRODUCT_OUTPUT as OUTPUT
+        from portable_specs import LIMITS as L
         from portable_lock_typed_layout import OFFSET
         from portable_physical_lock_layout import HEAD
         from portable_lock_packet_layout import HEAD as PACKET_HEAD,MAGIC
@@ -892,6 +897,7 @@ class ProductReferenceModels(unittest.TestCase):
         b=array.array('I',[0])*OUTPUT;owner=meta['product_lock_on']['names'].index(meta['product_lock_on']['declarations']['lock_on']['owner'])
         b[HEAD+OFFSET]=0x504c3031;b[HEAD+OFFSET+4]=owner;b[HEAD+OFFSET+5]=meta['physical_lock_pulse_row']
         marker=meta['named_count_physical']['marker'];b[QUOTA_HEAD:QUOTA_HEAD+6]=array.array('I',[QUOTA_MAGIC,1,0,meta['states'][marker],5,128])
+        b[L['WORLD_SKILL_HEAD_BASE']]=0x57534b31
         b[PACKET_HEAD+OFFSET]=MAGIC;b[FATE_HEAD]=FATE_MAGIC;b[786432]=0x44425431;b[789250:789253]=array.array('I',[1,1,1])
         at=787456;b[at:at+4]=array.array('I',[2,11,1,0]);b[at+10]=0xffffffff
         def number(offset,value):b[at+offset:at+offset+2]=array.array('I',struct.unpack('<II',struct.pack('<d',value)))
@@ -1045,6 +1051,33 @@ class ProductReferenceModels(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError,'injected'):
             with execution(normalize(body['reference_models'])):raise RuntimeError('injected')
         self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
+
+    def test_product_lock_continuations_keep_prefixes_and_reject_unused_or_overflow_words(self):
+        from portable_original_lock_layout import PRODUCT_BANKS,PRODUCT_OUTPUT,PRODUCT_END,product_address,product_rows,product_schema
+        from portable_physical_lock_layout import SNAPSHOTS
+        from portable_lock_packet_layout import SHOT_TIMES
+        from portable_lock_typed_layout import OFFSET,OUTPUT
+        self.assertEqual(PRODUCT_BANKS['snapshots']['base'],SNAPSHOTS+OFFSET)
+        self.assertEqual(PRODUCT_BANKS['shot_times']['base'],SHOT_TIMES+OFFSET)
+        occupied=set()
+        for name,bank in PRODUCT_BANKS.items():
+            block=array.array('I',[0])*PRODUCT_OUTPUT;prefix=bank['prefix'];width=bank['width']
+            for index in (0,prefix-1,prefix,bank['capacity']-1):
+                address=product_address(name,index);block[address]=index+1
+                self.assertGreaterEqual(address,OUTPUT if index>=prefix else bank['base'])
+            rows=product_rows(block,name,bank['capacity'])
+            self.assertEqual([rows[i][0] for i in (0,prefix-1,prefix,bank['capacity']-1)],[i+1 for i in (0,prefix-1,prefix,bank['capacity']-1)])
+            with self.assertRaises(ValueError):product_rows(block,name,bank['capacity']+1)
+            with self.assertRaises(ValueError):product_rows(block,name,prefix)
+            block=array.array('I',[0])*PRODUCT_OUTPUT;block[bank['base']+width]=1
+            with self.assertRaises(ValueError):product_rows(block,name,1)
+            span=set(range(bank['extra'],bank['extra']+(bank['capacity']-prefix)*width))
+            self.assertFalse(occupied&span);occupied|=span
+        self.assertEqual(max(occupied)+1,PRODUCT_END)
+        self.assertLessEqual(PRODUCT_END,PRODUCT_OUTPUT)
+        self.assertIn('#ifdef PORTABLE_PRODUCT_LONG_LOCK',product_schema())
+        from portable_specs import shader_schema
+        self.assertIn('#elif defined(PORTABLE_PRODUCT_LONG_LOCK)\nstatic const uint P_OUTPUT_WORDS = PL_LAYOUT_OUTPUT;',shader_schema())
 
     def test_default_body_preserves_expected_policy_and_all_original_motion_lock_definitions(self):
         from portable_original_identity_inventory import selected_profile_bodies

@@ -176,6 +176,10 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
             from portable_product_typed_movement import INPUT as MI,LOCK_OUTPUT
             return source,MI,LOCK_OUTPUT,words,meta
         return source,CI,CO,words,meta
+    if not prepared.get('_product_cover_compiled'):
+        from portable_original_lock_layout import PRODUCT_OUTPUT
+        meta['product_long_lock_history']=True
+        return source,INPUT,PRODUCT_OUTPUT,words,meta
     return source,INPUT,OUTPUT,words,meta
 
 
@@ -191,9 +195,10 @@ def read_result(block,meta,duration,*,quota_history=None,team_history=None):
     from portable_effect_target_count_shot_specs import HEAD as QUOTA_HEAD,decode as quotas
     def fail():raise UnsupportedPortable('Invalid or incomplete product Lock On history')
     if (quota_history is None)!=(team_history is None):fail()
-    composed=bool(meta.get('product_lock_cover'))
+    composed=bool(meta.get('product_lock_cover'));long_history=bool(meta.get('product_long_lock_history'))
+    if long_history and composed:fail()
     from portable_cover_defense_wire import OUTPUT as COVER_OUTPUT,LAYOUT as C
-    if len(block)!=(COVER_OUTPUT if composed else OUTPUT) or block[0]!=0:fail()
+    if len(block)!=(COVER_OUTPUT if composed else banks.PRODUCT_OUTPUT if long_history else OUTPUT) or block[0]!=0:fail()
     info=meta['product_lock_on'];bindings=info['bindings'];spec=info['declarations']['lock_on']
     owner=info['names'].index(spec['owner'])
     def number(at):
@@ -204,15 +209,23 @@ def read_result(block,meta,duration,*,quota_history=None,team_history=None):
         value=number(at)
         if not 0<=value<=duration:fail()
         return value
+    def address(name,index,legacy):
+        return banks.product_address(name,index) if long_history else legacy
     def bank(start,width,count,capacity):
+        if long_history:
+            choices=[(name,b) for name,b in banks.PRODUCT_BANKS.items() if b['base']==start and b['width']==width]
+            if len(choices)!=1:fail()
+            name,b=choices[0]
+            try:return banks.product_rows(block,name,count)
+            except ValueError:fail()
         if count>capacity or any(block[start+count*width:start+capacity*width]):fail()
         return [list(block[start+i*width:start+(i+1)*width]) for i in range(count)]
     h=physical.HEAD+OFFSET;header=list(block[h:h+16]);n,shots,clears=header[1:4]
-    if header!=[0x504c3031,n,shots,clears,owner,meta['physical_lock_pulse_row']]+[0]*10 or shots>physical.SHOT_CAPACITY or clears>0x7fffffff:fail()
+    if header!=[0x504c3031,n,shots,clears,owner,meta['physical_lock_pulse_row']]+[0]*10 or shots>(banks.PRODUCT_BANKS['snapshots']['capacity'] if long_history else physical.SHOT_CAPACITY) or clears>0x7fffffff:fail()
     rows=bank(banks.PULSES,16,n,banks.PULSE_CAPACITY);pulses=[];previous=0.;revision=0
     for i,row in enumerate(rows):
         capacity,count,rev,kind,identity,generation,removed,magic=row[:8]
-        when=time(banks.PULSES+i*16+8)
+        when=time(address('pulses',i,banks.PULSES+i*16)+8)
         if (capacity>128 or count>128 or not revision<=rev<=0x7fffffff or removed>128 or magic!=0x474c3031
             or when<previous or any(row[10:]) or kind not in (0,5,0xffffffff)):fail()
         if kind==0xffffffff:
@@ -235,10 +248,14 @@ def read_result(block,meta,duration,*,quota_history=None,team_history=None):
     candidate=physical.CANDIDATE+OFFSET
     if n:actor_set(candidate,candidate=True)
     elif any(block[candidate:candidate+physical.SET_WORDS]):fail()
+    if long_history:
+        bank(physical.SNAPSHOTS+OFFSET,physical.SET_WORDS,shots,physical.SHOT_CAPACITY)
+        bank(packet.SHOT_TIMES+OFFSET,2,shots,physical.SHOT_CAPACITY)
+        if any(block[packet.SHOT_TIMES+OFFSET+physical.SHOT_CAPACITY*2:packet.HEAD+OFFSET]):fail()
     snapshots=[];previous=0.;revision=0
     for i in range(shots):
-        rev,handles=actor_set(physical.SNAPSHOTS+OFFSET+i*physical.SET_WORDS)
-        when=time(packet.SHOT_TIMES+OFFSET+i*2)
+        rev,handles=actor_set(address('snapshots',i,physical.SNAPSHOTS+OFFSET+i*physical.SET_WORDS))
+        when=time(address('shot_times',i,packet.SHOT_TIMES+OFFSET+i*2))
         if when<previous or rev<revision:fail()
         previous=when;revision=rev;snapshots.append(dict(time=when,revision=rev,handles=handles))
     if any(block[physical.SNAPSHOTS+OFFSET+shots*physical.SET_WORDS:physical.END+OFFSET]):fail()
@@ -252,7 +269,7 @@ def read_result(block,meta,duration,*,quota_history=None,team_history=None):
             or meta['binding_source_indices'][source]!=info['packet_source'] or not 1<=hit<=hits<=128
             or not 1<=token<=shots or count!=len(snapshots[token-1]['handles']) or rev!=snapshots[token-1]['revision']
             or row[15]!=packet.MAGIC or row[14]>1):fail()
-        if time(banks.PACKETS+i*16+8)!=snapshots[token-1]['time']:fail()
+        if time(address('packets',i,banks.PACKETS+i*16)+8)!=snapshots[token-1]['time']:fail()
     if any(block[packet.TRACE+OFFSET:LOCK_END]):fail()
     qcount=block[QUOTA_HEAD+2]
     if quota_history is None:qrows=bank(banks.QUOTAS,20,qcount,banks.QUOTA_CAPACITY)
@@ -283,20 +300,26 @@ def read_result(block,meta,duration,*,quota_history=None,team_history=None):
             values=[struct.unpack('<d',struct.pack('<II',*row[at:at+2]))[0] for at in (2,4,6)]
             if any(not math.isfinite(v) for v in values) or not 0<=values[0]<=duration or values[1]<0 or values[2]<0:fail()
     if any(block[banks.END:OUTPUT]):fail()
+    if long_history and any(block[banks.PRODUCT_END:banks.PRODUCT_OUTPUT]):fail()
     skill_count=block[L['WORLD_SKILL_HEAD_BASE']+1]
-    if skill_count>(COVER_HISTORY_CAPACITY if composed else fates.CAPACITY):fail()
+    if skill_count>(COVER_HISTORY_CAPACITY if composed or long_history else fates.CAPACITY):fail()
     first=min(skill_count,fates.CAPACITY)
     flags=list(block[fates.FLAGS:fates.FLAGS+first])
-    if composed:
+    if composed or long_history:
         from portable_skill_history import decode_pages
-        try:history=decode_pages(block,skill_count,COVER_SKILL_BASE,capacity=COVER_HISTORY_CAPACITY)
+        skill_base=banks.PRODUCT_BANKS['skills']['extra'] if long_history else COVER_SKILL_BASE
+        try:history=decode_pages(block,skill_count,skill_base,capacity=COVER_HISTORY_CAPACITY)
         except (AssertionError,ValueError,IndexError,struct.error):fail()
         if any(r['row']>=len(meta['binding_source_indices']) or not 1<=r['hit']<=r['hits']<=256 or
             not 0<=r['created']<=r['landed']<=duration or
             any(not math.isfinite(r[k]) or r[k]<0 for k in ('amount','share')) for r in history):fail()
         extra=max(0,skill_count-fates.CAPACITY)
-        flags.extend(block[COVER_FATE_BASE:COVER_FATE_BASE+extra])
-        if any(block[COVER_FATE_BASE+extra:COVER_HISTORY_END]) or any(block[COVER_HISTORY_END:C['OUTPUT_BASE']]):fail()
+        if long_history:
+            try:flags=[r[0] for r in banks.product_rows(block,'fates',skill_count)]
+            except ValueError:fail()
+        else:
+            flags.extend(block[COVER_FATE_BASE:COVER_FATE_BASE+extra])
+            if any(block[COVER_FATE_BASE+extra:COVER_HISTORY_END]) or any(block[COVER_HISTORY_END:C['OUTPUT_BASE']]):fail()
     if composed:
         for flag,row in zip(flags,history):
             if flag and (meta['binding_source_indices'][row['row']]!=info['typed_source'] or row['recipients']!=[0]

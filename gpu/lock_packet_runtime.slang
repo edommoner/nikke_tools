@@ -45,9 +45,9 @@ bool initializeLockPackets(inout Runtime s)
 }
 bool lockPacketTrace(inout Runtime s,LandingReceipt r,uint phase,uint packet)
 {
-    if(r.lockSnapshot==0||r.lockSnapshot>s.lockShotCount||r.lockSnapshot>31||r.hit<1||r.hit>r.hits||r.hits>256){failLockPacket(s,9001U,r,packet,0);return false;}
-    uint token=r.lockSnapshot-1,snap=s.resourceOutput+PL_SNAPSHOTS+token*P_WORLD_ACTOR_SET_WORDS;
-    if(!f64Equal(actorNumber(s.resourceOutput+LP_SHOT_TIMES+token*2),r.when)||results[snap+6]!=0x474c3031U||results[snap]>128){failLockPacket(s,9002U,r,packet,results[snap+6]);return false;}
+    if(r.lockSnapshot==0||r.lockSnapshot>s.lockShotCount||r.lockSnapshot>PL_SHOT_CAPACITY||r.hit<1||r.hit>r.hits||r.hits>256){failLockPacket(s,9001U,r,packet,0);return false;}
+    uint token=r.lockSnapshot-1,snap=PL_SNAPSHOT_AT(s,token);
+    if(!f64Equal(actorNumber(LP_SHOT_TIME_AT(s,token)),r.when)||results[snap+6]!=0x474c3031U||results[snap]>128){failLockPacket(s,9002U,r,packet,results[snap+6]);return false;}
     uint head=s.resourceOutput+LP_HEAD,index=results[head+1];if(index>=LP_DIAGNOSTIC_CAPACITY){failLockPacket(s,9003U,r,packet,index);return false;}
     uint at=LP_TRACE_AT(s.resourceOutput,index),ordinal=lockDeliveryIndex(r.hit,results[snap]),slot=0xffffffffU,gen=0,current=0,status=LD_EMPTY;
     if(ordinal!=0xffffffffU)

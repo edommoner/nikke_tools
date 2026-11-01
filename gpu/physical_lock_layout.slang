@@ -12,3 +12,9 @@ static const uint PL_CANDIDATE = 787456U+PL_LAYOUT_OFFSET;
 static const uint PL_SNAPSHOTS = 787976U+PL_LAYOUT_OFFSET;
 static const uint PL_END = 804096U+PL_LAYOUT_OFFSET;
 static const uint PL_OUTPUT = PL_LAYOUT_OUTPUT;
+#ifndef PL_SHOT_CAPACITY
+#define PL_SHOT_CAPACITY 31U
+#endif
+#ifndef PL_SNAPSHOT_AT
+#define PL_SNAPSHOT_AT(s,index) ((s).resourceOutput+PL_SNAPSHOTS+(index)*P_WORLD_ACTOR_SET_WORDS)
+#endif

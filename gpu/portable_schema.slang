@@ -258,6 +258,8 @@ static const uint P_OUTPUT_WORDS = 2048912U;
 static const uint P_OUTPUT_WORDS = 10422672U;
 #elif defined(PORTABLE_MOVING_TYPED) || defined(PORTABLE_PRODUCT_MOVEMENT_RANGE)
 static const uint P_OUTPUT_WORDS = 2165136U;
+#elif defined(PORTABLE_PRODUCT_LONG_LOCK)
+static const uint P_OUTPUT_WORDS = PL_LAYOUT_OUTPUT;
 #elif defined(PORTABLE_LOCK_TYPED_COMPOSITION)
 static const uint P_OUTPUT_WORDS = 1310720U;
 #elif defined(PORTABLE_PHYSICAL_LOCK_ARENA)

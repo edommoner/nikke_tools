@@ -402,7 +402,7 @@
     },
     "gpu/portable_schema.slang": {
       "before_sha256": "2ce1648b1b484f3d64806c48520f98dbfaab24e7a299e2afe1a66fb5abbd5334",
-      "after_sha256": "c91688aee9ae74c340260ff61e36af77ed9c3aa52503e1588cd3de167e2c09a7",
+      "after_sha256": "dbaaf9c196d6a0bae954abf7057065ee5cff3f202f6129969fe8b1a4c90caa2f",
       "hunks": [
         {
           "start": 10870,
@@ -417,26 +417,32 @@
           "after": "#elif defined(PORTABLE_MOVING_TYPED) || defined(PORTABLE_PRODUCT_MOVEMENT_RANGE)\n"
         },
         {
-          "start": 27930,
-          "end": 27966,
+          "start": 11481,
+          "end": 11576,
+          "before": "",
+          "after": "#elif defined(PORTABLE_PRODUCT_LONG_LOCK)\nstatic const uint P_OUTPUT_WORDS = PL_LAYOUT_OUTPUT;\n"
+        },
+        {
+          "start": 28025,
+          "end": 28061,
           "before": "",
           "after": "static const uint S_boss_dot = 95U;\n"
         },
         {
-          "start": 28865,
-          "end": 28907,
+          "start": 28960,
+          "end": 29002,
           "before": "",
           "after": "static const uint S_cover_disabled = 71U;\n"
         },
         {
-          "start": 29552,
-          "end": 29604,
+          "start": 29647,
+          "end": 29699,
           "before": "static const uint P_BUFF_STAT_BITS_2 = 528482303U;\n",
           "after": "static const uint P_BUFF_STAT_BITS_2 = 2675965951U;\n"
         },
         {
-          "start": 29716,
-          "end": 29749,
+          "start": 29811,
+          "end": 29844,
           "before": "    if(stat > 92U) return false;\n",
           "after": "    if(stat > 95U) return false;\n"
         }
@@ -894,7 +900,7 @@
     },
     "app/portable_backend.py": {
       "before_sha256": "56d708fa4162b19d35cb2ec16498380f762e11dea17162c57ceb37c651c9f8ac",
-      "after_sha256": "ef7b26d659f747c4077f359f99cc488a0fe9ea20c36b52d60dd69b9714881d47",
+      "after_sha256": "7dacf8e9623d616ad839788e3d38bbf103ad0f17ef1e3e7be5c639a50c0772f2",
       "hunks": [
         {
           "start": 3841,
@@ -951,56 +957,62 @@
           "after": "        if source in ('gpu/world_original_lock_composition_entry.slang','gpu/world_original_lock_health_parts_entry.slang','gpu/product_lock_battle_entry.slang','gpu/product_lock_fixed_battle_entry.slang'):\n"
         },
         {
-          "start": 17459,
-          "end": 17618,
+          "start": 15965,
+          "end": 16174,
+          "before": "",
+          "after": "        if source in ('gpu/product_lock_battle_entry.slang','gpu/product_lock_fixed_battle_entry.slang'):\n            from portable_original_lock_layout import PRODUCT_OUTPUT\n            OUTPUT=PRODUCT_OUTPUT\n"
+        },
+        {
+          "start": 17668,
+          "end": 17827,
           "before": "    if source=='gpu/world_named_range_battle_entry.slang':\n",
           "after": "    if source in ('gpu/world_named_range_battle_entry.slang','gpu/product_named_range_battle_entry.slang','gpu/product_named_range_fixed_battle_entry.slang'):\n"
         },
         {
-          "start": 17869,
-          "end": 18225,
+          "start": 18078,
+          "end": 18434,
           "before": "    if source=='gpu/world_enemy_healing_entry.slang':\n",
           "after": "    if source in ('gpu/world_enemy_healing_entry.slang','gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang','gpu/product_healing_group_battle_entry.slang','gpu/product_healing_fixed_group_battle_entry.slang','gpu/product_coordinate_healing_battle_entry.slang','gpu/product_coordinate_healing_fixed_battle_entry.slang'):\n"
         },
         {
-          "start": 18332,
-          "end": 18790,
+          "start": 18541,
+          "end": 18999,
           "before": "",
           "after": "        if source.startswith('gpu/product_coordinate_healing_'):\n            from portable_logical_geometry_wire import check_schema as logical_schema,LAYOUT as G,SCRATCH\n            from portable_enemy_healing_wire import LAYOUT as H\n            logical_schema(ROOT)\n            if G['BASE']+G['WORDS']!=H['BASE'] or SCRATCH['OUTPUT_WORDS']!=OUTPUT['OUTPUT_WORDS']:\n                raise ValueError('Coordinate and healing require adjacent complete banks')\n"
         },
         {
-          "start": 18958,
-          "end": 21056,
+          "start": 19167,
+          "end": 21265,
           "before": "    if source=='gpu/world_coordinate_logical_actor_entry.slang':\n",
           "after": "    if source in ('gpu/product_typed_lock_battle_entry.slang','gpu/product_typed_lock_fixed_battle_entry.slang'):\n        from portable_product_typed_lock import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Typed weapons and Lock On require complete shared arenas')\n        return\n    if source in ('gpu/product_coordinate_lock_battle_entry.slang','gpu/product_coordinate_lock_fixed_battle_entry.slang'):\n        from portable_product_coordinate_lock import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Coordinate Lock On requires complete disjoint arenas')\n        return\n    if source in ('gpu/product_typed_battle_entry.slang','gpu/product_typed_fixed_battle_entry.slang'):\n        from portable_product_typed import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Typed product requires complete coordinate/typed/skill/logical banks')\n        return\n    if source in ('gpu/product_coordinate_add_battle_entry.slang','gpu/product_coordinate_add_fixed_battle_entry.slang'):\n        from portable_add_attack_battle_wire import check_schema,LAYOUT as A\n        from portable_add_self_destruct_wire import check_schema as retirement_schema\n        from portable_logical_geometry_wire import check_schema as logical_schema,LAYOUT as G,SCRATCH\n        check_schema(ROOT);retirement_schema(ROOT);logical_schema(ROOT)\n        if G['BASE']+G['WORDS']!=A['BASE'] or SCRATCH['OUTPUT_WORDS']!=A['OUTPUT_WORDS']:\n            raise ValueError('Coordinate and ADD require their complete disjoint input banks and registered output')\n        if (input_words,output_words)!=(A['INPUT_WORDS'],A['OUTPUT_WORDS']):raise ValueError('Coordinate ADD requires the complete shared source/retirement wire')\n        return\n    if source in ('gpu/world_coordinate_logical_actor_entry.slang','gpu/product_coordinate_battle_entry.slang','gpu/product_coordinate_fixed_battle_entry.slang'):\n"
         },
         {
-          "start": 43663,
-          "end": 43794,
+          "start": 43872,
+          "end": 44003,
           "before": "",
           "after": "            if cuda_split_compile_threads()==2:\n                signatures['nvrtcVersion']=[C.POINTER(C.c_int),C.POINTER(C.c_int)]\n"
         },
         {
-          "start": 50551,
-          "end": 50881,
+          "start": 50760,
+          "end": 51090,
           "before": "def cuda_compile_options(kind, ptxas_level=None):\n",
           "after": "def cuda_split_compile_threads():\n    value=os.environ.get('NIKKE_CUDA_SPLIT_COMPILE','1')\n    if value not in ('1','2'):\n        raise ValueError('NIKKE_CUDA_SPLIT_COMPILE must be1 or2; automatic/all-core compilation is forbidden')\n    return int(value)\n\n\ndef cuda_compile_options(kind, ptxas_level=None, *, split_compile=None):\n"
         },
         {
-          "start": 51272,
-          "end": 51674,
+          "start": 51481,
+          "end": 51883,
           "before": "",
           "after": "    threads=cuda_split_compile_threads() if split_compile is None else split_compile\n    if type(threads) is not int or threads not in (1,2):raise ValueError('NVRTC compiler threads must be1 or2')\n    # Opt-in only: default argv/cache identities stay byte-identical. The\n    # parallel optimizer count participates in the ordinary exact cache key.\n    if threads==2:options.append('--split-compile=2')\n"
         },
         {
-          "start": 52345,
-          "end": 52501,
+          "start": 52554,
+          "end": 52710,
           "before": "    options = cuda_compile_options(artifact_kind,None if level in (None,'') else int(level))\n",
           "after": "    threads=cuda_split_compile_threads()\n    options = cuda_compile_options(artifact_kind,None if level in (None,'') else int(level),split_compile=threads)\n"
         },
         {
-          "start": 53100,
-          "end": 53382,
+          "start": 53309,
+          "end": 53591,
           "before": "",
           "after": "        if threads==2:\n            major,minor=C.c_int(),C.c_int()\n            check(lib.nvrtcVersion(C.byref(major),C.byref(minor)))\n            if major.value!=12 or minor.value<4:\n                raise ValueError('Two-thread NVRTC compilation requires verified NVRTC12.4..12.x')\n"
         }
@@ -1236,13 +1248,13 @@
     },
     "app/portable_product_programs.py": {
       "before_sha256": "51d18a2191c24ef3b68f2d1cf71d792cdb9e8e01ed209e5c793827ce5b7d056d",
-      "after_sha256": "288e7d0c2ea653837024b1c8dc409d720b726999c80165f9a9b60783ce3e042b",
+      "after_sha256": "c201fce907380bfeb66a560c22a9a29c74aab22a6b400255c9fdeed50e71e756",
       "hunks": [
         {
           "start": 318,
           "end": 382,
           "before": "GOLDEN = 'research/portable-product-programs-v1-expected.json'\n",
-          "after": "GOLDEN = 'research/portable-product-programs-v66-expected.json'\n"
+          "after": "GOLDEN = 'research/portable-product-programs-v67-expected.json'\n"
         },
         {
           "start": 1039,
@@ -1926,41 +1938,41 @@
     },
     "gpu/world_lock_projectile_entry.slang": {
       "before_sha256": "467abe5f83fc615a9fd8fd24cf5666a6d1903974b17e123c62b7135c9f44aa32",
-      "after_sha256": "d385ef484e6efaf0ffba38b2384d98e5ee4e619758aa5cde5b3aae4c8ca2170e",
+      "after_sha256": "16e55b2050936c70fd6ee5b405e53b07e64422a98da2950405ec2e24bb393695",
       "hunks": [
         {
-          "start": 2130,
-          "end": 2243,
+          "start": 224,
+          "end": 249,
           "before": "",
-          "after": "#ifdef PORTABLE_PRODUCT_COVER_LOCK\n    uint input=1+id.x*(109536U+CDF_WORDS),output=id.x*CDF_OUTPUT_WORDS;\n#else\n"
+          "after": "#ifndef PL_LAYOUT_OUTPUT\n"
         },
         {
-          "start": 2292,
-          "end": 2304,
+          "start": 283,
+          "end": 290,
           "before": "",
-          "after": "\n#endif\n    "
+          "after": "#endif\n"
         },
         {
-          "start": 2334,
-          "end": 2441,
-          "before": "",
-          "after": "\n#ifdef PORTABLE_PRODUCT_COVER_LOCK\n    for(uint i=786432;i<CDF_OUTPUT_WORDS;i++)results[output+i]=0;\n#else"
+          "start": 2162,
+          "end": 2591,
+          "before": "    uint input=1+id.x*109536,output=id.x*1310720;WORLD_TEAM_INPUT(input,output)\n",
+          "after": "#ifdef PORTABLE_PRODUCT_COVER_LOCK\n    uint input=1+id.x*(109536U+CDF_WORDS),output=id.x*CDF_OUTPUT_WORDS;\n#else\n    uint input=1+id.x*109536,output=id.x*PL_LAYOUT_OUTPUT;\n#endif\n    WORLD_TEAM_INPUT(input,output)\n#ifdef PORTABLE_PRODUCT_COVER_LOCK\n    for(uint i=786432;i<CDF_OUTPUT_WORDS;i++)results[output+i]=0;\n#elif defined(PORTABLE_PRODUCT_LONG_LOCK)\n    for(uint i=786432;i<PL_LAYOUT_OUTPUT;i++)results[output+i]=0;\n#else\n"
         },
         {
-          "start": 2498,
-          "end": 2505,
+          "start": 2648,
+          "end": 2655,
           "before": "",
-          "after": "\n#endif"
+          "after": "#endif\n"
         },
         {
-          "start": 2816,
-          "end": 2939,
+          "start": 2965,
+          "end": 3088,
           "before": "",
           "after": "#ifdef PORTABLE_PRODUCT_COVER_LOCK\n    if(!initializeCoverDefense(runtimeStates[id.x])){results[output]=64;return;}\n#endif\n"
         },
         {
-          "start": 3091,
-          "end": 3240,
+          "start": 3240,
+          "end": 3389,
           "before": "",
           "after": "#ifdef PORTABLE_PRODUCT_COVER_LOCK\n    for(uint i=0;i<CDF_DEPTH*CDF_SNAPSHOT_WORDS;i++)results[output+CDF_OUTPUT_BASE+CDF_SNAPSHOT_BASE+i]=0;\n#endif\n"
         }
@@ -2172,199 +2184,61 @@
     },
     "app/portable_specs.py": {
       "before_sha256": "56f4bce83a64a6ae51ceba90d9bc7bae0196f1e8a3435d7df2e3fe6a81fcf322",
-      "after_sha256": "3dcbbefee9dd4e705200cd66b1b7793593d82512cda3c28b47e7a95f017954cb",
+      "after_sha256": "8c0855ed806d92f6a9310f1e59de657fa51f971cca97afaa0f3962ae777e9a69",
       "hunks": [
         {
           "start": 22788,
-          "end": 25219,
+          "end": 25318,
           "before": "            elif variant:lines += ['#if defined(PORTABLE_COVER_DEFENSE) || defined(PORTABLE_WEIGHTED_INCOMING)','static const uint P_OUTPUT_WORDS = 2048912U;','#elif defined(PORTABLE_MOVING_MANY)','static const uint P_OUTPUT_WORDS = 10422672U;','#elif defined(PORTABLE_MOVING_TYPED)','static const uint P_OUTPUT_WORDS = 2165136U;','#elif defined(PORTABLE_LOCK_TYPED_COMPOSITION)','static const uint P_OUTPUT_WORDS = 1310720U;','#elif defined(PORTABLE_PHYSICAL_LOCK_ARENA)','static const uint P_OUTPUT_WORDS = 806912U;','#elif defined(PORTABLE_COORDINATE_ARC_ARENA) && defined(PORTABLE_COORDINATE_TYPED_TARGETS)','static const uint P_OUTPUT_WORDS = 2064786U;','#elif defined(PORTABLE_COORDINATE_TYPED_TARGETS) || defined(PORTABLE_COORDINATE_LOGICAL_ACTORS)','static const uint P_OUTPUT_WORDS = 2032000U;','#elif defined(PORTABLE_COORDINATE_COVER_POLICIES)','static const uint P_OUTPUT_WORDS = 1769856U;','#elif defined(PORTABLE_COORDINATE_SAMPLED_BURSTS)','static const uint P_OUTPUT_WORDS = 1769472U;','#elif defined(PORTABLE_COORDINATE_GROUPS)','static const uint P_OUTPUT_WORDS = 1507328U;','#elif defined(PORTABLE_COMPOSED_ARENA)','static const uint P_OUTPUT_WORDS = 1310720U;','#elif defined(PORTABLE_DESTRUCTIBLE_BATTLE) || defined(PORTABLE_ATTACK_GROUPS) || defined(PORTABLE_COORDINATE_POOL)','static const uint P_OUTPUT_WORDS = 1048576U;','#elif defined(PORTABLE_WORLD_RELOAD)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_RELOAD_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_PERIODIC)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_PERIODIC_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_RECIPIENTS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_RECIPIENT_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_FIELDS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_FIELDS_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_POOLS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_POOL_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_FRAME)',f'static const uint {prefix}{name} = {LIMITS[\"WORLD_FRAME_\"+name]}U;','#else']\n",
-          "after": "            elif variant:lines += ['#if defined(PORTABLE_PRODUCT_TYPED_MOTION)','static const uint P_OUTPUT_WORDS = EMB_OUTPUT;','#elif defined(PORTABLE_PRODUCT_COORDINATE_LOCK)','static const uint P_OUTPUT_WORDS = 2558208U;','#elif defined(PORTABLE_PRODUCT_COVER_MOVEMENT_RANGE)','static const uint P_OUTPUT_WORDS = 2165136U;','#elif defined(PORTABLE_COVER_DEFENSE) || defined(PORTABLE_WEIGHTED_INCOMING)','static const uint P_OUTPUT_WORDS = 2048912U;','#elif defined(PORTABLE_MOVING_MANY)','static const uint P_OUTPUT_WORDS = 10422672U;','#elif defined(PORTABLE_MOVING_TYPED) || defined(PORTABLE_PRODUCT_MOVEMENT_RANGE)','static const uint P_OUTPUT_WORDS = 2165136U;','#elif defined(PORTABLE_LOCK_TYPED_COMPOSITION)','static const uint P_OUTPUT_WORDS = 1310720U;','#elif defined(PORTABLE_PHYSICAL_LOCK_ARENA)','static const uint P_OUTPUT_WORDS = 806912U;','#elif defined(PORTABLE_COORDINATE_ARC_ARENA) && defined(PORTABLE_COORDINATE_TYPED_TARGETS)','static const uint P_OUTPUT_WORDS = 2064786U;','#elif defined(PORTABLE_COORDINATE_TYPED_TARGETS) || defined(PORTABLE_COORDINATE_LOGICAL_ACTORS)','static const uint P_OUTPUT_WORDS = 2032000U;','#elif defined(PORTABLE_COORDINATE_COVER_POLICIES)','static const uint P_OUTPUT_WORDS = 1769856U;','#elif defined(PORTABLE_COORDINATE_SAMPLED_BURSTS)','static const uint P_OUTPUT_WORDS = 1769472U;','#elif defined(PORTABLE_COORDINATE_GROUPS)','static const uint P_OUTPUT_WORDS = 1507328U;','#elif defined(PORTABLE_COMPOSED_ARENA)','static const uint P_OUTPUT_WORDS = 1310720U;','#elif defined(PORTABLE_DESTRUCTIBLE_BATTLE) || defined(PORTABLE_ATTACK_GROUPS) || defined(PORTABLE_COORDINATE_POOL)','static const uint P_OUTPUT_WORDS = 1048576U;','#elif defined(PORTABLE_WORLD_RELOAD)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_RELOAD_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_PERIODIC)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_PERIODIC_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_RECIPIENTS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_RECIPIENT_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_FIELDS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_FIELDS_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_POOLS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_POOL_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_FRAME)',f'static const uint {prefix}{name} = {LIMITS[\"WORLD_FRAME_\"+name]}U;','#else']\n"
+          "after": "            elif variant:lines += ['#if defined(PORTABLE_PRODUCT_TYPED_MOTION)','static const uint P_OUTPUT_WORDS = EMB_OUTPUT;','#elif defined(PORTABLE_PRODUCT_COORDINATE_LOCK)','static const uint P_OUTPUT_WORDS = 2558208U;','#elif defined(PORTABLE_PRODUCT_COVER_MOVEMENT_RANGE)','static const uint P_OUTPUT_WORDS = 2165136U;','#elif defined(PORTABLE_COVER_DEFENSE) || defined(PORTABLE_WEIGHTED_INCOMING)','static const uint P_OUTPUT_WORDS = 2048912U;','#elif defined(PORTABLE_MOVING_MANY)','static const uint P_OUTPUT_WORDS = 10422672U;','#elif defined(PORTABLE_MOVING_TYPED) || defined(PORTABLE_PRODUCT_MOVEMENT_RANGE)','static const uint P_OUTPUT_WORDS = 2165136U;','#elif defined(PORTABLE_PRODUCT_LONG_LOCK)','static const uint P_OUTPUT_WORDS = PL_LAYOUT_OUTPUT;','#elif defined(PORTABLE_LOCK_TYPED_COMPOSITION)','static const uint P_OUTPUT_WORDS = 1310720U;','#elif defined(PORTABLE_PHYSICAL_LOCK_ARENA)','static const uint P_OUTPUT_WORDS = 806912U;','#elif defined(PORTABLE_COORDINATE_ARC_ARENA) && defined(PORTABLE_COORDINATE_TYPED_TARGETS)','static const uint P_OUTPUT_WORDS = 2064786U;','#elif defined(PORTABLE_COORDINATE_TYPED_TARGETS) || defined(PORTABLE_COORDINATE_LOGICAL_ACTORS)','static const uint P_OUTPUT_WORDS = 2032000U;','#elif defined(PORTABLE_COORDINATE_COVER_POLICIES)','static const uint P_OUTPUT_WORDS = 1769856U;','#elif defined(PORTABLE_COORDINATE_SAMPLED_BURSTS)','static const uint P_OUTPUT_WORDS = 1769472U;','#elif defined(PORTABLE_COORDINATE_GROUPS)','static const uint P_OUTPUT_WORDS = 1507328U;','#elif defined(PORTABLE_COMPOSED_ARENA)','static const uint P_OUTPUT_WORDS = 1310720U;','#elif defined(PORTABLE_DESTRUCTIBLE_BATTLE) || defined(PORTABLE_ATTACK_GROUPS) || defined(PORTABLE_COORDINATE_POOL)','static const uint P_OUTPUT_WORDS = 1048576U;','#elif defined(PORTABLE_WORLD_RELOAD)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_RELOAD_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_PERIODIC)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_PERIODIC_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_RECIPIENTS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_RECIPIENT_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_FIELDS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_FIELDS_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_POOLS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_POOL_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_FRAME)',f'static const uint {prefix}{name} = {LIMITS[\"WORLD_FRAME_\"+name]}U;','#else']\n"
         }
       ]
     },
     "gpu/lock_packet_runtime.slang": {
       "before_sha256": "881d7dff17c238627ebfd5d7deee2c5fe6c2f878ed9a2f1ccbf11b425f2b8f28",
-      "after_sha256": "2ffa488b3d1b42630378b5203ad264ccbc73af70048f33b31f2f1c8b995dbb94",
+      "after_sha256": "d1313ab42997e0925c2e0f1d50217560537b2291086f80d028e2f0253562328b",
       "hunks": [
         {
-          "start": 245,
-          "end": 1200,
+          "start": 246,
+          "end": 1201,
           "before": "",
-          "after": "\n#endif\n// A failed product composition retains the first packet failure in the existing\n// 16-word projectile diagnostic bank. Success bytes and status semantics stay\n// unchanged; both backends execute this same path before CPU fallback.\n#ifdef PORTABLE_PRODUCT_COVER_LOCK\nvoid failLockPacket(inout Runtime s,uint site,LandingReceipt r,uint packet,uint detail)\n{\n    if(s.error==0)\n    {\n        uint at=s.resourceOutput+786416U;\n        results[at]=0x57504144U;results[at+1]=site;\n        results[at+2]=r.row;results[at+3]=packet;\n        results[at+4]=r.hit;results[at+5]=r.hits;results[at+6]=r.depth;results[at+7]=r.epoch;\n        results[at+8]=r.lockSnapshot;results[at+9]=s.lockShotCount;\n        storeNumber(at+10,r.when);\n        uint h=landingHeader(s);results[at+12]=results[h];results[at+13]=results[h+1];\n        results[at+14]=detail;results[at+15]=64U;\n    }\n    s.error=64;\n}\n#else\n#define failLockPacket(s,site,r,packet,detail) s.error=64"
+          "after": "#endif\n// A failed product composition retains the first packet failure in the existing\n// 16-word projectile diagnostic bank. Success bytes and status semantics stay\n// unchanged; both backends execute this same path before CPU fallback.\n#ifdef PORTABLE_PRODUCT_COVER_LOCK\nvoid failLockPacket(inout Runtime s,uint site,LandingReceipt r,uint packet,uint detail)\n{\n    if(s.error==0)\n    {\n        uint at=s.resourceOutput+786416U;\n        results[at]=0x57504144U;results[at+1]=site;\n        results[at+2]=r.row;results[at+3]=packet;\n        results[at+4]=r.hit;results[at+5]=r.hits;results[at+6]=r.depth;results[at+7]=r.epoch;\n        results[at+8]=r.lockSnapshot;results[at+9]=s.lockShotCount;\n        storeNumber(at+10,r.when);\n        uint h=landingHeader(s);results[at+12]=results[h];results[at+13]=results[h+1];\n        results[at+14]=detail;results[at+15]=64U;\n    }\n    s.error=64;\n}\n#else\n#define failLockPacket(s,site,r,packet,detail) s.error=64\n"
         },
         {
-          "start": 2283,
-          "end": 2298,
+          "start": 2171,
+          "end": 2735,
+          "before": "    if(r.lockSnapshot==0||r.lockSnapshot>s.lockShotCount||r.lockSnapshot>31||r.hit<1||r.hit>r.hits||r.hits>256){s.error=64;return false;}\n    uint token=r.lockSnapshot-1,snap=s.resourceOutput+PL_SNAPSHOTS+token*P_WORLD_ACTOR_SET_WORDS;\n    if(!f64Equal(actorNumber(s.resourceOutput+LP_SHOT_TIMES+token*2),r.when)||results[snap+6]!=0x474c3031U||results[snap]>128){s.error=64;return false;}\n    uint head=s.resourceOutput+LP_HEAD,index=results[head+1];if(index>=LP_DIAGNOSTIC_CAPACITY){s.error=64;return false;}\n",
+          "after": "    if(r.lockSnapshot==0||r.lockSnapshot>s.lockShotCount||r.lockSnapshot>PL_SHOT_CAPACITY||r.hit<1||r.hit>r.hits||r.hits>256){failLockPacket(s,9001U,r,packet,0);return false;}\n    uint token=r.lockSnapshot-1,snap=PL_SNAPSHOT_AT(s,token);\n    if(!f64Equal(actorNumber(LP_SHOT_TIME_AT(s,token)),r.when)||results[snap+6]!=0x474c3031U||results[snap]>128){failLockPacket(s,9002U,r,packet,results[snap+6]);return false;}\n    uint head=s.resourceOutput+LP_HEAD,index=results[head+1];if(index>=LP_DIAGNOSTIC_CAPACITY){failLockPacket(s,9003U,r,packet,index);return false;}\n"
+        },
+        {
+          "start": 3714,
+          "end": 3857,
+          "before": "    uint packet=(at-s.resourceOutput-P_LANDING_STATE_BASE)/P_LANDING_WORDS;if(packet>=P_LANDINGS){s.error=64;return;}\n",
+          "after": "    uint packet=(at-s.resourceOutput-P_LANDING_STATE_BASE)/P_LANDING_WORDS;if(packet>=P_LANDINGS){failLockPacket(s,9004U,r,packet,at);return;}\n"
+        },
+        {
+          "start": 3907,
+          "end": 3990,
+          "before": "    if(results[token]!=0){s.error=64;return;}\n",
+          "after": "    if(results[token]!=0){failLockPacket(s,9005U,r,packet,results[token]);return;}\n"
+        },
+        {
+          "start": 4135,
+          "end": 4445,
           "before": "",
-          "after": "failLockPacket("
+          "after": "// Materialize the scalar before clearing its RW slot. Slang's CUDA lowering\n// otherwise keeps an address and returns the cleared value; Metal already\n// materializes it. This is the same shared snapshot contract as actor scopes.\n[noinline]\nuint lockPacketTokenSnapshot(uint token)\n{ return results[token]; }\n"
         },
         {
-          "start": 2299,
-          "end": 2312,
-          "before": ".",
-          "after": ",9001U,r,pack"
+          "start": 4630,
+          "end": 4742,
+          "before": "    uint token=output+LP_TOKENS+packet,value=results[token];results[token]=0;return value;\n",
+          "after": "    uint token=output+LP_TOKENS+packet;uint value=lockPacketTokenSnapshot(token);results[token]=0;return value;\n"
         },
         {
-          "start": 2313,
-          "end": 2317,
-          "before": "rror=64",
-          "after": "t,0)"
-        },
-        {
-          "start": 2558,
-          "end": 2573,
-          "before": "",
-          "after": "failLockPacket("
-        },
-        {
-          "start": 2574,
-          "end": 2587,
-          "before": ".",
-          "after": ",9002U,r,pack"
-        },
-        {
-          "start": 2588,
-          "end": 2590,
-          "before": "",
-          "after": "t,"
-        },
-        {
-          "start": 2591,
-          "end": 2603,
-          "before": "ror=",
-          "after": "esults[snap+"
-        },
-        {
-          "start": 2604,
-          "end": 2606,
-          "before": "4",
-          "after": "])"
-        },
-        {
-          "start": 2717,
-          "end": 2732,
-          "before": "",
-          "after": "failLockPacket("
-        },
-        {
-          "start": 2733,
-          "end": 2746,
-          "before": ".",
-          "after": ",9003U,r,pack"
-        },
-        {
-          "start": 2747,
-          "end": 2755,
-          "before": "rror=64",
-          "after": "t,index)"
-        },
-        {
-          "start": 3848,
-          "end": 3863,
-          "before": "",
-          "after": "failLockPacket("
-        },
-        {
-          "start": 3864,
-          "end": 3877,
-          "before": ".",
-          "after": ",9004U,r,pack"
-        },
-        {
-          "start": 3878,
-          "end": 3883,
-          "before": "rror=64",
-          "after": "t,at)"
-        },
-        {
-          "start": 3969,
-          "end": 3984,
-          "before": "",
-          "after": "failLockPacket("
-        },
-        {
-          "start": 3985,
-          "end": 3998,
-          "before": ".",
-          "after": ",9005U,r,pack"
-        },
-        {
-          "start": 3999,
-          "end": 4001,
-          "before": "",
-          "after": "t,"
-        },
-        {
-          "start": 4002,
-          "end": 4010,
-          "before": "r",
-          "after": "esults[t"
-        },
-        {
-          "start": 4011,
-          "end": 4016,
-          "before": "r=64",
-          "after": "ken])"
-        },
-        {
-          "start": 4169,
-          "end": 4479,
-          "before": "",
-          "after": "}\n// Materialize the scalar before clearing its RW slot. Slang's CUDA lowering\n// otherwise keeps an address and returns the cleared value; Metal already\n// materializes it. This is the same shared snapshot contract as actor scopes.\n[noinline]\nuint lockPacketTokenSnapshot(uint token)\n{ return results[token]; "
-        },
-        {
-          "start": 4704,
-          "end": 4710,
-          "before": ",",
-          "after": ";uint "
-        },
-        {
-          "start": 4716,
-          "end": 4724,
-          "before": "r",
-          "after": "lockPack"
-        },
-        {
-          "start": 4725,
-          "end": 4735,
-          "before": "",
-          "after": "tTokenSnap"
-        },
-        {
-          "start": 4736,
-          "end": 4738,
-          "before": "ul",
-          "after": "ho"
-        },
-        {
-          "start": 4739,
-          "end": 4740,
-          "before": "s[",
-          "after": "("
-        },
-        {
-          "start": 4745,
-          "end": 4746,
-          "before": "]",
-          "after": ")"
-        },
-        {
-          "start": 4899,
-          "end": 4914,
-          "before": "",
-          "after": "failLockPacket("
-        },
-        {
-          "start": 4915,
-          "end": 4943,
-          "before": ".",
-          "after": ",9006U,r,results[landingHead"
-        },
-        {
-          "start": 4945,
-          "end": 4956,
-          "before": "ror=64",
-          "after": "(s)+1]-1,0)"
+          "start": 4809,
+          "end": 4949,
+          "before": "    if(!lockPacketRow(s,r.row)){if(r.lockSnapshot!=0){s.error=64;return false;}return true;}\n",
+          "after": "    if(!lockPacketRow(s,r.row)){if(r.lockSnapshot!=0){failLockPacket(s,9006U,r,results[landingHeader(s)+1]-1,0);return false;}return true;}\n"
         }
       ]
     },
@@ -2436,13 +2310,13 @@
     },
     "data/portable-product-programs.json": {
       "before_sha256": "405a435c57a5f6296534a9090b79ded81c67537ec663d27242cf9f7340a85e4c",
-      "after_sha256": "6296ffc2db65a9d85a68be424dd96512493dce604730280bfe7d32ee4028ed13",
+      "after_sha256": "9c67ab482e8a60c74d35fe02a0fa52f231fa0fe6ef592f8eca33ae22fd44404b",
       "hunks": [
         {
           "start": 1614,
           "end": 17008,
           "before": "",
-          "after": "    },\n    \"add-accumulate\": {\n      \"source\": \"gpu/product_add_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"add-accumulate-group\": {\n      \"source\": \"gpu/product_add_group_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"add-accumulate-target\": {\n      \"source\": \"gpu/product_add_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"target\"\n    },\n    \"add-accumulate-group-target\": {\n      \"source\": \"gpu/product_add_group_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group-target\"\n    },\n    \"add-fixed\": {\n      \"source\": \"gpu/product_add_fixed_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"add-fixed-group\": {\n      \"source\": \"gpu/product_add_fixed_group_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"add-fixed-target\": {\n      \"source\": \"gpu/product_add_fixed_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"target\"\n    },\n    \"add-fixed-group-target\": {\n      \"source\": \"gpu/product_add_fixed_group_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"group-target\"\n    },\n    \"healing-accumulate\": {\n      \"source\": \"gpu/product_healing_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"healing-fixed\": {\n      \"source\": \"gpu/product_healing_fixed_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"weighted-accumulate\": {\n      \"source\": \"gpu/product_weighted_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"weighted-fixed\": {\n      \"source\": \"gpu/product_weighted_fixed_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"cover-accumulate\": {\n      \"source\": \"gpu/product_cover_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"default-weighted-fixed\": {\n      \"source\": \"gpu/product_weighted_fixed_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"default-cover-fixed\": {\n      \"source\": \"gpu/product_cover_fixed_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"ammo-accumulate\": {\n      \"source\": \"gpu/product_ammo_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"ammo-fixed\": {\n      \"source\": \"gpu/product_ammo_fixed_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-accumulate\": {\n      \"source\": \"gpu/product_movement_battle_entry.slang\",\n      \"input_words\": 117476,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"named-range-accumulate\": {\n      \"source\": \"gpu/product_named_range_battle_entry.slang\",\n      \"input_words\": 116224,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"lock-accumulate\": {\n      \"source\": \"gpu/product_lock_battle_entry.slang\",\n      \"input_words\": 109536,\n      \"output_words\": 1310720,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"lock-fixed\": {\n      \"source\": \"gpu/product_lock_fixed_battle_entry.slang\",\n      \"input_words\": 109536,\n      \"output_words\": 1310720,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-fixed\": {\n      \"source\": \"gpu/product_movement_fixed_battle_entry.slang\",\n      \"input_words\": 117476,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"named-range-fixed\": {\n      \"source\": \"gpu/product_named_range_fixed_battle_entry.slang\",\n      \"input_words\": 116224,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"cover-fixed\": {\n      \"source\": \"gpu/product_cover_fixed_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"cover-fixed-group\": {\n      \"source\": \"gpu/product_cover_fixed_group_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"cover-accumulate-group\": {\n      \"source\": \"gpu/product_cover_group_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"cover-fixed-target\": {\n      \"source\": \"gpu/product_cover_fixed_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"target\"\n    },\n    \"cover-fixed-group-target\": {\n      \"source\": \"gpu/product_cover_fixed_group_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"group-target\"\n    },\n    \"cover-accumulate-target\": {\n      \"source\": \"gpu/product_cover_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"target\"\n    },\n    \"cover-accumulate-group-target\": {\n      \"source\": \"gpu/product_cover_group_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group-target\"\n    },\n    \"healing-cover-fixed\": {\n      \"source\": \"gpu/product_healing_cover_fixed_battle_entry.slang\",\n      \"input_words\": 120072,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"healing-cover-accumulate\": {\n      \"source\": \"gpu/product_healing_cover_battle_entry.slang\",\n      \"input_words\": 120072,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"ammo-cover-fixed\": {\n      \"source\": \"gpu/product_ammo_cover_fixed_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"ammo-cover-accumulate\": {\n      \"source\": \"gpu/product_ammo_cover_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"movement-cover-fixed\": {\n      \"source\": \"gpu/product_movement_cover_fixed_battle_entry.slang\",\n      \"input_words\": 117500,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-cover-accumulate\": {\n      \"source\": \"gpu/product_movement_cover_battle_entry.slang\",\n      \"input_words\": 117500,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"named-range-cover-fixed\": {\n      \"source\": \"gpu/product_named_range_cover_fixed_battle_entry.slang\",\n      \"input_words\": 116248,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"named-range-cover-accumulate\": {\n      \"source\": \"gpu/product_named_range_cover_battle_entry.slang\",\n      \"input_words\": 116248,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"lock-cover-fixed\": {\n      \"source\": \"gpu/product_lock_cover_fixed_battle_entry.slang\",\n      \"input_words\": 109560,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"lock-cover-accumulate\": {\n      \"source\": \"gpu/product_lock_cover_battle_entry.slang\",\n      \"input_words\": 109560,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"movement-range-cover-fixed\": {\n      \"source\": \"gpu/product_movement_range_cover_fixed_battle_entry.slang\",\n      \"input_words\": 118044,\n      \"output_words\": 2165136,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-range-cover-accumulate\": {\n      \"source\": \"gpu/product_movement_range_cover_battle_entry.slang\",\n      \"input_words\": 118044,\n      \"output_words\": 2165136,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"healing-fixed-group\": {\n      \"source\": \"gpu/product_healing_fixed_group_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"healing-accumulate-group\": {\n      \"source\": \"gpu/product_healing_group_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"coordinate-fixed\": {\n      \"source\": \"gpu/product_coordinate_fixed_battle_entry.slang\",\n      \"input_words\": 115680,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"coordinate-accumulate\": {\n      \"source\": \"gpu/product_coordinate_battle_entry.slang\",\n      \"input_words\": 115680,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"coordinate-cover-fixed\": {\n      \"source\": \"gpu/product_coordinate_cover_fixed_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"coordinate-cover-accumulate\": {\n      \"source\": \"gpu/product_coordinate_cover_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"named-carriers-fixed\": {\n      \"source\": \"gpu/product_named_carriers_fixed_battle_entry.slang\",\n      \"input_words\": 104400,\n      \"output_words\": 786432,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"named-carriers-accumulate\": {\n      \"source\": \"gpu/product_named_carriers_battle_entry.slang\",\n      \"input_words\": 104400,\n      \"output_words\": 786432,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"healing-cover-fixed-group\": {\n      \"source\": \"gpu/product_healing_cover_fixed_group_battle_entry.slang\",\n      \"input_words\": 120072,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"healing-cover-accumulate-group\": {\n      \"source\": \"gpu/product_healing_cover_group_battle_entry.slang\",\n      \"input_words\": 120072,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"ammo-fixed-group\": {\n      \"source\": \"gpu/product_ammo_fixed_group_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"ammo-accumulate-group\": {\n      \"source\": \"gpu/product_ammo_group_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"ammo-cover-fixed-group\": {\n      \"source\": \"gpu/product_ammo_cover_fixed_group_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"ammo-cover-accumulate-group\": {\n      \"source\": \"gpu/product_ammo_cover_group_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"ammo-fixed-target\": {\n      \"source\": \"gpu/product_ammo_fixed_target_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"target\"\n    },\n    \"ammo-accumulate-target\": {\n      \"source\": \"gpu/product_ammo_target_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"target\"\n    },\n    \"ammo-cover-fixed-target\": {\n      \"source\": \"gpu/product_ammo_cover_fixed_target_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"target\"\n    },\n    \"ammo-cover-accumulate-target\": {\n      \"source\": \"gpu/product_ammo_cover_target_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"target\"\n    },\n    \"weighted-fixed-group\": {\n      \"source\": \"gpu/product_weighted_fixed_group_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"weighted-accumulate-group\": {\n      \"source\": \"gpu/product_weighted_group_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"coordinate-weighted-accumulate\": {\n      \"source\": \"gpu/product_coordinate_weighted_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"coordinate-weighted-fixed\": {\n      \"source\": \"gpu/product_coordinate_weighted_fixed_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"coordinate-add-accumulate\": {\n      \"source\": \"gpu/product_coordinate_add_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"coordinate-add-fixed\": {\n      \"source\": \"gpu/product_coordinate_add_fixed_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"coordinate-healing-accumulate\": {\n      \"source\": \"gpu/product_coordinate_healing_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"coordinate-healing-fixed\": {\n      \"source\": \"gpu/product_coordinate_healing_fixed_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"typed-accumulate\": {\n      \"source\": \"gpu/product_typed_battle_entry.slang\",\n      \"input_words\": 123732,\n      \"output_words\": 2345384,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"typed-fixed\": {\n      \"source\": \"gpu/product_typed_fixed_battle_entry.slang\",\n      \"input_words\": 123732,\n      \"output_words\": 2345384,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"coordinate-lock-fixed\": {\n      \"source\": \"gpu/product_coordinate_lock_fixed_battle_entry.slang\",\n      \"input_words\": 120816,\n      \"output_words\": 2558208,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"coordinate-lock-accumulate\": {\n      \"source\": \"gpu/product_coordinate_lock_battle_entry.slang\",\n      \"input_words\": 120816,\n      \"output_words\": 2558208,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"typed-lock-fixed\": {\n      \"source\": \"gpu/product_typed_lock_fixed_battle_entry.slang\",\n      \"input_words\": 123732,\n      \"output_words\": 2945320,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"typed-lock-accumulate\": {\n      \"source\": \"gpu/product_typed_lock_battle_entry.slang\",\n      \"input_words\": 123732,\n      \"output_words\": 2945320,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n"
+          "after": "    },\n    \"add-accumulate\": {\n      \"source\": \"gpu/product_add_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"add-accumulate-group\": {\n      \"source\": \"gpu/product_add_group_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"add-accumulate-target\": {\n      \"source\": \"gpu/product_add_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"target\"\n    },\n    \"add-accumulate-group-target\": {\n      \"source\": \"gpu/product_add_group_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group-target\"\n    },\n    \"add-fixed\": {\n      \"source\": \"gpu/product_add_fixed_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"add-fixed-group\": {\n      \"source\": \"gpu/product_add_fixed_group_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"add-fixed-target\": {\n      \"source\": \"gpu/product_add_fixed_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"target\"\n    },\n    \"add-fixed-group-target\": {\n      \"source\": \"gpu/product_add_fixed_group_target_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"group-target\"\n    },\n    \"healing-accumulate\": {\n      \"source\": \"gpu/product_healing_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"healing-fixed\": {\n      \"source\": \"gpu/product_healing_fixed_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"weighted-accumulate\": {\n      \"source\": \"gpu/product_weighted_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"weighted-fixed\": {\n      \"source\": \"gpu/product_weighted_fixed_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"cover-accumulate\": {\n      \"source\": \"gpu/product_cover_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"default-weighted-fixed\": {\n      \"source\": \"gpu/product_weighted_fixed_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"default-cover-fixed\": {\n      \"source\": \"gpu/product_cover_fixed_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"ammo-accumulate\": {\n      \"source\": \"gpu/product_ammo_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"ammo-fixed\": {\n      \"source\": \"gpu/product_ammo_fixed_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-accumulate\": {\n      \"source\": \"gpu/product_movement_battle_entry.slang\",\n      \"input_words\": 117476,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"named-range-accumulate\": {\n      \"source\": \"gpu/product_named_range_battle_entry.slang\",\n      \"input_words\": 116224,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"lock-accumulate\": {\n      \"source\": \"gpu/product_lock_battle_entry.slang\",\n      \"input_words\": 109536,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"lock-fixed\": {\n      \"source\": \"gpu/product_lock_fixed_battle_entry.slang\",\n      \"input_words\": 109536,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-fixed\": {\n      \"source\": \"gpu/product_movement_fixed_battle_entry.slang\",\n      \"input_words\": 117476,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"named-range-fixed\": {\n      \"source\": \"gpu/product_named_range_fixed_battle_entry.slang\",\n      \"input_words\": 116224,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"cover-fixed\": {\n      \"source\": \"gpu/product_cover_fixed_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"cover-fixed-group\": {\n      \"source\": \"gpu/product_cover_fixed_group_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"cover-accumulate-group\": {\n      \"source\": \"gpu/product_cover_group_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"cover-fixed-target\": {\n      \"source\": \"gpu/product_cover_fixed_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"target\"\n    },\n    \"cover-fixed-group-target\": {\n      \"source\": \"gpu/product_cover_fixed_group_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"group-target\"\n    },\n    \"cover-accumulate-target\": {\n      \"source\": \"gpu/product_cover_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"target\"\n    },\n    \"cover-accumulate-group-target\": {\n      \"source\": \"gpu/product_cover_group_target_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group-target\"\n    },\n    \"healing-cover-fixed\": {\n      \"source\": \"gpu/product_healing_cover_fixed_battle_entry.slang\",\n      \"input_words\": 120072,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"healing-cover-accumulate\": {\n      \"source\": \"gpu/product_healing_cover_battle_entry.slang\",\n      \"input_words\": 120072,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"ammo-cover-fixed\": {\n      \"source\": \"gpu/product_ammo_cover_fixed_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"ammo-cover-accumulate\": {\n      \"source\": \"gpu/product_ammo_cover_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"movement-cover-fixed\": {\n      \"source\": \"gpu/product_movement_cover_fixed_battle_entry.slang\",\n      \"input_words\": 117500,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-cover-accumulate\": {\n      \"source\": \"gpu/product_movement_cover_battle_entry.slang\",\n      \"input_words\": 117500,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"named-range-cover-fixed\": {\n      \"source\": \"gpu/product_named_range_cover_fixed_battle_entry.slang\",\n      \"input_words\": 116248,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"named-range-cover-accumulate\": {\n      \"source\": \"gpu/product_named_range_cover_battle_entry.slang\",\n      \"input_words\": 116248,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"lock-cover-fixed\": {\n      \"source\": \"gpu/product_lock_cover_fixed_battle_entry.slang\",\n      \"input_words\": 109560,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"lock-cover-accumulate\": {\n      \"source\": \"gpu/product_lock_cover_battle_entry.slang\",\n      \"input_words\": 109560,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"movement-range-cover-fixed\": {\n      \"source\": \"gpu/product_movement_range_cover_fixed_battle_entry.slang\",\n      \"input_words\": 118044,\n      \"output_words\": 2165136,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"movement-range-cover-accumulate\": {\n      \"source\": \"gpu/product_movement_range_cover_battle_entry.slang\",\n      \"input_words\": 118044,\n      \"output_words\": 2165136,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"healing-fixed-group\": {\n      \"source\": \"gpu/product_healing_fixed_group_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"healing-accumulate-group\": {\n      \"source\": \"gpu/product_healing_group_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"coordinate-fixed\": {\n      \"source\": \"gpu/product_coordinate_fixed_battle_entry.slang\",\n      \"input_words\": 115680,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"coordinate-accumulate\": {\n      \"source\": \"gpu/product_coordinate_battle_entry.slang\",\n      \"input_words\": 115680,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"coordinate-cover-fixed\": {\n      \"source\": \"gpu/product_coordinate_cover_fixed_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"coordinate-cover-accumulate\": {\n      \"source\": \"gpu/product_coordinate_cover_battle_entry.slang\",\n      \"input_words\": 115704,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"named-carriers-fixed\": {\n      \"source\": \"gpu/product_named_carriers_fixed_battle_entry.slang\",\n      \"input_words\": 104400,\n      \"output_words\": 786432,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"named-carriers-accumulate\": {\n      \"source\": \"gpu/product_named_carriers_battle_entry.slang\",\n      \"input_words\": 104400,\n      \"output_words\": 786432,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"healing-cover-fixed-group\": {\n      \"source\": \"gpu/product_healing_cover_fixed_group_battle_entry.slang\",\n      \"input_words\": 120072,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"healing-cover-accumulate-group\": {\n      \"source\": \"gpu/product_healing_cover_group_battle_entry.slang\",\n      \"input_words\": 120072,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"ammo-fixed-group\": {\n      \"source\": \"gpu/product_ammo_fixed_group_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"ammo-accumulate-group\": {\n      \"source\": \"gpu/product_ammo_group_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"ammo-cover-fixed-group\": {\n      \"source\": \"gpu/product_ammo_cover_fixed_group_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"ammo-cover-accumulate-group\": {\n      \"source\": \"gpu/product_ammo_cover_group_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"ammo-fixed-target\": {\n      \"source\": \"gpu/product_ammo_fixed_target_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"target\"\n    },\n    \"ammo-accumulate-target\": {\n      \"source\": \"gpu/product_ammo_target_battle_entry.slang\",\n      \"input_words\": 117632,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"target\"\n    },\n    \"ammo-cover-fixed-target\": {\n      \"source\": \"gpu/product_ammo_cover_fixed_target_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"target\"\n    },\n    \"ammo-cover-accumulate-target\": {\n      \"source\": \"gpu/product_ammo_cover_target_battle_entry.slang\",\n      \"input_words\": 117656,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"target\"\n    },\n    \"weighted-fixed-group\": {\n      \"source\": \"gpu/product_weighted_fixed_group_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"group\"\n    },\n    \"weighted-accumulate-group\": {\n      \"source\": \"gpu/product_weighted_group_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"group\"\n    },\n    \"coordinate-weighted-accumulate\": {\n      \"source\": \"gpu/product_coordinate_weighted_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"coordinate-weighted-fixed\": {\n      \"source\": \"gpu/product_coordinate_weighted_fixed_battle_entry.slang\",\n      \"input_words\": 115696,\n      \"output_words\": 2048912,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"coordinate-add-accumulate\": {\n      \"source\": \"gpu/product_coordinate_add_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"coordinate-add-fixed\": {\n      \"source\": \"gpu/product_coordinate_add_fixed_battle_entry.slang\",\n      \"input_words\": 116464,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"coordinate-healing-accumulate\": {\n      \"source\": \"gpu/product_coordinate_healing_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"coordinate-healing-fixed\": {\n      \"source\": \"gpu/product_coordinate_healing_fixed_battle_entry.slang\",\n      \"input_words\": 120048,\n      \"output_words\": 2032000,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"typed-accumulate\": {\n      \"source\": \"gpu/product_typed_battle_entry.slang\",\n      \"input_words\": 123732,\n      \"output_words\": 2345384,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"typed-fixed\": {\n      \"source\": \"gpu/product_typed_fixed_battle_entry.slang\",\n      \"input_words\": 123732,\n      \"output_words\": 2345384,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"coordinate-lock-fixed\": {\n      \"source\": \"gpu/product_coordinate_lock_fixed_battle_entry.slang\",\n      \"input_words\": 120816,\n      \"output_words\": 2558208,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"coordinate-lock-accumulate\": {\n      \"source\": \"gpu/product_coordinate_lock_battle_entry.slang\",\n      \"input_words\": 120816,\n      \"output_words\": 2558208,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n    },\n    \"typed-lock-fixed\": {\n      \"source\": \"gpu/product_typed_lock_fixed_battle_entry.slang\",\n      \"input_words\": 123732,\n      \"output_words\": 2945320,\n      \"mode\": \"fixed\",\n      \"kind\": \"\"\n    },\n    \"typed-lock-accumulate\": {\n      \"source\": \"gpu/product_typed_lock_battle_entry.slang\",\n      \"input_words\": 123732,\n      \"output_words\": 2945320,\n      \"mode\": \"accumulate\",\n      \"kind\": \"\"\n"
         }
       ]
     },
@@ -3447,6 +3321,120 @@
           "after": "    if not plain_body_domain(prepared):\n"
         }
       ]
+    },
+    "app/portable_lock_packet_layout.py": {
+      "before_sha256": "c9b66af34655a159d62a0b3e47aff9d286cf5b5200e60f292a2e474899cdae2d",
+      "after_sha256": "77668ef9200bdd93889c5570a5212d2e19fa3238cc5553f1f95c14b68b2c5897",
+      "hunks": [
+        {
+          "start": 703,
+          "end": 1047,
+          "before": "    return '// Generated from portable_lock_packet_layout.py.\\n'+'\\n'.join('static const uint LP_'+k+' = '+str(v)+'U'+('+PL_LAYOUT_OFFSET' if k in ('TOKENS','SHOT_TIMES','HEAD','TRACE') else '')+';' for k,v in values.items())+'\\n'\n",
+          "after": "    return '// Generated from portable_lock_packet_layout.py.\\n'+'\\n'.join('static const uint LP_'+k+' = '+str(v)+'U'+('+PL_LAYOUT_OFFSET' if k in ('TOKENS','SHOT_TIMES','HEAD','TRACE') else '')+';' for k,v in values.items())+'\\n#ifndef LP_SHOT_TIME_AT\\n#define LP_SHOT_TIME_AT(s,index) ((s).resourceOutput+LP_SHOT_TIMES+(index)*2U)\\n#endif\\n'\n"
+        }
+      ]
+    },
+    "app/portable_original_lock_layout.py": {
+      "before_sha256": "23241e362bf36df36508b6e93287686514df47e4fab1b44a75570902400071e1",
+      "after_sha256": "44b6bf5bc7eb65b0eb87ad61fd2e37ba63b9a8d0b97cc05af63948917764f2a5",
+      "hunks": [
+        {
+          "start": 76,
+          "end": 181,
+          "before": "from portable_packet_fates import END as BASE\n",
+          "after": "from portable_packet_fates import END as BASE,FLAGS as FATE_FLAGS\nfrom portable_specs import LIMITS as L\n"
+        },
+        {
+          "start": 1451,
+          "end": 1616,
+          "before": "    if (Path(root)/'gpu/original_lock_composition_layout.slang').read_text()!=shader_layout():raise ValueError('Original lock bank layout differs')\n",
+          "after": "    if (Path(root)/'gpu/original_lock_composition_layout.slang').read_text()!=shader_layout()+product_schema():raise ValueError('Original lock bank layout differs')\n"
+        },
+        {
+          "start": 4473,
+          "end": 8140,
+          "before": "",
+          "after": "\n# Product-only continuation banks. Legacy prefixes and private/coordinate wires\n# retain their exact layout. Every extra row has a disjoint owned address.\nPRODUCT_OUTPUT=2032000\nPRODUCT_BANKS={}\n_cursor=OUTPUT\nfor _name,_prefix,_capacity,_width,_base in (\n    ('pulses',PULSE_CAPACITY,1024,16,PULSES),\n    ('packets',PACKET_CAPACITY,2048,16,PACKETS),\n    ('quotas',QUOTA_CAPACITY,8192,20,QUOTAS),\n    ('fractions',FRACTION_CAPACITY,16384,8,FRACTIONS),\n    ('teams',TEAM_CAPACITY,16384,8,TEAMS),\n    ('snapshots',31,128,520,1050120),\n    ('shot_times',31,128,2,1068368),\n    ('skills',128,2048,48,L['WORLD_SKILL_TRACE_BASE']),\n    ('fates',128,2048,1,FATE_FLAGS),\n):\n    PRODUCT_BANKS[_name]=dict(prefix=_prefix,capacity=_capacity,width=_width,base=_base,extra=_cursor)\n    _cursor+=(_capacity-_prefix)*_width\nPRODUCT_END=_cursor\nassert END<=OUTPUT<PRODUCT_END<=PRODUCT_OUTPUT\n\ndef product_address(name,index):\n    bank=PRODUCT_BANKS[name]\n    if type(index) is not int or not 0<=index<bank['capacity']:raise ValueError('Product Lock On history index outside capacity')\n    return bank['base']+index*bank['width'] if index<bank['prefix'] else bank['extra']+(index-bank['prefix'])*bank['width']\n\ndef product_schema():\n    # Use canonical prefix addresses rather than re-deriving relocated layouts.\n    from portable_physical_lock_layout import SNAPSHOTS,SHOT_CAPACITY\n    from portable_lock_packet_layout import SHOT_TIMES\n    from portable_lock_typed_layout import OFFSET\n    if PRODUCT_BANKS['snapshots']['base']!=SNAPSHOTS+OFFSET or PRODUCT_BANKS['shot_times']['base']!=SHOT_TIMES+OFFSET or SHOT_CAPACITY!=31:\n        raise ValueError('Product continuation prefix differs from canonical lock layout')\n    text='#ifdef PORTABLE_PRODUCT_LONG_LOCK\\n#define PL_LAYOUT_OUTPUT '+str(PRODUCT_OUTPUT)+'U\\n#define PORTABLE_WORLD_SKILL_HISTORY\\n#define WORLD_SKILL_HISTORY_ADMIT(s) (true)\\n'\n    names={'pulses':('PL_PULSE_CAPACITY','PL_PULSE_AT','s'),'packets':('LP_DIAGNOSTIC_CAPACITY','LP_TRACE_AT','output'),'quotas':('TCS_TRACE_CAPACITY','TCS_TRACE_AT','s'),'fractions':('WF_TRACE_CAPACITY','WF_TRACE_AT','s'),'teams':('WT_TRACE_CAPACITY','WT_TRACE_AT','s'),'snapshots':('PL_SHOT_CAPACITY','PL_SNAPSHOT_AT','s'),'shot_times':(None,'LP_SHOT_TIME_AT','s'),'skills':('WORLD_SKILL_TRACE_CAPACITY','WORLD_SKILL_TRACE_AT','s'),'fates':('PORTABLE_PACKET_FATE_CAPACITY','PF_FLAG_AT','output')}\n    for name,bank in PRODUCT_BANKS.items():\n        capacity,macro,arg=names[name];base='(output)' if arg=='output' else '(s).resourceOutput'\n        if capacity:text+=f'#undef {capacity}\\n#define {capacity} {bank[\"capacity\"]}U\\n'\n        text+=f'#undef {macro}\\n#define {macro}({arg},index) ((index)<{bank[\"prefix\"]}U ? {base}+{bank[\"base\"]}U+(index)*{bank[\"width\"]}U : {base}+{bank[\"extra\"]}U+((index)-{bank[\"prefix\"]}U)*{bank[\"width\"]}U)\\n'\n    return text+'#endif\\n'\n\ndef product_rows(block,name,count):\n    \"\"\"Read every ordered row and reject unused prefix/continuation words.\"\"\"\n    bank=PRODUCT_BANKS[name];width=bank['width'];start=bank['base']\n    if type(count) is not int or not 0<=count<=bank['capacity']:raise ValueError('Product Lock On history count outside capacity')\n    if len(block)!=PRODUCT_OUTPUT:raise ValueError('Complete product Lock On arena required')\n    prefix=min(count,bank['prefix']);extra=max(0,count-bank['prefix'])\n    if any(block[start+prefix*width:start+bank['prefix']*width]) or any(block[bank['extra']+extra*width:bank['extra']+(bank['capacity']-bank['prefix'])*width]):\n        raise ValueError('Unexpected product Lock On history padding')\n    return [list(block[product_address(name,i):product_address(name,i)+width]) for i in range(count)]\n"
+        }
+      ]
+    },
+    "app/portable_physical_lock_layout.py": {
+      "before_sha256": "7fffd3fc851a426318b891d6a883d1ddddef45e085d65994e670a2af1433776b",
+      "after_sha256": "a9cae20e3cec1c8df361fe9b319294da4c7cd3e9f52a49aef96c9647e468ac45",
+      "hunks": [
+        {
+          "start": 493,
+          "end": 1056,
+          "before": " return '// Generated from portable_physical_lock_layout.py; separate from actor sets.\\n#ifndef PL_LAYOUT_OFFSET\\n#define PL_LAYOUT_OFFSET 0U\\n#endif\\n#ifndef PL_LAYOUT_OUTPUT\\n#define PL_LAYOUT_OUTPUT 806912U\\n#endif\\n'+'\\n'.join('static const uint PL_'+k+' = '+('PL_LAYOUT_OUTPUT' if k=='OUTPUT' else str(v)+'U+PL_LAYOUT_OFFSET')+';' for k,v in values.items())+'\\n'\n",
+          "after": " return '// Generated from portable_physical_lock_layout.py; separate from actor sets.\\n#ifndef PL_LAYOUT_OFFSET\\n#define PL_LAYOUT_OFFSET 0U\\n#endif\\n#ifndef PL_LAYOUT_OUTPUT\\n#define PL_LAYOUT_OUTPUT 806912U\\n#endif\\n'+'\\n'.join('static const uint PL_'+k+' = '+('PL_LAYOUT_OUTPUT' if k=='OUTPUT' else str(v)+'U+PL_LAYOUT_OFFSET')+';' for k,v in values.items())+'\\n#ifndef PL_SHOT_CAPACITY\\n#define PL_SHOT_CAPACITY 31U\\n#endif\\n#ifndef PL_SNAPSHOT_AT\\n#define PL_SNAPSHOT_AT(s,index) ((s).resourceOutput+PL_SNAPSHOTS+(index)*P_WORLD_ACTOR_SET_WORDS)\\n#endif\\n'\n"
+        }
+      ]
+    },
+    "gpu/live_lock_delivery_runtime.slang": {
+      "before_sha256": "9ffa8311e89240c74fabeb687f32b5b609cabb0aa8dd8ef1285afce592edd950",
+      "after_sha256": "9c772b9dd72530f07b5f5e00922c08c728485003b3fedb880ca783327a487cc7",
+      "hunks": [
+        {
+          "start": 296,
+          "end": 346,
+          "before": "    uint snap=s.resourceOutput+PL_SNAPSHOTS+(r.lockSnapshot-1)*P_WORLD_ACTOR_SET_WORDS;\n",
+          "after": "    uint snap=PL_SNAPSHOT_AT(s,r.lockSnapshot-1);\n"
+        }
+      ]
+    },
+    "gpu/lock_packet_layout.slang": {
+      "before_sha256": "d4a979b4f14dbe2098c41f94744d34a7f4384fde59922d4b2ccf3a34088aa6d4",
+      "after_sha256": "1007dfa2b9831227fd3997a41efb2301afeb1349d75316c89f87ea2988f3aafb",
+      "hunks": [
+        {
+          "start": 405,
+          "end": 515,
+          "before": "",
+          "after": "#ifndef LP_SHOT_TIME_AT\n#define LP_SHOT_TIME_AT(s,index) ((s).resourceOutput+LP_SHOT_TIMES+(index)*2U)\n#endif\n"
+        }
+      ]
+    },
+    "gpu/original_lock_composition_layout.slang": {
+      "before_sha256": "1b392d6504bc363a5b6fd1958f7e177b40c33103d55b6d3197b72c72d4d24fd7",
+      "after_sha256": "1af53541aa6347a8be91fdc4642cdc5ce274bbf40d91d33d60973c08df1d7c84",
+      "hunks": [
+        {
+          "start": 565,
+          "end": 2613,
+          "before": "",
+          "after": "#ifdef PORTABLE_PRODUCT_LONG_LOCK\n#define PL_LAYOUT_OUTPUT 2032000U\n#define PORTABLE_WORLD_SKILL_HISTORY\n#define WORLD_SKILL_HISTORY_ADMIT(s) (true)\n#undef PL_PULSE_CAPACITY\n#define PL_PULSE_CAPACITY 1024U\n#undef PL_PULSE_AT\n#define PL_PULSE_AT(s,index) ((index)<256U ? (s).resourceOutput+1069200U+(index)*16U : (s).resourceOutput+1310720U+((index)-256U)*16U)\n#undef LP_DIAGNOSTIC_CAPACITY\n#define LP_DIAGNOSTIC_CAPACITY 2048U\n#undef LP_TRACE_AT\n#define LP_TRACE_AT(output,index) ((index)<512U ? (output)+1073296U+(index)*16U : (output)+1323008U+((index)-512U)*16U)\n#undef TCS_TRACE_CAPACITY\n#define TCS_TRACE_CAPACITY 8192U\n#undef TCS_TRACE_AT\n#define TCS_TRACE_AT(s,index) ((index)<2048U ? (s).resourceOutput+1081488U+(index)*20U : (s).resourceOutput+1347584U+((index)-2048U)*20U)\n#undef WF_TRACE_CAPACITY\n#define WF_TRACE_CAPACITY 16384U\n#undef WF_TRACE_AT\n#define WF_TRACE_AT(s,index) ((index)<8192U ? (s).resourceOutput+1122448U+(index)*8U : (s).resourceOutput+1470464U+((index)-8192U)*8U)\n#undef WT_TRACE_CAPACITY\n#define WT_TRACE_CAPACITY 16384U\n#undef WT_TRACE_AT\n#define WT_TRACE_AT(s,index) ((index)<4096U ? (s).resourceOutput+1187984U+(index)*8U : (s).resourceOutput+1536000U+((index)-4096U)*8U)\n#undef PL_SHOT_CAPACITY\n#define PL_SHOT_CAPACITY 128U\n#undef PL_SNAPSHOT_AT\n#define PL_SNAPSHOT_AT(s,index) ((index)<31U ? (s).resourceOutput+1050120U+(index)*520U : (s).resourceOutput+1634304U+((index)-31U)*520U)\n#undef LP_SHOT_TIME_AT\n#define LP_SHOT_TIME_AT(s,index) ((index)<31U ? (s).resourceOutput+1068368U+(index)*2U : (s).resourceOutput+1684744U+((index)-31U)*2U)\n#undef WORLD_SKILL_TRACE_CAPACITY\n#define WORLD_SKILL_TRACE_CAPACITY 2048U\n#undef WORLD_SKILL_TRACE_AT\n#define WORLD_SKILL_TRACE_AT(s,index) ((index)<128U ? (s).resourceOutput+512192U+(index)*48U : (s).resourceOutput+1684938U+((index)-128U)*48U)\n#undef PORTABLE_PACKET_FATE_CAPACITY\n#define PORTABLE_PACKET_FATE_CAPACITY 2048U\n#undef PF_FLAG_AT\n#define PF_FLAG_AT(output,index) ((index)<128U ? (output)+1069072U+(index)*1U : (output)+1777098U+((index)-128U)*1U)\n#endif\n"
+        }
+      ]
+    },
+    "gpu/physical_generation_locks.slang": {
+      "before_sha256": "8e8d611dd01fdc1e1ceeb7e1eeacae337b8ed1a282e40b36f73c40d836cd42ea",
+      "after_sha256": "620d5da91f99f2af56eab6b092eb78dbd8240804e1009e15a7c412d74f5cee43",
+      "hunks": [
+        {
+          "start": 3521,
+          "end": 3676,
+          "before": "    if(s.lockShotCount>=31){s.error=64;return;}\n    if(!generationLockSnapshotAt(s,s.resourceOutput+PL_SNAPSHOTS+s.lockShotCount*P_WORLD_ACTOR_SET_WORDS,0)){s.error=64;return;}\n",
+          "after": "    if(s.lockShotCount>=PL_SHOT_CAPACITY){s.error=64;return;}\n    if(!generationLockSnapshotAt(s,PL_SNAPSHOT_AT(s,s.lockShotCount),0)){s.error=64;return;}\n"
+        },
+        {
+          "start": 3713,
+          "end": 3771,
+          "before": "    storeNumber(s.resourceOutput+LP_SHOT_TIMES+s.lockShotCount*2,when);\n",
+          "after": "    storeNumber(LP_SHOT_TIME_AT(s,s.lockShotCount),when);\n"
+        }
+      ]
+    },
+    "gpu/physical_lock_layout.slang": {
+      "before_sha256": "09fbbee54ed94b719335e39f78f7725559dadf6200fa78dc310bc5636b4eb98a",
+      "after_sha256": "2233c8cfddd9cc67b4b2ad1b9a0b485592ee36f1a81912ab2044b30afeb08eb7",
+      "hunks": [
+        {
+          "start": 586,
+          "end": 775,
+          "before": "",
+          "after": "#ifndef PL_SHOT_CAPACITY\n#define PL_SHOT_CAPACITY 31U\n#endif\n#ifndef PL_SNAPSHOT_AT\n#define PL_SNAPSHOT_AT(s,index) ((s).resourceOutput+PL_SNAPSHOTS+(index)*P_WORLD_ACTOR_SET_WORDS)\n#endif\n"
+        }
+      ]
     }
   },
   "added_sources": {
@@ -3508,7 +3496,7 @@
     "app/product_typed_model.py": "ea1e36622ece687477d6a0cb064cf37e3dfe57c4e32a23d37044a0a704cd800b",
     "gpu/product_typed_battle_entry.slang": "6b83edf512d9dfa1e3a0902a86c879a457ed823cd52fa0d10992e992e35886fb",
     "gpu/product_typed_fixed_battle_entry.slang": "c0e72e586d12c19a9c946e8efc8d3e89b535678fab4e816f8aeeaf41e5933bf0",
-    "app/portable_product_locks.py": "1594be86d93dcacf950082e105437a8c66ef08d98bd0c8f65345a1f5f84fa28a",
+    "app/portable_product_locks.py": "9d2e5b2c77839aeb0cdfb5841b1adc51f29cefe525c75f31e9e31e08d7fe8815",
     "app/portable_product_coordinate_lock.py": "41ced8217c485dfce8eba0e481e3db8d2b61291938f68f37130a9cbe51d00084",
     "gpu/product_coordinate_lock_battle_entry.slang": "6ef702a286e01290043bc2304c76f452a3478ba8dec9498435a7fa11ac93b4d4",
     "gpu/product_coordinate_lock_fixed_battle_entry.slang": "a9b73a0ba875bc8bffe46aabeebbf5665c671d0ddb776497f51bfa3e49a26571",
@@ -3519,6 +3507,7 @@
     "gpu/product_typed_lock_fixed_battle_entry.slang": "38daa3ebb9d670f1e30a4730526bac21d2543e7f19abce0fd7f83d879e3a6bcc",
     "gpu/product_typed_nearby_layout.slang": "dd598b122289e2bc1250535051370a98ca9f6aa755ad52c2ab857f4cb0677eb9",
     "app/portable_product_typed_movement.py": "a60cea41c747bd46c5c3234b8f80db8b7cb4477ba40cab00128304e624578c4c",
-    "gpu/product_typed_movement_layout.slang": "9873c143668bd3156b99b0573d0e13afc84e4e89a329636c054d4d2258471a2b"
+    "gpu/product_typed_movement_layout.slang": "9873c143668bd3156b99b0573d0e13afc84e4e89a329636c054d4d2258471a2b",
+    "gpu/product_lock_battle_entry.slang": "32185739a79fddf8573880184a5668cde5580bb8cfeca7b719478a0b7be0e233"
   }
 }

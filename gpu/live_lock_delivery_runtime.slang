@@ -3,7 +3,7 @@ bool lockDeliveryCapture(inout Runtime s,LandingReceipt r,uint index)
 {
     if(!lockPacketRow(s,r.row))return false;
     // lockPacketObserveLoaded has validated the token, snapshot and hit budget.
-    uint snap=s.resourceOutput+PL_SNAPSHOTS+(r.lockSnapshot-1)*P_WORLD_ACTOR_SET_WORDS;
+    uint snap=PL_SNAPSHOT_AT(s,r.lockSnapshot-1);
     uint ordinal=lockDeliveryIndex(r.hit,results[snap]),slot=0xffffffffU,generation=0;
     if(ordinal!=0xffffffffU)
     {

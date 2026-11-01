@@ -14,7 +14,7 @@ OUTPUT=(END+4095)//4096*4096
 
 def shader_layout():
  values=dict(BASE=BASE,HEAD=HEAD,PULSES=PULSES,CANDIDATE=CANDIDATE,SNAPSHOTS=SNAPSHOTS,END=END,OUTPUT=OUTPUT)
- return '// Generated from portable_physical_lock_layout.py; separate from actor sets.\n#ifndef PL_LAYOUT_OFFSET\n#define PL_LAYOUT_OFFSET 0U\n#endif\n#ifndef PL_LAYOUT_OUTPUT\n#define PL_LAYOUT_OUTPUT 806912U\n#endif\n'+'\n'.join('static const uint PL_'+k+' = '+('PL_LAYOUT_OUTPUT' if k=='OUTPUT' else str(v)+'U+PL_LAYOUT_OFFSET')+';' for k,v in values.items())+'\n'
+ return '// Generated from portable_physical_lock_layout.py; separate from actor sets.\n#ifndef PL_LAYOUT_OFFSET\n#define PL_LAYOUT_OFFSET 0U\n#endif\n#ifndef PL_LAYOUT_OUTPUT\n#define PL_LAYOUT_OUTPUT 806912U\n#endif\n'+'\n'.join('static const uint PL_'+k+' = '+('PL_LAYOUT_OUTPUT' if k=='OUTPUT' else str(v)+'U+PL_LAYOUT_OFFSET')+';' for k,v in values.items())+'\n#ifndef PL_SHOT_CAPACITY\n#define PL_SHOT_CAPACITY 31U\n#endif\n#ifndef PL_SNAPSHOT_AT\n#define PL_SNAPSHOT_AT(s,index) ((s).resourceOutput+PL_SNAPSHOTS+(index)*P_WORLD_ACTOR_SET_WORDS)\n#endif\n'
 
 def check(root):
  from pathlib import Path

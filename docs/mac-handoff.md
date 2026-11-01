@@ -1,3 +1,13 @@
+## 2026-11-02 通常BODY Lock OnをUI既定180秒へ延長
+
+元Heavy Arms編成の無宣言・期待値・180秒を通常APIから固定／蓄積で実M5計算し、全CPU／GPU／HTTP一致。標準profile加算0、既存1profileの追加2条件。各条件でLock On取得668、射撃93、対象数履歴4407、packet1150、端数処理13224、team6612、skill674を全件保存。Lock On／対象数の全行とtyped状態は既存singleton CPU observer、端数／teamの全行・最終team状態も既存native observer／readerで順序・値一致。追加診断はCPU6戦闘、GPU再実行0。保存監査2と最終登録への再投影2も追加battle／GPU0。[出所と全件SHA](../research/product-plain-lock-long180-v1.json)。
+
+既存original lock layoutに製品専用continuationを追加し、従来1310720wordの全領域は番地・内容を保持、追加出力は2032000word。入力109536wordは不変。pulse1024／packet2048／quota8192／fraction16384／team16384／shot128／skill2048／fate2048。snapshot・時刻・履歴は共通macroで先頭を旧番地、追加のみowned tailへ。単独plain Lock Onだけに有効、cover／coordinate／typedの既存出力と容量は変更しない。全行・未使用prefix／tail／範囲外を検査し、切捨て・数値maskなし。
+
+途中run-v2は拡張先と共通P_OUTPUT_WORDSの不一致でバッチ2件目status64。保存rawのpacket stores／loadsから特定してschemaを統一。run-v4の30秒は成功したが180秒はframe2062でskill128件を超えstatus8／理由付きCPU fallback。既存2048件skill page decoderとfate continuationへ接続したv6で成功。旧claim／raw／CPU前失敗・未使用packetを保全。最終v67はlock-fixed2／lock-accumulate1だけ実Metal＋独立seal、旧3のnative SHAと旧readback全prefixは完全一致、追加語は全0。他40基準は履歴のまま保持。CPU185検査／member、最終登録は計算・test byte一致により165検査を再利用しregistry13＋台帳負例7を新実行。最終ownerはrelease-v2のmanifest、PTX／CUBIN O1 planはcompiler/GPU0。
+
+新suite／shader entry／module／layout file0、CUDA／Metalで同じ計算・定義・testを使用。CPU正本・pinned・数値規約・許容差変更0。UI http://127.0.0.1:4327/#single は修正版で再起動し、設定／sessionは変更していない。標準266/203キャラの30秒実績は前commit d874cbdbの履歴として維持し、この新sourceの全件実績とは扱わない。現在sourceの製品検証はHeavy Arms1profile・180秒2条件。次は全profileの長時間と他consumer合成を優先する。新CUDA・任意場面・全特殊効果は未完了、Windows新依頼／compile／GPU／RAM計測0、既存RAM停止と環境保全falseを維持。以下は過去記録。
+
 ## 2026-11-02 標準266/266を通常Metal APIでCPUと照合
 
 標準30秒・固定・期待値・seed0・無宣言の266profile（データ内203キャラ）を現在の同一runtimeでfresh実M5計算し、全CPU／GPU／HTTP一致。39 POST／39物理dispatch、API cache0。旧263の入力全byteとreadback全SHAは不変、Heavy Armsの旧宣言付きreadbackも同一。最終登録後の保存監査266も成功、追加battle／GPU0。[全件記録](../research/product-current-standard-v5.json)／[新3件と範囲](../research/product-default-body-v1.json)。

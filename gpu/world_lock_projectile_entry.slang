@@ -3,7 +3,9 @@
 #define PORTABLE_PROJECTILE_CHAIN
 #define PORTABLE_FULL_BURST_LANDING
 #define PL_LAYOUT_OFFSET 262144U
+#ifndef PL_LAYOUT_OUTPUT
 #define PL_LAYOUT_OUTPUT 1310720U
+#endif
 #define PORTABLE_RESIDENT_RUNTIME
 #define PORTABLE_DESTRUCTIBLE_FRAME
 #define PORTABLE_DESTRUCTIBLE_BATTLE
@@ -43,11 +45,13 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #ifdef PORTABLE_PRODUCT_COVER_LOCK
     uint input=1+id.x*(109536U+CDF_WORDS),output=id.x*CDF_OUTPUT_WORDS;
 #else
-    uint input=1+id.x*109536,output=id.x*1310720;
+    uint input=1+id.x*109536,output=id.x*PL_LAYOUT_OUTPUT;
 #endif
     WORLD_TEAM_INPUT(input,output)
 #ifdef PORTABLE_PRODUCT_COVER_LOCK
     for(uint i=786432;i<CDF_OUTPUT_WORDS;i++)results[output+i]=0;
+#elif defined(PORTABLE_PRODUCT_LONG_LOCK)
+    for(uint i=786432;i<PL_LAYOUT_OUTPUT;i++)results[output+i]=0;
 #else
     for(uint i=786432;i<1048576;i++)results[output+i]=0;
 #endif

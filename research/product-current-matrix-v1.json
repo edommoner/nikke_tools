@@ -4107,5 +4107,13 @@
     "original_cpu_default_payload_preserved_for_new_three": true,
     "all_special_effects_verified": false,
     "cuda_new_three_verified": false
+  },
+  "later_plain_lock_long180_validation": {
+    "report": "research/product-plain-lock-long180-v1.json",
+    "current_source_normal_api_metal_profiles": 1,
+    "added_conditions": 2,
+    "new_distinct_inventory_profiles": 0,
+    "all_profiles_recertified": false,
+    "current_cuda_profiles": 0
   }
 }

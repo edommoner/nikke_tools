@@ -3,7 +3,7 @@ import hashlib,json,re
 from pathlib import Path
 LEDGER_SHA256='93afb12ae4b67224a4cfe099ccf64bead769c52229d85ddfe0b45bfbc282f2f6'
 PRODUCT_LEDGER_SHA256='9187d38559f8e40c2735afb95892f8cba4174b8a1ccf01b0d9d4bb0873894d38'
-BOSS_LEDGER_SHA256='5b671d613c44d03406f48db7b5d412a6afb38beb45d7d114b79d24363e3e2fdd'
+BOSS_LEDGER_SHA256='2b3e5b8e9a61bc98669056a5ebe663b0e539d9f8b87456be3734a757dbf43c03'
 
 def boss_source_preimages(root):
     """Recover exact old bytes for historical audits, never current admission."""
