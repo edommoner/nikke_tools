@@ -2,7 +2,9 @@
 #include "logical_actor_geometry_layout.slang"
 uint lagInput(inout Runtime s)
 {
-#ifdef PORTABLE_MOVING_TYPED
+#ifdef PORTABLE_LOGICAL_INPUT_BASE
+    return s.inputBase+PORTABLE_LOGICAL_INPUT_BASE;
+#elif defined(PORTABLE_MOVING_TYPED)
     return s.inputBase+TMR_LAG_BASE;
 #else
     return s.inputBase+LAG_BASE;

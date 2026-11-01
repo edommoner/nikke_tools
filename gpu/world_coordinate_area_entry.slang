@@ -21,7 +21,7 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 {
     if(id.x>=commands[0])return;
-#if defined(PORTABLE_PRODUCT_TYPED_LOCK)
+#if defined(PORTABLE_PRODUCT_TYPED_LOCK) || defined(PORTABLE_PRODUCT_TYPED_LOGICAL)
     uint input=1+id.x*121392U,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_PRODUCT_COORDINATE_LOCK)
     uint input=1+id.x*120816U,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
@@ -105,10 +105,12 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     if(!initializeWeightedIncoming(s)){results[output]=64;return;}
 #endif
 #ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS
-#ifdef PORTABLE_MOVING_TYPED
+#if defined(PORTABLE_MOVING_TYPED) || defined(PORTABLE_PRODUCT_TYPED_LOGICAL)
     // Weapon-only typed receipts leave this common skill/logical scratch free.
     for(uint i=1773424U;i<1867648U;i++)results[output+i]=0;
+#ifdef PORTABLE_MOVING_TYPED
     for(uint i=EMB_OUT;i<EMB_OUTPUT;i++)results[output+i]=0;
+#endif
 #else
     for(uint i=1769856U;i<LAG_OUTPUT_WORDS;i++)results[output+i]=0;
 #endif

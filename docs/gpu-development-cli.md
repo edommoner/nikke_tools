@@ -1,3 +1,5 @@
+通常の武器迎撃単独経路にもADDを接続しました。`reference_models.typed_targets.logical_geometry` はLock Onなしでも使用でき、全configured ADDのcolliderを必須にします。既存 `typed-accumulate`／`typed-fixed` のprogramを使い、入力121392word／出力2032000wordで同じCUDA/Metal本体へ渡します。Primの元編成で両mode×飛翔体／HPシールド×前後・死亡・再出現と従来条件、計18条件が通常Metal APIで全CPU結果と一致。既存CLI2caseを独立sealしたv60です。旧CPU fingerprint／旧入力prefixを保持し、raw出力の対象集合記録3word差は除外せず明記。新sourceのCUDAは未確認です。[検証範囲とraw差分](../research/product-standalone-typed-add-v1.json)。
+
 共通製品経路のADD合成：`typed_targets` と `lock_on` の組合せでは、`typed_targets.logical_geometry` に全configured ADDの形状を明示できます。武器の深度順・元Lock On・有限HP・世代・退場は同じ実行器を使います。通常Metal APIの両mode×前後／死亡／時間切れ／再出現／飛翔体同時更新12条件が全CPU応答と一致しました。`typed-lock-accumulate` の既存CLIを3caseへ拡張し独立seal、以前の2case数値と他41基準は保持。単独typed＋ADD、未知のゲーム距離規則、新sourceのCUDAは未確認です。[範囲と保存証拠](../research/product-typed-lock-add-v1.json)。
 
 共通製品経路の追加：`typed-lock-accumulate` は、同一worldの武器迎撃＋元Lock On／飛翔体スキルを独立seal2caseと通常Metal API8条件（両mode・30秒を含む）で確認済み。既存 `product-detail --product-program` を使い、個別suiteは追加しない。`typed-lock-fixed` はAPI実証のみでCLIの独立baselineは未登録。CUDAと全current profile再認定は未完了。[範囲・出所・失敗保持](../research/product-typed-lock-v1.json)。

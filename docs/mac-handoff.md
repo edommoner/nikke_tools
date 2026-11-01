@@ -1,3 +1,17 @@
+## 2026-11-02 Lock Onなしの武器迎撃＋ADDを通常製品へ接続
+
+前段の拒否条件を解消し、既存typed-accumulate／typed-fixedに完全logical input bankを追加。入力115680→121392、出力2032000は不変。新suite／shader entry／ダミーLock On／監査器なし。同じlogical geometry／typed world／group deliveryを使い、全configured ADDとcollider集合を一致させる。元の全定義を維持し、未接続typed skill／incomingを省略してadmitしない。CPU正本／pinned／数値演算／許容差は変更0。
+
+実M5 CLI2case＋GPU禁止独立seal2case成功、v60へtyped-accumulateのみ更新し他41基準を保持。旧先頭native fingerprintと旧入力115680wordの全prefixは不変。旧全readbackとの差はactor setのcount／bitset／generationの3word（227352,227353,227361）。logical direct BODY deliveryでは旧capture集合を作らないため旧1が0になった。rawをmaskせず両方保存し、新全出力を独立照合。CPU／製品payload差は0。
+
+通常APIは元Prim編成1profile、両mode×飛翔体・HP shield×前後／死亡／ADD＋typed同時再生成と従来条件2、計18条件が全CPU/GPU/HTTP一致。物理dispatch4、API wall34.361sは単発観測。再生成ではraw ADD generation>1とtyped state generation3を確認、前後で迎撃件数が変わり、低HP ADDは死亡。保存audit18と最終releaseへの再投影18は追加battle/GPU0、owned Node群は終了。
+
+初版packetはCPU完了後、GPU開始前のレビューで複数caseのstride未更新を発見して保全。v2へstrideとschema guardを修正して実行し、旧packet／claimは再利用しなかった。保存audit初版の補助JSONはNodeのUTF8 chunk連結で韓国語を破損しprebattle停止。実送信requestと元JSONは一致し、補助ファイルをBuffer.concatで再生成した別v2で保存監査だけを完了。元のAPI／raw／補助失敗は不変。
+
+最終owner34309fa6…はown175／native2／deps／PTX・CUBIN O1 plan成功（compiler/GPU0）。最終sourceの保存18再投影成功。source/dependency model-checkも成功だが全special-effect完成ではない。今回Metalは既存1profileの18条件、new distinct0、CUDA0。標準263/266＋明示3は旧owner5f88…の実証を保持し、新source全profile再認定へ読み替えない。次は未接続consumer合成と特殊効果分岐を進める。WindowsのRAM不足停止を保全し、SDK／GPU／RAMの追加依頼0。
+
+proofは `product-standalone-typed-add-v2-20261102`、reportは `research/product-standalone-typed-add-v1.json`。共有はコード／テスト／小JSONだけで、個人設定・raw・PTX・SDKを含めない。以下の過去記録の「単独typed＋ADDは未接続」はこの変更で解消済み。
+
 ## 2026-11-02 残3profileの宣言付き条件も現在Metalの通常APIで確認
 
 標準未指定88Yuni/111Yan/210Heavyは、original squad/profile/stat/equipment/skill level/seed/30秒を保持し、既存宣言consumerで追加1POST/2physicalM5/38.200秒。Yuni/YanはBODY-only・empty ADD domainを明示したenemy_movement（69/71原定義保持）、HeavyはBODY-first/frozen generation・typed binding無しのlock_on（91原定義保持）。元effectを削除せず全binding source indexを確認。新source/suite/監査器/数値変更0、全GPU/CPU/HTTP/Unicode一致、宣言warning表示、保存監査3は追加battle/GPU0、owned Node gone。

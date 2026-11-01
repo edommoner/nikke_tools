@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v59-expected.json'
+GOLDEN = 'research/portable-product-programs-v60-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -52,7 +52,7 @@ def configuration(suites, selection):
     program = PROGRAMS[name]
     return dict(base, product_program=name, source=program['source'], golden=GOLDEN,
                 input_words=program['input_words'], output_words=program['output_words'],
-                inputs=7 if name=='ammo-cover-fixed-group' else 3 if name.startswith('typed-lock-') else 2 if name.startswith('coordinate-lock-') else 1,native=7 if name=='ammo-cover-fixed-group' else 3 if name.startswith('typed-lock-') else 2 if name.startswith('coordinate-lock-') else 1)
+                inputs=7 if name=='ammo-cover-fixed-group' else 3 if name.startswith('typed-lock-') else 2 if name.startswith(('coordinate-lock-','typed-')) else 1,native=7 if name=='ammo-cover-fixed-group' else 3 if name.startswith('typed-lock-') else 2 if name.startswith(('coordinate-lock-','typed-')) else 1)
 
 
 def registered_golden(root, config, *, allow_unsealed=False):
@@ -283,6 +283,11 @@ def cases_for_program(root,name=None):
         body=copy.deepcopy(base)
         body['enemy']['patterns'].append(dict(id='typed-lock-wave',kind='summon',delay=.5,until=dict(time=3.5),spec=dict(count=2,hp=1e8)))
         body['reference_models']['typed_targets']['logical_geometry']=[dict(label='__enemy__:typed-lock-wave#'+str(i+1),shape=dict(x=0.,y=0.,r=1000.,z=3.+i)) for i in range(2)]
+        rows.append(('two-adds',body))
+    if name in ('typed-fixed','typed-accumulate'):
+        body=copy.deepcopy(base)
+        body['enemy']['patterns'].append(dict(id='typed-wave',kind='summon',delay=.5,until=dict(time=2.),spec=dict(count=2,hp=1e8)))
+        body['reference_models']['typed_targets']['logical_geometry']=[dict(label='__enemy__:typed-wave#'+str(i+1),shape=dict(x=0.,y=0.,r=1000.,z=3.+i)) for i in range(2)]
         rows.append(('two-adds',body))
     if name=='ammo-cover-fixed-group':
         from portable_enemy_ammo_self_destruct_cases import fixtures

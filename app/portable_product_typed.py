@@ -1,7 +1,25 @@
 """Ordinary requests into the existing typed coordinate/owner executable."""
 import copy,math,struct,array,hashlib
 from portable_runtime import UnsupportedPortable
-from portable_coordinate_typed_specs import INPUT_WORDS as INPUT,OUTPUT_WORDS as OUTPUT,COORDINATE_OUTPUT_WORDS as BASE
+from portable_coordinate_typed_specs import INPUT_WORDS as TYPED_INPUT,OUTPUT_WORDS as OUTPUT,COORDINATE_OUTPUT_WORDS as BASE
+
+from portable_logical_geometry_wire import LAYOUT as LOGICAL
+INPUT=TYPED_INPUT+LOGICAL['WORDS']
+
+
+def check_schema(root):
+    from pathlib import Path
+    from portable_coordinate_typed_specs import check_layout
+    from portable_skill_history import check_layout as history_layout
+    from portable_logical_geometry_wire import check_schema as logical_layout
+    check_layout(root);history_layout(root);logical_layout(root)
+    source=(Path(root)/'gpu/product_typed_battle_entry.slang').read_text()
+    entry=(Path(root)/'gpu/world_coordinate_area_entry.slang').read_text()
+    if ('#define PORTABLE_PRODUCT_TYPED_LOGICAL' not in source
+            or '#define PORTABLE_LOGICAL_INPUT_BASE 115680U' not in source
+            or TYPED_INPUT!=115680 or INPUT!=121392
+            or '#if defined(PORTABLE_PRODUCT_TYPED_LOCK) || defined(PORTABLE_PRODUCT_TYPED_LOGICAL)\n    uint input=1+id.x*121392U' not in entry):
+        raise ValueError('Typed product requires adjacent complete typed/logical input banks')
 
 
 def compile_product(prepared):
@@ -16,7 +34,6 @@ def compile_product(prepared):
         return locks(prepared,typed_model=normalize_product(declarations['typed_targets']))
     if set(declarations)!={'typed_targets'}:raise UnsupportedPortable('Typed product composition requires its matching checked shared GPU consumer')
     spec=normalize_product(declarations['typed_targets'])
-    if spec.get('logical_geometry'):raise UnsupportedPortable('Typed logical ADD geometry requires its matching combined Lock On world; standalone GPU composition is not connected')
     if any(r['effect'].get('target') in ('all_projectiles','typed_point') for r in prepared['effects']):
         raise UnsupportedPortable('Original typed skill damage requires its checked common skill route; weapon typed admission cannot omit it')
     if any(p.get('kind') not in ('idle','summon') or p.get('kind')=='summon' and (p.get('spec',{}).get('attack') or p.get('spec',{}).get('self_destruct')) for p in prepared['enemy'].get('patterns',[])):
@@ -25,6 +42,14 @@ def compile_product(prepared):
     inner['enemy']['coord']=copy.deepcopy(spec['coord']);inner['_product_native_equipment_carriers']=True
     inner['typed_aim_policy']=copy.deepcopy(spec['aim_policy']);inner['typed_actor_policy']=copy.deepcopy(spec['actor_policy'])
     words,meta,bindings,scene=compile_coordinate_typed(inner,spec['bindings'],probe_kind=spec['bindings'][0]['kind'],geometry=spec['geometry'],coordinate_weapon_targets=True,coordinate_typed_aim=True,coordinate_typed_actors=True,coordinate_typed_owners=True)
+    from portable_logical_geometry_wire import pack as logical_pack,validate as logical_validate
+    shapes=spec.get('logical_geometry',[])
+    if {b.label for b in bindings if int(b.kind)==5}!={row['label'] for row in shapes}:
+        raise UnsupportedPortable('Every configured typed-world ADD must have one explicit collider')
+    logical=logical_pack(shapes,bindings,allow_empty=True)
+    logical_validate(logical,words[:109968],bindings,allow_empty=True)
+    if len(words)!=TYPED_INPUT:raise UnsupportedPortable('Incomplete original typed input bank')
+    words+=logical
     meta['product_typed_targets']=dict(declarations={'typed_targets':spec},cpu_state_or_schedule_supplied=False)
     meta['product_control_labels']=[[dict(mode=e['mode'],producer=_when_label(e)) for e in CharState(c,atk,inner['enemy'].get('code'))._click_sched] for c,atk in zip(inner['chars'],inner['base_atk'])]
     nodes=validate(copy.deepcopy(inner['enemy'].get('patterns') or [dict(id='portable-empty-world',kind='idle')]),coord=True)

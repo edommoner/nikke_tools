@@ -3872,5 +3872,15 @@
     "current_source_cuda_profiles": 0,
     "previous_matrix_evidence_preserved": true,
     "full_goal_complete": false
+  },
+  "later_standalone_typed_logical_add_product_validation": {
+    "report": "research/product-standalone-typed-add-v1.json",
+    "metal_existing_profile": 1,
+    "new_distinct_profiles": 0,
+    "conditions": 18,
+    "full_standard_matrix_recertified_on_this_source": false,
+    "current_source_cuda_profiles": 0,
+    "previous_matrix_evidence_preserved": true,
+    "full_goal_complete": false
   }
 }
