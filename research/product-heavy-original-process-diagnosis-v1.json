@@ -43,8 +43,25 @@
     "cleanup_source_sha256": "494df8bc60201989a4e8fb451dc5aa0742d7f93098bc52d5f79722eebb123a88"
   },
   "old_outer_stop_and_ptx_unadmitted_retained": true,
-  "existing_ptx_origin_validator_read_only_check": "Requested; not yet returned",
+  "existing_ptx_origin_validator_read_only_check": "Initial diagnostic options mismatch preserved; exact saved recipe per-child env validation requested, active task01a19663-5d62-7eb2-9303-4077f27ebe15; no SDK/GPU or stage continuation",
   "whole_environment_preservation_verified": false,
   "overall_verified": false,
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "ptx_origin_initial_check": {
+    "evidence_kind": "Windows chat report; raw diagnostic receipts not imported",
+    "validator": "partition_object_origin(module_object=True)",
+    "result": "rejected",
+    "reason": "Upstream PTX producer not verified; inner audit_compile_capture Compiler options mismatch",
+    "saved_option": "--split-compile=2",
+    "diagnostic_option": "split-compile default1; saved option absent",
+    "producer_containment_reported": true,
+    "producer_preservation_reported": false,
+    "artifact_corruption_inferred": false,
+    "diagnostic_max_seconds": 15.323,
+    "diagnostic_peak_bytes": 71843840,
+    "old_source_files_rechecked_unchanged": 2927,
+    "compiler_receipt_sha256": "46f32112bcd9517dd7851784015b8adb2580dfbcb11fd80f13cd4af62ee27dd2",
+    "inner_job_sha256": "0fc1af661d867ffc0514a33931dd8556f02806395568176ce623764c0ac224b9",
+    "validator_sha256": "3b84b496ddb43e724159cd5e832009aff43e3a300d91f2f438ea6636f2eb1aac"
+  }
 }

@@ -1,3 +1,9 @@
+## 2026-11-01 保存PTXの読取validatorは診断options不一致、元recipeで再確認中
+
+Windowsの既存partition_object_origin(module_object=True)は、保存producer自身の出所/内側Job/source/生成・PTX cacheを読む範囲を持つ。初回のGPU/SDK禁止診断ではinner audit_compile_captureがCompiler options mismatchで拒否。保存--split-compile=2に対し診断childは既定1だった。PTX破損の証拠ではなく、artifact単体の受理は未確認。内側containment=true/preservation=falseを元判定のまま区別し、outer missing7停止と未admitを変更しない。
+
+元recipe/receiptのoptions全配列を照合し、診断childに限りNIKKE_CUDA_SPLIT_COMPILE=2を渡す読み取り再検証を依頼済み（task01a19663、最新cursor20f61e43…:9）。全配列が一致する場合だけ既存validatorを呼び、他差分/SDK要求なら停止。OS/永続設定/guard/source/期待値変更0、compile/object/link/API/GPUと後続自動再開は不可。元不一致診断も保持。Windows chat診断の要約と根拠SHAはresearch/product-heavy-original-process-diagnosis-v1.json、raw診断receiptはMac未importなので独立検証済みと記録しない。コード共有d5b28a46はBODY-only範囲・移動・遮蔽8条件成功済み。全goal未完了。以下は履歴。
+
 ## 2026-11-01 BODYのみの名前付き範囲・移動・遮蔽を接続、通常API8条件Metal一致
 
 reference_models.named_rangeを明示BODY形状＋logical_geometry:[]でも受付し、移動モデルのactors:[]との合成とcover_defense併用まで同じ共通Slang/actor/clock/queueへ接続。BODY位置や半径をゲーム値として補完しない。configured ADDが未出現でも1体あればgeometry必須。hostはGPU compile前、専用native adapterはbattle前、実M5 raw負例はstatus64で拒否。privateモデルのempty既定拒否は維持。原定義・range/count buff・Yuni5秒/Yan2秒carrierは全保持。
