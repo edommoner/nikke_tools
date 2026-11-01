@@ -1,3 +1,17 @@
+## 2026-11-02 Nearby＋Lock Onを同じtyped worldへ接続
+
+既存typed-lock経路に、混在迎撃とnearby consumerを接続。新suite／shader entry／監査器0。入力121936、出力2558208word。BODY所有の飛翔体／HPシールドが混在可能で、typed_targetsとlock_onのbindingは同じ順序・内容を必須にする。元Heavy Armsのall_projectilesはkind2だけを選択し、全対象kind3なら空集合を保持。近傍選択は既存の明示primary-center-edge-v1、実ゲームの距離規則は未検証。移動との合成は引き続き拒否。
+
+元Elegg＋Heavy Armsの90定義を保った1編成を、固定／蓄積×混在／全飛翔体／全HPシールドの6条件で通常APIから実M5検証。全CPU/GPU/HTTP一致、全6で近傍castとLock Onが発動。近傍castは固定5／蓄積4、Lock Onは全条件5。飛翔体スキルreceiptは各modeで1／2／0件、HPシールド誤選択0。物理dispatch2、保存監査6と最終コード再投影6は追加battle/GPU0、owned Node群は終了。新distinct profile数0、今回の合成確認は編成1・条件6。
+
+CLI実Metal4とGPU禁止独立seal4、最終CPU178／native4／deps成功。v63はtyped-lock-accumulateだけ更新、他41基準を維持。旧3のnative SHAと入力121392word prefixは同一。全raw差は空NRB headerのmagic/version2wordだけ、数値maskなし。最終owner8c595b51…、proof product-nearby-lock-run-v1-20261102、report research/product-typed-nearby-lock-v1.json。PTX／CUBIN O1 policy plan成功はcompiler/GPU0。最初のPTX planはCUBIN専用level誤指定で拒否され、別v2へ修正し失敗を保持。
+
+初scoutはCPU ASTのpending条件合成不足でGPU前停止。exact route数1を維持し、named-rangeとLock On両pending条件を接続。通常API初回は検証リクエストのMetal指定漏れでCPU6のみ、元記録を保持してapi-v2で明示Metal6を検証。結果復元のGPU再実行はしていない。
+
+Windows接続復旧後は既存statusだけ確認。過去coordinate-lock v2のobject／link成果物検証成功を再確認したが、外側終了2／環境保全falseは維持。resident版はRAM不足停止のまま、新SDK／GPU／RAM計測0。接続復旧をRAM改善とは扱わない。ユーザーからRAM改善の連絡があるまでは新Windows実行を依頼しない。
+
+標準263/266と宣言3のmatrix v4は前段sourceの証拠として保持。今回source全profile再認定はしていない。全特殊効果分岐・typed＋movement／incoming等の他consumer合成・現在合成のCUDAは未完了。以下は過去記録で、typed nearby＋Lock Onを未接続とする記述は今回解消。
+
 ## 2026-11-02 Matrix v4: 標準263の厳密再利用＋宣言3のfresh Metal
 
 コードe1980755／immutable owner c51b3d43…へ戻って標準266を既存static deltaで再pack。263入力が旧owner5f88…のinput全byteと一致し、8kernelのsource依存closureも完全同一。新typed/nearbyの変更は標準経路の計算sourceへ入っていなかった。CPU正本／pinned data43file、無宣言時のreference_execution early-exit AST、全266の宣言なしも再確認。現在checkoutとpacketのruntime1469file全byte一致を確認した。

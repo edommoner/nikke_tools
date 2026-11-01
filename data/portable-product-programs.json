@@ -563,14 +563,14 @@
     },
     "typed-lock-fixed": {
       "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
-      "input_words": 121392,
+      "input_words": 121936,
       "output_words": 2558208,
       "mode": "fixed",
       "kind": ""
     },
     "typed-lock-accumulate": {
       "source": "gpu/product_typed_lock_battle_entry.slang",
-      "input_words": 121392,
+      "input_words": 121936,
       "output_words": 2558208,
       "mode": "accumulate",
       "kind": ""

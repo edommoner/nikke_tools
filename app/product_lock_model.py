@@ -65,9 +65,14 @@ class QueueHooks(ast.NodeTransformer):
         return node
     def visit_BoolOp(self,node):
         self.generic_visit(node)
-        if ast.unparse(node)=='boss is not None and boss.has_summons and (ev.to is not None or boss.has_adds)':
+        plain='boss is not None and boss.has_summons and (ev.to is not None or boss.has_adds)'
+        named='boss is not None and (boss.has_summons or _nikke_named_range_pending(ev)) and (ev.to is not None or boss.has_adds)'
+        text=ast.unparse(node)
+        if text in (plain,named):
             self.counts['route']+=1
-            return ast.copy_location(ast.parse('boss is not None and (boss.has_summons or _nikke_product_lock_pending(ev)) and (ev.to is not None or boss.has_adds)',mode='eval').body,node)
+            pending='boss.has_summons or _nikke_product_lock_pending(ev)'
+            if text==named:pending+=' or _nikke_named_range_pending(ev)'
+            return ast.copy_location(ast.parse('boss is not None and ('+pending+') and (ev.to is not None or boss.has_adds)',mode='eval').body,node)
         return node
     def visit_FunctionDef(self,node):
         self.generic_visit(node)

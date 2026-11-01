@@ -1,3 +1,18 @@
+## 2026-11-02 Nearby＋Lock Onを同じtyped worldへ接続
+
+既存typed-lock経路に、混在迎撃とnearby consumerを接続。新suite／shader entry／監査器0。入力121936、出力2558208word。BODY所有の飛翔体／HPシールドが混在可能で、typed_targetsとlock_onのbindingは同じ順序・内容を必須にする。元Heavy Armsのall_projectilesはkind2だけを選択し、全対象kind3なら空集合を保持。近傍選択は既存の明示primary-center-edge-v1、実ゲームの距離規則は未検証。移動との合成は引き続き拒否。
+
+元Elegg＋Heavy Armsの90定義を保った1編成を、固定／蓄積×混在／全飛翔体／全HPシールドの6条件で通常APIから実M5検証。全CPU/GPU/HTTP一致、全6で近傍castとLock Onが発動。近傍castは固定5／蓄積4、Lock Onは全条件5。飛翔体スキルreceiptは各modeで1／2／0件、HPシールド誤選択0。物理dispatch2、保存監査6と最終コード再投影6は追加battle/GPU0、owned Node群は終了。新distinct profile数0、今回の合成確認は編成1・条件6。
+
+CLI実Metal4とGPU禁止独立seal4、最終CPU178／native4／deps成功。v63はtyped-lock-accumulateだけ更新、他41基準を維持。旧3のnative SHAと入力121392word prefixは同一。全raw差は空NRB headerのmagic/version2wordだけ、数値maskなし。最終owner8c595b51…、proof product-nearby-lock-run-v1-20261102、report research/product-typed-nearby-lock-v1.json。PTX／CUBIN O1 policy plan成功はcompiler/GPU0。最初のPTX planはCUBIN専用level誤指定で拒否され、別v2へ修正し失敗を保持。
+
+初scoutはCPU ASTのpending条件合成不足でGPU前停止。exact route数1を維持し、named-rangeとLock On両pending条件を接続。通常API初回は検証リクエストのMetal指定漏れでCPU6のみ、元記録を保持してapi-v2で明示Metal6を検証。結果復元のGPU再実行はしていない。
+
+Windows接続復旧後は既存statusだけ確認。過去coordinate-lock v2のobject／link成果物検証成功を再確認したが、外側終了2／環境保全falseは維持。resident版はRAM不足停止のまま、新SDK／GPU／RAM計測0。接続復旧をRAM改善とは扱わない。ユーザーからRAM改善の連絡があるまでは新Windows実行を依頼しない。
+
+標準263/266と宣言3のmatrix v4は前段sourceの証拠として保持。今回source全profile再認定はしていない。全特殊効果分岐・typed＋movement／incoming等の他consumer合成・現在合成のCUDAは未完了。以下は過去記録で、typed nearby＋Lock Onを未接続とする記述は今回解消。
+
+
 標準全profileの現在source確認では、保存結果を先に照合します。v4では263/266の原入力・8kernelの全source closureが旧実行とbyte一致し、CPU正本／pinned data43fileと無宣言時early-exit ASTも一致したため、既存saved auditorで263件を現在の結果変換器へ再投影しました。全CPU/GPU/HTTP/Unicode一致、追加GPU・CPU戦闘・HTTP投入0。明示モデル付きの残3件は通常APIからfresh Metal/CPUを行い、旧input/readbackも全byte一致しました。標準未指定の対応数263と、宣言付き追加3を区別します。[標準263の保存再利用](../research/product-current-standard-v4.json)／[宣言3のfresh検証](../research/product-current-declared-three-v2.json)。
 
 `typed_targets.nearby_rules` で、元の `target_and_nearby:N` を「主対象＋近傍N体」の宣言モデルへ接続できます。各ruleは既存のowner/effect/base_radius/base_count/body_shapeに `selection: "primary-center-edge-v1"` を指定し、base_countは元のN+1と一致させます。主対象は必ず含み、その中心から候補形状までの共通binary64距離で近傍を選択、同距離は既存のADD出現順／BODY順です。半径・形状・距離規則の実ゲーム一致は未検証として画面へ表示します。元Elegg70定義を保った通常Metal API1profile・17条件が全CPU一致し、実選択あり14／発動なし3を区別しました。選択されたkind/ID/generationの順序SHAも一致しています。既存CLIは4caseの独立seal済みv62、入力121936／出力2032000word。近傍宣言なしの旧8条件は理由付きCPU fallbackのままです。[出所と範囲](../research/product-typed-nearby-v1.json)。

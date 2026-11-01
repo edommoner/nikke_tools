@@ -84,8 +84,6 @@ def normalize(value):
     if {'typed_targets','lock_on'}<=set(result):
         if result['typed_targets']['bindings']!=result['lock_on']['typed_bindings']:
             raise ValueError('Typed weapons and Lock On require identical ordered bindings in one shared world')
-        if any(row['kind']!=2 for row in result['typed_targets']['bindings']):
-            raise ValueError('Original Lock On projectile skill requires projectile weapon bindings')
     if 'enemy_movement' in result and 'named_range' in result:
         for key in ('coord','logical_geometry'):
             if result['enemy_movement'][key]!=result['named_range'][key]:

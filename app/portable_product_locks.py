@@ -52,7 +52,6 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
     from portable_lock_typed_layout import check as check_locks
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
     if typed_model is not None:
-        if typed_model.get('nearby_rules'):raise UnsupportedPortable('Typed nearby rules with Lock On require their matching combined consumer')
         from product_reference_models import normalize as normalize_models
         declarations=normalize_models(declarations)
         coordinate_model=dict(coord=typed_model['coord'],logical_geometry=copy.deepcopy(typed_model.get('logical_geometry',[])))
@@ -91,6 +90,12 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
             if typed_model is None:
                 words,meta,coordinate_bindings,scene=compile_logical_geometry(lowered,coordinate_model['logical_geometry'],allow_empty=True)
             else:
+                for rule in typed_model.get('nearby_rules',[]):
+                    found=[i for i,item in enumerate(lowered['effects']) if item['owner']==rule['owner'] and item['effect'].get('name')==rule['effect']]
+                    if len(found)!=1:raise UnsupportedPortable('Exact original nearby owner/effect binding required')
+                    effect=lowered['effects'][found[0]]['effect']
+                    if effect.get('target')!='target_and_nearby:'+str(rule['base_count']-1):raise UnsupportedPortable('Nearby count must preserve original primary plus neighbours')
+                    effect['target']='enemies_nearest:'+str(rule['base_count'])
                 from portable_target_modifier_input import lower_effect
                 from portable_coordinate_typed_owner_input import compiler_policy
                 for item in lowered['effects']:item['effect']=lower_effect(item['effect'])
@@ -118,14 +123,22 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
     if typed_model is not None:
         from portable_original_modifier_probe_input import pack_target_input
         from portable_typed_geometry_specs import pack as pack_geometry
-        extra,axes=pack_target_input(words,meta,prepared['effects'],patterns,spec['typed_bindings'],typed,2,128)
-        geometry,geometry_meta=pack_geometry(typed_model['geometry'],len(typed_rows),2)
+        extra,axes=pack_target_input(words,meta,prepared['effects'],patterns,spec['typed_bindings'],typed,2,128,coordinate_weapon_world=True)
+        geometry,geometry_meta=pack_geometry(typed_model['geometry'],len(typed_rows),typed_model['bindings'][0]['kind'])
+        if len({b['kind'] for b in typed_model['bindings']})>1:geometry[3]=0;geometry_meta['kind']=0
         extra[:2320]=geometry;extra[12:16]=[1,1,1,2]
         meta['typed_geometry']=geometry_meta
         meta['product_typed_targets']=dict(declarations={'typed_targets':copy.deepcopy(typed_model)},cpu_state_or_schedule_supplied=False)
         meta['product_typed_lock']=True
     words.extend(extra)
-    expected_input=121392 if typed_model is not None else INPUT if coordinate_model is None else 120816
+    if typed_model is not None:
+        from portable_named_range_battle_wire import pack_rules
+        bank,bound=pack_rules(prepared,meta,bindings,typed_model.get('nearby_rules',[]))
+        if len(words)!=121392:raise UnsupportedPortable('Complete typed lock prefix required before nearby bank')
+        words.extend(bank);meta['named_range_battle']=dict(bindings=bound)
+        meta['product_typed_nearby']=dict(declarations={'named_range':dict(coord=typed_model['coord'],logical_geometry=coordinate_model['logical_geometry'],rules=typed_model.get('nearby_rules',[]))},names=names)
+
+    expected_input=121936 if typed_model is not None else INPUT if coordinate_model is None else 120816
     if len(words)!=expected_input or set(meta['binding_source_indices'])!=set(range(len(effects))):raise UnsupportedPortable('Complete original Lock On definitions and wire required')
     meta['product_lock_on']=dict(declarations={'lock_on':copy.deepcopy(spec)},names=names,packet_source=packet,typed_source=typed,
         bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],
@@ -139,7 +152,7 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
         from portable_product_coordinate_lock import INPUT as CI,OUTPUT as CO
         meta['product_coordinate_lock']=True
         source='gpu/product_'+('typed_lock_' if typed_model is not None else 'coordinate_lock_')+('fixed_' if fixed_values is not None else '')+'battle_entry.slang'
-        return source,121392 if typed_model is not None else CI,CO,words,meta
+        return source,121936 if typed_model is not None else CI,CO,words,meta
     return source,INPUT,OUTPUT,words,meta
 
 

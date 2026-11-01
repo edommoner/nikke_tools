@@ -29,7 +29,11 @@
 #define DF_RECEIPT(s,scratch,output,cursor) ((output)+results[scratch+530]+16+(cursor)*8)
 #define DF_ATTACK_ID(s,scratch,descriptor) results[scratch+531]
 #define DF_COMPLETE(s,scratch) if(results[scratch+531]!=0) results[(s).resourceOutput+results[scratch+530]+10]=1;
+#ifdef PORTABLE_PRODUCT_TYPED_NEARBY
+#define WORLD_PACKET_CAPTURE(s,r,index,fallback) if(compositionSuppressedReceipt(s,r,index,when)) return s.error==0; if(!captureNamedRangeBattlePacket(s,r,index)&&!lockDeliveryCapture(s,r,index)) { fallback }
+#else
 #define WORLD_PACKET_CAPTURE(s,r,index,fallback) if(compositionSuppressedReceipt(s,r,index,when)) return s.error==0; if(!lockDeliveryCapture(s,r,index)) { fallback }
+#endif
 #include "product_coordinate_lock_layout.slang"
 #include "world_coordinate_logical_actor_entry.slang"
 #include "live_lock_delivery_runtime.slang"

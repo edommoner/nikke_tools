@@ -4069,5 +4069,15 @@
     "proof_directory": "product-current-standard-v4-20261102/declared-three-api-v1"
   },
   "latest_current_standard_report": "research/product-current-standard-v4.json",
-  "latest_current_declared_report": "research/product-current-declared-three-v2.json"
+  "latest_current_declared_report": "research/product-current-declared-three-v2.json",
+  "later_typed_nearby_lock_validation": {
+    "report": "research/product-typed-nearby-lock-v1.json",
+    "metal_profiles": 1,
+    "conditions": 6,
+    "new_distinct_profiles": 0,
+    "all_nearby_and_lock_active": true,
+    "current_composite_cuda": 0,
+    "full_matrix_recertified_on_this_source": false,
+    "full_goal_complete": false
+  }
 }

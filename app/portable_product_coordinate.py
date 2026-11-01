@@ -44,6 +44,12 @@ def read_result(block,metadata,*,names=None,duration=None):
     try:
         from portable_product_add_attack import coordinate_output_ownership
         owned=coordinate_output_ownership(block,metadata)
+        if metadata.get('product_typed_nearby'):
+            if owned:raise ValueError('Typed nearby and ADD receipt banks cannot overlap')
+            from portable_product_typed import read_nearby_history,NEARBY_OUT,NEARBY_END
+            read_nearby_history(block,metadata,duration)
+            owned=(NEARBY_OUT,NEARBY_END)
+
         if metadata.get('product_coordinate_healing'):
             if owned or not isinstance(names,list) or len(names)!=5 or len(set(names))!=5 or type(duration) not in (int,float) or not math.isfinite(duration) or duration<=0:
                 raise ValueError('Complete coordinate healing projection context required')

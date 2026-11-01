@@ -36,7 +36,6 @@ def compile_product(prepared):
     from calculator.boss_pattern import validate
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
     if set(declarations)=={'typed_targets','lock_on'}:
-        if declarations['typed_targets'].get('nearby_rules'):raise UnsupportedPortable('Typed nearby rules with Lock On require their matching combined consumer')
         from portable_product_locks import compile_product as locks
         return locks(prepared,typed_model=normalize_product(declarations['typed_targets']))
     if set(declarations)!={'typed_targets'}:raise UnsupportedPortable('Typed product composition requires its matching checked shared GPU consumer')
@@ -112,9 +111,7 @@ def read_result(block,metadata,names,duration):
         if block[BASE+1]!=0:fail('undeclared typed skill route')
         for region in regions()[0]:
             if region.domain=='output' and 'reserved' in region.name and any(block[region.base:region.end]):fail(region.name)
-        nearby_meta=dict(metadata,product_named_range=metadata['product_typed_nearby'])
-        from portable_product_named_range import read_result as read_nearby
-        nearby=read_nearby(block,nearby_meta,duration)['named_range']['casts']
+        nearby=read_nearby_history(block,metadata,duration)
         if any(block[END:NEARBY_OUT]) or any(block[NEARBY_END:BASE+136688]) or any(block[L['COUNTER_CONTEXT_BASE']:L['COUNTER_CONTEXT_BASE']+1096]):fail('unused skill tail or counter context')
         c=dict(typed_bindings=spec['bindings'],max_attacks=128,effects=[],names=names)
         state=read_typed_battle(TypedStateView(block),(c,metadata,()))
@@ -160,3 +157,9 @@ def read_weapon_history(block,metadata,names,duration,state,*,base=BASE,tail_sta
     model=public_from_words(spec,state['state'],rows,names,duration);model['shot_count']=block[h+6];model['skill_attacks']=[]
     model['aim_state']=dict(frames=block[aim+2],time=when,candidate=block[aim+3],canonical_has_adds=bool(block[aim+7]),rows=candidates,stream_fingerprints=[format(block[aim+8]|block[aim+9]<<32,'016x'),format(block[aim+10]|block[aim+11]<<32,'016x')])
     return model
+
+
+def read_nearby_history(block,metadata,duration):
+    from portable_product_named_range import read_result as read_nearby
+    copied=dict(metadata,product_named_range=metadata['product_typed_nearby'])
+    return read_nearby(block,copied,duration)['named_range']['casts']

@@ -3,16 +3,18 @@ import copy
 from pathlib import Path
 from portable_runtime import UnsupportedPortable
 from portable_product_coordinate_lock import COORDINATE_OUTPUT,OUTPUT
-INPUT=115680+5712
+INPUT=121936
 WEAPON_START=170976
 WEAPON_SCRATCH=220768
-WEAPON_END=229104  # 1024 pellets*8 +128 generations +16 notification words.
+WEAPON_END=231152  # 1024 mixed pellets*10 +128 generations +16 notification words.
 
 
 def check_schema(root):
     from portable_product_coordinate_lock import check_schema as locks
     from portable_coordinate_typed_aim_specs import HEAD,WORDS
     locks(root)
+    from portable_product_typed import check_schema as physical
+    physical(root)
     if not 153568+32*544==WEAPON_START<HEAD+WORDS==WEAPON_SCRATCH<WEAPON_END<262144:
         raise ValueError('Typed skill, weapon history, aim and pellet scratch overlap')
     source=(Path(root)/'gpu/product_typed_lock_battle_entry.slang').read_text()
@@ -55,13 +57,17 @@ def read_result(block,metadata,names,duration):
     locked=locks(LockReadback(block),metadata,duration)
     state=locked['lock_on']['typed']
     physical=read_weapon_history(block,metadata,names,duration,state,base=COORDINATE_OUTPUT,tail_start=WEAPON_SCRATCH)
+    from portable_product_typed import read_nearby_history
+    nearby=read_nearby_history(memoryview(block)[:COORDINATE_OUTPUT],metadata,duration)
+    if metadata['product_typed_targets']['declarations']['typed_targets'].get('nearby_rules'):physical['nearby_casts']=nearby
+
     info=metadata['product_lock_on'];source=info['typed_source'];name=info['typed_case']['effects'][source]['name']
     bindings=metadata['product_typed_targets']['declarations']['typed_targets']['bindings']
     for attack in state['attacks']:
         if not 0<=attack['time']<=duration:raise UnsupportedPortable('Typed skill receipt outside its battle')
         for receipt in attack['receipts']:
             slot=receipt['slot'];handle=receipt['handle']
-            if (not 0<=slot<len(bindings) or handle[:2]!=[bindings[slot]['kind'],bindings[slot]['identity']]
+            if (handle[0]!=2 or not 0<=slot<len(bindings) or handle[:2]!=[bindings[slot]['kind'],bindings[slot]['identity']]
                     or not 1<=handle[2]<=0x7fffffff or receipt['took']>attack['damage']
                     or not receipt['delivered'] and (receipt['took']!=0 or receipt['broken'])):
                 raise UnsupportedPortable('Invalid shared typed skill receipt identity or amount')

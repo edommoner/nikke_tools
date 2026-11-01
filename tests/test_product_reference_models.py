@@ -1827,7 +1827,7 @@ class ProductReferenceModels(unittest.TestCase):
                         prepared,_=prepare(body)
                         original_prepared=copy.deepcopy(prepared)
                         source,iw,ow,words,meta=compile_product(prepared)
-                        self.assertEqual((iw,ow,len(words)),(121392,2558208,121392))
+                        self.assertEqual((iw,ow,len(words)),(121936,2558208,121936))
                         self.assertTrue(meta['product_typed_lock'])
                         self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
                         self.assertEqual(prepared,original_prepared)
@@ -1838,7 +1838,7 @@ class ProductReferenceModels(unittest.TestCase):
         from destructible_world_runtime import DestructibleWorld
         import coordinate_logical_actor_geometry as logical
         for mode in ('fixed','accumulate'):
-            body=cases_for_program(ROOT,'typed-lock-'+mode)[-1][1]
+            body=next(b for v,b in cases_for_program(ROOT,'typed-lock-'+mode) if v=='two-adds')
             before=copy.deepcopy(body);worlds=[];geometries=[]
             make=DestructibleWorld.from_clock;geometry=logical.LogicalGeometry
             def create(*a,**kw):
@@ -1858,8 +1858,37 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
             with patch.object(sim,'execute',side_effect=AssertionError('No CPU oracle in packing')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow),(121392,2558208))
+            self.assertEqual((iw,ow),(121936,2558208))
             self.assertEqual(len(meta['product_coordinate']['declarations']['coordinate']['logical_geometry']),2)
+
+    def test_shared_lock_nearby_world_filters_projectile_skills_including_empty_subset(self):
+        from portable_product_programs import cases_for_program
+        from portable_detail import prepare,compile_product
+        from portable_backend import validate_composed_stride
+        from destructible_world_runtime import DestructibleWorld
+        for mode in ('fixed','accumulate'):
+            for kinds in ((2,3),(2,2),(3,3)):
+                body=copy.deepcopy(cases_for_program(ROOT,'typed-lock-'+mode)[-1][1]);typed=body['reference_models']['typed_targets']
+                for model,key in ((typed,'bindings'),(body['reference_models']['lock_on'],'typed_bindings')):
+                    for row,kind in zip(model[key],kinds):row['kind']=kind
+                before=copy.deepcopy(body);worlds=[];original=DestructibleWorld.from_clock
+                def create(*a,**kw):
+                    value=original(*a,**kw);worlds.append(value);return value
+                aliases=(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage)
+                with patch.object(DestructibleWorld,'from_clock',side_effect=create):result=engine_worker.evaluate(body)['reference_models']
+                self.assertEqual(len(worlds),1);self.assertTrue(worlds[0].finished)
+                self.assertTrue(result['typed_targets']['nearby_casts']);self.assertTrue(result['lock_on']['shots'])
+                self.assertEqual(result['typed_targets']['state'],result['lock_on']['typed']['state'])
+                receipts=[p for attack in result['typed_targets']['skill_attacks'] for p in attack['receipts']]
+                self.assertTrue(all(p['actor'][0]==2 for p in receipts))
+                if 2 in kinds:self.assertTrue(receipts)
+                else:self.assertEqual(receipts,[])
+                self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
+                with patch.object(sim,'execute',side_effect=AssertionError('No native world state in input')):
+                    pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
+                self.assertEqual((iw,ow,len(words)),(121936,2558208,121936));validate_composed_stride(source,iw,ow)
+                self.assertEqual(words[115680+3],0 if len(set(kinds))>1 else kinds[0]);self.assertEqual(words[121394],1)
+                self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
 
     def test_typed_nearby_selects_primary_neighbours_and_ordered_handles(self):
         import hashlib
@@ -1963,7 +1992,7 @@ class ProductReferenceModels(unittest.TestCase):
         changed=copy.deepcopy(base);changed['lock_on']['typed_bindings'][0]['capacity']=3.;variants.append(changed)
         changed=copy.deepcopy(base)
         for model,key in ((changed['typed_targets'],'bindings'),(changed['lock_on'],'typed_bindings')):
-            for row in model[key]:row['kind']=3
+            for row in model[key]:row['kind']=4
         variants.append(changed)
         with patch.object(sim,'execute',side_effect=AssertionError('Invalid world must not execute')):
             for value in variants:
