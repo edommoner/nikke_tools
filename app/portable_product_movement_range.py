@@ -9,6 +9,16 @@ CAPACITY=8192
 OUTPUT=2165136
 OUT=MOVEMENT_OUT+FRAMES+CAPACITY*(FRAME_WORDS+SEGMENT_WORDS)
 END=OUT+(RANGE_END-RANGE_OUT)
+from portable_cover_defense_wire import LAYOUT as COVER
+COVER_INPUT=INPUT+COVER['WORDS']
+COVER_OUT=END
+COVER_END=COVER_OUT+COVER['OUTPUT_WORDS']-COVER['OUTPUT_BASE']
+
+def check_cover_schema(root=None):
+    check_schema(root)
+    from portable_cover_defense_wire import check_schema as cover_schema
+    cover_schema(root)
+    if not END==COVER_OUT<COVER_END<=OUTPUT:raise ValueError('Movement/range/cover banks overlap or truncate')
 
 def check_schema(root=None):
     from portable_enemy_movement_wire import check_schema as movement,shader_schema as movement_schema
@@ -49,5 +59,10 @@ def read_result(block,metadata,duration):
     from portable_product_movement import read_result as movement
     from portable_product_named_range import read_result as ranges
     check_schema()
-    if len(block)!=OUTPUT or any(block[END:]):raise UnsupportedPortable('Incomplete movement/range readback or nonzero unowned tail')
+    tail=END
+    if metadata.get('product_movement_range_cover'):
+        check_cover_schema()
+        if metadata['product_movement_range_cover']!=dict(output_base=COVER_OUT,end=COVER_END):raise UnsupportedPortable('Movement/range/cover ownership changed')
+        tail=COVER_END
+    if len(block)!=OUTPUT or any(block[tail:]):raise UnsupportedPortable('Incomplete movement/range readback or nonzero unowned tail')
     return [movement(block,metadata,duration,capacity=CAPACITY,output=OUTPUT),ranges(block,metadata,duration,out=OUT,output=OUTPUT)]

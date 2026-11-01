@@ -265,7 +265,11 @@ def decode_payload(body, prepared, run, metadata, block):
             models.append(model)
     if metadata.get('product_cover_defense'):
         from portable_product_cover import read_result
-        model=read_result(block,metadata,names,run.config['duration'])
+        options={}
+        if metadata.get('product_movement_range_cover'):
+            from portable_product_movement_range import COVER_OUT,OUTPUT as MRO,check_cover_schema
+            check_cover_schema();options=dict(out=COVER_OUT,output=MRO)
+        model=read_result(block,metadata,names,run.config['duration'],**options)
         if model is not None:
             models.append(model)
     if metadata.get('product_enemy_ammo'):

@@ -336,6 +336,20 @@
       "output_words": 2048912,
       "mode": "accumulate",
       "kind": ""
+    },
+    "movement-range-cover-fixed": {
+      "source": "gpu/product_movement_range_cover_fixed_battle_entry.slang",
+      "input_words": 118044,
+      "output_words": 2165136,
+      "mode": "fixed",
+      "kind": ""
+    },
+    "movement-range-cover-accumulate": {
+      "source": "gpu/product_movement_range_cover_battle_entry.slang",
+      "input_words": 118044,
+      "output_words": 2165136,
+      "mode": "accumulate",
+      "kind": ""
     }
   }
 }

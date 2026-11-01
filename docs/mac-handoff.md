@@ -1,3 +1,17 @@
+## 2026-11-01 移動＋範囲／対象数＋遮蔽DEFを通常APIで合成、4条件のMetal全CPU一致
+
+前turnはCUDA8確認と残237のv2再開・他6入口のsealed準備で進捗。今回は個別または2モデルでしか使えなかった既存movement/named-range/cover consumersを、同じActorPool/時計/イベントへ接続した。CPU正本4file・効果数値・binary64/pow・normalizer・許容差は変更0。geometry一致と5人のcover base明示を要求し、未指定ゲーム仕様を推定しない。既存CLIのproduct-detail/data registryへ2programを追加、新suite/恒久tool0。
+
+元movement/range input118020の後へcover24wordを追加して118044。元output2165136内の未使用tailへcover bank2147744..2164656を配置し、最後480wordはzero必須。既存2モデルの入力・frame/segment/cast bank・数値処理は不変。count93/range94/cover96を明示分離し、各bank/予約領域/descriptorを完全検査する。初期clearでcover headerを消さない順序とsnapshotの最終clearを共通Slangへ接続。CUDA/MSL paired生成成功。
+
+不変development owner5347744a…の最初のpreflightは既存件数テスト48に対して50programでGPU前停止。新2件を厳密に追加したtest-only refreshで非test・数値基準全bytesを保持したowneredeaa2b1…へ移行し、元失敗/claimを保持。own139 CPU・fresh native・実M5代表30秒・GPU禁止fresh独立seal成功。fixed30 inputb98e9490…/readback68235655…を保存し、実APIの同要求でも全bytes一致。最初の未追跡GPUwrapperに対する梱包拒否も保持し、レビュー済みファイルをgit追跡後に梱包した。
+
+同じ不変packet-v2自身の通常APIへ固定/実蓄積×15/30秒の4要求を1POST、2physical batch×2件で実行。実M5/freshCPU/HTTPの全項目・Unicode込み完全一致、wall31.502秒。30秒のmovement5403frame/range54cast、cover固定7receipt/実蓄積6receipt・incoming25hit。独立cover DEF上昇も実受領し、元効果を破棄しない。既存の保存parent/member slice・全raw/source・静的再pack・全payload監査4件成功（追加battle/GPU0）。専用Nodeとプロセス群は全終了確認、ユーザー4317/4327不操作。
+
+v32は独立sealしたmovement-range-cover-fixedだけを追加、旧25member全保持。実蓄積は実API証拠あり・CLI基準未登録でdevelopが必要。厳密88cda source inverse/SHAを同時更新しhistory7/製品10成功。標準7入口は生成CUDA/MSLのraw全bytesが保存Metal基準と一致。全266のCPU戦闘/GPU禁止再packでも262入力全bytes同一・4fallback理由同一。これは既存動作保持の静的証拠で旧GPU ownerを付替えない。新標準profile/CUDA実機加算0、全goal未完了。
+
+原本proofs/product-movement-range-cover-v1-20261101、runtime sourceはpacket-v2/metal-v2、通常4件api-v1、small記録research/product-movement-range-cover-v1.json。標準Metal最後262/266（5e1）、Mac原本照合済みCUDA8/266（00ed）。Windowsは同じ237件v2turnを継続し、直近216/237保存監査完了の報告、原本共有はまだ未取得。次は同turnの全結果取得・照合後、準備済み別6image/17profileへ必要な短いCUDA検証を進める。新3モデルのWindowsは未依頼。以下は履歴。
+
 ## 2026-11-01 残237の実行先指定をGPU前に訂正、他5入口も現Metal/独立seal完了
 
 前turnのCUDA8確認後、残237のv1要求は最初の静的検査で停止（POST/GPU0・新完了0）。Mac作成の245入力表に旧CUDA指定cuda_detailが残っていた入力準備ミス。確認済みfirst-eight/two/sixは元からcuda_shared_detailで、成功8件に影響なし。旧停止原本7bbb4920（3,177bytes/SHAda116f3f…）・claim/旧9408fileを保持し、検査をlegacy受入れへ緩和しない。

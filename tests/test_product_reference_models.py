@@ -23,6 +23,69 @@ class ProductReferenceModels(unittest.TestCase):
         body['reference_models']['enemy_movement']=motion
         return body
 
+    def test_movement_range_cover_retains_all_definitions_and_owned_banks(self):
+        import portable_detail as product
+        from portable_product_programs import body_for_program
+        from portable_product_movement_range import INPUT,COVER_INPUT,COVER_OUT,COVER_END,OUTPUT
+        from portable_cover_defense_wire import MAGIC,COMPOSED_STAT
+        from portable_named_range_battle_wire import COUNT_STAT,RANGE_STAT
+        from portable_backend import validate_composed_stride
+        from portable_specs import LIMITS as L,FIELDS as F
+        self.assertEqual(len({COMPOSED_STAT,COUNT_STAT,RANGE_STAT}),3)
+        self.assertLessEqual(COVER_END,OUTPUT)
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'movement-range-cover-'+mode);before=copy.deepcopy(body)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle input')):
+                prepared,_=product.prepare(body);original=copy.deepcopy(prepared)
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,original);self.assertEqual(body,before)
+            self.assertEqual((iw,ow,len(words)),(COVER_INPUT,OUTPUT,COVER_INPUT))
+            self.assertEqual(words[INPUT],MAGIC)
+            self.assertEqual(meta['product_movement_range_cover'],dict(output_base=COVER_OUT,end=COVER_END))
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+            self.assertTrue(meta['product_cover_defense']['definition_indices'])
+            for index in meta['product_cover_defense']['definition_indices']:
+                row=meta['binding_source_indices'].index(index)
+                self.assertEqual(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['STAT']],COMPOSED_STAT)
+            validate_composed_stride(source,iw,ow)
+            for bad_i,bad_o in ((iw-1,ow),(iw,ow-1)):
+                with self.assertRaises(ValueError):validate_composed_stride(source,bad_i,bad_o)
+
+    def test_three_model_native_consumers_execute_and_restore_contexts(self):
+        from portable_product_programs import body_for_program
+        body=body_for_program(ROOT,'movement-range-cover-fixed')
+        aliases=(timeline.simulate,sim.simulate,timeline.random.getstate())
+        result=engine_worker.evaluate(body);models=result['reference_models']
+        self.assertEqual(set(models['declarations']),{'enemy_movement','named_range','cover_defense'})
+        self.assertTrue(models['enemy_movement']['frames'])
+        self.assertTrue(models['named_range']['casts'])
+        self.assertTrue(models['cover_defense']['receipts'])
+        self.assertTrue(any(r['effective_defense']!=r['base_defense'] for r in models['cover_defense']['receipts']))
+        self.assertTrue(result['incoming_hits'])
+        self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
+        bad=copy.deepcopy(body['reference_models']);bad['named_range']['coord']['auto_aim'][0]=1.
+        with self.assertRaisesRegex(ValueError,'identical declared coordinate geometry'):normalize(bad)
+
+    def test_three_model_decoder_rejects_corrupt_cover_bank_and_unowned_tail(self):
+        from portable_product_cover import read_result
+        from portable_product_movement_range import read_result as read_combined,COVER_OUT,COVER_END,OUTPUT
+        from portable_cover_defense_wire import MAGIC
+        names=['a','b','c','d','e'];words=array.array('I',[0])*OUTPUT;words[COVER_OUT]=MAGIC
+        meta=dict(product_cover_defense=dict(declarations={'cover_defense':[dict(name=n,base_defense=100) for n in names]}),
+                  product_movement_range_cover=dict(output_base=COVER_OUT,end=COVER_END))
+        self.assertEqual(read_result(words,meta,names,30.,out=COVER_OUT,output=OUTPUT)['cover_defense']['receipts'],[])
+        for at in (COVER_OUT+16,COVER_END-1):
+            words[at]=1
+            with self.assertRaises(ValueError):read_result(words,meta,names,30.,out=COVER_OUT,output=OUTPUT)
+            words[at]=0
+        with patch('portable_product_movement.read_result',return_value={}),patch('portable_product_named_range.read_result',return_value={}):
+            self.assertEqual(read_combined(words,meta,30.),[{},{}])
+            words[COVER_END]=1
+            with self.assertRaises(ValueError):read_combined(words,meta,30.)
+            words[COVER_END]=0
+            bad=copy.deepcopy(meta);bad['product_movement_range_cover']['end']-=1
+            with self.assertRaises(ValueError):read_combined(words,bad,30.)
+
     def test_movement_range_keeps_all_definitions_and_disjoint_literal_banks(self):
         import portable_detail as product
         from portable_product_movement_range import INPUT,OUTPUT,OUT,END,CAPACITY,check_schema

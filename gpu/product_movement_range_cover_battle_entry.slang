@@ -1,0 +1,12 @@
+// Existing movement/range clock with an independently owned cover receipt bank.
+#define PORTABLE_PRODUCT_COVER_MOVEMENT_RANGE
+#define PORTABLE_COVER_DEFENSE
+#define PORTABLE_COVER_DEFENSE_STAT 96U
+#define PORTABLE_PRODUCT_UNSPECIFIED_COVER
+#define PORTABLE_COORDINATE_MANUAL_ACTIONS
+#define PORTABLE_PRODUCT_MANUAL_COVER_LOG
+#define PORTABLE_COVER_DEFENSE_INPUT_BASE NRB_INPUT
+#define PORTABLE_COVER_DEFENSE_OUTPUT_BASE NRB_END
+#define PORTABLE_COVER_DEFENSE_OUTPUT_END (NRB_END+CDF_OUTPUT_WORDS-CDF_OUTPUT_BASE)
+#include "cover_defense_layout.slang"
+#include "product_movement_range_battle_entry.slang"

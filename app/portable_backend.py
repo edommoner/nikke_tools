@@ -86,6 +86,11 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source in ('gpu/product_movement_range_cover_battle_entry.slang','gpu/product_movement_range_cover_fixed_battle_entry.slang'):
+        from portable_product_movement_range import check_cover_schema,COVER_INPUT,OUTPUT
+        check_cover_schema(ROOT)
+        if (input_words,output_words)!=(COVER_INPUT,OUTPUT):raise ValueError('Movement/range/cover requires all three complete disjoint banks')
+        return
     if source in ('gpu/product_movement_range_battle_entry.slang','gpu/product_movement_range_fixed_battle_entry.slang'):
         from portable_product_movement_range import check_schema,INPUT,OUTPUT
         check_schema(ROOT)

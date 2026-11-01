@@ -3,7 +3,13 @@
 #ifndef PORTABLE_COVER_DEFENSE_INPUT_BASE
 #define PORTABLE_COVER_DEFENSE_INPUT_BASE CDF_BASE
 #endif
-uint coverDefenseHead(inout Runtime s) { return s.resourceOutput+CDF_OUTPUT_BASE; }
+#ifndef PORTABLE_COVER_DEFENSE_OUTPUT_BASE
+#define PORTABLE_COVER_DEFENSE_OUTPUT_BASE CDF_OUTPUT_BASE
+#endif
+#ifndef PORTABLE_COVER_DEFENSE_OUTPUT_END
+#define PORTABLE_COVER_DEFENSE_OUTPUT_END CDF_OUTPUT_WORDS
+#endif
+uint coverDefenseHead(inout Runtime s) { return s.resourceOutput+PORTABLE_COVER_DEFENSE_OUTPUT_BASE; }
 uint coverDefenseSnapshot(inout Runtime s,uint depth) { return coverDefenseHead(s)+CDF_SNAPSHOT_BASE+depth*CDF_SNAPSHOT_WORDS; }
 bool initializeCoverDefense(inout Runtime s)
 {
@@ -24,7 +30,7 @@ bool initializeCoverDefense(inout Runtime s)
 #endif
         if(!f64Finite(base)||f64Less(base,0)||f64Less((uint64_t(0x46293e59)<<32)|uint64_t(0x39a08cea),base))return false;
     }
-    for(uint i=CDF_OUTPUT_BASE;i<CDF_OUTPUT_WORDS;i++)results[s.resourceOutput+i]=0;
+    for(uint i=PORTABLE_COVER_DEFENSE_OUTPUT_BASE;i<PORTABLE_COVER_DEFENSE_OUTPUT_END;i++)results[s.resourceOutput+i]=0;
     results[coverDefenseHead(s)]=CDF_MAGIC;return true;
 }
 void captureCoverDefense(inout Runtime s,uint depth,uint64_t attack,uint64_t coefficient,uint64_t received,uint divisor)

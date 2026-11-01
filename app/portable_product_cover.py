@@ -16,7 +16,8 @@ def compile_product(prepared,producer):
     from portable_product_world_contract import has_incoming_attacks
     if unspecified and has_incoming_attacks(prepared):
         raise UnsupportedPortable('Independent cover DEF requires explicit reference_models.cover_defense bases; no body DEF or level curve is inferred')
-    if set(declarations)-{'cover_defense','enemy_healing','enemy_ammo','enemy_movement','named_range','lock_on'} or len(set(declarations)-{'cover_defense'})>1:
+    combined_motion_range=set(declarations)-{'cover_defense'}=={'enemy_movement','named_range'}
+    if set(declarations)-{'cover_defense','enemy_healing','enemy_ammo','enemy_movement','named_range','lock_on'} or len(set(declarations)-{'cover_defense'})>1 and not combined_motion_range:
         raise UnsupportedPortable('Cover DEF product composition requires a matching combined consumer wire')
     check_schema();names=[c['name'] for c in prepared['chars']]
     # Product-only unavailable flag; zero payload is reserved padding, not a
@@ -43,15 +44,18 @@ def compile_product(prepared,producer):
     named_range=source in ('gpu/product_named_range_battle_entry.slang','gpu/product_named_range_fixed_battle_entry.slang') and (iw,ow)==(RANGE_INPUT,RANGE_OUTPUT)
     from portable_lock_typed_layout import INPUT as LOCK_INPUT,OUTPUT as LOCK_OUTPUT
     locks=source in ('gpu/product_lock_battle_entry.slang','gpu/product_lock_fixed_battle_entry.slang') and (iw,ow)==(LOCK_INPUT,LOCK_OUTPUT)
+    from portable_product_movement_range import INPUT as MR_INPUT,OUTPUT as MR_OUTPUT,COVER_OUT,COVER_END,check_cover_schema
+    movement_range=source in ('gpu/product_movement_range_battle_entry.slang','gpu/product_movement_range_fixed_battle_entry.slang') and (iw,ow)==(MR_INPUT,MR_OUTPUT)
+    if movement_range:check_cover_schema()
     from portable_cover_defense_wire import COMPOSED_STAT
-    cover_stat=COMPOSED_STAT if named_range or locks else STAT
-    if named_range:
+    cover_stat=COMPOSED_STAT if named_range or locks or movement_range else STAT
+    if named_range or movement_range:
         from portable_named_range_battle_wire import COUNT_STAT,RANGE_STAT
         # Reject semantic aliasing before a claim or device call, including
         # requests with no incoming hit that would otherwise mask the error.
         if len({cover_stat,COUNT_STAT,RANGE_STAT})!=3:
             raise ValueError('Cover DEF, target count and named range require disjoint stat identifiers')
-    kind='healing' if healing else 'ammo' if ammo else 'movement' if movement else 'named_range' if named_range else 'lock' if locks else None
+    kind='movement_range' if movement_range else 'healing' if healing else 'ammo' if ammo else 'movement' if movement else 'named_range' if named_range else 'lock' if locks else None
     if locks:
         from portable_product_locks import check_cover_history
         from pathlib import Path
@@ -87,6 +91,10 @@ def compile_product(prepared,producer):
             words[base+1]=3
             words[base+5:base+8]=[tap_mask,0xffffffff,0x4d435631]
         attach_fixed(words,meta,prepared,fixed_values)
+    if movement_range:
+        meta['product_movement_range_cover']=dict(output_base=COVER_OUT,end=COVER_END)
+        if len(words)!=MR_INPUT:raise ValueError('Complete movement/range prefix required before cover bank')
+        return ('gpu/product_movement_range_cover_'+('fixed_' if fixed_values is not None else '')+'battle_entry.slang',MR_INPUT+C['WORDS'],MR_OUTPUT,list(words)+bank,meta)
     if healing:
         meta['product_healing_cover']=True
         if len(words)!=HEAL_INPUT:raise ValueError('Complete healing prefix required before cover bank')
@@ -111,15 +119,16 @@ def compile_product(prepared,producer):
     return ('gpu/product_cover_'+stem+'battle_entry.slang',INPUT,OUTPUT,
         list(words)+[0]*(C['BASE']-len(words))+bank,meta)
 
-def read_result(block,metadata,names,duration):
+def read_result(block,metadata,names,duration,*,out=C['OUTPUT_BASE'],output=OUTPUT):
     """Complete GPU cover receipts; all landing quantities come from readback."""
-    info=metadata['product_cover_defense'];head=C['OUTPUT_BASE']
+    info=metadata['product_cover_defense'];head=out
+    end=head+OUTPUT-C['OUTPUT_BASE']
     def fail():raise UnsupportedPortable('Invalid or incomplete product cover DEF readback')
-    if len(block)!=OUTPUT or block[head]!=MAGIC:fail()
+    if type(head) is not int or head<C['OUTPUT_BASE'] or end>output or len(block)!=output or block[head]!=MAGIC:fail()
     count=block[head+1]
     if count>C['RECEIPTS'] or any(block[head+2:head+C['RECEIPT_BASE']]):fail()
     if info.get('unspecified_quantities'):
-        if info['declarations'] or count or any(block[head+C['RECEIPT_BASE']:]):fail()
+        if info['declarations'] or count or any(block[head+C['RECEIPT_BASE']:end]):fail()
         return None
     from cover_defense_battle_model import normalize
     bases=normalize(info['declarations']['cover_defense'],names)
@@ -137,6 +146,6 @@ def read_result(block,metadata,names,duration):
         if (not previous<=row['time']<=duration or row['base_defense']!=bases[row['name']] or row['hp_before']<=0
             or row['applied']!=min(row['hp_before'],row['shared_quantity']) or row['hp_after']!=row['hp_before']-row['applied']):fail()
         previous=row['time'];receipts.append(row)
-    if any(block[head+C['RECEIPT_BASE']+count*32:]):fail()
+    if any(block[head+C['RECEIPT_BASE']+count*32:end]):fail()
     return dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(info['declarations']),
         cover_defense=dict(policy='declared-independent-cover-defense-v1',base_defenses=[bases[n] for n in names],receipts=receipts))

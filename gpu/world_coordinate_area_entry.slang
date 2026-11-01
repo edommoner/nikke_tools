@@ -21,7 +21,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 {
     if(id.x>=commands[0])return;
-#if defined(PORTABLE_PRODUCT_MOVEMENT_RANGE)
+#if defined(PORTABLE_PRODUCT_COVER_MOVEMENT_RANGE)
+    uint input=1+id.x*(NRB_INPUT+CDF_WORDS),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
+#elif defined(PORTABLE_PRODUCT_MOVEMENT_RANGE)
     uint input=1+id.x*NRB_INPUT,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_PRODUCT_COVER_MOVEMENT)
     uint input=1+id.x*(EMB_INPUT+CDF_WORDS),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
@@ -92,7 +94,7 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #ifdef PORTABLE_COORDINATE_TYPED_TARGETS
     if(!initializeCoordinateTypedTargets(s)){results[output]=64;return;}
 #endif
-#ifdef PORTABLE_COVER_DEFENSE
+#if defined(PORTABLE_COVER_DEFENSE) && !defined(PORTABLE_PRODUCT_COVER_MOVEMENT_RANGE)
     if(!initializeCoverDefense(s)){results[output]=64;return;}
 #endif
 #ifdef PORTABLE_WEIGHTED_INCOMING
@@ -108,6 +110,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 #ifdef PORTABLE_PRODUCT_MOVEMENT_RANGE
     for(uint i=LAG_OUTPUT_WORDS;i<P_OUTPUT_WORDS;i++)results[output+i]=0;
+#ifdef PORTABLE_PRODUCT_COVER_MOVEMENT_RANGE
+    if(!initializeCoverDefense(s)){results[output]=64;return;}
+#endif
 #endif
     if(!validLogicalActorGeometry(s)){results[output]=64;return;}
 #ifdef PORTABLE_NAMED_RANGE_BATTLE
@@ -131,7 +136,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     uint queries;executePortableCommands(s,input,output,queries);
     for(uint i=5;i<16;i++)results[output+CP_BASE+i]=0;
     writePortableProgram(s,input,output,queries);
-#if defined(PORTABLE_PRODUCT_COVER_MOVEMENT) || defined(PORTABLE_PRODUCT_COVER_NAMED_RANGE)
+#if defined(PORTABLE_PRODUCT_COVER_MOVEMENT_RANGE)
+    for(uint i=0;i<CDF_DEPTH*CDF_SNAPSHOT_WORDS;i++)results[coverDefenseHead(s)+CDF_SNAPSHOT_BASE+i]=0;
+#elif defined(PORTABLE_PRODUCT_COVER_MOVEMENT) || defined(PORTABLE_PRODUCT_COVER_NAMED_RANGE)
     for(uint i=0;i<CDF_DEPTH*CDF_SNAPSHOT_WORDS;i++)results[output+CDF_OUTPUT_BASE+CDF_SNAPSHOT_BASE+i]=0;
 #endif
 }
