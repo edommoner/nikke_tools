@@ -117,11 +117,16 @@ def execution(declarations,names=None):
         else:ammo=None
         if 'enemy_movement' in declarations:
             from product_movement_model import execution as movement_execution
-            movement=stack.enter_context(movement_execution(declarations['enemy_movement']))
-        else:movement=None
+            movement_runtime=stack.enter_context(movement_execution(declarations['enemy_movement'],expose_runtime=True))
+            movement=movement_runtime.data
+        else:movement=None;movement_runtime=None
         if 'named_range' in declarations:
             from product_named_range_model import execution as range_execution
-            named=stack.enter_context(range_execution(declarations['named_range'],coordinate_context='enemy_movement' not in declarations))
+            def geometry_provider(manager,boss,t):
+                if movement_runtime is None or movement_runtime.manager is not manager or movement_runtime.boss is not boss or movement_runtime.last_time!=t:
+                    raise ValueError('Named range must consume its owning current movement frame')
+                return movement_runtime.geometry.spec
+            named=stack.enter_context(range_execution(declarations['named_range'],coordinate_context=movement_runtime is None,geometry_provider=geometry_provider if movement_runtime is not None else None))
         else:named=None
         if 'lock_on' in declarations:
             from product_lock_model import execution as lock_execution

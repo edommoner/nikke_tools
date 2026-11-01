@@ -50,7 +50,9 @@ class Capture(ast.NodeTransformer):
         return node
 
 class NamedRangeBattle:
-    def __init__(self,rules,geometry):
+    def __init__(self,rules,geometry,*,geometry_provider=None):
+        self.geometry_provider=geometry_provider
+        if geometry_provider is not None and not callable(geometry_provider):raise ValueError('Callable live geometry provider required')
         rules,self.geometry=normalize(rules,geometry);self.rules={(r['owner'],r['effect']):r for r in rules};self.pending={};self.data=dict(casts=[],landings=[]);self.manager=None;self.boss=None
     def capture(self,manager,boss,cs,effect,enemy,t,event):
         rule=self.rules.get((cs.name,effect.get('name')))
@@ -64,7 +66,9 @@ class NamedRangeBattle:
         ax,ay=cs._aim_point(manager,geom)
         value=query(manager,cs.name,effect['name'],t,base_radius=rule['base_radius'],model=MODEL)
         addition,limit=capacity(manager,cs.name,effect['name'],t,rule['base_count'])
-        registry=registry_for(manager,boss);colliders={row['label']:row['shape'] for row in self.geometry};colliders['__enemy__']=rule['body_shape']
+        geometry=self.geometry if self.geometry_provider is None else shapes(self.geometry_provider(manager,boss,t))
+        if [r['label'] for r in geometry]!=[r['label'] for r in self.geometry]:raise ValueError('Live named range collider ownership changed')
+        registry=registry_for(manager,boss);colliders={row['label']:row['shape'] for row in geometry};colliders['__enemy__']=rule['body_shape']
         # Preserve the canonical logical candidate order; geometry only filters.
         ranked=boss._ranked('enemies_nearest:128',None,cs.name)
         if ranked is None:raise ValueError('Bounded logical nearest candidates required')
@@ -99,11 +103,11 @@ class NamedRangeBattle:
         finally:self.pending.pop(id(event),None)
 
 @contextmanager
-def named_range_battle(rules,geometry):
+def named_range_battle(rules,geometry,*,geometry_provider=None):
     from calculator import timeline,boss_pattern
     from runner import sim
     if timeline.simulate is not sim.simulate:raise ValueError('Native simulation aliases differ')
-    runtime=NamedRangeBattle(rules,geometry);original=timeline.simulate;route=boss_pattern.BossScript.route
+    runtime=NamedRangeBattle(rules,geometry,geometry_provider=geometry_provider);original=timeline.simulate;route=boss_pattern.BossScript.route
     rewritten=rewrite_reference(original,Capture(),dict(event=1,land=1),compose=True)
     def routed(boss,event,*args,**kwargs):return runtime.route(boss,event,route,*args,**kwargs)
     with patch.dict(original.__globals__,{'_nikke_named_range_capture':runtime.capture,'_nikke_named_range_landing':runtime.landing}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten),patch.object(boss_pattern.BossScript,'route',routed):

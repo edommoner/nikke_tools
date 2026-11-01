@@ -45,6 +45,16 @@ class ProductReferenceModels(unittest.TestCase):
             with self.assertRaises(ValueError):validate_composed_stride(source,iw-1,ow)
             with self.assertRaises(ValueError):validate_composed_stride(source,iw,ow-1)
 
+    def test_movement_range_native_range_reads_the_current_moving_colliders(self):
+        body=self.movement_range_body();body['squad'][2],body['squad'][4]=body['squad'][4],body['squad'][2]
+        aliases=(timeline.simulate,sim.simulate,timeline.random.getstate())
+        result=engine_worker.evaluate(body);models=result['reference_models']
+        self.assertTrue(models['named_range']['casts'])
+        self.assertEqual(models['named_range']['casts'][0]['body_position'],0)
+        self.assertEqual(models['named_range']['casts'][0]['add_count'],2)
+        self.assertTrue(any(s['forced'] for f in models['enemy_movement']['frames'] for s in f['segments']))
+        self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
+
     def test_movement_range_rejects_disagreeing_geometry_and_restores_aliases(self):
         body=self.movement_range_body();models=normalize(body['reference_models'])
         for key in ('coord','logical_geometry'):

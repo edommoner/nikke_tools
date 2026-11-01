@@ -26,8 +26,9 @@ def public(data):
 
 
 @contextmanager
-def execution(spec):
+def execution(spec,*,expose_runtime=False):
     import engine_worker  # Resolve before the movement adapter rewrites simulate.
-    from enemy_movement_model import enemy_movement
+    from enemy_movement_model import enemy_movement_runtime
     from product_coordinate_model import execution as coordinates
-    with enemy_movement(spec['motion']) as movement,coordinates(spec):yield movement
+    with enemy_movement_runtime(spec['motion']) as movement,coordinates(spec):
+        yield movement if expose_runtime else movement.data

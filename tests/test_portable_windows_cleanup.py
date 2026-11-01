@@ -25,12 +25,14 @@ class WindowsCleanupTests(unittest.TestCase):
                     dict(operation=operation,type_id=4,inner_type_id=1,error_id_kind=1,
                          native_code=7,inner_hresult=-1,raw='SECRET'))
             return callback
+        calls=[]
         process=types.SimpleNamespace(pid=123,poll=lambda:1,wait=lambda **kw:1)
         # Exercise the real coordinator with a fake owned process; no OS query or child.
-        with tempfile.TemporaryDirectory() as folder, patch.object(bounded.subprocess,'Popen',return_value=process), patch.object(bounded,'os',types.SimpleNamespace(name='posix',killpg=lambda *args:None)):
+        with tempfile.TemporaryDirectory() as folder, patch.object(bounded.subprocess,'Popen',return_value=process), patch.object(bounded,'os',types.SimpleNamespace(name='posix',killpg=lambda pid,signal:calls.append((pid,signal)))), patch.object(bounded,'signal',types.SimpleNamespace(SIGKILL=9)):
             facts=bounded.run_bounded(['unused'],Path(folder),60,before_gate=fail(1),after_wait=fail(2))
             self.assertFalse((Path(folder)/'start.json').exists())
             self.assertEqual(json.loads((Path(folder)/'execution.json').read_text()),facts)
+        self.assertEqual(calls,[(123,9)])
         self.assertFalse(facts['passed']);self.assertIsNone(facts['child_exit_code'])
         self.assertEqual(facts['error_diagnostic']['operation'],1)
         self.assertEqual(facts['observation_error_diagnostic']['operation'],2)
@@ -40,9 +42,11 @@ class WindowsCleanupTests(unittest.TestCase):
     def test_zero_child_exit_with_failed_after_snapshot_never_passes(self):
         from windows_validation_observer import SnapshotFailure
         def after():raise SnapshotFailure('Windows process snapshot unavailable; no command lines retained',dict(operation=1,type_id=1,native_code=2))
+        calls=[]
         process=types.SimpleNamespace(pid=123,poll=lambda:0,wait=lambda **kw:0)
-        with tempfile.TemporaryDirectory() as folder, patch.object(bounded.subprocess,'Popen',return_value=process), patch.object(bounded,'os',types.SimpleNamespace(name='posix',killpg=lambda *args:None)):
+        with tempfile.TemporaryDirectory() as folder, patch.object(bounded.subprocess,'Popen',return_value=process), patch.object(bounded,'os',types.SimpleNamespace(name='posix',killpg=lambda pid,signal:calls.append((pid,signal)))), patch.object(bounded,'signal',types.SimpleNamespace(SIGKILL=9)):
             facts=bounded.run_bounded(['unused'],Path(folder),60,after_wait=after)
+        self.assertEqual(calls,[(123,9)])
         self.assertEqual(facts['child_exit_code'],0)
         self.assertFalse(facts['passed']);self.assertIsNotNone(facts['observation_error'])
         self.assertEqual(facts['observation_error_diagnostic']['native_code'],2)
