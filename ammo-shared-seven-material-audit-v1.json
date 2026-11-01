@@ -1,0 +1,16 @@
+{
+  "owner": "8dfc884939c455362952ce1dea4137658e2d9e4b43f7000063ba83faebebf86b",
+  "cases": 7,
+  "batch_cases": [
+    2,
+    2,
+    2,
+    1
+  ],
+  "all_original_input_words_and_full_metal_outputs_exact": true,
+  "source_graph_exact": true,
+  "all_original_definitions_preserved": true,
+  "additional_battles": 0,
+  "additional_gpu": 0,
+  "source_or_expectations_changed": false
+}

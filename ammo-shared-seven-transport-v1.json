@@ -1,0 +1,84 @@
+{
+  "schema": "ammo-shared-seven-transport-v1",
+  "owner": "8dfc884939c455362952ce1dea4137658e2d9e4b43f7000063ba83faebebf86b",
+  "files": [
+    {
+      "path": "ammo-shared-fixed-v1.zip",
+      "bytes": 12136744,
+      "sha256": "379f58f77f5ea83d2ad1f62bc7c0132b4698b620d459dca6f59a613f0158a88f"
+    },
+    {
+      "path": "ammo-shared-fixed-v1-validation-deps.json",
+      "bytes": 407,
+      "sha256": "7f785f38d8f611f9331acb90e7c0aeb0bdcefea361da47cf0ea0838abaaf87d0"
+    },
+    {
+      "path": "ammo-shared-fixed-v1-ptx-plan.json",
+      "bytes": 707,
+      "sha256": "8d095b2f7f682024b438badf699cc408bf44cbd266243a8d5d95ab1395e120b9"
+    },
+    {
+      "path": "ammo-shared-fixed-v1-o1-plan.json",
+      "bytes": 735,
+      "sha256": "603e70adbddf0d15736effdf8f256ed4eb2f5b13709bd211aaa073bc977cd1cf"
+    },
+    {
+      "path": "ammo-shared-seven-windows-request-v1.json",
+      "bytes": 12552,
+      "sha256": "b02a95a9e6f09643ca32e743ac9111e7afa9b540eb04dd21145d20510c9aefaf"
+    },
+    {
+      "path": "ammo-shared-seven-material-audit-v1.json",
+      "bytes": 381,
+      "sha256": "d982ceb2bcdbb085a30ee6dc0ecfdff880d6842f84c4a1f7a00b3db2e70f1c4d"
+    },
+    {
+      "path": "ammo-shared-fixed-v1-batch-0-api-job.json",
+      "bytes": 18406,
+      "sha256": "83980f122f19b42f76ab5af669c42501e147fed802788ba14b7d85e794984d86"
+    },
+    {
+      "path": "ammo-shared-fixed-v1-batch-0-api-expected.json",
+      "bytes": 1800,
+      "sha256": "bbdab0e9c2d9d54e37b97fc7faf2673cf727479761bee3897dcc3dea5fd95ec1"
+    },
+    {
+      "path": "ammo-shared-fixed-v1-batch-1-api-job.json",
+      "bytes": 18414,
+      "sha256": "ac2cbedc8ef369c6f01da2fac2bb3cfea66819fd0f5311ec479a45b81d6a4a4f"
+    },
+    {
+      "path": "ammo-shared-fixed-v1-batch-1-api-expected.json",
+      "bytes": 1851,
+      "sha256": "cf1050de06d8c1d01d86e884f2f7ef189433de4fd923c116e8f19db6b1059d9c"
+    },
+    {
+      "path": "ammo-shared-fixed-v1-batch-2-api-job.json",
+      "bytes": 19790,
+      "sha256": "e5fba986aa3f12f0774562c4d4df48c85f3eceb3112ab0d55b3971905dc40385"
+    },
+    {
+      "path": "ammo-shared-fixed-v1-batch-2-api-expected.json",
+      "bytes": 1843,
+      "sha256": "0387cba8d5e2d7de1d60a5607bdcb707dcc785b574dd9c69e0cf05f2943faed6"
+    },
+    {
+      "path": "ammo-shared-fixed-v1-batch-3-api-job.json",
+      "bytes": 10724,
+      "sha256": "e5f41debafac3b6145cb7895d73de08f367c4eabbbc7f2559549ea7b40bce446"
+    },
+    {
+      "path": "ammo-shared-fixed-v1-batch-3-api-expected.json",
+      "bytes": 1261,
+      "sha256": "01fe1c00dfc45ad5f9d035bcd398f623ee878ee3744d0b42150f14b3471345d3"
+    }
+  ],
+  "raw_buffers_included": false,
+  "personal_settings_included": false,
+  "new_battles": 0,
+  "new_gpu": 0,
+  "package_source_commit": "455b78839d937146272053fe32a5c0ae278aa49b",
+  "package_working_tree_dirty": true,
+  "runtime_review_commit": "c70c37cd",
+  "provenance_note": "Package freezes reviewed dirty-tree content; commit alone is not the content identity. Manifest owner and per-file hashes are authoritative."
+}

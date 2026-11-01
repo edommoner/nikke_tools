@@ -1,0 +1,44 @@
+{
+  "schema": "ammo-shared-seven-cuda-expected-v1",
+  "owner": "8dfc884939c455362952ce1dea4137658e2d9e4b43f7000063ba83faebebf86b",
+  "source_commit": "455b78839d937146272053fe32a5c0ae278aa49b",
+  "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+  "physical_cases": 2,
+  "input_words": 117656,
+  "output_words": 2048912,
+  "physical_input_bytes": 941252,
+  "physical_output_bytes": 16391296,
+  "physical_input_sha256": "527543b672e4c346c8f40c6e079129e00914c3e06980f23285fcaa67235306ee",
+  "physical_output_sha256": "05068ebecc387653b191f02570c55c3e1d0796641c0b69915b71ed79f67feb02",
+  "readback_chunk_bytes": 8388608,
+  "expected_readback_chunk_bytes": [
+    8388608,
+    8002688
+  ],
+  "cases": [
+    {
+      "index": 4,
+      "member_index": 0,
+      "label": "product/ammo-cover-fixed-group/target-modifier-final-queue-6s",
+      "variant": "target-modifier-final-queue",
+      "expected_input_sha256": "1f5922b8926ac0f978f599bb66bc70e84488c3186cf4f8122d1b25d45afacf8b",
+      "expected_output_sha256": "8d6e33549f6674800344cfe3e20c281e9168328c084becdf2ca52ed81860287e",
+      "definition_count": 77,
+      "all_original_definitions_preserved": true,
+      "saved_metal_case_index": 4,
+      "saved_metal_capture": "product-ammo-healing-v1-20261101/metal-v1"
+    },
+    {
+      "index": 5,
+      "member_index": 1,
+      "label": "product/ammo-cover-fixed-group/healing-magazines-15s",
+      "variant": "healing-magazines",
+      "expected_input_sha256": "cd1789391d31c4bf5adb65e5cfcdbace5caf6c9eb874a963e3e629d94df0f8fb",
+      "expected_output_sha256": "eefd6b539a17e2746182ed3781656cf1d7fd19fcd90e6bf6852bfb181e8b85f6",
+      "definition_count": 77,
+      "all_original_definitions_preserved": true,
+      "saved_metal_case_index": 5,
+      "saved_metal_capture": "product-ammo-healing-v1-20261101/metal-v1"
+    }
+  ]
+}

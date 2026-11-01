@@ -1,0 +1,256 @@
+{
+  "schema": "ammo-shared-seven-windows-request-v1",
+  "owner": "8dfc884939c455362952ce1dea4137658e2d9e4b43f7000063ba83faebebf86b",
+  "source_commit": "455b78839d937146272053fe32a5c0ae278aa49b",
+  "code_review_commit": "404859a3",
+  "program": "ammo-cover-fixed-group",
+  "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+  "scope": "All7 existing fixed product CLI cases, original5 preserved plus declared enemy healing2, serialized batches2/2/2/1; no unconfigured-standard additions or game specification promotion",
+  "archive": "ammo-shared-fixed-v1.zip",
+  "archive_bytes": 12136744,
+  "archive_sha256": "379f58f77f5ea83d2ad1f62bc7c0132b4698b620d459dca6f59a613f0158a88f",
+  "validation_deps": "ammo-shared-fixed-v1-validation-deps.json",
+  "ptx_plan": "ammo-shared-fixed-v1-ptx-plan.json",
+  "o1_plan": "ammo-shared-fixed-v1-o1-plan.json",
+  "input_words": 117656,
+  "output_words": 2048912,
+  "cases": [
+    {
+      "index": 0,
+      "label": "product/ammo-cover-fixed-group-30s",
+      "variant": null,
+      "expected_input_sha256": "0a040630b022d2e5d554814085399c3f289132b2e20049af3d25d3d98acac087",
+      "expected_output_sha256": "36b2aafa2357189a4ecb2bcc30363b44d399e848c734f80260fe996b94dc2d48",
+      "definition_count": 79,
+      "all_original_definitions_covered": true,
+      "saved_metal_owner": "e375ac54f0be05218cf80fea2aa02f408ba574d6ff11191c6e5d9d765fcb7635",
+      "saved_metal_case_index": 0,
+      "saved_metal_capture": "product-ammo-healing-v1-20261101/metal-v1"
+    },
+    {
+      "index": 1,
+      "label": "product/ammo-cover-fixed-group/coincident-final-queue-6s",
+      "variant": "coincident-final-queue",
+      "expected_input_sha256": "6bdc75862040a9a38e038cb954b8f64a502434d8437a74020be17dfa1e214eb8",
+      "expected_output_sha256": "b031286c36bccf569761a9c877de6de35585ac5745c9cd17015d5a96b345e024",
+      "definition_count": 79,
+      "all_original_definitions_covered": true,
+      "saved_metal_owner": "e375ac54f0be05218cf80fea2aa02f408ba574d6ff11191c6e5d9d765fcb7635",
+      "saved_metal_case_index": 1,
+      "saved_metal_capture": "product-ammo-healing-v1-20261101/metal-v1"
+    },
+    {
+      "index": 2,
+      "label": "product/ammo-cover-fixed-group/reload-final-final-queue-6s",
+      "variant": "reload-final-final-queue",
+      "expected_input_sha256": "d886980b4626bc21888692d29ae9902f8ac1de13cf6f70c51989ca13d0bcd5dc",
+      "expected_output_sha256": "ed5f65ee2cb13b3891d2737fba3f205c61f69dd3e2f8f13b0e86a2acfb9bcf85",
+      "definition_count": 79,
+      "all_original_definitions_covered": true,
+      "saved_metal_owner": "e375ac54f0be05218cf80fea2aa02f408ba574d6ff11191c6e5d9d765fcb7635",
+      "saved_metal_case_index": 2,
+      "saved_metal_capture": "product-ammo-healing-v1-20261101/metal-v1"
+    },
+    {
+      "index": 3,
+      "label": "product/ammo-cover-fixed-group/target-modifier-carriers-15s",
+      "variant": "target-modifier-carriers",
+      "expected_input_sha256": "f9aa96611a977fa22523d24beee544e02c8f2eb0c357b697d9d6447c85059e76",
+      "expected_output_sha256": "25eaf037fe8f3a5015c1c679f8e7f9266ef76dcbce7e1d674843d3f69d5420c9",
+      "definition_count": 77,
+      "all_original_definitions_covered": true,
+      "saved_metal_owner": "e375ac54f0be05218cf80fea2aa02f408ba574d6ff11191c6e5d9d765fcb7635",
+      "saved_metal_case_index": 3,
+      "saved_metal_capture": "product-ammo-healing-v1-20261101/metal-v1"
+    },
+    {
+      "index": 4,
+      "label": "product/ammo-cover-fixed-group/target-modifier-final-queue-6s",
+      "variant": "target-modifier-final-queue",
+      "expected_input_sha256": "1f5922b8926ac0f978f599bb66bc70e84488c3186cf4f8122d1b25d45afacf8b",
+      "expected_output_sha256": "8d6e33549f6674800344cfe3e20c281e9168328c084becdf2ca52ed81860287e",
+      "definition_count": 77,
+      "all_original_definitions_covered": true,
+      "saved_metal_owner": "e375ac54f0be05218cf80fea2aa02f408ba574d6ff11191c6e5d9d765fcb7635",
+      "saved_metal_case_index": 4,
+      "saved_metal_capture": "product-ammo-healing-v1-20261101/metal-v1"
+    },
+    {
+      "index": 5,
+      "label": "product/ammo-cover-fixed-group/healing-magazines-15s",
+      "variant": "healing-magazines",
+      "expected_input_sha256": "cd1789391d31c4bf5adb65e5cfcdbace5caf6c9eb874a963e3e629d94df0f8fb",
+      "expected_output_sha256": "eefd6b539a17e2746182ed3781656cf1d7fd19fcd90e6bf6852bfb181e8b85f6",
+      "definition_count": 77,
+      "all_original_definitions_covered": true,
+      "saved_metal_owner": "e375ac54f0be05218cf80fea2aa02f408ba574d6ff11191c6e5d9d765fcb7635",
+      "saved_metal_case_index": 5,
+      "saved_metal_capture": "product-ammo-healing-v1-20261101/metal-v1"
+    },
+    {
+      "index": 6,
+      "label": "product/ammo-cover-fixed-group/healing-final-queue-6s",
+      "variant": "healing-final-queue",
+      "expected_input_sha256": "7a4816172fec9c6ef0e763910a4446de6b3047c262a19578696070dc65b923b5",
+      "expected_output_sha256": "5d60dc8df2e87786d0800ce5ab5b03988e96e68f73b1dd881321aadc3c8dc2c0",
+      "definition_count": 77,
+      "all_original_definitions_covered": true,
+      "saved_metal_owner": "e375ac54f0be05218cf80fea2aa02f408ba574d6ff11191c6e5d9d765fcb7635",
+      "saved_metal_case_index": 6,
+      "saved_metal_capture": "product-ammo-healing-v1-20261101/metal-v1"
+    }
+  ],
+  "batches": [
+    {
+      "batch_index": 0,
+      "api_job": "ammo-shared-fixed-v1-batch-0-api-job.json",
+      "api_job_sha256": "83980f122f19b42f76ab5af669c42501e147fed802788ba14b7d85e794984d86",
+      "api_expected": "ammo-shared-fixed-v1-batch-0-api-expected.json",
+      "api_expected_sha256": "bbdab0e9c2d9d54e37b97fc7faf2673cf727479761bee3897dcc3dea5fd95ec1",
+      "case_indices": [
+        0,
+        1
+      ],
+      "physical_cases": 2,
+      "physical_input_sha256": "a2902bab275b1e5194337f3f93b95744f034e6f179c0dcba86a4c07c6867c176",
+      "physical_output_sha256": "55018a3ccbae52fe7da162af150d6b950b856e80192186fe12a520cccace53ee",
+      "physical_output_bytes": 16391296,
+      "readback_chunks": [
+        8388608,
+        8002688
+      ]
+    },
+    {
+      "batch_index": 1,
+      "api_job": "ammo-shared-fixed-v1-batch-1-api-job.json",
+      "api_job_sha256": "ac2cbedc8ef369c6f01da2fac2bb3cfea66819fd0f5311ec479a45b81d6a4a4f",
+      "api_expected": "ammo-shared-fixed-v1-batch-1-api-expected.json",
+      "api_expected_sha256": "cf1050de06d8c1d01d86e884f2f7ef189433de4fd923c116e8f19db6b1059d9c",
+      "case_indices": [
+        2,
+        3
+      ],
+      "physical_cases": 2,
+      "physical_input_sha256": "9c43b928d97371db74ddb5f078664a6831a3a321f91b1cc80295e742941010be",
+      "physical_output_sha256": "958d90c9c3d295efc2f459c9c11e048ae02b3c0a3cdd1e6526c8940fb41c3843",
+      "physical_output_bytes": 16391296,
+      "readback_chunks": [
+        8388608,
+        8002688
+      ]
+    },
+    {
+      "batch_index": 2,
+      "api_job": "ammo-shared-fixed-v1-batch-2-api-job.json",
+      "api_job_sha256": "e5fba986aa3f12f0774562c4d4df48c85f3eceb3112ab0d55b3971905dc40385",
+      "api_expected": "ammo-shared-fixed-v1-batch-2-api-expected.json",
+      "api_expected_sha256": "0387cba8d5e2d7de1d60a5607bdcb707dcc785b574dd9c69e0cf05f2943faed6",
+      "case_indices": [
+        4,
+        5
+      ],
+      "physical_cases": 2,
+      "physical_input_sha256": "527543b672e4c346c8f40c6e079129e00914c3e06980f23285fcaa67235306ee",
+      "physical_output_sha256": "05068ebecc387653b191f02570c55c3e1d0796641c0b69915b71ed79f67feb02",
+      "physical_output_bytes": 16391296,
+      "readback_chunks": [
+        8388608,
+        8002688
+      ]
+    },
+    {
+      "batch_index": 3,
+      "api_job": "ammo-shared-fixed-v1-batch-3-api-job.json",
+      "api_job_sha256": "e5f41debafac3b6145cb7895d73de08f367c4eabbbc7f2559549ea7b40bce446",
+      "api_expected": "ammo-shared-fixed-v1-batch-3-api-expected.json",
+      "api_expected_sha256": "01fe1c00dfc45ad5f9d035bcd398f623ee878ee3744d0b42150f14b3471345d3",
+      "case_indices": [
+        6
+      ],
+      "physical_cases": 1,
+      "physical_input_sha256": "7a4816172fec9c6ef0e763910a4446de6b3047c262a19578696070dc65b923b5",
+      "physical_output_sha256": "5d60dc8df2e87786d0800ce5ab5b03988e96e68f73b1dd881321aadc3c8dc2c0",
+      "physical_output_bytes": 8195648,
+      "readback_chunks": [
+        8195648
+      ]
+    }
+  ],
+  "cpu_patterns": [
+    "test_portable_detail.py",
+    "test_product_detail_packet.py",
+    "test_weighted_source_contract.py",
+    "test_product_reference_models.py"
+  ],
+  "selected_case_ids": {
+    "test_product_reference_models.py": [
+      "test_product_reference_models.ProductReferenceModels.test_combined_enemy_healing_magazines_preserve_shared_owners_and_disjoint_banks",
+      "test_product_reference_models.ProductReferenceModels.test_combined_healing_and_ammo_native_frame_and_final_queue_agree",
+      "test_product_reference_models.ProductReferenceModels.test_declared_product_ammo_reuses_exact_native_final_queue_lifecycle",
+      "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_self_destruct_uses_existing_finite_rows_and_magazine_bank",
+      "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_shot_groups_keep_original_definitions_and_both_literal_banks",
+      "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_target_modifiers_keep_complete_target_and_group_prefixes"
+    ]
+  },
+  "windows_targeted_tests": 91,
+  "mac_own_cpu_tests": 157,
+  "unselected_windows_model_tests": 66,
+  "mac_current_source_metal_profile_count": 263,
+  "mac_selected_metal_cases": 7,
+  "mac_selected_independent_seal_passed": true,
+  "mac_release_own_cpu_deps_plans_passed": true,
+  "mac_normal_composition_api_cases": 24,
+  "additional_material_battles": 0,
+  "additional_material_gpu": 0,
+  "source_or_input_or_expectations_changed": false,
+  "max_posts": 4,
+  "max_gpu_dispatches": 4,
+  "all7_cases_required": true,
+  "max_cases_per_api_batch": 2,
+  "retries": 0,
+  "standard266_rerun": false,
+  "configured_profile_delta": 0,
+  "unconfigured_standard_profile_delta": 0,
+  "report": "ammo-shared-seven-normal-api-status-v1.json",
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "minimum_available_ram_bytes": 4294967296,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "compile_recipe": {
+    "slang_generation": "Existing paired CUDA/MSL generation once, exact current owner/reflection/normalized baseline; require generation cache afterwards",
+    "ptx_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "object_options": [
+      "--gpu-name=sm_86",
+      "--opt-level=1",
+      "--fmad=false",
+      "--verbose",
+      "--compile-only"
+    ],
+    "runtime": "Pinned nvJitLink saved image; no full NVRTC battle rebuild or prior different-kernel image substitution"
+  },
+  "steps": [
+    "Preserve old roots/claims/raw/failures; first RAM gate>=4GiB before expensive stages; stop first failure without measurement/retry loop",
+    "Fresh immutable root, own plans/deps, CPU67+11+7+exact6selected=91 before any GPU; other66 model cases not claimed on Windows",
+    "Probe exact current artifact cache read-only once; reuse only if every current source/compiler/option/Job/cache origin gate passes. Otherwise first paired generation/PTX/object/pinned link once each, bounded, no retry or guard relaxation",
+    "Prepare supplied4jobs and exact original expectations with existing helper; no helper/source/expected/model modifications. Existing saved-image consumer only",
+    "Fresh RAM>=4GiB immediately before each API helper;1POST/1GPU max per batch, strictly2/2/2/1, serial completed/Node gone/Job empty/live0 before next/audit; stop any numeric/timeout/missing/query/cleanup/observation failure",
+    "Full parent/member input/readback SHA and allCPU/GPU/HTTP/Unicode/native quantities must match each Mac case; all7case indices covered once",
+    "Existing actual Node JSON roundtrip, static repack and saved full projection; no additional battle/GPU during audits",
+    "Export small saved result JSON only, retain all stops/unrun remainder, do not resubmit execution on disconnect"
+  ],
+  "report_policy": "Keep SDK outer/inner distinction, all advisory null/unknown, service/whole/overallfalse; bounded_job verified separately; no raw/PTX/compiler/auth/settings/external process details",
+  "full_goal_complete": false
+}

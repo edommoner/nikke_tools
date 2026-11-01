@@ -1,0 +1,44 @@
+{
+  "schema": "ammo-shared-seven-cuda-expected-v1",
+  "owner": "8dfc884939c455362952ce1dea4137658e2d9e4b43f7000063ba83faebebf86b",
+  "source_commit": "455b78839d937146272053fe32a5c0ae278aa49b",
+  "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+  "physical_cases": 2,
+  "input_words": 117656,
+  "output_words": 2048912,
+  "physical_input_bytes": 941252,
+  "physical_output_bytes": 16391296,
+  "physical_input_sha256": "a2902bab275b1e5194337f3f93b95744f034e6f179c0dcba86a4c07c6867c176",
+  "physical_output_sha256": "55018a3ccbae52fe7da162af150d6b950b856e80192186fe12a520cccace53ee",
+  "readback_chunk_bytes": 8388608,
+  "expected_readback_chunk_bytes": [
+    8388608,
+    8002688
+  ],
+  "cases": [
+    {
+      "index": 0,
+      "member_index": 0,
+      "label": "product/ammo-cover-fixed-group-30s",
+      "variant": null,
+      "expected_input_sha256": "0a040630b022d2e5d554814085399c3f289132b2e20049af3d25d3d98acac087",
+      "expected_output_sha256": "36b2aafa2357189a4ecb2bcc30363b44d399e848c734f80260fe996b94dc2d48",
+      "definition_count": 79,
+      "all_original_definitions_preserved": true,
+      "saved_metal_case_index": 0,
+      "saved_metal_capture": "product-ammo-healing-v1-20261101/metal-v1"
+    },
+    {
+      "index": 1,
+      "member_index": 1,
+      "label": "product/ammo-cover-fixed-group/coincident-final-queue-6s",
+      "variant": "coincident-final-queue",
+      "expected_input_sha256": "6bdc75862040a9a38e038cb954b8f64a502434d8437a74020be17dfa1e214eb8",
+      "expected_output_sha256": "b031286c36bccf569761a9c877de6de35585ac5745c9cd17015d5a96b345e024",
+      "definition_count": 79,
+      "all_original_definitions_preserved": true,
+      "saved_metal_case_index": 1,
+      "saved_metal_capture": "product-ammo-healing-v1-20261101/metal-v1"
+    }
+  ]
+}

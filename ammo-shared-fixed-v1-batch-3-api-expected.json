@@ -1,0 +1,31 @@
+{
+  "schema": "ammo-shared-seven-cuda-expected-v1",
+  "owner": "8dfc884939c455362952ce1dea4137658e2d9e4b43f7000063ba83faebebf86b",
+  "source_commit": "455b78839d937146272053fe32a5c0ae278aa49b",
+  "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+  "physical_cases": 1,
+  "input_words": 117656,
+  "output_words": 2048912,
+  "physical_input_bytes": 470628,
+  "physical_output_bytes": 8195648,
+  "physical_input_sha256": "7a4816172fec9c6ef0e763910a4446de6b3047c262a19578696070dc65b923b5",
+  "physical_output_sha256": "5d60dc8df2e87786d0800ce5ab5b03988e96e68f73b1dd881321aadc3c8dc2c0",
+  "readback_chunk_bytes": 8388608,
+  "expected_readback_chunk_bytes": [
+    8195648
+  ],
+  "cases": [
+    {
+      "index": 6,
+      "member_index": 0,
+      "label": "product/ammo-cover-fixed-group/healing-final-queue-6s",
+      "variant": "healing-final-queue",
+      "expected_input_sha256": "7a4816172fec9c6ef0e763910a4446de6b3047c262a19578696070dc65b923b5",
+      "expected_output_sha256": "5d60dc8df2e87786d0800ce5ab5b03988e96e68f73b1dd881321aadc3c8dc2c0",
+      "definition_count": 77,
+      "all_original_definitions_preserved": true,
+      "saved_metal_case_index": 6,
+      "saved_metal_capture": "product-ammo-healing-v1-20261101/metal-v1"
+    }
+  ]
+}
