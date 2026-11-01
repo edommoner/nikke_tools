@@ -1,0 +1,17 @@
+{
+  "schema": "saved-image-transport-v1",
+  "files": [
+    {
+      "path": "shared-product-prepare-api-v2.py",
+      "bytes": 6413,
+      "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739"
+    },
+    {
+      "path": "ammo-shared-seven-saved-image-continuation-v1.json",
+      "bytes": 9635,
+      "sha256": "e6504526ccd1c34d338cf50cdfab69ea927b0dde1a437e3c1bb23a3585efefa4"
+    }
+  ],
+  "source_sdk_or_packet_changed": false,
+  "raw_or_settings_included": false
+}

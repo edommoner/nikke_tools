@@ -1,0 +1,262 @@
+{
+  "schema": "saved-image-api-continuation-v1",
+  "source_code_review_commit": "cfe8467fe07687461f6f8c4c163632977d8abaa2",
+  "original_request_commit": "ea7a0446e7f111098987e7fd2a28e25bebf1441a",
+  "source_report_commit": "0a66abc9",
+  "source_report_file": "ammo-shared-seven-normal-api-status-v2.json",
+  "source_report_sha256": "9319f00d8ca5b3e86170727db6231615c35a579e88a7d4fab5867201e5febb70",
+  "owner": "ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168",
+  "source_commit": "3cb7bda7e4dc0b0c1c4dd32445bdb1bb6443a0e4",
+  "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+  "source_manifest_sha256": "9b4eb7ded3a34437b0bf49bb279a531d4bf6621d0a653e4eb1065dc925900678",
+  "source_sdk": {
+    "first_generation_cache_key": "f47a4d70c2569b99d17e1c38f23f5111f0f22367c92af0053e88f0bf210df68c",
+    "first_generation_hit": false,
+    "first_slang_compiler_invocations": 2,
+    "ptx_generation_cache_hit": true,
+    "ptx_generation_compiler_invocations": 0,
+    "entry": "portableEvents",
+    "ptx_identity": {
+      "key": "a2f6c4c75f222e09c03b8c4b1c35822b14327bb3ad73716101188755aedeeec7",
+      "artifact_sha256": "dabc3598f434065390352d6cbe1d42b72a59865f2d349d3494252483c62a3b0f",
+      "artifact_bytes": 10748604
+    },
+    "ptx_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "object_sha256": "142ba73b6807798781ade094b4f9f9aa74bcbbe45691dbeb1e01d67169a76bd2",
+    "object_bytes": 6150192,
+    "object_options": [
+      "--gpu-name=sm_86",
+      "--opt-level=1",
+      "--fmad=false",
+      "--verbose",
+      "--compile-only"
+    ],
+    "source_bytes_unchanged": true,
+    "source_partitioned": false,
+    "linked_image_sha256": "ae3f641e59b4d42d26253e8ea50279309f57332f2e534653fe84cd4ea0e5088e",
+    "linked_image_bytes": 5710096,
+    "jit_link_all_returns0": true,
+    "jit_link_driver_calls": 0,
+    "other_heavy_image_reused": false
+  },
+  "helper": {
+    "file": "shared-product-prepare-api-v2.py",
+    "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739",
+    "install": "Fresh outer API root prepare-api.py only; old source tree stays unchanged"
+  },
+  "configuration": {
+    "key": "sdk_program_root",
+    "value": "Absolute path of existing v2 SDK program; derive from preserved source cfg/claim",
+    "packet": "Use the same existing immutable source packet path, whose parent is sdk_program_root",
+    "program": "Same original owner/source/input-output stride and original4job/expected files; no caller or expected numeric changes"
+  },
+  "proof": {
+    "mac_shared_cli_tests": 57,
+    "mac_data_only_all7_prepared": true,
+    "mac_source_files_unchanged": 2790,
+    "mac_real_artifact_admission_executed": false
+  },
+  "scope": "Existing correct saved image, revalidated by existing product admission, then first unexecuted7 GPU cases. This does not repair or reclassify the earlier pre-SDK probe.",
+  "original_probe_exact_entry_requirement_satisfied": false,
+  "original_stop_and_outer_states_preserved": true,
+  "recompile_calls_allowed": 0,
+  "new_diagnostic_probe_calls_allowed": 0,
+  "cpu_unit_reruns_allowed": 0,
+  "max_posts": 4,
+  "max_gpu_dispatches": 4,
+  "case_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "batch_cases": [
+    2,
+    2,
+    2,
+    1
+  ],
+  "batches": [
+    {
+      "batch_index": 0,
+      "api_job": "ammo-shared-fixed-v1-batch-0-api-job.json",
+      "api_job_sha256": "83980f122f19b42f76ab5af669c42501e147fed802788ba14b7d85e794984d86",
+      "api_expected": "ammo-shared-fixed-v2-batch-0-api-expected.json",
+      "api_expected_sha256": "e0df3445acdc2322582a42714f790d39b65a5f94da61a53c70406760ad9e78e0",
+      "case_indices": [
+        0,
+        1
+      ],
+      "physical_cases": 2,
+      "physical_input_sha256": "a2902bab275b1e5194337f3f93b95744f034e6f179c0dcba86a4c07c6867c176",
+      "physical_output_sha256": "55018a3ccbae52fe7da162af150d6b950b856e80192186fe12a520cccace53ee",
+      "physical_output_bytes": 16391296,
+      "readback_chunks": [
+        8388608,
+        8002688
+      ],
+      "index": 0,
+      "member_indices": [
+        0,
+        1
+      ],
+      "original_profile_indices": [
+        0,
+        1
+      ],
+      "cases": 2,
+      "physical_input_bytes": 941252,
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8002688
+      ]
+    },
+    {
+      "batch_index": 1,
+      "api_job": "ammo-shared-fixed-v1-batch-1-api-job.json",
+      "api_job_sha256": "ac2cbedc8ef369c6f01da2fac2bb3cfea66819fd0f5311ec479a45b81d6a4a4f",
+      "api_expected": "ammo-shared-fixed-v2-batch-1-api-expected.json",
+      "api_expected_sha256": "4bbfdfa2f89f05dd00a1df4528d117fb84d28cf0403a78e3f8ba29dfd2e5c798",
+      "case_indices": [
+        2,
+        3
+      ],
+      "physical_cases": 2,
+      "physical_input_sha256": "9c43b928d97371db74ddb5f078664a6831a3a321f91b1cc80295e742941010be",
+      "physical_output_sha256": "958d90c9c3d295efc2f459c9c11e048ae02b3c0a3cdd1e6526c8940fb41c3843",
+      "physical_output_bytes": 16391296,
+      "readback_chunks": [
+        8388608,
+        8002688
+      ],
+      "index": 1,
+      "member_indices": [
+        0,
+        1
+      ],
+      "original_profile_indices": [
+        2,
+        3
+      ],
+      "cases": 2,
+      "physical_input_bytes": 941252,
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8002688
+      ]
+    },
+    {
+      "batch_index": 2,
+      "api_job": "ammo-shared-fixed-v1-batch-2-api-job.json",
+      "api_job_sha256": "e5fba986aa3f12f0774562c4d4df48c85f3eceb3112ab0d55b3971905dc40385",
+      "api_expected": "ammo-shared-fixed-v2-batch-2-api-expected.json",
+      "api_expected_sha256": "cdb77a1feef07adf91e4e940a81625d2f2639720b852b8f32133f3f9736ff9f1",
+      "case_indices": [
+        4,
+        5
+      ],
+      "physical_cases": 2,
+      "physical_input_sha256": "527543b672e4c346c8f40c6e079129e00914c3e06980f23285fcaa67235306ee",
+      "physical_output_sha256": "05068ebecc387653b191f02570c55c3e1d0796641c0b69915b71ed79f67feb02",
+      "physical_output_bytes": 16391296,
+      "readback_chunks": [
+        8388608,
+        8002688
+      ],
+      "index": 2,
+      "member_indices": [
+        0,
+        1
+      ],
+      "original_profile_indices": [
+        4,
+        5
+      ],
+      "cases": 2,
+      "physical_input_bytes": 941252,
+      "expected_readback_chunk_bytes": [
+        8388608,
+        8002688
+      ]
+    },
+    {
+      "batch_index": 3,
+      "api_job": "ammo-shared-fixed-v1-batch-3-api-job.json",
+      "api_job_sha256": "e5f41debafac3b6145cb7895d73de08f367c4eabbbc7f2559549ea7b40bce446",
+      "api_expected": "ammo-shared-fixed-v2-batch-3-api-expected.json",
+      "api_expected_sha256": "44107e47c75f7ebba1ff90f66a0cee4fda9eaeb5013e1fb296c4ca4d81e1ce40",
+      "case_indices": [
+        6
+      ],
+      "physical_cases": 1,
+      "physical_input_sha256": "7a4816172fec9c6ef0e763910a4446de6b3047c262a19578696070dc65b923b5",
+      "physical_output_sha256": "5d60dc8df2e87786d0800ce5ab5b03988e96e68f73b1dd881321aadc3c8dc2c0",
+      "physical_output_bytes": 8195648,
+      "readback_chunks": [
+        8195648
+      ],
+      "index": 3,
+      "member_indices": [
+        0
+      ],
+      "original_profile_indices": [
+        6
+      ],
+      "cases": 1,
+      "physical_input_bytes": 470628,
+      "expected_readback_chunk_bytes": [
+        8195648
+      ]
+    }
+  ],
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "minimum_available_ram_bytes": 4294967296,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "keep_helpers": {
+    "unchanged_roles": [
+      "run-api-step",
+      "check-api-stage",
+      "cpu-coordinator",
+      "cpu-start-gated",
+      "static-preflight",
+      "api-once",
+      "audit-saved",
+      "api-start-ram-gate"
+    ],
+    "original_export_commit": "534f5601",
+    "sdk_stages_not_repeated": true
+  },
+  "steps": [
+    "Finish active direct-user work; execute only when connection/host are stable",
+    "Verify request/source report/manifest/helper SHA and correct portableEvents generation/image provenance; retain wrong-main original diagnostic and old stop",
+    "Create wholly fresh outer API root/program, copy only environment paths and identical old packet reference; set sdk_program_root explicitly; no SDK root writes, claim deletion or old status editing",
+    "Use existing product saved-image admission for actual source/reflection/claim/phase/image validation; fail rather than change guards or substitute another artifact",
+    "Reuse saved selected91/own plans as prior evidence with exact owner; do not claim new/full CPU validation",
+    "Prepare/check2/2/2/1 batches from unchanged original4caller files; fresh RAM>=4GiB immediately before each API; strictly serial and stop first failure",
+    "Same existing Job/start gate, BelowNormal,2GiB,API53s/CPU-audit60s/outer180s; terminal/ownedNodegone/empty/live0 before audit/next batch",
+    "Compare all native CPU/GPU/HTTP/Unicode and all parent/member M5 hashes; existing Node roundtrip/static/saved projection only, extra battle/GPU0",
+    "Export small saved JSON with source-reference hashes and all historical false/unknown states; no raw/compiler/image/process details"
+  ],
+  "report": "ammo-shared-seven-saved-image-api-status-v1.json",
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false
+}
