@@ -1,0 +1,312 @@
+{
+  "schema": 1,
+  "scope": "Original Anne healing, Belorta actual-shot groups and Soldier cover DEF in one shared product scheduler",
+  "sealed_development_owner": "f291b682d43819be8e38ee3e5172139a4a7ae6299ce9cccac66df1c0faf120fd",
+  "release_owner": "836ade72e7dae4aa173038c4836d96e73bc0224d0d936113a8cc3f472a6815af",
+  "cpu_tests": 148,
+  "cpu_groups": [
+    67,
+    11,
+    7,
+    63
+  ],
+  "release_own_cpu_only_passed": true,
+  "metal_and_fresh_native": true,
+  "independent_gpu_forbidden_seal_passed": true,
+  "normal_api": {
+    "cases": 6,
+    "posts": 2,
+    "physical_batches": 3,
+    "rows": [
+      {
+        "variant": "fixed-30s",
+        "duration": 30,
+        "capture": "fe1c1e5db3d347f9883524f99e198771",
+        "source": "gpu/product_healing_cover_fixed_group_battle_entry.slang",
+        "input_sha256": "a91c853d0451e302edeb4535827dbd84e8dd6dee4b387744b361f6fb73936b63",
+        "output_sha256": "4eded901094fda6a2f9a5bb9be2b2074b8654d1f023e852a3465bfd25d7e8d00",
+        "actual_shot_group_header": [
+          1095193393,
+          14,
+          14,
+          0,
+          0,
+          14,
+          0,
+          0,
+          2,
+          1
+        ],
+        "healing_receipts": 4,
+        "positive_healing_receipts": 3,
+        "cover_receipts": [
+          {
+            "name": "솔져 O.W.",
+            "divisor": 1,
+            "time": 7.499999999999979,
+            "attack": 100000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 1000,
+            "effective_defense": 1000,
+            "quantity": 99000,
+            "shared_quantity": 99000,
+            "hp_before": 2000000,
+            "applied": 99000,
+            "hp_after": 1901000
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "saved_reprojection_passed": true
+      },
+      {
+        "variant": "fixed-15s",
+        "duration": 15,
+        "capture": "c7450e9e04a6453aaf66d55a0dd7abea",
+        "source": "gpu/product_healing_cover_fixed_group_battle_entry.slang",
+        "input_sha256": "e5c3950fd40384b496461819505c122f205f2da5fecc0bdfd8dd50459438a3ee",
+        "output_sha256": "3137ee353817f7b9733584f2a5f949913f9db2242d8d0fa99b32588bb5186d7a",
+        "actual_shot_group_header": [
+          1095193393,
+          8,
+          8,
+          0,
+          0,
+          8,
+          0,
+          0,
+          2,
+          1
+        ],
+        "healing_receipts": 2,
+        "positive_healing_receipts": 1,
+        "cover_receipts": [
+          {
+            "name": "솔져 O.W.",
+            "divisor": 1,
+            "time": 7.499999999999979,
+            "attack": 100000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 1000,
+            "effective_defense": 1000,
+            "quantity": 99000,
+            "shared_quantity": 99000,
+            "hp_before": 2000000,
+            "applied": 99000,
+            "hp_after": 1901000
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "saved_reprojection_passed": true
+      },
+      {
+        "variant": "accumulate-30s",
+        "duration": 30,
+        "capture": "5cc718e053ef47708ce26da7fee698de",
+        "source": "gpu/product_healing_cover_group_battle_entry.slang",
+        "input_sha256": "3d3a2439a7fbf56da805a95df2ede75fc61f6de9190a3fa1e953bb4b43f499e5",
+        "output_sha256": "c1d5cc25ce580f654acaa2fc20a65c2c407e9067045badc884fcdaf1a04ced95",
+        "actual_shot_group_header": [
+          1095193393,
+          14,
+          14,
+          0,
+          0,
+          14,
+          0,
+          0,
+          2,
+          1
+        ],
+        "healing_receipts": 4,
+        "positive_healing_receipts": 3,
+        "cover_receipts": [
+          {
+            "name": "솔져 O.W.",
+            "divisor": 1,
+            "time": 7.499999999999979,
+            "attack": 100000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 1000,
+            "effective_defense": 1000,
+            "quantity": 99000,
+            "shared_quantity": 99000,
+            "hp_before": 2000000,
+            "applied": 99000,
+            "hp_after": 1901000
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "saved_reprojection_passed": true
+      },
+      {
+        "variant": "accumulate-15s",
+        "duration": 15,
+        "capture": "dbea22f20905443d88903dd18f648c22",
+        "source": "gpu/product_healing_cover_group_battle_entry.slang",
+        "input_sha256": "2d62a8089b22313fe83ceb50c4ebc7bbe7f955ba4e9abe598270f79a98ef5f7c",
+        "output_sha256": "4d52d385972f6ad978a4bc0796a10667a58b37c2112fdc44dd06ee75f52e5d2e",
+        "actual_shot_group_header": [
+          1095193393,
+          8,
+          8,
+          0,
+          0,
+          8,
+          0,
+          0,
+          2,
+          1
+        ],
+        "healing_receipts": 2,
+        "positive_healing_receipts": 1,
+        "cover_receipts": [
+          {
+            "name": "솔져 O.W.",
+            "divisor": 1,
+            "time": 7.499999999999979,
+            "attack": 100000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 1000,
+            "effective_defense": 1000,
+            "quantity": 99000,
+            "shared_quantity": 99000,
+            "hp_before": 2000000,
+            "applied": 99000,
+            "hp_after": 1901000
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "saved_reprojection_passed": true
+      },
+      {
+        "variant": "fixed-15s-cover-active-top-atk",
+        "duration": 15,
+        "capture": "6689a72555df42c3af2eaf1788aee3e7",
+        "source": "gpu/product_healing_cover_fixed_group_battle_entry.slang",
+        "input_sha256": "40c7369e56c8c35ed0fcbc720a72c1a50333743308b8ac3dddb651b449fb0c53",
+        "output_sha256": "e0b4b09b84ac4a3984c7d684ab0fefafb9cc71ea8dba13d64e1b1e7e80e818a2",
+        "actual_shot_group_header": [
+          1095193393,
+          8,
+          8,
+          0,
+          0,
+          8,
+          0,
+          0,
+          2,
+          1
+        ],
+        "healing_receipts": 2,
+        "positive_healing_receipts": 1,
+        "cover_receipts": [
+          {
+            "name": "드레이크",
+            "divisor": 1,
+            "time": 11.000000000000126,
+            "attack": 100000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 1000,
+            "effective_defense": 2285.7,
+            "quantity": 97714.3,
+            "shared_quantity": 97714.3,
+            "hp_before": 2000000,
+            "applied": 97714.3,
+            "hp_after": 1902285.7
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "saved_reprojection_passed": true
+      },
+      {
+        "variant": "fixed-15s-cover-inactive-low-atk",
+        "duration": 15,
+        "capture": "cb3a9a4356cf4d6493052f0b8827957a",
+        "source": "gpu/product_healing_cover_fixed_group_battle_entry.slang",
+        "input_sha256": "c5bd4c69bcf43d39a78195f7c3ba15fcee9da2c883d2ddc318d58568f1b42331",
+        "output_sha256": "85f3341433d813a6448a1ff94ea899a242f2fbb0bf2993005da8b98241a53092",
+        "actual_shot_group_header": [
+          1095193393,
+          8,
+          8,
+          0,
+          0,
+          8,
+          0,
+          0,
+          2,
+          1
+        ],
+        "healing_receipts": 2,
+        "positive_healing_receipts": 1,
+        "cover_receipts": [
+          {
+            "name": "솔져 O.W.",
+            "divisor": 1,
+            "time": 11.000000000000126,
+            "attack": 100000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 1000,
+            "effective_defense": 1000,
+            "quantity": 99000,
+            "shared_quantity": 99000,
+            "hp_before": 2000000,
+            "applied": 99000,
+            "hp_after": 1901000
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "saved_reprojection_passed": true
+      }
+    ],
+    "saved_audit_additional_battles": 0,
+    "saved_audit_additional_gpu": 0,
+    "owned_node_process_groups_absent": true
+  },
+  "baseline": {
+    "version": 42,
+    "new_member": "healing-cover-fixed-group",
+    "old33_members_unchanged": true,
+    "accumulate": "Normal API verified; independent CLI baseline unregistered"
+  },
+  "implementation": {
+    "common_cuda_metal_runtime": true,
+    "original_definitions_preserved": true,
+    "input_words": 120072,
+    "output_words": 2048912,
+    "healing_output_end": 2032000,
+    "cover_output_start": 2032000,
+    "independent_calculation_engines_added": 0,
+    "new_suites": 0
+  },
+  "failures_retained": [
+    "v1 packaging: new GPU roots untracked, no execution",
+    "v2/v3 own CPU registry inventory checks: stopped before GPU, updated exact registry inventory",
+    "v4 Metal fixed-group-cover missing existing fixed coordinate-control flag: status64 before battle; corrected flag yields successful same complete input bytes",
+    "v5 native-expectation reuse rejected changed source-ledger anchor; strict gate preserved, ordinary fresh contract used",
+    "api-v3 runner still asserted four result rows after a two-case successful run; all original files preserved, existing saved audit independently passed with battle/GPU0"
+  ],
+  "source_delta_ledger_strict": true,
+  "numeric_rules_tolerances_or_cpu_expected_values_changed": false,
+  "protected_cpu_files_changed": [],
+  "new_standard_profiles_added": 0,
+  "recorded_source_metal_profiles": 263,
+  "recorded_source_cuda_profiles": 263,
+  "total_profiles": 266,
+  "current_triple_composition_cuda_verified": false,
+  "all_profiles_recertified_on_latest_source": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Short CUDA differential for this triple composition",
+    "Unconfigured Yuni/Yan/Heavy Arms standard profiles",
+    "Unrestricted compositions and final current-source matrix"
+  ]
+}

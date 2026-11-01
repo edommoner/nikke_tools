@@ -1,3 +1,15 @@
+## 2026-11-01 敵回復＋実射撃グループ＋遮蔽DEFの通常API6条件をMetal接続
+
+Ann/Belorta/Soldier O.W./Dora/Drakeの元定義を保持し、従来拒否していた回復＋実射撃group＋coverを既存の単一scheduler/actor poolへ接続。input120072/output2048912、回復end2032000と遮蔽start2032000は完全分離、groupの104400..104408 descriptorを予約paddingへ誤認しない。固定入口は既存のFIXED_COORDINATE制御フラグも共有する。計算本体/効果式/CPU正本4file/upstream/許容差変更0、新suite0。
+
+開発packet-v6自身の148 CPU（67/11/7/63）・fresh native・実M5・GPU禁止独立seal成功。初回GPU status64は固定入口の制御flag不足で、修正後は同じinput SHAa91c853d…のまま全CPU一致。失敗/claims/旧sourceを保持。厳密native期待再利用はledger anchor変更で拒否されたため、そのgateを緩めず通常のfresh契約を作った。v42はhealing-cover-fixed-groupだけ追加し旧33基準不変。製品familyのfixed/accumulate-group2選択肢を追加、実蓄積CLI独立baselineは未登録。release-v1自身も148 CPU-only/deps/PTX60秒/O1計画成功、追加GPU0。
+
+同一不変packet通常APIは固定/実蓄積×15/30秒4条件と、固定15秒の元coverbuff対象Drake/対象外Soldier対照2条件、合計6で全GPU/CPU/HTTP/Unicode一致。2POST/3physicalbatch。実射撃group14/8、実回復receipt4/2を確認。元coverbuff発動後Drake DEF2285.7/applied97714.3、対象外Soldier DEF1000/applied99000を同じbase1000から再現。保存raw/source/static input/全payload再投影6も追加battle/GPU0。対照runnerの4件固定assert失敗は原本保持し、既存保存監査を単独実行して2件全一致。専用Nodeの両process group消滅確認済み。小記録research/product-healing-group-cover-v1.json。
+
+別件Windowsの移動3条件はb2565d3dの34,451byte/SHA479af6d7…を取得照合。own0e164a20/archive01a1c5ec…/7資料/CPU86元ID、M5親・各member全input/readback SHAを再計算、24,384,000byteと8MiB chunks、全driver ret0/CPU/GPU/HTTP/Node再投影一致を確認。1POST/1GPU/retry0、同期3.243秒/HTTP25.921秒。旧44,309file、SDK外側2/内側0、8advisory nullとservice/whole/overallfalse保持。宣言Yuni/Yan ADD0＋旧ADD2基準なので標準追加0、CUDA/Metal累積263/266据置き。research/product-empty-movement-cuda-import-v1.json参照。
+
+次は新3者合成の短いCUDA、未指定標準Yuni/Yan/Heavy Arms3profile、任意合成・最終current-source matrix。全goal未完了。以下は履歴。
+
 ## 2026-11-01 Rei CUDA原本を照合、空ADDの明示移動モデルをMetal検証
 
 Windows原本9dd93644の23,411byte/SHA5f24cc6f…を取得し、owner2dc37ccb/sourcee3f0ada5、共有7資料/archive214d6771…、Mac保存input87978e6b…/全readback571dfde4…3,145,728byteを照合。元Rei251/favorite0/固定30秒の1POST/1GPU/retry0、全CPU/GPU/HTTP/Unicode再投影一致、対象CPU86件（他model60未実行）、8MiB上限内の単一chunk/driver ret0を確認。同期2.017秒/HTTP15.412秒、追加計算0。旧41,238file、SDK外側exit2/内側0、8件limit=null/観測不完全とservice/whole/overall falseは保持。累積標準CUDA/Metalとも263/266、同一最新sourceで全件を再認定した意味ではない。research/product-named-carriers-cuda-import-v1.json参照。

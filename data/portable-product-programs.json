@@ -406,6 +406,20 @@
       "output_words": 786432,
       "mode": "accumulate",
       "kind": ""
+    },
+    "healing-cover-fixed-group": {
+      "source": "gpu/product_healing_cover_fixed_group_battle_entry.slang",
+      "input_words": 120072,
+      "output_words": 2048912,
+      "mode": "fixed",
+      "kind": "group"
+    },
+    "healing-cover-accumulate-group": {
+      "source": "gpu/product_healing_cover_group_battle_entry.slang",
+      "input_words": 120072,
+      "output_words": 2048912,
+      "mode": "accumulate",
+      "kind": "group"
     }
   }
 }

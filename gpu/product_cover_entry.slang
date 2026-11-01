@@ -15,7 +15,13 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #if defined(PORTABLE_PRODUCT_COVER_AMMO)
     for(uint i=104400U;i<ADB_BASE;i++)if(commands[input+i]!=0){results[output]=64;return;}
 #elif defined(PORTABLE_PRODUCT_COVER_HEALING)
-    for(uint i=104400U;i<EHL_BASE;i++)if(commands[input+i]!=0){results[output]=64;return;}
+    for(uint i=
+#ifdef PORTABLE_PRODUCT_HEALING_GROUP
+        104408U
+#else
+        104400U
+#endif
+        ;i<EHL_BASE;i++)if(commands[input+i]!=0){results[output]=64;return;}
 #elif defined(PORTABLE_PRODUCT_COVER_GROUP_TARGET)
     for(uint i=104672U;i<CDF_BASE;i++)if(commands[input+i]!=0){results[output]=64;return;}
 #elif defined(PORTABLE_PRODUCT_COVER_TARGET)

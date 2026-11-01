@@ -26,8 +26,6 @@ def compile_product(prepared,producer):
     if source not in prefixes or (iw,ow)!=prefixes[source]:
         raise UnsupportedPortable('Enemy healing requires a checked plain or actual-shot group battle prefix; target/ADD-attack composition is not yet connected')
     grouped='group_' in source
-    if grouped and prepared.get('_product_cover_compiled'):
-        raise UnsupportedPortable('Enemy healing plus cover and shot groups requires its own checked combined wire')
     raw=prepared['enemy'].get('patterns') or [dict(id='portable-empty-world',kind='idle')]
     patterns=patterns_for(copy.deepcopy(raw));_,bindings=compile_registry(patterns,pools=True)
     padded=list(words)+[0]*(H['BASE']-len(words));spec=declarations.get('enemy_healing')

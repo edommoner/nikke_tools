@@ -942,3 +942,6 @@ packet自身の `compile-plan --artifact-kind cubin --ptxas-level 1 --memory-lim
 
 
 `reference_models.enemy_movement` はADD0体も明示できます。`logical_geometry: []` と `motion.actors: []` を指定し、`coord` に加えて敵の `patterns: [{"id":"static","kind":"idle"}]` を設定します。motionの規則は従来どおり `precedence: "disable-before-force"`、`force_policy: "snap-to-declared-center"`、`recipient_policy: "canonical-all-in-range"` を明示します。これはBODYを固定するADD専用宣言モデルです。未出現を含めconfigured ADDがある場合は、全ADDのcolliderとmotionが必要です。省略されたゲーム仕様の自動補完には使いません。既存 `movement-fixed` / v41基準を使い、新suiteは追加していません。Yuni/Yan固定・蓄積のMetal通常APIと保存監査4条件、CPU147件、private8件、実デバイス拒否を [記録](../research/product-empty-movement-v1.json) に残しています。標準profileの追加認定・新sourceのCUDA認定は別途必要です。
+
+
+敵回復・実射撃グループ・遮蔽DEFの併用は既存 `product-detail` の `--product-program healing-cover-fixed-group` を使います。通常の `reference_models.enemy_healing` / `cover_defense` と元の射撃group通知を同じ実行器が処理し、各結果を欠落なく返します。固定30秒はv42独立Metal基準、`healing-cover-accumulate-group` は通常API一致済みですが独立CLI基準未登録です。入力120072語・出力2048912語と既存の各consumer容量を保持します。元効果を除いた限定編成への変更ではありません。実Metalの6条件・CPU148件・元coverbuff対象/対象外の対照は [製品接続記録](../research/product-healing-group-cover-v1.json) を参照してください。新合成のCUDAと任意合成全体は未認定です。

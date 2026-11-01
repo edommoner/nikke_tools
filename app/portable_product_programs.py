@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v41-expected.json'
+GOLDEN = 'research/portable-product-programs-v42-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -27,7 +27,7 @@ for _name,_program in PROGRAMS.items():
     _movement_cover=_selector.startswith('movement-cover-');_ammo_cover=_selector.startswith('ammo-cover-');_healing_cover=_selector.startswith('healing-cover-');_add=_selector.startswith('add-');_healing=_selector.startswith('healing-');_weighted=_selector.startswith('weighted-');_cover=_selector.startswith('cover-');_ammo=_selector.startswith('ammo-');_movement=_selector.startswith('movement-');_range=_selector.startswith('named-range-');_lock=_selector.startswith('lock-')
     if _default and (not (_weighted or _cover) or _mode!='fixed' or _kind):raise ValueError('Invalid default-world product program')
     _prefix=('default-' if _default else '')+('named-carriers-' if _named_carriers else 'coordinate-cover-' if _coordinate_cover else 'coordinate-' if _coordinate else 'add-' if _add else 'ammo-cover-' if _ammo_cover else 'healing-cover-' if _healing_cover else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else 'ammo-' if _ammo else 'movement-range-cover-' if _movement_range_cover else 'movement-cover-' if _movement_cover else 'movement-' if _movement else 'named-range-cover-' if _range_cover else 'named-range-' if _range else 'lock-cover-' if _lock_cover else 'lock-' if _lock else '')
-    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or (_named_carriers or _coordinate_cover or _coordinate or _weighted or _ammo or _movement or _range or _lock) and _kind!='' or _healing and _kind not in ('','group') or _healing_cover and _kind!='' or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
+    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or (_named_carriers or _coordinate_cover or _coordinate or _weighted or _ammo or _movement or _range or _lock) and _kind!='' or _healing and _kind not in ('','group') or _healing_cover and _kind not in ('','group') or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
         raise ValueError('Invalid product program identity')
     _stem=('fixed_' if _mode=='fixed' else '')+(_kind.replace('-','_')+'_' if _kind else '')
     if _program['source']!='gpu/product_'+('named_carriers_' if _named_carriers else 'coordinate_cover_' if _coordinate_cover else 'coordinate_' if _coordinate else 'add_' if _add else 'ammo_cover_' if _ammo_cover else 'healing_cover_' if _healing_cover else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else 'ammo_' if _ammo else 'movement_range_cover_' if _movement_range_cover else 'movement_cover_' if _movement_cover else 'movement_' if _movement else 'named_range_cover_' if _range_cover else 'named_range_' if _range else 'lock_cover_' if _lock_cover else 'lock_' if _lock else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
@@ -158,6 +158,14 @@ def body_for_program(root, name=None):
         from portable_weighted_battle_cases import fixtures
         case=fixtures()[0];body=copy.deepcopy(case['body'])
         body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}
+    elif name is not None and name.startswith('healing-cover-') and program['kind']=='group':
+        from detail_coverage import body_for
+        from portable_enemy_healing_cases import fixtures
+        case=fixtures()[0];roster=['앤 : 미라클 페어리','벨로타','솔져 O.W.','도라','드레이크']
+        body=body_for(roster,30);body['enemy']['patterns']=copy.deepcopy(case['patterns'])
+        body['enemy']['patterns'].append(dict(id='declared-cover-hit',kind='attack',delay=7.5,spec=dict(atk=100000.,coeff=100,target='slot:3',ignore_taunt=True,pierce=False,hits=1,interval=.1)))
+        body['reference_models']={'enemy_healing':copy.deepcopy(case['enemy_healing']),'cover_defense':[dict(name=n,base_defense=1000.) for n in roster]}
+        body['manual_cover_sequences']={roster[2]:[dict(action='cover',t=7.4,duration=.25)]}
     elif name is not None and name.startswith('healing-cover-'):
         from detail_coverage import body_for
         body=body_for(['앤 : 미라클 페어리','솔져 O.W.','미란다','도라','드레이크'],30)

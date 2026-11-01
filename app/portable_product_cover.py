@@ -35,7 +35,7 @@ def compile_product(prepared,producer):
         'target':(110112,1048576), 'group-target':(104672,1048576),
     }
     from portable_enemy_healing_wire import INPUT_WORDS as HEAL_INPUT,OUTPUT as HEAL_OUTPUT
-    healing=source in ('gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang') and (iw,ow)==(HEAL_INPUT,HEAL_OUTPUT['OUTPUT_WORDS'])
+    healing=source in ('gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang','gpu/product_healing_group_battle_entry.slang','gpu/product_healing_fixed_group_battle_entry.slang') and (iw,ow)==(HEAL_INPUT,HEAL_OUTPUT['OUTPUT_WORDS'])
     from portable_enemy_ammo_wire import LAYOUT as AMMO
     ammo=source in ('gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang') and (iw,ow)==(AMMO['INPUT_WORDS'],AMMO['OUTPUT_WORDS'])
     from portable_enemy_movement_wire import INPUT as MOVE_INPUT,OUTPUT as MOVE_OUTPUT
@@ -103,7 +103,7 @@ def compile_product(prepared,producer):
     if healing:
         meta['product_healing_cover']=True
         if len(words)!=HEAL_INPUT:raise ValueError('Complete healing prefix required before cover bank')
-        return ('gpu/product_healing_cover_'+('fixed_' if fixed_values is not None else '')+'battle_entry.slang',HEAL_INPUT+C['WORDS'],OUTPUT,list(words)+bank,meta)
+        return ('gpu/product_healing_cover_'+('fixed_' if fixed_values is not None else '')+('group_' if 'group_' in source else '')+'battle_entry.slang',HEAL_INPUT+C['WORDS'],OUTPUT,list(words)+bank,meta)
     if ammo:
         meta['product_ammo_cover']=True
         if len(words)!=AMMO['INPUT_WORDS']:raise ValueError('Complete ammo prefix required before cover bank')

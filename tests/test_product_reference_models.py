@@ -472,6 +472,32 @@ class ProductReferenceModels(unittest.TestCase):
                 self.assertEqual(words[at+F['KIND']],0)
                 self.assertFalse(words[at+F['FLAGS']]&2048)
 
+    def test_healing_cover_and_original_shot_groups_preserve_all_three_consumers(self):
+        import portable_detail as product
+        from portable_product_programs import body_for_program
+        from portable_backend import validate_composed_stride
+        from portable_enemy_healing_wire import INPUT_WORDS as H,OUTPUT as HO
+        from portable_cover_defense_wire import LAYOUT as C,MAGIC
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'healing-cover-'+mode+'-group')
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU state supplied')):
+                prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,before)
+            self.assertEqual(source,'gpu/product_healing_cover_'+('fixed_' if mode=='fixed' else '')+'group_battle_entry.slang')
+            validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow),(H+C['WORDS'],C['OUTPUT_WORDS']))
+            self.assertEqual(words[H:H+4],[MAGIC,1,5,0])
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+            self.assertTrue(meta['product_healing_cover'])
+            self.assertEqual(HO['OUTPUT_WORDS'],C['OUTPUT_BASE'])
+            self.assertEqual(words[115680:115683],[0x45484c31,1,4])
+            # The actual-shot descriptor belongs to the unchanged group prefix,
+            # not the zero-reserved padding before the healing bank.
+            self.assertTrue(any(words[104400:104408]))
+            self.assertEqual(meta['product_enemy_healing']['declarations']['enemy_healing'],body['reference_models']['enemy_healing'])
+            self.assertEqual(meta['product_cover_defense']['declarations'],{'cover_defense':body['reference_models']['cover_defense']})
+
     def lock_body(self,duration=3,typed=False):
         from portable_heavyarms_lock_cases import fixtures,NAME,source_definitions
         from product_lock_model import ORDER,MARKER,DELIVERY_MODEL
@@ -1066,9 +1092,9 @@ class ProductReferenceModels(unittest.TestCase):
                 row=meta['binding_source_indices'].index(index)
                 self.assertEqual(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['STAT']],STAT)
             self.assertTrue(meta['real_prepared_input']['declared_attack_group_policy']['listener_owners'])
-            # Other dedicated banks remain explicit unsupported combinations.
+            # A connected combination must still reject an unauthored healing source.
             prepared['reference_models']['enemy_healing']=[dict(node='world',targets=['x'],amount=1)]
-            with self.assertRaisesRegex(UnsupportedPortable,'checked combined wire'):
+            with self.assertRaisesRegex(ValueError,'Healing source must be an existing idle node'):
                 product.compile_product(prepared)
 
     def test_cover_composes_original_target_modifiers_and_optional_groups(self):
