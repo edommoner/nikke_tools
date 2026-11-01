@@ -82,8 +82,12 @@ class SelfDestructAmmoTests(unittest.TestCase):
         ledger=json.loads((ROOT/'tests/fixtures/portable-enemy-ammo-self-destruct-source-delta.json').read_text())
         old=project_sources(ROOT)
         for name,row in ledger['files'].items():self.assertEqual(old[name],row['before'])
+        from portable_weighted_incoming_source_contract import boss_source_preimages
+        import re
+        stage=boss_source_preimages(ROOT)
         for name in [*ledger['files'],*ledger['added_sources']]:
-            with self.subTest(name=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
+            changed=dict(stage);changed[name]=stage.get(name,(ROOT/name).read_text())+'\n'
+            with self.subTest(name=name),self.assertRaisesRegex(ValueError,re.escape(name)):project_sources(ROOT,changed)
 
 
 if __name__=='__main__':unittest.main()

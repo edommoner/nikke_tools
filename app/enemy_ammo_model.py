@@ -160,9 +160,9 @@ class EnemyAmmo:
                 if due>0 and mag.reloading_until<0:self.data['reloads'].append(dict(kind='cancel',time=t,label=n,actor=handle_value(mag.actor),before=old,after=mag.ammo))
         return handler
 
-    def frame(self,manager,boss,t,enemy):
+    def frame(self,manager,boss,t,enemy,*,begin_frame=None):
         from calculator.boss_pattern import AttackSpec
-        self.bind(manager,boss);events=boss.begin_frame(t,enemy);self.refresh(t)
+        self.bind(manager,boss);events=(begin_frame or boss.begin_frame)(t,enemy);self.refresh(t)
         for hit in boss.attacks:
             if not isinstance(hit.spec,AttackSpec):continue
             label=source_label(hit)
@@ -212,6 +212,15 @@ class AmmoFrame(ast.NodeTransformer):
         if isinstance(node.func,ast.Attribute) and ast.unparse(node.func)=='boss.begin_frame':
             if len(node.args)!=2 or node.keywords:raise ValueError('Native source frame call changed')
             call=ast.Call(func=ast.Name(id='_nikke_enemy_ammo_frame',ctx=ast.Load()),args=[ast.Name(id='bm',ctx=ast.Load()),ast.Name(id='boss',ctx=ast.Load()),*node.args],keywords=[]);self.counts['frame']+=1;return ast.copy_location(call,node)
+        if isinstance(node.func,ast.Name) and node.func.id=='_nikke_enemy_healing_frame':
+            if len(node.args)!=4 or node.keywords or ast.unparse(node.args[0])!='bm' or ast.unparse(node.args[1])!='boss':
+                raise ValueError('Checked healing frame composition changed')
+            call=ast.Call(func=ast.Name(id='_nikke_enemy_ammo_healing_frame',ctx=ast.Load()),args=[node.func,*node.args],keywords=[])
+            self.counts['frame']+=1;return ast.copy_location(call,node)
+        if isinstance(node.func,ast.Name) and node.func.id=='_nikke_enemy_healing_result':
+            if len(node.args)!=1 or node.keywords or ast.unparse(node.args[0])!='result':raise ValueError('Checked healing result composition changed')
+            self.counts['result']+=1
+            return ast.copy_location(ast.Call(func=ast.Name(id='_nikke_enemy_ammo_result',ctx=ast.Load()),args=[node],keywords=[]),node)
         if isinstance(node.func,ast.Name) and node.func.id=='_boss_attack':
             if len(node.args)!=2 or node.keywords:raise ValueError('Native attack delivery call changed')
             call=ast.Call(func=ast.Name(id='_nikke_enemy_ammo_attack',ctx=ast.Load()),args=[node.func,*node.args],keywords=[]);self.counts['attack']+=1;return ast.copy_location(call,node)
@@ -230,10 +239,20 @@ def enemy_ammo(spec,*,runtime_class=EnemyAmmo):
     if timeline.simulate is not sim.simulate:raise ValueError('Native simulation aliases differ')
     runtime=runtime_class(spec);original=timeline.simulate;register=timeline._register_instant_handlers
     rewritten=rewrite_reference(original,AmmoFrame(),dict(frame=2,attack=1,result=1),compose=True)
+    def combined_frame(healing,manager,boss,t,enemy):
+        source=boss.begin_frame;calls=0
+        def begin(when,values):
+            nonlocal calls
+            if calls or when!=t or values is not enemy:raise ValueError('One exact native frame per composed consumer boundary required')
+            calls+=1
+            return runtime.frame(manager,boss,when,values,begin_frame=source)
+        with patch.object(boss,'begin_frame',begin):events=healing(manager,boss,t,enemy)
+        if calls!=1:raise ValueError('Composed healing did not consume its owning source frame')
+        return events
     def install(manager,states,burst):
         answer=register(manager,states,burst)
         manager.register_instant_handler('ammo_charge_pct',runtime.install(manager,manager._instant_handlers['ammo_charge_pct']))
         return answer
-    with patch.dict(original.__globals__,{'_nikke_enemy_ammo_frame':runtime.frame,'_nikke_enemy_ammo_attack':runtime.attack,'_nikke_enemy_ammo_result':runtime.result}),patch.object(timeline,'_register_instant_handlers',install),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):
+    with patch.dict(original.__globals__,{'_nikke_enemy_ammo_frame':runtime.frame,'_nikke_enemy_ammo_healing_frame':combined_frame,'_nikke_enemy_ammo_attack':runtime.attack,'_nikke_enemy_ammo_result':runtime.result}),patch.object(timeline,'_register_instant_handlers',install),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):
         yield runtime.data
         runtime.finish()

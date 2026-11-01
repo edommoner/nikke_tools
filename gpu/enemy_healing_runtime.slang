@@ -1,9 +1,13 @@
 // Opt-in consumer of the existing scheduler, enemy carriers and ADD health.
 // Only source-open deduplication and receipts live in this bank, never HP/time.
+#ifndef ENEMY_HEALING_ENABLED
+#define ENEMY_HEALING_ENABLED(s) true
+#endif
 uint ehlInput(inout Runtime s) { return s.inputBase+EHL_BASE; }
 uint ehlOutput(inout Runtime s) { return s.resourceOutput+EHL_OUTPUT_BASE; }
 bool initializeEnemyHealing(inout Runtime s)
 {
+    if(!ENEMY_HEALING_ENABLED(s))return true;
     uint input=ehlInput(s),count=commands[input+2],nodes=commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE+1];
     if(commands[input]!=EHL_MAGIC||commands[input+1]!=EHL_VERSION||
 #ifndef PORTABLE_PRODUCT_ENEMY_HEALING
@@ -51,6 +55,7 @@ uint64_t enemyHealingMultiplier(inout Runtime s,uint slot,uint64_t when)
 }
 void enemyHealingFrame(inout Runtime s,uint64_t when)
 {
+    if(!ENEMY_HEALING_ENABLED(s))return;
     uint input=ehlInput(s),head=ehlOutput(s);
     if(results[head]!=EHL_MAGIC){s.error=64;return;}
     for(uint index=0;index<commands[input+2]&&s.error==0;index++)

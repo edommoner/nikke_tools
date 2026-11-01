@@ -13,7 +13,7 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     WORLD_TEAM_INPUT(input,output)
     for(uint i=786432U;i<CDF_OUTPUT_WORDS;i++)results[output+i]=0;
 #if defined(PORTABLE_PRODUCT_COVER_AMMO)
-    for(uint i=productAmmoPrefix(input);i<ADB_BASE;i++)if(commands[input+i]!=0){results[output]=64;return;}
+    if(!validProductAmmoPadding(input)){results[output]=64;return;}
 #elif defined(PORTABLE_PRODUCT_COVER_HEALING)
     for(uint i=
 #ifdef PORTABLE_PRODUCT_HEALING_GROUP
@@ -41,7 +41,7 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     initializeManualControls(runtimeStates[id.x]);if(runtimeStates[id.x].error!=0){results[output]=64;return;}
     if(!initializeCoverDefense(runtimeStates[id.x])){results[output]=64;return;}
 #ifdef PORTABLE_PRODUCT_COVER_AMMO
-    if(!initializeProductAmmoPrefix(runtimeStates[id.x])||!initializeAddAttackBattle(runtimeStates[id.x])||!initializeEnemyAmmo(runtimeStates[id.x])){results[output]=64;return;}
+    if(!initializeProductAmmoPrefix(runtimeStates[id.x])||!initializeAddAttackBattle(runtimeStates[id.x])||!initializeEnemyAmmo(runtimeStates[id.x])||!initializeProductAmmoHealing(runtimeStates[id.x])){results[output]=64;return;}
 #endif
 #ifdef PORTABLE_PRODUCT_COVER_HEALING
     if(!initializeEnemyHealing(runtimeStates[id.x])){results[output]=64;return;}

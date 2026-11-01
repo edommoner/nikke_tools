@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v47-expected.json'
+GOLDEN = 'research/portable-product-programs-v48-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -46,7 +46,7 @@ def configuration(suites, selection):
     program = PROGRAMS[name]
     return dict(base, product_program=name, source=program['source'], golden=GOLDEN,
                 input_words=program['input_words'], output_words=program['output_words'],
-                inputs=5 if name=='ammo-cover-fixed-group' else 1,native=5 if name=='ammo-cover-fixed-group' else 1)
+                inputs=7 if name=='ammo-cover-fixed-group' else 1,native=7 if name=='ammo-cover-fixed-group' else 1)
 
 
 def registered_golden(root, config, *, allow_unsealed=False):
@@ -241,4 +241,17 @@ def cases_for_program(root,name=None):
         body=copy.deepcopy(body);body['duration']=6;body['enemy']['patterns']=copy.deepcopy(case['patterns'])
         body['reference_models']['enemy_ammo']=copy.deepcopy(case['enemy_ammo'])
         rows.append(('target-modifier-final-queue',body))
+        names=['앤 : 미라클 페어리','벨벳','벨로타','솔져 O.W.','드레이크']
+        body=copy.deepcopy(base);body.update(squad=names,profile=body_for(names,15)['profile'],duration=15)
+        body['reference_models']['cover_defense']=[dict(name=n,base_defense=1000.) for n in names]
+        body['manual_cover_sequences']={names[3]:[dict(action='cover',t=.5,duration=.25)]}
+        times=[0.,.25,1.,2.]
+        body['enemy']['patterns'] += [dict(id='ammo-heal-'+str(i),kind='idle',delay=t) for i,t in enumerate(times)]
+        targets=[row['label'] for row in body['reference_models']['enemy_ammo'] if row['label']!='__enemy__']
+        body['reference_models']['enemy_healing']=[dict(node='ammo-heal-'+str(i),targets=targets,amount=1000000.) for i in range(len(times))]
+        rows.append(('healing-magazines',body))
+        body=copy.deepcopy(body);body['duration']=6
+        body['enemy']['patterns'][0]['spec'].update(self_destruct=True,attack_at=.25)
+        body['enemy']['patterns'][0]['spec']['attack'].update(hits=3,interval=0.)
+        rows.append(('healing-final-queue',body))
     return rows

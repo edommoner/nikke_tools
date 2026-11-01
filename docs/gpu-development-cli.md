@@ -1,3 +1,13 @@
+## 敵回復と弾倉の共通実行
+
+`reference_models.enemy_healing`と`enemy_ammo`を同じ通常リクエストへ指定でき、`cover_defense`も併用できます。plain／同時命中／対象別modifierの既存弾倉入口をそのまま使い、新suite・program・監査器は追加していません。回復先は従来どおり明示した有限HPのADD、回復sourceは明示したidle nodeです。BODYのHPや回復規則は推定しません。
+
+回復inputは既存prefixの空き111312..115680へ置き、ADD/弾倉/遮蔽を動かしません。回復outputは自爆記録直後の1968368..2001184を使用し、最終strideも不変です。回復ありは既存4,096 resource通知まで、回復なしは従来15,124まで。欠けたbank・非ゼロpadding・不正所有・容量超過は拒否し、切捨てません。
+
+専用CPU adapterも一つの元frameを弾倉capture→回復の順で消費し、2 frame/1 attack/1 resultの厳密AST件数と、元frameが1回だけ呼ばれる検査を維持します。canonical CPU4file/upstreamは不変です。`ammo-cover-fixed-group`のCLIは旧5件を先頭に保持し、回復＋弾倉の通常/自爆2件を追加した実M5/fresh native/独立seal済みv48を使います。旧5件のinput/output/native hashと他34memberは全保持。
+
+通常APIは5構成×両mode×通常/自爆20条件に加え、25秒の回復量減少を実際に消費するAnnスキル2レベル1/10×両mode4条件を確認、計24条件すべてで全CPU/GPU/HTTP一致。倍率0.5659000000000001／0.2106999999999999も共通規約のまま一致しています。初期15秒では減少が未発動だったCPU scoutを保持し、減少が有効な時刻を確認して追加しました。欠けた回復magicは実Metalでstatus64、元成功claim不変。最終package自身157CPU/依存/PTX/O1計画と全24保存再投影も成功。新sourceCUDA実機は未確認です。[範囲・全SHA・失敗保持](../research/product-ammo-healing-v1.json)。
+
 ## 敵弾倉と対象別modifier carrier
 
 元の`projectile_dmg_pct`／`shield_dmg_pct`を含む編成と`enemy_ammo`を、既存のBODY/PART/ADD実行器へ接続しました。元の定義・軸・寿命・イベントを保持し、BODYやADDを飛翔物／シールドへ置き換えません。実在するtyped targetや座標を含む場面には、その別の宣言モデルとの接続が必要です。今回の16条件はtyped target0の既存世界です。

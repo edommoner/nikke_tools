@@ -194,6 +194,46 @@ class ProductReferenceModels(unittest.TestCase):
         block[1769856]=1
         with self.assertRaisesRegex(UnsupportedPortable,'coordinate product history'):read_result(block,metadata)
 
+    def test_combined_enemy_healing_magazines_preserve_shared_owners_and_disjoint_banks(self):
+        from portable_product_programs import cases_for_program
+        from portable_detail import prepare,compile_product
+        from portable_enemy_healing_wire import AMMO_LAYOUT as H,AMMO_OUTPUT as HO,check_ammo_schema,MAGIC as HM
+        from portable_enemy_ammo_wire import LAYOUT as E,MAGIC as EM
+        from portable_enemy_ammo_self_destruct_wire import LAYOUT as S
+        from portable_cover_defense_wire import LAYOUT as C
+        from portable_backend import validate_composed_stride
+        check_ammo_schema()
+        self.assertEqual(H['BASE']+H['WORDS'],115680)
+        self.assertEqual(S['OUTPUT_BASE']+S['HEADER']+S['ROWS']*S['ROW_WORDS'],HO['OUTPUT_BASE'])
+        self.assertLessEqual(HO['OUTPUT_BASE']+HO['RECEIPT_BASE']+HO['RECEIPTS']*HO['RECEIPT_WORDS'],C['OUTPUT_BASE'])
+        for variant,body in cases_for_program(ROOT,'ammo-cover-fixed-group'):
+            if not variant or not variant.startswith('healing-'):continue
+            original=copy.deepcopy(body)
+            for mode in ('fixed','accumulate'):
+                body=copy.deepcopy(original);body['burst_gauge_mode']=mode
+                with patch.object(sim,'execute',side_effect=AssertionError('No CPU state as input')):
+                    prepared,_=prepare(body);before=copy.deepcopy(prepared);source,iw,ow,words,meta=compile_product(prepared)
+                self.assertEqual(prepared,before);validate_composed_stride(source,iw,ow)
+                self.assertEqual(iw,E['INPUT_WORDS']+C['WORDS']);self.assertEqual(words[H['BASE']],HM);self.assertEqual(words[E['BASE']],EM)
+                self.assertEqual(meta['product_enemy_healing']['declarations'],{'enemy_healing':body['reference_models']['enemy_healing']})
+                self.assertEqual(meta['product_enemy_ammo']['declarations'],{'enemy_ammo':body['reference_models']['enemy_ammo']})
+                self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+                self.assertTrue(meta['product_ammo_healing']);self.assertFalse(meta['product_enemy_healing']['cpu_health_generations_or_schedule_supplied'])
+
+    def test_combined_healing_and_ammo_native_frame_and_final_queue_agree(self):
+        from portable_product_programs import cases_for_program
+        original=timeline.BossScript
+        for variant,body in cases_for_program(ROOT,'ammo-cover-fixed-group'):
+            if not variant or not variant.startswith('healing-'):continue
+            result=engine_worker.evaluate(body)['reference_models']
+            receipts=result['enemy_healing']['receipts'];ammo=result['enemy_ammo']
+            self.assertTrue(receipts);self.assertTrue(ammo['charges']);self.assertIs(timeline.BossScript,original)
+            if variant=='healing-magazines':self.assertTrue(any(r.get('applied',0)>0 for r in receipts))
+            else:
+                self.assertEqual(len(ammo['retirements']),2)
+                self.assertTrue(any(r['status']=='dead-or-inactive' for r in receipts))
+                self.assertTrue(any(a.get('retired_queue') for a in ammo['attempts']))
+
     def test_enemy_ammo_target_modifiers_keep_complete_target_and_group_prefixes(self):
         from portable_product_programs import body_for_program,cases_for_program
         from portable_detail import prepare,compile_product

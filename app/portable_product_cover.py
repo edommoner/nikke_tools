@@ -16,7 +16,7 @@ def compile_product(prepared,producer):
     from portable_product_world_contract import has_incoming_attacks
     if unspecified and has_incoming_attacks(prepared):
         raise UnsupportedPortable('Independent cover DEF requires explicit reference_models.cover_defense bases; no body DEF or level curve is inferred')
-    combined_motion_range=set(declarations)-{'cover_defense'}=={'enemy_movement','named_range'}
+    combined_motion_range=set(declarations)-{'cover_defense'} in ({'enemy_movement','named_range'},{'enemy_ammo','enemy_healing'})
     if set(declarations)-{'coordinate','cover_defense','enemy_healing','enemy_ammo','enemy_movement','named_range','lock_on'} or len(set(declarations)-{'cover_defense'})>1 and not combined_motion_range:
         raise UnsupportedPortable('Cover DEF product composition requires a matching combined consumer wire')
     check_schema();names=[c['name'] for c in prepared['chars']]

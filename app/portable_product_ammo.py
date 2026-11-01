@@ -16,7 +16,7 @@ def compile_product(prepared,producer):
     from portable_add_attack_battle_wire import pack as pack_add
     from portable_product_add_attack import lower as lower_add
     declarations=copy.deepcopy(prepared.get('reference_models',{}));spec=declarations.get('enemy_ammo')
-    if set(declarations)-{'enemy_ammo'}:raise UnsupportedPortable('Enemy magazine composition requires its combined product wire')
+    if set(declarations)-{'enemy_ammo','enemy_healing'}:raise UnsupportedPortable('Enemy magazine composition requires its combined product wire')
     if spec is None and has_incoming_attacks(prepared):raise UnsupportedPortable('Enemy attacks require explicit reference_models.enemy_ammo magazines')
     names=[c['name'] for c in prepared['chars']]
     validate_enemy_effects([(r['effect'],r['owner']) for r in prepared['effects']],names)
@@ -27,8 +27,11 @@ def compile_product(prepared,producer):
     self_destruct=any(p.summon and p.summon.self_destruct for p in patterns)
     from portable_enemy_ammo_self_destruct_wire import check_schema as check_retirement
     check_retirement()
-    check_schema();inner=dict(prepared,_product_ammo_compiled=True);inner.pop('reference_models',None)
-    with compiler_policy():source,iw,ow,words,meta=producer(inner)
+    from portable_product_healing import required as healing_required
+    from portable_enemy_healing_wire import compiler_policy as healing_policy
+    healing=healing_required(prepared)
+    check_schema();inner=dict(prepared,_product_ammo_compiled=True,_product_healing_compiled=True);inner.pop('reference_models',None)
+    with compiler_policy(),healing_policy():source,iw,ow,words,meta=producer(inner)
     grouped=source in ('gpu/product_group_battle_entry.slang','gpu/product_fixed_group_battle_entry.slang','gpu/product_add_group_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang','gpu/product_group_target_battle_entry.slang','gpu/product_fixed_group_target_battle_entry.slang','gpu/product_add_group_target_battle_entry.slang','gpu/product_add_fixed_group_target_battle_entry.slang')
     plain_prefixes={'gpu/product_battle_entry.slang':(104400,786432),'gpu/product_fixed_battle_entry.slang':(104400,786432),
         'gpu/product_group_battle_entry.slang':(104408,1048576),'gpu/product_fixed_group_battle_entry.slang':(104408,1048576),
@@ -45,7 +48,24 @@ def compile_product(prepared,producer):
         # percentage operation and its completion, with an empty recipient set.
         # Real attacking actors always require literal magazines above/on GPU.
         bank=[0]*E['WORDS'];bank[:4]=[MAGIC,1,0,len(bindings)]
-    meta['product_enemy_ammo']=dict(declarations=declarations,self_destruct=self_destruct,
+    if healing:
+        from portable_enemy_healing_wire import AMMO_LAYOUT as H,AMMO_OUTPUT as HO,MAGIC as HM,VERSION as HV,pack as pack_healing,validate as validate_healing,check_ammo_schema
+        from portable_specs import LIMITS as L
+        from portable_world_schedule_specs import INPUT_WORDS as SCHEDULE_WORDS
+        check_ammo_schema()
+        if any(words[H['BASE']:H['BASE']+H['WORDS']]):raise ValueError('Healing/magazine input owner overlap')
+        healing_spec=declarations.get('enemy_healing')
+        if healing_spec:
+            healing_bank=pack_healing(healing_spec,patterns,bindings)
+            graph=L['WORLD_FRAME_INPUT_BASE']
+            validate_healing(healing_bank,words[:115680],validate(copy.deepcopy(registry_raw)),bindings,words[graph:graph+SCHEDULE_WORDS])
+        else:
+            healing_bank=[0]*H['WORDS'];healing_bank[:5]=[HM,HV,0,len(patterns),len(bindings)]
+        words[H['BASE']:H['BASE']+H['WORDS']]=healing_bank
+        meta['product_enemy_healing']=dict(declarations={k:v for k,v in declarations.items() if k=='enemy_healing'},nodes=[p.id for p in patterns],
+            bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],cpu_health_generations_or_schedule_supplied=False)
+        meta['product_ammo_healing']=True
+    meta['product_enemy_ammo']=dict(declarations={k:v for k,v in declarations.items() if k=='enemy_ammo'},self_destruct=self_destruct,healing=healing,
         case=dict(names=names,effects=[copy.deepcopy(r['effect']) for r in prepared['effects']],patterns=copy.deepcopy(raw)),
         bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],
         cpu_state_or_schedule_supplied=False)
@@ -69,11 +89,16 @@ def read_result(block,meta):
     from portable_specs import LIMITS as L
     count=block[L['RESOURCE_HEADER_BASE']]
     end=E['OUTPUT_WORDS']
-    if info['self_destruct']:
+    if info['self_destruct'] or info.get('healing'):
         from portable_enemy_ammo_self_destruct_wire import LAYOUT as S
         if count>E['RESOURCE_CAPACITY']:raise UnsupportedPortable('Enemy magazine final-queue resource capacity exceeded')
         end=S['OUTPUT_BASE']
-        if any(block[end+S['HEADER']+S['ROWS']*S['ROW_WORDS']:]):raise UnsupportedPortable('Unowned enemy magazine final-queue output is nonzero')
+        after=end+S['HEADER']+S['ROWS']*S['ROW_WORDS']
+        if not info['self_destruct'] and any(block[end:after]):raise UnsupportedPortable('Undeclared retirement receipt in a healing/magazine world')
+        if info.get('healing'):
+            from portable_enemy_healing_wire import AMMO_OUTPUT as H
+            after=H['OUTPUT_BASE']+H['RECEIPT_BASE']+H['RECEIPTS']*H['RECEIPT_WORDS']
+        if any(block[after:]):raise UnsupportedPortable('Unowned enemy magazine combined output is nonzero')
     start=E['OUTPUT_BASE']+E['RESOURCE_BASE']+max(0,count-128)*8
     if any(block[start:end]):raise UnsupportedPortable('Unused enemy magazine resource history is nonzero')
     if not info['declarations']:

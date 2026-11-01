@@ -43,10 +43,11 @@ def compile_product(prepared,producer):
     stem=('fixed_' if 'fixed_' in source else '')+('group_' if grouped else '')
     return ('gpu/product_healing_'+stem+'battle_entry.slang',INPUT_WORDS,O['OUTPUT_WORDS'],padded+bank,metadata)
 
-def read_result(block,metadata,names,duration):
+def read_result(block,metadata,names,duration,*,layout=O):
     """Use GPU receipts/pools only, with complete bounds/order/reserved checks."""
     from portable_runtime import UnsupportedPortable
     from product_reference_models import healing_public
+    O=layout
     info=metadata['product_enemy_healing'];head=O['OUTPUT_BASE']
     def fail():raise UnsupportedPortable('Invalid or incomplete product enemy healing readback')
     if len(block)!=O['OUTPUT_WORDS'] or block[head]!=MAGIC or block[head+1]>O['RECEIPTS'] or any(block[head+3:head+16]):fail()

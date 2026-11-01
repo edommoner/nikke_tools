@@ -1,3 +1,17 @@
+## 2026-11-01 敵回復＋弾倉を同じ製品Runtimeへ接続、Metal24条件一致
+
+前ターンは対象別carrierと弾倉接続でprogress。今回はAnn敵回復＋Velvet弾倉を既存plain/group/target/cover/self-destructの同じclock/ActorPool/イベントへ接続。新suite/program/監査器0、registry68のまま。回復bankをprefix空き111312..115680、outputを既存自爆記録後1968368..2001184へ置き、input/output stride不変。schemaは既存wireから生成・空間を厳密検査。回復ありresource cap4096、回復なし旧15124維持。旧先頭4100通知を含む旧5entry全input/output/native hash不変。
+
+初回packageはCPU native期待生成で停止、独立CPU adapterのHealingFrameとAmmoFrameが同じboss.begin_frame/return resultを別々に変換して衝突。既存AmmoFrameが厳密に既知のhealing呼出しだけを受け、instanceの一時begin wrapper経由で元frame1回→弾倉capture→回復を消費するよう接続。AST2frame/1attack/1result件数・args・同じmanager/boss/t/enemy・once条件と全alias復元を保持。CPU正本4file/upstream/算術/許容差変更0。失敗log原本保持、GPU前停止だった。
+
+既存ammo-cover-fixed-groupは旧5件先頭を保持し、回復通常15秒/同時刻自爆6秒の2件追加。own157CPU（67/11/7/72）、7件fresh native/実M5/独立GPU禁止seal成功。v48は同memberだけ更新、旧5entry全hashと他34member全保持。direct私的自爆source監査が新CPU拡張の厳密inverseを通らず拒否したため、既存boss_source_preimagesのSHA/hunk完全復元を先に適用。変異テストはその正しいstageへ注入し対象file名の拒否まで確認、private7成功、既存healing model12も成功。新normalizer/除外/期待値緩和0。
+
+通常APIは5構成（plain/group/target/group+cover/group+target+cover）×固定/蓄積×通常/自爆の20条件全CPU/GPU/HTTP一致。追加のCPU scout15秒ではAnn敵回復減少未発動だったので原本保持、56秒scoutで25秒時点の減少が有効と確認し、26秒のレベル1/10×両mode4条件を追加。倍率0.5659000000000001/0.2106999999999999の実消費と正の回復が全Metal/CPU一致。scout3battleはGPU入力へ使わず、前の20条件GPU再実行0。合計distinct24/2POST/12physicalbatch（通常20の8件chunk境界による分離を含む）。各親/member全raw/input/source/全payload保存監査24成功、追加battle/GPU0、全2専用Node group消滅。回復magicだけ欠けた別raw入力1件はstatus64、実戦/CPU0、元成功claim不変。
+
+最終release owner8dfc884939c455362952ce1dea4137658e2d9e4b43f7000063ba83faebebf86b自身157CPU/deps/PTX60/O1計画成功。全24保存結果を同releaseから再pack/reprojectしsource/input/raw/全CPU/GPU/HTTP一致、追加battle/GPU0。元packet-v2との差はGOLDEN47→48・ledgerSHA・歴史source専用audit入口だけで計算変更なし、選択CLI source closureも完全一致。記録writerがphysicalbatchを10と仮定した初回assertは保存24件の実IDから12へ訂正、計算/入力/出力変更0。小記録research/product-ammo-healing-v1.json、原本proofs/product-ammo-healing-v1-20261101。
+
+Windowsは旧RAM2.09GiB停止のterminal後idle、追加依頼0。現合成CUDA実機は未確認。標準Metal/CUDA累積263/266、宣言別Metal266/CUDA265のまま、標準追加0・全goal未完了。残りはcoordinate/movement/lock/weightedなど他consumer合成、実typed projectile/shield世界、未指定ゲーム規則と必要な短いCUDA差分。以下は履歴。
+
 ## 2026-11-01 敵弾倉＋対象別補正＋同時命中/遮蔽/自爆の通常API16条件Metal一致
 
 前ターンは自爆＋弾倉接続でprogress。今ターンは元のprojectile_dmg_pct/shield_dmg_pct carrierを、BODY/PART/ADD世界の敵弾倉と合成。単独は既存target prefix110112を保持する薄い4選択（registry68）、groupは既存ammo-groupへdescriptor104408..104672をそのまま接続し、新group-target alias0。全axis/元effects/ADD payload/弾倉/遮蔽/自爆bank保持、残りpaddingを全検査。既存validProductGroupTargetAxesの完全な関数をproduct_group_target_axes.slangへ移して共有し、旧group-targetのstride/schema検査も同関数を検査する。CPU正本4file/upstream・数値式・許容差変更0、新suite/監査器0。

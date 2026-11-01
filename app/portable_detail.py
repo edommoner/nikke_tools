@@ -297,7 +297,11 @@ def decode_payload(body, prepared, run, metadata, block):
         from portable_product_healing import read_result
         from portable_enemy_healing_wire import OUTPUT as healing_output
         healing_block=block[:healing_output['OUTPUT_WORDS']] if metadata.get('product_healing_cover') else block
-        model=read_result(healing_block,metadata,names,run.config['duration'])
+        if metadata.get('product_ammo_healing'):
+            from portable_enemy_healing_wire import AMMO_OUTPUT
+            healing_block=block[:AMMO_OUTPUT['OUTPUT_WORDS']]
+            model=read_result(healing_block,metadata,names,run.config['duration'],layout=AMMO_OUTPUT)
+        else:model=read_result(healing_block,metadata,names,run.config['duration'])
         if model is not None:
             models.append(model)
     if metadata.get('product_weighted_incoming'):

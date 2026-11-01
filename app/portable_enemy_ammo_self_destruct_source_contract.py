@@ -5,6 +5,9 @@ from pathlib import Path
 
 def project_sources(root,sources=None):
     root=Path(root);out=dict(sources or {})
+    if sources is None:
+        from portable_weighted_incoming_source_contract import boss_source_preimages
+        out=boss_source_preimages(root)
     ledger=json.loads((root/'tests/fixtures/portable-enemy-ammo-self-destruct-source-delta.json').read_text(encoding='utf-8'))
     for name,digest in ledger['added_sources'].items():
         value=out[name] if name in out else (root/name).read_text(encoding='utf-8')
