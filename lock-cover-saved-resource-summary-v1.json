@@ -1,0 +1,401 @@
+{
+  "allocation_arguments_recorded": true,
+  "allocations": [
+    {
+      "requested_bytes": 438244,
+      "return_code": 0
+    },
+    {
+      "requested_bytes": 8195648,
+      "return_code": 0
+    },
+    {
+      "requested_bytes": 164640,
+      "return_code": 0
+    }
+  ],
+  "calculation_verified": false,
+  "diagnostic_driver_calls": 0,
+  "diagnostic_gpu_calls": 0,
+  "failure_cause_verified": false,
+  "incomplete_native_events": [],
+  "journal_bytes": 144024,
+  "journal_sha256": "a7802e9e43ac1a1375f78c094776be7635f9e7a9e9e88dddc247c5035ad8ad3e",
+  "launch_arguments_recorded": true,
+  "launches": [
+    {
+      "block": [
+        1,
+        1,
+        1
+      ],
+      "dynamic_shared_bytes": 0,
+      "grid": [
+        1,
+        1,
+        1
+      ],
+      "return_code": 0
+    }
+  ],
+  "memory_observation_complete": false,
+  "memory_observations_present": true,
+  "schema": "saved-cuda-resource-summary-v1",
+  "scope": "Pinned saved events only; not source, containment, allocation capacity, or calculation certification",
+  "snapshots": [
+    {
+      "boundary": "cuMemAlloc_v2",
+      "device": {
+        "available": true,
+        "free_bytes": 7448035328,
+        "observed_unix_ns": 1793494253391640000,
+        "return_code": 0,
+        "total_bytes": 8589410304
+      },
+      "driver_memory_query_calls": 1,
+      "finished_unix_ns": 1793494253391640000,
+      "host": {
+        "atomic": false,
+        "calculation_verified": false,
+        "driver_calls": 0,
+        "gpu_calls": 0,
+        "job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 407072768,
+          "observed_unix_ns": 1793494253391640000
+        },
+        "parent": {
+          "available": true,
+          "handle_closed": true,
+          "observed_unix_ns": 1793494253391640000,
+          "peak_private_bytes": 31629312,
+          "private_bytes": 27303936,
+          "working_set_bytes": 63275008
+        },
+        "process": {
+          "available": true,
+          "observed_unix_ns": 1793494253391640000,
+          "peak_private_bytes": 379764736,
+          "private_bytes": 379764736,
+          "working_set_bytes": 246550528
+        },
+        "schema": "owned-host-memory-v1",
+        "scope": "Current private commit and separate historical peaks; not current total Job usage"
+      },
+      "position": "before",
+      "started_unix_ns": 1793494253391640000
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "device": {
+        "available": true,
+        "free_bytes": 7445938176,
+        "observed_unix_ns": 1793494253394209100,
+        "return_code": 0,
+        "total_bytes": 8589410304
+      },
+      "driver_memory_query_calls": 1,
+      "finished_unix_ns": 1793494253394209100,
+      "host": {
+        "atomic": false,
+        "calculation_verified": false,
+        "driver_calls": 0,
+        "gpu_calls": 0,
+        "job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 409448448,
+          "observed_unix_ns": 1793494253394209100
+        },
+        "parent": {
+          "available": true,
+          "handle_closed": true,
+          "observed_unix_ns": 1793494253394209100,
+          "peak_private_bytes": 31629312,
+          "private_bytes": 27303936,
+          "working_set_bytes": 63275008
+        },
+        "process": {
+          "available": true,
+          "observed_unix_ns": 1793494253394209100,
+          "peak_private_bytes": 382140416,
+          "private_bytes": 382140416,
+          "working_set_bytes": 246857728
+        },
+        "schema": "owned-host-memory-v1",
+        "scope": "Current private commit and separate historical peaks; not current total Job usage"
+      },
+      "position": "after",
+      "started_unix_ns": 1793494253394209100
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "device": {
+        "available": true,
+        "free_bytes": 7445938176,
+        "observed_unix_ns": 1793494253395746300,
+        "return_code": 0,
+        "total_bytes": 8589410304
+      },
+      "driver_memory_query_calls": 1,
+      "finished_unix_ns": 1793494253395746300,
+      "host": {
+        "atomic": false,
+        "calculation_verified": false,
+        "driver_calls": 0,
+        "gpu_calls": 0,
+        "job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 409448448,
+          "observed_unix_ns": 1793494253395746300
+        },
+        "parent": {
+          "available": true,
+          "handle_closed": true,
+          "observed_unix_ns": 1793494253395746300,
+          "peak_private_bytes": 31629312,
+          "private_bytes": 27303936,
+          "working_set_bytes": 63275008
+        },
+        "process": {
+          "available": true,
+          "observed_unix_ns": 1793494253395226100,
+          "peak_private_bytes": 382144512,
+          "private_bytes": 382140416,
+          "working_set_bytes": 246857728
+        },
+        "schema": "owned-host-memory-v1",
+        "scope": "Current private commit and separate historical peaks; not current total Job usage"
+      },
+      "position": "before",
+      "started_unix_ns": 1793494253395226100
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "device": {
+        "available": true,
+        "free_bytes": 7437549568,
+        "observed_unix_ns": 1793494253397823800,
+        "return_code": 0,
+        "total_bytes": 8589410304
+      },
+      "driver_memory_query_calls": 1,
+      "finished_unix_ns": 1793494253397823800,
+      "host": {
+        "atomic": false,
+        "calculation_verified": false,
+        "driver_calls": 0,
+        "gpu_calls": 0,
+        "job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 417853440,
+          "observed_unix_ns": 1793494253397823800
+        },
+        "parent": {
+          "available": true,
+          "handle_closed": true,
+          "observed_unix_ns": 1793494253397823800,
+          "peak_private_bytes": 31629312,
+          "private_bytes": 27303936,
+          "working_set_bytes": 63275008
+        },
+        "process": {
+          "available": true,
+          "observed_unix_ns": 1793494253397274500,
+          "peak_private_bytes": 390545408,
+          "private_bytes": 390545408,
+          "working_set_bytes": 246857728
+        },
+        "schema": "owned-host-memory-v1",
+        "scope": "Current private commit and separate historical peaks; not current total Job usage"
+      },
+      "position": "after",
+      "started_unix_ns": 1793494253397274500
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "device": {
+        "available": true,
+        "free_bytes": 7437549568,
+        "observed_unix_ns": 1793494253397823800,
+        "return_code": 0,
+        "total_bytes": 8589410304
+      },
+      "driver_memory_query_calls": 1,
+      "finished_unix_ns": 1793494253397823800,
+      "host": {
+        "atomic": false,
+        "calculation_verified": false,
+        "driver_calls": 0,
+        "gpu_calls": 0,
+        "job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 417853440,
+          "observed_unix_ns": 1793494253397823800
+        },
+        "parent": {
+          "available": true,
+          "handle_closed": true,
+          "observed_unix_ns": 1793494253397823800,
+          "peak_private_bytes": 31629312,
+          "private_bytes": 27303936,
+          "working_set_bytes": 63275008
+        },
+        "process": {
+          "available": true,
+          "observed_unix_ns": 1793494253397823800,
+          "peak_private_bytes": 390549504,
+          "private_bytes": 390545408,
+          "working_set_bytes": 246857728
+        },
+        "schema": "owned-host-memory-v1",
+        "scope": "Current private commit and separate historical peaks; not current total Job usage"
+      },
+      "position": "before",
+      "started_unix_ns": 1793494253397823800
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "device": {
+        "available": true,
+        "free_bytes": 7437549568,
+        "observed_unix_ns": 1793494253400650800,
+        "return_code": 0,
+        "total_bytes": 8589410304
+      },
+      "driver_memory_query_calls": 1,
+      "finished_unix_ns": 1793494253400650800,
+      "host": {
+        "atomic": false,
+        "calculation_verified": false,
+        "driver_calls": 0,
+        "gpu_calls": 0,
+        "job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 417964032,
+          "observed_unix_ns": 1793494253400650800
+        },
+        "parent": {
+          "available": true,
+          "handle_closed": true,
+          "observed_unix_ns": 1793494253400650800,
+          "peak_private_bytes": 31629312,
+          "private_bytes": 27414528,
+          "working_set_bytes": 63389696
+        },
+        "process": {
+          "available": true,
+          "observed_unix_ns": 1793494253400650800,
+          "peak_private_bytes": 390549504,
+          "private_bytes": 390545408,
+          "working_set_bytes": 246857728
+        },
+        "schema": "owned-host-memory-v1",
+        "scope": "Current private commit and separate historical peaks; not current total Job usage"
+      },
+      "position": "after",
+      "started_unix_ns": 1793494253400148100
+    },
+    {
+      "boundary": "cuLaunchKernel",
+      "device": {
+        "available": true,
+        "free_bytes": 7437549568,
+        "observed_unix_ns": 1793494253405313800,
+        "return_code": 0,
+        "total_bytes": 8589410304
+      },
+      "driver_memory_query_calls": 1,
+      "finished_unix_ns": 1793494253405313800,
+      "host": {
+        "atomic": false,
+        "calculation_verified": false,
+        "driver_calls": 0,
+        "gpu_calls": 0,
+        "job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 417964032,
+          "observed_unix_ns": 1793494253405313800
+        },
+        "parent": {
+          "available": true,
+          "handle_closed": true,
+          "observed_unix_ns": 1793494253405313800,
+          "peak_private_bytes": 31629312,
+          "private_bytes": 27414528,
+          "working_set_bytes": 63389696
+        },
+        "process": {
+          "available": true,
+          "observed_unix_ns": 1793494253405313800,
+          "peak_private_bytes": 390549504,
+          "private_bytes": 390545408,
+          "working_set_bytes": 246915072
+        },
+        "schema": "owned-host-memory-v1",
+        "scope": "Current private commit and separate historical peaks; not current total Job usage"
+      },
+      "position": "before",
+      "started_unix_ns": 1793494253404790200
+    },
+    {
+      "boundary": "cuLaunchKernel",
+      "device": {
+        "available": true,
+        "free_bytes": 6028263424,
+        "observed_unix_ns": 1793494253408934900,
+        "return_code": 0,
+        "total_bytes": 8589410304
+      },
+      "driver_memory_query_calls": 1,
+      "finished_unix_ns": 1793494253408934900,
+      "host": {
+        "atomic": false,
+        "calculation_verified": false,
+        "driver_calls": 0,
+        "gpu_calls": 0,
+        "job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 1897242624,
+          "observed_unix_ns": 1793494253408934900
+        },
+        "parent": {
+          "available": true,
+          "handle_closed": true,
+          "observed_unix_ns": 1793494253408934900,
+          "peak_private_bytes": 31629312,
+          "private_bytes": 27414528,
+          "working_set_bytes": 63389696
+        },
+        "process": {
+          "available": true,
+          "observed_unix_ns": 1793494253408934900,
+          "peak_private_bytes": 1869824000,
+          "private_bytes": 1869824000,
+          "working_set_bytes": 246943744
+        },
+        "schema": "owned-host-memory-v1",
+        "scope": "Current private commit and separate historical peaks; not current total Job usage"
+      },
+      "position": "after",
+      "started_unix_ns": 1793494253408934900
+    }
+  ],
+  "truncated_final_event": false,
+  "process_identity_fields_removed": true
+}

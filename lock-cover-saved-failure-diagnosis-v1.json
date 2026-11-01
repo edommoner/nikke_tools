@@ -1,0 +1,202 @@
+{
+  "schema": "lock-cover-saved-failure-diagnosis-v1",
+  "status": "saved_file_cpu_diagnosis_completed",
+  "original_gpu_result_passed": false,
+  "overall_environment_preservation_verified": false,
+  "scope": "Saved readback/index/header/journal only. No additional calculation or native/GPU/driver query.",
+  "source_gpu_failure_commit": "c9e8b702ce28e8897c523392afb7646c02166035",
+  "reference_transport_commit": "24ee3b0ca477da31d77cf43ad19af78862a0b2db",
+  "readback_comparison": {
+    "reference_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+    "actual_sha256": "fbdafa26ecfbc4fdb1e45086363195bd3b197296da312a944ad76452b3b84e25",
+    "bytes": 8195648,
+    "case_words": 2048912,
+    "block_words": 1024,
+    "blocks": 2001,
+    "changed_block_count": 142,
+    "unchanged_blocks": 1859,
+    "all_changed_blocks_preserved_in": "lock-cover-saved-readback-diff-v1.json",
+    "raw_samples_omitted": true,
+    "raw_samples_generated": 0,
+    "reference_index_bytes": 134257,
+    "reference_index_sha256": "f27d5a15ff1368c95d4e6dd51532878fe1ac7ded46de9091da87cf70bb17d8cc",
+    "pre_sha256": "fbdafa26ecfbc4fdb1e45086363195bd3b197296da312a944ad76452b3b84e25",
+    "post_sha256": "fbdafa26ecfbc4fdb1e45086363195bd3b197296da312a944ad76452b3b84e25",
+    "raw_unchanged": true
+  },
+  "headers": {
+    "actual": {
+      "status": 64,
+      "queries": 0,
+      "trace_stored": 0,
+      "max_depth": 6,
+      "burst_stored": 0,
+      "trace_total": 3,
+      "burst_total": 0,
+      "frames": 74,
+      "ordered_carriers": 56,
+      "typed_initialized": true,
+      "typed_enabled": true,
+      "packet_fates_initialized": true,
+      "cover_initialized": true,
+      "skill_history_initialized": true,
+      "skill_history_count": 3,
+      "admission_marker": false,
+      "admission_stage": null,
+      "initialization_scope": "Only the specified magic checks; zeros are not initialization success. Uninitialized/partial sections remain uninterpreted."
+    },
+    "reference": {
+      "status": 0,
+      "queries": 1,
+      "trace_stored": 0,
+      "max_depth": 6,
+      "burst_stored": 9,
+      "trace_total": 168,
+      "burst_total": 9,
+      "frames": 1801,
+      "ordered_carriers": 76,
+      "typed_initialized": true,
+      "typed_enabled": true,
+      "packet_fates_initialized": true,
+      "cover_initialized": true,
+      "skill_history_initialized": true,
+      "skill_history_count": 168,
+      "admission_marker": false,
+      "admission_stage": null
+    },
+    "mapping_words": {
+      "status": 0,
+      "queries": 1,
+      "trace_stored": 2,
+      "max_depth": 3,
+      "burst_stored": 4,
+      "trace_total": 6,
+      "burst_total": 7,
+      "frames": 8,
+      "ordered_carriers": 9
+    },
+    "magic_words": {
+      "typed": 1145197617,
+      "typed_enabled": 1,
+      "packet_fates": 1346777137,
+      "cover": 1128546865,
+      "skill_history": 1465076529,
+      "admission": 0
+    },
+    "readback_sha256": "fbdafa26ecfbc4fdb1e45086363195bd3b197296da312a944ad76452b3b84e25",
+    "gpu_calls": 0
+  },
+  "interpretation": {
+    "status64_retained": true,
+    "specified_initialization_magic_valid": true,
+    "typed_enabled": true,
+    "calculation_finished": false,
+    "execution_partial_or_unknown": true,
+    "admission_stage": null,
+    "admission_stage_reason": "Marker absent in both saved actual and reference headers; stage is unknown.",
+    "root_cause": "unknown",
+    "memory_failure_ruled_out": false,
+    "magic_validity_scope": "The four initialization signatures and independent typed-enabled flag only; admission marker remains absent. Not complete initialization or calculation success."
+  },
+  "saved_resources": {
+    "journal_sha256": "a7802e9e43ac1a1375f78c094776be7635f9e7a9e9e88dddc247c5035ad8ad3e",
+    "journal_bytes": 144024,
+    "allocations": [
+      {
+        "requested_bytes": 438244,
+        "return_code": 0
+      },
+      {
+        "requested_bytes": 8195648,
+        "return_code": 0
+      },
+      {
+        "requested_bytes": 164640,
+        "return_code": 0
+      }
+    ],
+    "launches": [
+      {
+        "block": [
+          1,
+          1,
+          1
+        ],
+        "dynamic_shared_bytes": 0,
+        "grid": [
+          1,
+          1,
+          1
+        ],
+        "return_code": 0
+      }
+    ],
+    "snapshots": 8,
+    "memory_observations_present": true,
+    "memory_observation_complete": false,
+    "unknown_saved_field": "host.job.job_memory_limit_bytes is null in all 8 GPU-time snapshots",
+    "current_diagnostic_wrapper_limit_known": true,
+    "failure_cause_verified": false,
+    "incomplete_native_events": [],
+    "shared_summary": "lock-cover-saved-resource-summary-v1.json",
+    "process_identity_fields_removed": true,
+    "no_new_driver_memory_queries": true
+  },
+  "optional_compiler_stats": {
+    "executed": false,
+    "omitted_as_requested": true,
+    "reason": "Existing compiler-stats measures generated CUDA source, not PTXAS callee stack/register logs.",
+    "physical_top12_stack_registers": null
+  },
+  "cpu_job": {
+    "permission_mode": "require_escalated",
+    "approval_denied": false,
+    "below_normal_priority": true,
+    "child_timeout_seconds": 60,
+    "outer_budget_seconds": 180,
+    "seconds": 4.73388299997896,
+    "saved_file_analysis_seconds": 0.1265552002005279,
+    "exit_code": 0,
+    "passed": true,
+    "timed_out": false,
+    "cleanup_error": null,
+    "observation_error": null,
+    "missing": 0,
+    "pre_gate_verified": true,
+    "post_wait_job_empty": true,
+    "job_limits": [
+      {
+        "before_bytes": 2147483648,
+        "after_bytes": 2147483648,
+        "peak_bytes": 48410624
+      }
+    ],
+    "service_before": "unverified",
+    "service_after": "unverified",
+    "preservation_verified": false
+  },
+  "additional_calls": {
+    "readback_compare": 1,
+    "saved_resource_summary": 1,
+    "compiler_stats": 0,
+    "post": 0,
+    "gpu": 0,
+    "driver_queries": 0,
+    "sdk": 0,
+    "compile": 0,
+    "native_cpu_battle": 0,
+    "retries": 0
+  },
+  "integrity": {
+    "original_files_checked_unchanged": 12,
+    "all_claims_and_old_failures_retained": true,
+    "old_missing_unknown_preservation_false_retained": true,
+    "calculation_verified": false,
+    "known_live_handle": null
+  },
+  "capture": {
+    "path_base": "Documents/Codex",
+    "relative_directory": "lock-cover-saved-failure-diagnosis-v1"
+  },
+  "next_action": "Stopped after the saved-file diagnosis; no automatic calculation or rerun."
+}
