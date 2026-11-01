@@ -1,0 +1,193 @@
+{
+  "schema": 1,
+  "scope": "Explicit BODY-only named range/count, movement, and cover compositions; no fake ADD and no inferred game geometry",
+  "cpu_tests": 150,
+  "cpu_groups": [
+    67,
+    11,
+    7,
+    65
+  ],
+  "private_tests": 13,
+  "release_owner": "1e148d2485c5934efe227d396e12734ef9b5a5f2022f2a6205632988f9cb4c12",
+  "release_own_cpu_only_passed": true,
+  "shared_cuda_metal_runtime": true,
+  "normal_api": {
+    "successful_distinct_conditions": 8,
+    "successful_cases": [
+      {
+        "variant": "named-range-fixed-inside-body-only",
+        "source": "gpu/product_named_range_fixed_battle_entry.slang",
+        "capture": "892b0f6811a2493381cd79d662f646d6",
+        "input_sha256": "6c458312c27b88a33d0d211d63d769c6c32d9d4f1ddb523116a634687e3ccb37",
+        "output_sha256": "969bc802ba00c4e34b9dd8a722dc1051c9076b2c24054d00b554c286e10f9f9c",
+        "casts": 54,
+        "body_positions": [
+          1
+        ],
+        "full_current_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "named-range-accumulate-inside-body-only",
+        "source": "gpu/product_named_range_battle_entry.slang",
+        "capture": "63ebbd13aff44eb8b64e3c105acf59ec",
+        "input_sha256": "40ce4841f13c4ffd102db30e033b5f55c32bb44a0fd4cf6c2b96c784595e15a3",
+        "output_sha256": "e864561b5ddbca8b43b5ea3d755ef0cce0d65b43a8f9450b393a6a9e039616bb",
+        "casts": 54,
+        "body_positions": [
+          1
+        ],
+        "full_current_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "movement-range-fixed-inside-body-only",
+        "source": "gpu/product_movement_range_fixed_battle_entry.slang",
+        "capture": "ad6db644ad284f00816c5810c9346965",
+        "input_sha256": "cf359293491bc77d0ffc54e236cd55556d572b6417cf0ac316d8d24a4e396371",
+        "output_sha256": "eef11ca0c1663bad9286f0ae331e4ea6d36b05a8e2c9269ffc6fc6c2739e4677",
+        "casts": 54,
+        "body_positions": [
+          1
+        ],
+        "full_current_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "movement-range-accumulate-inside-body-only",
+        "source": "gpu/product_movement_range_battle_entry.slang",
+        "capture": "8c99300c0d8346bd8b3a5b74efa026f4",
+        "input_sha256": "208e32ddd0e4660c3c75c219e32a8e1578b558f6340067ea090bc8b847566e22",
+        "output_sha256": "8477b9a44e8e661f02815394bd3ba316be176a2c8250255e20ab3019ae13199b",
+        "casts": 54,
+        "body_positions": [
+          1
+        ],
+        "full_current_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "named-range-fixed-outside-body-only",
+        "source": "gpu/product_named_range_fixed_battle_entry.slang",
+        "capture": "d81c7bed23f04fe78a8e4dc75bc648ea",
+        "input_sha256": "fa032babbe35128c41b2c0a12a347e2a21f396b5179a239c8d49c6511758b23a",
+        "output_sha256": "ecda38295b9bb61df02978a71cf5d843d7aba740545050c8216af25d9dd07f0b",
+        "casts": 54,
+        "body_positions": [
+          0
+        ],
+        "full_current_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "movement-range-fixed-outside-body-only",
+        "source": "gpu/product_movement_range_fixed_battle_entry.slang",
+        "capture": "e939d5c0b81a43bf94ec599bb45b5598",
+        "input_sha256": "e76e8c1393bddc1568035cf82b423b97af625eb758d75118bba1ced8ca421597",
+        "output_sha256": "97802e397b7efc87d926d334a14642eac3b2b6df74d5bf93386fcea3be24d75d",
+        "casts": 54,
+        "body_positions": [
+          0
+        ],
+        "full_current_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "body-only-movement-range-cover-fixed",
+        "source": "gpu/product_movement_range_cover_fixed_battle_entry.slang",
+        "capture": "b39044f450894e3688ebd5a21b883787",
+        "input_sha256": "a24c36fa3551f39c4096307b1c9f5b9558e93b62f473474b813264875cab37f7",
+        "output_sha256": "990c25ac93b130879ccd77118d99cb786d9c2b685f5fd33442b88c3d657ff9c8",
+        "casts": 54,
+        "body_positions": [
+          1
+        ],
+        "full_current_cpu_gpu_http_and_final_projection_equal": true,
+        "cover_receipts": 7,
+        "cover_applied": 5788.576
+      },
+      {
+        "variant": "body-only-movement-range-cover-accumulate",
+        "source": "gpu/product_movement_range_cover_battle_entry.slang",
+        "capture": "7240f9a195cf45fd8e2a6d39570b84c2",
+        "input_sha256": "c448162765f82375433c0b089ef87d1bbf3d0210f5f9ef5da1e814b4a3e68760",
+        "output_sha256": "0dea1263a3e0fdeaf57e53810112ce594ebf72b0679384bd862cbb33305ed581",
+        "casts": 54,
+        "body_positions": [
+          1
+        ],
+        "full_current_cpu_gpu_http_and_final_projection_equal": true,
+        "cover_receipts": 6,
+        "cover_applied": 5017.146
+      }
+    ],
+    "inside_successes_reused_after_exact_source_input_and_fresh_current_cpu_comparison": 4,
+    "outside_corrected_http_cases": 2,
+    "cover_composition_cases": 2,
+    "final_projection_extra_battles": 0,
+    "final_projection_extra_gpu": 0,
+    "calculation_code_and_data_identical_to_verified_v2": 1425,
+    "final_administrative_differences": [
+      "GOLDEN v43 to v44 path only",
+      "BOSS ledger SHA only"
+    ],
+    "all_owned_nodes_gone": true
+  },
+  "cpu_model_fix": "Checked AST hook routes tagged frozen selection through native landing even when BODY is the only actor; canonical CPU files unchanged",
+  "standalone_cli": {
+    "original_actual_metal_passed": true,
+    "replay_v2_passed": true,
+    "replay_additional_gpu_calls": 0,
+    "independent_fresh_gpu_forbidden_seal_passed": true
+  },
+  "combined_cli": {
+    "program": "movement-range-cover-fixed",
+    "actual_metal_fresh_native_and_independent_seal_passed": true
+  },
+  "raw_device_negative": {
+    "owner": "fcebc203330dea15fbaeea08632cb44e6700244fe453080a2561fbd0a8d219c0",
+    "configured_adds_retained": 3,
+    "geometry_count": 0,
+    "gpu_status": 64,
+    "rejected_before_battle": true,
+    "input_sha256": "d9db91f03bfcb481eff2077595f253645f0b9245494c56e38704c954715de2ed",
+    "output_sha256": "2d1f8d561e6cbe36b50143a9dcd20a7db189e3101577880ce22f8ca388df22be",
+    "gpu_calls": 1,
+    "native_battles": 0,
+    "scope": "Raw device admission only, not a standard profile result",
+    "full_goal_complete": false
+  },
+  "baseline": {
+    "version": 44,
+    "updated_existing_members": [
+      "named-range-fixed",
+      "movement-range-cover-fixed"
+    ],
+    "all_old_input_output_native_entries_unchanged": true,
+    "other32_members_unchanged": true
+  },
+  "private_admission": "Empty private geometry still rejected by default; public zero requires no configured ADD including future spawns; host/native before battle and raw device guards",
+  "source_audit_fix": "Direct named-range historical audits now enter existing exact ADD/Ammo inverse chain; full source hashes and negative injections retained, no normalizer change",
+  "failures_retained": [
+    "Initial unit assumed static prepare rather than GPU compile owns future-ADD rejection; corrected stage assertion, native still rejects before battle",
+    "Existing direct historical source audit skipped newer inverse layers; original13-test failure retained and strict chain repaired",
+    "Initial six-condition API: two outside CPU comparisons failed; GPU raw/source/input preserved. Dedicated declared CPU adapter repaired, fresh CPU6 matches saved GPU; only outside2 HTTP cases rerun",
+    "Nonexistent standalone combined program selected: parser stopped before CPU/GPU; existing movement-range-cover-fixed used"
+  ],
+  "new_programs": 0,
+  "new_suites": 0,
+  "protected_cpu_files_changed": [],
+  "new_standard_profiles_added": 0,
+  "recorded_source_standard_metal_profiles": 263,
+  "recorded_source_standard_cuda_profiles": 263,
+  "configured_recorded_metal_profiles": 266,
+  "configured_recorded_cuda_profiles": 265,
+  "total_profiles": 266,
+  "current_new_composition_cuda_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Heavy Arms declared30s CUDA: prior PTX not admitted after outer process preservation failure; no retry",
+    "New BODY-only compositions CUDA differential",
+    "Unconfigured game models and unrestricted consumer compositions"
+  ],
+  "arithmetic_or_tolerances_changed": false,
+  "registered_expected_input_output_native_values_changed": false,
+  "declared_cpu_frozen_target_delivery_corrected": true
+}

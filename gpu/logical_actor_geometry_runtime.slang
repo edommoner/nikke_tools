@@ -23,7 +23,7 @@ bool validLogicalActorGeometry(inout Runtime s)
 #ifndef PORTABLE_PRODUCT_COORDINATE
     if(count==0)
     {
-#ifndef PORTABLE_PRODUCT_MOVEMENT
+#if !defined(PORTABLE_PRODUCT_MOVEMENT) && !defined(PORTABLE_PRODUCT_NAMED_RANGE)
         return false;
 #else
         for(uint slot=1;slot<actorPoolCount(s);slot++)

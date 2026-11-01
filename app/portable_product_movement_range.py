@@ -47,7 +47,7 @@ def compile_product(prepared):
     from calculator.boss_pattern import validate
     # Bindings are static identities from the same original actor registry.
     _,bindings=compile_registry(validate(copy.deepcopy(prepared['enemy'].get('patterns') or []),coord=True),pools=True)
-    movement=movement_bank(prefix,meta,bindings,motion['logical_geometry'],motion['motion'],tags)
+    movement=movement_bank(prefix,meta,bindings,motion['logical_geometry'],motion['motion'],tags,allow_empty=True)
     meta['product_enemy_movement']=dict(declarations={'enemy_movement':motion},bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],cpu_state_or_schedule_supplied=False)
     meta['product_movement_range']=dict(range_output=OUT,range_end=END,input_words=INPUT,output_words=OUTPUT,cpu_state_or_schedule_supplied=False)
     meta['named_range_battle']['input_words']=INPUT

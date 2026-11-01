@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "evidence_kind": "Windows existing chat summary of saved-only diagnosis; raw snapshots not imported",
+  "mac_independent_raw_snapshot_verified": false,
+  "owner": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
+  "source_task": "01a19657-524c-7be3-b4c1-353a7b8685bc",
+  "missing_processes": 7,
+  "confirmed_ownership_counts": {
+    "fresh_job": 0,
+    "coordinator_descendant": 0,
+    "codex_temporary_platform": 0,
+    "other": 0,
+    "unknown": 7
+  },
+  "confirmed_internal_parent_links": 2,
+  "parent_chain_to_root_available": false,
+  "missing_already_absent_at_inner_before": true,
+  "outer_before_to_inner_before_seconds_approx": 8.046,
+  "termination_timestamp": "unknown",
+  "termination_cause": "unknown",
+  "system_available_ram": "unknown",
+  "commit_pressure": "unknown",
+  "own_jobs": {
+    "pre_members_each": 1,
+    "post_members_each": 0,
+    "limit_bytes": 2147483648,
+    "query_errors": 0,
+    "cleanup_errors": 0
+  },
+  "static_cleanup_scope": "Reviewed Windows code targets own Job handle and own Popen child handle; no stored external PID termination found",
+  "static_source_check_proves_actual_cause": false,
+  "cpu_diagnosis_seconds": 0.175,
+  "cpu_peak_bytes": 12210176,
+  "priority": "BelowNormal",
+  "new_full_snapshots": 0,
+  "new_sdk_calls": 0,
+  "new_posts": 0,
+  "new_gpu_calls": 0,
+  "old_evidence_anchor_files_unchanged": 11,
+  "anchors": {
+    "outer_snapshot_sha256": "c832a5d7d33912fdc8237644cf57fff722b842ecc96b8898712f2d0caa0d6b48",
+    "outer_job_sha256": "d718f7094be38ce76f167234e12e71bd7e926957f50228a32abc2891da0347e3",
+    "cleanup_source_sha256": "494df8bc60201989a4e8fb451dc5aa0742d7f93098bc52d5f79722eebb123a88"
+  },
+  "old_outer_stop_and_ptx_unadmitted_retained": true,
+  "existing_ptx_origin_validator_read_only_check": "Requested; not yet returned",
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false
+}

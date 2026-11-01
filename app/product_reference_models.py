@@ -134,7 +134,7 @@ def execution(declarations,names=None):
             def geometry_provider(manager,boss,t):
                 if movement_runtime is None or movement_runtime.manager is not manager or movement_runtime.boss is not boss or movement_runtime.last_time!=t:
                     raise ValueError('Named range must consume its owning current movement frame')
-                return movement_runtime.geometry.spec
+                return movement_runtime.geometry.spec if movement_runtime.geometry is not None else []
             named=stack.enter_context(range_execution(declarations['named_range'],coordinate_context=movement_runtime is None,geometry_provider=geometry_provider if movement_runtime is not None else None))
         else:named=None
         if 'lock_on' in declarations:

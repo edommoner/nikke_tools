@@ -21,8 +21,8 @@ def capacity(manager,caster,marker,t,base):
                       model=COUNT_MODEL,allow_marked_allies=True)
     return value['additional_targets'],value['capacity']
 
-def normalize(rules,geometry):
-    colliders=shapes(geometry)
+def normalize(rules,geometry,*,allow_empty=False):
+    colliders=[] if allow_empty and type(geometry) is list and not geometry else shapes(geometry)
     if type(rules) is not list or not 1<=len(rules)<=16:raise ValueError('Explicit named battle rules required')
     names=set();out=[]
     for rule in rules:
@@ -36,7 +36,13 @@ def normalize(rules,geometry):
     return out,colliders
 
 class Capture(ast.NodeTransformer):
-    def __init__(self):self.counts=dict(event=0,land=0)
+    def __init__(self):self.counts=dict(event=0,land=0,route=0)
+    def visit_BoolOp(self,node):
+        self.generic_visit(node)
+        if ast.unparse(node)=='boss is not None and boss.has_summons and (ev.to is not None or boss.has_adds)':
+            self.counts['route']+=1
+            return ast.copy_location(ast.parse('boss is not None and (boss.has_summons or _nikke_named_range_pending(ev)) and (ev.to is not None or boss.has_adds)',mode='eval').body,node)
+        return node
     def visit_Call(self,node):
         self.generic_visit(node)
         if isinstance(node.func,ast.Name) and node.func.id=='HitEvent' and any(k.arg=='rule' and isinstance(k.value,ast.Name) and k.value.id=='hit_rule' for k in node.keywords):
@@ -50,10 +56,11 @@ class Capture(ast.NodeTransformer):
         return node
 
 class NamedRangeBattle:
-    def __init__(self,rules,geometry,*,geometry_provider=None):
+    def __init__(self,rules,geometry,*,geometry_provider=None,allow_empty=False):
+        self.allow_empty=allow_empty
         self.geometry_provider=geometry_provider
         if geometry_provider is not None and not callable(geometry_provider):raise ValueError('Callable live geometry provider required')
-        rules,self.geometry=normalize(rules,geometry);self.rules={(r['owner'],r['effect']):r for r in rules};self.pending={};self.data=dict(casts=[],landings=[]);self.manager=None;self.boss=None
+        rules,self.geometry=normalize(rules,geometry,allow_empty=allow_empty);self.rules={(r['owner'],r['effect']):r for r in rules};self.pending={};self.data=dict(casts=[],landings=[]);self.manager=None;self.boss=None
     def capture(self,manager,boss,cs,effect,enemy,t,event):
         rule=self.rules.get((cs.name,effect.get('name')))
         if rule is None:return event
@@ -66,9 +73,12 @@ class NamedRangeBattle:
         ax,ay=cs._aim_point(manager,geom)
         value=query(manager,cs.name,effect['name'],t,base_radius=rule['base_radius'],model=MODEL)
         addition,limit=capacity(manager,cs.name,effect['name'],t,rule['base_count'])
-        geometry=self.geometry if self.geometry_provider is None else shapes(self.geometry_provider(manager,boss,t))
+        literal=self.geometry if self.geometry_provider is None else self.geometry_provider(manager,boss,t)
+        geometry=[] if self.allow_empty and type(literal) is list and not literal else shapes(literal)
         if [r['label'] for r in geometry]!=[r['label'] for r in self.geometry]:raise ValueError('Live named range collider ownership changed')
-        registry=registry_for(manager,boss);colliders={row['label']:row['shape'] for row in geometry};colliders['__enemy__']=rule['body_shape']
+        registry=registry_for(manager,boss)
+        if self.allow_empty and not geometry and any(kind==ActorKind.ADD for kind,label in registry.bindings):raise ValueError('Every configured ADD requires explicit named range geometry')
+        colliders={row['label']:row['shape'] for row in geometry};colliders['__enemy__']=rule['body_shape']
         # Preserve the canonical logical candidate order; geometry only filters.
         ranked=boss._ranked('enemies_nearest:128',None,cs.name)
         if ranked is None:raise ValueError('Bounded logical nearest candidates required')
@@ -103,13 +113,13 @@ class NamedRangeBattle:
         finally:self.pending.pop(id(event),None)
 
 @contextmanager
-def named_range_battle(rules,geometry,*,geometry_provider=None):
+def named_range_battle(rules,geometry,*,geometry_provider=None,allow_empty=False):
     from calculator import timeline,boss_pattern
     from runner import sim
     if timeline.simulate is not sim.simulate:raise ValueError('Native simulation aliases differ')
-    runtime=NamedRangeBattle(rules,geometry,geometry_provider=geometry_provider);original=timeline.simulate;route=boss_pattern.BossScript.route
-    rewritten=rewrite_reference(original,Capture(),dict(event=1,land=1),compose=True)
+    runtime=NamedRangeBattle(rules,geometry,geometry_provider=geometry_provider,allow_empty=allow_empty);original=timeline.simulate;route=boss_pattern.BossScript.route
+    rewritten=rewrite_reference(original,Capture(),dict(event=1,land=1,route=1),compose=True)
     def routed(boss,event,*args,**kwargs):return runtime.route(boss,event,route,*args,**kwargs)
-    with patch.dict(original.__globals__,{'_nikke_named_range_capture':runtime.capture,'_nikke_named_range_landing':runtime.landing}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten),patch.object(boss_pattern.BossScript,'route',routed):
+    with patch.dict(original.__globals__,{'_nikke_named_range_capture':runtime.capture,'_nikke_named_range_landing':runtime.landing,'_nikke_named_range_pending':lambda ev:id(ev) in runtime.pending}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten),patch.object(boss_pattern.BossScript,'route',routed):
         yield runtime.data
     if runtime.pending:raise ValueError('Named range packets remained beyond the battle boundary')

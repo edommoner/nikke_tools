@@ -1,3 +1,23 @@
+## 2026-11-01 BODYのみの名前付き範囲・移動・遮蔽を接続、通常API8条件Metal一致
+
+reference_models.named_rangeを明示BODY形状＋logical_geometry:[]でも受付し、移動モデルのactors:[]との合成とcover_defense併用まで同じ共通Slang/actor/clock/queueへ接続。BODY位置や半径をゲーム値として補完しない。configured ADDが未出現でも1体あればgeometry必須。hostはGPU compile前、専用native adapterはbattle前、実M5 raw負例はstatus64で拒否。privateモデルのempty既定拒否は維持。原定義・range/count buff・Yuni5秒/Yan2秒carrierは全保持。
+
+初回のBODY範囲外2条件はCPUと差が出た。元CPU着弾のhas_summons条件が専用named rangeの凍結空集合をBODY-only世界で使っていなかった。許可済み専用CPU adapterへchecked AST BoolOp1箇所のhookを追加し、当該pending packetだけ既存native routeへ渡す。canonical CPU4file/upstream/算術/許容差変更0。旧CPU失敗/HTTP/全GPUraw/source/inputは保持。修正後のfresh CPU6条件が同じ保存GPU全結果に一致（追加GPU0）。成功済み範囲内4条件のGPUは繰返さず、範囲外2条件だけ修正APIを実行して全CPU/GPU/HTTP一致。
+
+結果は範囲単独・移動範囲の固定/蓄積とBODY内外6条件、さらにBODY-only三者合成（移動/範囲/遮蔽）の固定/蓄積15秒2条件、合計8成功条件。各54cast、内側BODY position1/外側0、ADD count0。三者合成は実cover receipt7/6を含め全payload一致。全8を最終releaseでGPU/raw input/source hash再検査・全CPU/GPU/HTTP/decoder再投影し追加battle/GPU0、計算code/data1,425file一致（GOLDEN pathとledger SHAだけ管理差）。全専用Node group消滅。
+
+既存named-range-fixedは元ADD3入力で150 CPU/fresh native/実M5/独立seal成功。CPU adapter修正後はGPUコード・入力・既定native fingerprintが同一なので、既存CLI replayで同じM5 rawを厳密再利用しfresh独立seal成功、追加GPU0。既存movement-range-cover-fixedのADDあり三者基準も150 CPU/実M5/fresh native/独立seal成功。v44はこの既存2memberのsource/generatedだけ更新し旧input/output/native entries全保持、他32member不変。新program/suite0。最終release owner1e148d24も150 CPU-only/deps/PTX/O1計画成功。実蓄積CLI独立基準は未登録、API成功と分離する。
+
+古いnamed-range source監査の直接呼出しが後続ADD/Ammo逆変換を通らない既存不具合も修正した。既存の厳密inverse chainへ接続しprivate13検査成功、原文・SHA・改変負例を保持。normalizer変更/新しい除外0。初回テストの検査phase誤り、旧13検査failure、非登録movement-range-fixed選択の実行前停止も原本に保持。小記録research/product-empty-range-v1.json、原本proofs/product-empty-range-v1-20261101。新合成CUDAは未実証。標準Metal/CUDA累積263/266、宣言別条件Metal266/CUDA265のまま、新標準追加0。全特殊効果/任意合成は未完了。
+
+## 2026-11-01 Heavy Arms CUDAは外側監視で停止、artifact未admitを保持
+
+停止原本38a8397c（12,014byte/SHA14b398db…）をMac取得照合。owna0d3ea37/archivee0f96938…/元7資料/CPU87元ID/paired生成を確認。PTX自体は内側child0/31.404秒/約300MBで生成成功だが、外側42.721秒/約334MBでは既存process7（unrelated5/service candidate2）の欠落を観測し停止。終了原因unknown、内側missing0。両Jobの2GiB/prepost/empty/cleanup/query0は保持するが、artifact_admitted_for_next_stage=false・bounded_execution_verified=false等の元判定を成功へ変えない。object/link/POST/API/GPU/retry0、旧50,494fileと失敗・claimを保持。service/whole/overallfalse、coverage加算0。research/product-heavy-original-stop-import-v1.json参照。
+
+保存資料のみのWindows読取診断も完了報告。実所属は7全件unknown（Job/coordinator/Codex/otherへの確証0）、2件のみ相互親子を生成時刻付きで追えたがrootまでの親がsnapshotにない。全7件はouter beforeには存在しinner before（約8.046秒後）には不在で、正確な終了時刻・原因はunknown。両自己Jobはpre各1/post0・2GiB/query/cleanup正常。静的にcleanupは自身のJob/Popen handleを対象とし保存外部PIDの終了命令は見つからないが、実原因の証拠とはしない。RAM/commit圧の記録なし。CPU0.175秒/peak12,210,176byte、追加snapshot/SDK/API/GPU0。原snapshotは未importなのでこの診断はchat summaryとして区別する。research/product-heavy-original-process-diagnosis-v1.json参照。
+
+既存immutable CLIの保存PTX origin validatorを、GPU/SDK禁止の読み取りだけで呼べるか追加確認中。受理/拒否とscopeの区別だけを調べ、元outer停止/未admitを書き換えず、後続実行はしない。以下の依頼範囲を維持する：欠落7の確実なJob/parent系譜、保存RAM/commit圧があれば数値、自己Job以外の終了命令の有無を調べる。外部process名/path/commandline/raw snapshotは共有せず、無ければunknown。SDK/GPU再実行・artifact代替・OS/コード変更・自動継続は依頼していない。次はこの診断を取得し、global観測とown Job制御を混同せず未admit PTXの扱いを判断する。未指定ゲーム規則・consumer合成も残る。全goal未完了。以下は履歴。
+
 ## 2026-11-01 Heavy Arms元30秒のCUDA配布を準備、旧数値基準は全保持
 
 既存lock-fixed programの現行不変packet自身148 CPU/fresh native/実M5/GPU禁止独立seal成功。元30秒の通常API input9337f726…/全output76fd63c5…とCLI自身のinput/readback全byteも完全同一。v43はlock-fixedのsource/生成identityだけを更新し、旧input/output/native entriesと他33memberは全保持。新program/suite追加0。最終release ownera0d3ea37/archivee0f96938…も148 CPU-only/deps/PTX60秒/O1計画成功。

@@ -28,7 +28,7 @@
     "other33_members_unchanged": true
   },
   "cuda": {
-    "status": "Prepared, not yet sent",
+    "status": "Stopped after first PTX outer process preservation failure; no object/link/API/GPU or retry",
     "request": {
       "schema": "heavy-original-lock-windows-request-v1",
       "owner": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
@@ -103,7 +103,11 @@
       ],
       "report_policy": "Keep SDK outerexit2/inner0, advisory null/unknown, service/whole/overallfalse; no raw/compiler/settings/auth",
       "full_goal_complete": false
-    }
+    },
+    "stop_result_commit": "38a8397c2b723f2d184625028542c9462ba61670",
+    "mac_import_report": "research/product-heavy-original-stop-import-v1.json",
+    "artifact_admitted_for_next_stage": false,
+    "read_only_diagnosis_requested": "Saved receipts/source only; ownership and available memory evidence, no execution or stage continuation"
   },
   "full_goal_complete": false,
   "overall_verified": false

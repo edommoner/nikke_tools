@@ -28,7 +28,7 @@ def compile_product(prepared):
         raise UnsupportedPortable('Named range with manual cover requires its combined coordinate consumer')
     if manual:prepared=dict(prepared,_product_manual_cover=True)
     spec=declarations['named_range'];check_schema()
-    words,meta,bindings,scene=compile_battle(dict(prepared,_product_native_equipment_carriers=True),spec['logical_geometry'],spec['rules'])
+    words,meta,bindings,scene=compile_battle(dict(prepared,_product_native_equipment_carriers=True),spec['logical_geometry'],spec['rules'],allow_empty=True)
     if manual:meta['product_manual_cover_owners']=manual
     meta['product_named_range']=dict(declarations=declarations,names=[c['name'] for c in prepared['chars']],cpu_state_or_schedule_supplied=False)
     meta['product_control_labels']=[

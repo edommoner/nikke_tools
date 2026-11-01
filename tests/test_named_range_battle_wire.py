@@ -1,5 +1,5 @@
 """Literal wire/ABI and original effect bindings, with no simulation values."""
-import copy,importlib.util,sys,unittest
+import copy,importlib.util,sys,unittest,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 from portable_named_range_battle_cases import fixtures
@@ -40,9 +40,14 @@ class NamedRangeWire(unittest.TestCase):
         from portable_named_range_battle_source_contract import project_sources
         import json
         ledger=json.loads((ROOT/'tests/fixtures/portable-named-range-battle-source-delta.json').read_text());old=project_sources(ROOT)
+        from portable_add_attack_battle_source_contract import project_sources as newer_sources
+        newer=newer_sources(ROOT)
         for name,row in ledger['files'].items():
             self.assertEqual(old[name],row['before'])
-            with self.subTest(name=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
+            altered=dict(newer);altered[name]=newer.get(name,(ROOT/name).read_text())+'\n'
+            # Other files are already at the caller's exact historical stage;
+            # rejection must identify this injection, not an unrelated layer.
+            with self.subTest(name=name),self.assertRaisesRegex(ValueError,re.escape(name)):project_sources(ROOT,altered)
         s=importlib.util.spec_from_file_location('range_battle_adapter_test',ROOT/'research/verify-named-range-battle.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
         rows,raw=a.prepare();self.assertEqual(len(rows),16);self.assertEqual(sum(d is not None for _,_,d in rows),4);self.assertEqual(len(raw),4+16*INPUT*4)
 if __name__=='__main__':unittest.main()

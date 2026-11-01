@@ -9,6 +9,57 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_body_only_named_range_routes_frozen_empty_casts_through_native_landing(self):
+        from portable_product_programs import body_for_program
+        from named_range_battle import NamedRangeBattle
+        body=body_for_program(ROOT,'named-range-fixed');body['duration']=15
+        body['enemy']['patterns']=[dict(id='declared-static-boss',kind='idle')]
+        spec=body['reference_models']['named_range'];spec['logical_geometry']=[]
+        for rule in spec['rules']:rule['body_shape']['x']=1000.
+        original=NamedRangeBattle.route;native=[]
+        def checked(runtime,boss,event,fallback,*args,**kwargs):
+            own=id(event) in runtime.pending;answer=original(runtime,boss,event,fallback,*args,**kwargs)
+            if own and fallback.__name__=='route':native.append(answer)
+            return answer
+        aliases=(timeline.simulate,sim.simulate)
+        with patch.object(NamedRangeBattle,'route',checked):result=engine_worker.evaluate(body)
+        self.assertTrue(native,'Native landing must honor frozen selection even without ADDs')
+        self.assertTrue(all(row==[] for row in native))
+        self.assertTrue(result['reference_models']['named_range']['casts'])
+        self.assertTrue(all(row['body_position']==row['add_count']==0 for row in result['reference_models']['named_range']['casts']))
+        self.assertEqual(aliases,(timeline.simulate,sim.simulate))
+
+    def test_explicit_body_only_named_range_and_movement_keep_original_effects(self):
+        from portable_product_programs import body_for_program
+        from portable_detail import prepare,compile_product
+        from named_range_battle import normalize as private_range
+        from detail_coverage import body_for
+        for mode in ('fixed','accumulate'):
+            for combined in (False,True):
+                body=body_for_program(ROOT,'named-range-'+mode)
+                spec=body['reference_models']['named_range'];spec['logical_geometry']=[]
+                body['enemy']['patterns']=[dict(id='declared-static-boss',kind='idle')]
+                with self.assertRaises(ValueError):private_range(spec['rules'],[])
+                if combined:
+                    roster=body['squad'][:3]+['유니','얀'];body['squad']=roster;body['profile']=body_for(roster,30)['profile']
+                    body['reference_models']['enemy_movement']=dict(coord=copy.deepcopy(spec['coord']),logical_geometry=[],motion=dict(precedence='disable-before-force',force_policy='snap-to-declared-center',recipient_policy='canonical-all-in-range',actors=[]))
+                with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle supplied to GPU')):
+                    prepared,_=prepare(body);before=copy.deepcopy(prepared);source,iw,ow,words,meta=compile_product(prepared)
+                self.assertEqual(prepared,before)
+                self.assertEqual(words[109968+2],0)
+                self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+                self.assertIn('product_named_range',meta)
+                self.assertEqual(source,'gpu/product_'+('movement_range_' if combined else 'named_range_')+('fixed_' if mode=='fixed' else '')+'battle_entry.slang')
+                if combined:
+                    self.assertEqual(words[115680+2],0)
+                    self.assertIn('product_enemy_movement',meta)
+                bad=copy.deepcopy(body);bad['duration']=1
+                bad['enemy']['patterns']=[dict(id='future-add',kind='summon',delay=10,spec=dict(count=1,hp=1e30))]
+                # Reject even before a delayed ADD or a named cast can exist.
+                with patch.object(sim,'execute',side_effect=AssertionError('Invalid world must not run a CPU battle')):
+                    with self.assertRaisesRegex(ValueError,'Every configured ADD'):compile_product(prepare(bad)[0])
+                    with self.assertRaisesRegex(ValueError,'Every configured ADD'):engine_worker.evaluate(bad)
+
     def test_explicit_empty_movement_preserves_duration_carriers_and_rejects_future_add(self):
         from portable_original_identity_inventory import selected_profile_bodies
         from portable_detail import prepare,compile_product

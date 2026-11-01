@@ -1344,13 +1344,13 @@
     },
     "app/portable_product_programs.py": {
       "before_sha256": "51d18a2191c24ef3b68f2d1cf71d792cdb9e8e01ed209e5c793827ce5b7d056d",
-      "after_sha256": "20c1d9a09da1e987358ee93d356505df39970b0d1c427a6fb251bce4d213413a",
+      "after_sha256": "6021aa0942d656fe17019b288805530bc4542856bca899e08a69c7c6e1f95444",
       "hunks": [
         {
           "start": 318,
           "end": 382,
           "before": "GOLDEN = 'research/portable-product-programs-v1-expected.json'\n",
-          "after": "GOLDEN = 'research/portable-product-programs-v43-expected.json'\n"
+          "after": "GOLDEN = 'research/portable-product-programs-v44-expected.json'\n"
         },
         {
           "start": 1039,
@@ -2640,13 +2640,13 @@
     },
     "gpu/logical_actor_geometry_runtime.slang": {
       "before_sha256": "80eefe10fbe2a80589d07019f7c8a80776cb5bd2c4ef35fac8d8da2b6b79e230",
-      "after_sha256": "2b979fd8d881ad3904724071c078fa94811d1e0b6505a07e625ef3838154d4f8",
+      "after_sha256": "641b4fae3844c2eb96a5a398d80eb9ce07fe89514ef691bcaa09ea7da145e50a",
       "hunks": [
         {
           "start": 761,
-          "end": 1292,
+          "end": 1340,
           "before": "    if(commands[p]!=LAG_MAGIC||commands[p+1]!=LAG_VERSION||count==0||count>LAG_ROWS||commands[p+3]!=actorPoolCount(s))return false;\n",
-          "after": "    if(commands[p]!=LAG_MAGIC||commands[p+1]!=LAG_VERSION||count>LAG_ROWS||commands[p+3]!=actorPoolCount(s))return false;\n#ifndef PORTABLE_PRODUCT_COORDINATE\n    if(count==0)\n    {\n#ifndef PORTABLE_PRODUCT_MOVEMENT\n        return false;\n#else\n        for(uint slot=1;slot<actorPoolCount(s);slot++)\n            if(commands[actorBinding(s,slot)]==5)return false;\n#endif\n    }\n#else\n    for(uint slot=1;slot<actorPoolCount(s);slot++)\n        if(commands[actorBinding(s,slot)]==5&&commands[p+LAG_MAP_BASE+slot]==0)return false;\n#endif\n"
+          "after": "    if(commands[p]!=LAG_MAGIC||commands[p+1]!=LAG_VERSION||count>LAG_ROWS||commands[p+3]!=actorPoolCount(s))return false;\n#ifndef PORTABLE_PRODUCT_COORDINATE\n    if(count==0)\n    {\n#if !defined(PORTABLE_PRODUCT_MOVEMENT) && !defined(PORTABLE_PRODUCT_NAMED_RANGE)\n        return false;\n#else\n        for(uint slot=1;slot<actorPoolCount(s);slot++)\n            if(commands[actorBinding(s,slot)]==5)return false;\n#endif\n    }\n#else\n    for(uint slot=1;slot<actorPoolCount(s);slot++)\n        if(commands[actorBinding(s,slot)]==5&&commands[p+LAG_MAP_BASE+slot]==0)return false;\n#endif\n"
         }
       ]
     },
@@ -2883,12 +2883,102 @@
           "after": "    if(commands[p]!=EMB_MAGIC||commands[p+1]!=1||n>127||n!=commands[lagInput(s)+2]||commands[p+3]!=s.count||commands[p+4]!=actorPoolCount(s)||commands[p+5]>1)return false;\n#ifndef PORTABLE_PRODUCT_MOVEMENT\n    if(n==0)return false;\n#endif\n"
         }
       ]
+    },
+    "app/named_range_battle.py": {
+      "before_sha256": "3689cdad2a0a0e4a7c26a814aeca533146e95c9bab185d36179d64565b12260b",
+      "after_sha256": "9d6f7d90074974b8a723521f4556042177b7fb92c6e8348abd4ec978a620797f",
+      "hunks": [
+        {
+          "start": 1140,
+          "end": 1289,
+          "before": "def normalize(rules,geometry):\n    colliders=shapes(geometry)\n",
+          "after": "def normalize(rules,geometry,*,allow_empty=False):\n    colliders=[] if allow_empty and type(geometry) is list and not geometry else shapes(geometry)\n"
+        },
+        {
+          "start": 2280,
+          "end": 2766,
+          "before": "    def __init__(self):self.counts=dict(event=0,land=0)\n",
+          "after": "    def __init__(self):self.counts=dict(event=0,land=0,route=0)\n    def visit_BoolOp(self,node):\n        self.generic_visit(node)\n        if ast.unparse(node)=='boss is not None and boss.has_summons and (ev.to is not None or boss.has_adds)':\n            self.counts['route']+=1\n            return ast.copy_location(ast.parse('boss is not None and (boss.has_summons or _nikke_named_range_pending(ev)) and (ev.to is not None or boss.has_adds)',mode='eval').body,node)\n        return node\n"
+        },
+        {
+          "start": 3593,
+          "end": 4118,
+          "before": "    def __init__(self,rules,geometry):\n        rules,self.geometry=normalize(rules,geometry);self.rules={(r['owner'],r['effect']):r for r in rules};self.pending={};self.data=dict(casts=[],landings=[]);self.manager=None;self.boss=None\n",
+          "after": "    def __init__(self,rules,geometry,*,geometry_provider=None,allow_empty=False):\n        self.allow_empty=allow_empty\n        self.geometry_provider=geometry_provider\n        if geometry_provider is not None and not callable(geometry_provider):raise ValueError('Callable live geometry provider required')\n        rules,self.geometry=normalize(rules,geometry,allow_empty=allow_empty);self.rules={(r['owner'],r['effect']):r for r in rules};self.pending={};self.data=dict(casts=[],landings=[]);self.manager=None;self.boss=None\n"
+        },
+        {
+          "start": 5133,
+          "end": 5829,
+          "before": "        registry=registry_for(manager,boss);colliders={row['label']:row['shape'] for row in self.geometry};colliders['__enemy__']=rule['body_shape']\n",
+          "after": "        literal=self.geometry if self.geometry_provider is None else self.geometry_provider(manager,boss,t)\n        geometry=[] if self.allow_empty and type(literal) is list and not literal else shapes(literal)\n        if [r['label'] for r in geometry]!=[r['label'] for r in self.geometry]:raise ValueError('Live named range collider ownership changed')\n        registry=registry_for(manager,boss)\n        if self.allow_empty and not geometry and any(kind==ActorKind.ADD for kind,label in registry.bindings):raise ValueError('Every configured ADD requires explicit named range geometry')\n        colliders={row['label']:row['shape'] for row in geometry};colliders['__enemy__']=rule['body_shape']\n"
+        },
+        {
+          "start": 8287,
+          "end": 8370,
+          "before": "def named_range_battle(rules,geometry):\n",
+          "after": "def named_range_battle(rules,geometry,*,geometry_provider=None,allow_empty=False):\n"
+        },
+        {
+          "start": 8544,
+          "end": 8806,
+          "before": "    runtime=NamedRangeBattle(rules,geometry);original=timeline.simulate;route=boss_pattern.BossScript.route\n    rewritten=rewrite_reference(original,Capture(),dict(event=1,land=1),compose=True)\n",
+          "after": "    runtime=NamedRangeBattle(rules,geometry,geometry_provider=geometry_provider,allow_empty=allow_empty);original=timeline.simulate;route=boss_pattern.BossScript.route\n    rewritten=rewrite_reference(original,Capture(),dict(event=1,land=1,route=1),compose=True)\n"
+        },
+        {
+          "start": 8902,
+          "end": 9238,
+          "before": "    with patch.dict(original.__globals__,{'_nikke_named_range_capture':runtime.capture,'_nikke_named_range_landing':runtime.landing}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten),patch.object(boss_pattern.BossScript,'route',routed):\n",
+          "after": "    with patch.dict(original.__globals__,{'_nikke_named_range_capture':runtime.capture,'_nikke_named_range_landing':runtime.landing,'_nikke_named_range_pending':lambda ev:id(ev) in runtime.pending}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten),patch.object(boss_pattern.BossScript,'route',routed):\n"
+        }
+      ]
+    },
+    "app/portable_named_range_battle_wire.py": {
+      "before_sha256": "22defc2b21408508ee926bdd1b9c82a72eed2787bf720510d396aa0fedecb09e",
+      "after_sha256": "726a20f3b9b515836bd3650de7d585958765a6f24bb9ba6f2be59bf255acd819",
+      "hunks": [
+        {
+          "start": 802,
+          "end": 1254,
+          "before": "def shader_schema():\n    return '// Generated from portable_named_range_battle_wire; literal inputs only.\\n'+''.join('static const uint NRB_'+k+'='+str(v)+'U;\\n' for k,v in dict(BASE=BASE,HEADER=HEADER,ROWS=ROWS,ROW_WORDS=ROW_WORDS,WORDS=WORDS,INPUT=INPUT,OUTPUT=OUTPUT,OUT=OUT,OUT_HEADER=OUT_HEADER,CASTS=CASTS,CAST_WORDS=CAST_WORDS,END=END,MAGIC=MAGIC,RANGE_STAT=RANGE_STAT).items())\n",
+          "after": "def shader_schema(*,base=BASE,out=OUT,output=OUTPUT):\n    return '// Generated from portable_named_range_battle_wire; literal inputs only.\\n'+''.join('static const uint NRB_'+k+'='+str(v)+'U;\\n' for k,v in dict(BASE=base,HEADER=HEADER,ROWS=ROWS,ROW_WORDS=ROW_WORDS,WORDS=WORDS,INPUT=base+WORDS,OUTPUT=output,OUT=out,OUT_HEADER=OUT_HEADER,CASTS=CASTS,CAST_WORDS=CAST_WORDS,END=out+OUT_HEADER+CASTS*CAST_WORDS,MAGIC=MAGIC,RANGE_STAT=RANGE_STAT).items())\n"
+        },
+        {
+          "start": 1474,
+          "end": 1539,
+          "before": "def compile_battle(prepared,geometry,rules):\n",
+          "after": "def compile_battle(prepared,geometry,rules,*,allow_empty=False):\n"
+        },
+        {
+          "start": 1611,
+          "end": 1752,
+          "before": "    normalized,_=normalize(rules,geometry);source=copy.deepcopy(prepared);lowered=copy.deepcopy(prepared);domains={}\n",
+          "after": "    normalized,_=normalize(rules,geometry,allow_empty=allow_empty);source=copy.deepcopy(prepared);lowered=copy.deepcopy(prepared);domains={}\n"
+        },
+        {
+          "start": 2140,
+          "end": 2230,
+          "before": "    w,m,bindings,scene=compile_logical_geometry(lowered,geometry)\n",
+          "after": "    w,m,bindings,scene=compile_logical_geometry(lowered,geometry,allow_empty=allow_empty)\n"
+        }
+      ]
+    },
+    "app/portable_named_range_battle_source_contract.py": {
+      "before_sha256": "4b85005742800cb08fcda8dc4a6a08cf254de95193aad3666415d171e2e3073c",
+      "after_sha256": "c652035b1752c5dab370b5f2f47575ec8a0fb36e2edfe7c3332ce2226fda3107",
+      "hunks": [
+        {
+          "start": 313,
+          "end": 676,
+          "before": "",
+          "after": "    if sources is None and (root/'gpu/world_add_attack_battle_entry.slang').exists():\n        # Direct audits need the same newer-to-older exact inverse chain as\n        # the existing enemy-healing parent. Do not normalize current bytes.\n        from portable_add_attack_battle_source_contract import project_sources as add_attacks\n        out=add_attacks(root)\n"
+        }
+      ]
     }
   },
   "added_sources": {
     "app/portable_product_cover.py": "9728e7a7748cb8d405434250ab621c5ad94217dc151da5a02ee753fe4513cd89",
-    "app/portable_product_movement_range.py": "adf8a59cab44d09ed6cc142c2e18d2d91d6f82c8ec5ef238c677fa7784fa4758",
-    "app/product_reference_models.py": "cab3914952786e434c7574526b4a150620b818ad36a84c033b47896f3aaa44cc",
+    "app/portable_product_movement_range.py": "eb9b7727c47943b78217795779b681fba269c6a3b88f72635cb311aa826b2625",
+    "app/product_reference_models.py": "9772e6506e00ba472825f29d252229f36707c4cdb72de7a04665e1846ca165f3",
     "gpu/product_movement_range_cover_battle_entry.slang": "1cdac26aa6548cddb68f651eb60accee4990ad68ff81b087ca51068f6dbe03c3",
     "gpu/product_movement_range_cover_fixed_battle_entry.slang": "6710f79e3ce475933c752dce08f219a0bfcc24530bb6d258e9adf788cad40e39",
     "app/portable_product_healing.py": "e8f53b19e4fd4c8a09c3a73cd0b8490eb6009ab0f3e8acb994e205a93ad5914d",
@@ -2911,6 +3001,10 @@
     "gpu/product_movement_battle_entry.slang": "b1e9a1eb1483aa54de472a0e3af552aad29391d3cebff6ab895ad153d9f3159a",
     "gpu/product_cover_entry.slang": "888f6d7845fb530b4811a28b2d52ccb104ae85f828acb2eccc879be3e67b290b",
     "gpu/product_healing_cover_fixed_group_battle_entry.slang": "306d8cd927eeea8d8cb5fbcaea66530e5be3d8594fb1aa207b3d7a1b6295c5f4",
-    "gpu/product_healing_cover_group_battle_entry.slang": "b38f9faa71f63d5b6f53e9614212edd590b1228cf6693aed6cdb74352798d5fb"
+    "gpu/product_healing_cover_group_battle_entry.slang": "b38f9faa71f63d5b6f53e9614212edd590b1228cf6693aed6cdb74352798d5fb",
+    "app/portable_product_named_range.py": "dcd5d60cee4161d777e59e564c5cca5732e0e8920e9596445e12b1186796b86c",
+    "app/product_named_range_model.py": "5f0a6d2187488aaa18a5baeecb17ac24b1ea7d73ec374cfbb12e6b5dfae87b2c",
+    "gpu/product_movement_range_battle_entry.slang": "2611612a142691878a8ca634ffc974d377d63da2778a053b627dc6c26704f757",
+    "gpu/product_named_range_battle_entry.slang": "b727d7f73788e5bdd61810da53fc94c14c285af6e631379fee3c422a4c70f518"
   }
 }

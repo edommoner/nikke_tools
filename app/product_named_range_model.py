@@ -9,8 +9,8 @@ def normalize(value):
     from named_range_battle import normalize as rules
     if type(value) is not dict or set(value)!={'coord','logical_geometry','rules'}:
         raise ValueError('Named range requires coord, logical_geometry and rules')
-    result=coordinates(value['coord'],value['logical_geometry'])
-    result['rules'],_=rules(value['rules'],result['logical_geometry'])
+    result=coordinates(value['coord'],value['logical_geometry'],allow_empty=True)
+    result['rules'],_=rules(value['rules'],result['logical_geometry'],allow_empty=True)
     return result
 
 
@@ -33,7 +33,15 @@ def execution(spec,*,coordinate_context=True,geometry_provider=None):
     from named_range_battle import named_range_battle
     from product_coordinate_model import execution as coordinates
     from calculator.buff_manager import BuffManager
-    initialize=BuffManager.__init__
+    from runner import sim
+    initialize=BuffManager.__init__;execute=sim.execute
+    def checked_execute(run,*args,**kwargs):
+        if not spec['logical_geometry']:
+            from calculator.boss_pattern import validate
+            from world_actor_specs import bindings
+            if any(int(b.kind)==5 for b in bindings(validate(copy.deepcopy(run.enemy.get('patterns') or []),coord=True))):
+                raise ValueError('Every configured ADD requires explicit named range geometry, including future spawns')
+        return execute(run,*args,**kwargs)
     def checked(manager,*args,**kwargs):
         initialize(manager,*args,**kwargs)
         for rule in spec['rules']:
@@ -42,4 +50,4 @@ def execution(spec,*,coordinate_context=True,geometry_provider=None):
             effect=found[0]
             if (effect.get('type')!='damage' or effect.get('stat')!='damage' or effect.get('target')!='enemies_nearest:'+str(rule['base_count'])
                 or effect.get('tick_interval') or effect.get('hits_parts')):raise ValueError('Plain original nearest damage binding required')
-    with patch.object(BuffManager,'__init__',checked),named_range_battle(spec['rules'],spec['logical_geometry'],geometry_provider=geometry_provider) as data,(coordinates(spec) if coordinate_context else nullcontext()):yield data
+    with patch.object(sim,'execute',checked_execute),patch.object(BuffManager,'__init__',checked),named_range_battle(spec['rules'],spec['logical_geometry'],geometry_provider=geometry_provider,allow_empty=True) as data,(coordinates(spec) if coordinate_context else nullcontext()):yield data

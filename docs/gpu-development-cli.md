@@ -945,3 +945,8 @@ packet自身の `compile-plan --artifact-kind cubin --ptxas-level 1 --memory-lim
 
 
 敵回復・実射撃グループ・遮蔽DEFの併用は既存 `product-detail` の `--product-program healing-cover-fixed-group` を使います。通常の `reference_models.enemy_healing` / `cover_defense` と元の射撃group通知を同じ実行器が処理し、各結果を欠落なく返します。固定30秒はv42独立Metal基準、`healing-cover-accumulate-group` は通常API一致済みですが独立CLI基準未登録です。入力120072語・出力2048912語と既存の各consumer容量を保持します。元効果を除いた限定編成への変更ではありません。実Metalの6条件・CPU148件・元coverbuff対象/対象外の対照は [製品接続記録](../research/product-healing-group-cover-v1.json) を参照してください。新合成のCUDAと任意合成全体は未認定です。
+
+
+BODYのみの宣言範囲モデルは `reference_models.named_range.logical_geometry: []` を明示できます。各ruleの `body_shape`、半径、対象数、coordは従来どおり明示し、将来出現するADDがある場合も全colliderが必須です。`enemy_movement` の同じcoord/geometryと `motion.actors: []` を併用でき、既存cover_defenseも接続済みです。privateモデルのempty既定拒否は維持します。BODY-onlyの凍結空集合も専用native adapterが着弾へ渡すため、範囲外BODYに命中させません。
+
+既存 `named-range-fixed` と `movement-range-cover-fixed` はv44でsource identityを実証更新し、旧入力・出力・native期待値を全保持しました。通常API8条件、150 CPU、旧private13検査、raw device負例と失敗保持は [実証記録](../research/product-empty-range-v1.json) を参照してください。新suite/programは不要です。公開基礎半径・BODY位置・移動免疫などのゲーム仕様を確定したモデルではありません。

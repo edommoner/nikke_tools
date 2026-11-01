@@ -19,16 +19,16 @@ def check_schema(root=None):
     path=Path(root or Path(__file__).resolve().parents[1])/'gpu/named_range_battle_layout.slang'
     if path.read_text()!=shader_schema():raise ValueError('Named range battle schema drift')
 
-def compile_battle(prepared,geometry,rules):
+def compile_battle(prepared,geometry,rules,*,allow_empty=False):
     from portable_logical_geometry_wire import compile_logical_geometry
-    normalized,_=normalize(rules,geometry);source=copy.deepcopy(prepared);lowered=copy.deepcopy(prepared);domains={}
+    normalized,_=normalize(rules,geometry,allow_empty=allow_empty);source=copy.deepcopy(prepared);lowered=copy.deepcopy(prepared);domains={}
     for i,item in enumerate(source['effects']):
         e=item['effect']
         if validate_range(e):domains[i]=RANGE_STAT
         elif validate_count(e,allow_marked_allies=True):domains[i]=COUNT_STAT
         if i in domains:lowered['effects'][i]['effect']['stat']=''
     if not domains or RANGE_STAT not in domains.values():raise ValueError('Original named range definitions required')
-    w,m,bindings,scene=compile_logical_geometry(lowered,geometry)
+    w,m,bindings,scene=compile_logical_geometry(lowered,geometry,allow_empty=allow_empty)
     if len(w)!=BASE or prepared!=source:raise ValueError('Named range prefix identity changed')
     def symbol(name):
         if name not in m['states']:
