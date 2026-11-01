@@ -1,0 +1,37 @@
+{
+  "schema": "standard-first-two-expectations-v1",
+  "owner": "032bbb7646fe850b222c0c23097b16cd820f2ad4295c5ce7b00510171d7be071",
+  "source": "gpu/product_fixed_battle_entry.slang",
+  "body_sha256": "8b44a5113ec4f27ae719585031b5099f8428baeb0633df2a289ec825754ff984",
+  "physical_cases": 2,
+  "input_words": 104400,
+  "output_words": 786432,
+  "physical_input_bytes": 835204,
+  "physical_output_bytes": 6291456,
+  "physical_input_sha256": "e7cebc56ccbb29b1b9786d82633c289fdc554f29fbbf2d5ef9667ca33695ca5f",
+  "cases": [
+    {
+      "index": 14,
+      "character": "폴리",
+      "favorite_stage": 3,
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "expected_input_sha256": "774447605c6480cb355fed607bc94b01290e993c9139f621c0235154b3b21a0e",
+      "expected_output_sha256": "657ef8fb9ec63494bd16648f45f43a287cf0b04819448744f72e7675ae278050"
+    },
+    {
+      "index": 20,
+      "character": "D",
+      "favorite_stage": 0,
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "expected_input_sha256": "815156e459dfb18a3a2511db2e55ed7c1f19b9cb9386e1a716e3357776d48d5b",
+      "expected_output_sha256": "279eec95f216372e44eab2a23411b5a169b4b9d5f257a0315f576281b6bf9f26"
+    }
+  ],
+  "native_battles": 0,
+  "gpu_calls": 0,
+  "scope": "Two original standard profile requests and original M5 expectations; one physical batch is intended"
+}

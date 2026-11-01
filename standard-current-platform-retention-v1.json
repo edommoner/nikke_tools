@@ -1,0 +1,121 @@
+{
+  "schema": "standard-shared-platform-retention-v1",
+  "reference_owner": "9975b5dc700615394cd628e76788fcd37c2192a43761911500ebdee4e6fd0078",
+  "candidate_owner": "032bbb7646fe850b222c0c23097b16cd820f2ad4295c5ce7b00510171d7be071",
+  "files": [
+    {
+      "path": "scripts/nikke_gpu.py",
+      "sha256": "6877d406d665dbdf79a26b64020a6f741500518f59a5774426ea78013da11e3b"
+    },
+    {
+      "path": "scripts/run-gpu-packet.py",
+      "sha256": "c7c763e1b7609bbcb8a92d86c78cd2f7d46b1ec775c81a2b53a20e508ccd528b"
+    },
+    {
+      "path": "research/run-world-bounded.py",
+      "sha256": "494df8bc60201989a4e8fb451dc5aa0742d7f93098bc52d5f79722eebb123a88"
+    },
+    {
+      "path": "research/windows_validation_observer.py",
+      "sha256": "97d7405ff8771cf413f5e58c14ebea98037afb8a3691417d12e7b21d2d45fdd3"
+    },
+    {
+      "path": "app/portable_backend.py",
+      "sha256": "b6452d7fcefd8fc09ddf04f36ea606fe82f57ce2afb974ae4ec545022cb5aebe"
+    },
+    {
+      "path": "app/portable_slang_generation.py",
+      "sha256": "a3285cc9b372e4bb592fd70fdc18e44b07b6803a2c432eca8a8f0493eae76dac"
+    },
+    {
+      "path": "app/portable_generation_cache.py",
+      "sha256": "72f279db869974159c7ef80642310af8defead82ea91d704cb7a7cf3bf189e2f"
+    },
+    {
+      "path": "app/portable_scope_snapshot_audit.py",
+      "sha256": "1f638c2bc7e46c63c3817ff6394103887639e0fd1d0c28d678aaf17d6b3385c4"
+    },
+    {
+      "path": "app/portable_compile_cache.py",
+      "sha256": "d1dcc7cf1a5c7197b1dd63dd0d6bd1cc90192356eb42ad4a4e6b2f641c5cc505"
+    },
+    {
+      "path": "app/portable_offline_assembler.py",
+      "sha256": "e5b625d9c8db8910429d618df8526e52350bfacf4d840e75ceaf1433d8087d94"
+    },
+    {
+      "path": "app/portable_partition_object.py",
+      "sha256": "22a5a3f4b4be713130dd1897ec8d18719bbc7075bcb7509a582f3b725063b513"
+    },
+    {
+      "path": "app/portable_jit_link.py",
+      "sha256": "7638916f0c63046855e877a5d3b4ccb00431ae11c4855f93c3d386b88afa0f97"
+    },
+    {
+      "path": "app/portable_jit_link_run.py",
+      "sha256": "6a0ec1012a4354b7ccb3a0aa299d0fb7aa67d496a0e1cdab4ea1d27f8e3fd779"
+    },
+    {
+      "path": "app/portable_linked_artifact.py",
+      "sha256": "3bb3e2bf687ace0b7d0c28faedd6d5ce1974b6b3501040010ca0b0ad118315a9"
+    },
+    {
+      "path": "app/portable_product_artifact.py",
+      "sha256": "651d17988f3cfd543a407ed8b77222591971ed8a67aec11fd8e3bac56ba628d0"
+    },
+    {
+      "path": "app/portable_detail.py",
+      "sha256": "73cffcca974d2209ea0e74f59c44fc7f637aac772fe30922edaab4cb100297de"
+    },
+    {
+      "path": "app/detail_gpu.py",
+      "sha256": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270"
+    },
+    {
+      "path": "app/engine_worker.py",
+      "sha256": "52832891066bd4b59b8c60783151e81ec0db0c116e59441c0dabbefc4c4a3fa1"
+    },
+    {
+      "path": "app/effect_spec.py",
+      "sha256": "a6655815582048966dbb0bf3a97081e1c2585fb2f549be7c635aabda36effb9b"
+    },
+    {
+      "path": "app/engine_compat.py",
+      "sha256": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8"
+    },
+    {
+      "path": "server.mjs",
+      "sha256": "9d03fc904206276152a870aadb1aef5ca70848a997fee04bf4f0118744cb80eb"
+    },
+    {
+      "path": "tests/server.test.mjs",
+      "sha256": "848a37e535d6f27ea90c6db9e89f38e7812bdb9a29001c6135105e93e9a0fd8e"
+    },
+    {
+      "path": "tests/test_portable_scope_snapshot_audit.py",
+      "sha256": "56cf65e805e98936da9b8f47c090bec79de78b3724ebbca6e6d97ad832311a4f"
+    },
+    {
+      "path": "tests/test_portable_generation_cache.py",
+      "sha256": "97f68413099fac271bddeebd52224003522669b1f9860e3d80b6c4ac466d909f"
+    },
+    {
+      "path": "app/portable_readback_blocks.py",
+      "sha256": "d921b979d6dc1eb203ecd77568bd991be2ed541175f4dc97d0e07fd5b3928bd1"
+    },
+    {
+      "path": "tests/test_portable_readback_blocks.py",
+      "sha256": "a57e9d2127d9379f77612fb5b76376172233897bcd84bb2e276ed250f9b70789"
+    },
+    {
+      "path": "tests/test_portable_windows_cleanup.py",
+      "sha256": "7528aaa49b8790ce4da24ff9fc9110ac71a56e0f4297e57df32365b5c6ab6999"
+    },
+    {
+      "path": "tests/test_portable_device_linker.py",
+      "sha256": "449a22de9302a6d4c6c64a866f7a87b07c234115dd670997d5d3f98eb1896195"
+    }
+  ],
+  "byte_exact": true,
+  "scope": "Retained tested execution, audits, server, protected CPU code; not current profile calculation proof"
+}

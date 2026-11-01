@@ -1,0 +1,64 @@
+{
+  "schema": "standard-first-two-cuda-request-v1",
+  "source_commit": "00ed1f529995ce206378255f6aa51e2619d54392",
+  "owner": "032bbb7646fe850b222c0c23097b16cd820f2ad4295c5ce7b00510171d7be071",
+  "archive": "standard-current-fixed-v4.zip",
+  "archive_bytes": 14500684,
+  "archive_sha256": "11609648d7781dd7a3ca698d6f388d11affd20aa8f9a23d8a94ee088d8e73bd0",
+  "scope": "Current standard fixed program; first two original profiles only. Old Poli3 failure retained; current compiled program differs from that old source.",
+  "prior_success_reference": "84d9f15d token snapshot regression; all28 listed platform/audit/server/test/protected files byte-identical",
+  "steps": [
+    "reuse the previous working bounded coordinator/CLI; fresh packet and data/config paths only",
+    "bounded unpack and own immutable source/golden/plan verification",
+    "one paired generation; matching current sealed CUDA/MSL required",
+    "PTX compile once using required paired generation cache; existing exact-byte NVRTC cache may be reused by ordinary compile policy",
+    "on verified current PTX origin: module-object O1 once",
+    "on verified current object origin: pinned nvJitLink once",
+    "on provider admission: normal HTTP API kind=batch/evaluations from supplied job, POST1 and at most one physical GPU dispatch with2 cases",
+    "compare every CPU/GPU/API payload and original M5 full member readback hashes; verify parent/member input and output slices, source, hashes and static repack; no new native battle for saved audit"
+  ],
+  "cpu_policy": "Do not repeat own136/fresh native/full106 or unchanged27 guard tests; source/golden and all immutable bytes are still checked by each existing CLI gate. Fresh CPU full payload comparison after GPU remains mandatory.",
+  "limits": {
+    "sdk_child_seconds": 60,
+    "each_stage_outer_seconds": 180,
+    "api_helper_child_seconds": 53,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "api": {
+    "job_file": "standard-first-two-api-job-v1.json",
+    "expected_file": "standard-first-two-api-expected-v1.json",
+    "job_sha256": "8b44a5113ec4f27ae719585031b5099f8428baeb0633df2a289ec825754ff984",
+    "expected_physical_input_sha256": "e7cebc56ccbb29b1b9786d82633c289fdc554f29fbbf2d5ef9667ca33695ca5f",
+    "cases": 2,
+    "profile_order": [
+      "Poli3",
+      "D0"
+    ],
+    "duration": 30,
+    "input_words": 104400,
+    "output_words": 786432,
+    "post_max": 1,
+    "physical_dispatch_max": 1,
+    "member_cpu_after_gpu_required": true,
+    "owned_node_finally_stopped": true
+  },
+  "cache_policy": "Only exact raw CUDA/options/compiler/header identity; strict current paired baseline first. Do not use normalized equality as NVRTC cache proof. No require-cache miss fallback, key/claim deletion, artifact substitution, or old failed object reuse.",
+  "stops": [
+    "any missing process or incomplete enforced Job pre/post membership/limit query",
+    "timeout, cleanup/observation error, source/owner/cache/snapshot mismatch",
+    "compiler/object/link/provider gate rejection",
+    "any member nonzero GPU status, CPU mismatch or original M5 readback mismatch: save both outcomes and stop, no rerun"
+  ],
+  "preservation": "Old raw/claims/failures retained. service unverified/preservationfalse/overallfalse remain false; artifact/numerical verification separate.",
+  "reports": [
+    "standard-current-sdk-status-v1.json",
+    "standard-first-two-normal-api-status-v1.json",
+    "small saved difference/audit metadata only if needed"
+  ],
+  "gpu_retries": 0,
+  "remaining_six_requests_not_authorized_by_this_packet": true
+}
