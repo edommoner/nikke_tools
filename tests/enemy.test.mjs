@@ -103,3 +103,19 @@ test('explicit coordinate scenario stays visible through team persistence withou
  assert.deepEqual(result.reference_models.coordinate,coordinate);assert.equal(declaredScenarioLabel(declared),'座標・命中');
  result.reference_models.coordinate.coord.auto_aim[0]=100;assert.equal(coordinate.coord.auto_aim[0],0);
 });
+
+test('typed target declarations survive team JSON export and reach requests without sharing mutable state',()=>{
+ const typed_targets={coord:{auto_aim:[0,0],pierce_px:10,explosion_scale:1},bindings:[{node:'objects',kind:3,identity:10,capacity:1000000,owner:[0,0,1],label:'shield'}],geometry:{point_source:'caster_aim',shapes:[{x:0,y:0,r:100,z:1}]},aim_policy:{mode:'typed-before-body-v1'},actor_policy:{mode:'body-owned-current-fields-v1'}};
+ const declaration={reference_models:{typed_targets},enemy:{patterns:[{id:'objects',kind:'idle',until:{time:30}}]}};
+ const imported=normalizeDeclaredTeams(JSON.parse(JSON.stringify({'2':declaration})));
+ const body={squad:['a','b','c','d','e'],profile:{chars:{}},duration:30,enemy:{def:1000},compute_backend:'metal_detail'};
+ const first=applyDeclaredScenario(body,imported[2]);
+ assert.deepEqual(first.reference_models,declaration.reference_models);
+ assert.deepEqual(first.enemy.patterns,declaration.enemy.patterns);
+ assert.equal(first.compute_backend,'metal_detail');assert.equal(first.enemy.def,1000);
+ assert.equal(declaredScenarioLabel(imported[2]),'飛翔体・HPシールド');
+ first.reference_models.typed_targets.bindings[0].capacity=1;
+ assert.equal(imported[2].reference_models.typed_targets.bindings[0].capacity,1000000);
+ assert.equal(applyDeclaredScenario(body,imported[2]).reference_models.typed_targets.bindings[0].capacity,1000000);
+ assert.equal(body.reference_models,undefined);
+});

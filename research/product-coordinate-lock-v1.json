@@ -469,5 +469,17 @@
     "Typed weapon interception and Lock On combined in the same declared typed geometry world",
     "Independent cover/ammo/healing/weighted consumer combinations with coordinate Lock On",
     "Short current CUDA verification and saved full output comparison"
-  ]
+  ],
+  "ui_followup": {
+    "typed_target_model_import_enabled": true,
+    "prior_gap": "Browser declaration name whitelist omitted typed_targets even though ordinary API accepted it",
+    "module": "web/enemy-model.mjs",
+    "tests": "tests/enemy.test.mjs",
+    "tests_passed": 11,
+    "team_json_export_import_and_request_projection_verified": true,
+    "mutable_team_state_isolated": true,
+    "backend_or_input_calculation_changed": false,
+    "additional_gpu_or_battles": 0,
+    "frozen_release_core_verification_unchanged": true
+  }
 }

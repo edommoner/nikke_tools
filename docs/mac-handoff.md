@@ -12,6 +12,8 @@
 
 Windows差分を輸送e53f5bf6で共有（13file/12,224,661B、全Git blob再hash）。元long56-accumulate1条件だけ、output10,232,832Bは既存8MiBの[8,388,608,1,844,224]2chunk。最終ownerとMac169/選択11、実管理helperによるrequest↔selector/ID/SHA/owner照合を確認し、他158/標準266はWindows再実行しない。コードreview30f58203、snapshot元commitは3d8913b6＋dirty snapshotなのでowner/各SHAで実byteを拘束する。元healing stopを再実行せず、fresh sourceの初回だけ。BelowNormal/2GiB/RAM4GiB/SDK60s/API53s/audit60s/outer180s/逐次/最初異常停止を維持。同chat新turn01a197f0-9b28-7b20-a773-b6538830fcebがinProgress/activeとread_threadで確認。CUDA結果はまだ未取得、以後はこのhandleのstatus/exportだけを取得しrunを再送しない。research/product-coordinate-lock-cuda-request-v1.json参照。
 
+画面の宣言JSON入口を追加確認し、既存web/enemy-model.mjsの名前whitelistにtyped_targetsが無いことを発見した。APIのみ受付済みだった飛翔体/HPシールドを画面でも取込可能にし、部隊JSON書出し→取込→request投影・label・mutable state分離まで既存enemy.test.mjsの11検査を成功。1MB/finite JSON/未接続名拒否/編成・育成override禁止は保持。CRLF元形式も保持して改行認識付きdiff check成功。このfrontend-only変更で追加GPU/battle0、CUDAへ渡した固定core/packetは変更しない。
+
 ## 2026-11-02 Heavy Arms飛翔体スキルの製品読取器を分離、通常Metal4条件
 
 前turnはtyped武器16条件までprogress。今回は実original all_projectilesを調査し、該当はHeavy Armsの元burst_cast skill1定義と確認。既存Lock On製品経路にはこのskillを処理する共通typed frameがあるので、同じ計算本体を再利用。portable_world_result.read_typed_battleのskill分岐に研究用roster observer importが残っていたため、portable_product_locksから元effect/owner/skill_levelsだけで求めた静的係数を渡し、既存の完全なsource/係数binary照合を維持した。sampled係数がある場合は研究moduleをimportしない。新shader/式/suite/program/監査器0、CPU正本4file/pinned/数値規約変更0。
