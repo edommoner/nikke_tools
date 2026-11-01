@@ -16,7 +16,7 @@ def normalize(coord,geometry,*,allow_empty=False):
 
 
 @contextmanager
-def execution(spec,*,configure_run=False):
+def execution(spec,*,configure_run=False,typed_packets=False):
     # The shared geometry provider imports this adapter lazily. Resolve it
     # before checked simulation rewrites, including script-as-__main__ workers.
     import engine_worker
@@ -34,7 +34,7 @@ def execution(spec,*,configure_run=False):
         return evaluate((1 if shape.is_circle else 2,shape.x,shape.y,shape.r,shape.w,shape.h,shape.rot,px,py,0.,0.))['distance']
     state=timeline.random.getstate()
     try:
-        with (logical_actor_geometry(spec['logical_geometry']) if spec['logical_geometry'] else nullcontext()),battle_attack_groups(routing='native',coordinate_packets=True),patch.object(timeline,'sample_landing',sample),patch.object(aim.Shape,'dist',distance):
+        with (logical_actor_geometry(spec['logical_geometry']) if spec['logical_geometry'] else nullcontext()),battle_attack_groups(routing='native',coordinate_packets=True,coordinate_typed_packets=typed_packets),patch.object(timeline,'sample_landing',sample),patch.object(aim.Shape,'dist',distance):
             if configure_run:
                 from runner import sim
                 original=sim.execute

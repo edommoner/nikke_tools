@@ -271,6 +271,12 @@ def validate_composed_stride(source,input_words,output_words):
                 raise ValueError('Coordinate and healing require adjacent complete banks')
         if (input_words,output_words)!=(INPUT_WORDS,OUTPUT['OUTPUT_WORDS']):raise ValueError('Enemy healing requires its complete declared source wire')
         return
+    if source in ('gpu/product_typed_battle_entry.slang','gpu/product_typed_fixed_battle_entry.slang'):
+        from portable_coordinate_typed_specs import check_layout,INPUT_WORDS,OUTPUT_WORDS
+        from portable_skill_history import check_layout as history_layout
+        check_layout(ROOT);history_layout(ROOT)
+        if (input_words,output_words)!=(INPUT_WORDS,OUTPUT_WORDS):raise ValueError('Typed product requires complete coordinate/typed/skill history banks')
+        return
     if source in ('gpu/product_coordinate_add_battle_entry.slang','gpu/product_coordinate_add_fixed_battle_entry.slang'):
         from portable_add_attack_battle_wire import check_schema,LAYOUT as A
         from portable_add_self_destruct_wire import check_schema as retirement_schema

@@ -17,7 +17,7 @@ COORDINATE_WARNING='宣言した座標・共通命中サンプリング規約を
 MOVEMENT_WARNING='宣言したADD移動・座標モデルと共通サンプリング規約を使用しています。実ゲームの位置・範囲・移動優先規則を確認した意味ではありません。'
 
 def warning(declarations):
-    return ' '.join(text for key,text in [('coordinate',COORDINATE_WARNING),('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING),('cover_defense',COVER_WARNING),('enemy_ammo',AMMO_WARNING),('enemy_movement',MOVEMENT_WARNING),('named_range',RANGE_WARNING),('lock_on',LOCK_WARNING)] if key in declarations)
+    return ' '.join(text for key,text in [('typed_targets','宣言した飛翔物・HPシールド・照準・所有者モデルを使用しています。ゲーム仕様との一致は未検証です。'),('coordinate',COORDINATE_WARNING),('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING),('cover_defense',COVER_WARNING),('enemy_ammo',AMMO_WARNING),('enemy_movement',MOVEMENT_WARNING),('named_range',RANGE_WARNING),('lock_on',LOCK_WARNING)] if key in declarations)
 
 def combine_public(models):
     """Join independent checked readbacks without overwriting any consumer."""
@@ -36,8 +36,9 @@ def combine_public(models):
 
 def normalize(value):
     if value is None:return {}
-    if type(value) is not dict or set(value)-{'coordinate','enemy_healing','weighted_incoming','cover_defense','enemy_ammo','enemy_movement','named_range','lock_on'}:
+    if type(value) is not dict or set(value)-{'coordinate','enemy_healing','weighted_incoming','cover_defense','enemy_ammo','enemy_movement','named_range','lock_on','typed_targets'}:
         raise ValueError('reference_modelsには接続済みのcoordinate／enemy_healing／weighted_incoming／cover_defense／enemy_ammo／enemy_movement／named_range／lock_onだけを指定してください。')
+    if 'typed_targets' in value and set(value)!={'typed_targets'}:raise ValueError('Typed target product composition requires its matching checked consumer')
     if 'coordinate' in value and set(value)-{'coordinate','cover_defense','weighted_incoming','enemy_healing'}:raise ValueError('Coordinate composition requires a matching checked consumer wire')
     if 'enemy_ammo' in value and set(value)-{'enemy_ammo','enemy_healing','cover_defense'}:raise ValueError('Enemy magazine composition requires a combined checked native consumer')
     if 'enemy_movement' in value and set(value)-({'enemy_movement','named_range','cover_defense'} if 'named_range' in value else {'enemy_movement','cover_defense'}):raise ValueError('Movement composition requires a combined checked native consumer')
@@ -45,6 +46,9 @@ def normalize(value):
     if 'lock_on' in value and set(value)-{'lock_on','cover_defense'}:raise ValueError('Lock composition requires a combined checked native consumer')
     if {'weighted_incoming','cover_defense'}<=set(value):raise ValueError('Weighted allocation and independent cover DEF require a combined checked landing contract')
     result={}
+    if 'typed_targets' in value:
+        from product_typed_model import normalize_product
+        result['typed_targets']=normalize_product(value['typed_targets'])
     if 'coordinate' in value:
         from product_coordinate_model import normalize_product
         result['coordinate']=normalize_product(value['coordinate'])
@@ -107,6 +111,10 @@ def execution(declarations,names=None):
     from enemy_healing_model import enemy_healing
     result=dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(declarations))
     with ExitStack() as stack:
+        typed=None
+        if 'typed_targets' in declarations:
+            from product_typed_model import execution as typed_execution
+            typed=stack.enter_context(typed_execution(declarations['typed_targets'],names))
         if 'coordinate' in declarations:
             from product_coordinate_model import execution as coordinates,public as coordinate_public
             stack.enter_context(coordinates(declarations['coordinate'],configure_run=True))
@@ -143,6 +151,7 @@ def execution(declarations,names=None):
             locks=stack.enter_context(lock_execution(declarations['lock_on'],names))
         else:locks=None
         yield result
+    if typed is not None:result['typed_targets']=copy.deepcopy(typed)
     if healing is not None:result['enemy_healing']=healing_public(healing)
     if weighted is not None:result['weighted_incoming']=copy.deepcopy(weighted)
     if cover is not None:result['cover_defense']=copy.deepcopy(cover)

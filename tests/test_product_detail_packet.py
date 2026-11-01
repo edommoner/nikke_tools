@@ -8,6 +8,20 @@ spec=importlib.util.spec_from_file_location('product_packet',ROOT/'research/veri
 adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
 
 class ProductPacket(unittest.TestCase):
+    def test_weapon_only_typed_decoder_has_no_research_import_dependency(self):
+        import builtins,struct
+        from portable_world_result import read_typed_battle
+        block=[0]*1048576;block[786432]=0x44425431
+        block[789250]=1;block[789251]=1;block[789252]=1
+        original=builtins.__import__
+        def guarded(name,*args,**kwargs):
+            if name in ('world_frame_native','world_authored_roster','destructible_skill_specs'):
+                raise ImportError('Research module deliberately unavailable')
+            return original(name,*args,**kwargs)
+        with patch('builtins.__import__',side_effect=guarded):
+            result=read_typed_battle(block,(dict(typed_bindings=[],max_attacks=128),{},()))
+        self.assertEqual(result,dict(time=0.,finished=True,state=[],attacks=[]))
+
     def test_stationary_world_clock_must_survive_gpu_readback(self):
         from portable_detail import validate_world_frame_readback
         from portable_specs import LIMITS as L
@@ -62,7 +76,7 @@ class ProductPacket(unittest.TestCase):
         cli=self.cli();base=cli.SUITES['product-detail']
         self.assertIs(configuration(cli.SUITES,'product-detail'),base)
         self.assertIs(configuration(cli.SUITES,dict(suite='product-detail')),base)
-        self.assertEqual(len(PROGRAMS),76)
+        self.assertEqual(len(PROGRAMS),78)
         self.assertEqual({n for n in PROGRAMS if n.startswith('coordinate-')},{'coordinate-fixed','coordinate-accumulate','coordinate-cover-fixed','coordinate-cover-accumulate','coordinate-weighted-fixed','coordinate-weighted-accumulate','coordinate-add-fixed','coordinate-add-accumulate','coordinate-healing-fixed','coordinate-healing-accumulate'})
         self.assertEqual({n for n in PROGRAMS if n.startswith('healing-') and n.endswith('-group')},
                          {'healing-fixed-group','healing-accumulate-group','healing-cover-fixed-group','healing-cover-accumulate-group'})
@@ -90,7 +104,7 @@ class ProductPacket(unittest.TestCase):
                 self.assertEqual(len(raw),4*(1+len(rows)*config['input_words']))
                 self.assertEqual(rows[0][2][0]['burst_gauge_mode'],config['mode'])
                 self.assertFalse(rows[0][2][1]['cpu_battle_executed'])
-                self.assertEqual(rows[0][1][LIMITS['WORLD_CONTROL_INPUT_BASE']+1],6 if config['mode']=='fixed' and name.startswith(('coordinate-','movement-','named-range-','cover-','default-cover-','healing-cover-','ammo-cover-','lock-cover-')) else 3 if name.startswith(('coordinate-','cover-','movement-','named-range-','healing-cover-','ammo-cover-','lock-cover-')) else 4 if config['mode']=='fixed' else 1)
+                self.assertEqual(rows[0][1][LIMITS['WORLD_CONTROL_INPUT_BASE']+1],6 if config['mode']=='fixed' and name.startswith(('typed-','coordinate-','movement-','named-range-','cover-','default-cover-','healing-cover-','ammo-cover-','lock-cover-')) else 3 if name.startswith(('typed-','coordinate-','cover-','movement-','named-range-','healing-cover-','ammo-cover-','lock-cover-')) else 4 if config['mode']=='fixed' else 1)
                 self.assertTrue(cli.registered_battle_source(dict(suite='product-detail',product_program=name)))
     def test_program_baseline_is_explicit_and_unsealed_members_do_not_fall_back(self):
         from portable_product_programs import registered_golden,configuration,GOLDEN

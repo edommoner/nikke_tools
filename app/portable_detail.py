@@ -86,6 +86,9 @@ def validate_world_frame_readback(block,metadata):
 
 def _compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
+    if 'typed_targets' in prepared.get('reference_models',{}):
+        from portable_product_typed import compile_product as typed_product
+        return typed_product(prepared)
     from portable_product_cover import required as cover_required,compile_product as compile_cover
     if 'coordinate' in prepared.get('reference_models',{}):
         from portable_product_weighted import required as weighted_required,compile_product as compile_weighted
@@ -215,6 +218,9 @@ def prepare(body):
     if 'coordinate' in body.get('reference_models',{}):
         from product_coordinate_model import normalize_product
         coordinate_spec=normalize_product(body['reference_models']['coordinate'])
+    if 'typed_targets' in body.get('reference_models',{}):
+        from product_typed_model import normalize_product as typed_model
+        coordinate_spec={'coord':typed_model(body['reference_models']['typed_targets'])['coord']}
     def capture(run, stats):
         if captured:
             raise RuntimeError('Expected one original preparation')
@@ -231,7 +237,7 @@ def prepare(body):
         prepared = engine_worker.evaluate({**body, '_portable_static_inputs': True})
     if not captured or prepared['cpu_battle_executed'] is not False:
         raise RuntimeError('Original static preparation did not complete')
-    if set(prepared.get('reference_models',{}))&{'coordinate','enemy_movement','named_range'}:
+    if set(prepared.get('reference_models',{}))&{'coordinate','enemy_movement','named_range','typed_targets'}:
         captured['run'].expected=False
         captured['run'].config['rng_mode']='random'
     return prepared, captured['run']
@@ -296,6 +302,9 @@ def decode_payload(body, prepared, run, metadata, block):
         burst_gauge_mode=body.get('burst_gauge_mode','fixed'), hypothetical=hypothetical,
         engine_revision=engine_worker.REVISION, app_warnings=warnings)
     models=[]
+    if metadata.get('product_typed_targets'):
+        from portable_product_typed import read_result as typed_result
+        models.append(typed_result(block,metadata,names,run.config['duration']))
     if metadata.get('product_coordinate'):
         from portable_product_coordinate import read_result,OUTPUT as COORDINATE_OUTPUT
         models.append(read_result(block[:COORDINATE_OUTPUT] if metadata.get('product_coordinate_cover') or metadata.get('product_coordinate_weighted') else block,metadata,names=names,duration=run.config['duration']))

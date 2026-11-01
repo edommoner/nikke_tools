@@ -1,0 +1,98 @@
+"""Ordinary requests into the existing typed coordinate/owner executable."""
+import copy,math,struct,array,hashlib
+from portable_runtime import UnsupportedPortable
+from portable_coordinate_typed_specs import INPUT_WORDS as INPUT,OUTPUT_WORDS as OUTPUT,COORDINATE_OUTPUT_WORDS as BASE
+
+
+def compile_product(prepared):
+    from product_typed_model import normalize_product
+    from portable_product_fixed import lower,attach
+    from portable_coordinate_typed_input import compile_coordinate_typed
+    from calculator.timeline import CharState,_when_label
+    from calculator.boss_pattern import validate
+    declarations=copy.deepcopy(prepared.get('reference_models',{}))
+    if set(declarations)!={'typed_targets'}:raise UnsupportedPortable('Typed product requires its standalone declared target model')
+    spec=normalize_product(declarations['typed_targets'])
+    if any(r['effect'].get('target') in ('all_projectiles','typed_point') for r in prepared['effects']):
+        raise UnsupportedPortable('Original typed skill damage requires its checked common skill route; weapon typed admission cannot omit it')
+    if any(p.get('kind') not in ('idle','summon') or p.get('kind')=='summon' and (p.get('spec',{}).get('attack') or p.get('spec',{}).get('self_destruct')) for p in prepared['enemy'].get('patterns',[])):
+        raise UnsupportedPortable('Typed product attack world requires its combined checked incoming consumer')
+    inner,fixed=lower(prepared);inner=copy.deepcopy(inner);inner.pop('reference_models',None)
+    inner['enemy']['coord']=copy.deepcopy(spec['coord']);inner['_product_native_equipment_carriers']=True
+    inner['typed_aim_policy']=copy.deepcopy(spec['aim_policy']);inner['typed_actor_policy']=copy.deepcopy(spec['actor_policy'])
+    words,meta,bindings,scene=compile_coordinate_typed(inner,spec['bindings'],probe_kind=spec['bindings'][0]['kind'],geometry=spec['geometry'],coordinate_weapon_targets=True,coordinate_typed_aim=True,coordinate_typed_actors=True,coordinate_typed_owners=True)
+    meta['product_typed_targets']=dict(declarations={'typed_targets':spec},cpu_state_or_schedule_supplied=False)
+    meta['product_control_labels']=[[dict(mode=e['mode'],producer=_when_label(e)) for e in CharState(c,atk,inner['enemy'].get('code'))._click_sched] for c,atk in zip(inner['chars'],inner['base_atk'])]
+    nodes=validate(copy.deepcopy(inner['enemy'].get('patterns') or [dict(id='portable-empty-world',kind='idle')]),coord=True)
+    meta['product_world']=dict(nodes=[dict(id=p.id,kind=p.kind) for p in nodes],literal_pattern_identity_only=True,cpu_schedule_or_state_supplied=False)
+    meta['product_parts']=[]
+    attach(words,meta,prepared,fixed)
+    return 'gpu/product_typed_'+('fixed_' if fixed is not None else '')+'battle_entry.slang',INPUT,OUTPUT,words,meta
+
+
+class TypedStateView:
+    """Readonly address translation for the unchanged common typed decoder.
+
+    The complete skill-history bank is validated before projecting it out of
+    the legacy weapon-only decoder's formerly unused skill receipt area.
+    """
+    def __init__(self,block):self.block=block
+    def __len__(self):return 1048576
+    def __getitem__(self,key):
+        if isinstance(key,slice):
+            a,b,step=key.indices(len(self));return [self[i] for i in range(a,b,step)]
+        if not 0<=key<len(self):raise IndexError(key)
+        if 790000<=key<923120:return 0
+        return self.block[key if key<786432 else key-786432+BASE]
+
+
+def read_result(block,metadata,names,duration):
+    from portable_skill_history import decode_pages,BASE as SKILLS,END
+    from portable_specs import LIMITS as L
+    from portable_world_result import read_typed_battle
+    from portable_coordinate_typed_specs import regions
+    from product_typed_model import public_from_words
+    def fail(message):raise UnsupportedPortable('Invalid or incomplete typed product readback: '+message)
+    if len(block)!=OUTPUT or block[0]!=0:fail('wire/status')
+    spec=metadata['product_typed_targets']['declarations']['typed_targets']
+    try:
+        skill_rows=decode_pages(block,block[L['WORLD_SKILL_HEAD_BASE']+1],SKILLS)
+        for row in skill_rows:
+            if not 0<=row['row']<len(metadata['binding_source_indices']) or any(not math.isfinite(row[k]) or row[k]<0 for k in ('created','landed','amount','share')):fail('skill history')
+        if block[BASE+1]!=0:fail('undeclared typed skill route')
+        for region in regions()[0]:
+            if region.domain=='output' and 'reserved' in region.name and any(block[region.base:region.end]):fail(region.name)
+        if any(block[END:BASE+136688]) or any(block[L['COUNTER_CONTEXT_BASE']:L['COUNTER_CONTEXT_BASE']+1096]):fail('unused skill tail or counter context')
+        c=dict(typed_bindings=spec['bindings'],max_attacks=128,effects=[],names=names)
+        state=read_typed_battle(TypedStateView(block),(c,metadata,()))
+        if state['attacks'] or not state['finished'] or state['time']!=duration:fail('typed clock')
+        h=BASE+170976;keep=2048;width=24;count=block[h+2]
+        if list(block[h:h+2])!=[0x43545731,1] or count>keep or list(block[h+3:h+6])!=[count,keep,width] or block[h+7]!=(count*width)%16 or block[h+40]!=1 or any(block[h+41:h+64]):fail('physical history capacity/header')
+        rows=[];last=0.
+        for i in range(count):
+            row=list(block[h+64+i*width:h+64+(i+1)*width]);slot=row[5]
+            if row[1]>=5 or slot>=len(spec['bindings']) or row[2]!=spec['bindings'][slot]['kind'] or row[3]!=spec['bindings'][slot]['identity'] or row[4]==0 or any(row[22:]) or any(row[k]>1 for k in (14,15,17,18,19)):fail('physical identity')
+            values=[struct.unpack('<d',struct.pack('<II',*row[at:at+2]))[0] for at in (6,8,10,12)]
+            if any(not math.isfinite(x) or x<0 for x in values) or not last<=values[0]<=duration or values[3]>values[2] or not row[14] and (values[3] or row[15]):fail('physical amounts/order')
+            last=values[0];rows.append(row)
+        raw=array.array('I',(x for row in rows for x in row))
+        if __import__('sys').byteorder!='little':raw.byteswap()
+        digest=list(struct.unpack('>8I',hashlib.sha256(raw.tobytes()).digest()))
+        if list(block[h+8:h+16])!=digest or list(block[h+32:h+40])!=digest or any(block[h+64+count*width:BASE+220224]):fail('complete physical history digest/tail')
+        pending=(count*width)%16;tail=[int.from_bytes(x.to_bytes(4,'little'),'big') for x in list(raw)[-pending:]] if pending else []
+        tail.append(0x80000000);tail += [0]*(14-len(tail));bits=count*width*32;tail += [bits>>32,bits&0xffffffff]
+        if list(block[h+16:h+32])!=tail:fail('completed SHA block')
+        from portable_coordinate_typed_aim_specs import HEAD as AIM_HEAD,WORDS as AIM_WORDS
+        aim=BASE+AIM_HEAD;n=block[aim+6];when=struct.unpack('<d',struct.pack('<II',*block[aim+4:aim+6]))[0]
+        if list(block[aim:aim+2])!=[0x43544131,1] or block[aim+2]==0 or n>len(spec['bindings']) or block[aim+7]>1 or not math.isfinite(when) or not 0<=when<=duration or any(block[aim+12:aim+32]):fail('aim frame header')
+        candidates=[];seen=set();nodes=[r['id'] for r in metadata['product_world']['nodes']]
+        for i in range(n):
+            row=list(block[aim+32+i*4:aim+36+i*4]);slot=row[0]-129
+            if not 0<=slot<len(spec['bindings']) or row[1]==0 or row[2]!=nodes.index(spec['bindings'][slot]['node']) or row[3]!=spec['bindings'][slot]['identity'] or slot in seen:fail('aim final candidates')
+            seen.add(slot);candidates.append(row)
+        if block[aim+3]!=(candidates[0][0] if candidates else 0) or any(block[aim+32+n*4:aim+AIM_WORDS]) or any(block[aim+AIM_WORDS:]):fail('aim unused tail/candidate')
+        model=public_from_words(spec,state['state'],rows,names,duration);model['shot_count']=block[h+6];model['skill_attacks']=[]
+        model['aim_state']=dict(frames=block[aim+2],time=when,candidate=block[aim+3],canonical_has_adds=bool(block[aim+7]),rows=candidates,stream_fingerprints=[format(block[aim+8]|block[aim+9]<<32,'016x'),format(block[aim+10]|block[aim+11]<<32,'016x')])
+    except (AssertionError,IndexError,KeyError,ValueError,struct.error) as error:
+        raise UnsupportedPortable('Invalid or incomplete typed product history') from error
+    return dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(metadata['product_typed_targets']['declarations']),typed_targets=model)

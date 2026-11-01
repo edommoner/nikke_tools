@@ -1,3 +1,13 @@
+## 2026-11-02 飛翔体・HPシールドの通常Metal16条件、Windows保存結果の取得
+
+共通GPU開発スキルと既存CLI/監査器を再利用。公開reference_models.typed_targetsを追加し、既存coordinate sampling・typed actor/aim/BODY owner・武器receipt実行器を通常製品APIへ接続。CUDA/Metal共通Slangを使う2薄entry、全original効果定義保持、canonical CPU4file/pinned/数値規約変更0。混在kind、hit shield、non-BODY owner、typed skill all_projectiles/typed_point、incoming等との合成は明示未対応を維持。宣言モデルをゲーム実証へ昇格しない。
+
+P2自身166CPU・fresh native1/実M5/独立seal成功、v53は旧39基準を全保持しtyped-accumulate1memberだけ追加、registry78。fixedは通常API成功・独立CLI基準未登録。API初回16条件は実GPU終了後の共通typed decoderが研究用skill moduleを不要にimportしてCPU fallback。旧raw/失敗を保持し、importを実skill分岐内へ移動、研究module不在の回帰検査を追加。保存16rawを凍結releaseで完全再投影して元CPU/HTTP全payload一致、追加battle/GPU0。workspace投影でevaluator出所だけ違った記録も保持、field無視せず凍結環境の同一出所で再照合した。
+
+修正後API-v2は1POST/2physicalM5/10.921秒、両mode×8条件の全CPU/GPU/HTTP一致。67packetのshield/projectile、有限shield44packet・残量0、再出現38packet・generation2、未出現0packet、Sakura full burst904packet/139shots、Rei157packet/112shots、Marciana散弾11packet/30shots。元snapshot/input/全readback/member slice/current source/全payloadの既存保存監査16成功、追加battle/GPU0、owned Node group absent。新2moduleをserver cache fingerprintにも追加。最終release-v3 owner25ded066e0e331bb135fcdf9bc6498eb9b48bc50cf812f5cdf76097d071dcb01、自身167CPU/依存/PTX/O1計画成功。API-v2との差はserver.mjs改行形式だけで計算/decoder/input/source不変。research/product-typed-targets-v1.json、proofs/product-typed-v1-20261102参照。
+
+ユーザー接続復旧後Windows同chat terminal/idleを確認。既存healingの保存stop85ea5598とmissing7診断7df65cf9をGitHubから取得し、34,750B/SHA023cf9c6…と22,198B/SHAf4511f12…を照合。選択11/paired/PTX/O1 object/link/静的input一致は成功したが、static-preflight外側でmissing7、API/RAM-before-API/GPU/audit0で停止。保存7root/実Job79/Node所有5/phaseとの照合でも所属確定0・原因unknown、旧stop/outerfalse保持。新観測/PIDquery/計算/再依頼0。research/product-coordinate-healing-cuda-stop-import-v1.json参照。Windowsへの追加runは送っていない。次はこの観測停止の扱いを解決し、typedの短いCUDA差分と未接続typed skill consumerを優先。標準Metal263/266・CUDA従来263/266、新標準profile加算0・現全CUDA再認定なし。全goal未完了。以下は履歴。
+
 ## 2026-11-01 座標＋敵回復の通常Metal12条件、座標ADDのCUDA成功
 
 前turnはcoordinate ADD Metal12とrequest修正版の開始でprogress。今回は通常coordinateへ既存のfinite ADD healing consumerを接続。完全coordinate prefix115680＋元4368word healing descriptor、既存予約suffix内の元healing outputのみを厳密decoderで所有検査し座標結果へ統合。二重healing decodeなし。2薄entryで同じSlang Runtime/効果定義を使用、元shader/式/CPU正本4file/pinned/suite/監査器変更0。ADD攻撃や他consumer bankとの未接続合成は明示拒否を保持。

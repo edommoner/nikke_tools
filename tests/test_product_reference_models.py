@@ -1429,6 +1429,41 @@ class ProductReferenceModels(unittest.TestCase):
             with self.assertRaisesRegex(UnsupportedPortable,'explicit.*weighted_incoming'):
                 product.compile_product(missing)
 
+    def test_typed_product_model_rejects_unknown_alias_mixed_owner_and_fixed_geometry(self):
+        from portable_product_programs import body_for_program
+        from product_typed_model import normalize_product
+        body=body_for_program(ROOT,'typed-accumulate');spec=body['reference_models']['typed_targets'];before=copy.deepcopy(spec)
+        self.assertEqual(normalize_product(spec),spec);self.assertEqual(spec,before)
+        mutations=[]
+        bad=copy.deepcopy(spec);bad['extra']=True;mutations.append(bad)
+        bad=copy.deepcopy(spec);bad['bindings'][0]['label']='core';mutations.append(bad)
+        bad=copy.deepcopy(spec);bad['bindings'][0]['owner']=[5,0,1];mutations.append(bad)
+        bad=copy.deepcopy(spec);bad['bindings'][0]['kind']=2;mutations.append(bad)
+        bad=copy.deepcopy(spec);bad['geometry']['point_source']='fixed';bad['geometry']['point']=[0.,0.];mutations.append(bad)
+        for bad in mutations:
+            with self.subTest(bad=bad),self.assertRaises(ValueError):normalize_product(bad)
+        with self.assertRaisesRegex(ValueError,'matching checked consumer'):normalize({'typed_targets':spec,'enemy_healing':[]})
+
+    def test_typed_product_packs_all_original_effects_and_no_cpu_target_state(self):
+        import portable_detail as product
+        from portable_product_programs import body_for_program
+        from portable_backend import validate_composed_stride
+        from portable_runtime import UnsupportedPortable
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'typed-'+mode);before=copy.deepcopy(body)
+            with patch.object(sim,'execute',side_effect=AssertionError('No native state in GPU input')):
+                prepared,run=product.prepare(body);original=copy.deepcopy(prepared)
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual(body,before);self.assertEqual(prepared,original)
+            self.assertFalse(run.expected);self.assertEqual(run.config['rng_mode'],'random')
+            self.assertEqual((iw,ow,len(words)),(115680,2032000,115680));validate_composed_stride(source,iw,ow)
+            self.assertEqual(source,'gpu/product_typed_'+('fixed_' if mode=='fixed' else '')+'battle_entry.slang')
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+            self.assertFalse(meta['product_typed_targets']['cpu_state_or_schedule_supplied'])
+            self.assertEqual(words[109968+12:109968+16],[1,1,1,2])
+            bad=copy.deepcopy(prepared);bad['effects'][0]['effect'].update(type='damage',stat='damage',target='all_projectiles')
+            with self.assertRaisesRegex(UnsupportedPortable,'Original typed skill damage'):product.compile_product(bad)
+
     def test_coordinate_healing_keeps_all_effects_scene_and_literal_source_bank(self):
         import portable_detail as product
         from portable_product_programs import body_for_program
