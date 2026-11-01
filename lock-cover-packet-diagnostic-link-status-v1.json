@@ -1,0 +1,213 @@
+{
+  "schema": "lock-cover-packet-diagnostic-link-status-v1",
+  "status": "requested_saved_object_link_scope_completed",
+  "overall_passed": false,
+  "permission_mode": "require_escalated",
+  "approval_denied": false,
+  "package_id": "aef09ee5d04a4442fb8b1231f23cb20de073a8d9e2a9f60f9ca3f68e6801ce1e",
+  "source_commit": "bd19f2bfc0c8c3b0ec891ab2684f10db43527f54",
+  "prior_compile_status_commit": "30c868ff42704071ea94958d39797ae6a19878cf",
+  "input_object": {
+    "source_claim": "module-object-claimed-cuda.json",
+    "source_claim_sha256": "6425d6438b7e40d54db0ffd67744fb061fcb4761d574d342286276b484ddf53d",
+    "bytes": 5574448,
+    "sha256": "1b08d0c63b7019459d7758e81cfd31abd927976fb90c1d2cfffdb16b44516648",
+    "actual_capture_from_claim": true,
+    "source_ptx_object_generated_origin_audits_verified": true,
+    "new_object_compile": false
+  },
+  "fixed_component": {
+    "version": "12.4.127",
+    "archive_sha256": "d8f4086215f482263dbfbe47a3580e88acbcdacbb284f8aa0c21a8fe408e671d",
+    "dll_sha256": "2da9da786b85c100ba122f931a49c5c1eda83c32e3fa36814c2ef470e45fa9b1",
+    "header_sha256": "5c15689136c1da9a25013118c686e38ceb2adeb2ba544c37d274129fab0c7f06",
+    "existing_component_reused": true,
+    "dll_header_byte_match_archive": true
+  },
+  "execution": {
+    "outer": {
+      "seconds": 59.26368799991906,
+      "timeout_seconds": 179.84400000004098,
+      "exit_code": 2,
+      "bounded_passed": false,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "below_normal_priority": true,
+      "job_memory_values": [
+        {
+          "before_bytes": 2147483648,
+          "after_bytes": 2147483648,
+          "peak_bytes": 241844224
+        }
+      ],
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "preservation_verified": false
+    },
+    "sdk_child": {
+      "seconds": 23.887951499782503,
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "bounded_passed": true,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing": 0,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "below_normal_priority": true,
+      "job_memory_values": [
+        {
+          "before_bytes": 2147483648,
+          "after_bytes": 2147483648,
+          "peak_bytes": 117198848
+        }
+      ],
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "preservation_verified": false
+    },
+    "api_provider_seconds": 0.19911229982972145,
+    "before_after_current_job_verified": true,
+    "current_job_limit_bytes": [
+      2147483648,
+      2147483648
+    ]
+  },
+  "api_validation": {
+    "version": [
+      12,
+      4
+    ],
+    "options": [
+      "-arch=sm_86",
+      "-verbose"
+    ],
+    "events": [
+      {
+        "api": "nvJitLinkVersion",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkCreate_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkAddData_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkComplete_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkGetErrorLogSize_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkGetInfoLogSize_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkGetLinkedCubinSize_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkGetLinkedCubin_12_4",
+        "return_code": 0
+      },
+      {
+        "api": "__nvJitLinkDestroy_12_4",
+        "return_code": 0
+      }
+    ],
+    "all_returns_zero": true,
+    "destroy_succeeded_handle_cleared": true,
+    "error_log_bytes": 0,
+    "info_log_bytes": 0,
+    "log_capture_errors": 0,
+    "cleanup_error": null,
+    "driver_module_observations": [
+      {
+        "state": "verified",
+        "phase": "before_load",
+        "driver_module_loaded": false
+      },
+      {
+        "state": "verified",
+        "phase": "after_load",
+        "driver_module_loaded": false
+      },
+      {
+        "state": "verified",
+        "phase": "after_link",
+        "driver_module_loaded": false
+      }
+    ],
+    "program_driver_api_calls": 0
+  },
+  "linked_cubin": {
+    "format": "elf64-little",
+    "type": "executable",
+    "machine": "cuda",
+    "target": "sm_86",
+    "cuda_format_version": 124,
+    "bytes": 5198416,
+    "sha256": "4a142dde70e69a264bfd862945732223e2cbe0f07e731472c5d037e5a667fb7b",
+    "entry_symbol": "portableEvents",
+    "entry_symbol_bytes": 34944,
+    "parameter_symbol": "SLANG_globalParams",
+    "parameter_bytes": 48,
+    "symbol_and_parameter_contract_verified": true
+  },
+  "verification": {
+    "link_verified": true,
+    "object_verified": true,
+    "containment_verified": true,
+    "preservation_verified": false,
+    "calculation_verified": false,
+    "owner_cli_exit_code": 2,
+    "outer_stage_verified": false,
+    "false_not_promoted": true,
+    "service_status": "unverified",
+    "profile_coverage_added": 0
+  },
+  "actual_calls_this_request": {
+    "jit_link_sessions": 1,
+    "link_complete": 1,
+    "slang": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "own_cpu_tests": 0,
+    "native_battle": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0,
+    "retries": 0
+  },
+  "integrity": {
+    "old_capture_claim_files_checked_unchanged": 139,
+    "immutable_payload_files_checked_unchanged": 4244,
+    "old_status64_raw_claims_and_failures_retained": true,
+    "old_missing_unknown_preservation_false_retained": true,
+    "product_packet_edited": false,
+    "all_started_children_terminal": true,
+    "all_observed_jobs_empty": true,
+    "known_live_handle": null
+  },
+  "evidence_sha256": {
+    "jit_link_receipt": "2f757ac9dec40a84691d4a9934f702ed5ed6fdd624c6716f34ba9fe261945d13",
+    "phases": "da307d0036a1804ab88a8b04fd2eb6d5c06ebf9be4854aa10c96c9ae622a4fa9",
+    "preparation": "18a7bc27ba1bc2e840c8b19792cdc205b32e5495ce9b87a9a01e9955737f1826"
+  },
+  "capture": {
+    "path_base": "Documents/Codex",
+    "relative_directory": "lock-cover-packet-diagnostic-compile-v1/jit-link-v1"
+  },
+  "next_action": "Stopped after this single JIT link; no automatic driver/GPU/HTTP continuation."
+}
