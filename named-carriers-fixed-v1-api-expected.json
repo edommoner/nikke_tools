@@ -1,0 +1,32 @@
+{
+  "schema": "named-carriers-cuda-api-expected-v1",
+  "owner": "2dc37ccb07a04842c3ac1b307f8b2cdf6f5020a5ecdf4945def0954529a56971",
+  "source_commit": "e3f0ada573838ef7a3c697a63b4f8d674b5bff7c",
+  "source": "gpu/product_named_carriers_fixed_battle_entry.slang",
+  "compute_backend": "cuda_shared_detail",
+  "body_sha256": "f9aa60b0dcc5930659cd9ed8b95a5b58e451e392e13043f1ec4b223b6cef742e",
+  "physical_cases": 1,
+  "input_words": 104400,
+  "output_words": 786432,
+  "physical_input_bytes": 417604,
+  "physical_output_bytes": 3145728,
+  "physical_input_sha256": "87978e6b1340e03b51f5189876e591c25ee622a94ddfd94a13ed382355bf87f1",
+  "physical_output_sha256": "571dfde47565f9760fa6c142c184cc960f19b5ad03ad56c8657c13f63650a902",
+  "readback_chunk_bytes": 8388608,
+  "expected_readback_chunk_bytes": [
+    3145728
+  ],
+  "cases": [
+    {
+      "index": 251,
+      "member_index": 0,
+      "character": "레이 (가칭)",
+      "favorite_stage": 0,
+      "expected_input_sha256": "87978e6b1340e03b51f5189876e591c25ee622a94ddfd94a13ed382355bf87f1",
+      "expected_output_sha256": "571dfde47565f9760fa6c142c184cc960f19b5ad03ad56c8657c13f63650a902",
+      "saved_metal_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-named-carriers-v1-20261101/api-v1/captures/c59cc4d254944994b7610149852d544c"
+    }
+  ],
+  "cpu_battles": 0,
+  "gpu_calls": 0
+}
