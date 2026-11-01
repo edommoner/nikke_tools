@@ -3009,6 +3009,18 @@
           "after": "#ifdef PORTABLE_PRODUCT_COORDINATE_LOCK\n    // The typed frame already delivered this original projectile skill. Its\n    // queued BODY proposal is disposition history, with no coordinate cast.\n    if(r.row==commands[DF_DESCRIPTOR(s)])\n    {\n        for(uint i=0;i<CP_SNAPSHOT_WORDS;i++)results[to+i]=0;\n        return;\n    }\n#endif\n"
         }
       ]
+    },
+    "scripts/run-metal-probe.swift": {
+      "before_sha256": "ef52604784c90e4c57cce6ed387fa57bec9a382504987a25a2c017379038fbe9",
+      "after_sha256": "3b35ce823f52658c2df2b1811b932b5090363f578ecb2e93ff3e4a0fa45d35a8",
+      "hunks": [
+        {
+          "start": 10990,
+          "end": 11496,
+          "before": "    guard inputWords > 0 && inputWords <= 131072 && outputWords > 0 && (outputWords <= 524288 || outputWords == 655360 || outputWords == 786432 || outputWords == 806912 || outputWords == 1048576 || outputWords == 1310720 || outputWords == 1507328 || outputWords == 1769472 || outputWords == 1769856 || outputWords == 2032000 || outputWords == 2048912 || outputWords == 2064786 || outputWords == 2165136 || outputWords == 10422672) else { throw ProbeError(\"Invalid wire layout\") }\n",
+          "after": "    guard inputWords > 0 && inputWords <= 131072 && outputWords > 0 && (outputWords <= 524288 || outputWords == 655360 || outputWords == 786432 || outputWords == 806912 || outputWords == 1048576 || outputWords == 1310720 || outputWords == 1507328 || outputWords == 1769472 || outputWords == 1769856 || outputWords == 2032000 || outputWords == 2048912 || outputWords == 2064786 || outputWords == 2165136 || outputWords == 2558208 || outputWords == 10422672) else { throw ProbeError(\"Invalid wire layout\") }\n"
+        }
+      ]
     }
   },
   "added_sources": {

@@ -27,7 +27,8 @@ class WeightedSourceContract(unittest.TestCase):
             self.assertEqual(project_sources(root),current)
 
     def test_changed_product_route_guard_and_arithmetic_are_rejected(self):
-        cases=[('gpu/destructible_weapon_runtime.slang','if(kind!=1&&kind!=5)','if(kind!=1)'),
+        cases=[('scripts/run-metal-probe.swift','inputWords <= 131072','inputWords <= 131073'),
+               ('gpu/destructible_weapon_runtime.slang','if(kind!=1&&kind!=5)','if(kind!=1)'),
                ('gpu/attack_group_runtime.slang','commands[input+1]==2&&commands[actorBinding(s,slot)]==1','commands[actorBinding(s,slot)]==1'),
                ('app/portable_backend.py',"source.replace('gpu/product_fixed_','gpu/product_',1)","source.replace('gpu/product_fixed_','gpu/product_group_',1)"),
                ('gpu/event_runtime.slang','uint64_t fixedGaugeReadyAt;','uint fixedGaugeReadyAt;'),

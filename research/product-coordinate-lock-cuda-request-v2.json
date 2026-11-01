@@ -99,8 +99,11 @@
   "selected_short_cases_normal_api_and_saved_audit_passed": true,
   "windows_thread_id": "01a140bc-5f3b-7661-b720-50c945596eaa",
   "windows_turn_id": "01a19826-c47d-7672-a360-c58e8168ef05",
-  "dispatch_confirmed_active": true,
-  "cuda_execution_confirmed": false,
-  "comparison_passed": false,
-  "full_goal_complete": false
+  "dispatch_confirmed_active": false,
+  "cuda_execution_confirmed": true,
+  "comparison_passed": true,
+  "full_goal_complete": false,
+  "comparison_scope": "Full CPU/GPU/HTTP and actual saved M5 parent/member raw hashes; Windows saved projection audit not run",
+  "result_import": "research/product-coordinate-lock-cuda-import-v2.json",
+  "overall_verified": false
 }

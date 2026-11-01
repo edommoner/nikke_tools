@@ -1,0 +1,67 @@
+{
+  "schema": "product-coordinate-lock-cuda-import-v2",
+  "transport_commit": "6d2a7356115d5a6d63f3925231dd5a9f25ce1d93",
+  "artifacts": [
+    {
+      "file": "research/product-coordinate-lock-windows-status-v2.json",
+      "bytes": 34883,
+      "sha256": "7e9a6d9bbe47db5c985c5474eb82d4ed7ef2b3c60799d926293b47eb141aead6"
+    },
+    {
+      "file": "research/product-coordinate-lock-missing7-identity-diagnostic-v1.json",
+      "bytes": 11346,
+      "sha256": "e3baf1c22abc91940e085b06b11bebf36d892eb8344bb3c3fac93e843e365590"
+    }
+  ],
+  "source_owner": "ec80ecb25850c479feaf676d0cf6d3f9b43d708daaeb4ffd1e76da78d8c52013",
+  "all_imported_git_blob_hashes_verified": true,
+  "transport_reference_hashes_verified": true,
+  "actual_saved_m5_member_files_rehashed": [
+    {
+      "case": 0,
+      "file": "input.bin",
+      "sha256": "4ae2994202bb450dd00943a072b9130aeb32cfbaa8cddf71e9fd3ba96e1199f5"
+    },
+    {
+      "case": 0,
+      "file": "readback.bin",
+      "sha256": "b0b1b88265ad12c32ca233ff746ca65eda6824d1c06b72e6263b08f89b8c4b3a"
+    },
+    {
+      "case": 1,
+      "file": "input.bin",
+      "sha256": "7fda4b4b4af05dfab567224c1923d9e61dfb87b6c56b202d2937519ad6626502"
+    },
+    {
+      "case": 1,
+      "file": "readback.bin",
+      "sha256": "5b2d18c6a1528b394b28b9fd0d08eaa7c47436092b34c92fc933de45647fe143"
+    }
+  ],
+  "actual_saved_m5_parent_input_and_full_output_rehashed": true,
+  "cuda_execution_confirmed": true,
+  "physical_cases": 2,
+  "distinct_original_profiles": 1,
+  "profile_delta": 0,
+  "cpu_gpu_http_unicode_equal": true,
+  "parent_and_all_member_full_raw_equal": true,
+  "nonzero_batch_member_verified": true,
+  "driver_seconds": 0.6607236000709236,
+  "http_seconds": 18.935293599963188,
+  "missing_processes": 7,
+  "missing_identity_diagnostic_same_pid_and_creation_matches": 0,
+  "missing_identity_diagnostic_same_pid_matches": 0,
+  "cause_and_ownership": "unknown",
+  "recorded_job_peak_bytes": 2149621760,
+  "configured_job_limit_bytes": 2147483648,
+  "recorded_peak_excess_bytes": 2138112,
+  "resource_anomaly_resolved": false,
+  "saved_windows_audit_performed": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "import_gpu_calls": 0,
+  "import_battles": 0,
+  "raw_buffers_transferred": false,
+  "old_stops_unchanged": true,
+  "full_goal_complete": false
+}

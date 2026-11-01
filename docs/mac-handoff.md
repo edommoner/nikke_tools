@@ -1,3 +1,11 @@
+## 2026-11-02 Windows保存結果取得：2条件の計算一致、監視とメモリは未解決
+
+復旧後は保存結果だけ取得。輸送6d2a7356のstatus-v2と匿名identity診断をGit blob/全SHA照合してresearchへ保存。新source ec80ecb2の4秒×生存/破壊2条件を1POST/1CUDAで実行済み。Mac実保存parent/inputと全member rawを再hashし、CUDA報告と全一致（parent20,465,664B、SHA f2f12a7f…）。CPU/GPU/HTTP/Unicodeも一致、非zero batch index1の相対trace参照を確認。GPU dispatch0.661秒、HTTP18.935秒。元Heavy1profileの条件追加で、profile加算0、全matrix再認定なし。
+
+終了後監視はmissing7で停止し、Windows保存監査未実行。匿名の保存snapshot照合でも同PID＋有効creationのafter行0、同PID行0、旧healing missing7とのidentity共通0。path表記差の根拠なし、原因・所属unknown、旧stop/環境falseを保持。記録Job peak2,149,621,760Bは設定2,147,483,648Bを2,138,112B上回り、原因・上限遵守は未解決。owned Node gone/Job empty/live0だが、全実行成功へ昇格しない。追加query/SDK/GPU/API/監査再実行0。research/product-coordinate-lock-cuda-import-v2.json参照。
+
+既存CLI model-checkの履歴照合は、新Swift outputWords2558208の正確な1hunkを最新BOSS inverse ledgerへ登録して修復。除去後の全bytesは旧baseline88cda975のSwift SHA ef526047…と一致し、旧pinned ledger/normalizer変更なし。model-check静的成功、cover wire7・weighted source7検査成功（input上限改ざん拒否を追加）。数値source/GPU変更0、現immutable packet不変。この静的成功を計算証拠へ昇格しない。次の未接続はtyped武器迎撃とLock Onの同時世界、cover/ammo/healing/weightedとの合成。全goal未完了。以下は履歴。
+
 ## 2026-11-02 内部trace参照を相対化、実M5複数ケースと画面取込を確認
 
 Windows e53f5bf6の元56秒1POST/1CUDAは、全CPU/GPU/HTTP/Unicode・input・219skill/2typed attacks/6receipts/214pulses/29shotsが一致したが、全rawゲートで停止した。status da4ea9d2（43,171B/SHA c6eebb66…）と診断dc957eff（8,832B/SHA eefde000…）をMac取得。M5は物理6cases/index5、CUDAは単独0で、DFscratchのtrace参照word2186642だけがM5の絶対位置14827648とCUDA2036608で違っていた。M5のその既知1wordだけを診断上case-relativeへ変えるとCUDA全SHA b3d42775…へ一致し、Windows側の逆候補も元M5全SHA33650b1e…へ一致。全10,232,832Bの他全word差なし。元raw/期待値/stopを変更せず、保存診断のみ、追加SDK/GPU/battle0。旧full-raw失敗は保持し、新sourceのCUDA成功へ付け替えない。research/product-coordinate-lock-cuda-diagnostic-import-v1.json参照。
