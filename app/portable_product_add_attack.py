@@ -55,6 +55,8 @@ def attach(source, words, metadata, prepared, patterns, authored):
         'gpu/product_fixed_target_battle_entry.slang': 110112,
         'gpu/product_group_target_battle_entry.slang': 104672,
         'gpu/product_fixed_group_target_battle_entry.slang': 104672,
+        'gpu/product_coordinate_battle_entry.slang': 115680,
+        'gpu/product_coordinate_fixed_battle_entry.slang': 115680,
     }
     if source not in entries:
         raise UnsupportedPortable('Product ADD incoming with target modifier carriers is not connected')
@@ -95,7 +97,9 @@ def attach(source, words, metadata, prepared, patterns, authored):
         input_words=A['INPUT_WORDS'], output_words=A['OUTPUT_WORDS'],
         CPU_schedule_or_state_supplied=False,
         model='original-scheduled-ADD-attacks-and-final-shot-retirement-v1')
-    return source.replace('gpu/product_', 'gpu/product_add_', 1), A['INPUT_WORDS'], A['OUTPUT_WORDS'], words, metadata
+    selected=(source.replace('product_coordinate_', 'product_coordinate_add_',1)
+        if metadata.get('product_coordinate_add') else source.replace('gpu/product_', 'gpu/product_add_',1))
+    return selected, A['INPUT_WORDS'], A['OUTPUT_WORDS'], words, metadata
 
 
 def query_sources(block, metadata,*,ammo_attempts=None):
@@ -142,3 +146,33 @@ def query_sources(block, metadata,*,ammo_attempts=None):
     if ammo_attempts is None and (block[R['OUTPUT_BASE']+1]>R['ROWS'] or block[R['OUTPUT_BASE']+2]!=block[R['OUTPUT_BASE']+1]):fail()
     if ammo_attempts is not None and shots!=len(ammo_attempts):fail()
     return result
+
+
+def coordinate_output_ownership(block,metadata):
+    """Validate the original ADD banks inside coordinate's reserved suffix."""
+    import math,struct
+    from portable_specs import LIMITS as L
+    from portable_add_self_destruct_wire import LAYOUT as R
+    from portable_runtime import UnsupportedPortable
+    def fail():raise UnsupportedPortable('Invalid coordinate ADD receipt ownership')
+    if not metadata.get('product_coordinate_add'):return None
+    if not metadata.get('product_coordinate') or not metadata.get('product_add_attacks'):fail()
+    query_sources(block,metadata)
+    head=A['OUTPUT_BASE'];world=L['WORLD_FRAME_OUTPUT_BASE'];records=block[world+2]
+    if any(block[head+2:head+A['OUTPUT_HEADER']]):fail()
+    if any(block[head+A['MAP_BASE']+records*2:R['OUTPUT_BASE']]):fail()
+    end=R['OUTPUT_BASE']+R['HEADER']+R['ROWS']*R['ROW_WORDS'];at=R['OUTPUT_BASE'];count=block[at+1]
+    if any(block[at+3:at+R['HEADER']]):fail()
+    seen=set()
+    for i in range(count):
+        row=at+R['HEADER']+i*R['ROW_WORDS'];node,slot,generation,fired=block[row:row+4]
+        record=block[row+6];key=(node,slot,generation)
+        if (node>=len(metadata['product_world']['nodes']) or not 0<slot<len(metadata['product_add_attacks']['labels'])
+            or generation==0 or fired==0 or record>=records or key in seen or block[row+7]!=1
+            or any(block[row+8:row+12])):fail()
+        seen.add(key);w=world+2832+record*6
+        if list(block[w:w+3])!=[5,node,slot] or list(block[w+3:w+5])!=list(block[row+4:row+6]):fail()
+        when=struct.unpack('<d',struct.pack('<II',*block[row+4:row+6]))[0]
+        if not math.isfinite(when) or when<0:fail()
+    if any(block[at+R['HEADER']+count*R['ROW_WORDS']:end]):fail()
+    return head,end

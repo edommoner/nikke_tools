@@ -1,3 +1,15 @@
+## 2026-11-01 座標＋召喚敵の射撃・最終退場を通常Metalへ接続
+
+前turnのweighted＋coordinateはMetal6条件・Windows1条件依頼までprogress。今回は通常coordinateの召喚敵射撃が未接続だったため、既存ADD lower/attachを完全coordinate prefix115680へ接続。同じSlang coordinate executor/ADD cursor/最終射撃退場を使う薄い2entryのみ。式/元shader/CPU正本4file/pinned/suite/監査器変更0。inputは既存784word descriptorを末尾へ、outputは既存予約suffix内の元ADB/ASD bank。decodeは両magic/source map/世代/退場と元world kind5・時刻の同一性/未使用領域を検証してから、その正確な領域だけ所有させる。他reservedは拒否を保持。
+
+新不変P1自身162unit/fresh native1/実M5/独立GPU禁止seal成功。root追加テストの初回1failureは正規化済みshape defaultとraw requestの比較だったため、既存normalize契約への比較へ修正、数値本体/期待値変更0。旧log保持。coordinate-add-accumulateをv51へ1member追加、旧37member全保持。fixedは通常API成功・独立CLI基準未登録で--develop。
+
+通常HTTP1POST/実3physicalM5（scheduler fixed6＋accumulate2＋4）で12条件が全CPU/GPU/HTTP/Unicode一致。両modeの6s、alive/spaced/coincident/renewal/hp-before-shot/time-close。射撃50/6/6/4/0/0、退場0/2/2/4/0/0を両modeで確認、incomingは各shot×5、renewalは実generation1と2。静的前確認/保存監査12/最終release全12再投影は追加battle/GPU0、owned Node group absent。元rawへheader/reserved/retirement tailを1wordだけ壊した6負例もdecoderで拒否、元raw/成功claim不変。追加activity assertionがphysical2回と仮定して停止した記録を保持し、実scheduler3回へ活動数だけ訂正。数値/ソース/期待値を変えずGPU再実行0。
+
+最終release owner b659740bb186a4acd141c2ca4f698609f991cb24fc581024dc233ffee2395ec9、自身162CPU/依存/PTX/O1計画成功。GPU後の計算scope差はGOLDEN pointer/strict ledger SHAのみ。research/product-coordinate-add-v1.json、proof .portable-recovery/proofs/product-coordinate-add-v1-20261101。標準profile追加0、Metal/CUDA従来各263/266、明示条件別original各266/266は据置。新coordinate ADD CUDA実機は未検証。weighted/cover/ammo/healing bankとの同時合成とtyped projectile/shieldの通常製品world等は残件。
+
+既存Windows turn01a1976c-8066-7c00-b650-74a00fbee5c3は引き続きlive。これは前turnのweighted＋coordinate30s1条件だけ。read_threadで選択89/paired/PTX/O1 object通過、固定link中という進捗を確認。PTX outer2/inner0・stagefalseは元のまま保持、成果物受理と環境保存を区別。新coordinate ADDはまだWindowsへ依頼していない。次は同handleのstatus/exportだけを取得し、run再送しない。今後のWindows CPU選択は既存CLIで変更対象を絞り、未変更67全件を毎回繰り返す必要性を評価する。以下は履歴。
+
 ## 2026-11-01 配分＋座標・実多対象を通常Metalへ接続
 
 前turnは保存CUDA4条件の取得/監査missing3切分けでprogress、Windows原因unknown停止は保持。今回の通常製品missingはweighted＋coordinate/native多対象。既存座標entryに既にあるweighted hookと同じSlang Runtimeを使い、配分compilerがcoordinate prefix115680/2032000を完全保持して既存weighted16word/receipt bankを連結。backendで両bankの隣接/strideを検査。薄いentry2本のみ、式/CPU正本4file/pinned/元shader/suite/監査器変更0。model envelopeをcoordinate/weightedで分離して元結果形式へmerge。coordinate+weighted+independent cover DEFは未契約として拒否のまま。

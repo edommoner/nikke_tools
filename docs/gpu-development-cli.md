@@ -1,3 +1,9 @@
+## 座標と召喚敵の射撃・最終退場
+
+`reference_models.coordinate`付きの通常リクエストで、既存summonのattack/attack_at/self_destructを共通実行器へ渡せます。有限HP・世代・射撃間隔・同時射撃・最終退場は元のADD consumerを使い、CPUの命中先や射撃予定を入力へ渡しません。座標prefixとADD descriptorを完全保持し、読戻しのsource map/退場通知/時刻/未使用領域を検査します。未接続の他モデルとの同時合成は理由付きfallbackを維持します。
+
+`coordinate-add-accumulate`は独立Metal/native seal済みv51、旧37基準保持。fixedは通常API実証済み・CLIは`--develop`。両mode×生存/間隔射撃/同時射撃/再召喚/射撃前死亡/時間切れの12条件が通常APIでCPU/GPU/全返却値一致しました。新CUDA実機は未検証です。[証拠と失敗保持](../research/product-coordinate-add-v1.json)。
+
 ## 配分と座標・複数対象の通常製品経路
 
 `reference_models.coordinate`と`weighted_incoming`を同じ通常リクエストで指定できます。既存座標サンプラー・native ADD・実命中group・配分consumerを同じ共通Runtimeで実行し、CPU由来の命中先やscheduleはGPU入力へ渡しません。両bankの完全prefix/所有/strideを検査し、結果の両モデルを元envelopeへ統合します。独立cover DEFとの同時合成は未接続のため拒否します。

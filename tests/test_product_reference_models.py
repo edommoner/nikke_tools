@@ -1429,6 +1429,54 @@ class ProductReferenceModels(unittest.TestCase):
             with self.assertRaisesRegex(UnsupportedPortable,'explicit.*weighted_incoming'):
                 product.compile_product(missing)
 
+    def test_coordinate_add_preserves_original_shot_descriptors_scene_and_definitions(self):
+        import portable_detail as product
+        from portable_product_programs import body_for_program
+        from portable_product_add_attack import lower
+        from portable_backend import validate_composed_stride
+        from portable_add_attack_battle_wire import LAYOUT as A,MAGIC
+        from portable_product_coordinate import compile_product as coordinates
+        from portable_runtime import UnsupportedPortable
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'coordinate-add-'+mode)
+            prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle input')):
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,before);self.assertEqual((iw,ow,len(words)),(116464,2032000,116464))
+            self.assertEqual(source,'gpu/product_coordinate_add_'+('fixed_' if mode=='fixed' else '')+'battle_entry.slang')
+            validate_composed_stride(source,iw,ow)
+            self.assertTrue(meta['product_coordinate_add'])
+            self.assertTrue(meta['product_add_attacks']['CPU_schedule_or_state_supplied'] is False)
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+            self.assertEqual(words[A['BASE']:A['BASE']+2],[MAGIC,1])
+            at=A['BASE']+A['ROW_BASE']
+            self.assertEqual(words[at],2);self.assertEqual(words[at+1],3)
+            self.assertEqual(words[at+4],1);self.assertEqual(words[at+5:at+7],list(struct.unpack('<II',struct.pack('<d',.25))))
+            self.assertEqual(meta['product_coordinate']['declarations'],normalize(body['reference_models']))
+            with self.assertRaises(ValueError):validate_composed_stride(source,iw-1,ow)
+
+    def test_coordinate_add_receipt_ownership_rejects_reserved_and_forged_retirement(self):
+        from portable_product_add_attack import coordinate_output_ownership
+        from portable_add_attack_battle_wire import LAYOUT as A,MAGIC
+        from portable_add_self_destruct_wire import LAYOUT as R,MAGIC as RM
+        from portable_specs import LIMITS as L
+        from portable_runtime import UnsupportedPortable
+        words=array.array('I',[0])*A['OUTPUT_WORDS'];h=L['WORLD_FRAME_OUTPUT_BASE']
+        words[A['OUTPUT_BASE']]=MAGIC;words[R['OUTPUT_BASE']]=RM
+        meta=dict(product_coordinate_add=True,product_coordinate={},product_add_attacks=dict(labels=['','wave#1'],source_nodes=[-1,0]),product_world=dict(nodes=[dict(id='wave',kind='summon')]))
+        # Presence, not a fabricated scalar marker, establishes coordinate metadata.
+        meta['product_coordinate']={'declarations':{'coordinate':{}}}
+        self.assertEqual(coordinate_output_ownership(words,meta),(A['OUTPUT_BASE'],R['OUTPUT_BASE']+R['HEADER']+R['ROWS']*R['ROW_WORDS']))
+        at=R['OUTPUT_BASE']+R['HEADER'];words[R['OUTPUT_BASE']+1]=words[R['OUTPUT_BASE']+2]=1
+        words[h+2]=1;w=h+2832;words[w:w+5]=array.array('I',[5,0,1,*struct.unpack('<II',struct.pack('<d',1.))])
+        words[at:at+12]=array.array('I',[0,1,1,3,*struct.unpack('<II',struct.pack('<d',1.)),0,1,0,0,0,0])
+        self.assertIsNotNone(coordinate_output_ownership(words,meta))
+        for offset,value in [(at+1,0),(at+2,0),(at+3,0),(at+6,1),(at+7,0),(at+8,1),(A['OUTPUT_BASE']+2,1),(A['OUTPUT_BASE']+A['MAP_BASE']+2,1),(R['OUTPUT_BASE']+3,1),(at+12,1)]:
+            bad=array.array('I',words);bad[offset]=value
+            with self.subTest(offset=offset),self.assertRaises(UnsupportedPortable):coordinate_output_ownership(bad,meta)
+        missing=copy.deepcopy(meta);missing.pop('product_coordinate')
+        with self.assertRaises(UnsupportedPortable):coordinate_output_ownership(words,missing)
+
     def test_weighted_coordinate_preserves_complete_scene_markers_and_disjoint_banks(self):
         import portable_detail as product
         from portable_product_programs import body_for_program

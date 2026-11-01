@@ -265,6 +265,15 @@ def validate_composed_stride(source,input_words,output_words):
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT_WORDS,OUTPUT['OUTPUT_WORDS']):raise ValueError('Enemy healing requires its complete declared source wire')
         return
+    if source in ('gpu/product_coordinate_add_battle_entry.slang','gpu/product_coordinate_add_fixed_battle_entry.slang'):
+        from portable_add_attack_battle_wire import check_schema,LAYOUT as A
+        from portable_add_self_destruct_wire import check_schema as retirement_schema
+        from portable_logical_geometry_wire import check_schema as logical_schema,LAYOUT as G,SCRATCH
+        check_schema(ROOT);retirement_schema(ROOT);logical_schema(ROOT)
+        if G['BASE']+G['WORDS']!=A['BASE'] or SCRATCH['OUTPUT_WORDS']!=A['OUTPUT_WORDS']:
+            raise ValueError('Coordinate and ADD require their complete disjoint input banks and registered output')
+        if (input_words,output_words)!=(A['INPUT_WORDS'],A['OUTPUT_WORDS']):raise ValueError('Coordinate ADD requires the complete shared source/retirement wire')
+        return
     if source in ('gpu/world_coordinate_logical_actor_entry.slang','gpu/product_coordinate_battle_entry.slang','gpu/product_coordinate_fixed_battle_entry.slang'):
         from portable_logical_geometry_wire import check_schema,LAYOUT,SCRATCH
         check_schema(ROOT)

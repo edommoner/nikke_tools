@@ -1,0 +1,320 @@
+{
+  "schema": "product-coordinate-add-v1",
+  "implementation": {
+    "common_cuda_metal_runtime": true,
+    "new_suites": 0,
+    "new_auditors": 0,
+    "new_calculation_formulas": 0,
+    "canonical_cpu_changes": 0,
+    "pinned_changes": 0,
+    "numeric_rules_or_tolerances_changed": false,
+    "registry_programs": 74,
+    "new_thin_programs": [
+      "coordinate-add-accumulate",
+      "coordinate-add-fixed"
+    ],
+    "all_original_character_definitions_preserved": true,
+    "wire_boundary": "Complete coordinate input115680 plus existing784-word ADD attack bank; original ADD/retirement outputs validated inside exact coordinate reserved suffix",
+    "input_has_cpu_battle_or_targets_or_schedule": false,
+    "original_gpu_sources_byte_unchanged": true
+  },
+  "normal_api": {
+    "conditions": 12,
+    "posts": 1,
+    "physical_gpu_dispatches": 3,
+    "seconds": 27.549160750000738,
+    "all_full_cpu_gpu_http_equal": true,
+    "preflight_extra_cpu_battles": 0,
+    "saved_audit_additional_battles": 0,
+    "saved_audit_additional_gpu": 0,
+    "release_projection_additional_battles": 0,
+    "release_projection_additional_gpu": 0,
+    "owned_node_process_group_absent": true,
+    "rows": [
+      {
+        "variant": "alive-fixed",
+        "source": "gpu/product_coordinate_add_fixed_battle_entry.slang",
+        "definitions": 70,
+        "shots": 50,
+        "retirements": 0,
+        "retirement_generations": [],
+        "incoming_hits": 250,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "2136a969c61792639483ddecd0f6981e1867695d09e29638396d6d1e776b9255",
+        "output_sha256": "fcfe2b8221654c384806c6f43d1a75c6df4f5d63c473f52a4ae1283822414168"
+      },
+      {
+        "variant": "spaced-fixed",
+        "source": "gpu/product_coordinate_add_fixed_battle_entry.slang",
+        "definitions": 70,
+        "shots": 6,
+        "retirements": 2,
+        "retirement_generations": [
+          1,
+          1
+        ],
+        "incoming_hits": 30,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "adc6e004cb78cbc3c81b133aee7368035d17238bfd53b92fc83ec2ba9c70ceb3",
+        "output_sha256": "4d6943e82f6d94e393d52c6a88e621cf2933e19074c7ee2f55580a7f1a7a595e"
+      },
+      {
+        "variant": "coincident-fixed",
+        "source": "gpu/product_coordinate_add_fixed_battle_entry.slang",
+        "definitions": 70,
+        "shots": 6,
+        "retirements": 2,
+        "retirement_generations": [
+          1,
+          1
+        ],
+        "incoming_hits": 30,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "9bdc6f26974f211bdd941d9bcb1ef79fce41eabe96a137341f471e8f18d139fa",
+        "output_sha256": "98a512d00fd35846228669be31e53e2df289d6dbe5e08ac0699800a4e5c66eb6"
+      },
+      {
+        "variant": "renewal-fixed",
+        "source": "gpu/product_coordinate_add_fixed_battle_entry.slang",
+        "definitions": 70,
+        "shots": 4,
+        "retirements": 4,
+        "retirement_generations": [
+          1,
+          1,
+          2,
+          2
+        ],
+        "incoming_hits": 20,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "b5599e96cf60e6a0f983a85f70e1f92098bfcb417511b77a888f0ee0ccb350ee",
+        "output_sha256": "2702e5e2f2e37dab0e8ff57781d830f9a5e3be9849c176103b3b0f5c37a38332"
+      },
+      {
+        "variant": "hp-before-shot-fixed",
+        "source": "gpu/product_coordinate_add_fixed_battle_entry.slang",
+        "definitions": 70,
+        "shots": 0,
+        "retirements": 0,
+        "retirement_generations": [],
+        "incoming_hits": 0,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "eab12bc25e556bb2f722edba2403826f2179c162c783f1f0a4c2b1aee6217b03",
+        "output_sha256": "53f860f24a3144ced99a1dc7597cf0c827d0eb950fa66f0b3fb7981780e56b45"
+      },
+      {
+        "variant": "time-close-fixed",
+        "source": "gpu/product_coordinate_add_fixed_battle_entry.slang",
+        "definitions": 70,
+        "shots": 0,
+        "retirements": 0,
+        "retirement_generations": [],
+        "incoming_hits": 0,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "fd19d0831a468c39dba365f59e4651f00bd79b20fd99f196209dc27996ba1121",
+        "output_sha256": "fbe95c8dc1be70f2179d15de9f125312b59d7e77e3eb89f77e6bda6f33f5edea"
+      },
+      {
+        "variant": "alive-accumulate",
+        "source": "gpu/product_coordinate_add_battle_entry.slang",
+        "definitions": 70,
+        "shots": 50,
+        "retirements": 0,
+        "retirement_generations": [],
+        "incoming_hits": 250,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "aba619d139caeb1058614385d9bf73b6344cde013d9e03572e0e0d3babd4ef45",
+        "output_sha256": "635706e29799bd62e1986664c9753ebf5236f31567487c592f9390f0a16bcd00"
+      },
+      {
+        "variant": "spaced-accumulate",
+        "source": "gpu/product_coordinate_add_battle_entry.slang",
+        "definitions": 70,
+        "shots": 6,
+        "retirements": 2,
+        "retirement_generations": [
+          1,
+          1
+        ],
+        "incoming_hits": 30,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "cd142e3ab2ffd0d0a57478e6302f70bbe555965b107aed146b7a3df63a161e48",
+        "output_sha256": "5114999287f33c04ceee4da5d00aacba3e3df0e45bc09421aa554193e26d8aa5"
+      },
+      {
+        "variant": "coincident-accumulate",
+        "source": "gpu/product_coordinate_add_battle_entry.slang",
+        "definitions": 70,
+        "shots": 6,
+        "retirements": 2,
+        "retirement_generations": [
+          1,
+          1
+        ],
+        "incoming_hits": 30,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "cbe68e423cfad717de1d84d84e9a9353a7ce6eb9e3be8f69c5c9b35db5335ddf",
+        "output_sha256": "11bd9dfb565a2cd499161e5189db43d1700428168449bd3ac9d00021eabc934f"
+      },
+      {
+        "variant": "renewal-accumulate",
+        "source": "gpu/product_coordinate_add_battle_entry.slang",
+        "definitions": 70,
+        "shots": 4,
+        "retirements": 4,
+        "retirement_generations": [
+          1,
+          1,
+          2,
+          2
+        ],
+        "incoming_hits": 20,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "363ef21ae6f7faca4f3888db6a77eb11fac34bf4d4524933a70d180012fb7b5a",
+        "output_sha256": "dbbd5e7c2638017486641cb3d6fba98acd29f1c7d0627977fb41a5af92dbad7f"
+      },
+      {
+        "variant": "hp-before-shot-accumulate",
+        "source": "gpu/product_coordinate_add_battle_entry.slang",
+        "definitions": 70,
+        "shots": 0,
+        "retirements": 0,
+        "retirement_generations": [],
+        "incoming_hits": 0,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "b21a9e23b5a1894591531a8d626737061738eaacde6b63724e366c21f61c65dd",
+        "output_sha256": "f341c3108756fc874b1d5b354833e0bc327cde20963f44bf10dfcbeb8f8bfe04"
+      },
+      {
+        "variant": "time-close-accumulate",
+        "source": "gpu/product_coordinate_add_battle_entry.slang",
+        "definitions": 70,
+        "shots": 0,
+        "retirements": 0,
+        "retirement_generations": [],
+        "incoming_hits": 0,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "d8c247df841feb5997bbcc648d340a0765a4ab14afb969cfe56a85bc45e6e525",
+        "output_sha256": "eb49d82efd20024a8c5d4f48e2ddfa858f09469625c6eda9308f2c5914d3e195"
+      }
+    ]
+  },
+  "cli": {
+    "program": "coordinate-add-accumulate",
+    "development_owner": "671f7d38dc1d039245219fbb730c62cd55b2f4d8b620e69d0ff91c2169500dc1",
+    "independent_native_and_metal_cases": 1,
+    "independent_audit": {
+      "package_id": "671f7d38dc1d039245219fbb730c62cd55b2f4d8b620e69d0ff91c2169500dc1",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-coordinate-add-v1-20261101/metal-v1",
+      "child_pid": 40140,
+      "input_count": 1,
+      "native_cases": 1,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 1.6781169169698842,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "cd142e3ab2ffd0d0a57478e6302f70bbe555965b107aed146b7a3df63a161e48",
+      "output_sha256": "5114999287f33c04ceee4da5d00aacba3e3df0e45bc09421aa554193e26d8aa5",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "baseline_version": 51,
+    "old37_members_unchanged": true,
+    "fixed_mode_api_verified": true,
+    "fixed_mode_independent_cli_baseline_registered": false
+  },
+  "release": {
+    "owner": "b659740bb186a4acd141c2ca4f698609f991cb24fc581024dc233ffee2395ec9",
+    "own_unit_tests": 162,
+    "own_cpu_deps_ptx_o1_plans_passed": true,
+    "only_calculation_scope_delta_after_gpu": [
+      "app/portable_product_programs.py",
+      "app/portable_weighted_incoming_source_contract.py"
+    ],
+    "all12_saved_raw_reprojected_exact": true
+  },
+  "saved_decoder_negative_guards": [
+    {
+      "variant": "spaced-fixed",
+      "mutation": "add-header-reserved",
+      "word": 1867650,
+      "rejected": true,
+      "original_raw_sha256": "4d6943e82f6d94e393d52c6a88e621cf2933e19074c7ee2f55580a7f1a7a595e"
+    },
+    {
+      "variant": "spaced-fixed",
+      "mutation": "retirement-tail",
+      "word": 1872120,
+      "rejected": true,
+      "original_raw_sha256": "4d6943e82f6d94e393d52c6a88e621cf2933e19074c7ee2f55580a7f1a7a595e"
+    },
+    {
+      "variant": "spaced-fixed",
+      "mutation": "unowned-coordinate-tail",
+      "word": 1896672,
+      "rejected": true,
+      "original_raw_sha256": "4d6943e82f6d94e393d52c6a88e621cf2933e19074c7ee2f55580a7f1a7a595e"
+    },
+    {
+      "variant": "spaced-accumulate",
+      "mutation": "add-header-reserved",
+      "word": 1867650,
+      "rejected": true,
+      "original_raw_sha256": "5114999287f33c04ceee4da5d00aacba3e3df0e45bc09421aa554193e26d8aa5"
+    },
+    {
+      "variant": "spaced-accumulate",
+      "mutation": "retirement-tail",
+      "word": 1872120,
+      "rejected": true,
+      "original_raw_sha256": "5114999287f33c04ceee4da5d00aacba3e3df0e45bc09421aa554193e26d8aa5"
+    },
+    {
+      "variant": "spaced-accumulate",
+      "mutation": "unowned-coordinate-tail",
+      "word": 1896672,
+      "rejected": true,
+      "original_raw_sha256": "5114999287f33c04ceee4da5d00aacba3e3df0e45bc09421aa554193e26d8aa5"
+    }
+  ],
+  "failures_retained": [
+    {
+      "log": "physical-dispatch-assumption-rejected.json",
+      "reason": "Post-audit assumed one physical dispatch per source; actual product scheduler made fixed6 then accumulate2+4, three total. All raw/member/parent and payload checks passed; correct activity count, no source/expected value/GPU changes"
+    },
+    {
+      "log": "models-v1.log",
+      "reason": "New test compared normalized shape defaults to raw request; corrected to existing normalize contract, no numerical implementation/expected-value change"
+    }
+  ],
+  "standard_product_profiles": {
+    "metal": 263,
+    "cuda_recorded": 263,
+    "total": 266,
+    "new_standard_profiles": 0,
+    "configured_original_historical_each": 266,
+    "current_full_cuda_matrix_revalidated": false
+  },
+  "new_composition_cuda_verified": false,
+  "declared_coordinate_colliders_game_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Short CUDA difference verification of this same coordinate ADD product entry",
+    "Coordinate ADD with weighted/cover/ammo/healing consumer banks is not yet composed",
+    "Typed projectile/shield public product worlds and other uncovered mixed conditions"
+  ]
+}
