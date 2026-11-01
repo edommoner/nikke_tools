@@ -1,6 +1,16 @@
+## 敵弾倉と自爆の最終射撃
+
+既存の`enemy_ammo`製品入口は、自爆する召喚敵の最後のキューを同じADD時計・ActorPoolへ接続しています。`enemy_ammo`には実際のBODY/ADD弾倉を明示し、敵patternには有限の射撃数と自爆を指定します。同じ世代・同じframeに既にキューへ入っていた射撃だけが自爆後の弾倉を消費します。HPによる死亡や時間切れにこの扱いは適用しません。空弾倉・再装填中のattemptは敵を選択せず、ダメージも発生させません。
+
+新suite／program／監査器は追加していません。既存`ammo-cover-fixed-group`のCLIは、旧30秒ケースを先頭に保持し、同時刻最終射撃・再装填中最終射撃の6秒ケース2件を追加しました。実M5/fresh native/独立seal済みv46を使用します。旧先頭ケースのinput/output/native hashは不変、他34memberも不変です。
+
+自爆のある入力だけが既存の分離済み退場記録領域を使い、リソース通知は既存final-queue規約の4,096件までです。自爆なしは15,124件の従来容量を維持し、旧ケースの実4,100通知・全出力不変を確認しました。容量超過はCPU fallbackへ回し、切捨てません。自爆は`reference_models.enemy_ammo.retirements`へ実退場とqueued_indicesを返し、attemptの`retired_queue`も記録します。通常の非自爆出力は不変です。
+
+通常APIのplain／実射撃group＋遮蔽、固定／実蓄積、空弾倉・再装填・同時刻・世代更新・HP死亡・時間終了の16条件が全CPU/GPU/HTTP一致。最終不変package自身154CPU/依存/PTX/O1計画と、16件の保存再投影を完了しています。新sourceのCUDA実機は未確認です。[出所・全SHA・検証範囲](../research/product-ammo-retirement-v1.json)。
+
 ## 敵弾倉と実射撃グループの通常API
 
-`reference_models.enemy_ammo`と元の散弾／同時命中listenerを含む編成を、既存の単一時計・ActorPool・ADD攻撃実行器で合成できます。`cover_defense`／手動遮蔽も併用できます。攻撃するBODY/ADDには各弾倉の容量・初期値・再装填秒数を明示し、遮蔽DEFは独立した5人の明示値を使います。未宣言値は推定しません。自爆付き敵弾倉とtarget modifierの合成は引き続き理由付きCPU fallbackです。
+`reference_models.enemy_ammo`と元の散弾／同時命中listenerを含む編成を、既存の単一時計・ActorPool・ADD攻撃実行器で合成できます。`cover_defense`／手動遮蔽も併用できます。攻撃するBODY/ADDには各弾倉の容量・初期値・再装填秒数を明示し、遮蔽DEFは独立した5人の明示値を使います。未宣言値は推定しません。target modifierとの合成は引き続き理由付きCPU fallbackです。
 
 既存`product-detail`の`ammo-fixed-group`／`ammo-accumulate-group`／`ammo-cover-fixed-group`／`ammo-cover-accumulate-group`を選択します。新suiteはありません。`ammo-cover-fixed-group`は実M5・fresh native・GPU禁止の独立seal済みv45へ登録し、旧34memberは全保持しました。`package --suite product-detail --product-program ammo-cover-fixed-group --compact --out NEW.zip`を使います。他3入口は通常APIのMetal成功済み、独立CLI基準未登録なので`--develop`が必要です。
 

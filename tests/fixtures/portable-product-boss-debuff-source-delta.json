@@ -1344,13 +1344,13 @@
     },
     "app/portable_product_programs.py": {
       "before_sha256": "51d18a2191c24ef3b68f2d1cf71d792cdb9e8e01ed209e5c793827ce5b7d056d",
-      "after_sha256": "8015dc0543769529e1b49df3257d299609fe144ce131651e1088ad7f1aee9f78",
+      "after_sha256": "5c5e418c27c9fb64a34044a1ac8a8d8b7c04962895e99776e1bf7b6a48597d36",
       "hunks": [
         {
           "start": 318,
           "end": 382,
           "before": "GOLDEN = 'research/portable-product-programs-v1-expected.json'\n",
-          "after": "GOLDEN = 'research/portable-product-programs-v45-expected.json'\n"
+          "after": "GOLDEN = 'research/portable-product-programs-v46-expected.json'\n"
         },
         {
           "start": 1039,
@@ -1365,16 +1365,28 @@
           "after": "    if _program['source']!='gpu/product_'+('named_carriers_' if _named_carriers else 'coordinate_cover_' if _coordinate_cover else 'coordinate_' if _coordinate else 'add_' if _add else 'ammo_cover_' if _ammo_cover else 'healing_cover_' if _healing_cover else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else 'ammo_' if _ammo else 'movement_range_cover_' if _movement_range_cover else 'movement_cover_' if _movement_cover else 'movement_' if _movement else 'named_range_cover_' if _range_cover else 'named_range_' if _range else 'lock_cover_' if _lock_cover else 'lock_' if _lock else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):\n"
         },
         {
-          "start": 5865,
-          "end": 15494,
+          "start": 4613,
+          "end": 4820,
+          "before": "                input_words=program['input_words'], output_words=program['output_words'])\n",
+          "after": "                input_words=program['input_words'], output_words=program['output_words'],\n                inputs=3 if name=='ammo-cover-fixed-group' else 1,native=3 if name=='ammo-cover-fixed-group' else 1)\n"
+        },
+        {
+          "start": 5982,
+          "end": 15611,
           "before": "    if program['kind'] in ('group', 'target'):\n",
           "after": "    if name is not None and name.startswith('named-carriers-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['레이 (가칭)'],0)[0][2]\n    elif name is not None and name.startswith('coordinate-cover-'):\n        body=body_for_program(root,'coordinate-'+program['mode'])\n        names=body['squad'];body['reference_models']['cover_defense']=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(names)]\n        body['manual_cover_sequences']={names[0]:[dict(action='cover',t=.5,duration=2.)]}\n        body['enemy']['patterns'].append(dict(id='coordinate-incoming',kind='attack',delay=.75,spec=dict(atk=1000,coeff=100,target='all',hits=2,interval=.5)))\n    elif name is not None and name.startswith('coordinate-'):\n        import engine_worker\n        from portable_coordinate_original_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body']);body['duration']=30\n        body['enemy']['patterns']=copy.deepcopy(case['patterns'])\n        body['reference_models']={'coordinate':dict(coord=copy.deepcopy(case['coord']),logical_geometry=[])}\n    elif name is not None and name.startswith('movement-range-cover-'):\n        from detail_coverage import body_for\n        body=body_for_program(root,'named-range-'+program['mode'])\n        motion=body_for_program(root,'movement-'+program['mode'])['reference_models']['enemy_movement']\n        roster=body['squad'][:2]+['솔져 O.W.','유니','얀'];body['squad']=roster;body['duration']=30\n        body['profile']=body_for(roster,30)['profile']\n        spec=body['reference_models']['named_range']\n        motion['coord']=copy.deepcopy(spec['coord']);motion['logical_geometry']=copy.deepcopy(spec['logical_geometry'])\n        motion['motion']['actors']=[dict(label=r['label'],velocity=[.1,0.],force_center=[0.,0.]) for r in spec['logical_geometry']]\n        body['reference_models'].update(enemy_movement=motion,cover_defense=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(roster)])\n        body['manual_cover_sequences']={roster[2]:[dict(action='cover',t=10,duration=2)]}\n        body['enemy']['patterns'].append(dict(id='declared-incoming',kind='attack',delay=10.25,spec=dict(atk=1000,coeff=100,target='all',hits=5,interval=.5)))\n    elif name is not None and name.startswith('lock-cover-'):\n        from detail_coverage import body_for\n        body=body_for_program(root,'lock-'+program['mode'])\n        roster=body['squad'][:-1]+['솔져 O.W.'];literal=body_for(roster,body['duration'])\n        body['squad']=roster;body['profile']=literal['profile']\n        body['reference_models']['cover_defense']=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(roster)]\n        body['manual_cover_sequences']={roster[0]:[dict(action='cover',t=10,duration=2)]}\n        body['enemy']['patterns']=[dict(id='lock-wave',kind='summon',spec=dict(count=2,hp=1e30)),dict(id='declared-incoming',kind='attack',delay=10.25,spec=dict(atk=1000,coeff=100,target='all',hits=5,interval=.5))]\n    elif name is not None and name.startswith('lock-'):\n        import engine_worker\n        from portable_heavyarms_lock_cases import fixtures,NAME,source_definitions\n        from product_lock_model import ORDER,MARKER,DELIVERY_MODEL\n        body=copy.deepcopy(fixtures()[1]['body'])\n        body['reference_models']={'lock_on':dict(owner=NAME,marker=MARKER,packet_skill=source_definitions()[8]['name'],candidate_order=ORDER,delivery=DELIVERY_MODEL,typed_bindings=[])}\n    elif name is not None and name.startswith('named-range-cover-'):\n        from detail_coverage import body_for\n        body=body_for_program(root,'named-range-'+program['mode'])\n        roster=body['squad'][:-1]+['솔져 O.W.'];literal=body_for(roster,body['duration'])\n        body['squad']=roster;body['profile']=literal['profile']\n        body['reference_models']['cover_defense']=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(roster)]\n        body['manual_cover_sequences']={roster[0]:[dict(action='cover',t=10,duration=2)]}\n        body['enemy']['patterns'].append(dict(id='declared-incoming',kind='attack',delay=10.25,spec=dict(atk=1000,coeff=100,target='all',hits=5,interval=.5)))\n    elif name is not None and name.startswith('named-range-'):\n        from portable_named_range_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'named_range':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),rules=copy.deepcopy(case['named_range_rules']))}\n    elif name is not None and name.startswith('movement-cover-'):\n        body=body_for_program(root,'movement-'+program['mode'])\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('movement-'):\n        import engine_worker\n        from portable_enemy_movement_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'enemy_movement':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),motion=copy.deepcopy(case['enemy_movement']))}\n    elif name is not None and (name.startswith('ammo-') or name.startswith('ammo-cover-')) and program['kind']=='group':\n        from detail_coverage import body_for\n        from portable_enemy_ammo_cases import fixtures\n        body=body_for(['벨벳','벨로타','솔져 O.W.' if name.startswith('ammo-cover-') else '미란다','도라','드레이크'],30)\n        case=fixtures()[0]\n        body['enemy'].update(has_parts=False,patterns=copy.deepcopy(case['patterns']))\n        body['reference_models']={'enemy_ammo':copy.deepcopy(case['enemy_ammo'])}\n        if name.startswith('ammo-cover-'):\n            body['reference_models']['cover_defense']=[dict(name=n,base_defense=1000.) for n in body['squad']]\n            body['manual_cover_sequences']={body['squad'][2]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('ammo-cover-'):\n        from detail_coverage import body_for\n        body=body_for(['벨벳','솔져 O.W.','미란다','도라','드레이크'],30)\n        body['manual_cover_sequences']={body['squad'][1]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('ammo-'):\n        if program['mode']=='fixed':\n            from portable_original_identity_inventory import selected_profile_bodies\n            body=selected_profile_bodies(['벨벳'],0)[0][2]\n        else:\n            import engine_worker\n            from portable_enemy_ammo_cases import fixtures\n            case=fixtures()[0];body=copy.deepcopy(case['body'])\n            body['reference_models']={'enemy_ammo':copy.deepcopy(case['enemy_ammo'])}\n    elif name is not None and name.startswith('default-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['베이' if name.startswith('default-weighted-') else '솔져 O.W.'],0)[0][2]\n    elif name is not None and name.startswith('cover-') and program['kind']:\n        body=body_for_program(root,program['mode']+'-'+program['kind'])\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('cover-'):\n        from portable_cover_defense_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'cover_defense':copy.deepcopy(case['cover_defense'])}\n        body['manual_cover_sequences']=copy.deepcopy(case['declared_manual_sequences'])\n    elif name is not None and name.startswith('weighted-'):\n        from portable_weighted_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}\n    elif name is not None and name.startswith('healing-cover-') and program['kind']=='group':\n        from detail_coverage import body_for\n        from portable_enemy_healing_cases import fixtures\n        case=fixtures()[0];roster=['앤 : 미라클 페어리','벨로타','솔져 O.W.','도라','드레이크']\n        body=body_for(roster,30);body['enemy']['patterns']=copy.deepcopy(case['patterns'])\n        body['enemy']['patterns'].append(dict(id='declared-cover-hit',kind='attack',delay=7.5,spec=dict(atk=100000.,coeff=100,target='slot:3',ignore_taunt=True,pierce=False,hits=1,interval=.1)))\n        body['reference_models']={'enemy_healing':copy.deepcopy(case['enemy_healing']),'cover_defense':[dict(name=n,base_defense=1000.) for n in roster]}\n        body['manual_cover_sequences']={roster[2]:[dict(action='cover',t=7.4,duration=.25)]}\n    elif name is not None and name.startswith('healing-cover-'):\n        from detail_coverage import body_for\n        body=body_for(['앤 : 미라클 페어리','솔져 O.W.','미란다','도라','드레이크'],30)\n        body['manual_cover_sequences']={body['squad'][1]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('healing-') and program['kind']=='group':\n        from detail_coverage import body_for\n        from portable_enemy_healing_cases import fixtures\n        case=fixtures()[0];roster=['앤 : 미라클 페어리','벨로타','미란다','도라','드레이크']\n        body=body_for(roster,30);body['enemy']['patterns']=copy.deepcopy(case['patterns'])\n        body['reference_models']={'enemy_healing':copy.deepcopy(case['enemy_healing'])}\n    elif name is not None and name.startswith('healing-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]\n    elif program['kind'] in ('group', 'target'):\n"
         },
         {
-          "start": 16072,
-          "end": 16505,
+          "start": 16189,
+          "end": 16622,
           "before": "",
           "after": "    if name is not None and name.startswith('add-'):\n        body['enemy']['patterns']=[dict(id='product-escort',kind='summon',until=dict(targets_cleared=True),spec=dict(\n            name='Escort',count=2,hp=1e12,attack_at=.25,self_destruct=True,\n            attack=dict(atk=1000,coeff=100,hits=2,interval=.5,target='all',debuffs=[\n                dict(stat='atk_pct',value=-10),dict(stat='dot',coeff=10,interval=.5,duration=1)])))]\n"
+        },
+        {
+          "start": 16638,
+          "end": 17357,
+          "before": "",
+          "after": "\n\ndef cases_for_program(root,name=None):\n    \"\"\"Extend the existing product corpus, keeping its original case first.\"\"\"\n    base=body_for_program(root,name);rows=[(None,base)]\n    if name=='ammo-cover-fixed-group':\n        from portable_enemy_ammo_self_destruct_cases import fixtures\n        for case in fixtures():\n            scenario=case['contract']['scenario']\n            if scenario not in ('coincident','reload-final'):continue\n            body=copy.deepcopy(base);body['duration']=6\n            body['enemy']['patterns']=copy.deepcopy(case['patterns'])\n            body['reference_models']['enemy_ammo']=copy.deepcopy(case['enemy_ammo'])\n            rows.append((scenario+'-final-queue',body))\n    return rows\n"
         }
       ]
     },
@@ -1716,85 +1728,43 @@
     },
     "app/portable_enemy_ammo_readback.py": {
       "before_sha256": "e16ab3978885e52c4c76f54fac103f1a26f7bca607d4dfd931f2e3dab41a6b45",
-      "after_sha256": "cfa6db848e6a0c01eec2eb3a29cf540e4ad7d3e4828cfe059b2fe756258d15b7",
+      "after_sha256": "afbb84d9c0f31317f285f58201eca67298d7a6be7c872dbf3f0e1796cc77d116",
       "hunks": [
         {
-          "start": 96,
-          "end": 101,
-          "before": "",
-          "after": ",math"
+          "start": 83,
+          "end": 102,
+          "before": "import struct\n",
+          "after": "import struct,math\n"
         },
         {
-          "start": 196,
-          "end": 196,
-          "before": "compa",
+          "start": 192,
+          "end": 452,
+          "before": "def compare_ammo(block,domain,native,*,allow_retired_queue=False):\n    case,meta,bindings,_=domain;data=native['enemy_ammo'];head=E['OUTPUT_BASE']\n    number=lambda at:struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]\n",
+          "after": "def read_ammo(block,domain,*,allow_retired_queue=False):\n    case,meta,bindings,_=domain;head=E['OUTPUT_BASE']\n    def number(at):\n        value=struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]\n        assert math.isfinite(value)\n        return value\n"
+        },
+        {
+          "start": 1376,
+          "end": 1376,
+          "before": "    assert generations==data['generations'] and final==data['final'],'Every original and superseded magazine generation'\n",
           "after": ""
         },
         {
-          "start": 198,
-          "end": 200,
-          "before": "",
-          "after": "ad"
-        },
-        {
-          "start": 218,
-          "end": 218,
-          "before": ",native",
+          "start": 4818,
+          "end": 4818,
+          "before": "    assert charges==data['charges'],'Original percentage quantities, recipient order and completion snapshots'\n    assert reloads==data['reloads'] and attempts==data['attempts'],'Real resource gates and native frame deadlines'\n",
           "after": ""
         },
         {
-          "start": 281,
-          "end": 281,
-          "before": "data=native['enemy_ammo'];",
-          "after": ""
-        },
-        {
-          "start": 307,
-          "end": 311,
+          "start": 4912,
+          "end": 5283,
           "before": "",
-          "after": "def "
+          "after": "    return dict(generations=generations,final=final,charges=charges,reloads=reloads,attempts=attempts)\n\n\ndef compare_ammo(block,domain,native,*,allow_retired_queue=False):\n    observed=read_ammo(block,domain,allow_retired_queue=allow_retired_queue)\n    data=native['enemy_ammo']\n    for key,value in observed.items():assert value==data[key],key\n    head=E['OUTPUT_BASE']\n"
         },
         {
-          "start": 317,
-          "end": 318,
-          "before": "=lambda ",
-          "after": "("
-        },
-        {
-          "start": 320,
-          "end": 321,
+          "start": 7652,
+          "end": 10083,
           "before": "",
-          "after": ")"
-        },
-        {
-          "start": 322,
-          "end": 337,
-          "before": "",
-          "after": "\n        value="
-        },
-        {
-          "start": 394,
-          "end": 451,
-          "before": "",
-          "after": "\n        assert math.isfinite(value)\n        return value"
-        },
-        {
-          "start": 1375,
-          "end": 1375,
-          "before": "\n    assert generations==data['generations'] and final==data['final'],'Every original and superseded magazine generation'",
-          "after": ""
-        },
-        {
-          "start": 4829,
-          "end": 4829,
-          "before": "charges==data['charges'],'Original percentage quantities, recipient order and completion snapshots'\n    assert reloads==data['reloads'] and attempts==data['attempts'],'Real resource gates and native frame deadlines'\n    assert ",
-          "after": ""
-        },
-        {
-          "start": 4911,
-          "end": 5282,
-          "before": "",
-          "after": "\n    return dict(generations=generations,final=final,charges=charges,reloads=reloads,attempts=attempts)\n\n\ndef compare_ammo(block,domain,native,*,allow_retired_queue=False):\n    observed=read_ammo(block,domain,allow_retired_queue=allow_retired_queue)\n    data=native['enemy_ammo']\n    for key,value in observed.items():assert value==data[key],key\n    head=E['OUTPUT_BASE']"
+          "after": "\n\ndef read_retirements(block,case,bindings,attempts):\n    \"\"\"Validate final-queue leases against the actual common world log.\"\"\"\n    from portable_enemy_ammo_self_destruct_wire import LAYOUT as S,MAGIC\n    head=S['OUTPUT_BASE'];count,delivered=block[head+1:head+3]\n    assert block[head]==MAGIC and count==delivered and count<=S['ROWS']\n    assert not any(block[head+3:head+S['HEADER']])\n    world=L['WORLD_FRAME_OUTPUT_BASE'];records=block[world+2];rows=[];leases={}\n    for i in range(count):\n        at=head+S['HEADER']+i*S['ROW_WORDS'];node,slot,generation,fired=block[at:at+4]\n        when=struct.unpack('<d',struct.pack('<II',*block[at+4:at+6]))[0];death=block[at+6]\n        assert node<len(case['patterns']) and 0<slot<len(bindings) and int(bindings[slot].kind)==5\n        assert bindings[slot].run==node and generation>0 and fired>0 and math.isfinite(when) and when>=0\n        assert case['patterns'][node]['spec']['self_destruct'] is True\n        assert block[at+7]==1 and not any(block[at+8:at+S['ROW_WORDS']]) and death<records\n        log=world+2832+death*6;assert list(block[log:log+3])==[5,node,slot]\n        assert list(block[log+3:log+5])==list(block[at+4:at+6]) and block[log+5]==0\n        key=(slot,generation,when);assert key not in leases\n        indices=[]\n        for record in range(death):\n            row=world+2832+record*6\n            if list(block[row:row+2])!=[3,node] or list(block[row+3:row+5])!=list(block[at+4:at+6]):continue\n            from portable_add_attack_battle_wire import LAYOUT as A\n            mapped=A['OUTPUT_BASE']+A['MAP_BASE']+record*2\n            if list(block[mapped:mapped+2])==[slot,generation]:indices.append(block[row+2])\n        assert indices and indices==sorted(set(indices)) and indices[-1]==fired-1\n        actor=[5,bindings[slot].identity,generation]\n        matching=[a for a in attempts if a.get('retired_queue') and a['actor']==actor and a['time']==when]\n        assert [a['index'] for a in matching]==indices\n        leases[key]=True\n        rows.append(dict(time=when,label=bindings[slot].label,actor=actor,fired=fired,queued_indices=indices))\n    assert not any(block[head+S['HEADER']+count*S['ROW_WORDS']:head+S['HEADER']+S['ROWS']*S['ROW_WORDS']])\n    for a in attempts:\n        if a.get('retired_queue'):\n            slot=next(i for i,b in enumerate(bindings) if b.label==a['label'])\n            assert (slot,a['actor'][2],a['time']) in leases\n    return rows\n"
         }
       ]
     },
@@ -2973,12 +2943,36 @@
           "after": "    if sources is None and (root/'gpu/world_add_attack_battle_entry.slang').exists():\n        # Direct audits need the same newer-to-older exact inverse chain as\n        # the existing enemy-healing parent. Do not normalize current bytes.\n        from portable_add_attack_battle_source_contract import project_sources as add_attacks\n        out=add_attacks(root)\n"
         }
       ]
+    },
+    "gpu/add_self_destruct_runtime.slang": {
+      "before_sha256": "6124bdec9abfa2f4463b57c20dabdd861816f003f0764fe9c8afbce5c7aa790a",
+      "after_sha256": "08c414822daa898a44d0d2271448daf60c9e5df661427835c6714b2a1f972ca5",
+      "hunks": [
+        {
+          "start": 0,
+          "end": 83,
+          "before": "",
+          "after": "#ifndef ADD_SELF_DESTRUCT_ENABLED\n#define ADD_SELF_DESTRUCT_ENABLED(s) true\n#endif\n"
+        },
+        {
+          "start": 444,
+          "end": 494,
+          "before": "",
+          "after": "    if(!ADD_SELF_DESTRUCT_ENABLED(s))return true;\n"
+        },
+        {
+          "start": 1607,
+          "end": 1652,
+          "before": "",
+          "after": "    if(!ADD_SELF_DESTRUCT_ENABLED(s))return;\n"
+        }
+      ]
     }
   },
   "added_sources": {
     "app/portable_product_cover.py": "b4ba37643cb3b395c33c549cd31a5b50bc5229964b9465da14a5ff7e8aad1b8f",
     "app/portable_product_movement_range.py": "eb9b7727c47943b78217795779b681fba269c6a3b88f72635cb311aa826b2625",
-    "app/product_reference_models.py": "9772e6506e00ba472825f29d252229f36707c4cdb72de7a04665e1846ca165f3",
+    "app/product_reference_models.py": "b53377512573dd9e0ea52e3409e9a5879f67c2ff1c5539416cb8a203b3af86fd",
     "gpu/product_movement_range_cover_battle_entry.slang": "1cdac26aa6548cddb68f651eb60accee4990ad68ff81b087ca51068f6dbe03c3",
     "gpu/product_movement_range_cover_fixed_battle_entry.slang": "6710f79e3ce475933c752dce08f219a0bfcc24530bb6d258e9adf788cad40e39",
     "app/portable_product_healing.py": "e8f53b19e4fd4c8a09c3a73cd0b8490eb6009ab0f3e8acb994e205a93ad5914d",
@@ -3006,8 +3000,8 @@
     "app/product_named_range_model.py": "5f0a6d2187488aaa18a5baeecb17ac24b1ea7d73ec374cfbb12e6b5dfae87b2c",
     "gpu/product_movement_range_battle_entry.slang": "2611612a142691878a8ca634ffc974d377d63da2778a053b627dc6c26704f757",
     "gpu/product_named_range_battle_entry.slang": "b727d7f73788e5bdd61810da53fc94c14c285af6e631379fee3c422a4c70f518",
-    "app/portable_product_ammo.py": "a89d5c6dba25bc8ec4fd8a99b2f24f09f0c4bea890cd1d0d599086cde69dc76e",
-    "gpu/product_ammo_battle_entry.slang": "86d4da7ca565555a8166d5ed1bfa7bc3d84e081130b861987318e9a9120d2543",
+    "app/portable_product_ammo.py": "06abee7502248c5ee1d868d31279898f9ae3d3347037fb0aff1089c28df754cc",
+    "gpu/product_ammo_battle_entry.slang": "b0bdba759e3477525ad6ebd90d057571355a3f201549367242fc3dd364ac1043",
     "gpu/product_ammo_cover_fixed_group_battle_entry.slang": "081aba2fa93760815411f35da7ef128e4106012f8a3509ea083c3c0d0080a844",
     "gpu/product_ammo_cover_group_battle_entry.slang": "4ab2ea8e29fab6e56e2e7e5b62880ac1bcb87ca5a805aae2f799086c23816779",
     "gpu/product_ammo_entry.slang": "e2fcd2ab3556106fad2522ef775e340b7b3c49e0129f6858735143a2398da942",

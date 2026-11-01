@@ -1,3 +1,15 @@
+## 2026-11-01 敵弾倉と自爆の最終キューを通常API接続、Metal16条件一致
+
+前ターンは敵弾倉/group/遮蔽合成の実装・実M5/CPU8一致でprogress。今ターンは残っていた自爆付き敵弾倉を、既存ADD retirement・enemyAmmoRetiredQueue・同じ世界時計/ActorPoolへ接続した。新suite/program/監査器0。自爆の最終frameで実際にキューに入った同世代shotのみ弾倉を消費。HP死亡/時間終了はleaseなし、空弾倉/再装填中はquery/RNG/damageなし。declared CPU adapterは既存self_destruct_enemy_ammoへ接続し、CPU正本4file/upstream・数値規則・許容差は不変。
+
+退場記録は既存portable_enemy_ammo_self_destruct_wireの分離領域を使い、literal ADD rowを読む同じ入力内の条件で有効化。自爆ありは既存final-queue resource cap4096、自爆なしは旧15124を維持。ASD初期化/noticeも自爆なしでは触れず、旧30秒group/coverケースは実4100resource通知を持つが全input/output/native hashが以前と完全一致。unused tail/retirement全row/通知配信数/WS death/同世代map/queued shot indicesを厳密検査し、capacity超過は切捨てずfallback。
+
+既存ammo-cover-fixed-groupのCLIは旧30秒ケース先頭を保持してcoincident/reload-final6秒2件を追加。実M5/fresh native/独立GPU禁止sealで3件成功。v46は当該既存memberだけ更新、旧先頭entryのinput/output/native全hashと他34member全保持。registry64のまま、configurationの同program inputs/nativeだけ3。own154CPU（67/11/7/69）＋既存private自爆7検査成功。新負例のerrorメッセージをnative validatorの実hits拒否へ訂正した事前失敗と、API準備のengine_worker初期化順の事前失敗はtool transcriptへ保持、GPU/API job起動なし。
+
+通常API1POST/4physicalbatchで16条件（plain固定8/蓄積4、group+cover両mode各2）全CPU/GPU/HTTP/Unicode一致。即時/間隔/同時刻/空弾倉/再装填中最終/世代更新/HP死亡/時間終了を含む。coincidentは2退場/6最終queue、renewalはgeneration1/2の4退場、HP/時間終了は退場leaseとattempt0。全親/member raw/input/source/全payload保存監査16成功、追加battle/GPU0、専用Node group消滅。最終release owner5774450341c168cc9043e8481df7a290b6e52c56b5f585e6ebec62f66ecfb626自身154CPU/deps/PTX60/O1計画成功。同releaseからも16件を全再pack/reproject一致、追加battle/GPU0。元不変packet-v1とのapp/gpu/data差はGOLDEN45→46とledgerSHAの管理2fileだけ。
+
+小記録research/product-ammo-retirement-v1.json、原本proofs/product-ammo-retirement-v1-20261101。Windowsは旧RAM2.09GiB停止のterminalのまま追加依頼0、新sourceCUDA実機は未確認。標準Metal/CUDA累積263/266、宣言別Metal266/CUDA265を維持、標準追加0・全goal未完了。次はtarget modifierや他consumerとの弾倉合成を既存executorへ接続する。Windowsの短い検証はRAMが確保できる時に保存Heavy imageまたは必要な新source差分だけへまとめる。以下は履歴。
+
 ## 2026-11-01 敵弾倉＋実射撃group＋遮蔽を通常APIへ接続、M5全8条件一致
 
 WindowsはRAM2.09GiBで停止したterminalのまま、追加依頼0。Macで次の未対応consumer合成を進めた。Velvet＋Belortaの元81定義（遮蔽はSoldier O.W.入り79定義）を全保持し、敵弾倉/ADD攻撃と実射撃groupを同じ時計・ActorPoolへ接続。group descriptor104400..104408をzero paddingから区別し、残りpaddingを全検査。遮蔽併用も同じprefixを使い、ammo end2032000/cover start2032000の独立領域を保持。算術・効果式・CPU正本4file/upstream・許容差変更0。新suite0、既存product-detailの薄い選択4本。

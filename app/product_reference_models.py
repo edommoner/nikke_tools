@@ -95,7 +95,7 @@ def healing_public(data):
         final_overkill=data['final_overkill'],public_summary=summary)
 
 def ammo_public(data):
-    return {k:copy.deepcopy(data[k]) for k in ('generations','final','charges','reloads','attempts')}
+    return {k:copy.deepcopy(data[k]) for k in ('generations','final','charges','reloads','attempts')+(('retirements',) if data.get('retirements') else ())}
 
 @contextmanager
 def execution(declarations,names=None):
@@ -121,8 +121,8 @@ def execution(declarations,names=None):
             cover=stack.enter_context(cover_defense(declarations['cover_defense'],names))
         else:cover=None
         if 'enemy_ammo' in declarations:
-            from enemy_ammo_model import enemy_ammo
-            ammo=stack.enter_context(enemy_ammo(declarations['enemy_ammo']))
+            from enemy_ammo_self_destruct_model import self_destruct_enemy_ammo
+            ammo=stack.enter_context(self_destruct_enemy_ammo(declarations['enemy_ammo']))
         else:ammo=None
         if 'enemy_movement' in declarations:
             from product_movement_model import execution as movement_execution

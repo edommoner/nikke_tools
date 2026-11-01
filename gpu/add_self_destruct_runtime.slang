@@ -1,3 +1,6 @@
+#ifndef ADD_SELF_DESTRUCT_ENABLED
+#define ADD_SELF_DESTRUCT_ENABLED(s) true
+#endif
 uint asdHead(inout Runtime s){return s.resourceOutput+ASD_OUTPUT_BASE;}
 bool validAddSelfDestructRow(inout Runtime s,uint row)
 {
@@ -7,6 +10,7 @@ bool validAddSelfDestructRow(inout Runtime s,uint row)
 }
 bool initializeAddSelfDestruct(inout Runtime s)
 {
+    if(!ADD_SELF_DESTRUCT_ENABLED(s))return true;
     for(uint i=0;i<ASD_HEADER+ASD_ROWS*ASD_ROW_WORDS;i++)results[asdHead(s)+i]=0;
     results[asdHead(s)]=ASD_MAGIC;return true;
 }
@@ -26,6 +30,7 @@ void retireAddAfterFinalShot(inout Runtime s,uint node,uint slot,uint cursor,uin
 }
 void deliverAddSelfDestructNotices(inout Runtime s,uint64_t when,uint output)
 {
+    if(!ADD_SELF_DESTRUCT_ENABLED(s))return;
     uint head=asdHead(s),end=results[head+1],cursor=results[head+2];
     while(cursor<end&&s.error==0)
     {

@@ -24,7 +24,9 @@ def compile_product(prepared,producer):
     patterns=validate(copy.deepcopy(raw));lowered,_=lower_add(prepared)
     registry_raw=lowered['enemy'].get('patterns') or raw
     _,bindings=compile_registry(validate(copy.deepcopy(registry_raw)),pools=True)
-    if any(p.summon and p.summon.self_destruct for p in patterns):raise UnsupportedPortable('Product enemy magazines with retired self-destruct queues require the combined consumer')
+    self_destruct=any(p.summon and p.summon.self_destruct for p in patterns)
+    from portable_enemy_ammo_self_destruct_wire import check_schema as check_retirement
+    check_retirement()
     check_schema();inner=dict(prepared,_product_ammo_compiled=True);inner.pop('reference_models',None)
     with compiler_policy():source,iw,ow,words,meta=producer(inner)
     grouped=source in ('gpu/product_group_battle_entry.slang','gpu/product_fixed_group_battle_entry.slang','gpu/product_add_group_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang')
@@ -35,13 +37,13 @@ def compile_product(prepared,producer):
     elif source not in ('gpu/product_add_battle_entry.slang','gpu/product_add_fixed_battle_entry.slang','gpu/product_add_group_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang') or (iw,ow)!=(A['INPUT_WORDS'],A['OUTPUT_WORDS']):
         raise UnsupportedPortable('Enemy magazines require a checked plain or actual-shot group BODY/ADD product prefix')
     if len(words)!=E['BASE']:raise ValueError('Enemy magazine product prefix changed')
-    if spec is not None:bank=pack(spec,patterns,bindings)
+    if spec is not None:bank=pack(spec,patterns,bindings,allow_self_destruct=True)
     else:
         # Stationary world with no configured enemy magazines. Keep every
         # percentage operation and its completion, with an empty recipient set.
         # Real attacking actors always require literal magazines above/on GPU.
         bank=[0]*E['WORDS'];bank[:4]=[MAGIC,1,0,len(bindings)]
-    meta['product_enemy_ammo']=dict(declarations=declarations,
+    meta['product_enemy_ammo']=dict(declarations=declarations,self_destruct=self_destruct,
         case=dict(names=names,effects=[copy.deepcopy(r['effect']) for r in prepared['effects']],patterns=copy.deepcopy(raw)),
         bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],
         cpu_state_or_schedule_supplied=False)
@@ -50,16 +52,25 @@ def compile_product(prepared,producer):
     return ('gpu/product_ammo_'+stem+'battle_entry.slang',E['INPUT_WORDS'],E['OUTPUT_WORDS'],words+bank,meta)
 
 def read_result(block,meta):
-    from portable_enemy_ammo_readback import read_ammo
+    from portable_enemy_ammo_readback import read_ammo,read_retirements
     info=meta['product_enemy_ammo'];bindings=[SimpleNamespace(**r) for r in info['bindings']]
     if len(block)!=E['OUTPUT_WORDS']:raise UnsupportedPortable('Complete enemy magazine product readback required')
-    try:data=read_ammo(block,(info['case'],meta,bindings,None))
+    try:
+        data=read_ammo(block,(info['case'],meta,bindings,None),allow_retired_queue=info['self_destruct'])
+        if info['self_destruct']:
+            retired=read_retirements(block,info['case'],bindings,data['attempts'])
+            if retired:data['retirements']=retired
     except (AssertionError,IndexError,KeyError,struct.error) as error:raise UnsupportedPortable('Invalid enemy magazine product history') from error
     # Resource continuation is already fully decoded by the common decoder;
     # unused words must still be empty, rather than discarded from the audit.
     from portable_specs import LIMITS as L
     count=block[L['RESOURCE_HEADER_BASE']]
     end=E['OUTPUT_WORDS']
+    if info['self_destruct']:
+        from portable_enemy_ammo_self_destruct_wire import LAYOUT as S
+        if count>E['RESOURCE_CAPACITY']:raise UnsupportedPortable('Enemy magazine final-queue resource capacity exceeded')
+        end=S['OUTPUT_BASE']
+        if any(block[end+S['HEADER']+S['ROWS']*S['ROW_WORDS']:]):raise UnsupportedPortable('Unowned enemy magazine final-queue output is nonzero')
     start=E['OUTPUT_BASE']+E['RESOURCE_BASE']+max(0,count-128)*8
     if any(block[start:end]):raise UnsupportedPortable('Unused enemy magazine resource history is nonzero')
     if not info['declarations']:

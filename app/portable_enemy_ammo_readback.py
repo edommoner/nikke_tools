@@ -114,3 +114,41 @@ def compare_resources(block,domain,native):
         if case['effects'][source].get('stat') in ('gauge_charge','gauge_consume','gauge_consume_as_ammo'):
             assert block[L['STATE_BASE']+index*10+8]==sum(r['row']==source for r in observed['dispatches']),'Every original resource dispatch activation'
     return clean
+
+
+def read_retirements(block,case,bindings,attempts):
+    """Validate final-queue leases against the actual common world log."""
+    from portable_enemy_ammo_self_destruct_wire import LAYOUT as S,MAGIC
+    head=S['OUTPUT_BASE'];count,delivered=block[head+1:head+3]
+    assert block[head]==MAGIC and count==delivered and count<=S['ROWS']
+    assert not any(block[head+3:head+S['HEADER']])
+    world=L['WORLD_FRAME_OUTPUT_BASE'];records=block[world+2];rows=[];leases={}
+    for i in range(count):
+        at=head+S['HEADER']+i*S['ROW_WORDS'];node,slot,generation,fired=block[at:at+4]
+        when=struct.unpack('<d',struct.pack('<II',*block[at+4:at+6]))[0];death=block[at+6]
+        assert node<len(case['patterns']) and 0<slot<len(bindings) and int(bindings[slot].kind)==5
+        assert bindings[slot].run==node and generation>0 and fired>0 and math.isfinite(when) and when>=0
+        assert case['patterns'][node]['spec']['self_destruct'] is True
+        assert block[at+7]==1 and not any(block[at+8:at+S['ROW_WORDS']]) and death<records
+        log=world+2832+death*6;assert list(block[log:log+3])==[5,node,slot]
+        assert list(block[log+3:log+5])==list(block[at+4:at+6]) and block[log+5]==0
+        key=(slot,generation,when);assert key not in leases
+        indices=[]
+        for record in range(death):
+            row=world+2832+record*6
+            if list(block[row:row+2])!=[3,node] or list(block[row+3:row+5])!=list(block[at+4:at+6]):continue
+            from portable_add_attack_battle_wire import LAYOUT as A
+            mapped=A['OUTPUT_BASE']+A['MAP_BASE']+record*2
+            if list(block[mapped:mapped+2])==[slot,generation]:indices.append(block[row+2])
+        assert indices and indices==sorted(set(indices)) and indices[-1]==fired-1
+        actor=[5,bindings[slot].identity,generation]
+        matching=[a for a in attempts if a.get('retired_queue') and a['actor']==actor and a['time']==when]
+        assert [a['index'] for a in matching]==indices
+        leases[key]=True
+        rows.append(dict(time=when,label=bindings[slot].label,actor=actor,fired=fired,queued_indices=indices))
+    assert not any(block[head+S['HEADER']+count*S['ROW_WORDS']:head+S['HEADER']+S['ROWS']*S['ROW_WORDS']])
+    for a in attempts:
+        if a.get('retired_queue'):
+            slot=next(i for i,b in enumerate(bindings) if b.label==a['label'])
+            assert (slot,a['actor'][2],a['time']) in leases
+    return rows

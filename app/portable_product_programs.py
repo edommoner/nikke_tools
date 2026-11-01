@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v45-expected.json'
+GOLDEN = 'research/portable-product-programs-v46-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -45,7 +45,8 @@ def configuration(suites, selection):
         raise ValueError('Invalid product program selection')
     program = PROGRAMS[name]
     return dict(base, product_program=name, source=program['source'], golden=GOLDEN,
-                input_words=program['input_words'], output_words=program['output_words'])
+                input_words=program['input_words'], output_words=program['output_words'],
+                inputs=3 if name=='ammo-cover-fixed-group' else 1,native=3 if name=='ammo-cover-fixed-group' else 1)
 
 
 def registered_golden(root, config, *, allow_unsealed=False):
@@ -206,3 +207,18 @@ def body_for_program(root, name=None):
             attack=dict(atk=1000,coeff=100,hits=2,interval=.5,target='all',debuffs=[
                 dict(stat='atk_pct',value=-10),dict(stat='dot',coeff=10,interval=.5,duration=1)])))]
     return body
+
+
+def cases_for_program(root,name=None):
+    """Extend the existing product corpus, keeping its original case first."""
+    base=body_for_program(root,name);rows=[(None,base)]
+    if name=='ammo-cover-fixed-group':
+        from portable_enemy_ammo_self_destruct_cases import fixtures
+        for case in fixtures():
+            scenario=case['contract']['scenario']
+            if scenario not in ('coincident','reload-final'):continue
+            body=copy.deepcopy(base);body['duration']=6
+            body['enemy']['patterns']=copy.deepcopy(case['patterns'])
+            body['reference_models']['enemy_ammo']=copy.deepcopy(case['enemy_ammo'])
+            rows.append((scenario+'-final-queue',body))
+    return rows

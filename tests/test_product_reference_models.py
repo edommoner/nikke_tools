@@ -194,6 +194,54 @@ class ProductReferenceModels(unittest.TestCase):
         block[1769856]=1
         with self.assertRaisesRegex(UnsupportedPortable,'coordinate product history'):read_result(block,metadata)
 
+    def test_enemy_ammo_self_destruct_uses_existing_finite_rows_and_magazine_bank(self):
+        from portable_enemy_ammo_self_destruct_cases import fixtures
+        from portable_detail import prepare,compile_product
+        from portable_add_attack_battle_wire import LAYOUT as A
+        from portable_enemy_ammo_wire import LAYOUT as E
+        for case in fixtures():
+            body=copy.deepcopy(case['body']);body['reference_models']={'enemy_ammo':case['enemy_ammo']}
+            original=copy.deepcopy(body)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU schedule as GPU input')):
+                prepared,_=prepare(body);source,iw,ow,words,meta=compile_product(prepared)
+            self.assertEqual(body,original);self.assertTrue(meta['product_enemy_ammo']['self_destruct'])
+            self.assertEqual((iw,ow),(E['INPUT_WORDS'],E['OUTPUT_WORDS']))
+            self.assertEqual(words[A['BASE']+A['ROW_BASE']+4],1)
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+        body['enemy']['patterns'][0]['spec']['attack']['hits']=0
+        with patch.object(sim,'execute',side_effect=AssertionError('Reject before battle')):
+            with self.assertRaisesRegex(ValueError,'hits'):
+                prepared,_=prepare(body);compile_product(prepared)
+
+    def test_declared_product_ammo_reuses_exact_native_final_queue_lifecycle(self):
+        from portable_enemy_ammo_self_destruct_cases import fixtures
+        original=timeline.BossScript
+        for case in fixtures():
+            if case['contract']['scenario'] not in ('coincident','reload-final','hp-before-shot','time-close','renewal'):continue
+            body=copy.deepcopy(case['body']);body['reference_models']={'enemy_ammo':case['enemy_ammo']}
+            result=engine_worker.evaluate(body)['reference_models']['enemy_ammo']
+            if case['contract']['scenario'] in ('hp-before-shot','time-close'):
+                self.assertNotIn('retirements',result);self.assertFalse(result['attempts'])
+            else:
+                self.assertTrue(result['retirements'])
+                self.assertTrue(any(a.get('retired_queue') for a in result['attempts']))
+                if case['contract']['scenario']=='coincident':
+                    self.assertTrue(all(r['queued_indices']==[0,1,2] for r in result['retirements']))
+                if case['contract']['scenario']=='reload-final':
+                    self.assertTrue(any(a.get('retired_queue') and a['status']=='reloading' for a in result['attempts']))
+                if case['contract']['scenario']=='renewal':
+                    self.assertEqual({r['actor'][2] for r in result['retirements']},{1,2})
+            self.assertIs(timeline.BossScript,original)
+
+    def test_final_queue_readback_rejects_unowned_or_unmatched_retirement_data(self):
+        from portable_enemy_ammo_readback import read_retirements
+        from portable_enemy_ammo_self_destruct_wire import LAYOUT as S,MAGIC
+        words=array.array('I',[0])*S['OUTPUT_WORDS'];head=S['OUTPUT_BASE'];words[head]=MAGIC
+        self.assertEqual(read_retirements(words,{'patterns':[]},[],[]),[])
+        for at in (head+3,head+S['HEADER'],head+1):
+            bad=array.array('I',words);bad[at]=1
+            with self.subTest(at=at),self.assertRaises(AssertionError):read_retirements(bad,{'patterns':[]},[],[])
+
     def test_enemy_ammo_shot_groups_keep_original_definitions_and_both_literal_banks(self):
         from portable_runtime import UnsupportedPortable
         from portable_product_programs import body_for_program

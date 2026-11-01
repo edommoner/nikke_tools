@@ -35,14 +35,16 @@ def fingerprint(payload):
 cross=SimpleNamespace(digest=fingerprint,normalized=_cross.normalized)
 
 def prepare():
-    from portable_product_programs import body_for_program
-    body=body_for_program(ROOT,PROGRAM)
-    prepared,run=product.prepare(body)
-    source,iw,ow,words,metadata=product.compile_product(prepared)
-    if (source,iw,ow)!=(SOURCE,suite.INPUT,suite.OUTPUT):
-        raise ValueError('Product request requires a different entry owner')
-    rows=[(f'product/{PROGRAM}-{body["duration"]:g}s' if PROGRAM else 'product/miranda-stage0-30s',words,(body,prepared,run,metadata))]
-    packed=array.array('I',[len(rows),*words])
+    from portable_product_programs import cases_for_program
+    rows=[];packed=array.array('I',[0])
+    for variant,body in cases_for_program(ROOT,PROGRAM):
+        prepared,run=product.prepare(body)
+        source,iw,ow,words,metadata=product.compile_product(prepared)
+        if (source,iw,ow)!=(SOURCE,suite.INPUT,suite.OUTPUT):
+            raise ValueError('Product request requires a different entry owner')
+        name=(f'product/{PROGRAM}'+('/'+variant if variant else '')+f'-{body["duration"]:g}s') if PROGRAM else 'product/miranda-stage0-30s'
+        rows.append((name,words,(body,prepared,run,metadata)));packed.extend(words)
+    packed[0]=len(rows)
     if sys.byteorder!='little':packed.byteswap()
     return rows,packed.tobytes()
 
