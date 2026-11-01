@@ -1486,7 +1486,7 @@ class ProductReferenceModels(unittest.TestCase):
                 source,iw,ow,words,meta=product.compile_product(prepared)
             self.assertEqual(body,before);self.assertEqual(prepared,original)
             self.assertFalse(run.expected);self.assertEqual(run.config['rng_mode'],'random')
-            self.assertEqual((iw,ow,len(words)),(121936,2032000,121936));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(123732,2165136,123732));validate_composed_stride(source,iw,ow)
             self.assertEqual(source,'gpu/product_typed_'+('fixed_' if mode=='fixed' else '')+'battle_entry.slang')
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
             self.assertFalse(meta['product_typed_targets']['cpu_state_or_schedule_supplied'])
@@ -1827,7 +1827,7 @@ class ProductReferenceModels(unittest.TestCase):
                         prepared,_=prepare(body)
                         original_prepared=copy.deepcopy(prepared)
                         source,iw,ow,words,meta=compile_product(prepared)
-                        self.assertEqual((iw,ow,len(words)),(121936,2558208,121936))
+                        self.assertEqual((iw,ow,len(words)),(123732,2691344,123732))
                         self.assertTrue(meta['product_typed_lock'])
                         self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
                         self.assertEqual(prepared,original_prepared)
@@ -1858,8 +1858,56 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
             with patch.object(sim,'execute',side_effect=AssertionError('No CPU oracle in packing')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow),(121936,2558208))
+            self.assertEqual((iw,ow),(123732,2691344))
             self.assertEqual(len(meta['product_coordinate']['declarations']['coordinate']['logical_geometry']),2)
+
+    def test_typed_motion_uses_one_geometry_world_and_live_nearby_positions(self):
+        from portable_product_programs import cases_for_program
+        from portable_detail import prepare,compile_product
+        from portable_backend import validate_composed_stride
+        from destructible_world_runtime import DestructibleWorld
+        import coordinate_logical_actor_geometry as logical
+        for name in ('typed-fixed','typed-accumulate','typed-lock-fixed','typed-lock-accumulate'):
+            body=copy.deepcopy(cases_for_program(ROOT,name)[-1][1]);before=copy.deepcopy(body)
+            worlds=[];geometries=[];create=DestructibleWorld.from_clock;initialize=logical.LogicalGeometry.__init__
+            def make(*a,**kw):
+                value=create(*a,**kw);worlds.append(value);return value
+            def attach(value,*a,**kw):
+                initialize(value,*a,**kw);geometries.append(value)
+            aliases=(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage)
+            with patch.object(DestructibleWorld,'from_clock',side_effect=make),patch.object(logical.LogicalGeometry,'__init__',attach):result=engine_worker.evaluate(body)['reference_models']
+            self.assertEqual((len(worlds),len(geometries)),(1,1));self.assertTrue(worlds[0].finished)
+            self.assertTrue(result['typed_targets']['nearby_casts']);self.assertTrue(result['typed_targets']['weapon_packets'])
+            casts=result['typed_targets']['nearby_casts']
+            self.assertGreater(len({cast['recipient_count'] for cast in casts}),1)
+            initial=body['reference_models']['typed_targets']['logical_geometry'][0]['shape']
+            self.assertNotEqual(casts[0]['aim'],[initial['x'],initial['y']])
+            movement=result['enemy_movement'];self.assertEqual(len(movement['generations']),3)
+            self.assertTrue(any(segment['before']!=segment['after'] for frame in movement['frames'] for segment in frame['segments']))
+            self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
+            if name.startswith('typed-lock-'):self.assertTrue(result['lock_on']['shots'])
+            with patch.object(sim,'execute',side_effect=AssertionError('No native positions in input')):
+                pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
+            self.assertEqual((iw,ow),(123732,2691344 if name.startswith('typed-lock-') else 2165136));validate_composed_stride(source,iw,ow)
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
+
+    def test_typed_motion_rejects_disagreeing_colliders_and_unowned_history(self):
+        from portable_product_programs import cases_for_program
+        from product_reference_models import normalize
+        from portable_product_typed_movement import read_result,OUT,OUTPUT
+        body=cases_for_program(ROOT,'typed-lock-fixed')[-1][1]
+        for kind in ('order','coord','shape'):
+            models=copy.deepcopy(body['reference_models']);motion=models['enemy_movement']
+            if kind=='order':motion['logical_geometry'].reverse();motion['motion']['actors'].reverse()
+            elif kind=='coord':motion['coord']['auto_aim'][0]+=1.
+            else:motion['logical_geometry'][0]['shape']['x']+=1.
+            with patch.object(sim,'execute',side_effect=AssertionError('Reject before battle')):
+                with self.assertRaises(ValueError):normalize(models)
+        import array
+        block=array.array('I',[0])*OUTPUT
+        self.assertIsNone(read_result(block,{},12.))
+        block[OUT]=1
+        with self.assertRaises(ValueError):read_result(block,{},12.)
 
     def test_shared_lock_nearby_world_filters_projectile_skills_including_empty_subset(self):
         from portable_product_programs import cases_for_program
@@ -1868,7 +1916,7 @@ class ProductReferenceModels(unittest.TestCase):
         from destructible_world_runtime import DestructibleWorld
         for mode in ('fixed','accumulate'):
             for kinds in ((2,3),(2,2),(3,3)):
-                body=copy.deepcopy(cases_for_program(ROOT,'typed-lock-'+mode)[-1][1]);typed=body['reference_models']['typed_targets']
+                body=copy.deepcopy(next(b for v,b in cases_for_program(ROOT,'typed-lock-'+mode) if v=='nearby-mixed'));typed=body['reference_models']['typed_targets']
                 for model,key in ((typed,'bindings'),(body['reference_models']['lock_on'],'typed_bindings')):
                     for row,kind in zip(model[key],kinds):row['kind']=kind
                 before=copy.deepcopy(body);worlds=[];original=DestructibleWorld.from_clock
@@ -1886,7 +1934,7 @@ class ProductReferenceModels(unittest.TestCase):
                 self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
                 with patch.object(sim,'execute',side_effect=AssertionError('No native world state in input')):
                     pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-                self.assertEqual((iw,ow,len(words)),(121936,2558208,121936));validate_composed_stride(source,iw,ow)
+                self.assertEqual((iw,ow,len(words)),(123732,2691344,123732));validate_composed_stride(source,iw,ow)
                 self.assertEqual(words[115680+3],0 if len(set(kinds))>1 else kinds[0]);self.assertEqual(words[121394],1)
                 self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
 
@@ -1896,7 +1944,7 @@ class ProductReferenceModels(unittest.TestCase):
         from portable_detail import prepare,compile_product
         from portable_backend import validate_composed_stride
         for variant in ('tie','swap','primary-only'):
-            body=copy.deepcopy(cases_for_program(ROOT,'typed-fixed')[-1][1]);spec=body['reference_models']['typed_targets']
+            body=copy.deepcopy(next(b for v,b in cases_for_program(ROOT,'typed-fixed') if v=='nearby-primary'));spec=body['reference_models']['typed_targets']
             expected=[[5,0,1],[5,1,1],[0,0,1]]
             if variant=='swap':
                 spec['logical_geometry'][1]['shape']['x']=100.
@@ -1910,7 +1958,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
             with patch.object(sim,'execute',side_effect=AssertionError('No CPU-selected recipients in GPU input')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow,len(words)),(121936,2032000,121936));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(123732,2165136,123732));validate_composed_stride(source,iw,ow)
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
             self.assertEqual(words[121392:121395],[0x4e524231,1,1])
             self.assertEqual(words[121392+32+5],1)
@@ -1947,7 +1995,7 @@ class ProductReferenceModels(unittest.TestCase):
         from portable_product_programs import cases_for_program
         from portable_detail import prepare,compile_product
         from portable_runtime import UnsupportedPortable
-        body=cases_for_program(ROOT,'typed-lock-accumulate')[-1][1]
+        body=next(b for v,b in cases_for_program(ROOT,'typed-lock-accumulate') if v=='nearby-mixed')
         for variant in ('missing','foreign'):
             changed=copy.deepcopy(body);rows=changed['reference_models']['typed_targets']['logical_geometry']
             if variant=='missing':rows.pop()
@@ -1976,7 +2024,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(body,before)
             with patch.object(sim,'execute',side_effect=AssertionError('No native state in packing')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow,len(words)),(121936,2032000,121936));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(123732,2165136,123732));validate_composed_stride(source,iw,ow)
             self.assertEqual(words[115680:115683],[0x4c414731,1,2])
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
             missing=copy.deepcopy(body);missing['reference_models']['typed_targets']['logical_geometry'].pop()

@@ -535,15 +535,15 @@
     },
     "typed-accumulate": {
       "source": "gpu/product_typed_battle_entry.slang",
-      "input_words": 121936,
-      "output_words": 2032000,
+      "input_words": 123732,
+      "output_words": 2165136,
       "mode": "accumulate",
       "kind": ""
     },
     "typed-fixed": {
       "source": "gpu/product_typed_fixed_battle_entry.slang",
-      "input_words": 121936,
-      "output_words": 2032000,
+      "input_words": 123732,
+      "output_words": 2165136,
       "mode": "fixed",
       "kind": ""
     },
@@ -563,15 +563,15 @@
     },
     "typed-lock-fixed": {
       "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
-      "input_words": 121936,
-      "output_words": 2558208,
+      "input_words": 123732,
+      "output_words": 2691344,
       "mode": "fixed",
       "kind": ""
     },
     "typed-lock-accumulate": {
       "source": "gpu/product_typed_lock_battle_entry.slang",
-      "input_words": 121936,
-      "output_words": 2558208,
+      "input_words": 123732,
+      "output_words": 2691344,
       "mode": "accumulate",
       "kind": ""
     }

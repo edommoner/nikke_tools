@@ -6,6 +6,8 @@
 #define PORTABLE_PRODUCT_TYPED_NEARBY
 #define PORTABLE_NAMED_RANGE_BATTLE
 #define PORTABLE_PRODUCT_TYPED_LOCK
+#define PORTABLE_PRODUCT_TYPED_MOTION
+#define PORTABLE_ENEMY_MOVEMENT
 #define PORTABLE_COORDINATE_TYPED_TARGETS
 #define PORTABLE_COORDINATE_TYPED_WEAPONS
 #define PORTABLE_COORDINATE_TYPED_AIM
@@ -17,6 +19,7 @@
 #define DF_BODY_FALLBACK(s,row) false
 #define DF_MATCH(s,row,at,selected) (results[at+3]!=0&&results[at]==2)
 #include "product_typed_nearby_layout.slang"
+#include "product_typed_movement_layout.slang"
 #include "coordinate_area_hooks.slang"
 #undef captureCoordinateCast
 #define captureCoordinateCast captureNamedRangeBattleCast
@@ -24,3 +27,4 @@
 #define deliverCoordinateParts deliverNamedRangeBattleParts
 #include "product_coordinate_lock_battle_entry.slang"
 #include "named_range_battle_runtime.slang"
+#include "enemy_movement_runtime.slang"

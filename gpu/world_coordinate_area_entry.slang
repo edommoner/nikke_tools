@@ -21,7 +21,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 {
     if(id.x>=commands[0])return;
-#if defined(PORTABLE_PRODUCT_TYPED_NEARBY)
+#if defined(PORTABLE_PRODUCT_TYPED_MOTION)
+    uint input=1+id.x*EMB_INPUT,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
+#elif defined(PORTABLE_PRODUCT_TYPED_NEARBY)
     uint input=1+id.x*121936U,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_PRODUCT_TYPED_LOCK) || defined(PORTABLE_PRODUCT_TYPED_LOGICAL)
     uint input=1+id.x*121392U,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;

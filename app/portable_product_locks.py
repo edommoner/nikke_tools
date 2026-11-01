@@ -55,7 +55,7 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
         from product_reference_models import normalize as normalize_models
         declarations=normalize_models(declarations)
         coordinate_model=dict(coord=typed_model['coord'],logical_geometry=copy.deepcopy(typed_model.get('logical_geometry',[])))
-    if set(declarations)!=({'lock_on','typed_targets'} if typed_model is not None else {'lock_on','coordinate'} if coordinate_model is not None else {'lock_on'}):
+    if set(declarations)!=({'lock_on','typed_targets'}|({'enemy_movement'} if 'enemy_movement' in declarations else set()) if typed_model is not None else {'lock_on','coordinate'} if coordinate_model is not None else {'lock_on'}):
         error=UnsupportedPortable('Lock On requires explicit reference_models.lock_on candidate/delivery policies and typed bindings; composition is not connected')
         for r in prepared['effects']:
             e=r['effect']
@@ -90,6 +90,9 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
             if typed_model is None:
                 words,meta,coordinate_bindings,scene=compile_logical_geometry(lowered,coordinate_model['logical_geometry'],allow_empty=True)
             else:
+                if 'enemy_movement' in declarations:
+                    from portable_enemy_movement_wire import lower_effects
+                    lowered,_=lower_effects(lowered)
                 for rule in typed_model.get('nearby_rules',[]):
                     found=[i for i,item in enumerate(lowered['effects']) if item['owner']==rule['owner'] and item['effect'].get('name')==rule['effect']]
                     if len(found)!=1:raise UnsupportedPortable('Exact original nearby owner/effect binding required')
@@ -137,8 +140,10 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
         if len(words)!=121392:raise UnsupportedPortable('Complete typed lock prefix required before nearby bank')
         words.extend(bank);meta['named_range_battle']=dict(bindings=bound)
         meta['product_typed_nearby']=dict(declarations={'named_range':dict(coord=typed_model['coord'],logical_geometry=coordinate_model['logical_geometry'],rules=typed_model.get('nearby_rules',[]))},names=names)
+        from portable_product_typed_movement import append_bank
+        append_bank(words,meta,prepared,bindings,logical_base=109968)
 
-    expected_input=121936 if typed_model is not None else INPUT if coordinate_model is None else 120816
+    expected_input=123732 if typed_model is not None else INPUT if coordinate_model is None else 120816
     if len(words)!=expected_input or set(meta['binding_source_indices'])!=set(range(len(effects))):raise UnsupportedPortable('Complete original Lock On definitions and wire required')
     meta['product_lock_on']=dict(declarations={'lock_on':copy.deepcopy(spec)},names=names,packet_source=packet,typed_source=typed,
         bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],
@@ -152,7 +157,10 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
         from portable_product_coordinate_lock import INPUT as CI,OUTPUT as CO
         meta['product_coordinate_lock']=True
         source='gpu/product_'+('typed_lock_' if typed_model is not None else 'coordinate_lock_')+('fixed_' if fixed_values is not None else '')+'battle_entry.slang'
-        return source,121936 if typed_model is not None else CI,CO,words,meta
+        if typed_model is not None:
+            from portable_product_typed_movement import INPUT as MI,LOCK_OUTPUT
+            return source,MI,LOCK_OUTPUT,words,meta
+        return source,CI,CO,words,meta
     return source,INPUT,OUTPUT,words,meta
 
 

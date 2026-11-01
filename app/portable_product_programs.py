@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v63-expected.json'
+GOLDEN = 'research/portable-product-programs-v64-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -52,7 +52,7 @@ def configuration(suites, selection):
     program = PROGRAMS[name]
     return dict(base, product_program=name, source=program['source'], golden=GOLDEN,
                 input_words=program['input_words'], output_words=program['output_words'],
-                inputs=7 if name=='ammo-cover-fixed-group' else 4 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1,native=7 if name=='ammo-cover-fixed-group' else 4 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1)
+                inputs=7 if name=='ammo-cover-fixed-group' else 5 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1,native=7 if name=='ammo-cover-fixed-group' else 5 if name.startswith('typed-') else 2 if name.startswith('coordinate-lock-') else 1)
 
 
 def registered_golden(root, config, *, allow_unsealed=False):
@@ -284,7 +284,7 @@ def cases_for_program(root,name=None):
         body['enemy']['patterns'].append(dict(id='typed-lock-wave',kind='summon',delay=.5,until=dict(time=3.5),spec=dict(count=2,hp=1e8)))
         body['reference_models']['typed_targets']['logical_geometry']=[dict(label='__enemy__:typed-lock-wave#'+str(i+1),shape=dict(x=0.,y=0.,r=1000.,z=3.+i)) for i in range(2)]
         rows.append(('two-adds',body))
-        body=copy.deepcopy(cases_for_program(root,'typed-'+PROGRAMS[name]['mode'])[-1][1])
+        body=copy.deepcopy(next(b for v,b in cases_for_program(root,'typed-'+PROGRAMS[name]['mode']) if v=='nearby-primary'))
         from portable_heavyarms_lock_cases import NAME
         body['squad']=[NAME if n=='\ub4dc\ub808\uc774\ud06c' else n for n in body['squad']]
         body['profile']['chars'][NAME]=copy.deepcopy(base['profile']['chars'][NAME])
@@ -345,4 +345,15 @@ def cases_for_program(root,name=None):
         body['enemy']['patterns'][0]['spec'].update(self_destruct=True,attack_at=.25)
         body['enemy']['patterns'][0]['spec']['attack'].update(hits=3,interval=0.)
         rows.append(('healing-final-queue',body))
+    if name is not None and name.startswith('typed-'):
+        body=copy.deepcopy(rows[-1][1])
+        from portable_original_identity_inventory import selected_profile_bodies
+        owner='\uc720\ub2c8';healer='\uba54\uc5b4\ub9ac'
+        original=selected_profile_bodies([owner],0)[0][2]
+        body['squad']=[owner if n==healer else n for n in body['squad']]
+        body['profile']['chars'][owner]=copy.deepcopy(original['profile']['chars'][owner])
+        typed=body['reference_models']['typed_targets']
+        motion=dict(precedence='disable-before-force',force_policy='snap-to-declared-center',recipient_policy='canonical-all-in-range',actors=[dict(label=row['label'],velocity=[v,0.],force_center=[0.,0.]) for row,v in zip(typed['logical_geometry'],[4.,-3.,-8.],strict=True)])
+        body['reference_models']['enemy_movement']=dict(coord=copy.deepcopy(typed['coord']),logical_geometry=copy.deepcopy(typed['logical_geometry']),motion=motion)
+        rows.append(('moving-nearby',body))
     return rows

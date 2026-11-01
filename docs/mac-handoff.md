@@ -1,3 +1,15 @@
+## 2026-11-02 Typed＋移動＋nearby＋Lock Onを同じ実行器へ接続
+
+既存enemy_movement宣言をtyped_targets／任意lock_onと併用可能にした。coordとlogical_geometryは順序まで完全一致必須。CPUはmovement runtimeを先に設置し、typedの1つのgeometryへattach、nearbyへ同じ現在frameのgeometry providerを渡す。GPUは既存movement1796wordをtyped/nearby prefix後へ追加、input123732。standalone出力2165136／Lock On2691344、移動bankはそれぞれ旧出力終端2032000／2558208から始まり、末尾512wordは0必須。未宣言時はbank全0・履歴全0で、架空の速度0モデルを作らない。primaryと候補の両方で既存enemyMovementPositionを読む。新suite／監査器／shader entry0、合成adapter1／生成layout1、CPU正本・pinned・数値規約・許容差は変更0。
+
+Elegg＋Yuniを含むstandalone／Heavy Arms Lock On併用の2基本編成、固定／蓄積×移動・停止・強制移動との同時発動・再出現、追加で逆優先順位4を通常APIから実M5検証。計20条件が全CPU/GPU/HTTP一致、全20で実座標変化、nearby発動6／非発動14を分離。発動castのaimが同時刻のmovement frame座標と一致。移動停止優先の同時区間はbefore=after、強制移動優先は強制区間after=[0,0]、実変位も確認。再出現4条件はgeneration3／計9birth、毎世代の初期座標リセットを確認。物理dispatch8、保存監査20と最終release再投影20は追加battle/GPU0、owned Node群終了。新たなoriginal inventory profileの加算0、distinct squad orderは6。
+
+既存typed-accumulate／typed-lock-accumulate各5caseを実MetalとGPU禁止独立sealで検証。v64は両programだけ更新、他40基準を保持。各旧4caseのnative SHA・入力全prefix・旧readback全prefixは完全一致し、追加input/outputは全0。生値maskなし。最終owner e49c4ba9…、CPU180／native5／deps／PTX・CUBIN O1 policy plan成功（planはcompiler/GPU0）。proof product-typed-movement-run-v3-20261102、report research/product-typed-movement-v1.json。
+
+保持した失敗：scout-v1はschema generator未同期、scout-v2はLock On側logical bank109968とstandalone側115680の差でCPU前停止。run-v1はMetal出力幅未登録でdevice前停止。run-v2はSwift guard変更の既存source inverse監査未登録でCPU停止。厳密なbefore/afterを既存ledgerへ追加し負例7検査を通したv3でGPU実行。standalone ZIP初回は親dir不足で未作成、別standalone-v2へ保存。旧claim／失敗は保全、制限・normalizerは緩和していない。
+
+残件を優先：今回の製品実証は12秒・ADD3体。履歴frame／segment各4096は30秒・3体では不足し得るため、次は既存容量設計を再利用して通常30秒の不足を解消する（履歴切捨て禁止）。typed bindingはBODY所有のまま、privateのADD所有moving attachmentは製品未接続。敵攻撃／弾倉／回復／独立cover等の合成、全特殊効果分岐、現在source全profile再認定、CUDAも未完了。標準263/266＋宣言3は前段matrix v4の履歴、今回source全件実績へ昇格しない。Windows新依頼／compile／GPU／RAM計測0、RAM停止と過去環境保全falseを保持。以下のtyped＋movement未接続はBODY所有typed＋移動ADDについて今回解消。
+
 ## 2026-11-02 Nearby＋Lock Onを同じtyped worldへ接続
 
 既存typed-lock経路に、混在迎撃とnearby consumerを接続。新suite／shader entry／監査器0。入力121936、出力2558208word。BODY所有の飛翔体／HPシールドが混在可能で、typed_targetsとlock_onのbindingは同じ順序・内容を必須にする。元Heavy Armsのall_projectilesはkind2だけを選択し、全対象kind3なら空集合を保持。近傍選択は既存の明示primary-center-edge-v1、実ゲームの距離規則は未検証。移動との合成は引き続き拒否。

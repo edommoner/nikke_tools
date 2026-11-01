@@ -68,7 +68,7 @@ def native_public(spec,data,names,duration):
 
 
 @contextmanager
-def execution(spec,names,*,runtime=None):
+def execution(spec,names,*,runtime=None,geometry_provider=None):
     from product_coordinate_model import execution as coordinates
     from contextlib import nullcontext
     from product_named_range_model import execution as nearby_execution
@@ -79,7 +79,7 @@ def execution(spec,names,*,runtime=None):
     result={};duration=[];original=None
     def run(value,*args,**kwargs):
         duration.append(value.config['duration']);return original(value,*args,**kwargs)
-    with coordinates(dict(coord=spec['coord'],logical_geometry=spec.get('logical_geometry',[])),configure_run=True,typed_packets=True),typed_battle(spec['bindings'],modifier_model=True,typed_geometry=spec['geometry'],coordinate_weapon_targets=True,typed_aim_policy=spec['aim_policy'],typed_actor_policy=spec['actor_policy'],mixed_weapon_kinds=len({b['kind'] for b in spec['bindings']})>1) as data,(nearby_execution(dict(coord=spec['coord'],logical_geometry=spec.get('logical_geometry',[]),rules=spec['nearby_rules']),coordinate_context=False) if spec.get('nearby_rules') else nullcontext()) as nearby:
+    with coordinates(dict(coord=spec['coord'],logical_geometry=spec.get('logical_geometry',[])),configure_run=True,typed_packets=True),typed_battle(spec['bindings'],modifier_model=True,typed_geometry=spec['geometry'],coordinate_weapon_targets=True,typed_aim_policy=spec['aim_policy'],typed_actor_policy=spec['actor_policy'],mixed_weapon_kinds=len({b['kind'] for b in spec['bindings']})>1) as data,(nearby_execution(dict(coord=spec['coord'],logical_geometry=spec.get('logical_geometry',[]),rules=spec['nearby_rules']),coordinate_context=False,geometry_provider=geometry_provider) if spec.get('nearby_rules') else nullcontext()) as nearby:
         original=sim.execute
         if runtime is not None:
             if type(runtime) is not dict or runtime:raise ValueError('Fresh internal typed runtime holder required')

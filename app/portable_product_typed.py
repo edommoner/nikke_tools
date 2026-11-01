@@ -1,12 +1,12 @@
 """Ordinary requests into the existing typed coordinate/owner executable."""
 import copy,math,struct,array,hashlib
 from portable_runtime import UnsupportedPortable
-from portable_coordinate_typed_specs import INPUT_WORDS as TYPED_INPUT,OUTPUT_WORDS as OUTPUT,COORDINATE_OUTPUT_WORDS as BASE
+from portable_coordinate_typed_specs import INPUT_WORDS as TYPED_INPUT,COORDINATE_OUTPUT_WORDS as BASE
+from portable_product_typed_movement import INPUT,OUTPUT
 
 from portable_logical_geometry_wire import LAYOUT as LOGICAL
 NEARBY_BASE=TYPED_INPUT+LOGICAL['WORDS']
 from portable_named_range_battle_wire import WORDS as NEARBY_WORDS,OUT as NEARBY_OUT,END as NEARBY_END
-INPUT=NEARBY_BASE+NEARBY_WORDS
 
 
 def check_schema(root):
@@ -15,6 +15,8 @@ def check_schema(root):
     from portable_skill_history import check_layout as history_layout
     from portable_logical_geometry_wire import check_schema as logical_layout
     check_layout(root);history_layout(root);logical_layout(root)
+    from portable_product_typed_movement import check_schema as motion_schema
+    motion_schema(root)
     from portable_named_range_battle_wire import shader_schema
     if (Path(root)/'gpu/product_typed_nearby_layout.slang').read_text()!=shader_schema(base=NEARBY_BASE):raise ValueError('Typed nearby bank schema drift')
     source=(Path(root)/'gpu/product_typed_battle_entry.slang').read_text()
@@ -23,8 +25,8 @@ def check_schema(root):
             or '#define PORTABLE_LOGICAL_INPUT_BASE 115680U' not in source
             or '#define PORTABLE_COORDINATE_TYPED_MIXED' not in source
             or not 153568+1024*10+128+16<=170976
-            or TYPED_INPUT!=115680 or NEARBY_BASE!=121392 or INPUT!=121936
-            or '#if defined(PORTABLE_PRODUCT_TYPED_NEARBY)\n    uint input=1+id.x*121936U' not in entry):
+            or TYPED_INPUT!=115680 or NEARBY_BASE!=121392 or INPUT!=123732
+            or '#if defined(PORTABLE_PRODUCT_TYPED_MOTION)\n    uint input=1+id.x*EMB_INPUT' not in entry):
         raise ValueError('Typed product requires adjacent complete typed/logical input banks')
 
 
@@ -35,10 +37,10 @@ def compile_product(prepared):
     from calculator.timeline import CharState,_when_label
     from calculator.boss_pattern import validate
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
-    if set(declarations)=={'typed_targets','lock_on'}:
+    if {'typed_targets','lock_on'}<=set(declarations):
         from portable_product_locks import compile_product as locks
         return locks(prepared,typed_model=normalize_product(declarations['typed_targets']))
-    if set(declarations)!={'typed_targets'}:raise UnsupportedPortable('Typed product composition requires its matching checked shared GPU consumer')
+    if set(declarations)-{'typed_targets','enemy_movement'}:raise UnsupportedPortable('Typed product composition requires its matching checked shared GPU consumer')
     spec=normalize_product(declarations['typed_targets'])
     if any(r['effect'].get('target') in ('all_projectiles','typed_point') for r in prepared['effects']):
         raise UnsupportedPortable('Original typed skill damage requires its checked common skill route; weapon typed admission cannot omit it')
@@ -48,6 +50,9 @@ def compile_product(prepared):
     inner['enemy']['coord']=copy.deepcopy(spec['coord']);inner['_product_native_equipment_carriers']=True
     inner['typed_aim_policy']=copy.deepcopy(spec['aim_policy']);inner['typed_actor_policy']=copy.deepcopy(spec['actor_policy'])
     nearby_source=copy.deepcopy(inner)
+    if 'enemy_movement' in prepared.get('reference_models',{}):
+        from portable_enemy_movement_wire import lower_effects
+        inner,_=lower_effects(inner)
     for rule in spec.get('nearby_rules',[]):
         found=[i for i,item in enumerate(inner['effects']) if item['owner']==rule['owner'] and item['effect'].get('name')==rule['effect']]
         if len(found)!=1:raise UnsupportedPortable('Exact original nearby owner/effect binding required')
@@ -68,6 +73,8 @@ def compile_product(prepared):
     bank,bound=pack_rules(nearby_source,meta,bindings,rules)
     if len(words)!=NEARBY_BASE:raise UnsupportedPortable('Complete logical bank required before nearby rules')
     words+=bank
+    from portable_product_typed_movement import append_bank
+    append_bank(words,meta,prepared,bindings)
     meta['named_range_battle']=dict(bindings=bound)
     meta['product_typed_nearby']=dict(declarations={'named_range':dict(coord=spec['coord'],logical_geometry=shapes,rules=rules)},names=[c['name'] for c in inner['chars']])
     meta['product_typed_targets']=dict(declarations={'typed_targets':spec},cpu_state_or_schedule_supplied=False)
@@ -111,16 +118,22 @@ def read_result(block,metadata,names,duration):
         if block[BASE+1]!=0:fail('undeclared typed skill route')
         for region in regions()[0]:
             if region.domain=='output' and 'reserved' in region.name and any(block[region.base:region.end]):fail(region.name)
-        nearby=read_nearby_history(block,metadata,duration)
+        nearby=read_nearby_history(memoryview(block)[:2032000],metadata,duration)
         if any(block[END:NEARBY_OUT]) or any(block[NEARBY_END:BASE+136688]) or any(block[L['COUNTER_CONTEXT_BASE']:L['COUNTER_CONTEXT_BASE']+1096]):fail('unused skill tail or counter context')
         c=dict(typed_bindings=spec['bindings'],max_attacks=128,effects=[],names=names)
         state=read_typed_battle(TypedStateView(block),(c,metadata,()))
         if state['attacks'] or not state['finished'] or state['time']!=duration:fail('typed clock')
-        model=read_weapon_history(block,metadata,names,duration,state,base=BASE)
+        model=read_weapon_history(memoryview(block)[:2032000],metadata,names,duration,state,base=BASE)
         if spec.get('nearby_rules'):model['nearby_casts']=nearby
     except (AssertionError,IndexError,KeyError,ValueError,struct.error) as error:
         raise UnsupportedPortable('Invalid or incomplete typed product history') from error
-    return dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(metadata['product_typed_targets']['declarations']),typed_targets=model)
+    result=dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(metadata['product_typed_targets']['declarations']),typed_targets=model)
+    from portable_product_typed_movement import read_result as movement
+    moving=movement(block,metadata,duration)
+    if moving is not None:
+        from product_reference_models import combine_public
+        result=combine_public([result,moving])
+    return result
 
 
 def read_weapon_history(block,metadata,names,duration,state,*,base=BASE,tail_start=None):

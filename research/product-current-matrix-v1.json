@@ -4079,5 +4079,14 @@
     "current_composite_cuda": 0,
     "full_matrix_recertified_on_this_source": false,
     "full_goal_complete": false
+  },
+  "later_typed_movement_validation": {
+    "report": "research/product-typed-movement-v1.json",
+    "base_compositions": 2,
+    "metal_conditions": 20,
+    "additional_original_inventory_profiles": 0,
+    "current_composite_cuda": 0,
+    "full_matrix_recertified_on_this_source": false,
+    "full_goal_complete": false
   }
 }

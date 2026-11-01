@@ -2,8 +2,8 @@
 import copy
 from pathlib import Path
 from portable_runtime import UnsupportedPortable
-from portable_product_coordinate_lock import COORDINATE_OUTPUT,OUTPUT
-INPUT=121936
+from portable_product_coordinate_lock import COORDINATE_OUTPUT,OUTPUT as LOCK_PREFIX
+from portable_product_typed_movement import INPUT,LOCK_OUTPUT as OUTPUT
 WEAPON_START=170976
 WEAPON_SCRATCH=220768
 WEAPON_END=231152  # 1024 mixed pellets*10 +128 generations +16 notification words.
@@ -54,7 +54,7 @@ def read_result(block,metadata,names,duration):
         raise UnsupportedPortable('Nonzero unowned typed weapon/Lock On tail')
     if any(block[L['COUNTER_CONTEXT_BASE']:L['COUNTER_CONTEXT_BASE']+1096]):
         raise UnsupportedPortable('Unrestored shared typed notification context')
-    locked=locks(LockReadback(block),metadata,duration)
+    locked=locks(LockReadback(memoryview(block)[:LOCK_PREFIX]),metadata,duration)
     state=locked['lock_on']['typed']
     physical=read_weapon_history(block,metadata,names,duration,state,base=COORDINATE_OUTPUT,tail_start=WEAPON_SCRATCH)
     from portable_product_typed import read_nearby_history
@@ -75,4 +75,6 @@ def read_result(block,metadata,names,duration):
         receipts=[dict(slot=q['slot'],actor=copy.deepcopy(q['handle']),delivered=q['delivered'],broken=q['broken'],took=q['took'],
             notice=dict(handle=copy.deepcopy(q['handle']),owner=copy.deepcopy(metadata['product_typed_targets']['declarations']['typed_targets']['bindings'][q['slot']]['owner']),time=a['time']) if q['broken'] else None) for q in a['receipts']]) for a in state['attacks']]
     typed=dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(metadata['product_typed_targets']['declarations']),typed_targets=physical)
-    return combine_public([typed,locked])
+    from portable_product_typed_movement import read_result as movement
+    moving=movement(block,metadata,duration,locked=True)
+    return combine_public([typed,locked]+([moving] if moving is not None else []))

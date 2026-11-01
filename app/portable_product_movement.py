@@ -42,10 +42,11 @@ def compile_product(prepared):
     return source,INPUT,OUTPUT,words,meta
 
 
-def read_result(block,meta,duration,*,capacity=CAPACITY,output=OUTPUT):
+def read_result(block,meta,duration,*,capacity=CAPACITY,output=OUTPUT,out=OUT):
     """Decode every movement word; reject gaps, reserved data or partial history."""
     def fail():raise UnsupportedPortable('Invalid or incomplete product movement history')
     if type(capacity) is not int or capacity<CAPACITY:fail()
+    OUT=out
     segment_base=FRAMES+capacity*FRAME_WORDS;bank_end=OUT+segment_base+capacity*SEGMENT_WORDS
     if bank_end>output or len(block)!=output or block[0]!=0:fail()
     n,m=block[OUT+1:OUT+3]

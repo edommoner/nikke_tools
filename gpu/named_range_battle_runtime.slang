@@ -59,7 +59,12 @@ uint64_t namedRangeShapeDistance(inout Runtime s,uint rule,uint slot,uint64_t x,
     if(slot==0)return coordinateShapeDistance(commands[rule+4],cNumber(rule+6),cNumber(rule+8),cNumber(rule+10),cNumber(rule+12),cNumber(rule+14),cNumber(rule+18),cNumber(rule+20),x,y);
     uint shape=lagShape(s,slot);if(shape==0){s.error=64;return 0;}
     uint64_t co=cNumber(shape+22),si=cNumber(shape+24);
-    return coordinateShapeDistance(commands[shape+6],cNumber(shape+8),cNumber(shape+10),cNumber(shape+12),cNumber(shape+14),cNumber(shape+16),co,si,x,y);
+#ifdef PORTABLE_ENEMY_MOVEMENT
+    uint64_t sx=enemyMovementPosition(s,shape,0),sy=enemyMovementPosition(s,shape,1);
+#else
+    uint64_t sx=cNumber(shape+8),sy=cNumber(shape+10);
+#endif
+    return coordinateShapeDistance(commands[shape+6],sx,sy,cNumber(shape+12),cNumber(shape+14),cNumber(shape+16),co,si,x,y);
 }
 bool orderNearbyActors(inout Runtime s,uint rule,uint set,out uint64_t x,out uint64_t y)
 {
@@ -69,7 +74,11 @@ bool orderNearbyActors(inout Runtime s,uint rule,uint set,out uint64_t x,out uin
     else
     {
         uint shape=lagShape(s,primary);if(shape==0)return false;
+#ifdef PORTABLE_ENEMY_MOVEMENT
+        x=enemyMovementPosition(s,shape,0);y=enemyMovementPosition(s,shape,1);
+#else
         x=cNumber(shape+8);y=cNumber(shape+10);
+#endif
     }
     for(uint i=0;i<count;i++)
     {

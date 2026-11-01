@@ -18,8 +18,15 @@ bool enemyMovementMarker(inout Runtime s,Definition d)
 bool initializeEnemyMovement(inout Runtime s)
 {
     uint p=emInput(s),n=commands[p+2];
+#ifdef PORTABLE_PRODUCT_TYPED_MOTION
+    if(commands[p]==0)
+    {
+        for(uint i=0;i<EMB_WORDS;i++)if(commands[p+i]!=0)return false;
+        return true;
+    }
+#endif
     if(commands[p]!=EMB_MAGIC||commands[p+1]!=1||n>127||n!=commands[lagInput(s)+2]||commands[p+3]!=s.count||commands[p+4]!=actorPoolCount(s)||commands[p+5]>1)return false;
-#ifndef PORTABLE_PRODUCT_MOVEMENT
+#if !defined(PORTABLE_PRODUCT_MOVEMENT) && !defined(PORTABLE_PRODUCT_TYPED_MOTION)
     if(n==0)return false;
 #endif
     for(uint i=6;i<EMB_HEADER;i++)
@@ -80,6 +87,9 @@ uint64_t emBoundary(inout Runtime s,uint slot,uint64_t left,uint64_t end)
 void enemyMovementFrame(inout Runtime s,uint64_t when)
 {
     uint p=emInput(s),head=emOutput(s);
+#ifdef PORTABLE_PRODUCT_TYPED_MOTION
+    if(commands[p]==0)return;
+#endif
     if(results[head]!=EMB_MAGIC){s.error=64;return;}
     for(uint i=0;i<commands[p+2]&&s.error==0;i++)
     {
@@ -120,6 +130,9 @@ void enemyMovementFrame(inout Runtime s,uint64_t when)
 }
 uint64_t enemyMovementPosition(inout Runtime s,uint shape,uint axis)
 {
+#ifdef PORTABLE_PRODUCT_TYPED_MOTION
+    if(commands[emInput(s)]==0)return loadNumber(shape+8+axis*2);
+#endif
     uint slot=commands[shape],st=emState(s,slot);
     if(results[emOutput(s)]!=EMB_MAGIC||results[st+8]==0||results[st]!=results[actorPoolAt(s,slot)]){s.error=64;return 0;}
     return actorNumber(st+4+axis*2);
