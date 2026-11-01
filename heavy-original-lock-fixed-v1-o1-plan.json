@@ -1,0 +1,26 @@
+{
+  "schema": "compile-plan-v1",
+  "passed": true,
+  "package_id": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
+  "suite": "product-detail",
+  "purpose": "sealed",
+  "artifact_kind": "cubin",
+  "ptxas_level": 1,
+  "memory_limit_mb": 2048,
+  "timeout_seconds": 60,
+  "error": null,
+  "compiler_options": [
+    "--std=c++17",
+    "--gpu-architecture=sm_86",
+    "--fmad=false",
+    "--ptxas-options",
+    "-O1"
+  ],
+  "policy": "sealed-battle compile-only transport",
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "claim_created": false,
+  "execution_claim_available": true,
+  "calculation_verified": false,
+  "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+}

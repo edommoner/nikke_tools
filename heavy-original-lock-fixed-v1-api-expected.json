@@ -1,0 +1,28 @@
+{
+  "schema": "heavy-original-lock-cuda-expected-v1",
+  "owner": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
+  "source_commit": "3965b3908a973a28b5c32d826dce93766454542d",
+  "source": "gpu/product_lock_fixed_battle_entry.slang",
+  "physical_cases": 1,
+  "input_words": 109536,
+  "output_words": 1310720,
+  "physical_input_bytes": 438148,
+  "physical_output_bytes": 5242880,
+  "physical_input_sha256": "9337f726787944458cb09c19b1de2b7f955f11c149f42bd6b385a7284bb50afa",
+  "physical_output_sha256": "76fd63c5f64fd0b6fd0693e4906a4ba06f74a43e8626b7f570f3d6a757d72f2e",
+  "readback_chunk_bytes": 8388608,
+  "expected_readback_chunk_bytes": [
+    5242880
+  ],
+  "cases": [
+    {
+      "index": 210,
+      "member_index": 0,
+      "character": "스노우 화이트 : 헤비암즈",
+      "favorite_stage": 0,
+      "expected_input_sha256": "9337f726787944458cb09c19b1de2b7f955f11c149f42bd6b385a7284bb50afa",
+      "expected_output_sha256": "76fd63c5f64fd0b6fd0693e4906a4ba06f74a43e8626b7f570f3d6a757d72f2e",
+      "saved_metal_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-configured-missing-v1-20261101/api-v1/captures/c3de8551d5d04410b0f7a1ca32ffd6ec"
+    }
+  ]
+}
