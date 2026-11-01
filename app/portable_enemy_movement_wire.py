@@ -39,8 +39,8 @@ def lower_effects(prepared):
     if not tags:raise ValueError('Original movement definitions required')
     return lowered,tags
 
-def movement_bank(prefix,meta,bindings,geometry,spec,tags,*,logical_base=109968):
-    rules=normalize(spec)
+def movement_bank(prefix,meta,bindings,geometry,spec,tags,*,logical_base=109968,allow_empty=False):
+    rules=normalize(spec,allow_empty=allow_empty)
     slots={b.label:i for i,b in enumerate(bindings)};colliders={r['label']:r for r in geometry}
     if set(colliders)!={r['label'] for r in rules['actors']}:raise ValueError('Exact logical collider/motion ownership required')
     words=[0]*WORDS;words[:6]=[MAGIC,1,len(rules['actors']),len(meta['binding_source_indices']),len(bindings),int(rules['precedence']=='force-before-disable')]
@@ -58,12 +58,12 @@ def movement_bank(prefix,meta,bindings,geometry,spec,tags,*,logical_base=109968)
     meta['enemy_movement']=dict(model='declared-add-motion-v1',domains=domains,rules=rules,original_effects_preserved=True,gpu_admitted=False)
     return words
 
-def compile_battle(prepared,geometry,spec):
+def compile_battle(prepared,geometry,spec,*,allow_empty=False):
     from portable_logical_geometry_wire import compile_logical_geometry
     before=copy.deepcopy(prepared);lowered,tags=lower_effects(prepared)
-    prefix,meta,bindings,scene=compile_logical_geometry(lowered,geometry)
+    prefix,meta,bindings,scene=compile_logical_geometry(lowered,geometry,allow_empty=allow_empty)
     if prepared!=before or len(prefix)!=BASE:raise ValueError('Original input changed during movement lowering')
-    words=movement_bank(prefix,meta,bindings,geometry,spec,tags)
+    words=movement_bank(prefix,meta,bindings,geometry,spec,tags,allow_empty=allow_empty)
     return prefix+words,meta,bindings,scene
 
 def output_regions():

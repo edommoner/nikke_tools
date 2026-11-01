@@ -18,7 +18,10 @@ bool enemyMovementMarker(inout Runtime s,Definition d)
 bool initializeEnemyMovement(inout Runtime s)
 {
     uint p=emInput(s),n=commands[p+2];
-    if(commands[p]!=EMB_MAGIC||commands[p+1]!=1||n<1||n>127||n!=commands[lagInput(s)+2]||commands[p+3]!=s.count||commands[p+4]!=actorPoolCount(s)||commands[p+5]>1)return false;
+    if(commands[p]!=EMB_MAGIC||commands[p+1]!=1||n>127||n!=commands[lagInput(s)+2]||commands[p+3]!=s.count||commands[p+4]!=actorPoolCount(s)||commands[p+5]>1)return false;
+#ifndef PORTABLE_PRODUCT_MOVEMENT
+    if(n==0)return false;
+#endif
     for(uint i=6;i<EMB_HEADER;i++)
     {
 #ifdef PORTABLE_MOVING_TYPED

@@ -1,3 +1,13 @@
+## 2026-11-01 Rei CUDA原本を照合、空ADDの明示移動モデルをMetal検証
+
+Windows原本9dd93644の23,411byte/SHA5f24cc6f…を取得し、owner2dc37ccb/sourcee3f0ada5、共有7資料/archive214d6771…、Mac保存input87978e6b…/全readback571dfde4…3,145,728byteを照合。元Rei251/favorite0/固定30秒の1POST/1GPU/retry0、全CPU/GPU/HTTP/Unicode再投影一致、対象CPU86件（他model60未実行）、8MiB上限内の単一chunk/driver ret0を確認。同期2.017秒/HTTP15.412秒、追加計算0。旧41,238file、SDK外側exit2/内側0、8件limit=null/観測不完全とservice/whole/overall falseは保持。累積標準CUDA/Metalとも263/266、同一最新sourceで全件を再認定した意味ではない。research/product-named-carriers-cuda-import-v1.json参照。
+
+既存reference_models.enemy_movementを、明示的にADD0体のBODY固定世界へ拡張。元Yuniの移動禁止5秒/Yanの強制移動2秒carrier・全definitionを保持する。モデル指定なしの既定挙動やゲームのBODY移動耐性は推定しない。future spawnを含むconfigured ADDが1体でもあれば全geometry/motionを必須とし、host/nativeと実M5 raw負例status64で拒否。privateモデルのempty拒否は維持。座標を有効にするenemy.patternsのnative検査をGPU割当前へ移した。
+
+own v3 packet0e164a20の147 CPU検査とprivate8件成功。先行v1実M5/fresh native/GPU禁止独立sealのmovement-fixedは旧入力・readback・native entriesと完全同一。v41はこのmemberのsource/生成identityだけを実証済みへ更新し他32基準不変。v1→v3は1,422のcode/data保持と厳密なhost admission追加・golden path/ledgerのみを照合した。通常APIはYuni固定/蓄積2件の保存成功を再利用し、required idle patternを明示したYan固定/蓄積2件はv3で新規実M5/CPU/HTTP全一致。全4保存再投影も追加battle/GPU0。Yan runnerのbatch metadata仮定による後処理失敗は原本保持し、単独captureの全raw/source/input/全payload監査で解決した。専用Node消滅確認済み。
+
+最初のYan欠落patternエラーとv2新golden未同梱による実行前停止も保持。新suite0、保護CPU4file/upstream変更0、数値/許容差変更0。ADD0の宣言条件なので標準追加0、残る未指定Yuni/Yan/Heavy Arms3profileと任意合成・最終matrixは未完了。新移動sourceのCUDAは未実証。原本proofs/product-empty-movement-v1-20261101、小記録research/product-empty-movement-v1.json。以下は履歴。
+
 ## 2026-11-01 座標の補足原本も照合、元Rei1条件だけのCUDAを依頼
 
 座標の補足原本30065fd3/4,765byte/SHA916c206c…もMacで照合。送信済みbackend自身のhash/固定8MiBと全DToH相対offset0/8,388,608/16,777,216・byte列・ret0・親input/readbackの前後SHA、60秒2GiB gate/empty/missing0を確認。追加SDK/POST/GPU/CPU戦闘0。元16MiB宣言不一致/v2失敗/全環境falseは保持しており、数値期待値を変更した意味ではない。

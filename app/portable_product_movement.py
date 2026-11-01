@@ -29,7 +29,7 @@ def compile_product(prepared):
         raise UnsupportedPortable('Movement with manual cover requires the combined coordinate control consumer')
     if manual:prepared=dict(prepared,_product_manual_cover=True)
     spec=declarations['enemy_movement'];check_schema()
-    words,meta,bindings,scene=compile_battle(dict(prepared,_product_native_equipment_carriers=True),spec['logical_geometry'],spec['motion'])
+    words,meta,bindings,scene=compile_battle(dict(prepared,_product_native_equipment_carriers=True),spec['logical_geometry'],spec['motion'],allow_empty=True)
     meta['product_enemy_movement']=dict(declarations=declarations,bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],cpu_state_or_schedule_supplied=False)
     if manual:meta['product_manual_cover_owners']=manual
     meta['product_control_labels']=[

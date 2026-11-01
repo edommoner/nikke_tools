@@ -14,13 +14,13 @@ from world_actor_runtime import registry_for
 STATS=('enemy_movement_disable','force_move')
 
 
-def normalize(spec):
+def normalize(spec,*,allow_empty=False):
     if type(spec) is not dict or set(spec)!={'precedence','force_policy','recipient_policy','actors'}:
         raise ValueError('Explicit movement, overlap and recipient policies required')
     if spec['precedence'] not in ('disable-before-force','force-before-disable') or spec['force_policy']!='snap-to-declared-center':
         raise ValueError('Unsupported declared movement policy')
     if spec['recipient_policy']!='canonical-all-in-range':raise ValueError('Declare the canonical all-in-range approximation explicitly')
-    if type(spec['actors']) is not list or not 1<=len(spec['actors'])<=127:raise ValueError('One to127 existing ADD colliders required')
+    if type(spec['actors']) is not list or not (0 if allow_empty else 1)<=len(spec['actors'])<=127:raise ValueError('One to127 existing ADD colliders required')
     actors=[];seen=set()
     for row in spec['actors']:
         if type(row) is not dict or set(row)!={'label','velocity','force_center'} or type(row['label']) is not str or not row['label'] or row['label'] in seen:
@@ -58,8 +58,8 @@ class MovementFrame(ast.NodeTransformer):
 
 
 class EnemyMovement:
-    def __init__(self,spec):
-        self.spec=normalize(spec);self.geometry=None;self.boss=None;self.manager=None;self.states={};self.last_time=None
+    def __init__(self,spec,*,allow_empty=False):
+        self.spec=normalize(spec,allow_empty=allow_empty);self.allow_empty=allow_empty;self.geometry=None;self.boss=None;self.manager=None;self.states={};self.last_time=None
         self.data=dict(model='declared-add-motion-v1',policies={k:self.spec[k] for k in ('precedence','force_policy','recipient_policy')},generations=[],frames=[])
 
     def attach(self,geometry):
@@ -79,7 +79,11 @@ class EnemyMovement:
         return events
 
     def validate_frame(self,manager,boss,t):
-        if self.geometry is None or self.geometry.boss is not boss:raise ValueError('Movement needs the existing logical geometry world')
+        if self.geometry is None:
+            if not self.allow_empty or self.spec['actors']:raise ValueError('Movement needs the existing logical geometry world')
+            if any(kind==ActorKind.ADD for kind,label in registry_for(manager,boss).bindings):
+                raise ValueError('Every configured ADD requires explicit geometry and motion, including future spawns')
+        elif self.geometry.boss is not boss:raise ValueError('Movement needs the existing logical geometry world')
         if self.boss is not None and (self.boss is not boss or self.manager is not manager):raise ValueError('One native clock/manager per movement scope')
         if type(t) not in (int,float) or not math.isfinite(t) or self.last_time is not None and t<self.last_time:raise ValueError('Monotonic native frame time required')
 
@@ -88,7 +92,7 @@ class EnemyMovement:
         self.validate_frame(manager,boss,t)
         self.boss=boss;self.manager=manager
         if self.last_time==t:return
-        registry=registry_for(manager,boss);shapes={r['label']:r['shape'] for r in self.geometry.spec}
+        registry=registry_for(manager,boss);shapes={r['label']:r['shape'] for r in self.geometry.spec} if self.geometry is not None else {}
         for rule in self.spec['actors']:
             label=rule['label'];binding=self.geometry.bindings[label];run=boss._runs[binding.run]
             if run.opens==0:continue
@@ -115,12 +119,12 @@ class EnemyMovement:
 
 
 @contextmanager
-def enemy_movement_runtime(spec):
+def enemy_movement_runtime(spec,*,allow_empty=False):
     from calculator import timeline
     from runner import sim
     from coordinate_logical_actor_geometry import LogicalGeometry
     if timeline.simulate is not sim.simulate:raise ValueError('Native simulation aliases differ')
-    original=timeline.simulate;runtime=EnemyMovement(spec);initialize=LogicalGeometry.__init__
+    original=timeline.simulate;runtime=EnemyMovement(spec,allow_empty=allow_empty);initialize=LogicalGeometry.__init__
     def attach(geometry,literal):
         initialize(geometry,literal);runtime.attach(geometry)
     rewritten=rewrite_reference(original,MovementFrame(),dict(frame=2),compose=True)

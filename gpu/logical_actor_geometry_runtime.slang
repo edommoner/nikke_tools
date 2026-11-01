@@ -21,7 +21,15 @@ bool validLogicalActorGeometry(inout Runtime s)
     uint p=lagInput(s),count=commands[p+2];
     if(commands[p]!=LAG_MAGIC||commands[p+1]!=LAG_VERSION||count>LAG_ROWS||commands[p+3]!=actorPoolCount(s))return false;
 #ifndef PORTABLE_PRODUCT_COORDINATE
-    if(count==0)return false;
+    if(count==0)
+    {
+#ifndef PORTABLE_PRODUCT_MOVEMENT
+        return false;
+#else
+        for(uint slot=1;slot<actorPoolCount(s);slot++)
+            if(commands[actorBinding(s,slot)]==5)return false;
+#endif
+    }
 #else
     for(uint slot=1;slot<actorPoolCount(s);slot++)
         if(commands[actorBinding(s,slot)]==5&&commands[p+LAG_MAP_BASE+slot]==0)return false;

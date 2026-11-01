@@ -12,7 +12,7 @@ def normalize(value):
     from enemy_movement_model import normalize as motion
     if type(value) is not dict or set(value)!={'coord','logical_geometry','motion'}:
         raise ValueError('Movement requires explicit coord, logical_geometry and motion')
-    result=coordinates(value['coord'],value['logical_geometry']);rules=motion(value['motion'])
+    result=coordinates(value['coord'],value['logical_geometry'],allow_empty=True);rules=motion(value['motion'],allow_empty=True)
     if [r['label'] for r in result['logical_geometry']]!=[r['label'] for r in rules['actors']]:
         raise ValueError('Movement collider and motion order must match exactly')
     return dict(result,motion=rules)
@@ -30,5 +30,5 @@ def execution(spec,*,expose_runtime=False):
     import engine_worker  # Resolve before the movement adapter rewrites simulate.
     from enemy_movement_model import enemy_movement_runtime
     from product_coordinate_model import execution as coordinates
-    with enemy_movement_runtime(spec['motion']) as movement,coordinates(spec):
+    with enemy_movement_runtime(spec['motion'],allow_empty=True) as movement,coordinates(spec):
         yield movement if expose_runtime else movement.data

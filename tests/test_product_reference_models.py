@@ -9,6 +9,39 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_explicit_empty_movement_preserves_duration_carriers_and_rejects_future_add(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_detail import prepare,compile_product
+        from portable_enemy_movement_wire import BASE,MAP
+        from portable_specs import LIMITS as L,FIELDS as F
+        from product_movement_model import normalize as product_motion
+        from enemy_movement_model import normalize as private_motion
+        from portable_runtime import UnsupportedPortable
+        from calculator import timeline
+        spec=dict(coord=dict(auto_aim=[0.,0.],pierce_px=10.,explosion_scale=1.),logical_geometry=[],motion=dict(precedence='disable-before-force',force_policy='snap-to-declared-center',recipient_policy='canonical-all-in-range',actors=[]))
+        self.assertEqual(product_motion(spec)['motion']['actors'],[])
+        with self.assertRaises(ValueError):private_motion(spec['motion'])
+        for name in ('유니','얀'):
+            for mode in ('fixed','accumulate'):
+                body=selected_profile_bodies([name],0)[0][2];body.update(burst_gauge_mode=mode,reference_models={'enemy_movement':copy.deepcopy(spec)})
+                body['enemy']['patterns']=[dict(id='declared-static-boss',kind='idle')]
+                missing=copy.deepcopy(body);missing['enemy'].pop('patterns')
+                with self.assertRaisesRegex(ValueError,'enemy.coord'):prepare(missing)
+                with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle input')):
+                    prepared,_=prepare(body);before=copy.deepcopy(prepared);source,iw,ow,words,meta=compile_product(prepared)
+                self.assertEqual(prepared,before);self.assertEqual(words[BASE+2],0)
+                self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+                for row in meta['enemy_movement']['domains']:
+                    at=L['DEFINITION_BASE']+row['row']*L['DEFINITION_WORDS']
+                    self.assertEqual(words[at+F['KIND']],0);self.assertEqual(words[BASE+MAP+row['row']],1 if name=='유니' else 2)
+                bad=copy.deepcopy(body);bad['enemy']['patterns']=[dict(id='future-add',kind='summon',delay=10,spec=dict(count=1,hp=1e30))]
+                with self.assertRaisesRegex(ValueError,'Every configured ADD'):compile_product(prepare(bad)[0])
+        # Native frame guard must reject a future ADD even before it is live.
+        bad['duration']=1
+        aliases=(timeline.simulate,sim.simulate)
+        with self.assertRaisesRegex(ValueError,'Every configured ADD'):engine_worker.evaluate(bad)
+        self.assertEqual(aliases,(timeline.simulate,sim.simulate))
+
     def test_original_named_carriers_keep_every_definition_and_reject_matching_consumer(self):
         from portable_product_programs import body_for_program
         from portable_detail import prepare,compile_product

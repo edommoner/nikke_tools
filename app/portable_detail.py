@@ -215,6 +215,8 @@ def prepare(body):
         captured['run'] = run
         if coordinate_spec is not None:
             run.enemy['coord']=copy.deepcopy(coordinate_spec['coord'])
+        from calculator.boss_pattern import boss_mode
+        boss_mode(run.enemy) # Preserve native mode validation before any GPU allocation.
         def observe(manager):
             # Constructor metadata only: do not execute a CPU battle to obtain it.
             run._portable_detail_model_warnings = manager.effect_model_warnings()
