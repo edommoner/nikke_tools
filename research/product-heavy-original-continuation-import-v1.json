@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "scope": "Mac hash/source/request and summary consistency audit of saved Windows reports; raw PTX/object/image/Job receipts not imported",
+  "producer_commits": [
+    "3484abbf8e29fcbc985bb0ace9c9ae096a8a93c7",
+    "17899a509339405b6129a223a34f786ccc8c5770"
+  ],
+  "owner": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
+  "files": [
+    {
+      "file": "research/heavy-original-lock-continuation-status-v1.json",
+      "bytes": 11418,
+      "sha256": "4a0759dbb35be80f66fd52102a989a76a8a540491152127b66eb295205af4c73"
+    },
+    {
+      "file": "research/heavy-original-lock-continuation-status-v2.json",
+      "bytes": 6160,
+      "sha256": "fcd0f69098ba4a37c9ff8eb9762855a00cbbd1ca2c9226ae0a54796c685fc75e"
+    }
+  ],
+  "local_manifest_job_and_original_expected_hashes_verified": true,
+  "compile_plan_identity": {
+    "distributed_sha256": "3540d19c93c402ccd6b18edc38d07126bff35b3246908d08fb513e35f93c2853",
+    "windows_reported_sha256": "a7dab2c456c25494838db082d12cfce5ba32de43e732fe287d9884ec7c464bb9",
+    "byte_identical": false,
+    "provenance": "Requested saved plan explanation; not yet independently matched"
+  },
+  "ptx_recompiled": false,
+  "object_first_execution_reported": true,
+  "link_first_execution_reported": true,
+  "artifact_binary_bytes_imported": false,
+  "artifact_hashes_cross_report_equal": true,
+  "original_cpu87_reused": true,
+  "original_outer_missing7_and_unadmitted_preserved": true,
+  "object_link_inner_success_outer_unverified_preserved": true,
+  "launch_argument_failure_preserved": true,
+  "current_stop": "Fresh available RAM below4GiB before static/API stage launch",
+  "available_ram_bytes": 2589614080,
+  "required_ram_bytes": 4294967296,
+  "prepared_expected_document_byte_identical": false,
+  "original_case_and_physical_expectations_equal_reported": true,
+  "api_posts": 0,
+  "gpu_dispatches": 0,
+  "configured_profile_delta": 0,
+  "extra_mac_cpu_battles": 0,
+  "extra_mac_gpu_calls": 0,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false
+}

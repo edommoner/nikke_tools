@@ -950,3 +950,10 @@ packet自身の `compile-plan --artifact-kind cubin --ptxas-level 1 --memory-lim
 BODYのみの宣言範囲モデルは `reference_models.named_range.logical_geometry: []` を明示できます。各ruleの `body_shape`、半径、対象数、coordは従来どおり明示し、将来出現するADDがある場合も全colliderが必須です。`enemy_movement` の同じcoord/geometryと `motion.actors: []` を併用でき、既存cover_defenseも接続済みです。privateモデルのempty既定拒否は維持します。BODY-onlyの凍結空集合も専用native adapterが着弾へ渡すため、範囲外BODYに命中させません。
 
 既存 `named-range-fixed` と `movement-range-cover-fixed` はv44でsource identityを実証更新し、旧入力・出力・native期待値を全保持しました。通常API8条件、150 CPU、旧private13検査、raw device負例と失敗保持は [実証記録](../research/product-empty-range-v1.json) を参照してください。新suite/programは不要です。公開基礎半径・BODY位置・移動免疫などのゲーム仕様を確定したモデルではありません。
+
+
+### 保存compiler成果物を読むときのrecipe
+
+保存PTX/objectのorigin検証でも、producerが使用したcompiler optionsを照合します。診断childの既定値を使うと、元の `--split-compile=2` が抜けて `Compiler options mismatch` になる場合があります。元launcher・計画・compiler/phase receipt・immutable sourceで全配列を確かめ、診断childだけの `NIKKE_CUDA_SPLIT_COMPILE=2` で同じ配列を再現してください。OS・永続設定・source・guard・元receiptを変更せず、異なるoptionsで結果を上書きしません。既存validatorはGPU/SDK禁止で呼び、SDKが必要なら停止します。
+
+artifact単体のsource/PTX/producer Job/cache一致と、外側helperの全体process観測は別の証拠です。前者が受理されても、旧outer失敗・未承認・service/whole/overall=falseを成功へ変更しません。未実行段階へ進む場合は新しい明示run・fresh Job・既存各上限で初回だけを実行し、既存claimがあれば状態確認へ戻ります。旧stageの再試行・再コンパイル・古いstateの書換えで継続しません。

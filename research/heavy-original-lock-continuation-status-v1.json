@@ -1,0 +1,299 @@
+{
+  "schema": "heavy-original-lock-continuation-status-v1",
+  "owner": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
+  "source_commit": "3965b3908a973a28b5c32d826dce93766454542d",
+  "source": "gpu/product_lock_fixed_battle_entry.slang",
+  "original_request_transport_commit": "a50bfb0aba82e8b52e82cc4bde6646d66f399f04",
+  "scope": "Explicit new limited run: first previously unexecuted object/link, then one original configured Heavy Arms API case; original PTX outer stop remains",
+  "status": "stopped_before_static_preflight_worker_launch_due_to_helper_program_argument",
+  "numeric_verification_passed": false,
+  "stop": {
+    "stage": "static-preflight-helper-configuration",
+    "error_type": "InvalidProgramPathArgument",
+    "message": "Unmodified PowerShell helper Join-Path does not support the supplied absolute Program argument; paths configuration could not be read. CPU coordinator and checker were not launched.",
+    "origin": "Continuation orchestration argument error before any API stage claim",
+    "observed_unix_ns": 1793525218953681300,
+    "retry_attempted": false,
+    "continuation_stopped": true,
+    "static_worker_started": false,
+    "posts": 0,
+    "gpu_dispatches": 0,
+    "helper_source_modified": false,
+    "old_ptx_outer_failure_retained": true
+  },
+  "preflight": {
+    "passed": true,
+    "observed_unix_ns": 1793524984929211300,
+    "available_physical_bytes": 7611760640,
+    "required_available_bytes": 4294967296,
+    "owner": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
+    "source_commit": "3965b3908a973a28b5c32d826dce93766454542d",
+    "manifest_sha256": "4f479093083915149364b29d2497dd230cf3dac16aa7e12c1c3349aff3e9adf1",
+    "host87_reused": true,
+    "host_receipt_sha256": "78862dc70b4b65436be781c66bf94b4854d85b933f55bc4c7c779f97be9c6dbd",
+    "host_original_case_ids": {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_fixed_lock_uses_shared_literal_header_and_preserves_all_effects",
+        "test_product_reference_models.ProductReferenceModels.test_lock_on_original_product_keeps_all_definitions_and_empty_typed_world"
+      ]
+    },
+    "o1_plan_sha256": "a7dab2c456c25494838db082d12cfce5ba32de43e732fe287d9884ec7c464bb9",
+    "original_request_sha256": "c375157121a70f8184184a0a7824b64b31fe000b5eafb742988623e668cf948a",
+    "original_input_expected_sha256": "9337f726787944458cb09c19b1de2b7f955f11c149f42bd6b385a7284bb50afa",
+    "ptx_origin_validator_accepted": true,
+    "ptx_bytes": 9905613,
+    "ptx_sha256": "34fd27a656586a76d386d021c1fc87ac19a70eed3aecf36ba10f4b26a2eadf88",
+    "options_match": true,
+    "unstarted_stage_claims_and_captures_absent": true,
+    "old_stop_preserved": true,
+    "extra_cpu_tests": 0,
+    "extra_sdk_calls": 0,
+    "extra_gpu_calls": 0
+  },
+  "preflight_execution": {
+    "elapsed_seconds": 10.309950900264084,
+    "timeout_seconds": 60,
+    "below_normal": true,
+    "job_limit_bytes": 2147483648,
+    "pre_gate_verified": true,
+    "post_wait_empty": true,
+    "peak_bytes": 80756736,
+    "gpu_forbidden": true
+  },
+  "cpu_original87_reused": {
+    "passed": true,
+    "tests": 87,
+    "groups": [
+      {
+        "pattern": "test_portable_detail.py",
+        "exit_code": 0,
+        "elapsed_seconds": 12.185347700025886,
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "exit_code": 0,
+        "elapsed_seconds": 4.648796200286597,
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "exit_code": 0,
+        "elapsed_seconds": 5.696315200068057,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_product_reference_models.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.9480023998767138,
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_fixed_lock_uses_shared_literal_header_and_preserves_all_effects",
+          "test_product_reference_models.ProductReferenceModels.test_lock_on_original_product_keeps_all_definitions_and_empty_typed_world"
+        ]
+      }
+    ],
+    "selected_case_ids": {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_fixed_lock_uses_shared_literal_header_and_preserves_all_effects",
+        "test_product_reference_models.ProductReferenceModels.test_lock_on_original_product_keeps_all_definitions_and_empty_typed_world"
+      ]
+    },
+    "owner": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
+    "source_commit": "3965b3908a973a28b5c32d826dce93766454542d",
+    "full148_windows_claimed": false,
+    "unselected_model61_executed": false,
+    "old_source_results_reused": false,
+    "extra_native_preflight_battles": 0,
+    "sdk_calls": 0,
+    "gpu_calls": 0
+  },
+  "cpu_tests_reexecuted": 0,
+  "new_sdk_stages": {
+    "module-object": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "elapsed_seconds": 35.86127940006554,
+      "timeout_seconds": 179.84400000004098,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 401465344,
+      "below_normal": true,
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "reported_whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 19.291960600297898,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 356417536,
+        "below_normal": true
+      }
+    },
+    "jit-link-object": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "elapsed_seconds": 55.42471669986844,
+      "timeout_seconds": 179.84299999987707,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 238190592,
+      "below_normal": true,
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "reported_whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 22.3470887998119,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 115269632,
+        "below_normal": true
+      }
+    }
+  },
+  "artifacts": {
+    "ptx_reused_bytes": 9905613,
+    "ptx_reused_sha256": "34fd27a656586a76d386d021c1fc87ac19a70eed3aecf36ba10f4b26a2eadf88",
+    "object_sha256": "9ef5e29746beb7fbb53362e01a9968e9bfba0751e44e1c0e5117873c70e32abc",
+    "object_bytes": 5642480,
+    "object_options": [
+      "--gpu-name=sm_86",
+      "--opt-level=1",
+      "--fmad=false",
+      "--verbose",
+      "--compile-only"
+    ],
+    "source_bytes_unchanged": true,
+    "source_partitioned": false,
+    "linked_image_sha256": "c92e26e4c0df3fbc585bde8b4dc66af6ead209fad2dd368ed9318b209c94c255",
+    "linked_image_bytes": 5269840,
+    "pinned_link_all_api_returns_zero": true,
+    "pinned_link_driver_api_calls": 0
+  },
+  "counts": {
+    "new_paired_generations": 0,
+    "new_slang_compiles": 0,
+    "new_ptx_compiles": 0,
+    "new_nvrtc_calls": 0,
+    "new_o1_object_runs": 1,
+    "new_pinned_jit_link_runs": 1,
+    "api_preparation_runs": 1,
+    "static_preflight_workers": 0,
+    "api_helper_workers": 0,
+    "posts": 0,
+    "physical_gpu_dispatches": 0,
+    "saved_audit_workers": 0,
+    "extra_battles": 0,
+    "retries": 0,
+    "all266_runs": 0,
+    "other_profile_runs": 0
+  },
+  "unexecuted_case": {
+    "profile_index": 210,
+    "favorite_stage": 0,
+    "duration_seconds": 30,
+    "definitions_expected": 91,
+    "pulses_expected": 110,
+    "shots_expected": 15,
+    "expected_input_sha256": "9337f726787944458cb09c19b1de2b7f955f11c149f42bd6b385a7284bb50afa",
+    "expected_output_sha256": "76fd63c5f64fd0b6fd0693e4906a4ba06f74a43e8626b7f570f3d6a757d72f2e",
+    "expected_output_bytes": 5242880,
+    "expected_chunk_bytes": [
+      5242880
+    ],
+    "m5_comparison_performed": false,
+    "fresh_cpu_gpu_http_comparison_performed": false,
+    "node_saved_audit_performed": false
+  },
+  "preparation_error": {
+    "stage_not_started": true,
+    "source": "Absolute Program argument supplied to unmodified PowerShell Join-Path helper",
+    "original_helpers_modified": false,
+    "source_or_artifact_failure_inferred": false,
+    "path_correction_or_retry_attempted": false,
+    "orchestration_reference_error_before_sdk_corrected": true
+  },
+  "preservation": {
+    "prior_protected_files": 53464,
+    "missing": 0,
+    "changed": 0,
+    "original_ptx_outer_stop_retained": true,
+    "original_artifact_admitted_for_next_stage": false,
+    "previous_mismatch_diagnostics_retained": true,
+    "new_object_and_link_claims_retained": true,
+    "new_helper_stop_sha256": "8248489f1e699ed277bf416e2b94ad7e93455719619caf20f713a11b1708a770",
+    "original_stop_sha256": "d960035c01d0232a3e8304524cdb27cac9089658dde1479d7386ed58c2dbd4b1"
+  },
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "persistent_environment_changes": 0,
+  "no_ssh_or_os_configuration_changed": true,
+  "unconfigured_standard_profile_delta": 0,
+  "configured_profile_delta_verified": 0,
+  "full148_windows_claimed": false,
+  "other61_model_tests_executed": false,
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "api_advisory_observation": {
+    "performed": false,
+    "inner_job_limit_known": false,
+    "observation_complete": false
+  },
+  "raw_buffers_shared": false,
+  "raw_ptx_shared": false,
+  "external_process_details_shared": false,
+  "settings_or_auth_shared": false
+}

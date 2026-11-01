@@ -1,3 +1,13 @@
+## 2026-11-01 保存object/link取得、APIはRAM admissionで未開始
+
+Heavy元30秒の保存継続報告2本（3484abbf/17899a50、11,418/6,160byte）を取得し、相互SHA、元owner/manifest/request/job/expected、PTX/imageの横断identityをMac照合した。PTXの再コンパイル0、初回object5,642,480byte/9ef5e297…とlink image5,269,840byte/c92e26e4…はinner0/19.292・22.347秒、outer2/35.861・55.425秒。missing0/2GiB/prepost/empty/cleanup正常でもouter環境falseは保持し、旧PTX outer missing7/未admitを成功へ変更しない。raw binary/Job receiptはMac未import、保存small summaryの整合確認と区別する。
+
+API helperへ絶対Program pathを渡した呼出し誤りはworker前停止として原本保持。相対pathの読取確認は同configを指し、prepared jobは元と全byte同一。expected文書はprepare-api既存schema/期間metadata追加でSHAが異なるが、元case/物理期待値は保持とWindows報告。補正後もRAM2,589,614,080byte（約2.41GiB）<4GiB開始条件で停止。static/Node/API/POST/GPUは全0、claim削除/SDK再実行0。現RAMだけ1回確認中、結果が十分でも自動API再開は依頼していない。O1 planはWindows報告a7dab2c4…と配布3540d19c…が別SHAのため保存出所を確認中。research/product-heavy-original-continuation-import-v1.json参照。
+
+Macでは現在の標準263成功profileが使う8種類のGPU include graphを保存owner836ade72と全byte照合、全266をbattle/GPU禁止で現行prepare/packし、263の全input.binが保存実M5入力と一致、未指定3fallback保持。2.608秒、追加CPU battle/GPU0。既存検証を再利用できるidentityの証拠でありfresh current CPU/GPU/HTTPやCUDA現行全matrixとはしない。research/product-current-matrix-v1.jsonのlater_current_static_reuse_audit参照。
+
+BODY-only範囲/移動/遮蔽8成功条件は既存web/enemy-model.mjsの実normalize/apply経路から実API入力へ再packし、呼出し値と全GPU input SHAが一致。browserクリック検査とは区別し追加battle/GPU0。研究小記録へ追記。標準Metal/CUDA累積263/266、宣言別Metal266/CUDA265、全goal未完了。以下は履歴。
+
 ## 2026-11-01 保存PTXの読取validatorは診断options不一致、元recipeで再確認中
 
 Windowsの既存partition_object_origin(module_object=True)は、保存producer自身の出所/内側Job/source/生成・PTX cacheを読む範囲を持つ。初回のGPU/SDK禁止診断ではinner audit_compile_captureがCompiler options mismatchで拒否。保存--split-compile=2に対し診断childは既定1だった。PTX破損の証拠ではなく、artifact単体の受理は未確認。内側containment=true/preservation=falseを元判定のまま区別し、outer missing7停止と未admitを変更しない。

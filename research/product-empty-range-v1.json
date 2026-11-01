@@ -189,5 +189,71 @@
   ],
   "arithmetic_or_tolerances_changed": false,
   "registered_expected_input_output_native_values_changed": false,
-  "declared_cpu_frozen_target_delivery_corrected": true
+  "declared_cpu_frozen_target_delivery_corrected": true,
+  "screen_declared_model_input_bridge": {
+    "scope": "Existing screen declared-scenario model functions -> actual successful normal API input preparation; no browser click or fresh battle claimed",
+    "ui_module_sha256": "a9170160e30a9548adf4509e77c6139aaa7cc11e3c801e32dfa8586586171494",
+    "rows": [
+      {
+        "variant": "named-range-fixed-inside-body-only",
+        "source": "gpu/product_named_range_fixed_battle_entry.slang",
+        "ui_values_equal": true,
+        "gpu_input_sha256": "6c458312c27b88a33d0d211d63d769c6c32d9d4f1ddb523116a634687e3ccb37",
+        "input_exact": true
+      },
+      {
+        "variant": "named-range-accumulate-inside-body-only",
+        "source": "gpu/product_named_range_battle_entry.slang",
+        "ui_values_equal": true,
+        "gpu_input_sha256": "40ce4841f13c4ffd102db30e033b5f55c32bb44a0fd4cf6c2b96c784595e15a3",
+        "input_exact": true
+      },
+      {
+        "variant": "movement-range-fixed-inside-body-only",
+        "source": "gpu/product_movement_range_fixed_battle_entry.slang",
+        "ui_values_equal": true,
+        "gpu_input_sha256": "cf359293491bc77d0ffc54e236cd55556d572b6417cf0ac316d8d24a4e396371",
+        "input_exact": true
+      },
+      {
+        "variant": "movement-range-accumulate-inside-body-only",
+        "source": "gpu/product_movement_range_battle_entry.slang",
+        "ui_values_equal": true,
+        "gpu_input_sha256": "208e32ddd0e4660c3c75c219e32a8e1578b558f6340067ea090bc8b847566e22",
+        "input_exact": true
+      },
+      {
+        "variant": "named-range-fixed-outside-body-only",
+        "source": "gpu/product_named_range_fixed_battle_entry.slang",
+        "ui_values_equal": true,
+        "gpu_input_sha256": "fa032babbe35128c41b2c0a12a347e2a21f396b5179a239c8d49c6511758b23a",
+        "input_exact": true
+      },
+      {
+        "variant": "movement-range-fixed-outside-body-only",
+        "source": "gpu/product_movement_range_fixed_battle_entry.slang",
+        "ui_values_equal": true,
+        "gpu_input_sha256": "e76e8c1393bddc1568035cf82b423b97af625eb758d75118bba1ced8ca421597",
+        "input_exact": true
+      },
+      {
+        "variant": "body-only-movement-range-cover-fixed",
+        "source": "gpu/product_movement_range_cover_fixed_battle_entry.slang",
+        "ui_values_equal": true,
+        "gpu_input_sha256": "a24c36fa3551f39c4096307b1c9f5b9558e93b62f473474b813264875cab37f7",
+        "input_exact": true
+      },
+      {
+        "variant": "body-only-movement-range-cover-accumulate",
+        "source": "gpu/product_movement_range_cover_battle_entry.slang",
+        "ui_values_equal": true,
+        "gpu_input_sha256": "c448162765f82375433c0b089ef87d1bbf3d0210f5f9ef5da1e814b4a3e68760",
+        "input_exact": true
+      }
+    ],
+    "cases": 8,
+    "additional_cpu_battles": 0,
+    "additional_gpu_calls": 0,
+    "all_declared_values_preserved": true
+  }
 }

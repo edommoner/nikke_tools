@@ -43,7 +43,7 @@
     "cleanup_source_sha256": "494df8bc60201989a4e8fb451dc5aa0742d7f93098bc52d5f79722eebb123a88"
   },
   "old_outer_stop_and_ptx_unadmitted_retained": true,
-  "existing_ptx_origin_validator_read_only_check": "Initial diagnostic options mismatch preserved; exact saved recipe per-child env validation requested, active task01a19663-5d62-7eb2-9303-4077f27ebe15; no SDK/GPU or stage continuation",
+  "existing_ptx_origin_validator_read_only_check": "Completed: saved recipe accepted artifact-only. Separate explicit request for first unexecuted object/link/API sent; see continuation result, never infer old outer success.",
   "whole_environment_preservation_verified": false,
   "overall_verified": false,
   "full_goal_complete": false,
@@ -63,5 +63,44 @@
     "compiler_receipt_sha256": "46f32112bcd9517dd7851784015b8adb2580dfbcb11fd80f13cd4af62ee27dd2",
     "inner_job_sha256": "0fc1af661d867ffc0514a33931dd8556f02806395568176ce623764c0ac224b9",
     "validator_sha256": "3b84b496ddb43e724159cd5e832009aff43e3a300d91f2f438ea6636f2eb1aac"
+  },
+  "ptx_origin_saved_recipe_check": {
+    "evidence_kind": "Windows chat report; raw diagnostic receipts not imported",
+    "validator": "partition_object_origin(module_object=True)",
+    "result": "accepted",
+    "options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "options_full_array_matches_saved": true,
+    "source_evidence": [
+      "original launcher",
+      "compiler receipt",
+      "phase receipt",
+      "immutable validator source"
+    ],
+    "independent_actual_argument_journal_available": false,
+    "scope": "Saved inner producer source,PTX,Job,cache and phase only; not outer claim or future execution",
+    "ptx_bytes": 9905613,
+    "ptx_sha256": "34fd27a656586a76d386d021c1fc87ac19a70eed3aecf36ba10f4b26a2eadf88",
+    "diagnostic_seconds": 11.184,
+    "peak_bytes": 80609280,
+    "temporary_child_environment_only": true,
+    "persistent_settings_changed": false,
+    "extra_sdk_calls": 0,
+    "extra_gpu_calls": 0,
+    "old2949_files_unchanged": true,
+    "old_outer_failure_and_unadmitted_status_preserved": true
+  },
+  "pending_continuation": {
+    "status": "Object/link first calls completed. Absolute helper path failure retained; corrected relative-path readonly preflight stopped at RAM admission before any static/API worker.",
+    "mac_import": "research/product-heavy-original-continuation-import-v1.json",
+    "latest_available_ram_bytes": 2589614080,
+    "required_available_ram_bytes": 4294967296,
+    "api_posts": 0,
+    "gpu_dispatches": 0,
+    "old_outer_verdict_changed": false
   }
 }

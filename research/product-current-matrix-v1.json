@@ -3517,5 +3517,16 @@
     "Unrestricted compositions and all special-effect conditions"
   ],
   "serial_api_jobs_wall_seconds": 421.1892733310815,
-  "timing_scope": "Sum of24 serial HTTP-job wait intervals, includes GPU, CPU verification and polling; not independent CPU/GPU stage attribution"
+  "timing_scope": "Sum of24 serial HTTP-job wait intervals, includes GPU, CPU verification and polling; not independent CPU/GPU stage attribution",
+  "later_current_static_reuse_audit": {
+    "proof": "current-static-reuse-v1.json",
+    "sha256": "138a7a49897a721e1afbfa7d51394b3f7bfe92ac433f68aeb2024c4e2aea8f43",
+    "review_commit": "956d0791eedd0fdd6c347e1d97d7580400ad2212",
+    "successful_raw_source_graphs_exact": 8,
+    "complete_input_bytes_exact": 263,
+    "explicit_fallbacks": 3,
+    "extra_cpu_battles": 0,
+    "extra_gpu_calls": 0,
+    "fresh_current_cpu_gpu_http_claimed": false
+  }
 }
