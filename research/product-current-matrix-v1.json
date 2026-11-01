@@ -3528,5 +3528,124 @@
     "extra_cpu_battles": 0,
     "extra_gpu_calls": 0,
     "fresh_current_cpu_gpu_http_claimed": false
+  },
+  "current_standard_revalidation_v2": {
+    "schema": 1,
+    "scope": "Original266 standard30s requests, no declared models or removed effects; current immutable source coverage by strict saved reuse260 plus fresh normal API3, not263 new dispatches",
+    "runtime_review_commit": "c70c37cda05cab35093de6e762373074f7991c00",
+    "owner": "8dfc884939c455362952ce1dea4137658e2d9e4b43f7000063ba83faebebf86b",
+    "source_packet": "product-ammo-healing-v1-20261101/release-v1/packet",
+    "runtime_files_byte_equal_to_review_checkout": 1455,
+    "runtime_files_anchor_sha256": "482f9e6ad8d00c50d5a5d16d6ea411bdd3f9320e1ab823463e95219f66663814",
+    "total_profiles": 266,
+    "current_source_metal_verified_profiles": 263,
+    "current_source_metal_characters": 200,
+    "unchanged_input_profiles": 263,
+    "saved_gpu_source_and_input_exact_profiles": 260,
+    "saved_full_raw_parent_member_hashes_and_cpu_gpu_http_projection_audited": 260,
+    "saved_reuse_native_battles": 0,
+    "saved_reuse_gpu_calls": 0,
+    "fresh_normal_api_profiles": [
+      {
+        "index": 67,
+        "character": "앤 : 미라클 페어리",
+        "favorite_stage": 0,
+        "source": "gpu/product_healing_fixed_battle_entry.slang",
+        "capture_id": "dfe65326b6ef47bb8b3503f930e15514",
+        "input_sha256": "2b7a6df61d6da36035c569285780116e9c1631ccfa61f1ff3e5eba6230c87aa0",
+        "output_sha256": "69b3018d823af230d8497a0cd71f0bcdfcd2c1cd85851707ed228d2e36f5c67f",
+        "fresh_cpu_gpu_http_equal": true,
+        "prior_full_readback_sha_exact": true,
+        "saved_audit_passed": true
+      },
+      {
+        "index": 159,
+        "character": "솔져 O.W.",
+        "favorite_stage": 0,
+        "source": "gpu/product_cover_fixed_battle_entry.slang",
+        "capture_id": "ca53654cc8404cd981d45f680097f152",
+        "input_sha256": "d60bf71a008bd1601d8af5bc083f6ffcc61c3f8e537954dbcb04d5ea3282e85d",
+        "output_sha256": "ad5208a7613d552c13172bc1be00f7c02c981732afb7c24a0d93b6e2e1728fa4",
+        "fresh_cpu_gpu_http_equal": true,
+        "prior_full_readback_sha_exact": true,
+        "saved_audit_passed": true
+      },
+      {
+        "index": 168,
+        "character": "벨벳",
+        "favorite_stage": 0,
+        "source": "gpu/product_ammo_fixed_battle_entry.slang",
+        "capture_id": "0b4cf7898c214668a94330c525beb20b",
+        "input_sha256": "1bcd913dd2f6dfb61a7db6bf241dcc2d58e00d75883692d8535c832bcf743d13",
+        "output_sha256": "c79d2a07675205c25060416600f34b70760a0a258e1060e110e7670206da0c70",
+        "fresh_cpu_gpu_http_equal": true,
+        "prior_full_readback_sha_exact": true,
+        "saved_audit_passed": true
+      }
+    ],
+    "fresh_normal_api_posts": 1,
+    "fresh_physical_gpu_dispatches": 3,
+    "fresh_gpu_output_hashes_identical_to_prior": true,
+    "fresh_saved_audit_extra_battles": 0,
+    "fresh_saved_audit_extra_gpu": 0,
+    "current_compile_fallback_profiles": [
+      {
+        "index": 88,
+        "character": "유니",
+        "reason": "Movement requires explicit reference_models.enemy_movement geometry and policies; composition is not connected",
+        "fresh_fallback_battle_run": false
+      },
+      {
+        "index": 111,
+        "character": "얀",
+        "reason": "Movement requires explicit reference_models.enemy_movement geometry and policies; composition is not connected",
+        "fresh_fallback_battle_run": false
+      },
+      {
+        "index": 210,
+        "character": "스노우 화이트 : 헤비암즈",
+        "reason": "Lock On requires explicit reference_models.lock_on candidate/delivery policies and typed bindings; composition is not connected",
+        "fresh_fallback_battle_run": false
+      }
+    ],
+    "canonical_cpu_and_pinned_data_byte_equal_files": 43,
+    "unconfigured_model_early_exit_ast_exact": true,
+    "unchanged_metal_dispatch_ast": true,
+    "unchanged_generation_normalizer_and_swift_files": 6,
+    "all8_current_source_layouts_admitted": true,
+    "proofs": [
+      {
+        "file": "static-delta.json",
+        "bytes": 504192,
+        "sha256": "3bca507243cfd53b4fdaf675c80703813b504b3350206823457a5e204209c5f4"
+      },
+      {
+        "file": "cpu-reference-identity.json",
+        "bytes": 7507,
+        "sha256": "d7a9c0d56839c9fcc6c1d5637d8953bc031984ffd0f1d62ccfb1020a9f64a503"
+      },
+      {
+        "file": "transport-identity.json",
+        "bytes": 2334,
+        "sha256": "36fb5e4cce050c6f46ca01ce5faafc73645317039a5b66e6de3082b1202ad04a"
+      },
+      {
+        "file": "saved-audit-progress.json",
+        "bytes": 123632,
+        "sha256": "8744567d81037241f3564b3f1e46973ae989f1b633ad05c7475b62a3ad256f56"
+      },
+      {
+        "file": "api-v1/saved-audit-progress.json",
+        "bytes": 1512,
+        "sha256": "26dcccdf60435fa38282c7637a2dd7507c0fdb1a5f5b126a1628862fb98477a6"
+      }
+    ],
+    "proof_directory": "product-current-standard-v2-20261101",
+    "node_process_group_absent": true,
+    "cuda_recorded_source_standard_profiles": 263,
+    "cuda_current_matrix_recertified": false,
+    "whole_environment_preservation_verified": false,
+    "overall_verified": false,
+    "full_goal_complete": false
   }
 }

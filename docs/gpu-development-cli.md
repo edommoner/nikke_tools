@@ -1,3 +1,19 @@
+## 元Heavy Arms30秒の保存CUDA再開結果
+
+元Heavy Arms210/favorite0/固定30秒＋既存明示Lock On1条件は、保存PTX/object/imageを再コンパイルせず通常APIの初回1POST/1GPUで成功しました。全91定義/110pulses/15shots、CPU/GPU/HTTP/Unicode、全5,242,880byte readback SHAがM5原本と一致。保存監査ではbattle/GPU0、SDK/CPU87の再実行0です。Macは保存Windows報告のdriver/Job/Node値と出所を照合し、ローカルM5原本の全hashを再計算しました。CUDA raw自体はMacへ転送していません。[取り込み範囲](../research/product-heavy-original-success-import-v1.json)。
+
+保存監査の起動が「APIまだ動作中の可能性」で拒否された際は、未開始の監査を繰り返さず、API完了receipt/Node終了/Job empty/live0を読み取りで確認して同じ未変更監査を承認経路へ戻しました。元失敗・claimを消さず、別の審査回避経路を作っていません。旧PTX外側missing7、旧起動/RAM停止、SDKouterfalse、advisory8件unknown・service/whole/overallfalseは保持します。
+
+明示モデル別条件を含む元profile実績はMetal/CUDA各266/266です。モデル未指定標準は263/266であり、現全sourceのCUDA再認定・全効果条件・任意合成の完成を意味しません。[条件別の全体集計](../research/product-configured-missing-v1.json)を参照してください。
+
+## 標準全profileの現行差分確認と保存結果の再利用
+
+標準corpusの現行確認は、保存した元caller値を全件静的prepare/packし、各profileの完全inputとGPU include graphを比べて対象を選びます。inputが同じでもsourceが異なれば保存GPU成功だけで現行認定へ上げません。逆に両方が完全一致し、CPU参照・入力データ・該当scopeのmodel境界・transport/normalizerも一致する場合は、全member/parent raw SHAと物理slice、現decoderによるCPU/GPU/HTTP全payload再投影を監査し、同じ戦闘のCPU/GPU再計算を避けます。既存保存監査と不変packageを使い、別oracleや許容差を作りません。
+
+現在の標準266は入力変更0、sourceとinputの同一260件を保存監査で再利用、sourceが変わった元Ann67/Soldier159/Velvet168だけを通常APIでfresh実M5/CPU照合しました。新3件は全readback SHAも旧値と同一。CPU参照/固定data43file・no-model早期return AST、Metal dispatch ASTとSwift/生成/normalizer6fileの一致、および8sourceの現wire受付も検査済みです。現行owner8dfc8849の標準Metal263/266（200/203キャラ）の証拠は「再利用260＋新規3」であり、263件のfresh dispatchではありません。
+
+Yuni88/Yan111/Heavy Arms210の未指定モデル3件は現compileの理由付きfallbackとして保持し、今回はそのCPU戦闘も繰り返していません。参照CPUやモデルの数値規約が変わった場合はinput/source一致だけでは再利用せず、相違を解消するfresh比較が必要です。[全体レポートのcurrent_standard_revalidation_v2](../research/product-current-matrix-v1.json)を参照してください。標準CUDA263件の従来実績は、現行全matrixの再認定とは分けています。
+
 ## 敵回復と弾倉の共通実行
 
 `reference_models.enemy_healing`と`enemy_ammo`を同じ通常リクエストへ指定でき、`cover_defense`も併用できます。plain／同時命中／対象別modifierの既存弾倉入口をそのまま使い、新suite・program・監査器は追加していません。回復先は従来どおり明示した有限HPのADD、回復sourceは明示したidle nodeです。BODYのHPや回復規則は推定しません。

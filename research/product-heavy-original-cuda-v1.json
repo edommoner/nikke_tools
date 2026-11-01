@@ -28,7 +28,7 @@
     "other33_members_unchanged": true
   },
   "cuda": {
-    "status": "Saved PTX accepted by artifact-only validator; first object/link artifacts reported verified with outer environment false preserved. API remains unstarted after RAM admission stop.",
+    "status": "Original configured Heavy30s first normal API and saved audit passed; new compile/CPU87 reruns0; old SDK outer/environment false retained",
     "request": {
       "schema": "heavy-original-lock-windows-request-v1",
       "owner": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
@@ -108,7 +108,8 @@
     "mac_import_report": "research/product-heavy-original-stop-import-v1.json",
     "read_only_diagnosis_requested": "Saved receipts/source only; ownership and available memory evidence, no execution or stage continuation",
     "latest_continuation_import": "research/product-heavy-original-continuation-import-v1.json",
-    "original_artifact_admitted_for_next_stage": false
+    "original_artifact_admitted_for_next_stage": false,
+    "success_import": "research/product-heavy-original-success-import-v1.json"
   },
   "full_goal_complete": false,
   "overall_verified": false

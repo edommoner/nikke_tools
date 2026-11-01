@@ -5,8 +5,8 @@
   "standard_unconfigured_cuda_recorded_profiles": 263,
   "total_profiles": 266,
   "configured_metal_profile_successes_across_recorded_sources": 266,
-  "configured_cuda_profile_successes_across_recorded_sources": 265,
-  "heavy_arms_new_cuda_verified": false,
+  "configured_cuda_profile_successes_across_recorded_sources": 266,
+  "heavy_arms_new_cuda_verified": true,
   "body_movement_immunity_or_game_distances_inferred": false,
   "standard_profile_delta": 0,
   "rows": [
@@ -93,8 +93,11 @@
   "full_goal_complete": false,
   "remaining": [
     "Unconfigured movement and Lock On game specification",
-    "Heavy Arms configured original30s CUDA",
-    "Unrestricted compositions and all special-effect conditions"
+    "Unrestricted compositions and all special-effect conditions",
+    "Current-source CUDA differentials for later consumer compositions"
   ],
-  "configured_coverage_counting": "263 standard successful profiles plus explicit declared-model variants for original indices88/111/210; input conditions and execution owners remain distinct"
+  "configured_coverage_counting": "263 standard successful profiles plus explicit declared-model variants for original indices88/111/210; input conditions and execution owners remain distinct",
+  "prior_configured_cuda_profile_successes_across_recorded_sources": 265,
+  "heavy_arms_cuda_success_import": "research/product-heavy-original-success-import-v1.json",
+  "configured_cuda_success_scope": "Across recorded immutable sources, including explicit original Yuni/Yan movement and Heavy Arms Lock On declarations; not unconfigured defaults or all current-source combinations"
 }
