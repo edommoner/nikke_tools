@@ -3906,5 +3906,168 @@
     "current_source_cuda_profiles": 0,
     "previous_evidence_preserved": true,
     "full_goal_complete": false
-  }
+  },
+  "current_standard_revalidation_v4": {
+    "schema": "product-current-standard-revalidation-v4",
+    "scope": "Current immutable runtime reprojects original successful normal-API battles for all263 admitted default profiles. Original input and complete GPU source closure are byte-identical; canonical CPU code/data43 files and no-declaration early-exit AST are unchanged. This is saved proof reuse, not fresh GPU/CPU/HTTP execution.",
+    "review_commit": "e19807550e1d55d3b01ddde3ca60a5332720e53e",
+    "current_runtime_owner": "c51b3d437bb4f3148755f6fd4a47225e90bfbe95a88c22e74de491a428ff19af",
+    "source_packet": "product-typed-nearby-run-v2-20261102/release-v1/packet",
+    "original_execution_owner": "5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622",
+    "runtime_files_byte_equal_to_checkout": 1469,
+    "runtime_files_anchor_sha256": "065885b9b5fc14fdf8c02185713ecef793fdbf73df2e13307952db49f11eb8e8",
+    "standard_profiles": 266,
+    "current_source_metal_verified_profiles": 263,
+    "current_source_metal_verified_characters": 200,
+    "fresh_normal_api_gpu_profiles": 0,
+    "saved_gpu_execution_reuse_profiles": 263,
+    "fresh_native_battles": 0,
+    "fresh_http_submissions": 0,
+    "current_physical_gpu_dispatches": 0,
+    "original_physical_gpu_dispatches_reused": 38,
+    "source_variants": 8,
+    "source_graph_exact_profiles": 263,
+    "exact_original_inputs": 263,
+    "original_raw_unchanged": true,
+    "current_full_result_projection_equal_profiles": 263,
+    "saved_audits": 263,
+    "saved_audit_extra_battles": 0,
+    "saved_audit_extra_gpu": 0,
+    "canonical_cpu_and_pinned_data_byte_equal_files": 43,
+    "no_declaration_early_exit_ast_exact": true,
+    "all266_reference_models_absent": true,
+    "model_missing_static_fallback_profiles": [
+      {
+        "index": 88,
+        "character": "유니",
+        "backend": "cpu",
+        "reason": "Movement requires explicit reference_models.enemy_movement geometry and policies; composition is not connected"
+      },
+      {
+        "index": 111,
+        "character": "얀",
+        "backend": "cpu",
+        "reason": "Movement requires explicit reference_models.enemy_movement geometry and policies; composition is not connected"
+      },
+      {
+        "index": 210,
+        "character": "스노우 화이트 : 헤비암즈",
+        "backend": "cpu",
+        "reason": "Lock On requires explicit reference_models.lock_on candidate/delivery policies and typed bindings; composition is not connected"
+      }
+    ],
+    "fallback_battles_not_recomputed": true,
+    "new_raw_storage_allocations": 0,
+    "original_captures_referenced_without_mutation": true,
+    "current_source_cuda_standard_matrix_verified": false,
+    "cuda_historical_standard_profiles": 263,
+    "windows_new_execution_requests": 0,
+    "whole_environment_preservation_verified": false,
+    "all_special_effects_verified": false,
+    "full_goal_complete": false,
+    "proof_directory": "product-current-standard-v4-20261102",
+    "proof_hashes": {
+      "static-delta.json": "cdf2bd6bd1be4b641add70c0e28ca04cf0670804c940e806337effc872e7975f",
+      "cpu-reference-identity.json": "12c7ecc7c30d1c3e271a14e29078683e3f7667b46dc6a82a76721745140ee53a",
+      "saved-reuse-scope.json": "020dc8949eb06d66e358c9b24ddf383a160f50f6812cfa6e8fb7ab0f3a5fc960",
+      "runtime-current-source-identity.json": "065885b9b5fc14fdf8c02185713ecef793fdbf73df2e13307952db49f11eb8e8",
+      "api-v1/saved-audit-progress.json": "961a4789363f0b0ec974442180a056f59107770f274fd0232d21c3aa03347f13"
+    }
+  },
+  "current_declared_three_revalidation_v4": {
+    "schema": "product-current-declared-three-v2",
+    "scope": "The same original Yuni/Yan BODY-only empty-ADD movement declarations and Heavy Arms BODY-first Lock On declaration; unchanged stats/equipment/roster/skills/30s/seed. This does not change default unsupported3 or prove actual displacement/typed interception.",
+    "current_runtime_owner": "c51b3d437bb4f3148755f6fd4a47225e90bfbe95a88c22e74de491a428ff19af",
+    "current_source_standard_metal_profiles": 263,
+    "standard_proofs_reused": 263,
+    "additional_declared_profiles_fresh_gpu": 3,
+    "current_source_observed_union_profiles": 266,
+    "current_source_observed_union_characters": 203,
+    "fresh_http_posts": 1,
+    "fresh_physical_gpu_dispatches": 2,
+    "fresh_native_battles": 3,
+    "api_job_seconds": 14.801100082928315,
+    "all_original_definitions_preserved": [
+      {
+        "index": 88,
+        "source": "gpu/product_movement_fixed_battle_entry.slang",
+        "input_words": 117476,
+        "output_words": 2032000,
+        "all_original_definitions_preserved": true,
+        "original_definitions": 69,
+        "profile_stats_equipment_roster_and_skill_levels_unchanged": true,
+        "game_rule_verification": false
+      },
+      {
+        "index": 111,
+        "source": "gpu/product_movement_fixed_battle_entry.slang",
+        "input_words": 117476,
+        "output_words": 2032000,
+        "all_original_definitions_preserved": true,
+        "original_definitions": 71,
+        "profile_stats_equipment_roster_and_skill_levels_unchanged": true,
+        "game_rule_verification": false
+      },
+      {
+        "index": 210,
+        "source": "gpu/product_lock_fixed_battle_entry.slang",
+        "input_words": 109536,
+        "output_words": 1310720,
+        "all_original_definitions_preserved": true,
+        "original_definitions": 91,
+        "profile_stats_equipment_roster_and_skill_levels_unchanged": true,
+        "game_rule_verification": false
+      }
+    ],
+    "rows": [
+      {
+        "original_profile_index": 88,
+        "character": "유니",
+        "variant": "88-declared-body-only",
+        "input_sha256": "787f537c7c00d9d24acc9f931106228d04babf60cfc121ad429a5a78fa743193",
+        "output_sha256": "4f98034477055f1b3b5a342321ea508edc0c6dcadfd51aa71a575301f8e3c4d3",
+        "current_execution_verified": true,
+        "complete_cpu_gpu_http_equal": true,
+        "original_input_raw_exact": true,
+        "original_output_raw_exact": true,
+        "saved_audit_passed": true
+      },
+      {
+        "original_profile_index": 111,
+        "character": "얀",
+        "variant": "111-declared-body-only",
+        "input_sha256": "9b5180903d62ccef05684c9b8f0b71e2912c9d7a47b6f053922ce6d85a6e95f0",
+        "output_sha256": "0e094f4b65958baeadd072d761a9b213cd144802dfa5d43a28cae638972120a0",
+        "current_execution_verified": true,
+        "complete_cpu_gpu_http_equal": true,
+        "original_input_raw_exact": true,
+        "original_output_raw_exact": true,
+        "saved_audit_passed": true
+      },
+      {
+        "original_profile_index": 210,
+        "character": "스노우 화이트 : 헤비암즈",
+        "variant": "210-declared-body-only",
+        "input_sha256": "9337f726787944458cb09c19b1de2b7f955f11c149f42bd6b385a7284bb50afa",
+        "output_sha256": "76fd63c5f64fd0b6fd0693e4906a4ba06f74a43e8626b7f570f3d6a757d72f2e",
+        "current_execution_verified": true,
+        "complete_cpu_gpu_http_equal": true,
+        "original_input_raw_exact": true,
+        "original_output_raw_exact": true,
+        "saved_audit_passed": true
+      }
+    ],
+    "default_policies_changed": false,
+    "all_prior_raw_inputs_outputs_exact": true,
+    "saved_audits": 3,
+    "saved_audit_extra_battles": 0,
+    "saved_audit_extra_gpu": 0,
+    "owned_server_group_absent": true,
+    "current_source_cuda_profiles": 0,
+    "all_special_effects_verified": false,
+    "full_goal_complete": false,
+    "proof_directory": "product-current-standard-v4-20261102/declared-three-api-v1"
+  },
+  "latest_current_standard_report": "research/product-current-standard-v4.json",
+  "latest_current_declared_report": "research/product-current-declared-three-v2.json"
 }

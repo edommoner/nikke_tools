@@ -1,3 +1,15 @@
+## 2026-11-02 Matrix v4: 標準263の厳密再利用＋宣言3のfresh Metal
+
+コードe1980755／immutable owner c51b3d43…へ戻って標準266を既存static deltaで再pack。263入力が旧owner5f88…のinput全byteと一致し、8kernelのsource依存closureも完全同一。新typed/nearbyの変更は標準経路の計算sourceへ入っていなかった。CPU正本／pinned data43file、無宣言時のreference_execution early-exit AST、全266の宣言なしも再確認。現在checkoutとpacketのruntime1469file全byte一致を確認した。
+
+既存saved auditorを新しい出力先で使い、元API263結果とrawを現在のprepare／compile／decoderへ再投影。input・source・parent/member・raw・CPU/GPU/HTTP/Unicodeが全263一致。元captureはimmutableのまま参照し、API結果もbyte一致。新GPU0／CPU戦闘0／HTTP投入0、保存実行reuse263。これは新しい263実行ではない。標準対応263/266（200キャラ）を現在計算sourceとして確認できたが、全特殊効果分岐の証明ではない。
+
+未指定88Yuni／111Yan／210Heavyは同じ静的理由付きfallbackを保持。原profile・編成・装備・skill level・30秒・seedを変えず、従来と同じBODY-only/empty ADD domainの宣言3を通常APIへfresh投入し、1POST／2physical Metal／独立CPU3が全一致。input／readbackの全byteも旧宣言3と同一。保存監査3は追加battle/GPU0、owned Node群は終了。標準263と宣言3の観測union266profile／203キャラであり、未指定の標準対応266にはしない。宣言3だけで実移動やtyped迎撃を実証したとも扱わない。
+
+新suite／監査器／数値変更／実装変更0。research/product-current-standard-v4.jsonに263行と出所、product-current-declared-three-v2.jsonにfresh3と原定義69/71/91保持を記録。product-current-matrix-v1.jsonは旧履歴を保全してv4とlatest report pointerを追加。proof product-current-standard-v4-20261102、実行rootはproduct-typed-nearby-run-v2-20261102/release-v1/packet。保存GPUの原execution owner5f88…と現在runtime owner c51…を混同しない。元の38GPU転送は過去実行であり、今回263の新GPU数へ加算しない。
+
+CUDA標準263は歴史的証拠のままで現在source全件再確認は未完了、今回Windows依頼0／RAM再計測0。次は未接続consumer合成（typed nearby＋Lock On等）と特殊効果分岐を進め、必要な短いCUDA差分は外部RAM改善後に行う。標準matrixを毎回再実行せず、入力・source・CPU依存が一致する間は今回の厳密な保存監査を再利用する。以下は過去記録。
+
 ## 2026-11-02 Nearby: 元Eleggの主対象＋近傍と混在迎撃を製品接続
 
 `reference_models.typed_targets.nearby_rules` を任意の明示フィールドとして接続。既存named-rangeのCPU adapter／literal packer／Slang／履歴readerを再利用し、selection=`primary-center-edge-v1` だけで元 `target_and_nearby:N` を主対象＋近傍N体へ対応させた。base_count=N+1の完全一致が必須。主対象は半径外でも含み、主対象中心から候補の形状端までを共通binary64で測り、近い順・同距離はcanonical ADD出現／BODY順。新しいゲーム距離基準は採用せず、宣言モデルの未検証表示を付ける。未宣言の元8条件は現在も静的に同じ理由で拒否する。
