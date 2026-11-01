@@ -10,7 +10,7 @@ f6c1a966の原本status8260bytes/SHA8182a797…、saved diff2931bytes/SHAb60cfd4
 
 不変development ownere14078ac…（source2485f1e1）自身の136CPU/fresh native/実M5 30秒が全製品payload一致、別fresh GPU禁止独立seal成功。元input438244bytes/SHA07c3e787…とreadback8195648bytes/SHA772355d4…が全bytes同一。v28はこのlock-cover-fixedだけを登録、旧21member全保持・期待値変更0。Metal最終全件262/266（source5e1）、CUDA歴史厳格3/266・現source0、新標準加算0、全goal未完了。
 
-原本proofs/product-lock-token-snapshot-v1-20261101、小記録research/product-lock-token-snapshot-v1.json。元診断原本proofs/product-lock-packet-failure-v1-20261101を保持。次は最終sealed修正版packet自身のcompile-plan/deps確認後、Windowsで変更sourceの短いPTX/object/linkを既存gateの条件付き連続工程へ渡し、元30秒APIを1回だけ実CUDA確認する。再送ではなく特定した誤生成の修正回帰であり、token失敗が解消しても全goal完了へ一般化しない。以下は履歴。
+原本proofs/product-lock-token-snapshot-v1-20261101、小記録research/product-lock-token-snapshot-v1.json。元診断原本proofs/product-lock-packet-failure-v1-20261101を保持。最終sealed修正版owner9975b5dc…（sourcecbee4f07、archive14500742bytes/SHA50e290e8…）自身のPTX/O1各60秒/2GiB計画・depsが成功。輸送149cf794の7fileを共有済み。own packetのscope14はforbid_gpu、cache13は既存fake compilerでbuild境界を調べ実device/DLLを禁止する方式で全27成功。全buildを一律禁止した最初のharnessはfake buildまで止めて失敗し、GPU0のままharnessを適正化、検査をskip/期待値変更せず再確認した。17 platform/SDK/保護CPU fileは旧ownerとbyte一致、生成監査consumer3fileは意図した変更。Windowsへ新rootの短いCPU27→paired生成→PTX→同PTX object O1→同object JIT link→既存providerがadmitした場合だけ元30秒通常API POST/GPU最大1→自身のreader保存照合、を条件付きで続ける依頼を送信済み。各SDKchild60秒/2GiB/BelowNormal/freshJob・各stageouter180秒、APIhelper53秒、全own136/native事前再計算なし。生成cache keyは新receiptから取得、旧d480を流用しない。修正版Windows結果は未取得。次は同turnの保存回帰結果を取得する。再送ではなく特定した誤生成の修正回帰であり、token失敗が解消しても全goal完了へ一般化しない。以下は履歴。
 
 ## 2026-11-01 Lock On失敗の共通診断を既存16語へ追加、正常Metal全bytes保持
 

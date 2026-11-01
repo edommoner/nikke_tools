@@ -113,5 +113,27 @@
   },
   "cuda_fix_execution_verified": false,
   "new_standard_profiles": 0,
-  "goal_complete": false
+  "goal_complete": false,
+  "windows_regression": {
+    "owner": "9975b5dc700615394cd628e76788fcd37c2192a43761911500ebdee4e6fd0078",
+    "source_commit": "cbee4f078ada1c8549472b1dcc64a197d3a581ac",
+    "archive_bytes": 14500742,
+    "archive_sha256": "50e290e8d06dd05799575f273656277679766e4707297b262bfca87246f686a2",
+    "transport_commit": "149cf794",
+    "own_ptx_o1_plans_passed": true,
+    "validation_deps_passed": true,
+    "own_packet_cpu_guards": {
+      "scope_forbidden_build": 14,
+      "cache_fake_compiler": 13,
+      "physical_device_dll_forbidden": true
+    },
+    "platform_files_retained": 17,
+    "requested": "one paired generation, PTX, conditional O1 object, conditional JIT link, conditional original normal API POST/GPU at most once; existing CLI gates retained",
+    "result_received": false,
+    "each_sdk_child_seconds": 60,
+    "each_stage_outer_seconds": 180,
+    "api_helper_child_seconds": 53,
+    "memory_mib": 2048,
+    "old_failures_and_claims_retained": true
+  }
 }
