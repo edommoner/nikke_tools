@@ -7,7 +7,11 @@ bool validTypedGeometry(inout Runtime s)
     uint p=DF_EXTRA(s);
     if(commands[p]==0){for(uint i=0;i<2320;i++)if(commands[p+i]!=0)return false;return true;}
     uint n=commands[p+2],kind=commands[p+3];
-    if(commands[p]!=TG_MAGIC||commands[p+1]!=1||n<1||n>128||n!=commands[p+2320]||(kind!=2&&kind!=3))return false;
+    bool mixed=false;
+#ifdef PORTABLE_COORDINATE_TYPED_MIXED
+    mixed=kind==0&&coordinateTypedWeapons(s)&&commands[p+12]==1&&commands[p+15]==2;
+#endif
+    if(commands[p]!=TG_MAGIC||commands[p+1]!=1||n<1||n>128||n!=commands[p+2320]||(!mixed&&kind!=2&&kind!=3))return false;
     for(uint i=4;i<10;i+=2)if(!f64Finite(cNumber(p+i)))return false;
     if(f64Less(cNumber(p+8),0))return false;
     if(commands[p+11]>1)return false;
@@ -32,25 +36,28 @@ bool validTypedGeometry(inout Runtime s)
 #endif
         return false;
     }
+    uint kinds=0;
     for(uint slot=0;slot<128;slot++)
     {
         uint row=p+16+slot*18;
         if(slot>=n){for(uint i=0;i<18;i++)if(commands[row+i]!=0)return false;continue;}
         uint binding=p+2328+slot*12;
+        if(commands[binding+1]==2||commands[binding+1]==3)kinds|=1U<<commands[binding+1];
         bool logicalWeaponOwner=false;
 #ifdef PORTABLE_COORDINATE_LOGICAL_OWNERS
         logicalWeaponOwner=commands[p+12]==3&&commands[p+15]==2&&coordinateTypedWeapons(s);
 #endif
         // Ordinary shield probes retain BODY-only admission. The explicit
         // logical weapon policy is validated by validTypedOwnerPolicy below.
-        if(kind==3&&!logicalWeaponOwner&&(commands[binding+5]!=0||commands[binding+6]!=0||commands[binding+7]!=1))return false;
-        if(commands[p+2328+slot*12+1]!=kind||commands[row+1]!=0||commands[row+16]!=0||commands[row+17]!=0)return false;
+        if((kind==3||mixed)&&!logicalWeaponOwner&&(commands[binding+5]!=0||commands[binding+6]!=0||commands[binding+7]!=1))return false;
+        if((mixed?(commands[binding+1]!=2&&commands[binding+1]!=3):commands[binding+1]!=kind)||commands[row+1]!=0||commands[row+16]!=0||commands[row+17]!=0)return false;
         for(uint i=2;i<16;i+=2)if(!f64Finite(cNumber(row+i)))return false;
         if(commands[row]==1){if(!f64Less(0,cNumber(row+6))||!f64Zero(cNumber(row+8))||!f64Zero(cNumber(row+10)))return false;}
         else if(commands[row]==2){if(!f64Zero(cNumber(row+6))||!f64Less(0,cNumber(row+8))||!f64Less(0,cNumber(row+10)))return false;}
         else return false;
     }
 #ifdef PORTABLE_COORDINATE_TYPED_ACTORS
+    if(mixed&&kinds!=12U)return false;
     if(!validTypedActorPolicy(s))return false;
 #endif
     return true;

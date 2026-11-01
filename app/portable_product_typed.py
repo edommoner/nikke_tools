@@ -17,6 +17,8 @@ def check_schema(root):
     entry=(Path(root)/'gpu/world_coordinate_area_entry.slang').read_text()
     if ('#define PORTABLE_PRODUCT_TYPED_LOGICAL' not in source
             or '#define PORTABLE_LOGICAL_INPUT_BASE 115680U' not in source
+            or '#define PORTABLE_COORDINATE_TYPED_MIXED' not in source
+            or not 153568+1024*10+128+16<=170976
             or TYPED_INPUT!=115680 or INPUT!=121392
             or '#if defined(PORTABLE_PRODUCT_TYPED_LOCK) || defined(PORTABLE_PRODUCT_TYPED_LOGICAL)\n    uint input=1+id.x*121392U' not in entry):
         raise ValueError('Typed product requires adjacent complete typed/logical input banks')
@@ -41,7 +43,7 @@ def compile_product(prepared):
     inner,fixed=lower(prepared);inner=copy.deepcopy(inner);inner.pop('reference_models',None)
     inner['enemy']['coord']=copy.deepcopy(spec['coord']);inner['_product_native_equipment_carriers']=True
     inner['typed_aim_policy']=copy.deepcopy(spec['aim_policy']);inner['typed_actor_policy']=copy.deepcopy(spec['actor_policy'])
-    words,meta,bindings,scene=compile_coordinate_typed(inner,spec['bindings'],probe_kind=spec['bindings'][0]['kind'],geometry=spec['geometry'],coordinate_weapon_targets=True,coordinate_typed_aim=True,coordinate_typed_actors=True,coordinate_typed_owners=True)
+    words,meta,bindings,scene=compile_coordinate_typed(inner,spec['bindings'],probe_kind=spec['bindings'][0]['kind'],geometry=spec['geometry'],coordinate_weapon_targets=True,coordinate_typed_aim=True,coordinate_typed_actors=True,coordinate_typed_owners=True,mixed_weapon_kinds=len({b['kind'] for b in spec['bindings']})>1)
     from portable_logical_geometry_wire import pack as logical_pack,validate as logical_validate
     shapes=spec.get('logical_geometry',[])
     if {b.label for b in bindings if int(b.kind)==5}!={row['label'] for row in shapes}:

@@ -6,8 +6,29 @@ uint ctwHead(inout Runtime s){return DT_OUTPUT(s.resourceOutput,170976);}
 #ifndef CTW_SCRATCH
 #define CTW_SCRATCH(s) DF_SCRATCH((s).resourceOutput,0)
 #endif
-uint ctwPellet(inout Runtime s,uint hit){return CTW_SCRATCH(s)+hit*8;}
-uint ctwGenerations(inout Runtime s){return CTW_SCRATCH(s)+8192;}
+#ifdef PORTABLE_COORDINATE_TYPED_MIXED
+static const uint CTW_PELLET_WORDS=10U;
+#else
+static const uint CTW_PELLET_WORDS=8U;
+#endif
+uint ctwPelletWords(inout Runtime s)
+{
+#ifdef PORTABLE_COORDINATE_TYPED_MIXED
+    if(commands[DF_EXTRA(s)+3]==0)return CTW_PELLET_WORDS;
+#endif
+    return 8U;
+}
+uint ctwPellet(inout Runtime s,uint hit){return CTW_SCRATCH(s)+hit*ctwPelletWords(s);}
+uint ctwGenerations(inout Runtime s){return CTW_SCRATCH(s)+1024U*ctwPelletWords(s);}
+uint ctwKind(inout Runtime s,uint slot){return commands[DF_EXTRA(s)+2328+slot*12+1];}
+uint64_t ctwAmount(inout Runtime s,uint hit,uint slot)
+{
+    uint offset=6;
+#ifdef PORTABLE_COORDINATE_TYPED_MIXED
+    if(commands[DF_EXTRA(s)+3]==0&&ctwKind(s,slot)==3)offset=8;
+#endif
+    return actorNumber(ctwPellet(s,hit)+offset);
+}
 void ctwCompress(uint h)
 {
     uint hash[8],block[16];for(uint i=0;i<8;i++)hash[i]=results[h+8+i];for(uint i=0;i<16;i++)block[i]=results[h+16+i];
@@ -80,7 +101,7 @@ bool ctwBeforeCanonical(inout Runtime s,uint typed,uint canonical)
 }
 uint ctwSelectPellet(inout Runtime s,uint hit,uint canonical,uint64_t x,uint64_t y,uint64_t grow)
 {
-    uint scratch=ctwPellet(s,hit);for(uint i=0;i<8;i++)results[scratch+i]=0;
+    uint scratch=ctwPellet(s,hit);for(uint i=0;i<ctwPelletWords(s);i++)results[scratch+i]=0;
     uint h=csMeta(s),front=0xffffffffU;
     for(uint i=0;i<results[h+64];i++)
     {
@@ -102,19 +123,33 @@ void ctwSampleAmount(inout Runtime s,uint hit,bool critical,bool reach)
     uint scratch=ctwPellet(s,hit);if(results[scratch]==0&&(!reach||ctwReachCount(s,hit)==0))return;
     uint h=csMeta(s),kind=commands[DF_EXTRA(s)+3];uint64_t factors[9];for(uint i=0;i<9;i++)factors[i]=actorNumber(h+20+i*2);
     factors[2]=sampledCoordinateF3(s,critical,false);
-    factors[4]=f64Add(factors[4],f64Div(actorNumber(h+(kind==2?56:58)),HUNDRED));
+    uint64_t common=factors[4];
+    factors[4]=f64Add(common,f64Div(actorNumber(h+(kind==3?58:56)),HUNDRED));
     storeNumber(scratch+6,damageFromFactors(s,factors,false));
+#ifdef PORTABLE_COORDINATE_TYPED_MIXED
+    if(kind==0)
+    {
+        factors[4]=f64Add(common,f64Div(actorNumber(h+58),HUNDRED));
+        storeNumber(scratch+8,damageFromFactors(s,factors,false));
+    }
+#endif
 }
 void ctwParentAdd(inout Runtime s,uint hit,bool reach,inout PacketIntegerSum total)
 {
-    uint scratch=ctwPellet(s,hit),count=reach?ctwReachCount(s,hit):uint(results[scratch]!=0);
-    for(uint i=0;i<count;i++)if(!packetIntegerAddAmount(total,actorNumber(scratch+6))){s.error=16;return;}
+    uint scratch=ctwPellet(s,hit);
+    if(!reach)
+    {
+        if(results[scratch]!=0&&!packetIntegerAddAmount(total,ctwAmount(s,hit,results[scratch]-1)))s.error=16;
+        return;
+    }
+    for(uint slot=0;slot<commands[DF_EXTRA(s)+2320];slot++)
+        if((results[scratch+2+slot/32]&(1U<<(slot%32)))!=0&&!packetIntegerAddAmount(total,ctwAmount(s,hit,slot))){s.error=16;return;}
 }
 void ctwNotify(inout Runtime s,uint who,uint slot,uint generation,uint identity,uint family,uint attack,uint64_t amount,uint64_t when,DWReceipt r)
 {
     if(r.delivered==0)return;
     uint packet=ctwGenerations(s)+128;for(uint i=0;i<16;i++)results[packet+i]=0;
-    results[packet]=3;storeNumber(packet+1,when);results[packet+3]=who;results[packet+4]=commands[DF_EXTRA(s)+3];results[packet+5]=identity;results[packet+6]=generation;
+    results[packet]=3;storeNumber(packet+1,when);results[packet+3]=who;results[packet+4]=ctwKind(s,slot);results[packet+5]=identity;results[packet+6]=generation;
     results[packet+7]=family;results[packet+8]=2;storeNumber(packet+9,amount);storeNumber(packet+11,ONE);results[packet+13]=attack;
     uint start=collectTargetCounters(s,packet|0x80000000U,when);
     if(s.error==0&&results[counterHead(s)+4]>start)dispatch(s,26,0,0,int(start),when,s.resourceOutput);
@@ -127,8 +162,8 @@ void ctwNotify(inout Runtime s,uint who,uint slot,uint generation,uint identity,
 void ctwLand(inout Runtime s,uint who,uint hit,uint slot,bool extra,uint64_t when)
 {
     uint h=ctwHead(s),count=results[h+2];if(count>=0x7fffffU){s.error=64;return;}
-    uint scratch=ctwPellet(s,hit),kind=commands[DF_EXTRA(s)+3],identity=commands[DF_EXTRA(s)+2328+slot*12+2];
-    uint generation=results[ctwGenerations(s)+slot],attack=0x800000U+count+1,meta=csMeta(s);uint64_t amount=actorNumber(scratch+6);
+    uint scratch=ctwPellet(s,hit),kind=ctwKind(s,slot),identity=commands[DF_EXTRA(s)+2328+slot*12+2];
+    uint generation=results[ctwGenerations(s)+slot],attack=0x800000U+count+1,meta=csMeta(s);uint64_t amount=ctwAmount(s,hit,slot);
     WorldSchedule clock=frameSchedule(s);DWReceipt r=dwLand(clock,DF_BASE(s.resourceOutput),commands[DF_EXTRA(s)+2320],DF_HEADER(s.resourceOutput),slot,kind,identity,generation,2,amount,ONE,when);
     if(clock.error!=0){s.error=clock.error;return;}
     uint at=h+64+min(count,CTW_KEEP)*CTW_WORDS;for(uint i=0;i<CTW_WORDS;i++)results[at+i]=0;

@@ -6,8 +6,9 @@ from portable_original_modifier_probe_input import pack_target_input
 from portable_target_modifier_input import lower_effect
 from destructible_skill_specs import coefficient
 
-def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False,coordinate_typed_aim=False,coordinate_typed_actors=False,coordinate_typed_owners=False,coordinate_logical_owners=False):
+def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False,coordinate_typed_aim=False,coordinate_typed_actors=False,coordinate_typed_owners=False,coordinate_logical_owners=False,mixed_weapon_kinds=False):
     from coordinate_typed_actor_policy import owns_fields,LOGICAL_FIELD_MODE
+    if type(mixed_weapon_kinds) is not bool or mixed_weapon_kinds and (not coordinate_weapon_targets or not coordinate_typed_owners or prepared.get('typed_actor_policy')!={'mode':'body-owned-current-fields-v1'} or {b.get('kind') for b in bindings}!={2,3}):raise ValueError('Mixed kinds require checked BODY-owned coordinate weapon policy')
     logical_policy=prepared.get('typed_actor_policy')=={'mode':LOGICAL_FIELD_MODE}
     if type(coordinate_logical_owners) is not bool:raise ValueError('Explicit logical owner consumer policy required')
     if logical_policy and not coordinate_logical_owners:raise ValueError('Logical ADD ownership requires a new shared GPU consumer')
@@ -50,9 +51,11 @@ def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,
         from portable_coordinate_typed_owner_input import compiler_policy as owner_compiler_policy
         with owner_compiler_policy(bindings,prepared.get('typed_actor_policy')) if coordinate_typed_owners else nullcontext():
             words,meta,actors,scene=compile_coordinate_battle(lowered,typed_aim_targets=aim_targets)
-        extra,axes=pack_target_input(words,meta,original,prepared['enemy']['patterns'],bindings,None,probe_kind,max_attacks,weapon_only=True,logical_owner_bindings=coordinate_logical_owners)
+        extra,axes=pack_target_input(words,meta,original,prepared['enemy']['patterns'],bindings,None,probe_kind,max_attacks,weapon_only=True,logical_owner_bindings=coordinate_logical_owners,mixed_weapon_kinds=mixed_weapon_kinds)
         from portable_typed_geometry_specs import pack
-        shape_words,shape_meta=pack(geometry,len(bindings),probe_kind);extra[:2320]=shape_words;extra[13]=1
+        shape_words,shape_meta=pack(geometry,len(bindings),probe_kind)
+        if mixed_weapon_kinds:shape_words[3]=0;shape_meta['kind']=0
+        extra[:2320]=shape_words;extra[13]=1
         if coordinate_typed_aim:extra[14]=1;scene['typed_aim_slots']=aim_targets;scene['typed_aim_add_slot']=257
         if coordinate_typed_actors:extra[15]=1
         if coordinate_typed_owners:extra[12]=3 if coordinate_logical_owners else 1;extra[15]=2
@@ -77,7 +80,9 @@ def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,
     extra,axes=pack_target_input(words,meta,original,prepared['enemy']['patterns'],bindings,probe_row,probe_kind,max_attacks)
     if geometry is not None:
         from portable_typed_geometry_specs import pack
-        shape_words,shape_meta=pack(geometry,len(bindings),probe_kind);extra[:2320]=shape_words;extra[5424+meta['binding_source_indices'].index(probe_row)]=5;meta['typed_geometry']=shape_meta
+        shape_words,shape_meta=pack(geometry,len(bindings),probe_kind)
+        if mixed_weapon_kinds:shape_words[3]=0;shape_meta['kind']=0
+        extra[:2320]=shape_words;extra[5424+meta['binding_source_indices'].index(probe_row)]=5;meta['typed_geometry']=shape_meta
     if not extra[2320]:raise ValueError('Active typed route requires explicit targets')
     meta['coordinate_typed_input']=dict(probe_source=probe_row,probe_kind=probe_kind,axis_rows=axes,one_resident_runtime=True,shared_world_clock=True,automatic_typed_weapon_aim=False)
     return words+extra,meta,actors,scene

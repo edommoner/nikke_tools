@@ -25,7 +25,6 @@ def normalize_product(value):
         if type(row['node']) is not str or not row['node'] or type(row['label']) is not str or not row['label'] or row['label'] in labels or row['label'].startswith('__enemy__') or row['label']=='core':raise ValueError('Distinct typed labels and source nodes required')
         labels.add(row['label']);kinds.add(row['kind']);targets.spawn(i,ActorHandle(row['kind'],row['identity']),row['capacity'],owner=ActorHandle(*row['owner']))
     validate_bindings(spec['actor_policy'],rows)
-    if len(kinds)!=1:raise ValueError('Mixed projectile/shield geometry requires a combined checked typed consumer')
     geometry_spec(spec['geometry'],len(rows),next(iter(kinds)))
     if spec['geometry'].get('point_source')!='caster_aim' or spec['geometry'].get('grow',0)!=0:raise ValueError('Typed product weapons require declared live caster aim and zero authored growth')
     return spec
@@ -72,7 +71,7 @@ def execution(spec,names,*,runtime=None):
     result={};duration=[];original=None
     def run(value,*args,**kwargs):
         duration.append(value.config['duration']);return original(value,*args,**kwargs)
-    with coordinates(dict(coord=spec['coord'],logical_geometry=spec.get('logical_geometry',[])),configure_run=True,typed_packets=True),typed_battle(spec['bindings'],modifier_model=True,typed_geometry=spec['geometry'],coordinate_weapon_targets=True,typed_aim_policy=spec['aim_policy'],typed_actor_policy=spec['actor_policy']) as data:
+    with coordinates(dict(coord=spec['coord'],logical_geometry=spec.get('logical_geometry',[])),configure_run=True,typed_packets=True),typed_battle(spec['bindings'],modifier_model=True,typed_geometry=spec['geometry'],coordinate_weapon_targets=True,typed_aim_policy=spec['aim_policy'],typed_actor_policy=spec['actor_policy'],mixed_weapon_kinds=len({b['kind'] for b in spec['bindings']})>1) as data:
         original=sim.execute
         if runtime is not None:
             if type(runtime) is not dict or runtime:raise ValueError('Fresh internal typed runtime holder required')

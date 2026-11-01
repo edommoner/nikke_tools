@@ -1,3 +1,15 @@
+## 2026-11-02 Mixed typed weapons: 飛翔体とHPシールドの同時存在
+
+既存typedの同種制限を、明示BODY所有・weapon-onlyだけで拡張。新suite／shader entry／監査器／wire拡張なし。geometry kind=0はこのconsumerだけの混在タグで、GPUは実際の2種bindingを要求する。通常private skill geometryは従来のmixed拒否を維持。着弾／counter通知／serialized receiptはbindingの実kindを使う。混在時の10word/pelletへ2種の額を先に固定し、親ダメージは既存整数sumで合算。旧単一種の8word配置・2048履歴・128対象・1024pelletは不変。scratch終端163952<次bank170976を検査。CPU正本／pinned／数値演算／許容差変更0。
+
+実M5 CLI3caseとGPU禁止独立seal3case成功。旧v60の先頭2caseはinput／全output／native anchorが完全同一。v61はtyped-accumulateだけ更新、他41基準は保持。通常APIは元Prim／Asukaの2profile・16条件で全CPU/GPU/HTTP一致。前方対象が破壊された後の別種命中、同じ爆風packetで両種、ADD併用、再生成を確認した。Asukaの元shield倍率も残し、self packetは飛翔体53474／次のHP shield374857など、実種別の数値がCPUと一致。sourceや入力にCPUのdamage/stateは渡さない。
+
+Eleggの8条件はGPU未対応でCPUへ戻し、元effect `쇼트 2`／split_damage／`target_and_nearby:2` と理由をAPIに保持。最初の静的準備はこの理由でGPU前停止として保持した。後続24件ではadmit16と理由付きfallback8を同時に確認し、効果を削除・条件を緩和して通していない。API wall39.065s、物理dispatch4は単発観測で性能比較ではない。保存24監査と最終sourceへのGPU16再投影／fallback8再拒否は追加battle/GPU0、owned Node群は終了。
+
+最終owner95d6cea0…はown176／native3／deps／PTX・CUBIN O1 plan成功（compiler/GPU0）。source/dependency model-check成功だが全効果対応の証明ではない。proof `product-mixed-typed-v1-20261102`、report `research/product-mixed-typed-v1.json`。今回Metal2profile・16条件、new distinct0、CUDA0。旧owner5f88…の標準263/266＋明示3は歴史的scopeを保持し、現source全件再認定へ読み替えない。WindowsのRAM停止・旧missing・claimは保全、追加SDK／GPU／RAM計測依頼0。
+
+次の優先項目はEleggの `target_and_nearby:2`。`portable_enemy_specs.lower_single_body_nearby` は明示coordを拒否するため、そのままではBODY-onlyでもtyped経路に使えない。CPUの実際のcurrent targetとBODY所有policy／canonical actor registryを調べ、座標を消して旧guardを通すだけの変更はしない。ADDありの近傍距離・順序を推測せず、必要なら既存の明示geometry consumerへ接続する。他の所有者・合成・全profile／CUDA再確認も未完了。以下は過去記録。
+
 ## 2026-11-02 Lock Onなしの武器迎撃＋ADDを通常製品へ接続
 
 前段の拒否条件を解消し、既存typed-accumulate／typed-fixedに完全logical input bankを追加。入力115680→121392、出力2032000は不変。新suite／shader entry／ダミーLock On／監査器なし。同じlogical geometry／typed world／group deliveryを使い、全configured ADDとcollider集合を一致させる。元の全定義を維持し、未接続typed skill／incomingを省略してadmitしない。CPU正本／pinned／数値演算／許容差は変更0。

@@ -1468,7 +1468,7 @@ class ProductReferenceModels(unittest.TestCase):
         bad=copy.deepcopy(spec);bad['extra']=True;mutations.append(bad)
         bad=copy.deepcopy(spec);bad['bindings'][0]['label']='core';mutations.append(bad)
         bad=copy.deepcopy(spec);bad['bindings'][0]['owner']=[5,0,1];mutations.append(bad)
-        bad=copy.deepcopy(spec);bad['bindings'][0]['kind']=2;mutations.append(bad)
+        bad=copy.deepcopy(spec);bad['bindings'][0]['kind']=4;mutations.append(bad)
         bad=copy.deepcopy(spec);bad['geometry']['point_source']='fixed';bad['geometry']['point']=[0.,0.];mutations.append(bad)
         for bad in mutations:
             with self.subTest(bad=bad),self.assertRaises(ValueError):normalize_product(bad)
@@ -1860,6 +1860,29 @@ class ProductReferenceModels(unittest.TestCase):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
             self.assertEqual((iw,ow),(121392,2558208))
             self.assertEqual(len(meta['product_coordinate']['declarations']['coordinate']['logical_geometry']),2)
+
+    def test_mixed_typed_weapons_use_actual_kind_after_front_target_breaks(self):
+        from portable_product_programs import body_for_program
+        from portable_detail import prepare,compile_product
+        from destructible_battle_runtime import typed_battle
+        for mode in ('fixed','accumulate'):
+            for kinds in ((2,3),(3,2)):
+                body=body_for_program(ROOT,'typed-'+mode);spec=body['reference_models']['typed_targets']
+                for i,row in enumerate(spec['bindings']):
+                    row['kind']=kinds[i];row['identity']=10
+                    row['capacity']=1. if i==0 else 1e30
+                for shape in spec['geometry']['shapes']:shape.update(x=0.,y=0.,r=1000.)
+                before=copy.deepcopy(body);result=engine_worker.evaluate(body)['reference_models']['typed_targets']
+                self.assertEqual({p['actor'][0] for p in result['weapon_packets']},{2,3})
+                self.assertTrue(any(p['broken'] and p['actor'][0]==kinds[0] for p in result['weapon_packets']))
+                self.assertEqual(body,before)
+                with patch.object(sim,'execute',side_effect=AssertionError('No native oracle in mixed input')):
+                    prepared,_=prepare(body);source,iw,ow,words,meta=compile_product(prepared)
+                self.assertEqual(words[109968+3],0)
+                self.assertEqual([words[109968+2328+i*12+1] for i in range(2)],list(kinds))
+                # Legacy/private skill geometry still refuses a mixed universe.
+                with self.assertRaisesRegex(ValueError,'one explicit actor kind'):
+                    with typed_battle(spec['bindings'],modifier_model=True,typed_geometry=spec['geometry']):pass
 
     def test_typed_lock_requires_exact_logical_collider_registry_before_battle(self):
         from portable_product_programs import cases_for_program

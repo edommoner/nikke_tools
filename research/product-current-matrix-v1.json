@@ -3882,5 +3882,17 @@
     "current_source_cuda_profiles": 0,
     "previous_matrix_evidence_preserved": true,
     "full_goal_complete": false
+  },
+  "later_mixed_typed_product_validation": {
+    "report": "research/product-mixed-typed-v1.json",
+    "metal_existing_profiles": 2,
+    "conditions": 16,
+    "cpu_fallback_profiles": 1,
+    "cpu_fallback_conditions": 8,
+    "new_distinct_profiles": 0,
+    "full_standard_matrix_recertified_on_this_source": false,
+    "current_source_cuda_profiles": 0,
+    "previous_matrix_evidence_preserved": true,
+    "full_goal_complete": false
   }
 }
