@@ -1,3 +1,11 @@
+## 2026-11-01 Velvet時計欠落のPTX局所領域aliasを特定、共通noinline修正のMetal/API成功
+
+保存word原本87b1ec01/SHA62abffca…とPTX抜粋5eeb4d73/SHA02ed7bf7…を取得。15word差のうちCUDA word784の指紋がroot-start literal32と一致、元rootはword160528。差159744は世界時計出力base。PTX worldFrameBeginは16byte localへ時計input/output/count/errorを正しく格納後、インラインactorPoolsClearedのActorBits零初期化が同じlocal0/4/8/12をzero化し、そのpointerをwsBeginへ渡す。条件input+90536は実入力でWHP1非zeroなのでzero化分岐に入る規約。共有源は正しいaddress設定、NVRTC12.4保存PTXでlive時計とActorBitsのlocal共有を確認。新CUDA実機で修正成立するかは未確認。
+
+共有world_actor_pools.slangのactorPoolsClearedだけ[noinline]にし、双方backendでcallee scratchを隔離。数値/効果/イベント/CPU正本/許容差/比較器変更0。先の26caller明示out変更候補はMetal/独立seal/API2条件まで成功したが、PTXで原因を局所化したため元コードへ戻し、不変proofを保持、CUDA未依頼。選択候補noinline-v2はown141 CPU/fresh native/実M5/独立seal成功。旧ammo-fixed input1bcd913d…/全readbackc79d2a07…/native entries完全不変、生成CUDAの__noinline__も確認。v36では当memberのsource/generatedだけ再認定し他28基準不変、厳密88cda inverse/SHA同時更新。
+
+同packet自身の通常APIは固定静止敵/実蓄積・実弾倉攻撃敵×15/30秒の4条件、1POST/2physical batchで全M5/freshCPU/HTTP一致、wall22.421秒。保存親/member/raw/source/静的再pack/全payload監査4成功、追加battle/GPU0。専用Node/群消滅、ユーザー4317/4327不操作。原本proofs/product-ammo-world-clock-binding-v1-20261101/noinline-v2、small research/product-ammo-schedule-noinline-v1.json。製品件数は最後Metal262/266、厳密CUDA261/266のまま。次はsealed current packet自身の計画/deps後、Windowsで元Velvet1入力だけを1回短く検証。旧失敗/claim/false保全を保持し、新CUDA成立前に262へ増やさない。他memberの旧source認定を新sourceへ付替えず必要な現source再認定を後続に残す。全goal未完了。
+
 ## 2026-11-01 標準CUDA261/266を原本照合、Velvetの時計readback欠落を検出
 
 Windows同turn01a1954fはterminal。原本cdf5cdde9bb43fbc19c9437e15e9a0a5adcb3a6dの3JSONを公表SHAと照合し保存。全17profileの元ID/育成/input/元M5 output、6owner/archive/paired正規化基準、8親batchのbyte/hash/launch/chunk、79段階の予算/Job pre/post/empty/missing0をMacで確認。16件は全CPU/GPU/APIと元M5全raw一致し、標準CUDA厳密261/266（最後のMetal262/266）。Windows payloadだけなら17件一致だがVelvet1件を厳密認定へ含めない。6programのsource7d4000f4/dae26058、各ownerを現rootへ付替えない。

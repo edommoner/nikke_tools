@@ -99,6 +99,10 @@ void actorPoolsSync(inout Runtime s,uint64_t when)
     }
     s.enemySnapshot=actorPoolsEnemyCount(s);
 }
+// The caller keeps a live WorldSchedule while evaluating this predicate.
+// Keep ActorBits scratch in this callee: NVRTC12.4 otherwise reused the live
+// 16-byte schedule local for the zero ActorBits temporary in saved ammo PTX.
+[noinline]
 uint actorPoolsCleared(inout Runtime s)
 {
     if(!actorPoolsEnabled(s)) return 0;

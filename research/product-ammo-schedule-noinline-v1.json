@@ -1,0 +1,159 @@
+{
+  "schema": "product-ammo-world-schedule-noinline-v1",
+  "diagnosis_origin": {
+    "word_diff_commit": "87b1ec01a7b0f41f59d10b9a1bef61419b2a2922",
+    "word_diff_sha256": "62abffca0b98cdaf0a07bbcabca79430ce50f242c0ee6c9da4df2e2a675fb285",
+    "ptx_excerpt_commit": "5eeb4d73d87ce5ff6f3ba6d4c6512fa4542563ef",
+    "ptx_excerpt_sha256": "02ed7bf735cf23227a243e72623e08ae9f0a5ec5dfe83ff08436218f2a1e547a"
+  },
+  "observed_corruption": {
+    "expected_root_word": 160528,
+    "actual_root_word": 784,
+    "root_literal_sha256": "8d71b3faab8201459ad37ef499beb336ba88bdcfa0f51ee6f0a46ec3192d750a",
+    "difference_words": 15,
+    "ptx_clock_local_bytes": 16,
+    "ptx_actorbits_zero_stores_alias_clock": true,
+    "literal_input_actor_pool_enabled_header": "0x57485031"
+  },
+  "change": "Common actorPoolsCleared noinline boundary prevents ActorBits scratch sharing caller WorldSchedule local; CUDA correction pending actual validation",
+  "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-ammo-world-clock-binding-v1-20261101/noinline-v2",
+  "independent_audit": {
+    "package_id": "cc64c823cb2403524178d979c87f9ebbe05236c681949fbb80261db751e50305",
+    "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-ammo-world-clock-binding-v1-20261101/noinline-v2/metal",
+    "child_pid": 11827,
+    "input_count": 1,
+    "native_cases": 1,
+    "live_parent_receipt_present": false,
+    "elapsed_seconds": 1.653984207950998,
+    "gpu_calls": 0,
+    "calculation_verified": true,
+    "input_sha256": "1bcd913dd2f6dfb61a7db6bf241dcc2d58e00d75883692d8535c832bcf743d13",
+    "output_sha256": "c79d2a07675205c25060416600f34b70760a0a258e1060e110e7670206da0c70",
+    "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+    "schema": "independent-metal-audit-v1"
+  },
+  "cpu_tests": [
+    {
+      "pattern": "test_portable_detail.py",
+      "exit_code": 0,
+      "elapsed_seconds": 3.4801926250220276,
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 11778
+    },
+    {
+      "pattern": "test_product_detail_packet.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.5482654590159655,
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 11778
+    },
+    {
+      "pattern": "test_weighted_source_contract.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.2960040000034496,
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 11778
+    },
+    {
+      "pattern": "test_product_reference_models.py",
+      "exit_code": 0,
+      "elapsed_seconds": 20.78340300003765,
+      "tests": 56,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 11778
+    }
+  ],
+  "old_input_output_native_entries_unchanged": true,
+  "other28_baselines_unchanged": true,
+  "registered_programs": 29,
+  "generated_cuda_noinline_emitted": true,
+  "normal_api": {
+    "requests": 4,
+    "physical_batches": 2,
+    "seconds": 22.42076695797732,
+    "full_cpu_gpu_api_equal": true,
+    "saved_audit": {
+      "rows": [
+        {
+          "index": 0,
+          "profile": "Velvet",
+          "variant": "fixed-15",
+          "capture": "f8aafef4f080418186b3480d8f8992bd",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 1,
+          "profile": "Velvet",
+          "variant": "fixed-30",
+          "capture": "8fe3943424df4a3b88d711ec566a1ea6",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 2,
+          "profile": "Velvet",
+          "variant": "accumulate-15",
+          "capture": "a2d13652d4104b1fb7a982a89dcfff5a",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 3,
+          "profile": "Velvet",
+          "variant": "accumulate-30",
+          "capture": "e2b6d15ab9364d8691dbbaeb3c3d753b",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        }
+      ],
+      "audited": 4,
+      "native_battle_calls": 0,
+      "gpu_calls": 0
+    },
+    "server_stop": {
+      "pid": 11853,
+      "exit_code": -15,
+      "process_group_absent": true
+    }
+  },
+  "superseded_candidate": {
+    "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-ammo-world-clock-binding-v1-20261101",
+    "scope": "Broader explicit-out address binding had M5/native/API parity but was reverted in favor of PTX-located single noinline change; no CUDA requested for that candidate"
+  },
+  "new_standard_profiles": 0,
+  "cuda_reruns": 0,
+  "root_cause_confirmation_on_cuda_pending": true,
+  "overall_verified": false
+}
