@@ -919,3 +919,5 @@ packet自身の `compile-plan --artifact-kind cubin --ptxas-level 1 --memory-lim
 `sample_blocks=0`の既存Python APIでも取得でき、raw sampleの共有は不要。診断値は保存bufferの観測であり、sourceの所有証明・根本原因・計算成功の認定ではない。全block差分、原SHA、calculation_verified:false、CLIの不一致exitを維持し、raw/status/期待値を書き換えない。
 
 敵回復と元実射撃グループの製品合成は `--suite product-detail --product-program healing-fixed-group` を使用する。固定30秒は独立Metal seal済み基準。`healing-accumulate-group` も通常APIの15/30秒CPU全一致と独立Metal sealを確認し、v35へ登録済み。敵回復は明示したreference modelでありゲーム仕様認定ではない。target/ADD攻撃/coverとの三者合成は未接続理由を保持する。証拠は `research/product-healing-group-v1.json`。
+
+製品CUDAの複数段階を継続するときは、既存coordinatorの保存receiptを判定する直列スクリプトへまとめ、成立した段階ごとのchat往復を減らす。各child/outerの独立予算・Job・pre/post/empty/missing・artifact/source/cache検査と停止条件は維持する。coarse exit2を一律成功にせず、既存coordinatorのartifact admissionと全体保全falseを分離した判定をそのまま使う。任意入力verify_detailの省略を必須flag不足と誤認しない。元body/hashを変えず、共通製品のGPU後fresh CPU全payload比較は常に要求する。実測の区間外時間は処理原因を断定せず別記録する。

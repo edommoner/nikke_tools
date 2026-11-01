@@ -154,7 +154,7 @@
   },
   "new_standard_profiles": 0,
   "cuda_reruns": 0,
-  "root_cause_confirmation_on_cuda_pending": true,
+  "root_cause_confirmation_on_cuda_pending": false,
   "overall_verified": false,
   "sealed_release": {
     "source_commit": "325a3994",
@@ -176,6 +176,68 @@
     "maximum_posts": 1,
     "maximum_gpu_dispatches": 1,
     "retries": 0,
-    "terminal_result_received": false
+    "terminal_result_received": true
+  },
+  "common_noinline_fix_verified_on_real_cuda_and_metal": true,
+  "windows_result": {
+    "origin_commit": "5cdf2f1be31dc98f3f2b0e359044e6c1951d3f55",
+    "report_sha256": "414430462d266b424812a25af013b6a992a96a64952e0d70fecf3bb62c8a55df",
+    "mac_import_audit": {
+      "schema": "ammo-noinline-cuda-mac-import-audit-v1",
+      "origin_commit": "5cdf2f1be31dc98f3f2b0e359044e6c1951d3f55",
+      "origin_report_sha256": "414430462d266b424812a25af013b6a992a96a64952e0d70fecf3bb62c8a55df",
+      "owner": "d337ffbdf13004bcb8629f52c6c2de3ed3934b703e4b1e60577358624b4dbb25",
+      "source_commit": "325a3994f89c4edbe9399fc36328e5bbb8c145c6",
+      "own_archive_source_and_generation_verified": true,
+      "original_input_and_full_metal_output_verified": true,
+      "full_cpu_gpu_api_payload_verified": true,
+      "world_clock_restored": true,
+      "ptx_noinline_boundary_verified": true,
+      "stage_observations_verified": 14,
+      "nonzero_outer_sdk_exits_preserved": [
+        "compile-ptx",
+        "module-object",
+        "jit-link-object"
+      ],
+      "new_cuda_dispatches": 1,
+      "old_failure_and_claims_preserved": true,
+      "normal_product_profile_counts": {
+        "last_metal_corpus": 262,
+        "cuda_verified_across_recorded_sources": 262,
+        "latest_source_cuda_profiles": 1,
+        "latest_source_full_corpus_reverified": false,
+        "total": 266
+      },
+      "gpu_or_battle_calls_in_import": 0,
+      "whole_environment_preservation_verified": false,
+      "overall_verified": false
+    },
+    "new_source_profiles_verified": 1,
+    "new_cuda_dispatches": 1,
+    "post_count": 1,
+    "retries": 0,
+    "host_dispatch_seconds": 3.7953612999990582,
+    "http_seconds": 17.309462300036103,
+    "peak_job_bytes": 1986584576,
+    "old_files_unchanged": 32199,
+    "old_failure_not_relabelled": true,
+    "whole_environment_preservation_verified": false,
+    "overall_verified": false
+  },
+  "normal_product_profile_counts": {
+    "last_metal_corpus": 262,
+    "cuda_verified_across_recorded_sources": 262,
+    "latest_source_cuda_profiles": 1,
+    "latest_source_full_corpus_reverified": false,
+    "total": 266
+  },
+  "new_standard_cuda_profiles": 1,
+  "new_standard_metal_profiles": 0,
+  "timing": {
+    "windows_thread_wall_ms": 841541,
+    "serial_command_count": 29,
+    "serial_command_duration_sum_ms": 260255,
+    "outside_command_intervals_ms": 581286,
+    "scope": "Command metadata only. Outside-command intervals include orchestration, transport, planning and unmeasured gaps; no single cause inferred."
   }
 }

@@ -1,3 +1,13 @@
+## 2026-11-01 Velvetの共通時計欠落を実CUDAで解消、記録済みsource横断262/266
+
+修正版の原本5cdf2f1be31dc98f3f2b0e359044e6c1951d3f55（18,449bytes/SHA41443046…）を取得。自身のsealed ZIP/owner d337ffbd/source325a3994・元要求・M5独立sealと照合。元input1bcd913d…と全8,128,000byteのreadbackc79d2a07…が完全一致、CUDA/freshCPU/API全payloadとUnicode全一致。旧誤書込みword784はM5 zero指紋へ戻り、root word160528もM5 literal32指紋へ復元、製品clock guardを通過した。新PTXの独立actorPoolsCleared b32 call1、wsBegin前のlocal初期化4store/旧ActorBits零化なしを検査。共有noinline1関数修正が両backend実機で成立、期待値/効果/数値/許容差変更0。
+
+Windowsは1POST/1GPU/retry0、cuInit/context/load/launch/sync/DToH/destroy全ret0、launch1/thread1/readback8128000byte1chunk。GPU dispatch3.795秒/HTTP17.309秒、14段階観測の上限/prepost2GiB/gate/empty/missing0をMacで確認。最大Job peak1,986,584,576bytes。SDK外側3exit2/falseを保持し対応inner0・artifact trueと区別、内部advisory8件limit=null/完全性false、service/whole/overallfalseは不変。旧失敗source/capture/claimsと32,199file保持、旧261件再実行0。任意verify_detail省略に対する準備器assertの訂正はAPI領域/claim/POST/GPUすべて0の時点だけ、元body全fields/hashは不変で必須CPU全比較を維持した。
+
+記録済みsourceを横断した最後の通常製品確認はMetal262/266、厳密CUDA262/266。最新source325a3994でのCUDAは元Velvet1profileだけ、他261を当sourceへ再認定しない。未指定4profile（Yuni/Yan/Heavy Arms/Rei）、公開座標sampling/RNG受付と未接続合成、最終source全profile確認は残件。既存model-check --summaryもCPUのみ更新し5 canonical consumers不足とprivate既実装/公開未接続を区別、ゴール未完了を維持。Windows turn01a19588はterminal/idle、追加実行未依頼。
+
+原本proofs/product-ammo-world-clock-binding-v1-20261101/noinline-v2のWindows JSON/mac-import-audit、research/ammo-noinline-normal-api-status-v1.json・product-ammo-noinline-cuda-import-v1.jsonに元bytes/SHAと照合を保持。統合記録product-ammo-schedule-noinline-v1.json。次は未対応入力の製品受付/残合成を優先し、既存CLI/監査器で差分を検証。今回Windows全turn841.541秒中、29 shell commandは合計260.255秒、command外区間581.286秒（原因を単独断定しない）。後続は既存coordinatorの成立済み段階をserialスクリプトで連結し、個別の予算/観測/保存/停止gateを維持しつつ段階ごとのchat往復を減らす。
+
 ## 2026-11-01 Velvet時計欠落のPTX局所領域aliasを特定、共通noinline修正のMetal/API成功
 
 保存word原本87b1ec01/SHA62abffca…とPTX抜粋5eeb4d73/SHA02ed7bf7…を取得。15word差のうちCUDA word784の指紋がroot-start literal32と一致、元rootはword160528。差159744は世界時計出力base。PTX worldFrameBeginは16byte localへ時計input/output/count/errorを正しく格納後、インラインactorPoolsClearedのActorBits零初期化が同じlocal0/4/8/12をzero化し、そのpointerをwsBeginへ渡す。条件input+90536は実入力でWHP1非zeroなのでzero化分岐に入る規約。共有源は正しいaddress設定、NVRTC12.4保存PTXでlive時計とActorBitsのlocal共有を確認。新CUDA実機で修正成立するかは未確認。
