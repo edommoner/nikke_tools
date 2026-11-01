@@ -91,7 +91,7 @@
     "validation_deps_passed": true,
     "sdk_job_protected_files_retained": 18,
     "requested": "paired generation once, PTX once, conditional O1 object once; no link/driver/GPU/HTTP",
-    "windows_result_received": false
+    "windows_result_received": true
   },
   "saved_reader": {
     "existing_command": "readback-compare",
@@ -105,5 +105,36 @@
     "real_metal_comparison_sha256": "7f57630407452f05b42a928c92fdd012f0b2945697d631d4e3c9932fb75367ac",
     "gpu_calls": 0,
     "native_battles": 0
+  },
+  "windows_compile": {
+    "report_commit": "30c868ff42704071ea94958d39797ae6a19878cf",
+    "report_path": "lock-cover-packet-diagnostic-compile-status-v1.json",
+    "report_sha256": "fd7bbb456a19dd74ed01cd761f2a53a989e1601380aba187a3688095961d0832",
+    "compiler_verified": true,
+    "object_verified": true,
+    "ptx_sha256": "541740a399e3eeefad8f0ab4009ba0a0ae269b601cb9c22947a6531e434aa0f0",
+    "object_sha256": "1b08d0c63b7019459d7758e81cfd31abd927976fb90c1d2cfffdb16b44516648",
+    "paired_generation_matches_metal": true,
+    "all_missing_zero": true,
+    "all_jobs_empty": true,
+    "nvrtc_calls": 1,
+    "ptxas_calls": 1,
+    "link_calls": 0,
+    "gpu_calls": 0,
+    "native_battles": 0,
+    "overall_passed": false,
+    "environment_preservation_verified": false,
+    "service": "unverified"
+  },
+  "windows_link_request": {
+    "object_sha256": "1b08d0c63b7019459d7758e81cfd31abd927976fb90c1d2cfffdb16b44516648",
+    "object_bytes": 5574448,
+    "existing_command": "jit-link-object",
+    "calls_requested": 1,
+    "result_received": false,
+    "gpu_calls_requested": 0,
+    "child_seconds": 60,
+    "outer_seconds": 180,
+    "memory_mib": 2048
   }
 }
