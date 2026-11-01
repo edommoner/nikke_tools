@@ -1,0 +1,13 @@
+{
+  "schema": "token-snapshot-normal-api-expected-v1",
+  "owner": "9975b5dc700615394cd628e76788fcd37c2192a43761911500ebdee4e6fd0078",
+  "source": "gpu/product_lock_cover_fixed_battle_entry.slang",
+  "input_words": 109560,
+  "output_words": 2048912,
+  "input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+  "output_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+  "duration": 30,
+  "body_file": "lock-cover-packet-diagnostic-api-body-v1.json",
+  "body_sha256": "958800b6a1f739506c7c372b7f0664121723b72051ccfda6a08e53e7c5077151",
+  "scope": "Original full declared Lock On+cover request, not a default-profile admission"
+}

@@ -1,0 +1,66 @@
+{
+  "schema": "shared-lock-token-regression-request-v1",
+  "source_commit": "cbee4f078ada1c8549472b1dcc64a197d3a581ac",
+  "owner": "9975b5dc700615394cd628e76788fcd37c2192a43761911500ebdee4e6fd0078",
+  "archive": "lock-token-snapshot-v1.zip",
+  "archive_bytes": 14500742,
+  "archive_sha256": "50e290e8d06dd05799575f273656277679766e4707297b262bfca87246f686a2",
+  "scope": "Known Slang CUDA token-loss correction. New source, no retry or mutation of original status64 captures.",
+  "steps": [
+    "bounded fresh unpack and own immutable source/golden verification; inspect passed own Mac plans",
+    "CPU-only existing snapshot audit14 under forbid_gpu, then generation cache13 with its existing fake subprocess compiler; allow fake build dispatch but forbid real device execute and ctypes DLL loading. No complete own136/native battle preflight.",
+    "paired Slang generation once, require matching sealed CUDA/MSL and snapshot guard",
+    "compile PTX once with required paired cache",
+    "if current producer origin/containment pass: same PTX module-object O1 once",
+    "if current object origin/containment pass: same object jit-link-object once with pinned existing nvJitLink12.4.127",
+    "if current linked artifact provider admits: normal API original body POST once/GPU at most once; no compilation in API",
+    "saved readback compare using own existing reader with sample_blocks=0, all changes and diagnostic fields retained"
+  ],
+  "limits": {
+    "each_sdk_child_seconds": 60,
+    "each_stage_outer_seconds": 180,
+    "memory_mib": 2048,
+    "below_normal": true,
+    "fresh_job_start_gate": true,
+    "permission_mode": "require_escalated",
+    "api_helper_child_seconds": 53,
+    "serial_only": true
+  },
+  "api": {
+    "body_file": "lock-cover-packet-diagnostic-api-body-v1.json",
+    "body_sha256": "958800b6a1f739506c7c372b7f0664121723b72051ccfda6a08e53e7c5077151",
+    "duration": 30,
+    "source": "gpu/product_lock_cover_fixed_battle_entry.slang",
+    "input_words": 109560,
+    "output_words": 2048912,
+    "input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+    "expected_readback_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+    "all_body_fields_unchanged": true,
+    "full_fresh_cpu_comparison_after_gpu_required": true,
+    "own_node_finally_stopped": true,
+    "missing_gpu_payload_not_opened_on_fallback": true
+  },
+  "stop_conditions": [
+    "any observed missing process",
+    "incomplete enforced Job pre/post limit or membership query",
+    "cleanup/observation error or timeout",
+    "source/owner/artifact/cache/snapshot guard mismatch",
+    "failed CPU guard tests",
+    "nonzero GPU status or CPU payload mismatch: save and stop, no repeat"
+  ],
+  "preservation": "Old failures, raw, claims and cause records retained. service unverified/preservation false/overall false remain false; no environment-result promotion. Existing CLI artifact gates must admit every next step. No bound extension, substitutions or same-claim retry.",
+  "reports": [
+    "lock-token-snapshot-sdk-status-v1.json",
+    "lock-token-snapshot-normal-api-status-v1.json",
+    "small saved diff if needed"
+  ],
+  "share": "Small metadata only on existing transport branch, no raw buffers/settings/compiler distributions.",
+  "profile_scope": "One explicitly declared Lock On + cover scene, not a default standard profile.",
+  "guard_harness": {
+    "scope_tests": 14,
+    "cache_fake_compiler_tests": 13,
+    "own_packet_same_harness_passed_on_mac": true,
+    "initial_overbroad_build_prohibition_failed_closed": true,
+    "physical_device_dll_forbidden": true
+  }
+}
