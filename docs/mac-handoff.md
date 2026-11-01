@@ -1,3 +1,11 @@
+## 2026-11-02 typed Lock On蓄積のFrame32一時配列を既存resident codecへ移設
+
+前turnは通常Metal8条件接続でprogress。今回は保存Windows診断のcuLaunchKernel前後private増加1,680,879,616Bを受け、生成CUDAを既存compiler-statsで監査。Runtime本体は既にresource上、蓄積dispatchにFrame32局所配列とactorStateEventへ渡す配列copyの2宣言が残っていた。元のdispatch_frame_storage codec32段×32wordをtyped_lock entryにも有効化し、新規suite/監査器/数値式0。生成CUDAではFrame32配列宣言2→0、M5実runtime stride164632→168728（case当たりglobal4096B追加）。CUDA source textは2,831,867→3,375,380Bへ増えた。これは字句上の宣言とreflection比較であり、compiled CUDA stack/local量やWindows実RAM削減・高速化の証明ではない。fixedは元からresident frame。
+
+固定candidate自身172検査・native2・依存成功、既存frame codec4 controlsで全32slot/IEEE bit/符号付ゼロ/NaN payload/境界を確認。M5実2casesは旧CLI input/全raw/全native hash完全同一、GPU0.506秒・fresh独立seal成功。通常APIも同じ旧8入力を1POST/2physicalM5/20.519秒で実行し、全CPU/GPU/HTTP/Unicode一致、旧8case全input/full raw SHAを完全保持。キャッシュ状態が異なるため旧51.466秒との速度比較をしない。8保存監査/最終release再投影は追加battle/GPU0、owned Node group gone。
+
+v58は全42programの数値アンカーを保持しtyped-lock-accumulateのsource/generated hashだけ更新。最終owner5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622、自身172CPU/2native/依存/PTX・O1計画成功。元GPU-only native期待値再利用は、strict ledgerに対応するCPU hash literalも変わるためbyte同一条件を満たさず、規則を緩めず通常fresh2caseを使用。scopeは元Heavy1profileの条件保持で新profile加算0、標準Metal直近263/266・CUDA従来263/266（current全matrix再認定なし）。Windows削減と現composite CUDAは未実証、旧missing7/上限超過/失敗を保持。次は同じ新sourceの生存/破壊4秒2caseだけを従来の低優先度・2GiB・RAM4GiB・180秒上限・最初異常停止で1回検証する準備。旧sourceの再試行や上限拡大はしない。research/product-typed-lock-resident-v1.json参照。全goal未完了。以下は履歴。
+
 ## 2026-11-02 武器迎撃＋元Lock Onを同一共通世界の通常Metal APIへ接続
 
 前turnのCPU単一worldとfallbackを基準として、既存coordinate-lockへtyped武器/aim/owner/modifierを接続。新しい数値式・CPU正本/pinned変更0、新suite/監査器0。同じSlangをCUDA/Metalへ生成する薄い2entryと、既存product-detail内2programを追加（registry82）。input121392、output2558208。元Heavy91定義を保持。元typed DFS153568..170976、武器全2048packet170976..220224、aim220224..220768、別pellet/generation/通知scratch220768..229104、残tail229104..262144はzero要求。typed攻撃128・全skill2048・Lock31snapshot等は削減しない。武器とスキルが同じ敵HPを更新する。

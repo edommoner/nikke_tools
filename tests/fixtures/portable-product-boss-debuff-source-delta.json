@@ -1236,13 +1236,13 @@
     },
     "app/portable_product_programs.py": {
       "before_sha256": "51d18a2191c24ef3b68f2d1cf71d792cdb9e8e01ed209e5c793827ce5b7d056d",
-      "after_sha256": "7438f3fb7d0f439defc6973187a93e0103db64edfe4abb1f3f776f673aac88db",
+      "after_sha256": "4720f1d59d6977de251c6774564baf5c9d3fcae33f7a429923f883cdc4d133da",
       "hunks": [
         {
           "start": 318,
           "end": 382,
           "before": "GOLDEN = 'research/portable-product-programs-v1-expected.json'\n",
-          "after": "GOLDEN = 'research/portable-product-programs-v57-expected.json'\n"
+          "after": "GOLDEN = 'research/portable-product-programs-v58-expected.json'\n"
         },
         {
           "start": 1039,
@@ -3113,7 +3113,7 @@
     "gpu/product_coordinate_lock_layout.slang": "e4e02afee4ff99189b00f533cdf5565daf4feabbc8f64b20aefcfd4bbd4c0f3e",
     "app/product_lock_model.py": "dbf14aaccd8a646b079b3e9ffa87060f810bfe5ac0d6e2099ccb2875714b7889",
     "app/portable_product_typed_lock.py": "b83c5e9403898a9e51d5b743fd50724d6edb862e34128de7cbde8b6fdbed64ce",
-    "gpu/product_typed_lock_battle_entry.slang": "d44ef31f0165f1d0a323cfc0d51abd45b23b1534dd251d00b922b11c03e8d934",
+    "gpu/product_typed_lock_battle_entry.slang": "2edb33dc89f2dc49a60a73e905f1cb57f19b2ad3bfdc97887f705b1bc2f4ec10",
     "gpu/product_typed_lock_fixed_battle_entry.slang": "38daa3ebb9d670f1e30a4730526bac21d2543e7f19abce0fd7f83d879e3a6bcc"
   }
 }

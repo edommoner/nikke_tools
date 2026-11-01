@@ -1,4 +1,7 @@
 // One shared coordinate clock and typed world for weapons and original skills.
+#ifndef PORTABLE_RESIDENT_FRAME_STACK
+#define PORTABLE_RESIDENT_FRAME_STACK
+#endif
 #define PORTABLE_PRODUCT_TYPED_LOCK
 #define PORTABLE_COORDINATE_TYPED_TARGETS
 #define PORTABLE_COORDINATE_TYPED_WEAPONS

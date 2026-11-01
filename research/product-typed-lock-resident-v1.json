@@ -1,0 +1,140 @@
+{
+  "schema": "product-typed-lock-resident-v1",
+  "implementation": "Reuse existing resource-backed32-frame codec for typed-lock accumulation; same shared CUDA/Metal calculation and all32x32 frame words retained",
+  "previous_goal_turn_classification": "progress: typed weapons and original Lock On connected through real Metal ordinary API8 conditions",
+  "source_base_commit": "6ba2436f",
+  "canonical_cpu_changes": 0,
+  "pinned_changes": 0,
+  "numerical_rule_changes": 0,
+  "new_suites": 0,
+  "new_auditors": 0,
+  "storage_comparison": {
+    "passed": true,
+    "old_full_cli_entries_inputs_and_raw_outputs_identical": true,
+    "old_cuda_source_bytes": 2831867,
+    "new_cuda_source_bytes": 3375380,
+    "old_generated_frame32_local_array_declarations": 2,
+    "new_generated_frame32_local_array_declarations": 0,
+    "frame_storage_codec_words": 1024,
+    "frame_storage_codec_capacity": 32,
+    "old_runtime_stride_bytes": 164632,
+    "new_runtime_stride_bytes": 168728,
+    "new_global_runtime_bytes_per_case": 4096,
+    "new_gpu_seconds": 0.506023958325386,
+    "new_cuda_sha256": "ce81e7369c1e5242fc4d3cbc116f8962ef39c52bbfdf5e73a16ce865d3abe19b",
+    "scope": "Static generated-CUDA declarations and exact Metal raw parity; not compiled CUDA stack/local memory or measured Windows memory reduction",
+    "windows_memory_reduction_verified": false
+  },
+  "windows_memory_reduction_verified": false,
+  "windows_old_launch_interval_private_growth_bytes": 1680879616,
+  "windows_old_peak_excess_bytes": 2138112,
+  "windows_old_missing7_and_stops_unchanged": true,
+  "mac_actual_gpu": {
+    "independent_seal": true,
+    "physical_cases": 2,
+    "complete_cli_raw_inputs_outputs_and_native_fingerprints_retained": true
+  },
+  "normal_api": {
+    "conditions": 8,
+    "distinct_original_profiles": 1,
+    "new_profile_delta": 0,
+    "posts": 1,
+    "physical_dispatches": 2,
+    "seconds": 20.51895687507931,
+    "old_complete_raw_comparisons": [
+      {
+        "variant": "fixed-live",
+        "input_sha256": "96b83753f965b70af31078c302e2e7970569623b0c64cd7c55b170a1b8cc7da7",
+        "output_sha256": "41ce0167f145981c0f21ea18304813c476fbcba0fa00afadd39ecfdd1797269b",
+        "complete_old_raw_equal": true
+      },
+      {
+        "variant": "fixed-broken",
+        "input_sha256": "7ba3eded59f721fd8563d2f496be08d657e4d91da9c16dbc41bca317aac37a75",
+        "output_sha256": "5bbb0a7e5a11b1cf3a522be8fc1309775e14737a289a6600e2c72ce1fc4482ee",
+        "complete_old_raw_equal": true
+      },
+      {
+        "variant": "fixed-skill-break",
+        "input_sha256": "4722ff07753ce6b28309631414ac4050a3b41728890c17c4346b0172e1e697d8",
+        "output_sha256": "cbfc6e573d4d93aa16f34c1653eb9e340d627ad8cb9e7f27295812cc6584ebcd",
+        "complete_old_raw_equal": true
+      },
+      {
+        "variant": "fixed-long30",
+        "input_sha256": "0d08578b0085c9271e34eecc171b14aebc1ef9823b14067d5dfc5c531168c89f",
+        "output_sha256": "680b1aa635430643e66794e1fb620e7f5a7be9c09d3e8d393261a872687efe0d",
+        "complete_old_raw_equal": true
+      },
+      {
+        "variant": "accumulate-live",
+        "input_sha256": "8b1838a091e87cc52d159637c2194f9bf8af053818fc7123efe49b02f2f030fc",
+        "output_sha256": "a281d014c89830866f8b232777a5063b6dd25d7705a0f93e2b4b11865dfe6b0c",
+        "complete_old_raw_equal": true
+      },
+      {
+        "variant": "accumulate-broken",
+        "input_sha256": "12517f9a427ade23f595625db0d944f1cc3cde843395685a5d43cda611d5d56e",
+        "output_sha256": "8567d29dd4d754eac2f854afb04f41813ac73a7a16b223e215ff9b592f2772b5",
+        "complete_old_raw_equal": true
+      },
+      {
+        "variant": "accumulate-skill-break",
+        "input_sha256": "88539f6b6ee8554b1b8fb32d7e3d10eb1e32da34b95d69c261859ad1dc44da31",
+        "output_sha256": "1712563aa5eadfb3ddbbbe5e7f78c1384e62983d524559ff4f606c21980a1cad",
+        "complete_old_raw_equal": true
+      },
+      {
+        "variant": "accumulate-long30",
+        "input_sha256": "bc41278af38805221a8b964fe416b2ea67864fef826ede9f0326a10690e25441",
+        "output_sha256": "2ec9fd7f1154eac7524e05c928c3eb24eda62d6247d00a5da6c1e25cd4e83f0f",
+        "complete_old_raw_equal": true
+      }
+    ],
+    "complete_cpu_gpu_http_unicode_equal": true,
+    "saved_audit_battles": 0,
+    "saved_audit_gpu": 0,
+    "owned_node_process_group_absent": true
+  },
+  "tests": {
+    "own_packet": 172,
+    "extra_existing_frame_codec_bit_capacity_controls": 4,
+    "legacy_frame_capacity": 32,
+    "signed_zero_and_nan_payloads_preserved": true
+  },
+  "release": {
+    "owner": "5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622",
+    "own_native_oracles": 2,
+    "own_dependencies_passed": true,
+    "ptx_o1_plans_passed": true,
+    "final_saved_reprojection_conditions": 8,
+    "final_extra_gpu": 0,
+    "final_extra_battles": 0
+  },
+  "baseline": {
+    "version": 58,
+    "all42_program_numerical_anchors_unchanged": true,
+    "only_typed_lock_accumulate_source_and_generation_updated": true
+  },
+  "timing_scope": "Single observed runs/cache states; no measured Windows memory improvement or speedup claim",
+  "native_fingerprint_reuse_not_used_reason": "Updating the strict source ledger also changes its CPU hash anchor, so full byte-identical native-baseline reuse eligibility is not met; normal fresh2-case preflight retained",
+  "standard_profiles": {
+    "metal_last_verified": 263,
+    "cuda_historically_verified": 263,
+    "total": 266,
+    "current_full_matrix_recertified": false
+  },
+  "cuda_current_composite_verified": false,
+  "windows_new_runs": 0,
+  "windows_next": "Prepare one short live/broken4s CUDA batch using unchanged BelowNormal2GiB/4GiB RAM/180s outer, first anomaly stop; no old retry",
+  "proof_hashes": {
+    "frame-storage-comparison-v1.json": "4bddf34fc5ef322fc9c1856bf4dbe0a981b9375aacb11ea7559a8a282042ab49",
+    "before-compiler-statistics.json": "7b7a100678837102f2dc6f00e1826c172ca0ced04944d5b0086b98c5a87629d2",
+    "after-compiler-statistics.json": "9028bbea15987020baaabf02333f9ccb788190044d86ed5961d2b4bf429f4493",
+    "frame-codec-tests-v1.log": "d618f0614265bbca49ff5d19a1766c221c5299c8287b9144d7de0446d491e24d",
+    "independent-audit-v1.json": "b469aea695c3c48e3df4da52a5ce6696fbe035a7415b6fa9607fbba44e8f7c84",
+    "api-v1/saved-audit-progress.json": "d180ebe9f8ba3c0440cfcec2268743ef5833d7106a8da41112b90dcbf81726bf",
+    "final-release-projection-v1.json": "e0e93a19ffd4a994e7ef43554317adb30728233f4440e1df2997d521e3030eee"
+  },
+  "full_goal_complete": false
+}
