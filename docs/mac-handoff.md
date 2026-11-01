@@ -8,7 +8,7 @@
 
 最終release owner b659740bb186a4acd141c2ca4f698609f991cb24fc581024dc233ffee2395ec9、自身162CPU/依存/PTX/O1計画成功。GPU後の計算scope差はGOLDEN pointer/strict ledger SHAのみ。research/product-coordinate-add-v1.json、proof .portable-recovery/proofs/product-coordinate-add-v1-20261101。標準profile追加0、Metal/CUDA従来各263/266、明示条件別original各266/266は据置。新coordinate ADD CUDA実機は未検証。weighted/cover/ammo/healing bankとの同時合成とtyped projectile/shieldの通常製品world等は残件。
 
-既存Windows turn01a1976c-8066-7c00-b650-74a00fbee5c3は引き続きlive。これは前turnのweighted＋coordinate30s1条件だけ。read_threadで選択89/paired/PTX/O1 object通過、固定link中という進捗を確認。PTX outer2/inner0・stagefalseは元のまま保持、成果物受理と環境保存を区別。新coordinate ADDはまだWindowsへ依頼していない。次は同handleのstatus/exportだけを取得し、run再送しない。今後のWindows CPU選択は既存CLIで変更対象を絞り、未変更67全件を毎回繰り返す必要性を評価する。以下は履歴。
+既存Windows turn01a1976c-8066-7c00-b650-74a00fbee5c3は引き続きlive。これは前turnのweighted＋coordinate30s1条件だけ。read_threadで選択89/paired/PTX/O1 object通過、固定link中という進捗を確認。PTX outer2/inner0・stagefalseは元のまま保持、成果物受理と環境保存を区別。新coordinate ADDはまだWindowsへ依頼していない。次は同handleのstatus/exportだけを取得し、run再送しない。次のADD用は既存CLIで関連12件（元ADD2/packet1/source7/新coordinate2）へ絞り、Mac上の最終packet自身で成功。全162ではなく選択成功を明記し、Windowsの元67全件や無関係modelを再実行しない。全登録groupに少なくとも1件の厳密IDを要求する元guardは保持。draftのclass名漏れは旧selection/logへ拒否として保持し、実class確認後の別captureで成功。前のweighted6入力/raw/GPU source/全CPU・GPU・HTTP返却値も現releaseへbattle/GPU0で再投影一致。以下は履歴。
 
 ## 2026-11-01 配分＋座標・実多対象を通常Metalへ接続
 

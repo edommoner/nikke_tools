@@ -297,6 +297,10 @@
     {
       "log": "models-v1.log",
       "reason": "New test compared normalized shape defaults to raw request; corrected to existing normalize contract, no numerical implementation/expected-value change"
+    },
+    {
+      "log": "release-v1/windows-selected12-v1.log",
+      "reason": "Draft selection had wrong unittest class name. Existing strict selection rejected before test bodies/GPU. Corrected ID from actual class; new capture selected12 passed, old request/capture preserved."
     }
   ],
   "standard_product_profiles": {
@@ -316,5 +320,60 @@
     "Short CUDA difference verification of this same coordinate ADD product entry",
     "Coordinate ADD with weighted/cover/ammo/healing consumer banks is not yet composed",
     "Typed projectile/shield public product worlds and other uncovered mixed conditions"
-  ]
+  ],
+  "previous_weighted_coordinate_saved_compatibility": {
+    "scope": "Existing weighted-coordinate6 exact input/GPU-source/raw/current-decoder compatibility; unchanged canonical CPU and dedicated coordinate/weighted reference adapters, no fresh native/GPU",
+    "owner": "b659740bb186a4acd141c2ca4f698609f991cb24fc581024dc233ffee2395ec9",
+    "rows": [
+      {
+        "variant": "active-fixed",
+        "input_sha256": "69195ced9a16991579088647ecdf542a584d4d98df704811f015d13c34af4822",
+        "output_sha256": "a3fe9e570cd13be339de21bd917be89f56e355265800dc7202d353d5ea6cbe92",
+        "full_projection_equal": true
+      },
+      {
+        "variant": "late-expire-fixed",
+        "input_sha256": "0c2267b467ff90ef8ec3e91f23672d313f2296640b8c58843d272f9a9b512103",
+        "output_sha256": "7f9bc7749f2cea077ebf0ac07a704af230b486402215cc90f82309fb85905f90",
+        "full_projection_equal": true
+      },
+      {
+        "variant": "inactive-fixed",
+        "input_sha256": "450b009fe45f6c8304a5132411a400871d1836f49a90f759e79e9459418f3d64",
+        "output_sha256": "151da6356f5622e121ab41ab65a40a83f456446f5a774065977dca4302295fa8",
+        "full_projection_equal": true
+      },
+      {
+        "variant": "active-accumulate",
+        "input_sha256": "539e4b6aa6e1567c4fc2f9c3b01e2d098b88bb9f79588621489fe0117cc958ef",
+        "output_sha256": "87a1bb42aa36bcc55f6ae39b1e1bbd748be308bdd3c90eef95856cc8efd3ab8f",
+        "full_projection_equal": true
+      },
+      {
+        "variant": "late-expire-accumulate",
+        "input_sha256": "d9ab6c4b1d1e37a3e8a9282804af02a572f98c868a0df464d8ba223f5f9e69fa",
+        "output_sha256": "9675a5a83ee6457d3a4a25041fa55bcee25e7c7cf2f88ea241f11bfcf6faf6a4",
+        "full_projection_equal": true
+      },
+      {
+        "variant": "inactive-accumulate",
+        "input_sha256": "7ced64302dcbbcca9e764a7fbcc58d614e9399597792690d8d40eb46b2bb6116",
+        "output_sha256": "f980bbc3a9ab274c140644f239676966e2fb616f838294d43c42350519ede020",
+        "full_projection_equal": true
+      }
+    ],
+    "additional_battles": 0,
+    "additional_gpu": 0
+  },
+  "planned_windows_unit_selection": {
+    "tests": 12,
+    "all_registered_tests": 162,
+    "unselected": 150,
+    "mac_packet_own_selected_unit_passed": true,
+    "scope": "Existing selection CLI:2 relevant original ADD tests,1 packet static wire test,7 source contract tests,2 new coordinate ADD tests. Native product API comparison remains mandatory on Windows.",
+    "old67_full_unit_group_not_repeated": true,
+    "guard_or_registered_group_requirement_relaxed": false,
+    "invalid_class_id_rejected_before_tests_and_retained": true,
+    "selection_sha256": "b616d2138878bc91b36040bdcff33572d8b0b92c86bb83423bd12b9d2f8593ce"
+  }
 }
