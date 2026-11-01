@@ -906,3 +906,5 @@ packet自身の `compile-plan --artifact-kind cubin --ptxas-level 1 --memory-lim
 `NIKKE_CUDA_SPLIT_COMPILE=2`は、NVRTC12.4..12.xの`--split-compile=2`を明示選択する。既定1は従来と完全同じargv/cache keyで、0（全core自動）や3以上を拒否する。cold compile前にnvrtcVersionで対応版を検査し、cache hit/require-cache missではDLLをロードしない。compiler_optionsは既存compile-planへ保存され、通常のexact option cache keyにも入る。fmad=false/数値規約/Slang/Metal基準と60秒・2GiB・BelowNormalは維持する。
 
 これはNVRTC最適化passの並列化という具体的な性能仮説であり、旧serialの失敗key26e5657bの再実行ではない。[NVIDIA NVRTC12.4資料](https://docs.nvidia.com/cuda/archive/12.4.1/nvrtc/index.html)を根拠にする。実時間改善・PTX成功・CUDA計算一致はまだ未確認で、新optionは未使用keyに対して1回だけbounded検証し、失敗時にthread数やtimeoutを上げない。
+
+`reference_models.enemy_movement` と `named_range` は、同一の `coord` と `logical_geometry` を明示した場合、通常 `metal_detail` の単発・batch APIで同時利用できます。移動後の現在colliderを同じframeで範囲選択へ渡し、両方の全履歴を返します。元の単独wireは保持し、合成はinput118020/output2165136、movement履歴8192件。容量超過はCPU切替となり、履歴を省略しません。ゲーム規則の確認済み仕様とは区別します。15/30秒8要求の実M5・CPU・HTTP全項目一致と失敗保持は [製品接続記録](../research/product-movement-range-v1.json)。新suiteは追加していません。

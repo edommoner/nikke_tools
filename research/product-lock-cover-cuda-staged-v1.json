@@ -120,9 +120,173 @@
     }
   },
   "windows": {
-    "request_sent": true,
-    "turn_id": "01a1945f-5ee8-7d63-90a0-332f5484e6c4",
-    "execution_result": "pending; active chat alone is not a live process proof",
+    "report_commit": "9eed2127920bb98b3ada3daa23eaf64c959c0fd2",
+    "report_bytes": 5207,
+    "report_sha256": "bd6ae271e0e1dd0abb0bf9eb13b229164fee3a5c1ff945cedcf5805572d5f784",
+    "saved_status": {
+      "schema": "lock-cover-fixed-cuda-status-v1",
+      "status": "stopped",
+      "permission_mode": "require_escalated",
+      "approval_denied": false,
+      "transport_commit": "3e0895c396b83143ed3f9d7429937560a0fd84be",
+      "source_commit": "765628df87c29cdf7836f3ec8b305181539bd7cf",
+      "package_id": "0873541259c310e6d305f114233166e2208c3d611378cb8b47e7efafa77dc99c",
+      "archive": {
+        "name": "lock-cover-fixed-sealed-v1.zip",
+        "bytes": 14490867,
+        "sha256": "7760c5ccbc0dfb33b47c76a701db808c169614bac8c1e8c78c1f3ca4ad141868",
+        "byte_hash_verified": true,
+        "payload_owner_verified": true,
+        "immutable_payload_files_rechecked_after_stop": 4240
+      },
+      "reached_stage": "extra_cleanup_cpu_8",
+      "stop": {
+        "condition": "Required cleanup CPU tests failed: 2 failures out of 8",
+        "retry_count": 0,
+        "sdk_failure": false
+      },
+      "unpack": {
+        "child_exit_code": 0,
+        "timed_out": false,
+        "timeout_seconds": 60,
+        "elapsed_seconds": 20.708392799831927,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "below_normal_priority": true,
+        "pre_gate_verified": true,
+        "post_wait_job_empty": true,
+        "inspection_error_present": false,
+        "job_memory_values": [
+          {
+            "pre_bytes": 2147483648,
+            "post_bytes": 2147483648,
+            "peak_bytes": 76922880
+          }
+        ],
+        "missing_count": 0,
+        "service_status_before": "unverified",
+        "service_status_after": "unverified",
+        "environment_preservation_verified": false
+      },
+      "extra_cleanup_cpu": {
+        "execution": {
+          "child_exit_code": 1,
+          "timed_out": false,
+          "timeout_seconds": 60,
+          "elapsed_seconds": 12.234289099927992,
+          "error": null,
+          "cleanup_error": null,
+          "observation_error": null,
+          "below_normal_priority": true,
+          "pre_gate_verified": true,
+          "post_wait_job_empty": true,
+          "inspection_error_present": false,
+          "job_memory_values": [
+            {
+              "pre_bytes": 2147483648,
+              "post_bytes": 2147483648,
+              "peak_bytes": 73154560
+            }
+          ],
+          "missing_count": 0,
+          "service_status_before": "unverified",
+          "service_status_after": "unverified",
+          "environment_preservation_verified": false
+        },
+        "forbid_gpu": true,
+        "receipt": [
+          {
+            "pattern": "test_portable_windows_cleanup.py",
+            "tests": 8,
+            "failures": 2,
+            "errors": 0,
+            "skipped": 0,
+            "exit_code": 1,
+            "elapsed_seconds": 2.114178500138223
+          }
+        ],
+        "failed_tests": [
+          {
+            "name": "test_snapshot_codes_survive_both_gate_failure_and_cleanup_observation",
+            "source": "tests/test_portable_windows_cleanup.py",
+            "line": 38
+          },
+          {
+            "name": "test_zero_child_exit_with_failed_after_snapshot_never_passes",
+            "source": "tests/test_portable_windows_cleanup.py",
+            "line": 49
+          }
+        ],
+        "shared_assertion_detail": "Expected fake cleanup_error None, got AttributeError: module 'signal' has no attribute 'SIGKILL'",
+        "static_explanation": "Both tests substitute a posix os object but retain the Windows signal module. The synthetic posix cleanup evaluates signal.SIGKILL, which is absent in this Windows run. This concerns the saved fake-process test facts; real outer Job cleanup_error was null.",
+        "local_selection_entry": {
+          "product_packet_edited": false,
+          "old_bulk_coordinator_reused": false,
+          "owner_runner_helpers": true,
+          "owner_cli_bounded_observer": true,
+          "proof_entry_sha256": "49f9dd1c8a6e1e88e3f2a5a1c766156140b8b0c879db0edab696adb2fe3ee7e9"
+        }
+      },
+      "not_started": [
+        "extra_mock_device_linker_15",
+        "preflight_plan",
+        "own_133_in_13_groups",
+        "preflight_native_group",
+        "staged_preflight_check",
+        "compile_ptx",
+        "module_object_O1"
+      ],
+      "claims": {
+        "local_extra_cpu_command_claim_saved": true,
+        "owner_gpu_claim_reserved": false,
+        "owner_compile_claim_created": false,
+        "owner_module_object_claim_created": false,
+        "old_claims_modified": false
+      },
+      "actual_sdk_calls": {
+        "slang": 0,
+        "nvrtc": 0,
+        "ptxas": 0,
+        "link": 0,
+        "driver": 0,
+        "context": 0,
+        "gpu": 0,
+        "http": 0
+      },
+      "artifacts": {
+        "generated_cuda": null,
+        "ptx": null,
+        "object": null,
+        "reason": "Not started after CPU gate failure"
+      },
+      "verification": {
+        "all_own_tests_verified": false,
+        "compiler_verified": false,
+        "object_verified": false,
+        "calculation_verified": false,
+        "profile_coverage_added": 0,
+        "environment_preservation_verified": false,
+        "job_membership_and_limit_queries_complete": true,
+        "overall_passed": false
+      },
+      "saved_execution_handle": {
+        "live_handle": null,
+        "child_terminal_exit_observed": true,
+        "job_empty_observed": true
+      },
+      "historical_integrity": {
+        "files_checked_unchanged": 1607,
+        "old_movement_missing14_unknown_retained": true,
+        "old_preservation_false_retained": true,
+        "old_captures_or_claims_reexecuted": false
+      },
+      "capture": {
+        "path_base": "Documents/Codex",
+        "relative_directory": "lock-cover-fixed-cuda-v1"
+      },
+      "next_action": "Stopped without retries; no SDK or additional diagnostic continuation."
+    },
     "compiler_verified": false,
     "calculation_verified": false,
     "environment_preservation_verified": false
@@ -141,5 +305,160 @@
     "cause": "unknown",
     "preservation_verified": false
   },
-  "scope": "Preparation/transport evidence only, not CUDA calculation or GPU support."
+  "scope": "Preparation/transport evidence only, not CUDA calculation or GPU support.",
+  "fixture_correction": {
+    "commit": "2d1e48332f10af038034ff2bc4db176857c8a199",
+    "scope": "Two synthetic POSIX tests supply an isolated signal proxy on every host and assert exact fake kill arguments; no production/OS changes",
+    "mac_tests_passed": 7,
+    "mac_windows_integration_skipped": 1,
+    "windows_corrected_execution": {
+      "report_commit": "ae05d799712548a41ba381d859a087f1f05bb3fe4",
+      "saved_status": {
+        "schema": "lock-cover-cleanup-repair-status-v2",
+        "status": "requested_cpu_verification_completed",
+        "permission_mode": "require_escalated",
+        "approval_denied": false,
+        "transport_commit": "c20943434975da4ef47dd06e53dc022be877b1a2",
+        "source_commit": "2d1e48332f10af038034ff2bc4db176857c8a199",
+        "package_id": "72638887e127795d92a39f0d86b28fa052e4ee7a9b793f4d6bedd944c69df481",
+        "archive": {
+          "name": "product-consumer-fix-sealed-v2.zip",
+          "bytes": 14495247,
+          "sha256": "84b91531a861029385016533315eef664305d2d3849bfccd7c9458b4384f5af3",
+          "byte_hash_verified": true,
+          "immutable_payload_and_owner_verified": true,
+          "payload_files_unchanged_after_tests": 4244
+        },
+        "scope": "Only the repaired cleanup eight-test CPU fixture; no downstream execution authorized or attempted.",
+        "fixture_static_check": {
+          "two_posix_cases_use_local_signal_proxy": true,
+          "fake_killpg_arguments_asserted": true,
+          "real_run_world_bounded_unchanged": true,
+          "real_windows_observer_unchanged": true,
+          "real_job_limits_unchanged": true
+        },
+        "stages": {
+          "unpack-v2": {
+            "child_exit_code": 0,
+            "elapsed_seconds": 19.81646199990064,
+            "timed_out": false,
+            "child_timeout_seconds": 60,
+            "below_normal_priority": true,
+            "error": null,
+            "cleanup_error": null,
+            "observation_error": null,
+            "pre_gate_verified": true,
+            "post_wait_job_empty": true,
+            "inspection_error_present": false,
+            "job_memory_values": [
+              {
+                "pre_bytes": 2147483648,
+                "post_bytes": 2147483648,
+                "peak_bytes": 77451264
+              }
+            ],
+            "missing_count": 0,
+            "service_status_before": "unverified",
+            "service_status_after": "unverified",
+            "environment_preservation_verified": false
+          },
+          "cleanup-tests-v2": {
+            "child_exit_code": 0,
+            "elapsed_seconds": 12.113802199717611,
+            "timed_out": false,
+            "child_timeout_seconds": 60,
+            "below_normal_priority": true,
+            "error": null,
+            "cleanup_error": null,
+            "observation_error": null,
+            "pre_gate_verified": true,
+            "post_wait_job_empty": true,
+            "inspection_error_present": false,
+            "job_memory_values": [
+              {
+                "pre_bytes": 2147483648,
+                "post_bytes": 2147483648,
+                "peak_bytes": 73080832
+              }
+            ],
+            "missing_count": 0,
+            "service_status_before": "unverified",
+            "service_status_after": "unverified",
+            "environment_preservation_verified": false
+          }
+        },
+        "cpu_receipts": [
+          {
+            "pattern": "test_portable_windows_cleanup.py",
+            "tests": 8,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "exit_code": 0,
+            "elapsed_seconds": 2.116661600302905
+          }
+        ],
+        "cpu_verification": {
+          "forbid_gpu": true,
+          "expected_tests": 8,
+          "tests": 8,
+          "passed": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "gate_passed": true,
+          "windows_integration_case_skipped": false
+        },
+        "claims_and_handles": {
+          "local_cpu_command_claim_preserved": true,
+          "gpu_claim_created": false,
+          "sdk_claim_created": false,
+          "known_live_handle": null,
+          "child_terminal_exit_and_empty_job_observed": true
+        },
+        "not_executed": {
+          "device_linker": 0,
+          "own_suite": 0,
+          "native_battle": 0,
+          "slang": 0,
+          "sdk": 0,
+          "driver": 0,
+          "context": 0,
+          "gpu": 0,
+          "http": 0,
+          "retries": 0
+        },
+        "historical_integrity": {
+          "old_failure_commit": "9eed2127920bb98b3ada3daa23eaf64c959c0fd2",
+          "old_files_checked_unchanged": 39,
+          "old_failure_or_claim_modified": false,
+          "old_failure_promoted_to_pass": false,
+          "new_product_packet_edited": false
+        },
+        "qualification": {
+          "calculation_verified": false,
+          "cuda_verified": false,
+          "environment_preservation_verified": false,
+          "service_status": "unverified",
+          "job_limit_queries_complete": true,
+          "old_missing_unknown_preservation_false_retained": true,
+          "profile_coverage_added": 0
+        },
+        "capture": {
+          "path_base": "Documents/Codex",
+          "relative_directory": "lock-cover-cleanup-repair-v2"
+        },
+        "next_action": "Stopped after the requested eight tests; no automatic progression."
+      }
+    },
+    "old_failure_preserved": true
+  },
+  "next_windows_request": {
+    "scope": "Same corrected owner, not a retry of stopped old packet; fake linker15 then staged own136 in14 exact groups, native1, conditional PTX1/objectO1; no link/GPU",
+    "status": "Latest commentary confirms fake linker15, all own136 in14groups, fresh native1 and CPU transaction audit/compile plans; compile-only requested once, no saved SDK result yet",
+    "turn_id": "01a19471-d552-7ef3-8330-196e1415da52",
+    "source_commit": "2d1e48332f10af038034ff2bc4db176857c8a199",
+    "package_id": "72638887e127795d92a39f0d86b28fa052e4ee7a9b793f4d6bedd944c69df481",
+    "calculation_verified": false
+  }
 }

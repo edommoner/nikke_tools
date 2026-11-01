@@ -1,3 +1,23 @@
+## 2026-11-01 移動＋名前付き範囲を通常APIで合成、30秒全履歴とUTF-8製品応答を実証
+
+前turnは分割packetの共有とWindows依頼で進捗。今回は62b53a3cで、別々にしか使えなかった既存movement/named-range consumerを同じActorPool/frame/イベント実行器へ接続した。明示した両モデルのcoord/geometryが完全に同じ場合だけ認め、86元効果を全保持。新suite/恒久監査ツール0、CPU正本/pinned/数値/normalizer/許容差変更0。CPU側も同じgeometry contextを1度だけ設置し、move/named rangeの全モデル結果を別々に保持する。
+
+最初の既存15秒4要求は、disableのみ2件一致、Yan force併用2件がCPU切替。movement履歴は全一致、CPUの範囲adapterだけが静止colliderを読んでいた。2d1e4833で同じmanager/boss/時刻のlive movement geometryを読むproviderへ接続し、元の宣言モデル外では従来どおり静的geometryを使用。元input/readback全bytes保持のまま4件全CPU/実M5一致。元root文脈で保存GPUとfresh CPUを比べた診断はevaluator出所だけ異なったので、比較除外せず不変packetの同文脈へ戻してAPI確認した。
+
+30秒3ADDでは元4096履歴枠を超えるため、bd6a6300で新合成だけ8192frame/segmentへ拡張。input118020は不変、既に共通wire登録済みのoutput2165136を使用し、movement終端2131344へnamed-range bankを隣接、終端2147744以後はzero必須。旧単独レイアウト/計算本体保持。生成CUDA/MSL/reflect両mode成功。初期一般化の変数名衝突は元のdecoder回帰が検出して修正、GPU前に拒否。
+
+共通schemaの条件追加で旧sealed source closureは拒否されたため、旧goldenを書き換えず新development owner58745113…のown136/fresh native/実M5＋GPU禁止fresh独立sealを実行。lock-cover-fixedの元input/output/native/generated値は全て同一。v25はこの既存memberのsource closureだけ更新し、他21memberは全保持・歴史扱い。新movement-rangeのprogram/baseline登録は追加0。登録path変更の歴史台帳漏れはv4のCPU gateで拒否/GPU0、3466cb4dで既存台帳へ元88cdaの全bytesとの差を追加。元停止/claim保持。
+
+拡張後の15/30秒8要求は内部GPU/CPUが全一致したが、保存監査が最後のHTTP応答spec.textの韓国語1文字破損を検出。Pythonの原本は正常でNodeのchunkごとのUTF-8復号が原因。35004855で両workerのstdout/stderrに共通setEncodingを適用、1byteずつ割った日韓文/絵文字/複数JSON応答の回帰を含むNode24成功。比較除外や元応答の修正0。
+
+最終sealed ownerはproofs/product-movement-range-v1-20261101/v5/packet（source3466cb4d）。自身の136CPU/fresh native事前検査成功後、同じ15/30秒8要求を通常APIへ各1回。実M5/CPU/HTTPの全項目が一致、2physical dispatch×4件、wall23.341秒。30秒は移動5403frame/最大5412segment、範囲cast54件。全input/readbackはv3と全bytes同一。既存の親batch/member slice/raw/source/静的再pack/全payload独立監査8件成功（追加GPU/native0）。v3で4097番目のframe/segmentを含む56破損も拒否し、旧15秒の全製品payload保持。
+
+標準266をCPU戦闘/GPUなしで再packし262入力全bytes同一・4fallback同一。7標準入口のCUDA/MSL生成もsource5e1保存分と全bytes同一。旧Metal実行ownerを現ownerへ付替えない。標準Metal最終262/266、CUDA歴史厳格3/266・現source0、新標準profile0。今回Yuni/Yan/Rei等の宣言合成は実製品の限定対応で、未指定位置/半径/Lock配送のゲーム仕様を推定した意味ではない。全goal未完了。
+
+Windowsは9eed2127でcleanup8の偽POSIX2失敗を取得。Windows signalにSIGKILLがなく、実Jobではなくfake cleanupだけの不備。2d1e4833でlocal signal proxyとfake引数assertへ修正し、ae05d799の新不変owner72638887…で全8件成功/skip0、missing0/実測2GiB/終了後empty。旧missing14/unknown等と旧失敗全保持。続く未実行fake linker15/own136分割14群/fresh nativeも成功のcommentaryを確認したが、最終保存statusとSDK結果は未取得。同run再送なし、リンク/driver/GPU/HTTP未依頼。staged claimは将来GPU予約で実GPU証明ではない。
+
+小記録research/product-movement-range-v1.json、product-lock-cover-cuda-staged-v1.json。原本proofs/product-movement-range-v1-20261101のv1(直下)/v2/v3/v4/v5を全保持。最終監査v5/saved-audit-progress.json、node-fix-full-retention-v5.json。Mac専用server74979/80139/5031/27378は全停止exit130、ユーザー4317/4327不操作。次はWindows同turn保存結果の取得→gate成立時だけ既存link/通常CUDA API、未指定4profile/残合成/現在sourceの標準製品確認。以下は履歴。
+
 ## 2026-11-01 Lock On＋遮蔽の共通CUDA準備を既存分割CLIへ移行
 
 前turnは保存結果再確認のみで実装進展なし。現在root765628df/sourceの不変owner08735412…、archive14,490,867bytes/SHA7760c5cc…を輸送3e0895c3で共有。packet自身のPTX/O1 CUBIN compile-planが各60秒/2GiBで成功、SDK/GPU/claim0。依存検査成功、既存case_planの13群/own133（reference49を5件ずつ）でID欠落/重複0。テスト発見は実行証明ではない。新suite/常設launcher追加0、制限延長0。
