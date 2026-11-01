@@ -1,0 +1,525 @@
+{
+  "schema": "product-typed-lock-resident-windows-status-v1",
+  "status": "stopped-at-first-sdk-before-ram-admission",
+  "fixed_transport_commit": "f7eff2054c1ce28844a1609ef828dca9918965ca",
+  "code_review_commit": "2cb84538e3966a9d8e0e0b2f179cbf3f26c2543d",
+  "owner": "5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622",
+  "source_commit": "6ba2436f595067672b1e0aca065ea034c06df3d0",
+  "source_working_tree_dirty": true,
+  "source": "gpu/product_typed_lock_battle_entry.slang",
+  "entry": "portableEvents",
+  "scope": "Original Heavy Arms live/broken4s2conditions: typed weapon interception and original projectile skill/Lock On in one resident-frame world. One new-source CUDA dispatch only, all raw/CPU/GPU/HTTP/Unicode equality mandatory. No ignored numeric fields or game-rule claims.",
+  "initial_existing_owner_check": {
+    "expected_fresh_root_absent": true,
+    "same_owner_materialized_roots_found": 0,
+    "scope": "Known one/two-level Codex validation packet roots, as checked before preparation",
+    "old_owner_execution_not_retried": true
+  },
+  "stop": {
+    "stage": "immediate-api-ram-admission",
+    "reason": "RAM below4GiB",
+    "available_physical_bytes": 1438969856,
+    "posts": 0,
+    "gpu": 0,
+    "retries_allowed": false
+  },
+  "stop_context": {
+    "actual_invocation_location": "sdk-before-ram",
+    "original_helper_literal_gate_label": "Immediately before first API worker launch",
+    "original_helper_literal_stop_stage": "immediate-api-ram-admission",
+    "literal_labels_reused_unchanged_from_original_helper": true,
+    "api_stage_not_started": true,
+    "admission_passed": false,
+    "available_physical_bytes": 1438969856,
+    "required_available_bytes": 4294967296,
+    "shortfall_bytes": 2855997440,
+    "measurement_count": 1,
+    "resampling": false,
+    "retries_allowed": false
+  },
+  "transport": {
+    "files_including_inventory": 13,
+    "total_bytes": 12251346,
+    "all_transport_hashes_and_fixed_git_blobs_verified": true,
+    "archive_manifest_sha256": "ed0724604e60b0671e7a37047fed8dbadc8cda79234b9018811952dc81de87a4",
+    "archive_manifest_files": 2803,
+    "all_manifest_bytes_hashes_verified_before_and_after": true,
+    "references": [
+      {
+        "file": "typed-lock-resident-v1-transport.json",
+        "bytes": 2300,
+        "sha256": "69555f5bd333e264f0b3d02afd103eb2dc4f7a471c2df37ba76043c95d678936"
+      },
+      {
+        "file": "typed-lock-resident-v1-windows-request.json",
+        "bytes": 11470,
+        "sha256": "f0505cbfc1f621a9a7577f9434694e46fcd55020cf460cae50b555fec4870aed"
+      },
+      {
+        "file": "typed-lock-resident-v1-api-job.json",
+        "bytes": 21647,
+        "sha256": "92af9f63acedd9803be3f0016ff8926fb7675cf3685aca69dca3211aae41c722"
+      },
+      {
+        "file": "typed-lock-resident-v1-api-expected.json",
+        "bytes": 1804,
+        "sha256": "8476b937d78cfce513ce46c0b8c88b381bbb5456fea11725f56144ac00ddd1ea"
+      },
+      {
+        "file": "typed-lock-resident-v1-selected11.json",
+        "bytes": 847,
+        "sha256": "025ff9f18c28bb9a9fd0630c43acdd19da4a5748bd58c390b3184ad430385f6e"
+      },
+      {
+        "file": "typed-lock-resident-v1-request-validation.json",
+        "bytes": 601,
+        "sha256": "7e9194632eb05ae01642b3e5b35a67bfa48b572bb9df976c06a91aff9b66d2a0"
+      }
+    ]
+  },
+  "request_selector_contract": {
+    "all_patterns_owner_ids_sha_and_count11_equal": true,
+    "explicit_case_ids_resolved_from_sealed_AST": true,
+    "strict_guard_changed": false,
+    "case_ordinals": [
+      0,
+      1
+    ],
+    "distinct_original_profiles": 1
+  },
+  "prior_history": {
+    "protected_old_file_count": 94,
+    "all_old_records_reverified_unchanged": true,
+    "local_before_index": {
+      "file": "originals-before.json",
+      "bytes": 20670,
+      "sha256": "0070e7ac2208027949e2d44a774148e5a0cd6ba14a64bd10238f20c39247cd97",
+      "canonical_records_sha256": "10f448cdbe3124934d9532876455fb5c5a2bf76192b923eba28126b123a597fe"
+    },
+    "prior_status_and_diagnostic_refs": [
+      {
+        "file": "transport/ammo-shared-seven-saved-image-api-status-v2.json",
+        "bytes": 28881,
+        "sha256": "e6f0338c63ecd52cbf931d354d73ba00108ad53151e27a9fb67b88749fb8bd7a"
+      },
+      {
+        "file": "transport/ammo-shared-seven-saved-image-missing3-diagnostic-v1.json",
+        "bytes": 40323,
+        "sha256": "735e66054a9b1360ec2ec3aa95b0f3c3c08d96529af99b22862ecdd3dbb7c312"
+      },
+      {
+        "file": "transport/product-coordinate-add-windows-status-v1.json",
+        "bytes": 13623,
+        "sha256": "96c579895c1ddbfdf5d635fd44708f2a8fe1ff9ead3bf9cbfaa62d28638e0536"
+      },
+      {
+        "file": "transport/product-coordinate-weighted-windows-status-v1.json",
+        "bytes": 27718,
+        "sha256": "445fefa8328d77a51608923854e7f53e7cd3b220f608a5abfff3d0d1bd55a6bb"
+      },
+      {
+        "file": "transport/product-coordinate-add-windows-status-v2.json",
+        "bytes": 35312,
+        "sha256": "2c4d12db3276c8d1a19d565ab94a82399475a482da4a2c63eb361a07c178dcd8"
+      },
+      {
+        "file": "transport/product-coordinate-healing-windows-status-v1.json",
+        "bytes": 34750,
+        "sha256": "023cf9c6bf276d6660578fbaeee8653223f111200bdda8c79409f9c6ea6b17a0"
+      },
+      {
+        "file": "transport/product-coordinate-healing-missing7-diagnostic-v1.json",
+        "bytes": 22198,
+        "sha256": "f4511f126b7379f5aa840336f721367f7245f87e5bc8795386f4876c6097df6c"
+      },
+      {
+        "file": "transport/product-coordinate-lock-windows-status-v1.json",
+        "bytes": 43171,
+        "sha256": "c6eebb665fa958dd59a95b6bec6b95ef10a740dfca61b9425c1acd1434de4ec8"
+      },
+      {
+        "file": "transport/product-coordinate-lock-trace-address-diagnostic-v1.json",
+        "bytes": 8832,
+        "sha256": "eefde00043abe2650f1c220d7b68988063dfe51d0cb7a6da90f3adeaaae32f44"
+      },
+      {
+        "file": "transport/product-coordinate-lock-windows-status-v2.json",
+        "bytes": 34883,
+        "sha256": "7e9a6d9bbe47db5c985c5474eb82d4ed7ef2b3c60799d926293b47eb141aead6"
+      },
+      {
+        "file": "transport/product-coordinate-lock-missing7-identity-diagnostic-v1.json",
+        "bytes": 11346,
+        "sha256": "e3baf1c22abc91940e085b06b11bebf36d892eb8344bb3c3fac93e843e365590"
+      },
+      {
+        "file": "transport/product-coordinate-lock-resource-timeline-diagnostic-v1.json",
+        "bytes": 31194,
+        "sha256": "76914f79edfccde326c875f50d93aa1336f3a31321ba2c32da5a3376e0a1d3c6"
+      }
+    ],
+    "prior_source_preservation": [
+      {
+        "source_manifest": "product-coordinate-weighted-windows-v1/coordinate-weighted-accumulate/packet/gpu-package.json",
+        "files": 2788,
+        "all_bytes_unchanged": true
+      },
+      {
+        "source_manifest": "product-coordinate-add-windows-v2/coordinate-add-accumulate/packet/gpu-package.json",
+        "files": 2790,
+        "all_bytes_unchanged": true
+      },
+      {
+        "source_manifest": "product-coordinate-healing-windows-v1/coordinate-healing-accumulate/packet/gpu-package.json",
+        "files": 2792,
+        "all_bytes_unchanged": true
+      },
+      {
+        "source_manifest": "product-coordinate-lock-windows-v1/coordinate-lock-accumulate/packet/gpu-package.json",
+        "files": 2800,
+        "all_bytes_unchanged": true
+      },
+      {
+        "source_manifest": "product-coordinate-lock-windows-v2/coordinate-lock-accumulate/packet/gpu-package.json",
+        "files": 2800,
+        "all_bytes_unchanged": true
+      }
+    ],
+    "old_missing3_missing7_causes": "unknown",
+    "old_coordinate_lock_v2_recorded_job_peak_bytes": 2149621760,
+    "old_coordinate_lock_v2_configured_limit_bytes": 2147483648,
+    "old_coordinate_lock_v2_recorded_excess_bytes": 2138112,
+    "old_v1_raw_gate_failure_and_trace_diagnostic_retained": true,
+    "all_old_stops_and_failed_gates_retained": true,
+    "prior_api_gpu_sdk_or_audit_reruns": 0,
+    "prior_unexecuted_cases_started": 0,
+    "old_wrong_main_probe_requirement_satisfied": false,
+    "os_ssh_or_restart_changes": 0,
+    "whole_host_stability_claimed": false
+  },
+  "helpers": {
+    "all_copied_bytes_reverified": true,
+    "copy_count": 45,
+    "managed3": [
+      {
+        "source": "typed-lock-resident-v1-check-sdk.py",
+        "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d",
+        "destination": "check-sdk.py",
+        "destination_scope": "outer-windows-directory"
+      },
+      {
+        "source": "typed-lock-resident-v1-prepare-api.py",
+        "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739",
+        "destination": "prepare-api.py",
+        "destination_scope": "outer-windows-directory"
+      },
+      {
+        "source": "typed-lock-resident-v1-verify-host-tests.py",
+        "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7",
+        "destination": "verify-host-tests.py",
+        "destination_scope": "program-directory"
+      }
+    ],
+    "other11_unchanged": true,
+    "new_suite_or_auditor_created": false
+  },
+  "cpu": {
+    "passed": true,
+    "selected_tests": 11,
+    "selected_unit_tests_verified": true,
+    "unit_tests_verified": false,
+    "all_registered_unit_tests_verified": false,
+    "selection_sha256": "025ff9f18c28bb9a9fd0630c43acdd19da4a5748bd58c390b3184ad430385f6e",
+    "groups": [
+      {
+        "pattern": "test_portable_detail.py",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "elapsed_seconds": 0.28774260031059384,
+        "case_ids": [
+          "test_portable_detail.PortableDetail.test_product_keeps_all_equipment_rows_and_uses_native_carrier_lifecycle"
+        ]
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "elapsed_seconds": 6.034403500147164,
+        "case_ids": [
+          "test_product_detail_packet.ProductPacket.test_each_program_uses_the_actual_static_product_input_and_exact_wire"
+        ]
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "elapsed_seconds": 5.908575700130314,
+        "case_ids": [
+          "test_weighted_source_contract.WeightedSourceContract.test_boss_history_recovers_exact_preimages_and_rejects_unreviewed_bytes",
+          "test_weighted_source_contract.WeightedSourceContract.test_changed_product_route_guard_and_arithmetic_are_rejected",
+          "test_weighted_source_contract.WeightedSourceContract.test_exact_later_product_inverse_keeps_original_ledger_and_old_sources",
+          "test_weighted_source_contract.WeightedSourceContract.test_exact_preimage_and_closure_match_historical_cover_seal",
+          "test_weighted_source_contract.WeightedSourceContract.test_product_history_and_added_helper_cannot_be_edited",
+          "test_weighted_source_contract.WeightedSourceContract.test_product_part_boundary_inverse_accepts_only_exact_current_and_preimage",
+          "test_weighted_source_contract.WeightedSourceContract.test_unreviewed_current_dependency_cannot_be_projected"
+        ]
+      },
+      {
+        "pattern": "test_product_reference_models.py",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "elapsed_seconds": 0.9402506002224982,
+        "case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_shared_typed_lock_unwinds_on_error_and_rejects_foreign_runtime",
+          "test_product_reference_models.ProductReferenceModels.test_typed_lock_rejects_different_or_nonprojectile_worlds_before_simulating"
+        ]
+      }
+    ],
+    "strict_nonempty_case_id_guard_preserved": true,
+    "unselected161_executed": false,
+    "full_native_preflight_executed": false,
+    "extra_native_preflight_battles": 0,
+    "gpu_calls": 0
+  },
+  "own_pre_sdk_stages": {
+    "unpack": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 20.426125300116837,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 70381568,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "plans": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 19.618420499842614,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 69443584,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "host-tests": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 35.62025939999148,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 178139136,
+      "below_normal": true,
+      "runner_exit_code": 0
+    }
+  },
+  "sdk_before_ram_gate": {
+    "passed": false,
+    "gate": "Immediately before first API worker launch",
+    "observed_unix_ns": 1793558928783277600,
+    "observed_at_jst": "2026-11-02T03:48:48.783278+09:00",
+    "available_physical_bytes": 1438969856,
+    "required_available_bytes": 4294967296,
+    "ram_measurements_at_this_gate": 1,
+    "resampling_loop": false,
+    "sdk_calls": 0,
+    "gpu_calls": 0,
+    "bounded_job": {
+      "child_exit_code": 1,
+      "passed": false,
+      "elapsed_seconds": 0.14270489988848567,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "owned_live_count": 0,
+      "job_memory_limit_bytes": 2147483648,
+      "peak_job_memory_bytes": 10170368,
+      "system_snapshots_taken": 0
+    },
+    "evidence_files": [
+      {
+        "file": "sdk-before-ram/verification.json",
+        "bytes": 376,
+        "sha256": "1b4a8608fa65613f51eb9c8a22dec404d2be272b5a4fc61f48b5a6616193df40"
+      },
+      {
+        "file": "sdk-before-ram/execution.json",
+        "bytes": 1164,
+        "sha256": "7144b9b4d9c7347cb452335242aeb6de5f2480140bc8f9c7f7adcce79e5ece68"
+      },
+      {
+        "file": "sdk-before-ram/job.json",
+        "bytes": 1089,
+        "sha256": "db5a91a6f8a456f51fdb8fe4e5b49a03c71e7fb2d8a598cc506285f7cf4d691e"
+      },
+      {
+        "file": "sdk-before-ram/coordinator.py",
+        "bytes": 1396,
+        "sha256": "51fd65dc84ee3b3b87442ea95aab78ba1df5e11045fa5e54fdb761a0c3d8bcfc"
+      },
+      {
+        "file": "sdk-before-ram/diagnose.py",
+        "bytes": 1523,
+        "sha256": "ade508992abb226237d98940ede98e5a24df86be4f4f8e2d8f87e22bed874ae5"
+      },
+      {
+        "file": "stop.json",
+        "bytes": 155,
+        "sha256": "9bb5a303b4e88f7956b3a805d693bb67c6f0e33f777c6b2df4f0312b0c17a72d"
+      }
+    ]
+  },
+  "unexecuted_scope": {
+    "paired_generation": true,
+    "ptx_compile": true,
+    "object_compile": true,
+    "jit_link": true,
+    "api_prepare": true,
+    "static_preflight": true,
+    "api_before_ram": true,
+    "api_post": true,
+    "cuda_dispatch": true,
+    "saved_audit": true,
+    "new_root_sdk_claims_created": false
+  },
+  "cases": [
+    {
+      "case_ordinal": 0,
+      "variant": "accumulate-live",
+      "expected_input_sha256": "8b1838a091e87cc52d159637c2194f9bf8af053818fc7123efe49b02f2f030fc",
+      "expected_output_sha256": "a281d014c89830866f8b232777a5063b6dd25d7705a0f93e2b4b11865dfe6b0c",
+      "gpu_executed": false,
+      "verified": false
+    },
+    {
+      "case_ordinal": 1,
+      "variant": "accumulate-broken",
+      "expected_input_sha256": "12517f9a427ade23f595625db0d944f1cc3cde843395685a5d43cda611d5d56e",
+      "expected_output_sha256": "8567d29dd4d754eac2f854afb04f41813ac73a7a16b223e215ff9b592f2772b5",
+      "gpu_executed": false,
+      "verified": false
+    }
+  ],
+  "activity_evidence": {
+    "observed": false,
+    "expected_only": [
+      {
+        "variant": "accumulate-live",
+        "typed_attacks": 1,
+        "typed_receipts": 3,
+        "weapon_packets": 171,
+        "lock_pulses": 16,
+        "lock_shots": 2,
+        "complete_skill_rows": 14,
+        "remaining": [
+          98448172.0,
+          98448172.0,
+          93386269.0
+        ]
+      },
+      {
+        "variant": "accumulate-broken",
+        "typed_attacks": 0,
+        "typed_receipts": 0,
+        "weapon_packets": 12,
+        "lock_pulses": 16,
+        "lock_shots": 2,
+        "complete_skill_rows": 13,
+        "remaining": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "reason": "SDK/RAM admission failed before generation and API; no activity or memory-improvement evidence from CUDA"
+  },
+  "memory_evidence": {
+    "windows_memory_improvement_proven": false,
+    "new_cuda_private_or_device_samples": 0,
+    "new_api_job_peak_available": false,
+    "new_cuda_launch_samples_available": false,
+    "old_peak_and_excess_not_reclassified": true
+  },
+  "execution_totals": {
+    "selected_unit_tests": 11,
+    "unpack": 1,
+    "own_plan_checks": 1,
+    "sdk_before_ram_samples": 1,
+    "api_before_ram_samples": 0,
+    "slang_compiler_invocations": 0,
+    "nvrtc_calls": 0,
+    "ptxas_calls": 0,
+    "jitlink_calls": 0,
+    "sdk_stage_attempts": 0,
+    "static_preflights": 0,
+    "api_posts": 0,
+    "gpu_dispatches": 0,
+    "saved_audits": 0,
+    "gpu_retries": 0,
+    "post_resubmissions": 0,
+    "ram_resampling": 0,
+    "legacy_main_probes": 0,
+    "additional_audit_battles": 0,
+    "additional_audit_gpu": 0,
+    "other_condition_runs": 0,
+    "configured_profile_delta": 0,
+    "unconfigured_standard_profile_delta": 0
+  },
+  "limits_retained": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "minimum_available_ram_bytes": 4294967296,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "bounded_job_configuration_and_boundary_membership_verified_for_executed_stages": true,
+  "all_recorded_executed_job_peaks_within_configured_limit": true,
+  "requested_calculation_numeric_verified": false,
+  "end_to_end_stage_and_saved_audit_verified": false,
+  "advisory_unknowns_reclassified": false,
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false
+}
