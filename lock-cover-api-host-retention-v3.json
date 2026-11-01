@@ -1,0 +1,25 @@
+{
+  "baseline_package_id": "72638887e127795d92a39f0d86b28fa052e4ee7a9b793f4d6bedd944c69df481",
+  "baseline_source": "2d1e48332f10af038034ff2bc4db176857c8a199",
+  "checked_files": 1088,
+  "all_calculation_cpu_data_gpu_bytes_identical": true,
+  "restored_missing_pinned_files": 43,
+  "restoration": "Exact original immutable package bytes, no overwrite or modification of pinned reference",
+  "modified_tracked_files": [
+    "server.mjs",
+    "tests/server.test.mjs"
+  ],
+  "node_tests_passed": 24,
+  "gpu_calls": 0,
+  "native_calls": 0,
+  "host_package_id": "17d2c94dfbabefbdb6cfde4fd81eafc86f79ec7ed8b2816253883d634b9e76db",
+  "host_source": "c7600d3f16fe25d284035f0d60e112936f9b70d6",
+  "host_purpose": "sealed",
+  "payload_files": 4244,
+  "changed_payload_files": [
+    "server.mjs",
+    "tests/server.test.mjs"
+  ],
+  "golden_exactly_unchanged": true,
+  "verify_package_passed": true
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "product-lock-cover-normal-cuda-api-v3",
+  "host_package_id": "17d2c94dfbabefbdb6cfde4fd81eafc86f79ec7ed8b2816253883d634b9e76db",
+  "host_source": "c7600d3f16fe25d284035f0d60e112936f9b70d6",
+  "calculation_source": "2d1e48332f10af038034ff2bc4db176857c8a199",
+  "calculation_owner": "72638887e127795d92a39f0d86b28fa052e4ee7a9b793f4d6bedd944c69df481",
+  "archive": "lock-cover-api-host-v3.zip",
+  "archive_bytes": 14495815,
+  "archive_sha256": "9a103037bd73642a8d528431c34438c89ede6f8771805823953d083d526af09f",
+  "changed_payload_files": [
+    "server.mjs",
+    "tests/server.test.mjs"
+  ],
+  "all_other_payload_and_entire_golden_identical": true,
+  "expected": {
+    "source": "gpu/product_lock_cover_fixed_battle_entry.slang",
+    "duration": 30,
+    "input_words": 109560,
+    "output_words": 2048912,
+    "input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+    "output_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+    "scope": "Original M5 full input/readback, not only public damage; declared Lock On/cover model, not default-profile admission",
+    "native_calls": 0,
+    "gpu_calls": 0
+  },
+  "method": "POST /api/jobs, kind=batch, evaluations=[exact body], one original30s request",
+  "limits": {
+    "api_helper_child_seconds": 53,
+    "outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true
+  },
+  "reexecution": "No Slang/NVRTC/PTXAS/link/native preflight repeats; native product verification only after GPU. No GPU retry.",
+  "prerequisite": "Saved JIT link original audit, containment, no missing or incomplete observation; never weaken admission",
+  "report": "lock-cover-normal-cuda-api-status-v3.json",
+  "sharing": "Small JSON/manifest only; keep raw/CUBIN/original failures locally; no personal settings or credentials"
+}
