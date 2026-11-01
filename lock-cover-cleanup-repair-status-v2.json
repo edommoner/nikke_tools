@@ -1,0 +1,137 @@
+{
+  "schema": "lock-cover-cleanup-repair-status-v2",
+  "status": "requested_cpu_verification_completed",
+  "permission_mode": "require_escalated",
+  "approval_denied": false,
+  "transport_commit": "c20943434975da4ef47dd06e53dc022be877b1a2",
+  "source_commit": "2d1e48332f10af038034ff2bc4db176857c8a199",
+  "package_id": "72638887e127795d92a39f0d86b28fa052e4ee7a9b793f4d6bedd944c69df481",
+  "archive": {
+    "name": "product-consumer-fix-sealed-v2.zip",
+    "bytes": 14495247,
+    "sha256": "84b91531a861029385016533315eef664305d2d3849bfccd7c9458b4384f5af3",
+    "byte_hash_verified": true,
+    "immutable_payload_and_owner_verified": true,
+    "payload_files_unchanged_after_tests": 4244
+  },
+  "scope": "Only the repaired cleanup eight-test CPU fixture; no downstream execution authorized or attempted.",
+  "fixture_static_check": {
+    "two_posix_cases_use_local_signal_proxy": true,
+    "fake_killpg_arguments_asserted": true,
+    "real_run_world_bounded_unchanged": true,
+    "real_windows_observer_unchanged": true,
+    "real_job_limits_unchanged": true
+  },
+  "stages": {
+    "unpack-v2": {
+      "child_exit_code": 0,
+      "elapsed_seconds": 19.81646199990064,
+      "timed_out": false,
+      "child_timeout_seconds": 60,
+      "below_normal_priority": true,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "inspection_error_present": false,
+      "job_memory_values": [
+        {
+          "pre_bytes": 2147483648,
+          "post_bytes": 2147483648,
+          "peak_bytes": 77451264
+        }
+      ],
+      "missing_count": 0,
+      "service_status_before": "unverified",
+      "service_status_after": "unverified",
+      "environment_preservation_verified": false
+    },
+    "cleanup-tests-v2": {
+      "child_exit_code": 0,
+      "elapsed_seconds": 12.113802199717611,
+      "timed_out": false,
+      "child_timeout_seconds": 60,
+      "below_normal_priority": true,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "inspection_error_present": false,
+      "job_memory_values": [
+        {
+          "pre_bytes": 2147483648,
+          "post_bytes": 2147483648,
+          "peak_bytes": 73080832
+        }
+      ],
+      "missing_count": 0,
+      "service_status_before": "unverified",
+      "service_status_after": "unverified",
+      "environment_preservation_verified": false
+    }
+  },
+  "cpu_receipts": [
+    {
+      "pattern": "test_portable_windows_cleanup.py",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0,
+      "elapsed_seconds": 2.116661600302905
+    }
+  ],
+  "cpu_verification": {
+    "forbid_gpu": true,
+    "expected_tests": 8,
+    "tests": 8,
+    "passed": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "gate_passed": true,
+    "windows_integration_case_skipped": false
+  },
+  "claims_and_handles": {
+    "local_cpu_command_claim_preserved": true,
+    "gpu_claim_created": false,
+    "sdk_claim_created": false,
+    "known_live_handle": null,
+    "child_terminal_exit_and_empty_job_observed": true
+  },
+  "not_executed": {
+    "device_linker": 0,
+    "own_suite": 0,
+    "native_battle": 0,
+    "slang": 0,
+    "sdk": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0,
+    "retries": 0
+  },
+  "historical_integrity": {
+    "old_failure_commit": "9eed2127920bb98b3ada3daa23eaf64c959c0fd2",
+    "old_files_checked_unchanged": 39,
+    "old_failure_or_claim_modified": false,
+    "old_failure_promoted_to_pass": false,
+    "new_product_packet_edited": false
+  },
+  "qualification": {
+    "calculation_verified": false,
+    "cuda_verified": false,
+    "environment_preservation_verified": false,
+    "service_status": "unverified",
+    "job_limit_queries_complete": true,
+    "old_missing_unknown_preservation_false_retained": true,
+    "profile_coverage_added": 0
+  },
+  "capture": {
+    "path_base": "Documents/Codex",
+    "relative_directory": "lock-cover-cleanup-repair-v2"
+  },
+  "next_action": "Stopped after the requested eight tests; no automatic progression."
+}
