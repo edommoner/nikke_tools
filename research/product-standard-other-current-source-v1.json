@@ -16,7 +16,22 @@
       "windows_requested": false,
       "new_independently_sealed_registration": true,
       "old_normal_api_metal_input_output_all_bytes_equal": true,
-      "old_normal_profile_index": 247
+      "old_normal_profile_index": 247,
+      "sealed_release": {
+        "program": "fixed-target",
+        "owner": "3a2b57ae484b21b80019b047b281daa6d7fcc9fdb324886d4db6eef79ad5a3ba",
+        "source_commit": "dae2605816d5fbd92bd6b223ab21ea98f081d92c",
+        "archive_bytes": 12073333,
+        "archive_sha256": "d601c28f99bac9a5f9b8d5e6e583ec216923ffa3a35dde46578feb26797108b4",
+        "own_ptx_o1_plans_passed": true,
+        "validation_deps_passed": true,
+        "windows_requested": false,
+        "prepared_api_cases": 8,
+        "shared_cuda_api_selector_verified": true,
+        "all_static_inputs_and_original_m5_readbacks_retained": true,
+        "physical_input_sha256": "599cb7a5863073e394998d2965f00e3d8293975c81f0f46100f4cb4063225ddc",
+        "physical_output_sha256": "e736170c1054f238d7faa308d4a54407a2478bdf0d831a29419101c4410eaed0"
+      }
     },
     {
       "program": "healing-fixed",
@@ -33,7 +48,22 @@
       "windows_requested": false,
       "new_independently_sealed_registration": true,
       "old_normal_api_metal_input_output_all_bytes_equal": true,
-      "old_normal_profile_index": 67
+      "old_normal_profile_index": 67,
+      "sealed_release": {
+        "program": "healing-fixed",
+        "owner": "cbc736ce2653d30ed2571ae42c87cb8b928be601934df842c772d790429dda8c",
+        "source_commit": "dae2605816d5fbd92bd6b223ab21ea98f081d92c",
+        "archive_bytes": 12072979,
+        "archive_sha256": "c389d19e1cbab340b9bd486dfebf3a2de7936ce3c27c61656aa07d4761f1b5e1",
+        "own_ptx_o1_plans_passed": true,
+        "validation_deps_passed": true,
+        "windows_requested": false,
+        "prepared_api_cases": 1,
+        "shared_cuda_api_selector_verified": true,
+        "all_static_inputs_and_original_m5_readbacks_retained": true,
+        "physical_input_sha256": "2b7a6df61d6da36035c569285780116e9c1631ccfa61f1ff3e5eba6230c87aa0",
+        "physical_output_sha256": "69b3018d823af230d8497a0cd71f0bcdfcd2c1cd85851707ed228d2e36f5c67f"
+      }
     },
     {
       "program": "default-weighted-fixed",
@@ -51,7 +81,22 @@
       "old_input_output_native_entries_equal": true,
       "generated_and_source_baseline_independently_reverified": true,
       "old_normal_api_metal_input_output_all_bytes_equal": true,
-      "old_normal_profile_index": 221
+      "old_normal_profile_index": 221,
+      "sealed_release": {
+        "program": "default-weighted-fixed",
+        "owner": "06bac7e56e5442b775b75451ee54100ff91f5605c642b67b730992dd13319ed5",
+        "source_commit": "dae2605816d5fbd92bd6b223ab21ea98f081d92c",
+        "archive_bytes": 12072934,
+        "archive_sha256": "7c26925d84fa2ef7a6fa6089367cd44041fa7baa347e2d6b189b91c51d6a8e9f",
+        "own_ptx_o1_plans_passed": true,
+        "validation_deps_passed": true,
+        "windows_requested": false,
+        "prepared_api_cases": 4,
+        "shared_cuda_api_selector_verified": true,
+        "all_static_inputs_and_original_m5_readbacks_retained": true,
+        "physical_input_sha256": "95b71498e0ef553fb3f6515f460eb0cc9580029c36426ba3d0d6bb8a793c9ae7",
+        "physical_output_sha256": "a48c5a8650424987179f72351d7dd09d6a13e573c8ba8410d452711d3ba55cda"
+      }
     },
     {
       "program": "default-cover-fixed",
@@ -69,7 +114,22 @@
       "old_input_output_native_entries_equal": true,
       "generated_and_source_baseline_independently_reverified": true,
       "old_normal_api_metal_input_output_all_bytes_equal": true,
-      "old_normal_profile_index": 159
+      "old_normal_profile_index": 159,
+      "sealed_release": {
+        "program": "default-cover-fixed",
+        "owner": "e0f069e3edbddea3f899838b4c039b472e71a14497b6d4ceee782fae5b33d051",
+        "source_commit": "dae2605816d5fbd92bd6b223ab21ea98f081d92c",
+        "archive_bytes": 12074263,
+        "archive_sha256": "05d50a58714944021e69ae400b103f17aa43bfc29cae21be839f6d3eef726429",
+        "own_ptx_o1_plans_passed": true,
+        "validation_deps_passed": true,
+        "windows_requested": false,
+        "prepared_api_cases": 1,
+        "shared_cuda_api_selector_verified": true,
+        "all_static_inputs_and_original_m5_readbacks_retained": true,
+        "physical_input_sha256": "d60bf71a008bd1601d8af5bc083f6ffcc61c3f8e537954dbcb04d5ea3282e85d",
+        "physical_output_sha256": "ad5208a7613d552c13172bc1be00f7c02c981732afb7c24a0d93b6e2e1728fa4"
+      }
     },
     {
       "program": "ammo-fixed",
@@ -87,7 +147,22 @@
       "old_input_output_native_entries_equal": true,
       "generated_and_source_baseline_independently_reverified": true,
       "old_normal_api_metal_input_output_all_bytes_equal": true,
-      "old_normal_profile_index": 168
+      "old_normal_profile_index": 168,
+      "sealed_release": {
+        "program": "ammo-fixed",
+        "owner": "a5f405c447a07b20d27f260fcd3efbec3807906698a6dc0b041513e00caefb81",
+        "source_commit": "dae2605816d5fbd92bd6b223ab21ea98f081d92c",
+        "archive_bytes": 12073155,
+        "archive_sha256": "841485696e43ae95c4374d0f59b8023709d6c6e148fe629db03223a891f06d38",
+        "own_ptx_o1_plans_passed": true,
+        "validation_deps_passed": true,
+        "windows_requested": false,
+        "prepared_api_cases": 1,
+        "shared_cuda_api_selector_verified": true,
+        "all_static_inputs_and_original_m5_readbacks_retained": true,
+        "physical_input_sha256": "1bcd913dd2f6dfb61a7db6bf241dcc2d58e00d75883692d8535c832bcf743d13",
+        "physical_output_sha256": "c79d2a07675205c25060416600f34b70760a0a258e1060e110e7670206da0c70"
+      }
     }
   ],
   "completed": 5,
@@ -101,5 +176,7 @@
   "new_standard_profiles": 0,
   "windows_requested": false,
   "post_registration_history_tests": 7,
-  "post_registration_product_packet_tests": 10
+  "post_registration_product_packet_tests": 10,
+  "sealed_releases_prepared": 5,
+  "static_original_api_profiles_retained": 15
 }

@@ -8,7 +8,7 @@ body.compute_backendだけをcuda_shared_detailへ直したv2を、同じsealed 
 
 原本proofs/product-cuda-standard-other-current-v1-20261101の5個別capture/seal/progress、小記録research/product-standard-other-current-source-v1.json。既存fixed-group sealed releaseはowner1a29d920／source7d4000f4で保持し、未送信の共通CUDA要求2件も正しいselectorで再pack、two-group-api-job-v2.json/expected-v2を準備済み（input/全M5期待不変）。source7dのreleaseを新rootへ付替えない。
 
-全goal未完了。次はv2既存237件turnの同じ保存結果を取得し、他5入口のsealed release/短いWindows SDK準備を進める。旧停止/claimは解除しない。以下は履歴。
+全goal未完了。他5入口もsourcedae26058からsealed releaseを準備済み（5ownerは小記録参照）。各own PTX/O1 60秒/2GiB計画・deps成功、各sealed packet自身で残15要求を正しいcuda_shared_detail指定・simulate/GPU禁止で再packし、元全input/最後の通常M5全raw期待値保持を確認。これも新GPU/CPU戦闘0、Windows未依頼。次はv2既存237件turnの同じ保存結果を取得し、成立後に必要な短い別image検証へ進む。旧停止/claimは解除しない。以下は履歴。
 
 ## 2026-11-01 現標準CUDA8/266へ進展、残237を同image・最大8件ずつ依頼
 
