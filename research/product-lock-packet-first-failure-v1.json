@@ -131,10 +131,41 @@
     "object_bytes": 5574448,
     "existing_command": "jit-link-object",
     "calls_requested": 1,
-    "result_received": false,
+    "result_received": true,
     "gpu_calls_requested": 0,
     "child_seconds": 60,
     "outer_seconds": 180,
+    "memory_mib": 2048
+  },
+  "windows_link": {
+    "report_commit": "f8b0773ceef75e3bdd0ad1ba6c9ea5ad269447cf",
+    "report_path": "lock-cover-packet-diagnostic-link-status-v1.json",
+    "report_sha256": "118fa13c884dd7c115b42988e6a43b824a56f98a35024e08ba610bb4461a6a1d",
+    "link_verified": true,
+    "containment_verified": true,
+    "image_bytes": 5198416,
+    "image_sha256": "4a142dde70e69a264bfd862945732223e2cbe0f07e731472c5d037e5a667fb7b",
+    "all_missing_zero": true,
+    "all_jobs_empty": true,
+    "driver_calls": 0,
+    "gpu_calls": 0,
+    "overall_passed": false,
+    "environment_preservation_verified": false
+  },
+  "normal_api_request": {
+    "transport_commit": "e900cce3",
+    "body_bytes": 7707,
+    "body_sha256": "958800b6a1f739506c7c372b7f0664121723b72051ccfda6a08e53e7c5077151",
+    "body_identical_to_original": true,
+    "static_pack_input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+    "expected_readback_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+    "cuda_image_sha256": "4a142dde70e69a264bfd862945732223e2cbe0f07e731472c5d037e5a667fb7b",
+    "post_requested": 1,
+    "gpu_launches_requested": 1,
+    "result_received": false,
+    "reader_sha256": "d921b979d6dc1eb203ecd77568bd991be2ed541175f4dc97d0e07fd5b3928bd1",
+    "immutable_packet_not_overwritten": true,
+    "helper_child_seconds": 53,
     "memory_mib": 2048
   }
 }
