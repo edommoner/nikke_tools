@@ -1,3 +1,11 @@
+## 2026-11-01 共通弾倉・自爆・対象modifier・敵回復7入力のCUDA差分を依頼
+
+ユーザーの接続復旧後、Windows同chatがidleでHeavy成功a55c10b4だったことを確認。元Heavyのobject/link/APIを再送せず、既に取り込み済み成功を保持した。新しい差分は実M5/独立seal済みowner8dfc8849の既存ammo-cover-fixed-group全7件。元5件＋回復2件のinput/全readback/source graph/全definitionを静的に再照合し、追加CPU battle/GPU0。新suite/監査器/数値変更0。既存immutable ZIPとown deps/PTX/O1計画、4batchの元caller/期待hashを輸送commit4569a8c2へ共有（15file、約12.2MB、raw/個人設定なし）。source_commit455b7883はdirty snapshotの元commitであり、ownerと全file SHAをidentityにし、後続review c70c37cd/404859a3との一致と区別する。
+
+Windowsへ同じ共通kernelの2/2/2/1逐次API、最大4POST/4GPU、CPU91のみ（Mac157、model残66はWindows未実行）を1回依頼。SDK/CPU/audit60秒・API53秒・outer180秒・2GiB・BelowNormal・freshJob/startgate、SDK前と各API直前の空きRAM4GiB、最初の異常で停止。exact cacheが全origin gate一致なら再利用、不在ならpaired生成/PTX/O1 object/pinned linkを初回各1回だけ。別Heavy image流用/再試行/claim削除/観測緩和なし。各batch終端/Node消滅/empty/live0後だけ次へ。元全7のfull parent/member raw hashと全CPU/GPU/HTTP/Unicode、既存Node往復と保存再投影を比較する。
+
+受理確認turn01a196d4-16ea-79b1-b86a-e0174ab3f51d、cursor20f61e43-c193-4c3d-95b9-55e58cc5d5d8:41、active。受信後のhash/既存helper確認に着手とのcommentaryを取得。まだCUDA計算結果未取得、coverage加算0。次は同handleのstatus/exportのみを確認し、接続断でrunを再送しない。小保存結果ammo-shared-seven-normal-api-status-v1.jsonを同packet branchへ共有する依頼済み。source/proof/制限の全値はresearch/product-ammo-shared-cuda-request-v1.json。標準Metal263/266・CUDA従来263/266、明示モデル別両266/266は不変、current全CUDA再認定/全効果合成/全goalは未完了。旧失敗/unknown/service・whole・overallfalseは保持。以下は履歴。
+
 ## 2026-11-01 標準全266を現行snapshotへ差分再確認、260再利用＋実M5追加3
 
 前ターンは回復＋弾倉接続でprogress。今回は元の標準266（固定30秒・declared model無し・全effect保持）を、最新release owner8dfc8849へ静的再pack。対応済み263の全inputが旧owner836ade72の保存inputと完全同一、変更0。260はGPU include graphも全SHA同一、43のCPU正本/互換/固定calculator/runner/data fileとno-model早期return ASTも一致。Metal実行関数群ASTは不変（backend差はvalidate_composed_strideの追加受付だけ）、Swift/生成/cache/normalizer/phase6file全byte一致、現8source全strideも受付確認。
