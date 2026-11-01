@@ -1,0 +1,23 @@
+{
+  "schema": "standard-group-current-preparation-v1",
+  "source_commit": "e0781312345501cac9f09257fa0b86df00a70ffd",
+  "program": "fixed-group",
+  "owner": "2a519d52dfefaa034d90369f95906934f71cf1907a181bf8f590c77a730cc419",
+  "real_metal_pilot": true,
+  "fresh_cpu_full_payload_matched": true,
+  "independent_seal": true,
+  "old_normal_api_belorta_input_output_all_bytes_equal": true,
+  "input_sha256": "4a8cbfd2c006b31814a07f748717510d64cc1468c8f82100463fb4cbc68a3362",
+  "output_sha256": "f7d44e602220892659b6b4a1f280493f21cc75b1bdc2f4c805ee763d8d097f2f",
+  "existing_registry_members_retained": 22,
+  "new_independently_sealed_member": "fixed-group",
+  "new_standard_profiles": 0,
+  "windows_requested": false,
+  "goal_complete": false,
+  "scope": "Existing common group program sealed for current source; not new normal API profile execution or CUDA verification",
+  "own_cpu_tests": 136,
+  "post_registration_history_tests": 7,
+  "post_registration_product_packet_tests": 10,
+  "registered_golden": "research/portable-product-programs-v30-expected.json",
+  "independent_audit_receipt_sha256": "bf701f97c1ca4358368ec37f5c439d3db6d9d18f90d76a0ffe0e4d743b45ccbb"
+}

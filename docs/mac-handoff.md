@@ -1,3 +1,15 @@
+## 2026-11-01 現標準CUDA8/266へ進展、残237を同image・最大8件ずつ依頼
+
+前turnは標準CUDA2件の製品確認と全245の静的保持で進捗。今回a9e6942cの保存原本standard-next-six-normal-api-status-v1.json（24,582bytes/SHA8f2328fd…）を取得・照合。Neon/Anis/NeonBlueOcean/AnisSparklingSummer/RapiRedHood/NeonVisionEyeの30秒6件がPOST1・physicalGPU1/retry0でfresh CPU/GPU/APIの全項目と元M5各全readback一致、親18,874,368bytes/SHA d0505a18…も一致。全source/親member入出力slice/静的再packも保存監査成功。現source00ed・owner032bbb76の標準CUDAは計8/266。Metal最終全件262/266（5e1）、別source歴史CUDA3をcurrentへ付替えない。
+
+同CUBIN/pairedcacheを再利用してSDK/事前battle0、GPU3.073秒/HTTP23.389秒/API outer27.509秒。外側Job peak1,478,283,264bytes（約1.38GiB）、全enforced Job pre/post2GiB・gate・empty・missing0、専用Node停止。内部resource8件のlimit=null/観測完全性falseとservice/whole/overallfalseを保持。旧9281fileも全bytes保持。18MiB readbackは既存8MiB+8MiB+2MiBの3転送で全ret0。報告器の「DtoH1回」仮定だけが保存段階で止まり、実際の長さ・全returnを記録して解消。計算・監査の緩和/再GPU0。
+
+輸送ddeed4beの既存request1fileを共有し、残237の同fixedだけを30batch（最大8、最後5）へ依頼済み。各親input/output hashと転送chunk長を元M5 rawからCPUだけで計算し、既存static table245を使用。最初8件の全計算/保存/Job実測を確認してから続け、以後もbatchごと停止条件を適用。APIhelper53秒/2GiB/BelowNormal/freshJob+gate、静的・監査60秒、各outer180秒以内・直列。whole30を1長時間outerに入れない。旧8件再実行/追加SDK/native事前/全testなし、GPU後fresh CPU比較は維持。全CPU/GPU/API/M5・親slice/source/hashを要求し、差分/fallback/missing/観測不全/timeout等で保存停止、retry0。別program17件と4fallbackは今回未依頼。残237結果は未取得。
+
+Macでは既存fixed-group（標準Belorta/Nihilisterの2件用）をsourcee078から不変development owner2a519d52…で用意。own136 CPU・fresh native・実M5代表30秒・GPU禁止fresh独立sealに成功。代表Belortaは旧通常M5のinput4a8cbfd2…と全readback f7d44e60…が元bytesと一致。新GPU/効果/数値/比較器0。未登録だったfixed-groupを独立seal後v30へ追加、旧22member全保持。GOLDEN pathの厳密な88cda履歴inverse/SHAも同時更新し、既存履歴7/製品10成功。これはCLI準備で新通常API profile/CUDA加算0、まだsealed release/Windows未依頼。
+
+原本proofs/product-cuda-standard-current-v4-20261101、product-cuda-standard-group-current-v1-20261101。小記録research/product-standard-current-source-v1.json、product-standard-group-current-source-v1.jsonと標準status原本3file。全goalは未完了。次は既存237件turnを再送せず追跡し、groupのsealed release準備と他入口へ進む。以下は履歴。
+
 ## 2026-11-01 現標準CUDA2/266を通常batch APIで確認、同imageの6件へ拡大
 
 Windows保存結果ff6674d0のSDK10,636bytes/SHA9fe13143…、通常API18,536bytes/SHA17aefb7b…を取得・照合。不変owner032bbb76…／source00ed1f52の標準Poli3/D0を30秒・POST1/physicalGPU1/retry0で実RTX3070Ti確認。両member status0、fresh CPU/GPU/HTTP全項目一致・Unicode除外0。元M5各全readbackと親6,291,456bytes/SHA6c7d8eb0…も一致。静的再pack/親member入出力slice/source/全payload保存監査も成功、追加battle/GPU0。旧Poli3の13word差分は現programで再現しなかった。ただし複数の既存修正を含むsource変更なので、元13wordの特定原因を断定せず旧失敗を保持する。
