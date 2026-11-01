@@ -28,6 +28,8 @@
     "own_ptx_o1_plans_passed": true,
     "validation_deps_passed": true,
     "two_original_profile_inputs_and_m5_raw_hashes_retained": true,
-    "windows_requested": false
+    "windows_requested": false,
+    "prepared_shared_cuda_api_job": "two-group-api-job-v2.json",
+    "prepared_shared_cuda_api_job_sha256": "296817264cd31a6112ca226be7d21ced0197a715c5e7804ab08af192c55ba8b7"
   }
 }

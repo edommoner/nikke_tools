@@ -1,3 +1,15 @@
+## 2026-11-01 残237の実行先指定をGPU前に訂正、他5入口も現Metal/独立seal完了
+
+前turnのCUDA8確認後、残237のv1要求は最初の静的検査で停止（POST/GPU0・新完了0）。Mac作成の245入力表に旧CUDA指定cuda_detailが残っていた入力準備ミス。確認済みfirst-eight/two/sixは元からcuda_shared_detailで、成功8件に影響なし。旧停止原本7bbb4920（3,177bytes/SHAda116f3f…）・claim/旧9408fileを保持し、検査をlegacy受入れへ緩和しない。
+
+body.compute_backendだけをcuda_shared_detailへ直したv2を、同じsealed owner032bbb76自身でsimulate/GPU禁止のまま全245再packし、全計算input/全M5期待値保持を確認。表v2は1,932,289bytes/SHA4bff4e66…、輸送b282b575で共有・既存chatへ新fresh v2 captureで依頼済み。旧v1reportを上書きしない別report名とSHAも要求へ固定。残237/30batch・最初8件全成立後だけ継続、各53秒/2GiB/BelowNormal/freshJob/outer180秒・retry0・同image/cache・全payload/raw/親slice/Job gateは不変。static source/input成功をAPI route成功と混同した元準備を訂正。現在の標準実績はMetal262/266（5e1）・CUDA8/266（00ed）のまま、v2追加結果未取得。
+
+独立してMacでは既存fixed-target/healing-fixed/default-weighted-fixed/default-cover-fixed/ammo-fixedの5入口をsourceb179からそれぞれ不変development packetで用意。各own136 CPU・fresh native・実M5代表30秒・GPU禁止fresh独立sealに成功。代表Asuka/Ann/Bay/Soldier O.W./Velvetはいずれも最後の通常M5のinputと全raw bytes一致。旧登録がある配分/遮蔽/弾倉3memberはinput/output/native entries全保持、共通snapshot修正後のsource/generatedだけを独立再認定。target/healingの2memberは新規登録。v31へ一括し旧20member不変、history7/製品10成功。数値/効果本体/CPU正本/normalizer変更0。これら5入口も先のfixed-groupも、新通常profile/CUDA加算0で、Windowsは既存237件を優先し未依頼。
+
+原本proofs/product-cuda-standard-other-current-v1-20261101の5個別capture/seal/progress、小記録research/product-standard-other-current-source-v1.json。既存fixed-group sealed releaseはowner1a29d920／source7d4000f4で保持し、未送信の共通CUDA要求2件も正しいselectorで再pack、two-group-api-job-v2.json/expected-v2を準備済み（input/全M5期待不変）。source7dのreleaseを新rootへ付替えない。
+
+全goal未完了。次はv2既存237件turnの同じ保存結果を取得し、他5入口のsealed release/短いWindows SDK準備を進める。旧停止/claimは解除しない。以下は履歴。
+
 ## 2026-11-01 現標準CUDA8/266へ進展、残237を同image・最大8件ずつ依頼
 
 前turnは標準CUDA2件の製品確認と全245の静的保持で進捗。今回a9e6942cの保存原本standard-next-six-normal-api-status-v1.json（24,582bytes/SHA8f2328fd…）を取得・照合。Neon/Anis/NeonBlueOcean/AnisSparklingSummer/RapiRedHood/NeonVisionEyeの30秒6件がPOST1・physicalGPU1/retry0でfresh CPU/GPU/APIの全項目と元M5各全readback一致、親18,874,368bytes/SHA d0505a18…も一致。全source/親member入出力slice/静的再packも保存監査成功。現source00ed・owner032bbb76の標準CUDAは計8/266。Metal最終全件262/266（5e1）、別source歴史CUDA3をcurrentへ付替えない。
