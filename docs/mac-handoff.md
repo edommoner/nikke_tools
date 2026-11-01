@@ -1,3 +1,11 @@
+## 配分＋座標の通常CUDA成功を取込、座標ADD差分1件を依頼
+
+Windows turn01a1976cはread_threadでterminal/idle確認。結果5b5dec83のproduct-coordinate-weighted-windows-status-v1.json（27,718B、SHA445fefa8…）を取得。accumulate30s1POST/1実CUDAが全CPU/GPU/HTTP/Unicode一致、元M5全input/readback SHAも一致。実driver全7API各entered/returned1/ret0、sync3.448秒/HTTP23.508秒/API Job28.506秒・peak2,130,137,088B<2GiB。5対象×14groups/通知14/配分snapshot6/cover6。保存監査追加battle/GPU0、今回全stage missing/timeout/query/cleanup0・Nodegone/Jobempty/live0。選択89成功、SDK artifact成功・元source無分割、outer2/inner0/stagefalse/advisory unknown/service・whole・overallfalseは保持。旧ammo4/残3/監査の再実行0。
+
+Macで輸送全payload、最終ownerEEの全manifest、267 GPU closure canonical9fa75b91…、元M5 API memberと独立CLIの全rawを再hashして一致。CUDA raw自体はMac未取得と区別。research/product-coordinate-weighted-cuda-import-v1.json参照。新CUDA証拠は6合成中1条件だけ、全6/fixedのCUDA実機へ広げない。標準profile追加0、従来Metal/CUDA各263/266は不変。
+
+前turn完了後、今回の座標ADD同一kernelのaccumulate6s1件だけを輸送816710fbで共有（12file/12,201,716B、Git blob全11payload/ZIPのSHAを確認）。owner b659740b、元M5 spaced case全input/readbackを固定。自身Mac162＋選択12/依存/PTX/O1計画成功。Windowsは関連12だけ、他150/標準266を再実行しない。元group/Job/2GiB/RAM4GiB/API53s/各SDK60s/outer180s/最初異常停止を保持。初回requestはselector修正後のselected_case_idsを更新し忘れ、Windows turn01a19783で実行前拒否。報告a71a0718の全execution_counts0・13,623B/SHA96c57989…を取得・保持。guard/selector/packet変更0。修正版92656de5は正しいselectorからrequestのIDリストを再投影した3小fileのみ、元ZIP/job/expected/plans全byte不変。今度はMacでも実管理verify-host-tests.pyに修正版program/selector/packetを渡し、全identity/リスト/SHA/12件の一致込みで成功（追加battle/SDK/GPU0）。旧root/停止を変更せずfresh rootの初回検証として共有、read_threadで新turn01a19787-9e92-7023-8a9f-3fba6ff76bb7 inProgressと開始commentaryを確認。CUDA新結果は未取得、次は同handleのstatus/exportだけ。research/product-coordinate-add-cuda-request-v1.json。全goal未完了。以下は履歴。
+
 ## 2026-11-01 座標＋召喚敵の射撃・最終退場を通常Metalへ接続
 
 前turnのweighted＋coordinateはMetal6条件・Windows1条件依頼までprogress。今回は通常coordinateの召喚敵射撃が未接続だったため、既存ADD lower/attachを完全coordinate prefix115680へ接続。同じSlang coordinate executor/ADD cursor/最終射撃退場を使う薄い2entryのみ。式/元shader/CPU正本4file/pinned/suite/監査器変更0。inputは既存784word descriptorを末尾へ、outputは既存予約suffix内の元ADB/ASD bank。decodeは両magic/source map/世代/退場と元world kind5・時刻の同一性/未使用領域を検証してから、その正確な領域だけ所有させる。他reservedは拒否を保持。

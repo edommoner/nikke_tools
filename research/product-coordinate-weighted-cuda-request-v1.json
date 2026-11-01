@@ -238,8 +238,15 @@
   "previous_ammo_api_or_audit_or_unexecuted_retries": 0,
   "send_accepted": true,
   "live_turn": "01a1976c-8066-7c00-b650-74a00fbee5c3",
-  "live_turn_status": "inProgress",
-  "actual_new_sdk_or_gpu_results_received": false,
+  "live_turn_status": "completed",
+  "actual_new_sdk_or_gpu_results_received": true,
   "standard_profile_delta": 0,
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "result_transport_commit": "5b5dec83e26b40c6ad3a189974775bc3a190f5e9",
+  "requested_one_condition_calculation_verified": true,
+  "saved_audit_passed": true,
+  "original_cuda_raw_read_on_mac": false,
+  "original_m5_raw_and_all_input_source_manifest_hashes_rechecked": true,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false
 }

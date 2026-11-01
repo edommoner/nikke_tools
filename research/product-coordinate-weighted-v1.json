@@ -259,14 +259,16 @@
     "configured_original_historical_each": 266,
     "current_full_cuda_matrix_revalidated": false
   },
-  "new_composition_cuda_verified": false,
+  "new_composition_cuda_verified": true,
   "weights_and_colliders_game_verified": false,
   "whole_environment_preservation_verified": false,
   "overall_verified": false,
   "full_goal_complete": false,
   "remaining": [
-    "Short CUDA difference verification of this same product entry",
     "Weighted with independent cover DEF/typed target/movement/lock compositions remain guarded",
     "Other unconnected declared consumer compositions and arbitrary world conditions"
-  ]
+  ],
+  "cuda_verified_conditions": 1,
+  "cuda_verified_scope": "Accumulate active30s only; remaining five Metal conditions not executed on CUDA",
+  "cuda_result_import": "research/product-coordinate-weighted-cuda-import-v1.json"
 }
