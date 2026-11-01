@@ -47,6 +47,34 @@ class ReadbackBlockTests(unittest.TestCase):
         for size in (True,786433,1048577):
             with self.assertRaises(ValueError):blocks.scan(self.path,h,case_words=size)
 
+    def test_saved_packet_failures_are_read_in_the_same_hash_pass_with_unaligned_cases(self):
+        import struct
+        words=2048912;raw=bytearray(words*4*2)
+        # Second case starts 912 words into a block; diagnostic bytes must use
+        # its declared stride rather than the first case's absolute addresses.
+        first=words*4;struct.pack_into('<I',raw,first,64)
+        diagnostic=[0x57504144,9005,8,5,5,5,6,3,1,1,0,0x80000000,6,1,77,64]
+        struct.pack_into('<16I',raw,first+786416*4,*diagnostic)
+        self.path.write_bytes(raw);sha=blocks.digest(raw);index=blocks.scan(self.path,sha,case_words=words)
+        result=blocks.compare(self.path,sha,index,sample_blocks=0)
+        self.assertEqual(result['samples'],[]);self.assertTrue(result['all_blocks_equal'])
+        self.assertFalse(result['calculation_verified']);self.assertEqual(result['gpu_calls'],0)
+        failure=result['failure_diagnostics'];self.assertEqual(len(failure),1)
+        self.assertEqual((failure[0]['case_index'],failure[0]['status']),(1,64))
+        self.assertEqual(failure[0]['packet_failure']['site'],9005)
+        self.assertEqual(failure[0]['packet_failure']['detail'],77)
+        self.assertEqual(failure[0]['packet_failure']['when_high'],0x80000000)
+        self.assertEqual(self.path.read_bytes(),raw)
+
+    def test_admission_unknown_or_inconsistent_markers_are_never_packet_failure_evidence(self):
+        import struct
+        row=[0x57504144,9005]+[0]*13+[64]
+        self.assertIsNotNone(blocks._packet_failure(64,struct.pack('<16I',*row)))
+        for status,slot,value in ((0,1,9005),(64,0,0),(64,1,11),(64,1,9999),(64,15,2)):
+            changed=list(row);changed[slot]=value
+            with self.subTest(status=status,slot=slot,value=value):
+                self.assertIsNone(blocks._packet_failure(status,struct.pack('<16I',*changed)))
+
     def capture(self,name,rows,*,words=1048576):
         folder=self.root/name;folder.mkdir();raw=b''.join(bytes([value])+bytes(words*4-1) for _,value in rows);(folder/'readback.bin').write_bytes(raw)
         entries=[dict(name=n,input_sha256=blocks.digest(('input:'+n).encode()),native_sha256=blocks.digest(('native:'+n).encode()),output_sha256=blocks.digest(bytes([value])+bytes(words*4-1))) for n,value in rows]

@@ -92,5 +92,18 @@
     "sdk_job_protected_files_retained": 18,
     "requested": "paired generation once, PTX once, conditional O1 object once; no link/driver/GPU/HTTP",
     "windows_result_received": false
+  },
+  "saved_reader": {
+    "existing_command": "readback-compare",
+    "new_commands": 0,
+    "tests": 18,
+    "unaligned_batch_case_verified": true,
+    "unknown_and_admission_marker_not_interpreted": true,
+    "source_integrity_and_raw_hash_guards_retained": true,
+    "real_metal_readback_all_blocks_equal": true,
+    "real_metal_failure_diagnostics": [],
+    "real_metal_comparison_sha256": "7f57630407452f05b42a928c92fdd012f0b2945697d631d4e3c9932fb75367ac",
+    "gpu_calls": 0,
+    "native_battles": 0
   }
 }

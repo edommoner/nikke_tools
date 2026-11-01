@@ -42,6 +42,21 @@ def validate(index):
     for value in index['blocks']:checked_hash(value)
 
 
+# Failure-only product Lock On wire; successful/admission diagnostics are not
+# interpreted as packet failures. Values describe a saved receipt, not a cause.
+_PACKET_FAILURE_BASE=786416
+_PACKET_FAILURE_FIELDS=('magic','site','row','packet','hit','hits','depth','epoch',
+    'lock_snapshot','shot_count','when_low','when_high','queue_tail','queue_cursor','detail','status')
+_PACKET_FAILURE_SITES={9001,9002,9003,9004,9005,9006,9010,9011,9012}
+
+
+def _packet_failure(status,raw):
+    words=struct.unpack('<16I',raw)
+    if status!=64 or words[0]!=0x57504144 or words[1] not in _PACKET_FAILURE_SITES or words[15]!=status:
+        return None
+    return dict(zip(_PACKET_FAILURE_FIELDS,words,strict=True))
+
+
 def compare(path,expected_sha256,index,*,sample_blocks=8):
     validate(index)
     if type(sample_blocks) is not int or not 0<=sample_blocks<=8:raise ValueError('At most eight sampled diagnostic blocks')
@@ -52,14 +67,34 @@ def compare(path,expected_sha256,index,*,sample_blocks=8):
     # Recheck all bytes while extracting bounded samples; never trust a second
     # pass after the file changed between scan and sampling.
     h=hashlib.sha256()
+    # Gather only status + diagnostic bytes during this same hash-checked pass.
+    # This also handles case boundaries that are not aligned to 1024-word blocks.
+    diagnostic=[] if index['case_words']!=2048912 else [(bytearray(),bytearray()) for _ in range(index['cases'])]
+    case_bytes=index['case_words']*4
     with Path(path).open('rb') as stream:
         selected=set(changed[:sample_blocks])
         for i,want in enumerate(actual['blocks']):
             raw=stream.read(BLOCK_WORDS*4);h.update(raw)
             if digest(raw)!=want:raise ValueError('Readback changed while sampling')
+            if diagnostic:
+                first=i*BLOCK_WORDS*4;last=first+len(raw)
+                for case in range(first//case_bytes,(last-1)//case_bytes+1):
+                    base=case*case_bytes
+                    for buffer,start,size in ((diagnostic[case][0],base,4),(diagnostic[case][1],base+_PACKET_FAILURE_BASE*4,64)):
+                        lo=max(first,start);hi=min(last,start+size)
+                        if lo<hi:buffer.extend(raw[lo-first:hi-first])
             if i in selected:rows.append(dict(block=i,case_index=i*BLOCK_WORDS//index['case_words'],case_word_offset=i*BLOCK_WORDS%index['case_words'],words=list(struct.unpack('<'+str(len(raw)//4)+'I',raw))))
         if stream.read(1) or h.hexdigest()!=actual['sha256']:raise ValueError('Readback changed while sampling')
-    return dict(schema='readback-block-diff-v1',reference_sha256=index['sha256'],actual_sha256=actual['sha256'],bytes=actual['bytes'],blocks=len(actual['blocks']),changed_blocks=changed,samples=rows,all_blocks_equal=not changed,gpu_calls=0,calculation_verified=False)
+    result=dict(schema='readback-block-diff-v1',reference_sha256=index['sha256'],actual_sha256=actual['sha256'],bytes=actual['bytes'],blocks=len(actual['blocks']),changed_blocks=changed,samples=rows,all_blocks_equal=not changed,gpu_calls=0,calculation_verified=False)
+    if diagnostic:
+        failures=[]
+        for case,(status_raw,diagnostic_raw) in enumerate(diagnostic):
+            if len(status_raw)!=4 or len(diagnostic_raw)!=64:raise ValueError('Incomplete saved diagnostic bytes')
+            status=struct.unpack('<I',status_raw)[0]
+            if status:failures.append(dict(case_index=case,status=status,packet_failure=_packet_failure(status,diagnostic_raw)))
+        result['failure_diagnostics']=failures
+        result['failure_diagnostic_scope']='Hash-checked saved values only; no source identity, root cause, or calculation certification'
+    return result
 
 
 def capture_fingerprints(folder,comparison_sha256,case_words):

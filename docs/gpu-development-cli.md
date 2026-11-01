@@ -908,3 +908,10 @@ packet自身の `compile-plan --artifact-kind cubin --ptxas-level 1 --memory-lim
 これはNVRTC最適化passの並列化という具体的な性能仮説であり、旧serialの失敗key26e5657bの再実行ではない。[NVIDIA NVRTC12.4資料](https://docs.nvidia.com/cuda/archive/12.4.1/nvrtc/index.html)を根拠にする。実時間改善・PTX成功・CUDA計算一致はまだ未確認で、新optionは未使用keyに対して1回だけbounded検証し、失敗時にthread数やtimeoutを上げない。
 
 `reference_models.enemy_movement` と `named_range` は、同一の `coord` と `logical_geometry` を明示した場合、通常 `metal_detail` の単発・batch APIで同時利用できます。移動後の現在colliderを同じframeで範囲選択へ渡し、両方の全履歴を返します。元の単独wireは保持し、合成はinput118020/output2165136、movement履歴8192件。容量超過はCPU切替となり、履歴を省略しません。ゲーム規則の確認済み仕様とは区別します。15/30秒8要求の実M5・CPU・HTTP全項目一致と失敗保持は [製品接続記録](../research/product-movement-range-v1.json)。新suiteは追加していません。
+
+
+## 保存Lock On失敗の既存readback照合
+
+`readback-compare` は2048912語の製品wireでは、同じ全bytes/SHA再検査の読み取りから各caseのstatusと既存診断16語も取得し、`failure_diagnostics`へ追加する。1024語blockに揃わないbatch境界もcase strideで分離する。status64・magic0x57504144・既知packet site9001..9006/9010..9012・記録status64が全て一致した場合だけpacket fieldsとして解釈する。admission stageや未知markerはpacket失敗へ読み替えず、`packet_failure:null`を保持する。whenはlow/highの生bitsで、丸めない。
+
+`sample_blocks=0`の既存Python APIでも取得でき、raw sampleの共有は不要。診断値は保存bufferの観測であり、sourceの所有証明・根本原因・計算成功の認定ではない。全block差分、原SHA、calculation_verified:false、CLIの不一致exitを維持し、raw/status/期待値を書き換えない。
