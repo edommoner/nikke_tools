@@ -3,10 +3,9 @@
   "scope": "Ordinary product typed/Lock On + independent cover + actual incoming attacks + original Ann enemy heal modifier; explicit enemy healing model",
   "current_packet_id": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
   "metal": {
-    "current_source_profiles": 2,
-    "profile_scope": "Distinct request.character profiles (favorite stage0) in the two authored36-second mixed scenes; squad participants separately counted; not unrestricted individual/all-effect certification",
-    "ordinary_api_conditions": 12,
-    "physical_dispatches": 4,
+    "profile_scope": "Request.character profile: mixed explicit36s Prim/Heavy Arms2 plus undeclared standard180s Ann1. Mixed scene participants separately counted; not unrestricted/all-effect certification.",
+    "ordinary_api_conditions": 13,
+    "physical_dispatches": 5,
     "full_cpu_gpu_http_equality": true,
     "new_original_inventory_profiles": 0,
     "participant_profile_names": [
@@ -21,14 +20,18 @@
     "participant_profiles": 7,
     "primary_profile_names": [
       "스노우 화이트 : 헤비암즈",
-      "프림"
-    ]
+      "프림",
+      "앤 : 미라클 페어리"
+    ],
+    "mixed_scene_primary_profiles": 2,
+    "current_source_profiles": 3
   },
   "cuda": {
     "current_source_profiles": 0,
-    "prior_source_ordinary_profiles": 5,
     "prior_source_profile_count_not_revalidated_here": true,
-    "requested_new_gpu_dispatches": 0
+    "requested_new_gpu_dispatches": 0,
+    "prior_source_ordinary_request_profiles": 1,
+    "prior_source_scope": "One frozen explicit logical-owner typed squad8s;not current typed incoming/cover source or all profiles"
   },
   "prior_standard": {
     "profiles": 266,
@@ -334,7 +337,8 @@
     "Lock On initial runs: status64 at revival admission; kind0 and enemy provenance problems corrected in new input/source",
     "Both fixed initial CPU preflights timed out before GPU/claim; after contention ended CPU passed serially and first GPU runs succeeded",
     "Final check receipt formatter expected dict but CPU receipt is list; completed tests/API audit retained, corrected receipt only",
-    "Compact packet model-check lacks upstream IMPL-STATUS.md; source audit passed from complete worktree"
+    "Compact packet model-check lacks upstream IMPL-STATUS.md; source audit passed from complete worktree",
+    "Ann default-api-v1 inherited saved_execution_reuse marker and submitted0 cases; no GPU claimed. Separate v2 removed that marker and verified exact submitted/completed/audited count1."
   ],
   "model_check": {
     "passed": true,
@@ -365,5 +369,35 @@
     "current_source_product_qualification_claimed": false,
     "file": "research/product-typed-healing-standard-static-v1.json",
     "sha256": "7bb600b8e5cfd2015a847f563ef724e6125df81cf94980d1c1fb30f3296a9dd5"
+  },
+  "default_ann180": {
+    "ordinary_api_profiles": 1,
+    "profile": "앤 : 미라클 페어리",
+    "favorite_stage": 0,
+    "declaration_models": false,
+    "duration": 180,
+    "full_old_raw_byte_hash_equal": true,
+    "saved_audit": {
+      "rows": [
+        {
+          "index": 0,
+          "profile": "앤 : 미라클 페어리",
+          "favorite_stage": 0,
+          "capture": "827a9e8e93ee4738a5ba15e5e32e9f72",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": false,
+          "old_full_readback_anchor_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        }
+      ],
+      "audited": 1,
+      "native_battle_calls": 0,
+      "gpu_calls": 0
+    },
+    "source_scope": "Fresh current source standard healing-fixed; other historical standard265 not freshly dispatched"
   }
 }

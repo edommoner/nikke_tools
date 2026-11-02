@@ -1,0 +1,48 @@
+{
+  "schema": "product-typed-healing-windows-import-v1",
+  "report_commit": "12ab21bcb144d88f5796cd15c030bc8923355946",
+  "owner": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
+  "manifest_and_source_and_paired_normalization_exact": true,
+  "pinned_plan_and_options_exact": true,
+  "ptx_artifact": {
+    "path": "C:\\Users\\owner\\Documents\\Codex\\product-typed-healing-current-windows-v1\\compile-ptx-v1\\proof\\compiled.ptx",
+    "bytes": 14804305,
+    "sha256": "008f19cf0209af74bc8c04ae0f05a260574642ecd7ad59fa3cacab7f86795f39"
+  },
+  "cache_key": "02bc0c66fa2f378e4bf5b89ade4727131f7ea4a61b116f95d4dbf54cc9d904b5",
+  "compiler_verified": true,
+  "stage_verified": false,
+  "whole_environment_preservation_verified": false,
+  "missing_processes": 0,
+  "cleanup_errors": 0,
+  "observations": "Peer saved JSON and hashes; PTX binary and complete raw SDK/Job logs not read on Mac",
+  "source_scope": "Current typed-lock healing source; compiler proof only, ordinary CUDA profiles0",
+  "sdk_child_seconds": 51.63907999964431,
+  "pipeline_seconds": 95.18011200008914,
+  "pipeline_peak_bytes": 722137088,
+  "extra_compiler_gpu_native_calls": 0,
+  "prior_failures_unchanged": true,
+  "next_step": "Existing assembly_origin permits separately reviewed next object stage only after fresh full producer/containment/no-missing checks; outer exit2 and unknown service remain unchanged",
+  "post_ptx": {
+    "report_commit": "fe9d2ffc83a3c8cdd6f871def6f53aacb366dcde",
+    "host_paths_symbolized": true,
+    "object": {
+      "path": "$VALIDATION_ROOT/module-object-v1/proof/module.o",
+      "bytes": 8120624,
+      "sha256": "506b746947ba86111244ff5bc1315c5478e041104b222cb1915cd72805c6e19b"
+    },
+    "linked_cubin": {
+      "path": "$VALIDATION_ROOT/jit-link-object-v1/proof/jit-linked.cubin",
+      "bytes": 7508944,
+      "sha256": "38e2bdf6c1d63c76545ab840caea0b5358cdc9b668faceaa76f01b970a09062a"
+    },
+    "ptx_object_link_lineage_exact": true,
+    "artifact_verified": true,
+    "containment_and_no_missing_verified": true,
+    "outer_exit2_and_unknown_service_preserved": true,
+    "pipeline_seconds": 95.76991270016879,
+    "pipeline_peak_bytes": 624656384,
+    "ordinary_cuda_profiles": 0,
+    "binary_read_on_mac": false
+  }
+}

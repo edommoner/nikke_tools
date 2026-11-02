@@ -1,0 +1,708 @@
+{
+  "schema": "product-typed-healing-one-cuda-api-request-v1",
+  "package_id": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
+  "source": "gpu/product_typed_lock_battle_entry.slang",
+  "entry": "portableEvents",
+  "input_words": 128124,
+  "output_words": 2995048,
+  "input_sha256": "efa6b20b6945ab9a7bcc4ff409360fc47e1497f87b20886b0a17fdcc2c8d944d",
+  "output_sha256": "1f7a29fdf5bc696aa32db8a100cfc1915c5c20c66d48560b0cd5a7428d49153b",
+  "old_metal_capture": "ebc03a9689ec43e387ebd7112dcded36",
+  "profile": "스노우 화이트 : 헤비암즈",
+  "favorite_stage": 0,
+  "variant": "typed-lock-accumulate/authored36",
+  "physical_cases": 1,
+  "maximum_posts": 1,
+  "maximum_kernel_calls": 1,
+  "job": {
+    "kind": "batch",
+    "evaluations": [
+      {
+        "profile": {
+          "chars": {
+            "스노우 화이트 : 헤비암즈": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "미란다": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "도라": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "N102": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "메어리": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "솔져 O.W.": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "앤 : 미라클 페어리": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            }
+          },
+          "_account": {
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            }
+          }
+        },
+        "squad": [
+          "스노우 화이트 : 헤비암즈",
+          "미란다",
+          "앤 : 미라클 페어리",
+          "N102",
+          "솔져 O.W."
+        ],
+        "duration": 36,
+        "level": 400,
+        "enemy": {
+          "def": 31784,
+          "code": "풍압",
+          "core_px": 50,
+          "distance": 25,
+          "patterns": [
+            {
+              "id": "coordinate-projectiles",
+              "kind": "idle",
+              "until": {
+                "time": 37
+              }
+            },
+            {
+              "id": "logical-owners",
+              "kind": "summon",
+              "until": {
+                "time": 37
+              },
+              "spec": {
+                "count": 2,
+                "hp": 1e+30
+              }
+            },
+            {
+              "id": "typed-incoming",
+              "kind": "attack",
+              "delay": 0.75,
+              "spec": {
+                "atk": 100000,
+                "coeff": 100,
+                "target": "all",
+                "hits": 5,
+                "interval": 0.5,
+                "debuffs": [
+                  {
+                    "stat": "atk_pct",
+                    "value": -10,
+                    "duration": 2
+                  },
+                  {
+                    "stat": "dot",
+                    "coeff": 10,
+                    "interval": 0.5,
+                    "duration": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "typed-heal-0",
+              "kind": "idle",
+              "delay": 1
+            },
+            {
+              "id": "typed-heal-1",
+              "kind": "idle",
+              "delay": 6
+            },
+            {
+              "id": "typed-heal-2",
+              "kind": "idle",
+              "delay": 25
+            },
+            {
+              "id": "typed-heal-3",
+              "kind": "idle",
+              "delay": 35
+            }
+          ]
+        },
+        "burst_policy": "auto",
+        "burst_gauge_mode": "accumulate",
+        "seed": 2427,
+        "reference_models": {
+          "typed_targets": {
+            "coord": {
+              "auto_aim": [
+                0,
+                0
+              ],
+              "pierce_px": 10,
+              "explosion_scale": 1
+            },
+            "bindings": [
+              {
+                "node": "coordinate-projectiles",
+                "kind": 2,
+                "identity": 10,
+                "capacity": 1e+30,
+                "owner": [
+                  5,
+                  1,
+                  1
+                ],
+                "label": "projectile-0"
+              },
+              {
+                "node": "coordinate-projectiles",
+                "kind": 3,
+                "identity": 11,
+                "capacity": 1e+30,
+                "owner": [
+                  0,
+                  0,
+                  1
+                ],
+                "label": "projectile-1"
+              },
+              {
+                "node": "coordinate-projectiles",
+                "kind": 2,
+                "identity": 12,
+                "capacity": 1e+30,
+                "owner": [
+                  5,
+                  0,
+                  1
+                ],
+                "label": "projectile-2"
+              }
+            ],
+            "geometry": {
+              "point_source": "caster_aim",
+              "shapes": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1000,
+                  "z": 3
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1000,
+                  "z": 2
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1000,
+                  "z": 1
+                }
+              ]
+            },
+            "aim_policy": {
+              "mode": "typed-before-body-v1"
+            },
+            "actor_policy": {
+              "mode": "logical-owned-current-fields-v1"
+            },
+            "logical_geometry": [
+              {
+                "label": "__enemy__:logical-owners#1",
+                "shape": {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1,
+                  "z": -3
+                }
+              },
+              {
+                "label": "__enemy__:logical-owners#2",
+                "shape": {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1,
+                  "z": -3
+                }
+              }
+            ]
+          },
+          "lock_on": {
+            "owner": "스노우 화이트 : 헤비암즈",
+            "marker": "록 온",
+            "packet_skill": "오토 파이어 2",
+            "candidate_order": "body-then-add-spawn-v1",
+            "delivery": "require-live-frozen-slot-v1",
+            "typed_bindings": [
+              {
+                "node": "coordinate-projectiles",
+                "kind": 2,
+                "identity": 10,
+                "capacity": 1e+30,
+                "owner": [
+                  5,
+                  1,
+                  1
+                ],
+                "label": "projectile-0"
+              },
+              {
+                "node": "coordinate-projectiles",
+                "kind": 3,
+                "identity": 11,
+                "capacity": 1e+30,
+                "owner": [
+                  0,
+                  0,
+                  1
+                ],
+                "label": "projectile-1"
+              },
+              {
+                "node": "coordinate-projectiles",
+                "kind": 2,
+                "identity": 12,
+                "capacity": 1e+30,
+                "owner": [
+                  5,
+                  0,
+                  1
+                ],
+                "label": "projectile-2"
+              }
+            ]
+          },
+          "cover_defense": [
+            {
+              "name": "스노우 화이트 : 헤비암즈",
+              "base_defense": 1000
+            },
+            {
+              "name": "미란다",
+              "base_defense": 1100
+            },
+            {
+              "name": "앤 : 미라클 페어리",
+              "base_defense": 1200
+            },
+            {
+              "name": "N102",
+              "base_defense": 1300
+            },
+            {
+              "name": "솔져 O.W.",
+              "base_defense": 1400
+            }
+          ],
+          "enemy_healing": [
+            {
+              "node": "typed-heal-0",
+              "targets": [
+                "__enemy__:logical-owners#1",
+                "__enemy__:logical-owners#2"
+              ],
+              "amount": 1000000
+            },
+            {
+              "node": "typed-heal-1",
+              "targets": [
+                "__enemy__:logical-owners#1",
+                "__enemy__:logical-owners#2"
+              ],
+              "amount": 1000000
+            },
+            {
+              "node": "typed-heal-2",
+              "targets": [
+                "__enemy__:logical-owners#1",
+                "__enemy__:logical-owners#2"
+              ],
+              "amount": 1000000
+            },
+            {
+              "node": "typed-heal-3",
+              "targets": [
+                "__enemy__:logical-owners#1",
+                "__enemy__:logical-owners#2"
+              ],
+              "amount": 1000000
+            }
+          ]
+        },
+        "manual_cover_sequences": {
+          "스노우 화이트 : 헤비암즈": [
+            {
+              "action": "cover",
+              "t": 0.5,
+              "duration": 3
+            }
+          ],
+          "솔져 O.W.": [
+            {
+              "action": "cover",
+              "t": 1,
+              "duration": 1
+            }
+          ]
+        },
+        "compute_backend": "cuda_detail",
+        "verify_detail": true
+      }
+    ]
+  },
+  "requires_independently_verified_linked_cubin": true,
+  "requires_fresh_full_input_byte_and_lineage_checks": true,
+  "requires_fresh_cpu_after_gpu": true,
+  "ram_required_bytes": 4294967296,
+  "budget": {
+    "memory_limit_mb": 2048,
+    "priority": "BelowNormal",
+    "api_helper_seconds": 53,
+    "outer_seconds": 180,
+    "serial": true
+  },
+  "gpu_execution_requested": false,
+  "scope": "Prepared public product request and exact existing Metal expectations; not a GPU authorization or proof. No raw or personal session.",
+  "expected_public_payload_sha256": "7e1bb5b6daa264f0e77939484e540219476ab8ee1de00515ab17b8cf052a485a",
+  "expected_public_payload_sha256_scope": "Saved ordinary Metal API payload excluding compute/cache_hit only; Python canonical compact sorted UTF-8 JSON. Independent of differently framed CLI input."
+}

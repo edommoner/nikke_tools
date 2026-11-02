@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "owner": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
+  "fixed_source_commit": "18eb370fe64bcf99a30f43a6ecb53c390e06f27a",
+  "scope": "Saved summary only; no PTX, raw, SDK, generated payloads or private settings",
+  "files": [
+    {
+      "path": "product-typed-healing-current-windows-summary-v1.json",
+      "bytes": 52916,
+      "sha256": "e730f14ef9b3c44629b6bb0a4829066e6f3d083297c1bfa3a0ca1c04c8f93c2e"
+    }
+  ],
+  "reviewed_plan_sha256": "e90f87ca417a767ceb17bda8cbb3e9d8a97f09578557d4e7ec4c2b70331fc414",
+  "ptx_artifact_verified": true,
+  "calculation_verified": false,
+  "whole_stage_verified": false,
+  "whole_environment_preservation_verified": false,
+  "historical_failures_retained": true,
+  "retries": 0
+}

@@ -123,3 +123,7 @@ Rei variant（레이 (가칭)）とAsuka WILLEを含む1編成の宣言モデル
 UI http://127.0.0.1:4327/#single は所有PID/rootを確認して現版へ更新、HTTP200、個人設定変更0。Windowsの外部RAM改善後は1回測定で6.86GiB、pending0。新sealed packetのPTX生成だけをplan固定・2GiB／child60秒／全180秒で依頼する。旧residentと失敗CUBINは再試行しない。SDK前にfresh RAM gateを維持する。詳細と残件は [product-typed-healing-v1](../research/product-typed-healing-v1.json)。全目標は未完了。
 
 標準266要求の静的再準備も完了し、入力全byte・選択sourceが保存実行と一致。revival flagを持つ全行で旧／新kind guardの受理条件が同じことを確認した。追加CPU戦闘／GPU0。これは旧CPU期待値の再利用可否を絞る証拠で、新sourceの266 GPU実行数へは昇格しない。`research/product-typed-healing-standard-static-v1.json`に各profileを記録。
+
+Annの元profile0を宣言なし標準180秒で通常APIから新source Metalへ実行し、CPU全応答一致・旧GPU全raw SHA一致・独立保存監査1も成功。現在の要求profileは混在条件2＋標準Ann1＝3、条件13。標準266のうち残265は今回のfresh dispatchへ数えない。初default-api-v1は継承した保存再利用markerで0件送信だったため成功計数せず保持、v2でmarkerを除いて初実行1件を確認した。
+
+Windows新source owner7823d1c4…はPTX14,804,305B→O1 object8,120,624B→linked CUBIN7,508,944Bの成果物検査・lineage・Job containment・missing0を確認。PTX pipeline95.18秒／peak722,137,088B、object/link pipeline95.77秒／peak624,656,384B。全child60秒以内／Job2GiB以内、生成以降Slang/NVRTC再実行0、module/GPU/API0。外側exit2と識別service未確認／環境保全falseは不変。自動共有審査でホスト情報への懸念が出たため後段summaryのhost pathを記号化し、許可済み2小JSONのみを共有、元保存記録は保持した。Mac照合はpeer JSON/SHAで、PTX/object/CUBIN本体は未読。現CUDA製品profile0。

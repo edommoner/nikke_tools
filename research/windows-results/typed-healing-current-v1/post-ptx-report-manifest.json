@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "owner": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
+  "fixed_source_commit": "18eb370fe64bcf99a30f43a6ecb53c390e06f27a",
+  "scope": "Two small JSON status files only, explicitly requested for codex/typed-healing-current-v1-report; no raw/PTX/object/CUBIN/SDK/private settings",
+  "files": [
+    {
+      "path": "product-typed-healing-current-windows-post-ptx-summary-v1.json",
+      "bytes": 19395,
+      "sha256": "30235f3014114656c35e583382e029ab67d6c3df21e10626344938c77290eb8d"
+    }
+  ],
+  "original_local_summary_sha256": "be29677201cbb4694563866ed10c79b574b7900cefe8e7b1024ed8289ccb97c1",
+  "host_paths_symbolized": true,
+  "process_identifiers_omitted": true,
+  "artifact_chain_verified": true,
+  "outer_stage_exit2_preserved": true,
+  "whole_environment_preservation_verified": false,
+  "calculation_verified": false,
+  "historical_stops_claims_unchanged": true,
+  "retries": 0
+}
