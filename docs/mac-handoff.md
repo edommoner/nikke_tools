@@ -5690,3 +5690,10 @@ UI http://127.0.0.1:4327/#single は所有PID/rootを確認して現版へ更新
 Annの元profile0を宣言なし標準180秒で通常APIから新source Metalへ実行し、CPU全応答一致・旧GPU全raw SHA一致・独立保存監査1も成功。現在の要求profileは混在条件2＋標準Ann1＝3、条件13。標準266のうち残265は今回のfresh dispatchへ数えない。初default-api-v1は継承した保存再利用markerで0件送信だったため成功計数せず保持、v2でmarkerを除いて初実行1件を確認した。
 
 Windows新source owner7823d1c4…はPTX14,804,305B→O1 object8,120,624B→linked CUBIN7,508,944Bの成果物検査・lineage・Job containment・missing0を確認。PTX pipeline95.18秒／peak722,137,088B、object/link pipeline95.77秒／peak624,656,384B。全child60秒以内／Job2GiB以内、生成以降Slang/NVRTC再実行0、module/GPU/API0。外側exit2と識別service未確認／環境保全falseは不変。自動共有審査でホスト情報への懸念が出たため後段summaryのhost pathを記号化し、許可済み2小JSONのみを共有、元保存記録は保持した。Mac照合はpeer JSON/SHAで、PTX/object/CUBIN本体は未読。現CUDA製品profile0。
+
+
+## 2026-11-02 開発体制をClaude方針・Codex実装・Claudeチェックへ変更
+
+ユーザーの明示指示により [Claude主導の開発手順](claude-led-development.md) を現在の進め方とする。Claude Codeへの許可済み14ファイル抜粋の初回レビュー125.48秒＋事実確認35.04秒が完了。最終GPU目標をfallback達成へ狭めないことをClaudeと確認した。次はportable_detail.pyと既存製品テストだけで例外/fallback/CPU二重評価を修正する単位。CPU正本・Slang・成功decode・goldenは不変。実装後Claudeのaccept前に新しい合成や266再実行へ進まない。
+
+依頼済みWindows APIはCodexのbackend識別子cuda_detailの誤りでstatic guard停止。正規識別子はcuda_shared_detail。元requestを保持、POST/kernel/CPU戦闘0を保存report1a68dc8eから回収・SHA検証済み。まだ修正/再送していない。artifact成功/exit2/環境保全falseの過去記録は保持。

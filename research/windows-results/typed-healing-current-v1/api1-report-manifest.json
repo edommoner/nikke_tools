@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "owner": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
+  "fixed_request_commit": "9d34b136282f059acd108ae158ae5a0059db6747",
+  "scope": "API1 static backend guard stop; symbolic host paths, status metadata only; no raw/artifact/SDK/private settings",
+  "files": [
+    {
+      "path": "product-typed-healing-current-windows-api1-summary-v1.json",
+      "bytes": 4039,
+      "sha256": "698bc17cf6f825bf93a37c6ed6cac854ae133fd4ce1625df8c814198b5adeab3"
+    }
+  ],
+  "status": "stopped-before-api",
+  "posts": 0,
+  "kernels": 0,
+  "cpu_battles": 0,
+  "request_unchanged": true,
+  "historical_false_judgments_preserved": true
+}

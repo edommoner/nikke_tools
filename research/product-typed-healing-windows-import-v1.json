@@ -44,5 +44,35 @@
     "pipeline_peak_bytes": 624656384,
     "ordinary_cuda_profiles": 0,
     "binary_read_on_mac": false
+  },
+  "ordinary_api1_stop": {
+    "report_commit": "1a68dc8e3af0189d30fa135a5b59a6069018f7ba",
+    "request_bytes_and_sha_exact": true,
+    "status": "stopped-before-static-input-and-GPU",
+    "stop": {
+      "stage": "static-request-backend-guard",
+      "reason": "Pinned request.job uses compute_backend=cuda_detail. Existing shared product helper and portable_detail.BACKENDS require cuda_shared_detail; no alias is present in saved common backend mapping.",
+      "fixed_request_unchanged": true,
+      "retries_allowed": false,
+      "api_posts": 0,
+      "kernel_calls": 0
+    },
+    "counts": {
+      "static_helper_attempts": 1,
+      "api_ram_samples": 0,
+      "http_posts": 0,
+      "kernel_calls": 0,
+      "driver_api_calls": 0,
+      "cpu_battles": 0,
+      "slang": 0,
+      "nvrtc": 0,
+      "ptxas": 0,
+      "jit_link": 0,
+      "retries": 0
+    },
+    "cause": "Codex authored unsupported cuda_detail identifier instead of cuda_shared_detail",
+    "gpu_claim_consumed": false,
+    "rerun_requested": false,
+    "corrected_request_not_yet_created": true
   }
 }
