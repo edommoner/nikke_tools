@@ -1,0 +1,513 @@
+{
+  "schema": "product-typed-healing-current-windows-post-ptx-summary-v1",
+  "owner": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
+  "fixed_transport_commit": "18eb370fe64bcf99a30f43a6ecb53c390e06f27a",
+  "source_commit": "0d2f28086ca9addf471c95f1ad84518db84c773f",
+  "source_manifest_sha256": "b895a19a0cd8f24941b4189089e7e3e9edc772280bcc568cc3439f77e453a897",
+  "producer": {
+    "package": "$VALIDATION_ROOT/packet",
+    "compile_capture": "$VALIDATION_ROOT/compile-ptx-v1/proof",
+    "ptx": {
+      "version": "8.4",
+      "target": "sm_86",
+      "bytes": 14804305,
+      "sha256": "008f19cf0209af74bc8c04ae0f05a260574642ecd7ad59fa3cacab7f86795f39"
+    },
+    "cache_key": "02bc0c66fa2f378e4bf5b89ade4727131f7ea4a61b116f95d4dbf54cc9d904b5",
+    "prior_summary": {
+      "path": "$VALIDATION_ROOT/product-typed-healing-current-windows-summary-v1.json",
+      "bytes": 52916,
+      "sha256": "e730f14ef9b3c44629b6bb0a4829066e6f3d083297c1bfa3a0ca1c04c8f93c2e"
+    }
+  },
+  "artifact_chain_verified": true,
+  "object": {
+    "path": "$VALIDATION_ROOT/module-object-v1/proof/module.o",
+    "bytes": 8120624,
+    "sha256": "506b746947ba86111244ff5bc1315c5478e041104b222cb1915cd72805c6e19b"
+  },
+  "linked_cubin": {
+    "path": "$VALIDATION_ROOT/jit-link-object-v1/proof/jit-linked.cubin",
+    "bytes": 7508944,
+    "sha256": "38e2bdf6c1d63c76545ab840caea0b5358cdc9b668faceaa76f01b970a09062a"
+  },
+  "stages": {
+    "object": {
+      "stage_result": {
+        "schema": 1,
+        "package_id": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
+        "stage": "module-object",
+        "bounded_execution_verified": false,
+        "compiler_verified": false,
+        "generation_verified": false,
+        "calculation_verified": false,
+        "cpu_verified": false,
+        "smoke_verified": false,
+        "whole_stage_process_preservation_verified": true,
+        "whole_stage_environment_preservation_verified": false,
+        "stage_verified": false,
+        "stage_complete": false,
+        "gpu_retries": 0,
+        "full_goal_complete": false,
+        "diagnostic_verified": true,
+        "object_verified": true,
+        "link_verified": false
+      },
+      "proof_result": {
+        "mode": "module-object-only",
+        "object_verified": true,
+        "passed": false,
+        "containment_verified": true,
+        "preservation_verified": false,
+        "partition_legal_verified": false,
+        "calculation_verified": false,
+        "link_verified": false,
+        "kernel_calls": 0,
+        "error": null,
+        "gpu_retry_count": 0
+      },
+      "metadata": {
+        "path": "$VALIDATION_ROOT/module-object-v1/proof/object.json",
+        "bytes": 70975,
+        "sha256": "b702feb3bbbe7cb427cfee0ec18450fea7aba5753eef8a4837f6d2d62f2b2391"
+      },
+      "admission": {
+        "artifact_verified": true,
+        "containment_verified": true,
+        "no_missing_verified": true,
+        "outer_cli_return_code": 1,
+        "outer_stage_verified": false,
+        "whole_environment_preservation_verified": false,
+        "service_unverified_exception_preserved": true
+      },
+      "request": {
+        "source_package": "$VALIDATION_ROOT/packet",
+        "source_capture": "$VALIDATION_ROOT/compile-ptx-v1/proof",
+        "cache_entry": "$VALIDATION_SIBLINGS/nikke-product-parts-boundary-v1/compile-cache-v1/02bc0c66fa2f378e4bf5b89ade4727131f7ea4a61b116f95d4dbf54cc9d904b5.json",
+        "phases": "$VALIDATION_ROOT/compile-ptx-v1/proof/phases.jsonl",
+        "ptxas": "$VALIDATION_SIBLINGS/nikke-v130-diagnostic/component/extracted/nvidia/cuda_nvcc/bin/ptxas.exe"
+      },
+      "origin": {
+        "producer_package_id": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
+        "input": {
+          "version": "8.4",
+          "target": "sm_86",
+          "bytes": 14804305,
+          "sha256": "008f19cf0209af74bc8c04ae0f05a260574642ecd7ad59fa3cacab7f86795f39"
+        },
+        "source_bytes_unchanged": true,
+        "source_partitioned": false
+      },
+      "receipt_key": "c6a98c8a509c8ceaec92e5584f9fabcb7ab0f1fd83c2f8c0c3e516792821aff0",
+      "tool_identity": {
+        "version": "12.4.131",
+        "sha256": "0183c5b1fdecc69234597efac421eca4670a3f6ed6ed028ff6afb85d06f3efb8",
+        "wheel_sha256": "aadd9fb307352bbcd5bc89b5f98c10cd78000915094882d97321f5fe36441742",
+        "bytes": 19582976
+      },
+      "tool_options": [
+        "--gpu-name=sm_86",
+        "--opt-level=1",
+        "--fmad=false",
+        "--verbose",
+        "--compile-only"
+      ],
+      "execution": {
+        "outer": {
+          "execution": {
+            "passed": false,
+            "timed_out": false,
+            "timeout_seconds": 107.7960000000894,
+            "elapsed_seconds": 41.25230520032346,
+            "final_child_exit_code": 2,
+            "below_normal_priority": true,
+            "error": null,
+            "cleanup_error": null,
+            "observation_error": null
+          },
+          "job": {
+            "limit_bytes": 2147483648,
+            "peak_bytes": 579780608,
+            "post_wait_empty": true,
+            "pre_gate_verified": true,
+            "inspection_errors": []
+          },
+          "preservation": {
+            "all_monitored_processes_preserved": true,
+            "missing_existing_processes": [],
+            "identified_nikke_service_preservation_verified": false,
+            "nikke_service_status_before": "unverified",
+            "nikke_service_status_after": "unverified",
+            "termination_cause": null
+          },
+          "comparison_error": null,
+          "missing_count": 0
+        },
+        "inner": {
+          "execution": {
+            "passed": true,
+            "timed_out": false,
+            "timeout_seconds": 60,
+            "elapsed_seconds": 25.996083199977875,
+            "final_child_exit_code": 0,
+            "below_normal_priority": true,
+            "error": null,
+            "cleanup_error": null,
+            "observation_error": null
+          },
+          "job": {
+            "limit_bytes": 2147483648,
+            "peak_bytes": 529809408,
+            "post_wait_empty": true,
+            "pre_gate_verified": true,
+            "inspection_errors": []
+          },
+          "preservation": {
+            "all_monitored_processes_preserved": true,
+            "missing_existing_processes": [],
+            "identified_nikke_service_preservation_verified": false,
+            "nikke_service_status_before": "unverified",
+            "nikke_service_status_after": "unverified",
+            "termination_cause": null
+          },
+          "comparison_error": null,
+          "missing_count": 0
+        }
+      },
+      "ptxas": {
+        "argv": [
+          "$VALIDATION_SIBLINGS/nikke-v130-diagnostic/component/extracted/nvidia/cuda_nvcc/bin/ptxas.exe",
+          "--gpu-name=sm_86",
+          "--opt-level=1",
+          "--fmad=false",
+          "--verbose",
+          "--compile-only",
+          "$VALIDATION_ROOT/module-object-v1/proof/module.ptx",
+          "-o",
+          "$VALIDATION_ROOT/module-object-v1/proof/module.o.partial"
+        ],
+        "tool_sha256": "0183c5b1fdecc69234597efac421eca4670a3f6ed6ed028ff6afb85d06f3efb8",
+        "return_code": 0,
+        "elapsed_seconds": 15.884873700328171
+      }
+    },
+    "link": {
+      "stage_result": {
+        "schema": 1,
+        "package_id": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
+        "stage": "jit-link-object",
+        "bounded_execution_verified": false,
+        "compiler_verified": false,
+        "generation_verified": false,
+        "calculation_verified": false,
+        "cpu_verified": false,
+        "smoke_verified": false,
+        "whole_stage_process_preservation_verified": true,
+        "whole_stage_environment_preservation_verified": false,
+        "stage_verified": false,
+        "stage_complete": false,
+        "gpu_retries": 0,
+        "full_goal_complete": false,
+        "diagnostic_verified": true,
+        "object_verified": true,
+        "link_verified": true
+      },
+      "proof_result": {
+        "mode": "jit-link-object-only",
+        "object_verified": true,
+        "link_verified": true,
+        "passed": false,
+        "containment_verified": true,
+        "preservation_verified": false,
+        "calculation_verified": false,
+        "current_full_battle_verified": false,
+        "kernel_calls": 0,
+        "error": null,
+        "gpu_retry_count": 0
+      },
+      "metadata": {
+        "path": "$VALIDATION_ROOT/jit-link-object-v1/proof/jit-link.json",
+        "bytes": 81873,
+        "sha256": "b924f493f2e93752a4a3047a1b45c2f79d4a0900a1aace91685d55f627b010a7"
+      },
+      "admission": {
+        "artifact_verified": true,
+        "containment_verified": true,
+        "no_missing_verified": true,
+        "outer_cli_return_code": 1,
+        "outer_stage_verified": false,
+        "whole_environment_preservation_verified": false,
+        "service_unverified_exception_preserved": true
+      },
+      "request": {
+        "object_package": "$VALIDATION_ROOT/packet",
+        "object_capture": "$VALIDATION_ROOT/module-object-v1/proof",
+        "object_sha256": "506b746947ba86111244ff5bc1315c5478e041104b222cb1915cd72805c6e19b",
+        "nvjitlink": "$VALIDATION_SIBLINGS/nikke-jit-link-d1594d9-diagnostic/component/libnvjitlink-windows-x86_64-12.4.127-archive/bin/nvJitLink_120_0.dll"
+      },
+      "origin": {
+        "producer_package_id": null,
+        "input": {
+          "format": "elf64-little",
+          "type": "relocatable",
+          "machine": "cuda",
+          "cuda_format_version": 124,
+          "sections": 1116,
+          "bytes": 8120624,
+          "sha256": "506b746947ba86111244ff5bc1315c5478e041104b222cb1915cd72805c6e19b"
+        },
+        "source_bytes_unchanged": null,
+        "source_partitioned": null
+      },
+      "receipt_key": "8db3b110c74eee2c96010e780206c9b20375fc46a00f06788e4d519fa1838ff4",
+      "tool_identity": {
+        "version": "12.4.127",
+        "sha256": "2da9da786b85c100ba122f931a49c5c1eda83c32e3fa36814c2ef470e45fa9b1",
+        "archive_sha256": "d8f4086215f482263dbfbe47a3580e88acbcdacbb284f8aa0c21a8fe408e671d",
+        "bytes": 38247424
+      },
+      "tool_options": [
+        "-arch=sm_86",
+        "-verbose"
+      ],
+      "execution": {
+        "outer": {
+          "execution": {
+            "passed": false,
+            "timed_out": false,
+            "timeout_seconds": 107.81199999991804,
+            "elapsed_seconds": 49.50104739982635,
+            "final_child_exit_code": 2,
+            "below_normal_priority": true,
+            "error": null,
+            "cleanup_error": null,
+            "observation_error": null
+          },
+          "job": {
+            "limit_bytes": 2147483648,
+            "peak_bytes": 244080640,
+            "post_wait_empty": true,
+            "pre_gate_verified": true,
+            "inspection_errors": []
+          },
+          "preservation": {
+            "all_monitored_processes_preserved": true,
+            "missing_existing_processes": [],
+            "identified_nikke_service_preservation_verified": false,
+            "nikke_service_status_before": "unverified",
+            "nikke_service_status_after": "unverified",
+            "termination_cause": null
+          },
+          "comparison_error": null,
+          "missing_count": 0
+        },
+        "inner": {
+          "execution": {
+            "passed": true,
+            "timed_out": false,
+            "timeout_seconds": 60,
+            "elapsed_seconds": 20.07372479978949,
+            "final_child_exit_code": 0,
+            "below_normal_priority": true,
+            "error": null,
+            "cleanup_error": null,
+            "observation_error": null
+          },
+          "job": {
+            "limit_bytes": 2147483648,
+            "peak_bytes": 143097856,
+            "post_wait_empty": true,
+            "pre_gate_verified": true,
+            "inspection_errors": []
+          },
+          "preservation": {
+            "all_monitored_processes_preserved": true,
+            "missing_existing_processes": [],
+            "identified_nikke_service_preservation_verified": false,
+            "nikke_service_status_before": "unverified",
+            "nikke_service_status_after": "unverified",
+            "termination_cause": null
+          },
+          "comparison_error": null,
+          "missing_count": 0
+        }
+      },
+      "sdk_api_returns": [
+        {
+          "stage": "nvJitLinkVersion",
+          "return_code": 0,
+          "elapsed_seconds": 7.5e-06
+        },
+        {
+          "stage": "__nvJitLinkCreate_12_4",
+          "return_code": 0,
+          "elapsed_seconds": 0.0027971
+        },
+        {
+          "stage": "__nvJitLinkAddData_12_4",
+          "return_code": 0,
+          "elapsed_seconds": 0.0063822
+        },
+        {
+          "stage": "__nvJitLinkComplete_12_4",
+          "return_code": 0,
+          "elapsed_seconds": 0.0123268
+        },
+        {
+          "stage": "__nvJitLinkGetErrorLogSize_12_4",
+          "return_code": 0,
+          "elapsed_seconds": 1.06e-05
+        },
+        {
+          "stage": "__nvJitLinkGetInfoLogSize_12_4",
+          "return_code": 0,
+          "elapsed_seconds": 7.4e-06
+        },
+        {
+          "stage": "__nvJitLinkGetLinkedCubinSize_12_4",
+          "return_code": 0,
+          "elapsed_seconds": 1.35e-05
+        },
+        {
+          "stage": "__nvJitLinkGetLinkedCubin_12_4",
+          "return_code": 0,
+          "elapsed_seconds": 0.0005961
+        },
+        {
+          "stage": "__nvJitLinkDestroy_12_4",
+          "return_code": 0,
+          "elapsed_seconds": 0.000489
+        }
+      ],
+      "driver_module_observations": [
+        {
+          "phase": "before_load",
+          "driver_module_loaded": false
+        },
+        {
+          "phase": "after_load",
+          "driver_module_loaded": false
+        },
+        {
+          "phase": "after_link",
+          "driver_module_loaded": false
+        }
+      ]
+    }
+  },
+  "pipeline": {
+    "result": {
+      "artifact_chain_verified": true,
+      "object": {
+        "artifact_verified": true,
+        "containment_verified": true,
+        "no_missing_verified": true,
+        "outer_cli_return_code": 1,
+        "outer_stage_verified": false,
+        "whole_environment_preservation_verified": false,
+        "service_unverified_exception_preserved": true
+      },
+      "link": {
+        "artifact_verified": true,
+        "containment_verified": true,
+        "no_missing_verified": true,
+        "outer_cli_return_code": 1,
+        "outer_stage_verified": false,
+        "whole_environment_preservation_verified": false,
+        "service_unverified_exception_preserved": true
+      },
+      "elapsed_seconds": 91.82800000021234,
+      "calculation_verified": false,
+      "whole_environment_preservation_verified": false
+    },
+    "execution": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 180,
+      "elapsed_seconds": 95.76991270016879,
+      "final_child_exit_code": 0,
+      "below_normal_priority": true,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null
+    },
+    "job": {
+      "limit_bytes": 2147483648,
+      "peak_bytes": 624656384,
+      "post_wait_empty": true
+    },
+    "preservation": {
+      "all_monitored_processes_preserved": true,
+      "missing_existing_processes": [],
+      "identified_nikke_service_preservation_verified": false,
+      "nikke_service_status_before": "unverified",
+      "nikke_service_status_after": "unverified",
+      "termination_cause": null
+    },
+    "missing_count": 0
+  },
+  "ram": {
+    "passed": true,
+    "gate": "Immediately before first API worker launch",
+    "observed_unix_ns": 1793603517062851800,
+    "observed_at_jst": "2026-11-02T16:11:57.062852+09:00",
+    "available_physical_bytes": 8059715584,
+    "required_available_bytes": 4294967296,
+    "ram_measurements_at_this_gate": 1,
+    "resampling_loop": false,
+    "sdk_calls": 0,
+    "gpu_calls": 0
+  },
+  "tools": {
+    "ptxas": {
+      "path": "$VALIDATION_SIBLINGS/nikke-v130-diagnostic/component/extracted/nvidia/cuda_nvcc/bin/ptxas.exe",
+      "sha256": "0183c5b1fdecc69234597efac421eca4670a3f6ed6ed028ff6afb85d06f3efb8"
+    },
+    "nvjitlink": {
+      "path": "$VALIDATION_SIBLINGS/nikke-jit-link-d1594d9-diagnostic/component/libnvjitlink-windows-x86_64-12.4.127-archive/bin/nvJitLink_120_0.dll",
+      "sha256": "2da9da786b85c100ba122f931a49c5c1eda83c32e3fa36814c2ef470e45fa9b1"
+    }
+  },
+  "historical_producer_claims_stops_unchanged": true,
+  "historical_anchor_sha256": {
+    "$VALIDATION_ROOT/stop.json": "5420c428ec2d5da5d72bf74cada473a22d026e039070ba1cdc25cb8bcc02e45e",
+    "$VALIDATION_ROOT/product-typed-healing-current-windows-summary-v1.json": "e730f14ef9b3c44629b6bb0a4829066e6f3d083297c1bfa3a0ca1c04c8f93c2e",
+    "$VALIDATION_ROOT/reviewed-compile-plan.json": "e90f87ca417a767ceb17bda8cbb3e9d8a97f09578557d4e7ec4c2b70331fc414",
+    "$VALIDATION_ROOT/compile-ptx-v1/proof/compiled.ptx": "008f19cf0209af74bc8c04ae0f05a260574642ecd7ad59fa3cacab7f86795f39",
+    "$VALIDATION_ROOT/packet/compile-claimed-cuda.json": "fd07d5bb96f2d00999697ca3a6461a732eee3a8a0e6c88490260dd776122ce8d",
+    "$VALIDATION_ROOT/packet/packet-stage-claimed-compile-ptx-cuda.json": "230bc5f8d187a494dfeab161ce97641bf578fc0d75991651da359ecf2235cfe4",
+    "$VALIDATION_ROOT/packet/packet-stage-claimed-generation-cuda.json": "64899ccc3bf678e09a20e7412e03eee9ce79e5168e4259ffe8262cebe032b349",
+    "$VALIDATION_ROOT/compile-ptx-v1/proof/execution.json": "ec3ac5532a874cb17246462f20b864b0f9af20aecf2177bd697af1a42e7e2f94",
+    "$VALIDATION_ROOT/compile-ptx-v1/proof/job.json": "7420531ac0da75d6eb71f91947196415c07e10f534037e35e23ef90b54c6d9db",
+    "$VALIDATION_ROOT/compile-ptx-v1/proof/observation.json": "9551efb4f9c120d3e86079ff7321efb3cda944b8404e5a43700933b0fe290789",
+    "$VALIDATION_ROOT/compile-ptx-v1/proof/result.json": "254d580d8023683ef887bb859483604a05577c6d91ad89d6759b73799db3a3a6",
+    "$VALIDATION_ROOT/compile-ptx-v1/proof/compiler.json": "d645e71e183241193a40dbf161e2a6c738a701fd027c51164664fb52c46105fa",
+    "$VALIDATION_ROOT/compile-ptx-v1/proof/artifacts.json": "58427019a6ed749841693ef4ea9024e946d5db2eb4a13ac1b1053197594c2b60",
+    "$VALIDATION_ROOT/compile-ptx-v1/proof/phases.jsonl": "8f618628d551a407fdae2b8516a2b6d0355fdf1325a9491dd9d4cfb884703e65"
+  },
+  "whole_environment_preservation_verified": false,
+  "calculation_verified": false,
+  "policy": "Artifact/containment/no-missing gates passed. Outer exit2 and unidentified-service environment preservation false are retained; authorized artifact lineage continuation does not change them.",
+  "counts": {
+    "ram_samples": 1,
+    "object_attempts": 1,
+    "jit_link_attempts": 1,
+    "slang": 0,
+    "nvrtc": 0,
+    "ptx_recompiles": 0,
+    "direct_cubin_compiles": 0,
+    "module_loads": 0,
+    "gpu_kernels": 0,
+    "game_api": 0,
+    "battles": 0,
+    "unit_tests": 0,
+    "retries": 0
+  },
+  "paths": {
+    "root": "$VALIDATION_ROOT",
+    "pipeline": "$VALIDATION_ROOT/post-ptx-pipeline-v1",
+    "object_capture": "$VALIDATION_ROOT/module-object-v1",
+    "link_capture": "$VALIDATION_ROOT/jit-link-object-v1"
+  },
+  "sharing_scope": "Host path prefixes symbolized and process IDs omitted. Artifact hashes, requested tool arguments, lineage and all false results retained."
+}
