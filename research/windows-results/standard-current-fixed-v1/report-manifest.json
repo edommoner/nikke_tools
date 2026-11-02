@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "scope": "Exact copy of saved status only; no execution, raw, SDK, generated artifact or personal settings included",
+  "owner": "30e9e40cc57796226732c0b47db1523e347a4abdd920e32fa781be98042af671",
+  "source_transport_commit": "216ff7aa93e6f0427401eeaf0754f886994295c0",
+  "files": [
+    {
+      "path": "product-standard-current-fixed-windows-status-v1.json",
+      "bytes": 18034,
+      "sha256": "7e77fea4bc96247bb59d3fdfc37c567eab7718daec19762f5ab1e5387cb6e84f"
+    }
+  ],
+  "original_status_bytes_preserved": true,
+  "retained_findings": [
+    "Job peak exceeds 2GiB by 499712 bytes",
+    "Both memory allocation failure and split-compile option rejection are recorded",
+    "Observed --split-compile=2 addition to preflight plan is retained"
+  ],
+  "causal_scope": "No version-only cause asserted; no re-execution or reinterpretation of saved results"
+}
