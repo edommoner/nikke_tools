@@ -1,3 +1,9 @@
+## 2026-11-03 effect_range_pct／effect_target_count_addの静的接続を受理
+
+[定義・query・選択・wire・未実証範囲](../research/product-named-selection-consumers-static-v1.json)。原Reiの500%／+1は、原Asuka:WILLEが持つ同名damageへ作用するdeclared named range経路へ接続。ephemeral queryはexact stat／target_effectでcarrierを絞り、既存native readerを局所cloneしglobal mapは変更しない。空stubで確認したのはreader bindingの解決だけで、集計や選択の実行検証ではない。count93／range94を明示使用し、「numeric ID非依存」という前の仮定は撤回。HeavyArmsのcount+10も93で、exact TARGET_NAMEとrecipient／lifetime等の共通条件で効果先を区別する。row26／27は0-based compiled definition、wire ruleはdamage row+1。
+
+rangeはfactor1+total/100と宣言base radius、countはexact integralなbase+sumを検査し、超過／端数はclampや丸めでなく拒否。nearbyはprimary中心とstable edge-distance順、通常はcanonical logical順をgeometryでfilterし、actor generationを凍結。既存接触境界1e-9はCPU／GPUの同じbinary64定数で、許容差変更0。named系proof32件ではcurrent source一致0、標準Rei251のBODY-only carrier保存や別Lock On結果は空間選択実証へ流用しない。Claudeは記録4点の補足後に静的L3のみ受理。現行live選択、9秒失効の厳密境界とcast→landing中失効等は未検証。追加CPU戦闘／GPU／Windows0、計算source変更0。次はLock On。
+
 ## 2026-11-03 received_dmg_splitの静的L3と保存算術probeを確認
 
 [加重配分の接続・単位・配線・証拠境界](../research/product-weighted-consumer-static-v1.json)。Bayのall_allies／self_cover状態2つから、明示したcaster／other／cover相対重みを使う。均等配分や百分率ではなく、ゲーム比率は未確定。struck ownerのDEF／receivedで計算したquantityを、live対象の順序付き重み和で割ってから掛け、bodyを元の保護・HP処理へ、独立caster coverを最後に渡す。下流で失効・down・cover超過があっても再配分せず、端数補正やshareの1point floorなし。binary64逐次和の厳密保存は保証しない。wireはkind4/stat0の元marker identityと16word bankで、重みword4/6/8、source row+1はword10/11。
