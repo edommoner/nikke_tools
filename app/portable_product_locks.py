@@ -96,6 +96,8 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
         lowered['effects']=[dict(effect=copy.deepcopy(e),owner=names[o]) for e,o in zip(c['effects'],c['owners'],strict=True)]
         lowered['effects'][typed]['effect']['target']='boss'
         lowered['_product_native_equipment_carriers']=True
+        if typed_model is not None and any(p.get('kind')=='attack' and p.get('spec',{}).get('debuffs') for p in lowered['enemy'].get('patterns',[])):
+            lowered['_product_boss_debuffs']=True
         if any(a.get('action')=='cover' for ch in prepared['chars'] for a in ch.get('control',{}).get('sequence',[])):lowered['_product_manual_cover']=True
         if coordinate_model is None:
             words,meta=compile_projectile_battle(lowered,trace='full')
@@ -162,7 +164,13 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
         append_bank(words,meta,prepared,bindings,logical_base=109968)
 
     expected_input=123732 if typed_model is not None else INPUT if coordinate_model is None else 120816
-    if len(words)!=expected_input or set(meta['binding_source_indices'])!=set(range(len(effects))):raise UnsupportedPortable('Complete original Lock On definitions and wire required')
+    external=set(meta.get('boss_debuffs',{}).get('definitions',()))
+    sources=meta['binding_source_indices']
+    from portable_specs import LIMITS as L,FIELDS as F
+    if (len(words)!=expected_input or set(sources)!=set(range(len(effects)+len(external)))
+            or {row for row,source in enumerate(sources) if source>=len(effects)}!=external
+            or any(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['OWNER']]!=5 for row in external)):
+        raise UnsupportedPortable('Complete original Lock On definitions,explicit external boss ownership and wire required')
     meta['product_lock_on']=dict(declarations={'lock_on':copy.deepcopy(spec)},names=names,packet_source=packet,typed_source=typed,
         bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],
         typed_case=dict(names=names,effects=copy.deepcopy(effects),owners=[names.index(n) for n in owners],skill_levels=[c['skill_levels'] for c in prepared['chars']],typed_bindings=spec['typed_bindings'],max_attacks=128),cpu_state_or_schedule_supplied=False)

@@ -42,12 +42,11 @@ def normalize(value):
     if type(value) is not dict or set(value)-{'coordinate','enemy_healing','weighted_incoming','cover_defense','enemy_ammo','enemy_movement','named_range','lock_on','typed_targets'}:
         raise ValueError('reference_modelsには接続済みのcoordinate／enemy_healing／weighted_incoming／cover_defense／enemy_ammo／enemy_movement／named_range／lock_onだけを指定してください。')
     if 'typed_targets' in value and set(value)-{'typed_targets','lock_on','enemy_movement','cover_defense'}:raise ValueError('Typed target product composition requires its matching checked consumer')
-    if {'typed_targets','cover_defense','lock_on'}<=set(value):raise ValueError('Typed cover and Lock On require their combined checked consumer')
     if 'coordinate' in value and set(value)-{'coordinate','cover_defense','weighted_incoming','enemy_healing','lock_on'}:raise ValueError('Coordinate composition requires a matching checked consumer wire')
     if 'enemy_ammo' in value and set(value)-{'enemy_ammo','enemy_healing','cover_defense'}:raise ValueError('Enemy magazine composition requires a combined checked native consumer')
     if 'enemy_movement' in value and set(value)-({'enemy_movement','typed_targets','lock_on','cover_defense'} if 'typed_targets' in value else {'enemy_movement','named_range','cover_defense'} if 'named_range' in value else {'enemy_movement','cover_defense'}):raise ValueError('Movement composition requires a combined checked native consumer')
     if 'named_range' in value and set(value)-({'named_range','enemy_movement','cover_defense'} if 'enemy_movement' in value else {'named_range','cover_defense'}):raise ValueError('Named range composition requires a combined checked native consumer')
-    if 'lock_on' in value and set(value)-({'lock_on','typed_targets','enemy_movement'} if 'typed_targets' in value else {'lock_on','coordinate'} if 'coordinate' in value else {'lock_on','cover_defense'}):raise ValueError('Lock composition requires a combined checked native consumer')
+    if 'lock_on' in value and set(value)-({'lock_on','typed_targets','enemy_movement','cover_defense'} if 'typed_targets' in value else {'lock_on','coordinate'} if 'coordinate' in value else {'lock_on','cover_defense'}):raise ValueError('Lock composition requires a combined checked native consumer')
     if {'weighted_incoming','cover_defense'}<=set(value):raise ValueError('Weighted allocation and independent cover DEF require a combined checked landing contract')
     result={}
     if 'typed_targets' in value:

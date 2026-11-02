@@ -14,10 +14,10 @@ def compile_product(prepared,producer):
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
     unspecified='cover_defense' not in declarations
     from portable_product_world_contract import has_incoming_attacks
-    standalone_typed='typed_targets' in declarations and 'lock_on' not in declarations
-    if unspecified and has_incoming_attacks(prepared) and (not standalone_typed or required(prepared)):
+    typed_world='typed_targets' in declarations
+    if unspecified and has_incoming_attacks(prepared) and (not typed_world or required(prepared)):
         raise UnsupportedPortable('Independent cover DEF requires explicit reference_models.cover_defense bases; no body DEF or level curve is inferred')
-    combined_typed=set(declarations)-{'cover_defense'} in ({'typed_targets'},{'typed_targets','enemy_movement'})
+    combined_typed=set(declarations)-{'cover_defense'} in ({'typed_targets'},{'typed_targets','enemy_movement'},{'typed_targets','lock_on'},{'typed_targets','lock_on','enemy_movement'})
     combined_motion_range=set(declarations)-{'cover_defense'} in ({'enemy_movement','named_range'},{'enemy_ammo','enemy_healing'})
     if set(declarations)-{'coordinate','cover_defense','enemy_healing','enemy_ammo','enemy_movement','named_range','lock_on','typed_targets'} or len(set(declarations)-{'cover_defense'})>1 and not (combined_motion_range or combined_typed):
         raise UnsupportedPortable('Cover DEF product composition requires a matching combined consumer wire')
@@ -51,16 +51,18 @@ def compile_product(prepared,producer):
     if movement_range:check_cover_schema()
     from portable_product_typed import BASE_INPUT as TYPED_INPUT,BASE_OUTPUT as TYPED_OUTPUT,INPUT as TYPED_COVER_INPUT,OUTPUT as TYPED_COVER_OUTPUT
     typed=source in ('gpu/product_typed_battle_entry.slang','gpu/product_typed_fixed_battle_entry.slang') and (iw,ow)==(TYPED_INPUT,TYPED_OUTPUT)
+    from portable_product_typed_lock import BASE_INPUT as TL_INPUT,BASE_OUTPUT as TL_OUTPUT,INPUT as TL_COVER_INPUT,OUTPUT as TL_COVER_OUTPUT
+    typed_lock=source in ('gpu/product_typed_lock_battle_entry.slang','gpu/product_typed_lock_fixed_battle_entry.slang') and (iw,ow)==(TL_INPUT,TL_OUTPUT)
     from portable_cover_defense_wire import COMPOSED_STAT
-    cover_stat=COMPOSED_STAT if named_range or locks or movement_range or typed else STAT
-    if named_range or movement_range or typed:
+    cover_stat=COMPOSED_STAT if named_range or locks or movement_range or typed or typed_lock else STAT
+    if named_range or movement_range or typed or typed_lock:
         from portable_named_range_battle_wire import COUNT_STAT,RANGE_STAT
         # Reject semantic aliasing before a claim or device call, including
         # requests with no incoming hit that would otherwise mask the error.
         if len({cover_stat,COUNT_STAT,RANGE_STAT})!=3:
             raise ValueError('Cover DEF, target count and named range require disjoint stat identifiers')
     coordinate=source in ('gpu/product_coordinate_battle_entry.slang','gpu/product_coordinate_fixed_battle_entry.slang') and (iw,ow)==(115680,2032000)
-    kind='typed' if typed else 'coordinate' if coordinate else 'movement_range' if movement_range else 'healing' if healing else 'ammo' if ammo else 'movement' if movement else 'named_range' if named_range else 'lock' if locks else None
+    kind='typed_lock' if typed_lock else 'typed' if typed else 'coordinate' if coordinate else 'movement_range' if movement_range else 'healing' if healing else 'ammo' if ammo else 'movement' if movement else 'named_range' if named_range else 'lock' if locks else None
     if locks:
         from portable_product_locks import check_cover_history
         from pathlib import Path
@@ -96,6 +98,10 @@ def compile_product(prepared,producer):
             words[base+1]=3
             words[base+5:base+8]=[tap_mask,0xffffffff,0x4d435631]
         attach_fixed(words,meta,prepared,fixed_values)
+    if typed_lock:
+        meta['product_typed_cover']=True
+        if len(words)!=TL_INPUT:raise ValueError('Complete typed lock prefix required before cover bank')
+        return ('gpu/product_typed_lock_'+('fixed_' if fixed_values is not None else '')+'battle_entry.slang',TL_COVER_INPUT,TL_COVER_OUTPUT,list(words)+bank,meta)
     if typed:
         meta['product_typed_cover']=True
         if len(words)!=TYPED_INPUT:raise ValueError('Complete typed prefix required before cover bank')

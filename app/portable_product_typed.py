@@ -42,13 +42,13 @@ def compile_product(prepared):
     from calculator.timeline import CharState,_when_label
     from calculator.boss_pattern import validate
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
+    if not prepared.get('_product_cover_compiled'):
+        from portable_product_cover import compile_product as cover
+        return cover(prepared,compile_product)
     if {'typed_targets','lock_on'}<=set(declarations):
         from portable_product_locks import compile_product as locks
         return locks(prepared,typed_model=normalize_product(declarations['typed_targets']))
     if set(declarations)-{'typed_targets','enemy_movement','cover_defense'}:raise UnsupportedPortable('Typed product composition requires its matching checked shared GPU consumer')
-    if not prepared.get('_product_cover_compiled'):
-        from portable_product_cover import compile_product as cover
-        return cover(prepared,compile_product)
     spec=normalize_product(declarations['typed_targets'])
     if any(r['effect'].get('target') in ('all_projectiles','typed_point') for r in prepared['effects']):
         raise UnsupportedPortable('Original typed skill damage requires its checked common skill route; weapon typed admission cannot omit it')

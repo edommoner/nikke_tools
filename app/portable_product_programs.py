@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v74-expected.json'
+GOLDEN = 'research/portable-product-programs-v75-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -52,7 +52,7 @@ def configuration(suites, selection):
     program = PROGRAMS[name]
     return dict(base, product_program=name, source=program['source'], golden=GOLDEN,
                 input_words=program['input_words'], output_words=program['output_words'],
-                inputs=7 if name=='ammo-cover-fixed-group' else 10 if name=='typed-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1,native=7 if name=='ammo-cover-fixed-group' else 10 if name=='typed-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
+                inputs=7 if name=='ammo-cover-fixed-group' else 10 if name=='typed-accumulate' else 9 if name=='typed-lock-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1,native=7 if name=='ammo-cover-fixed-group' else 10 if name=='typed-accumulate' else 9 if name=='typed-lock-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
 
 
 def registered_golden(root, config, *, allow_unsealed=False):
@@ -309,6 +309,23 @@ def cover_typed_body(root,name='typed-accumulate'):
     return body
 
 
+def interrupt_typed_body(root,name='typed-lock-accumulate',*,kind='stun'):
+    """Real ordinary-request regression for charging/cover state interruption."""
+    if kind not in ('control','stun','cover_disabled'):raise ValueError('Known incoming state required')
+    body=cover_typed_body(root,name);body['duration']=16.
+    for node in body['enemy']['patterns']:
+        if 'time' in node.get('until',{}):node['until']['time']=17.
+    attack=body['enemy']['patterns'][-1]
+    if kind=='cover_disabled':
+        attack['delay']=10.5
+        body['manual_cover_sequences']={n:[dict(action='cover',t=10.,duration=5.)] for n in body['squad']}
+    else:
+        attack['delay']=14.25;attack['spec']['hits']=2
+        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=8.,duration=1.)]}
+    if kind!='control':attack['spec']['debuffs'].append(dict(stat=kind,duration=.75))
+    return body
+
+
 def manual_typed_body(root,name='typed-accumulate'):
     """Existing explicit posture controls in the same exact-owner world."""
     body=logical_owner_body(root,name)
@@ -423,6 +440,10 @@ def cases_for_program(root,name=None):
         for pattern in body['enemy']['patterns']:
             if 'time' in pattern.get('until',{}):pattern['until']['time']=31.
         rows.append(('moving-long30',body))
+    if name=='typed-lock-accumulate':
+        rows.append(('cover-incoming',cover_typed_body(root,name)))
+        rows.append(('cover-charging-stun16',interrupt_typed_body(root,name,kind='stun')))
+        rows.append(('cover-disabled16',interrupt_typed_body(root,name,kind='cover_disabled')))
     if name=='typed-accumulate':
         rows.append(('logical-owner-mixed',logical_owner_body(root,name)))
         rows.append(('manual-posture',manual_typed_body(root,name)))

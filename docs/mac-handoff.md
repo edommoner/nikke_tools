@@ -1,3 +1,17 @@
+## 2026-11-02 typed＋Lock On＋独立遮蔽を共通製品経路へ接続
+
+元のHeavy Arms／Soldier O.W.編成で、固定／蓄積×8／16秒、実周期遮蔽DEF、貫通、遮蔽破壊、DEF0の12条件と、充電中stunの対照ペア・遮蔽無効6条件を通常APIで確認。計18が実M5／CPU／HTTP全payload一致、4dispatch、cache0。stunは最後のLock On射撃を15.383333333333677→15.50000000000035へ遅らせ、取得回数64は維持する既存CPU規約と一致。遮蔽無効ではreceipt9→5。全員戦闘不能の強攻撃も比較し、未知の敵予約先死亡規則は追加していない。新inventory profile加算0。[全出所と18条件](../research/product-typed-lock-cover-v1.json)。
+
+standaloneで使った既存cover compiler／共通被弾runtime／decoderをLock Onにも接続。input123732→123756、output2945320→2962232word、追加CDF bankは2945320から。既存Lock初期化の消去終端2558208と全移動・quota・team履歴の後ろなので、時計やHPの複製／初期化関数の増設は不要。stat96を既存count93／radius94／DoT95と分離し、敵デバフ定義のcaster5所有を厳密検査。旧／新Metalのcompiled resident strideは共に168728byte。CPU正本43file・pinned・数値規約・許容差・normalizer変更0、新suite／shader entry／layout file0。
+
+CLI蓄積9＋固定6が実Metal・独立seal成功。蓄積へ充電中stun16秒・遮蔽無効16秒を恒久回帰として追加し、直前7件のinput／native／全rawは完全一致、追加2件のinput／全raw SHAも通常APIの元実行と一致。旧蓄積6の元入力prefix／native／全raw prefixは完全一致し、追加CDF領域はmagic1語＋ゼロだけ。v75は蓄積更新と固定typed-lock初登録で44member、他42は履歴保持。最終CPU192の同一172を再利用しregistry13＋台帳7を新実行。実readbackのmarker／未使用末尾／standalone番地alias故障3件を拒否。初期集計の件数ラベル誤りは元receiptを保持して訂正済み。最終packetでは計算／decoder／transportの全byte一致を確認し、通常API31件を保存rawから再投影した。追加battle／GPU0。
+
+既存standalone遮蔽12と通常Miranda固定30秒1件は、GPU全依存ソースと入力の完全一致、Swiftが出力幅2962232を許可する1節以外全byte同一、旧幅と最大サイズ不変、CPU reference実行関数も全byte同一を確認し、保存rawを再投影。追加battle／GPU0。現在sourceの通常標準1profile＋宣言条件30件という範囲で、標準266／203キャラの前版7e793c51実績を現在全件へ昇格しない。次は厳密な生成CUDA／MSL同一性が成立するsourceを優先して、保存入力／rawから全266の再認定を進める。UI http://127.0.0.1:4327/#single は更新済み、設定／session変更0。
+
+Windowsは保存ファイルのCPU調査だけを依頼・取得し、新driver／SDK／GPU／RAM観測0。旧固定23f63332のcuMemAllocは494932／9381536／163576byte、launch前後でdevice freeが1631584256byte減、process private／Job peakは1681010688byte増。cuFuncGetAttributeとcontext/module前後値はnot_recordedで、PTXの.local宣言だけから実GPU予約量を断定しない。[保存診断](../research/windows-results/logical-owner-current-v1/product-logical-owner-saved-memory-diagnostic-v1.json)。既存backendは既にbounded file readbackを使うため、output増分をそのままhost RAM増分と見なさない。次の短いCUDA確認前に既存observer／module情報を確認し、2GiB上限や失敗停止を緩めず、盲目的な再実行はしない。frozen CUDA1条件と現source CUDA0を分ける。
+
+ディスク不足に対し、完了済みの新2captureと旧3captureへ既存sparsify-rawを使用。新分112787456byte、旧分2215325696byteのゼロ領域を未割当化し、元の全SHA・長さ・inode・証拠アンカーを前後確認。raw削除0、元source／artifacts書換え0、再計算0。残件はtyped ADD自攻撃・弾倉・回復・配分、attachment、未知配送、全profile再認定と現在CUDA。以下は過去記録。
+
 ## 2026-11-02 typed＋独立遮蔽DEF・実被弾を通常APIで接続
 
 元全定義のPrim／Soldier O.W.編成で、固定／蓄積×8秒・16秒、周期DEF増加、貫通、遮蔽破壊、DEF0の12通常API条件が実M5／CPU／HTTP全payload一致。実オウルウィンドは10秒に発火し、10.5秒のPrim遮蔽DEF1000→2285.7、attack100000に対する量97714.3を確認。貫通はcoverを無視するモデルではなく、同じhitで遮蔽と本人へ両方ダメージを与える既存CPU規約と一致。新inventory profile加算0。[条件と全出所](../research/product-typed-cover-v1.json)。

@@ -121,7 +121,7 @@ class ProductPacket(unittest.TestCase):
             for name,config in PROGRAMS.items():
                 selected=cli.open_suite(dict(suite='product-detail',product_program=name))
                 rows,raw=selected.prepare()
-                self.assertEqual(len(rows),7 if name=='ammo-cover-fixed-group' else 10 if name=='typed-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
+                self.assertEqual(len(rows),7 if name=='ammo-cover-fixed-group' else 10 if name=='typed-accumulate' else 9 if name=='typed-lock-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
                 self.assertEqual((selected.SOURCE,selected.suite.INPUT,selected.suite.OUTPUT),(config['source'],config['input_words'],config['output_words']))
                 self.assertEqual(len(raw),4*(1+len(rows)*config['input_words']))
                 from portable_product_programs import GOLDEN
@@ -132,8 +132,8 @@ class ProductPacket(unittest.TestCase):
                     appended=manifest.get('purpose')=='development' and manifest.get('product_program')==name
                     import array
                     typed_cover_extension=(manifest.get('purpose')=='development'
-                        and manifest.get('product_program') in ('typed-fixed','typed-accumulate')
-                        and name in ('typed-fixed','typed-accumulate')
+                        and manifest.get('product_program') in ('typed-fixed','typed-accumulate','typed-lock-fixed','typed-lock-accumulate')
+                        and name in ('typed-fixed','typed-accumulate','typed-lock-fixed','typed-lock-accumulate')
                         and baseline['entries'][0]['input_sha256']!=hashlib.sha256(array.array('I',rows[0][1]).tobytes()).hexdigest())
                     if typed_cover_extension:
                         # One reviewed wire extension: preserve every old word and

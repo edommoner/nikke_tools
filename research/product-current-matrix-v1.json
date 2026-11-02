@@ -4134,13 +4134,15 @@
     "extra_gpu": 0
   },
   "latest_source_verification_scope": {
-    "owner": "9608d941d250ca81f8cb7c59c49aba071ab790ddad278a974b497732c29bb056",
+    "owner": "5751e24c6c49a81cff53512333926c817188f7da9043dc98626f4d1fa7614afd",
     "standard_original_fixed30s_profiles": 1,
-    "typed_cover_conditions": 12,
+    "standalone_typed_cover_conditions_reused": 12,
+    "new_typed_lock_cover_conditions": 18,
     "previous_standard_profiles": 266,
     "previous_standard_source": "7e793c5104ed19c6a0a08651eadf0f4630ac7995",
     "all_current_standard_profiles_verified": false,
     "current_source_cuda_profiles": 0,
     "frozen_limited_cuda_conditions": 1
-  }
+  },
+  "latest_typed_lock_cover_product_proof": "product-typed-lock-cover-v1.json"
 }

@@ -3,7 +3,10 @@ import copy
 from pathlib import Path
 from portable_runtime import UnsupportedPortable
 from portable_product_coordinate_lock import COORDINATE_OUTPUT,OUTPUT as LOCK_PREFIX
-from portable_product_typed_movement import INPUT,LOCK_OUTPUT as OUTPUT
+from portable_product_typed_movement import INPUT as BASE_INPUT,LOCK_OUTPUT as BASE_OUTPUT
+from portable_cover_defense_wire import LAYOUT as COVER
+INPUT=BASE_INPUT+COVER['WORDS'];COVER_OUT=BASE_OUTPUT
+OUTPUT=BASE_OUTPUT+COVER['OUTPUT_WORDS']-COVER['OUTPUT_BASE']
 WEAPON_START=170976
 WEAPON_SCRATCH=220768
 WEAPON_END=231152  # 1024 mixed pellets*10 +128 generations +16 notification words.
@@ -15,10 +18,16 @@ def check_schema(root):
     locks(root)
     from portable_product_typed import check_schema as physical
     physical(root)
+    from portable_wire_layout import check_metal
+    check_metal(root,OUTPUT)
+    if not LOCK_PREFIX<BASE_OUTPUT==COVER_OUT<OUTPUT or (INPUT,OUTPUT)!=(123756,2962232):
+        raise ValueError('Typed lock cover must follow every existing lock/movement/continuation bank')
     if not 153568+32*544==WEAPON_START<HEAD+WORDS==WEAPON_SCRATCH<WEAPON_END<262144:
         raise ValueError('Typed skill, weapon history, aim and pellet scratch overlap')
     source=(Path(root)/'gpu/product_typed_lock_battle_entry.slang').read_text()
-    if '#define CTW_SCRATCH(s) DT_OUTPUT((s).resourceOutput,220768U)' not in source:
+    if ('#define CTW_SCRATCH(s) DT_OUTPUT((s).resourceOutput,220768U)' not in source
+            or '#define PORTABLE_COVER_DEFENSE_INPUT_BASE EMB_INPUT' not in source
+            or '#define PORTABLE_COVER_DEFENSE_OUTPUT_BASE EMB_OUTPUT' not in source):
         raise ValueError('Typed weapon scratch must be disjoint from synchronous skill DFS')
     from portable_product_typed_movement import WEAPON_CAPACITY
     return dict(input_words=INPUT,output_words=OUTPUT,skill_capacity=2048,typed_attack_capacity=128,weapon_history_capacity=WEAPON_CAPACITY)
@@ -48,6 +57,8 @@ def read_result(block,metadata,names,duration):
     from portable_specs import LIMITS as L
     from product_reference_models import combine_public
     if len(block)!=OUTPUT or block[0]!=0:raise UnsupportedPortable('Complete typed weapon/Lock On readback required')
+    # The common cover reader separately owns the complete adjacent bank.
+    block=block[:BASE_OUTPUT]
     # Validate the complete coordinate/skill prefix without adding a second
     # declaration or exposing its internal synthetic empty logical scene.
     coordinates(memoryview(block)[:COORDINATE_OUTPUT],metadata,names=names,duration=duration)
