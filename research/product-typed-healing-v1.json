@@ -3,8 +3,13 @@
   "scope": "Ordinary product typed/Lock On + independent cover + actual incoming attacks + original Ann enemy heal modifier; explicit enemy healing model",
   "current_packet_id": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
   "metal": {
-    "current_source_profiles": 7,
-    "profile_names": [
+    "current_source_profiles": 2,
+    "profile_scope": "Distinct request.character profiles (favorite stage0) in the two authored36-second mixed scenes; squad participants separately counted; not unrestricted individual/all-effect certification",
+    "ordinary_api_conditions": 12,
+    "physical_dispatches": 4,
+    "full_cpu_gpu_http_equality": true,
+    "new_original_inventory_profiles": 0,
+    "participant_profile_names": [
       "N102",
       "드레이크",
       "미란다",
@@ -13,11 +18,11 @@
       "앤 : 미라클 페어리",
       "프림"
     ],
-    "profile_scope": "Favorite stage0 squad participants in the two authored36-second mixed scenes; not unrestricted individual or all-effect certification",
-    "ordinary_api_conditions": 12,
-    "physical_dispatches": 4,
-    "full_cpu_gpu_http_equality": true,
-    "new_original_inventory_profiles": 0
+    "participant_profiles": 7,
+    "primary_profile_names": [
+      "스노우 화이트 : 헤비암즈",
+      "프림"
+    ]
   },
   "cuda": {
     "current_source_profiles": 0,
@@ -348,5 +353,17 @@
     "Typed enemy-ammo/weighted compositions and undeclared game geometry/positions",
     "Actual down/revival restoration with these mixed scenes not proven"
   ],
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "standard_static_input_audit": {
+    "scope": "Concrete standard requests static input and revival-guard admission analysis only; no current-source GPU execution or CPU battle",
+    "profiles": 266,
+    "all_inputs_exact": true,
+    "all_selected_sources_same": true,
+    "all_old_and_new_revival_kind_guards_equivalent": true,
+    "gpu_calls": 0,
+    "native_battles": 0,
+    "current_source_product_qualification_claimed": false,
+    "file": "research/product-typed-healing-standard-static-v1.json",
+    "sha256": "7bb600b8e5cfd2015a847f563ef724e6125df81cf94980d1c1fb30f3296a9dd5"
+  }
 }
