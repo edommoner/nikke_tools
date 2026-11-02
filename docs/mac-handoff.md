@@ -1,3 +1,9 @@
+## 2026-11-03 原Asuka/Anchorの対象別補正を通常Metal APIで実証
+
+Claude方針の8秒・shield前面／projectile前面2条件を1batchで検証し、fresh CPU・全公開結果・独立保存監査が一致、Claude最終チェック合格。[入力2件・全SHA・範囲・失敗記録](../research/product-typed-modifier-consumers-v1.json)。Asukaのshield601.01%はkind3命中84／0件、Anchorのprojectile25.6%はkind2命中12／12件で事前固定件数と一致。各条件196 scalarのowner／time／kind／damageがGPU packet全件と一致し、正の保持者命中は実crit固定の補正なし反実仮想と全件で異なる。CPU観測有無の全native／公開SHAも一致。入力axisは種別2／3、値は別のdefinition VALUEとして検査。最終snapshot25.6／0はAnchorの最終shotだけの証拠で、Asuka途中のsnapshotとは呼ばない。
+
+既存ctwSnapshot→ctwSampleAmount→damageFromFactorsを利用、計算コード・正本・effect定義・golden・normalizerの変更0。CPU開始7／完了6（初版observerの乱数消費assert停止1を保持）、Metal1dispatch・2入力、監査追加battle/GPU0。実行と監査は約7秒、専用Node群終了。Windows接続含め0、CUDA未検証。原2名のbattle_start/self条件だけの受理で、他の供給者・条件・任意合成は残る。次はbuff_stack_add type=buffの既存consumer／保存証拠を静的に確認し、既証明なら再測定せずClaudeに次候補を選んでもらう。
+
 ## 2026-11-03 CPU consumer台帳の静的中間成果をClaudeが受理
 
 [有限台帳](../research/product-cpu-consumer-inventory-v1.json)でbuff stat 117キーを一意に整理。getter/query/field候補98、実処理での消費6（numeric4・state書込み1・接続数1）、既存H結合1、具体的なL3引継ぎ先を持つ未解決12。起動時のatk_copy追加を反映し、実効projectionは65ではなく66件。98候補や静的消費をGPU対応件数へ加算しない。dynamic71 site・field候補67は保持し、全行GPU未認定。buff_max_stack_addの過去H到達性は外部rewrite全体を再証明しておらず、現AST残存だけに限定した。計算コード・正本・golden・比較除外の変更0、追加CPU戦闘/GPU/Windows0。
