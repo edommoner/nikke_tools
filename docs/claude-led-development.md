@@ -1,3 +1,11 @@
+## 2026-11-03 混合場面の実ダウン・復活を通常Metal APIで確認
+
+Claudeが選んだ36秒typed／Lock On／敵回復／手動遮蔽の混合1構成と対照が合格。元MirandaをRapunzelへ1名変更し、元Soldier O.W.が2.75秒down→3.833333秒に元B1の81.67%（1994253.9948HP）で復帰→4.75秒に再down。遮蔽HP2800を保持し、GPUの既存revival traceのowner／時刻／HPとboss履歴がCPU観測と完全一致。対照はdownのみ。[要求2件・全SHA・範囲・失敗保持](../research/product-mixed-revival-v1.json)。
+
+CPU観測有無4実行の全native／公開payloadが一致。通常HTTP Metal2条件・2dispatchとfresh CPU2も完全一致、追加battleなしの独立保存監査2成功。Metal実行と監査は計15.27秒。新standard profile加算0、標準266の計算／packer／decoderは不変で再実行せず、受入済みCUDA専用host guard以外の全ソース一致を確認。共有コード／数値規約／正本／golden変更0、Windows接続を含め0。
+
+初期fixtureの不成立2件・静的owner参照ミス・保存ログのoutcome/detail読み違いを保持。原HP・CPUログや期待値を書き換えず、最後の読取りミスは保存結果だけで解消した。実行はb3141d77のclean runtime-residentで、メインcheckoutの未commit storage作業は使っていないことも記録。CUDAと、他の混合構成での復活は未検証。次はClaude方針のCPU由来handler有限残件台帳。Windowsは明示再開まで確認・依頼しない。以下は過去記録。
+
 ## ユーザー指示：Windows再開の明示までMac開発を継続
 
 現在のゴールと優先順位は[current-gpu-goal.md](current-gpu-goal.md)を参照。Windowsの接続確認・status取得・依頼・復旧質問・監視は行わない。準備済みCUDA1要求と固定consumerを保持し、Macの未対応範囲をClaude方針／Codex実装／Claudeチェックで進める。過去の「接続復旧待ち／復旧後に実行」という記述は自動再開の指示ではない。

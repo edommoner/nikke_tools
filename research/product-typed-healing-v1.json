@@ -352,10 +352,9 @@
   },
   "remaining": [
     "Unrestricted all-character/all-special-effect compositions",
-    "Current-source standard266 requalification after revival guard change",
     "Current-source CUDA compilation and ordinary product execution",
     "Typed enemy-ammo/weighted compositions and undeclared game geometry/positions",
-    "Actual down/revival restoration with these mixed scenes not proven"
+    "Unrestricted mixed down/revival restoration; one authored36 Rapunzel/Ann/Heavy Arms scene and control verified in product-mixed-revival-v1.json"
   ],
   "full_goal_complete": false,
   "standard_static_input_audit": {
@@ -399,5 +398,19 @@
       "gpu_calls": 0
     },
     "source_scope": "Fresh current source standard healing-fixed; other historical standard265 not freshly dispatched"
+  },
+  "followup_verification": {
+    "standard266": {
+      "source_commit": "4155099d5a51133d8550d9d24f0185f77a295c15",
+      "report": "research/product-standard266-claude-accept-v1.json",
+      "profiles": 266
+    },
+    "mixed_revival": {
+      "report": "research/product-mixed-revival-v1.json",
+      "ordinary_conditions": 2,
+      "original_inventory_profile_increment": 0,
+      "scope": "Only this declared36s original roster and no-reviver control",
+      "claude_decision": "accept"
+    }
   }
 }
