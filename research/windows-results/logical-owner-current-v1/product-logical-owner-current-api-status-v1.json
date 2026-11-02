@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "owner": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+  "source_commit": "4c70a7972a6a0df2736eb97913d52d467d944329",
+  "fixed_transport_commit": "23f633327d14dde2673d8e1139431329807734d9",
+  "program": "typed-accumulate",
+  "case": "logical_owner_body",
+  "duration_seconds": 8,
+  "passed": false,
+  "stop": {
+    "stage": "static-input-identity",
+    "reason": "M5 static input SHA mismatch",
+    "actual": "589d8feb1dc9928fcb32ca01c068a95f72bb1ca42244f4efee3db215ee95477e",
+    "expected": "abeda20f4ad44e7ac1415924d0bba2a80a572070a570767b35084766fc0d5400",
+    "api_posts": 0,
+    "gpu_calls": 0,
+    "retries_allowed": false
+  },
+  "static_input": {
+    "actual": "589d8feb1dc9928fcb32ca01c068a95f72bb1ca42244f4efee3db215ee95477e",
+    "expected": "abeda20f4ad44e7ac1415924d0bba2a80a572070a570767b35084766fc0d5400",
+    "matched": false,
+    "cpu_battle_executed": false,
+    "source": "gpu/product_typed_battle_entry.slang",
+    "input_words": 123732,
+    "output_words": 2345384
+  },
+  "request": {
+    "path": "$VALIDATION_ROOT/logical-owner-api-v1/job.json",
+    "sha256": "70bb0d61f2a8ff8ef2ab1f5ed7a3de8d8bfaf482ca6d2724af0aeced7687a36e",
+    "full_definition_retained": true
+  },
+  "execution": {
+    "passed": false,
+    "timed_out": false,
+    "elapsed_seconds": 9.892252100165933,
+    "final_child_exit_code": 1,
+    "below_normal_priority": true,
+    "error": null,
+    "cleanup_error": null,
+    "observation_error": null
+  },
+  "containment": {
+    "verified": true,
+    "job_limit_bytes": 2147483648,
+    "job_peak_bytes": 94728192
+  },
+  "monitoring": {
+    "all_monitored_processes_preserved": true,
+    "missing_existing_processes": [],
+    "identified_nikke_service_preservation_verified": false,
+    "nikke_service_status_before": "unverified",
+    "nikke_service_status_after": "unverified",
+    "termination_cause": null,
+    "command_lines_saved": false
+  },
+  "whole_environment_preservation_verified": false,
+  "counts": {
+    "static_prepare_attempts": 1,
+    "cpu_battles": 0,
+    "api_ram_measurements": 0,
+    "api_posts": 0,
+    "gpu_kernels": 0,
+    "readbacks": 0,
+    "generation": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "retries": 0
+  },
+  "paths": {
+    "parent_owner": "$VALIDATION_ROOT/packet",
+    "static_identity": "$VALIDATION_ROOT/logical-owner-api-v1/static-input-identity.json",
+    "request": "$VALIDATION_ROOT/logical-owner-api-v1/job.json",
+    "static_phase": "$VALIDATION_ROOT/logical-owner-api-v1/static-preflight/coordinator-phases.jsonl",
+    "static_job": "$VALIDATION_ROOT/logical-owner-api-v1/static-preflight/job.json",
+    "static_execution": "$VALIDATION_ROOT/logical-owner-api-v1/static-preflight/execution.json",
+    "static_observation": "$VALIDATION_ROOT/logical-owner-api-v1/static-preflight/observation.json",
+    "static_stderr": "$VALIDATION_ROOT/logical-owner-api-v1/static-preflight/stderr.log",
+    "http": null,
+    "raw_input": null,
+    "raw_output": null,
+    "api_phase": null,
+    "api_job": null
+  },
+  "limitations": [
+    "Input binary was not written because identity assertion precedes dispatch materialization.",
+    "HTTP, raw readback, CPU/GPU payload parity and output SHA were not verified.",
+    "No owned test server was started.",
+    "Original stage/whole-environment false values are retained."
+  ],
+  "prior_protected_files_unchanged": {
+    "product-typed-lock-resident-windows-v1/stop.json": true,
+    "nikke-gpu-cli-3c44b97/product-typed-lock-resident-windows-status-v1.json": true,
+    "nikke-gpu-cli-3c44b97/product-coordinate-lock-windows-status-v2.json": true
+  },
+  "object_status": {
+    "path": "$VALIDATION_ROOT/product-logical-owner-current-object-status-v1.json",
+    "sha256": "afeb4a995c400283bc67110b1e9cbe037f7bba75ee7223302d710c731aaaf0f3"
+  },
+  "link_status": {
+    "path": "$VALIDATION_ROOT/product-logical-owner-current-link-status-v1.json",
+    "sha256": "307e037769ee74040a8605fdb5a60d70f30e31ae1954f745cc88951a5276d6bd"
+  }
+}
