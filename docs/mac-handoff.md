@@ -1,3 +1,9 @@
+## 2026-11-03 target_hit_counterのL3静的接続をClaudeが受理
+
+[登録・spec・wire・consumerと歴史証拠](../research/product-target-counter-consumer-static-v1.json)。actual CATALOG prepare／impactとwireが同じspecification実関数を参照し、effect.target_counter.threshold→CounterSpec→carrier UIDのresource→impact.creditの加算とmin clamp→完了まで連結。単位はbinary64命中creditで、整数の命中回数やscalar buff値ではない。wireは16word policyの相対word4..5へLE binary64、GPUは同じword4のloadから比較する。既存M5記録にcredit0.75とthreshold完了credit2.5、現builder／spec／wireの2.5が保持される。旧CPU2componentのSHAは一致するがGPU closureは49ファイル差があり、数値は歴史証拠だけとして扱う。
+
+ClaudeはL3静的接続のみ合格。current-source通常API／原キャラの非ゼロparity、端数境界・routing・lifecycleはL4残件を保持。追加CPU戦闘／GPU／Windows0、計算source変更0。次はcover_def_pctの単位・実consumer・wire・保存済み非ゼロMetal証拠の静的監査。既存値へ新しい範囲制約を加えず、実装が持つ規約を確認する。
+
 ## 2026-11-03 Rapiのnamed stack接続と保存Metalカウンターを確認
 
 Claude指定の既存decoder検査で、原Rapi:Red Hoodのbuff_stack_add(type=buff)はharmfulな名前付き「유탄」carrierで、scaling_refから爆発係数へ読み、remove_named_buffで除去するL3接続だと確認。通常の百分率factor5やinstant型stack操作ではない。[定義・保存結果・差分・L4引き継ぎ](../research/product-buff-stack-carrier-consumer-v1.json)。標準profile5の受入済みMetal captureはcurrent closure／全input bytes／全readback SHAが一致。既存source contract成功、GPUカウンターは付与50／爆発6／除去6、最終carrierはstack0・inactive。これらは観測事実としてClaudeが受理し、stack数や時系列遷移の代用にはしない。
