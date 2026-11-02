@@ -1,3 +1,9 @@
+## 2026-11-03 cover_def_pctの単位・配線と保存Metal非ゼロ5件が合格
+
+[L3接続・wire・保存非ゼロreceipt](../research/product-cover-def-consumer-static-v1.json)。実経路はreference_models.cover_defenseのcontextからchecked native cover landingへ接続され、CATALOGではない。原Soldier O.W.の128.57は百分率のまま保持し、base*(1+pct/100)で1回だけ換算。0〜100への新たな制限やpct clampは加えない。live recipientの値を既存stack規則で加算し、body DEFから独立した基礎cover DEFを使う。wireはowner基礎値をLE binary64、kind0・単純stat93／合成96として衝突を拒否し、共通Slangの同じ演算順へ渡す。
+
+現在source closureと全input wordsが一致する既存typed-lock-accumulate case8 cover-disabled16を、全batch SHA検査後に既存decoderで読んだ。非ゼロ5receiptがあり、例はtime10.5・base1000・pct128.57→DEF2285.7・damage97714.3。全5件について現在pure CPU式とraw由来GPU値をstruct.packによるbinary64ビット比較で確認した。直近HTTP36秒12sceneの非ゼロ0件はpositiveに数えない。ClaudeはL3と既存CLI5件のみ合格、任意stack／refresh／合成とゲーム仕様一致は残件。追加CPU戦闘／GPU／Windows0、計算source変更0。次はreceived_dmg_split。weightedとeven sharingを区別し、divisor>1だけで別statの証拠を流用しない。
+
 ## 2026-11-03 target_hit_counterのL3静的接続をClaudeが受理
 
 [登録・spec・wire・consumerと歴史証拠](../research/product-target-counter-consumer-static-v1.json)。actual CATALOG prepare／impactとwireが同じspecification実関数を参照し、effect.target_counter.threshold→CounterSpec→carrier UIDのresource→impact.creditの加算とmin clamp→完了まで連結。単位はbinary64命中creditで、整数の命中回数やscalar buff値ではない。wireは16word policyの相対word4..5へLE binary64、GPUは同じword4のloadから比較する。既存M5記録にcredit0.75とthreshold完了credit2.5、現builder／spec／wireの2.5が保持される。旧CPU2componentのSHAは一致するがGPU closureは49ファイル差があり、数値は歴史証拠だけとして扱う。
