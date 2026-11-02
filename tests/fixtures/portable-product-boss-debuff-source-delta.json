@@ -24,169 +24,205 @@
     },
     "app/portable_detail.py": {
       "before_sha256": "085c7ccdcebfa6641bf124d95e6c320c337405202e4b148ae64dca08cb11db06",
-      "after_sha256": "5663ae9b17a3a6cecb85a80d240667c79a1070aa4c16d69f51e139108b900375",
+      "after_sha256": "13657283b9c57ec587bedb0d1993090b301ba5a56e53285157398b359d77bbce",
       "hunks": [
         {
-          "start": 1719,
-          "end": 1774,
+          "start": 428,
+          "end": 445,
+          "before": "",
+          "after": "import traceback\n"
+        },
+        {
+          "start": 1736,
+          "end": 1791,
           "before": "def verified_transport(evidence, backend):\n",
           "after": "def verified_transport(evidence, backend, *, cases=1):\n"
         },
         {
-          "start": 1998,
-          "end": 2125,
+          "start": 2015,
+          "end": 2142,
           "before": "            and transport['command_status'] == 'completed' and type(transport['cases']) is int and transport['cases'] == 1\n",
           "after": "            and transport['command_status'] == 'completed' and type(transport['cases']) is int and transport['cases'] == cases\n"
         },
         {
-          "start": 2755,
-          "end": 3849,
+          "start": 2772,
+          "end": 3866,
           "before": "",
           "after": "    source,iw,ow,words,metadata=_compile_product(prepared)\n    from portable_specs import LIMITS as L\n    at=L['WORLD_FRAME_INPUT_BASE']\n    if len(words)>at and words[at]!=0:\n        if words[at]!=0x57533031 or not 1<=words[at+1]<=32:\n            raise UnsupportedPortable('Invalid shared world clock input contract')\n        metadata['product_world_frame_contract']=dict(nodes=words[at+1])\n    return source,iw,ow,words,metadata\n\n\ndef validate_world_frame_readback(block,metadata):\n    \"\"\"Every compiled world, including an empty boss, must retain its clock.\"\"\"\n    contract=metadata.get('product_world_frame_contract')\n    if contract is None:return\n    from portable_specs import LIMITS as L\n    base=L['WORLD_FRAME_OUTPUT_BASE'];count=contract['nodes']\n    if (len(block)<base+788 or block[base]!=0 or not 1<=block[base+1]<=512 or list(block[base+784:base+788])!=[32,0,0,0]\n        or any(block[base+16+i*24]!=0 for i in range(count))):\n        raise UnsupportedPortable('Shared world clock readback is missing or incomplete; the GPU result is rejected')\n\n\ndef _compile_product(prepared):\n"
         },
         {
-          "start": 3934,
-          "end": 7901,
+          "start": 3951,
+          "end": 7918,
           "before": "",
           "after": "    if 'typed_targets' in prepared.get('reference_models',{}):\n        from portable_product_typed import compile_product as typed_product\n        return typed_product(prepared)\n    from portable_product_cover import required as cover_required,compile_product as compile_cover\n    if 'coordinate' in prepared.get('reference_models',{}):\n        if 'lock_on' in prepared['reference_models']:\n            from portable_product_locks import compile_product as locks\n            return locks(prepared,coordinate_model=prepared['reference_models']['coordinate'])\n        from portable_product_weighted import required as weighted_required,compile_product as compile_weighted\n        if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):\n            return compile_weighted(prepared,compile_product)\n        from portable_product_healing import required as healing_required,compile_product as compile_healing\n        if not prepared.get('_product_healing_compiled') and healing_required(prepared):\n            return compile_healing(prepared,compile_product)\n        if not prepared.get('_product_cover_compiled') and cover_required(prepared):\n            return compile_cover(prepared,compile_product)\n        from portable_product_coordinate import compile_product as coordinates\n        return coordinates(prepared)\n    from portable_product_movement import required as movement_required,compile_product as compile_movement\n    from portable_product_locks import required as locks_required,compile_product as compile_locks\n    from portable_product_named_range import required as range_required,compile_product as compile_range\n    if movement_required(prepared) and not prepared.get('reference_models'):\n        from portable_enemy_specs import plain_body_domain\n        if plain_body_domain(prepared,unauthored=True):\n            from portable_product_movement import compile_static_body\n            return compile_static_body(prepared,_compile_product)\n    if not prepared.get('_product_cover_compiled') and cover_required(prepared) and (range_required(prepared) or movement_required(prepared) or locks_required(prepared)):\n        return compile_cover(prepared,compile_product)\n    if range_required(prepared) and movement_required(prepared):\n        from portable_product_movement_range import compile_product as compile_movement_range\n        return compile_movement_range(prepared)\n    if locks_required(prepared):return compile_locks(prepared)\n    from portable_product_named_carriers import required as named_carriers_required,compile_product as compile_named_carriers\n    if not prepared.get('_product_named_carriers_compiled') and not prepared.get('reference_models') and named_carriers_required(prepared):\n        return compile_named_carriers(prepared,compile_product)\n    if range_required(prepared):return compile_range(prepared)\n    if movement_required(prepared):return compile_movement(prepared)\n    if not prepared.get('_product_cover_compiled') and cover_required(prepared):\n        return compile_cover(prepared,compile_product)\n    from portable_product_ammo import required as ammo_required,compile_product as compile_ammo\n    if not prepared.get('_product_ammo_compiled') and ammo_required(prepared):\n        return compile_ammo(prepared,compile_product)\n    from portable_product_weighted import required as weighted_required,compile_product as compile_weighted\n    if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):\n        return compile_weighted(prepared,compile_product)\n    from portable_product_healing import required,compile_product as compile_healing\n    if not prepared.get('_product_healing_compiled') and required(prepared):\n        return compile_healing(prepared,compile_product)\n    if prepared.get('reference_models'):\n        raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared GPU product wire; no model may be silently omitted')\n"
         },
         {
-          "start": 7985,
-          "end": 9127,
+          "start": 8002,
+          "end": 9144,
           "before": "    gauge_mode=prepared['policies']['config'].get('burst_gauge_mode','fixed')\n    if gauge_mode not in ('fixed','accumulate'):raise UnsupportedPortable('Unported burst gauge mode')\n    fixed=gauge_mode=='fixed'\n    if fixed:\n        cfg=prepared['policies']['config']\n        first=cfg.get('first_burst_time',3.)\n        regen=[c.get('burst_regen_time',2.) for c in prepared['chars']]\n        if any(type(v) not in (int,float) or not math.isfinite(v) or not 0<=v<=180 for v in [first,*regen]):\n            raise UnsupportedPortable('Fixed burst delays require finite binary64 seconds in [0,180]')\n        # Reuse existing static lowering; readiness itself is supplied below.\n        # This copy is validation input only, never a simulated CPU schedule.\n        prepared=copy.deepcopy(prepared)\n        prepared['policies']['config']['burst_gauge_mode']='accumulate'\n",
           "after": "    # The product promises the canonical battle's named-carrier lifecycle.\n    # Keep every equipment definition and let the existing shared GPU carrier\n    # merge/refresh them exactly as native does. Standalone component-quantity\n    # proofs retain their distinct, explicitly documented contract.\n    prepared=dict(prepared,_product_native_equipment_carriers=True)\n    manual_cover=any(a.get('action')=='cover' for c in prepared['chars'] for a in c.get('control',{}).get('sequence',[]))\n    if manual_cover:\n        if not prepared.get('_product_cover_compiled'):\n            raise UnsupportedPortable('Manual cover requires the connected product cover consumer entry')\n        prepared=dict(prepared,_product_manual_cover=True)\n    from portable_product_fixed import lower as lower_fixed,attach as attach_fixed\n    prepared,fixed_values=lower_fixed(prepared)\n    fixed=fixed_values is not None\n    from portable_product_add_attack import lower as lower_add_attacks\n    prepared,add_patterns=lower_add_attacks(prepared)\n    if 'burst_pattern' in prepared['policies']['config']:\n        prepared=dict(prepared,_product_burst_patterns=True)\n"
         },
         {
-          "start": 9182,
-          "end": 9373,
+          "start": 9199,
+          "end": 9390,
           "before": "",
           "after": "    if any(p.get('kind') in ('attack','debuff') and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):\n        prepared=dict(prepared,_product_boss_debuffs=True)\n"
         },
         {
-          "start": 9800,
-          "end": 10002,
+          "start": 9817,
+          "end": 10019,
           "before": "",
           "after": "        if manual_cover:\n            metadata['product_manual_cover_owners']=[i for i,c in enumerate(original['chars']) if any(a.get('action')=='cover' for a in c.get('control',{}).get('sequence',[]))]\n"
         },
         {
-          "start": 10596,
-          "end": 10784,
+          "start": 10613,
+          "end": 10801,
           "before": "            _,bindings=compile_registry(nodes,pools=True)\n",
           "after": "            registry_nodes=validate(copy.deepcopy(prepared['enemy']['patterns'])) if add_patterns is not None else nodes\n            _,bindings=compile_registry(registry_nodes,pools=True)\n"
         },
         {
-          "start": 11237,
-          "end": 11495,
+          "start": 11254,
+          "end": 11512,
           "before": "",
           "after": "            attach_fixed(words,metadata,original,fixed_values)\n            source=source.replace('gpu/product_','gpu/product_fixed_',1)\n        if prepared.get('_product_burst_patterns'):\n            from portable_burst_control_specs import product_patterns\n"
         },
         {
-          "start": 11551,
-          "end": 12208,
+          "start": 11568,
+          "end": 12225,
           "before": "            base=limits['WORLD_CONTROL_INPUT_BASE']\n            version=words[base+1]\n            tap_mask=words[base+5] if version==2 else 0\n            if (version not in (1,2) or version==1 and any(words[base+5:base+16])\n                    or version==2 and (not 0<tap_mask<32 or any(words[base+6:base+16]))):\n                raise UnsupportedPortable('Fixed burst requires a canonical automatic or tap control header')\n            words[base+1]=5 if tap_mask else 4\n            if tap_mask:words[base+10]=tap_mask\n            words[base+5:base+10]=[0x46424731,*struct.unpack('<II',struct.pack('<d',first)),*struct.unpack('<II',struct.pack('<d',max(regen)))]\n            metadata['real_prepared_input']['policy']=copy.deepcopy(original['policies'])\n            metadata['product_fixed_burst']=dict(first_seconds=first,member_regen_seconds=regen,\n                readiness_regen_seconds=max(regen),CPU_state_or_schedule_as_input=False)\n            source=source.replace('gpu/product_','gpu/product_fixed_',1)\n",
           "after": "            names=[c['name'] for c in prepared['chars']]\n            patterns=prepared['policies']['config']['burst_pattern']\n            packed=product_patterns(names,patterns)\n            for who,value in enumerate(packed):\n                words[limits['WEAPON_BASE']+who*limits['WEAPON_WORDS']+3]|=value\n            if any(packed):metadata['product_burst_patterns']=dict(patterns=copy.deepcopy(patterns),encoded=packed,cpu_schedule_or_state_supplied=False)\n        if add_patterns is not None:\n            from portable_product_add_attack import attach\n            return attach(source,words,metadata,prepared,add_patterns,original['enemy']['patterns'])\n"
         },
         {
-          "start": 12667,
-          "end": 12854,
+          "start": 12684,
+          "end": 12871,
           "before": "            words,metadata=compile_body_modifier_group_roster(prepared)\n",
           "after": "            from portable_battle_attack_group_input import product_history\n            words,metadata=compile_body_modifier_group_roster(prepared,group_history=product_history(prepared))\n"
         },
         {
-          "start": 13475,
-          "end": 13654,
+          "start": 13492,
+          "end": 13671,
           "before": "        words, metadata = compile_battle(prepared,routing='native')\n",
           "after": "        from portable_battle_attack_group_input import product_history\n        words, metadata = compile_battle(prepared,routing='native',group_history=product_history(prepared))\n"
         },
         {
-          "start": 14088,
-          "end": 14544,
+          "start": 14105,
+          "end": 14561,
           "before": "",
           "after": "    coordinate_spec=None\n    if 'coordinate' in body.get('reference_models',{}):\n        from product_coordinate_model import normalize_product\n        coordinate_spec=normalize_product(body['reference_models']['coordinate'])\n    if 'typed_targets' in body.get('reference_models',{}):\n        from product_typed_model import normalize_product as typed_model\n        coordinate_spec={'coord':typed_model(body['reference_models']['typed_targets'])['coord']}\n"
         },
         {
-          "start": 14692,
-          "end": 14947,
+          "start": 14709,
+          "end": 14964,
           "before": "",
           "after": "        if coordinate_spec is not None:\n            run.enemy['coord']=copy.deepcopy(coordinate_spec['coord'])\n        from calculator.boss_pattern import boss_mode\n        boss_mode(run.enemy) # Preserve native mode validation before any GPU allocation.\n"
         },
         {
-          "start": 15512,
-          "end": 15714,
+          "start": 15529,
+          "end": 15731,
           "before": "",
           "after": "    if set(prepared.get('reference_models',{}))&{'coordinate','enemy_movement','named_range','typed_targets'}:\n        captured['run'].expected=False\n        captured['run'].config['rng_mode']='random'\n"
         },
         {
-          "start": 15811,
-          "end": 16180,
+          "start": 15828,
+          "end": 16347,
           "before": "    view = decode(block[:159744], metadata)\n",
-          "after": "    ammo_attempts=None\n    if not block or block[0]!=0:\n        raise UnsupportedPortable('Shared battle status: '+str(block[0] if block else 'missing')+(' (history capacity exceeded)' if block and block[0] in (2,8) else ''))\n    validate_world_frame_readback(block,metadata)\n    view = decode(block if metadata.get('product_enemy_ammo') else block[:159744], metadata)\n"
+          "after": "    if metadata.get('product_ammo_cover') and not metadata.get('product_enemy_ammo'):\n        raise UnsupportedPortable('inconsistent_ammo_metadata')\n    ammo_attempts=None\n    if not block or block[0]!=0:\n        raise UnsupportedPortable('Shared battle status: '+str(block[0] if block else 'missing')+(' (history capacity exceeded)' if block and block[0] in (2,8) else ''))\n    validate_world_frame_readback(block,metadata)\n    view = decode(block if metadata.get('product_enemy_ammo') else block[:159744], metadata)\n"
         },
         {
-          "start": 16775,
-          "end": 16893,
+          "start": 16942,
+          "end": 17060,
           "before": "    control_log=read_product_control_log(block,metadata,names,run.config['duration'])\n",
           "after": "    control_log=read_product_control_log(block,metadata,names,run.config['duration'],burst_trace=view['burst_trace'])\n"
         },
         {
-          "start": 19675,
-          "end": 26112,
+          "start": 19842,
+          "end": 26279,
           "before": "",
           "after": "    models=[]\n    if metadata.get('product_typed_lock'):\n        from portable_product_typed_lock import read_result\n        models.append(read_result(block,metadata,names,run.config['duration']))\n    if metadata.get('product_typed_targets') and not metadata.get('product_typed_lock'):\n        from portable_product_typed import read_result as typed_result\n        models.append(typed_result(block,metadata,names,run.config['duration']))\n    if metadata.get('product_coordinate') and not metadata.get('product_typed_lock'):\n        from portable_product_coordinate import read_result,OUTPUT as COORDINATE_OUTPUT\n        coordinate_block=(memoryview(block)[:COORDINATE_OUTPUT] if isinstance(block,array.array) else block[:COORDINATE_OUTPUT]) if metadata.get('product_coordinate_lock') else block[:COORDINATE_OUTPUT] if metadata.get('product_coordinate_cover') or metadata.get('product_coordinate_weighted') else block\n        models.append(read_result(coordinate_block,metadata,names=names,duration=run.config['duration']))\n    if metadata.get('product_enemy_healing') and not metadata.get('product_coordinate_healing'):\n        from portable_product_healing import read_result\n        from portable_enemy_healing_wire import OUTPUT as healing_output\n        healing_block=block[:healing_output['OUTPUT_WORDS']] if metadata.get('product_healing_cover') else block\n        if metadata.get('product_typed_healing'):\n            if metadata.get('product_typed_lock'):\n                from portable_product_typed_lock import HEALING_OUTPUT\n            else:\n                from portable_product_typed import HEALING_OUTPUT\n            model=read_result(block,metadata,names,run.config['duration'],layout=HEALING_OUTPUT)\n        elif metadata.get('product_ammo_healing'):\n            from portable_enemy_healing_wire import AMMO_OUTPUT\n            healing_block=block[:AMMO_OUTPUT['OUTPUT_WORDS']]\n            model=read_result(healing_block,metadata,names,run.config['duration'],layout=AMMO_OUTPUT)\n        else:model=read_result(healing_block,metadata,names,run.config['duration'])\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_weighted_incoming'):\n        from portable_product_weighted import read_result\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_cover_defense'):\n        from portable_product_cover import read_result\n        options={}\n        if metadata.get('product_typed_cover'):\n            if metadata.get('product_typed_lock'):\n                from portable_product_typed_lock import COVER_OUT,OUTPUT as TCO\n            else:\n                from portable_product_typed import COVER_OUT,OUTPUT as TCO\n            options=dict(out=COVER_OUT,output=TCO)\n        elif metadata.get('product_movement_range_cover'):\n            from portable_product_movement_range import COVER_OUT,OUTPUT as MRO,check_cover_schema\n            check_cover_schema();options=dict(out=COVER_OUT,output=MRO)\n        model=read_result(block,metadata,names,run.config['duration'],**options)\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_enemy_ammo'):\n        from portable_product_ammo import read_result\n        from portable_enemy_ammo_wire import LAYOUT as AMMO\n        ammo_block=block[:AMMO['OUTPUT_WORDS']] if metadata.get('product_ammo_cover') else block\n        model=read_result(ammo_block,metadata)\n        ammo_attempts=model['enemy_ammo']['attempts'] if model is not None else []\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_lock_on') and not metadata.get('product_typed_lock'):\n        from portable_product_locks import read_result\n        if metadata.get('product_coordinate_lock'):\n            from portable_product_coordinate_lock import read_result\n        model=read_result(block,metadata,run.config['duration'])\n        if metadata.get('product_static_body_lock'):\n            info=metadata['product_lock_on'];locks=model['lock_on']\n            if (body.get('reference_models') or len(info['bindings'])!=1 or info['bindings'][0]['kind']!=0\n                or info['declarations']['lock_on']['typed_bindings'] or locks['typed']['state'] or locks['typed']['attacks']\n                or any(handle!=[0,0,1] for shot in locks['shots'] for handle in shot['handles'])):\n                raise UnsupportedPortable('Static BODY Lock On specialization has a non-singleton actor domain')\n            # All real lock/typed/packet banks were checked above. The\n            # canonical undeclared CPU response has no declared-model fields.\n        else:models.append(model)\n    if metadata.get('product_movement_range'):\n        from portable_product_movement_range import read_result as read_movement_range\n        models.extend(read_movement_range(block,metadata,run.config['duration']))\n    if metadata.get('product_enemy_movement') and not metadata.get('product_movement_range'):\n        from portable_product_movement import read_result\n        from portable_enemy_movement_wire import OUTPUT as MOVEMENT_OUTPUT\n        movement_block=block[:MOVEMENT_OUTPUT] if metadata.get('product_movement_cover') else block\n        model=read_result(movement_block,metadata,run.config['duration'])\n        models.append(model)\n    if metadata.get('product_named_range') and not metadata.get('product_movement_range'):\n        from portable_product_named_range import read_result\n        from portable_named_range_battle_wire import OUTPUT as RANGE_OUTPUT\n        range_block=block[:RANGE_OUTPUT] if metadata.get('product_named_range_cover') else block\n        model=read_result(range_block,metadata,run.config['duration'])\n        models.append(model)\n    if models:\n        from product_reference_models import combine_public,warning\n        payload['reference_models']=combine_public(models)\n        # Match the product CPU order: base, effect models, declarations,\n        # optional policy and hypothetical-growth notices. Keep list equality\n        # strict; a later declaration must not reorder the other notices.\n        payload['app_warnings'].insert(1+len(run._portable_detail_model_warnings),\n            warning(payload['reference_models']['declarations']))\n    if 'manual_cover_sequences' in body:\n        payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])\n"
         },
         {
-          "start": 27051,
-          "end": 27146,
+          "start": 27218,
+          "end": 27313,
           "before": "            if kind not in (1,2,3,4,5,6,7) or node>=(len(names) if kind==6 else len(nodes)):\n",
           "after": "            if kind not in (1,2,3,4,5,6,7,8) or node>=(len(names) if kind==6 else len(nodes)):\n"
         },
         {
-          "start": 27362,
-          "end": 27765,
+          "start": 27529,
+          "end": 27932,
           "before": "        world=read_histories(block,nodes)\n",
           "after": "        from portable_product_add_attack import query_sources\n        # Cover receipts were completely validated above. The ADD/ammo\n        # reader owns its original full prefix, not the appended cover bank.\n        sources=query_sources(ammo_block if metadata.get('product_ammo_cover') else block,metadata,ammo_attempts=ammo_attempts)\n        world=read_histories(block,nodes,attack_sources=sources)\n"
         },
         {
-          "start": 29063,
-          "end": 29201,
+          "start": 29230,
+          "end": 29368,
           "before": "                cover=round(hit['cover'],6),hp=round(hit['hp'],6),hp_after=round(hit['hp_after'],6),down=hit['down'],by='')\n",
           "after": "                cover=round(hit['cover'],6),hp=round(hit['hp'],6),hp_after=round(hit['hp_after'],6),down=hit['down'],by=hit.get('by',''))\n"
         },
         {
-          "start": 29264,
-          "end": 29367,
+          "start": 29431,
+          "end": 29534,
           "before": "def evaluate(body):\n    \"\"\"One isolated product request; reject unsupported conditions before dispatch.\"\"\"\n",
           "after": "def _evaluation(body):\n    \"\"\"Prepare and finish one request around a single deferred GPU boundary.\"\"\"\n"
         },
         {
-          "start": 31592,
-          "end": 31875,
-          "before": "        with patch.dict(os.environ,policy) if policy else nullcontext():\n            context=saved_program(source,folder) if explicit_image else nullcontext()\n            with context as artifact_receipt:\n                history=artifact_receipt['identity'].get('historical_link_environment') if artifact_receipt is not None else None\n                if history is not None:\n                    from portable_linked_artifact import validate_historical_environment\n                    validate_historical_environment(history)\n                    historical_status.update(historical_link_preservation_verified=False,\n                        historical_link_missing_processes_count=len(history['missing_identities']),historical_link_termination_cause=history['termination_cause'])\n                    record.update(historical_status)\n                raw, evidence = execute(source,'portableEvents',packed,input_words,output_words,backend,readback_path=folder/'readback.bin')\n                if raw is not None:raise RuntimeError('Expected bounded file readback')\n                (folder/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\n",
-          "after": "        evidence,artifact_receipt,member = yield dict(source=source,input_words=input_words,output_words=output_words,\n            packed=packed,backend=backend,policy=policy,explicit_image=explicit_image,folder=folder,\n            historical_status=historical_status,record=record)\n"
+          "start": 30654,
+          "end": 30695,
+          "before": "",
+          "after": "    stage='prepare'\n    unsupported=None\n"
         },
         {
-          "start": 32243,
-          "end": 32686,
+          "start": 31292,
+          "end": 31316,
+          "before": "",
+          "after": "        stage='compile'\n"
+        },
+        {
+          "start": 31824,
+          "end": 32133,
+          "before": "        with patch.dict(os.environ,policy) if policy else nullcontext():\n            context=saved_program(source,folder) if explicit_image else nullcontext()\n            with context as artifact_receipt:\n                history=artifact_receipt['identity'].get('historical_link_environment') if artifact_receipt is not None else None\n                if history is not None:\n                    from portable_linked_artifact import validate_historical_environment\n                    validate_historical_environment(history)\n                    historical_status.update(historical_link_preservation_verified=False,\n                        historical_link_missing_processes_count=len(history['missing_identities']),historical_link_termination_cause=history['termination_cause'])\n                    record.update(historical_status)\n                raw, evidence = execute(source,'portableEvents',packed,input_words,output_words,backend,readback_path=folder/'readback.bin')\n                if raw is not None:raise RuntimeError('Expected bounded file readback')\n                (folder/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\n",
+          "after": "        stage='transport'\n        evidence,artifact_receipt,member = yield dict(source=source,input_words=input_words,output_words=output_words,\n            packed=packed,backend=backend,policy=policy,explicit_image=explicit_image,folder=folder,\n            historical_status=historical_status,record=record)\n"
+        },
+        {
+          "start": 32501,
+          "end": 32944,
           "before": "        transport, timing = verified_transport(evidence,backend)\n        record.update(gpu_execution_verified=evidence['gpu_execution_verified'],input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'])\n",
           "after": "        transport, timing = verified_transport(evidence,backend,cases=member['cases'] if member else 1)\n        input_hash=member['input_sha256'] if member else evidence['input_sha256']\n        output_hash=member['output_sha256'] if member else evidence['output_sha256']\n        record.update(gpu_execution_verified=evidence['gpu_execution_verified'],input_sha256=input_hash,output_sha256=output_hash)\n        if member:record['batch']=member\n"
         },
         {
-          "start": 33116,
-          "end": 33193,
+          "start": 33085,
+          "end": 33108,
+          "before": "",
+          "after": "        stage='decode'\n"
+        },
+        {
+          "start": 33397,
+          "end": 33474,
           "before": "            input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'],source=source,\n",
           "after": "            input_sha256=input_hash,output_sha256=output_hash,source=source,\n"
         },
         {
-          "start": 33325,
-          "end": 33630,
+          "start": 33606,
+          "end": 33911,
           "before": "",
           "after": "        if member:\n            payload['compute']['batch']=member\n            payload['compute']['input_sha256_scope']='logical single-case framing; physical transfer is batch.transport_input_sha256'\n            payload['compute']['timing_scope']='shared batch transport; not an individual case duration'\n"
         },
         {
-          "start": 35705,
-          "end": 43100,
+          "start": 34169,
+          "end": 34676,
+          "before": "        # Compare the complete product result, not just the damage total. CPU is\n        # run strictly after GPU readback and cannot provide any GPU state.\n",
+          "after": "    except Exception as error:\n        unsupported=dict(getattr(error,'effect_context',{}),reason=str(error))\n        record.update(backend='cpu',error=str(error),error_type=type(error).__name__,stage=stage,\n            traceback=traceback.format_exc(),unsupported=[unsupported]);save()\n\n    # CPU evaluation is outside the GPU exception boundary and runs once per\n    # request, after readback or a GPU failure. A CPU error is never retried or\n    # misclassified as an unsupported GPU condition.\n    try:\n"
+        },
+        {
+          "start": 34719,
+          "end": 35508,
+          "before": "        (folder/'cpu-payload.json').write_text(json.dumps(cpu,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\n        differences = [key for key in payload.keys() | cpu.keys() if key != 'compute' and\n            (key not in payload or key not in cpu or payload[key] != cpu[key])]\n        record.update(cpu_verification=dict(matched=not differences,differing_fields=differences),elapsed_seconds=time.perf_counter()-started)\n        (folder/'gpu-payload.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\n        if differences:\n            cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUとCPUの照合に差があったため、CPUの結果を表示しています。',\n                gpu_result_rejected=True,cpu_verification=record['cpu_verification'],**historical_status)\n            record['backend']='cpu';save();return cpu\n        payload['compute']['cpu_verification']=record['cpu_verification']\n        record['backend']=requested;save();return payload\n    except (UnsupportedPortable,ValueError,RuntimeError,OSError,KeyError,TypeError,ImportError) as error:\n        unsupported=dict(getattr(error,'effect_context',{}),reason=str(error))\n        record.update(backend='cpu',error=str(error),error_type=type(error).__name__,unsupported=[unsupported]);save()\n        cpu = engine_worker.evaluate(body)\n        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=[unsupported],gpu_execution_verified=record['gpu_execution_verified'],**historical_status)\n",
+          "after": "    except Exception as error:\n        record.update(cpu_error=dict(error=str(error),error_type=type(error).__name__,\n            stage='cpu',traceback=traceback.format_exc()),elapsed_seconds=time.perf_counter()-started)\n        try:save()\n        except Exception as logging_error:error.add_note('CPU failure record could not be saved: '+type(logging_error).__name__)\n        raise\n    (folder/'cpu-payload.json').write_text(json.dumps(cpu,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\n    if unsupported is not None:\n        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=[unsupported],fallback_stage=stage,gpu_execution_verified=record['gpu_execution_verified'],**historical_status)\n"
+        },
+        {
+          "start": 35527,
+          "end": 43750,
           "before": "",
-          "after": "\n\nMAX_PRODUCT_BATCH=8\n\n\ndef _execute_prepared(plans):\n    \"\"\"One actual transport for compatible prepared cases, with honest views.\"\"\"\n    first=plans[0];count=len(plans)\n    if not 1<=count<=MAX_PRODUCT_BATCH:raise ValueError('Shared detail batch exceeds its bounded case count')\n    key=lambda p:(p['source'],p['input_words'],p['output_words'],p['backend'],p['policy'],p['explicit_image'],p['folder'].parent)\n    if any(key(p)!=key(first) for p in plans):raise ValueError('Shared detail transport requires identical source, wire, policy and capture root')\n    folder=first['folder'] if count==1 else first['folder'].parent/('batch-'+uuid.uuid4().hex)\n    if count>1:folder.mkdir(exist_ok=False)\n    packed=first['packed'] if count==1 else struct.pack('<I',count)+b''.join(p['packed'][4:] for p in plans)\n    if any(len(p['packed'])!=4+4*first['input_words'] or p['packed'][:4]!=struct.pack('<I',1) for p in plans):\n        raise ValueError('Complete single-case framing required before batching')\n    if count>1:(folder/'input.bin').write_bytes(packed)\n    write=lambda name,value:(folder/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\n    try:\n        if count>1:\n            from portable_capture_storage import space_status\n            budget=space_status(folder,len(packed)+2*count*first['output_words']*4)\n            write('storage-budget.json',budget)\n            if not budget['passed']:raise RuntimeError('Insufficient space for shared batch and complete member readbacks')\n        with patch.dict(os.environ,first['policy']) if first['policy'] else nullcontext():\n            context=saved_program(first['source'],folder) if first['explicit_image'] else nullcontext()\n            with context as receipt:\n                history=receipt['identity'].get('historical_link_environment') if receipt is not None else None\n                if history is not None:\n                    from portable_linked_artifact import validate_historical_environment\n                    validate_historical_environment(history)\n                    for p in plans:\n                        p['historical_status'].update(historical_link_preservation_verified=False,\n                            historical_link_missing_processes_count=len(history['missing_identities']),historical_link_termination_cause=history['termination_cause'])\n                        p['record'].update(p['historical_status'])\n                raw,evidence=execute(first['source'],'portableEvents',packed,first['input_words'],first['output_words'],first['backend'],readback_path=folder/'readback.bin')\n                if raw is not None:raise RuntimeError('Expected bounded file readback')\n                write('evidence.json',evidence)\n        if count==1:return [(evidence,receipt,None)]\n        if receipt is not None and evidence.get('transport',{}).get('compile_artifact')!=receipt:\n            raise RuntimeError('Saved product CUBIN transport receipt mismatch')\n        verified_transport(evidence,first['backend'],cases=count)\n        data=(folder/'readback.bin').read_bytes();stride=first['output_words']*4\n        if (len(data)!=count*stride or hashlib.sha256(packed).hexdigest()!=evidence['input_sha256']\n                or hashlib.sha256(data).hexdigest()!=evidence['output_sha256']):\n            raise RuntimeError('Shared batch full input/readback digest mismatch')\n        members=[];returned=[]\n        for index,p in enumerate(plans):\n            block=data[index*stride:(index+1)*stride]\n            member=dict(capture_id=folder.name,index=index,cases=count,input_words=first['input_words'],output_words=first['output_words'],\n                input_sha256=hashlib.sha256(p['packed']).hexdigest(),output_sha256=hashlib.sha256(block).hexdigest(),\n                transport_input_sha256=evidence['input_sha256'],transport_output_sha256=evidence['output_sha256'],\n                input_scope='single-case framing of this exact physical batch member',output_scope='exact readback slice')\n            (p['folder']/'readback.bin').write_bytes(block)\n            (p['folder']/'batch-member.json').write_text(json.dumps(member,indent=2)+'\\n')\n            (p['folder']/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\\n')\n            members.append(dict(member,capture_id=p['folder'].name));returned.append((evidence,receipt,member))\n        write('result.json',dict(schema='product-batch-transport-v1',source=first['source'],backend=first['backend'],cases=count,\n            gpu_execution_verified=True,scope='Shared physical transport only; each member has its own complete CPU result check',members=members))\n        return returned\n    except Exception as error:\n        if count>1:write('result.json',dict(schema='product-batch-transport-v1',source=first['source'],backend=first['backend'],cases=count,\n            scope='Failed shared transport; preserve all member failures',error=str(error),error_type=type(error).__name__,gpu_execution_verified=False))\n        raise\n\n\ndef _finish_evaluation(generator,*,outcome=None,error=None):\n    try:\n        if error is None:generator.send(outcome)\n        else:generator.throw(error)\n    except StopIteration as finished:return finished.value\n    raise RuntimeError('A product request may have only one GPU execution boundary')\n\n\ndef evaluate(body):\n    \"\"\"Original single-request behavior through the same batch-capable engine.\"\"\"\n    generator=_evaluation(body)\n    try:\n        try:plan=next(generator)\n        except StopIteration as finished:return finished.value\n        try:outcome=_execute_prepared([plan])[0]\n        except Exception as error:return _finish_evaluation(generator,error=error)\n        return _finish_evaluation(generator,outcome=outcome)\n    finally:generator.close()\n\n\ndef evaluate_many(bodies):\n    \"\"\"Preserve row identity and per-case CPU checks in bounded shared dispatches.\"\"\"\n    if not isinstance(bodies,list) or not 1<=len(bodies)<=MAX_PRODUCT_BATCH:\n        raise ValueError('Shared detail evaluations must contain one to eight requests')\n    results=[None]*len(bodies);groups={};generators=[]\n    try:\n        for index,body in enumerate(bodies):\n            generator=_evaluation(body);generators.append(generator)\n            try:plan=next(generator)\n            except StopIteration as finished:results[index]=dict(result=finished.value);continue\n            except (Exception,SystemExit) as error:results[index]=dict(error=str(error));continue\n            key=(plan['source'],plan['input_words'],plan['output_words'],plan['backend'],tuple(sorted(plan['policy'].items())),plan['explicit_image'],str(plan['folder'].parent))\n            groups.setdefault(key,[]).append((index,generator,plan))\n        for group in groups.values():\n            try:\n                outcomes=_execute_prepared([p for _,_,p in group]);error=None\n                if len(outcomes)!=len(group):raise RuntimeError('Shared batch result count mismatch')\n            except Exception as failure:outcomes=[None]*len(group);error=failure\n            for (index,generator,_),outcome in zip(group,outcomes):\n                try:results[index]=dict(result=_finish_evaluation(generator,outcome=outcome,error=error))\n                except (Exception,SystemExit) as failure:results[index]=dict(error=str(failure))\n        return results\n    finally:\n        for generator in generators:generator.close()\n"
+          "after": "    differences = [key for key in payload.keys() | cpu.keys() if key != 'compute' and\n        (key not in payload or key not in cpu or payload[key] != cpu[key])]\n    record.update(cpu_verification=dict(matched=not differences,differing_fields=differences),elapsed_seconds=time.perf_counter()-started)\n    (folder/'gpu-payload.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\n    if differences:\n        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUとCPUの照合に差があったため、CPUの結果を表示しています。',\n            gpu_result_rejected=True,cpu_verification=record['cpu_verification'],**historical_status)\n        record['backend']='cpu';save();return cpu\n    payload['compute']['cpu_verification']=record['cpu_verification']\n    record['backend']=requested;save();return payload\n\n\nMAX_PRODUCT_BATCH=8\n\n\ndef _execute_prepared(plans):\n    \"\"\"One actual transport for compatible prepared cases, with honest views.\"\"\"\n    first=plans[0];count=len(plans)\n    if not 1<=count<=MAX_PRODUCT_BATCH:raise ValueError('Shared detail batch exceeds its bounded case count')\n    key=lambda p:(p['source'],p['input_words'],p['output_words'],p['backend'],p['policy'],p['explicit_image'],p['folder'].parent)\n    if any(key(p)!=key(first) for p in plans):raise ValueError('Shared detail transport requires identical source, wire, policy and capture root')\n    folder=first['folder'] if count==1 else first['folder'].parent/('batch-'+uuid.uuid4().hex)\n    if count>1:folder.mkdir(exist_ok=False)\n    packed=first['packed'] if count==1 else struct.pack('<I',count)+b''.join(p['packed'][4:] for p in plans)\n    if any(len(p['packed'])!=4+4*first['input_words'] or p['packed'][:4]!=struct.pack('<I',1) for p in plans):\n        raise ValueError('Complete single-case framing required before batching')\n    if count>1:(folder/'input.bin').write_bytes(packed)\n    write=lambda name,value:(folder/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\n    try:\n        if count>1:\n            from portable_capture_storage import space_status\n            budget=space_status(folder,len(packed)+2*count*first['output_words']*4)\n            write('storage-budget.json',budget)\n            if not budget['passed']:raise RuntimeError('Insufficient space for shared batch and complete member readbacks')\n        with patch.dict(os.environ,first['policy']) if first['policy'] else nullcontext():\n            context=saved_program(first['source'],folder) if first['explicit_image'] else nullcontext()\n            with context as receipt:\n                history=receipt['identity'].get('historical_link_environment') if receipt is not None else None\n                if history is not None:\n                    from portable_linked_artifact import validate_historical_environment\n                    validate_historical_environment(history)\n                    for p in plans:\n                        p['historical_status'].update(historical_link_preservation_verified=False,\n                            historical_link_missing_processes_count=len(history['missing_identities']),historical_link_termination_cause=history['termination_cause'])\n                        p['record'].update(p['historical_status'])\n                raw,evidence=execute(first['source'],'portableEvents',packed,first['input_words'],first['output_words'],first['backend'],readback_path=folder/'readback.bin')\n                if raw is not None:raise RuntimeError('Expected bounded file readback')\n                write('evidence.json',evidence)\n        if count==1:return [(evidence,receipt,None)]\n        if receipt is not None and evidence.get('transport',{}).get('compile_artifact')!=receipt:\n            raise RuntimeError('Saved product CUBIN transport receipt mismatch')\n        verified_transport(evidence,first['backend'],cases=count)\n        data=(folder/'readback.bin').read_bytes();stride=first['output_words']*4\n        if (len(data)!=count*stride or hashlib.sha256(packed).hexdigest()!=evidence['input_sha256']\n                or hashlib.sha256(data).hexdigest()!=evidence['output_sha256']):\n            raise RuntimeError('Shared batch full input/readback digest mismatch')\n        members=[];returned=[]\n        for index,p in enumerate(plans):\n            block=data[index*stride:(index+1)*stride]\n            member=dict(capture_id=folder.name,index=index,cases=count,input_words=first['input_words'],output_words=first['output_words'],\n                input_sha256=hashlib.sha256(p['packed']).hexdigest(),output_sha256=hashlib.sha256(block).hexdigest(),\n                transport_input_sha256=evidence['input_sha256'],transport_output_sha256=evidence['output_sha256'],\n                input_scope='single-case framing of this exact physical batch member',output_scope='exact readback slice')\n            (p['folder']/'readback.bin').write_bytes(block)\n            (p['folder']/'batch-member.json').write_text(json.dumps(member,indent=2)+'\\n')\n            (p['folder']/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\\n')\n            members.append(dict(member,capture_id=p['folder'].name));returned.append((evidence,receipt,member))\n        write('result.json',dict(schema='product-batch-transport-v1',source=first['source'],backend=first['backend'],cases=count,\n            gpu_execution_verified=True,scope='Shared physical transport only; each member has its own complete CPU result check',members=members))\n        return returned\n    except Exception as error:\n        if count>1:write('result.json',dict(schema='product-batch-transport-v1',source=first['source'],backend=first['backend'],cases=count,\n            scope='Failed shared transport; preserve all member failures',error=str(error),error_type=type(error).__name__,gpu_execution_verified=False))\n        raise\n\n\ndef _finish_evaluation(generator,*,outcome=None,error=None):\n    try:\n        if error is None:generator.send(outcome)\n        else:generator.throw(error)\n    except StopIteration as finished:return finished.value\n    raise RuntimeError('A product request may have only one GPU execution boundary')\n\n\ndef evaluate(body):\n    \"\"\"Original single-request behavior through the same batch-capable engine.\"\"\"\n    generator=_evaluation(body)\n    try:\n        try:plan=next(generator)\n        except StopIteration as finished:return finished.value\n        try:outcome=_execute_prepared([plan])[0]\n        except Exception as error:return _finish_evaluation(generator,error=error)\n        return _finish_evaluation(generator,outcome=outcome)\n    finally:generator.close()\n\n\ndef evaluate_many(bodies):\n    \"\"\"Preserve row identity and per-case CPU checks in bounded shared dispatches.\"\"\"\n    if not isinstance(bodies,list) or not 1<=len(bodies)<=MAX_PRODUCT_BATCH:\n        raise ValueError('Shared detail evaluations must contain one to eight requests')\n    results=[None]*len(bodies);groups={};generators=[]\n    try:\n        for index,body in enumerate(bodies):\n            generator=_evaluation(body);generators.append(generator)\n            try:plan=next(generator)\n            except StopIteration as finished:results[index]=dict(result=finished.value);continue\n            except Exception as error:results[index]=dict(error=str(error));continue\n            key=(plan['source'],plan['input_words'],plan['output_words'],plan['backend'],tuple(sorted(plan['policy'].items())),plan['explicit_image'],str(plan['folder'].parent))\n            groups.setdefault(key,[]).append((index,generator,plan))\n        for group in groups.values():\n            try:\n                outcomes=_execute_prepared([p for _,_,p in group]);error=None\n                if len(outcomes)!=len(group):raise RuntimeError('Shared batch result count mismatch')\n            except Exception as failure:outcomes=[None]*len(group);error=failure\n            for (index,generator,_),outcome in zip(group,outcomes):\n                try:results[index]=dict(result=_finish_evaluation(generator,outcome=outcome,error=error))\n                except Exception as failure:results[index]=dict(error=str(failure))\n        return results\n    finally:\n        for generator in generators:generator.close()\n"
         }
       ]
     },

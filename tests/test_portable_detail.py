@@ -1285,3 +1285,79 @@ class ProductBatchProtocol(unittest.TestCase):
             first=packed(a);packed(b);last=packed(a)
         self.assertEqual(first,last)
         self.assertEqual(before,(spec.calc_base_stats,timeline.calc_base_stats,BuffManager._make_cube_effects))
+
+    def test_gpu_stage_exceptions_fall_back_once_with_stage_and_traceback(self):
+        import subprocess
+        for backend,requested in [('metal','metal_detail'),('cuda','cuda_shared_detail')]:
+            for function,stage in [('prepare','prepare'),('compile_product','compile'),('execute','transport'),('decode_payload','decode')]:
+                for error in (AttributeError('attribute fault'),IndexError('index fault'),subprocess.TimeoutExpired('mock transport',1)):
+                    with self.subTest(backend=backend,function=function,error=type(error).__name__),tempfile.TemporaryDirectory() as folder,self.harness(folder,backend=backend) as (_,events),patch.object(product,function,side_effect=error):
+                        result=product.evaluate(self.bodies(1,requested)[0]);compute=result['compute']
+                        self.assertEqual(result['marker'],0);self.assertEqual(compute['backend'],'cpu')
+                        self.assertEqual(compute['fallback_stage'],stage);self.assertEqual(events.count(('cpu',0)),1)
+                        self.assertEqual(compute['unsupported'][0]['reason'],str(error))
+                        record=json.loads((Path(folder)/compute['capture_id']/'result.json').read_text())
+                        self.assertEqual(record['stage'],stage);self.assertEqual(record['error_type'],type(error).__name__)
+                        self.assertIn(type(error).__name__,record['traceback']);self.assertNotIn('cpu_error',record)
+
+    def test_cpu_exception_is_recorded_and_propagated_without_second_evaluation(self):
+        for gpu_failure in (False,True):
+            for error in (ValueError('CPU input rejected'),IndexError('CPU index fault')):
+                with self.subTest(gpu_failure=gpu_failure,error=type(error).__name__),tempfile.TemporaryDirectory() as folder,self.harness(folder),patch.object(product.engine_worker,'evaluate',side_effect=error) as cpu:
+                    with (patch.object(product,'compile_product',side_effect=AttributeError('GPU compile fault')) if gpu_failure else nullcontext()):
+                        with self.assertRaises(type(error)) as caught:product.evaluate(self.bodies(1)[0])
+                    self.assertIs(caught.exception,error);cpu.assert_called_once()
+                    record=json.loads(next(Path(folder).glob('*/result.json')).read_text())
+                    self.assertEqual(record['cpu_error']['error_type'],type(error).__name__)
+                    self.assertEqual(record['cpu_error']['stage'],'cpu');self.assertIn(str(error),record['cpu_error']['traceback'])
+                    self.assertEqual('unsupported' in record,gpu_failure)
+                    self.assertEqual(record['gpu_execution_verified'],not gpu_failure)
+
+    def test_base_exceptions_are_not_converted_to_fallback_or_batch_error(self):
+        for function in ('prepare','compile_product','execute','decode_payload'):
+            for error in (KeyboardInterrupt('cancel'),SystemExit(7)):
+                for batch in (False,True):
+                    with self.subTest(function=function,error=type(error).__name__,batch=batch),tempfile.TemporaryDirectory() as folder,self.harness(folder) as (_,events),patch.object(product,function,side_effect=error):
+                        with self.assertRaises(type(error)) as caught:
+                            if batch:product.evaluate_many(self.bodies(1))
+                            else:product.evaluate(self.bodies(1)[0])
+                        self.assertIs(caught.exception,error)
+                        self.assertFalse(any(isinstance(event,tuple) and event[0]=='cpu' for event in events))
+
+    def test_one_batch_decode_exception_does_not_change_other_rows_or_retry(self):
+        with tempfile.TemporaryDirectory() as folder,self.harness(folder) as (calls,events):
+            def decode(body,pre,run,metadata,block):
+                if pre['marker']==1:raise IndexError('one decoder failed')
+                return dict(marker=block[1])
+            with patch.object(product,'decode_payload',side_effect=decode):rows=product.evaluate_many(self.bodies())
+            self.assertEqual(len(calls),1);self.assertEqual([row['result']['marker'] for row in rows],[0,1,2])
+            self.assertEqual([row['result']['compute']['backend'] for row in rows],['metal_detail','cpu','metal_detail'])
+            self.assertEqual(events,['gpu',('cpu',0),('cpu',1),('cpu',2)])
+            self.assertEqual(rows[1]['result']['compute']['fallback_stage'],'decode')
+            for i in (0,2):self.assertEqual(rows[i]['result']['compute']['cpu_verification'],dict(matched=True,differing_fields=[]))
+
+    def test_inconsistent_ammo_metadata_is_explicitly_rejected_and_falls_back(self):
+        original_decode=product.decode_payload
+        with self.assertRaisesRegex(product.UnsupportedPortable,'inconsistent_ammo_metadata'):
+            original_decode({},None,None,dict(product_ammo_cover=True),[])
+        with tempfile.TemporaryDirectory() as folder,self.harness(folder) as (_,events):
+            def decode(body,pre,run,metadata,block):return original_decode(body,pre,run,dict(product_ammo_cover=True),block)
+            with patch.object(product,'decode_payload',side_effect=decode):result=product.evaluate(self.bodies(1)[0])
+            self.assertEqual(result['compute']['backend'],'cpu');self.assertEqual(events.count(('cpu',0)),1)
+            self.assertEqual(result['compute']['unsupported'][0]['reason'],'inconsistent_ammo_metadata')
+
+    def test_one_batch_cpu_exception_keeps_other_rows_and_evaluates_each_once(self):
+        with tempfile.TemporaryDirectory() as folder,self.harness(folder) as (calls,events):
+            def cpu(body):
+                events.append(('cpu',body['seed']))
+                if body['seed']==1:raise IndexError('one CPU row failed')
+                return dict(marker=body['seed'])
+            with patch.object(product.engine_worker,'evaluate',side_effect=cpu):rows=product.evaluate_many(self.bodies())
+            self.assertEqual(rows[1],dict(error='one CPU row failed'));self.assertEqual(len(calls),1)
+            self.assertEqual(events,['gpu',('cpu',0),('cpu',1),('cpu',2)])
+            for i in (0,2):
+                self.assertEqual(rows[i]['result']['compute']['backend'],'metal_detail')
+                self.assertEqual(rows[i]['result']['compute']['cpu_verification'],dict(matched=True,differing_fields=[]))
+            records=[json.loads(p.read_text()) for p in Path(folder).glob('*/result.json')]
+            errors=[r for r in records if 'cpu_error' in r];self.assertEqual(len(errors),1)
+            self.assertEqual(errors[0]['cpu_error']['error_type'],'IndexError');self.assertNotIn('unsupported',errors[0])

@@ -15,6 +15,7 @@ import platform
 import sys
 import struct
 import time
+import traceback
 from types import SimpleNamespace
 from unittest.mock import patch
 import uuid
@@ -254,6 +255,8 @@ def prepare(body):
 
 
 def decode_payload(body, prepared, run, metadata, block):
+    if metadata.get('product_ammo_cover') and not metadata.get('product_enemy_ammo'):
+        raise UnsupportedPortable('inconsistent_ammo_metadata')
     ammo_attempts=None
     if not block or block[0]!=0:
         raise UnsupportedPortable('Shared battle status: '+str(block[0] if block else 'missing')+(' (history capacity exceeded)' if block and block[0] in (2,8) else ''))
@@ -470,6 +473,8 @@ def _evaluation(body):
     record.update(historical_status)
     def save():
         (folder/'result.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    stage='prepare'
+    unsupported=None
     try:
         record['request_sha256'] = hashlib.sha256(json.dumps(body,ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
         policy = execution_environment(backend)
@@ -479,6 +484,7 @@ def _evaluation(body):
         parts=read_parts(body.get('enemy',{}).get('parts',[]))
         # The shared world compiler normalizes original tap/hold controls.
         # Its admission still rejects unconnected aim/cover/reload/burst axes.
+        stage='compile'
         source, input_words, output_words, words, metadata = compile_product(prepared)
         if parts and [p['name'] for p in parts]!=[p['name'] for p in metadata.get('product_parts',[])]:
             raise UnsupportedPortable('Original part identities disagree with the shared world registry')
@@ -487,6 +493,7 @@ def _evaluation(body):
         packed = wire.tobytes()
         (folder/'input.bin').write_bytes(packed)
         record['source'] = source
+        stage='transport'
         evidence,artifact_receipt,member = yield dict(source=source,input_words=input_words,output_words=output_words,
             packed=packed,backend=backend,policy=policy,explicit_image=explicit_image,folder=folder,
             historical_status=historical_status,record=record)
@@ -502,6 +509,7 @@ def _evaluation(body):
         if member:record['batch']=member
         block = array.array('I');block.frombytes((folder/'readback.bin').read_bytes())
         if sys.byteorder != 'little':block.byteswap()
+        stage='decode'
         payload = decode_payload(body,prepared,run,metadata,block)
         payload['compute'] = dict(requested=requested,backend=requested,capture_id=folder.name,device=evidence['transport']['device'],
             elapsed_ms=(time.perf_counter()-started)*1000,gpu_execution_verified=True,
@@ -516,26 +524,36 @@ def _evaluation(body):
         if artifact_receipt is not None:
             payload['compute']['artifact_provider']=artifact_receipt['identity']['provider']
             payload['compute']['artifact_key']=artifact_receipt['key']
-        # Compare the complete product result, not just the damage total. CPU is
-        # run strictly after GPU readback and cannot provide any GPU state.
-        cpu = engine_worker.evaluate(body)
-        (folder/'cpu-payload.json').write_text(json.dumps(cpu,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-        differences = [key for key in payload.keys() | cpu.keys() if key != 'compute' and
-            (key not in payload or key not in cpu or payload[key] != cpu[key])]
-        record.update(cpu_verification=dict(matched=not differences,differing_fields=differences),elapsed_seconds=time.perf_counter()-started)
-        (folder/'gpu-payload.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-        if differences:
-            cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUとCPUの照合に差があったため、CPUの結果を表示しています。',
-                gpu_result_rejected=True,cpu_verification=record['cpu_verification'],**historical_status)
-            record['backend']='cpu';save();return cpu
-        payload['compute']['cpu_verification']=record['cpu_verification']
-        record['backend']=requested;save();return payload
-    except (UnsupportedPortable,ValueError,RuntimeError,OSError,KeyError,TypeError,ImportError) as error:
+    except Exception as error:
         unsupported=dict(getattr(error,'effect_context',{}),reason=str(error))
-        record.update(backend='cpu',error=str(error),error_type=type(error).__name__,unsupported=[unsupported]);save()
+        record.update(backend='cpu',error=str(error),error_type=type(error).__name__,stage=stage,
+            traceback=traceback.format_exc(),unsupported=[unsupported]);save()
+
+    # CPU evaluation is outside the GPU exception boundary and runs once per
+    # request, after readback or a GPU failure. A CPU error is never retried or
+    # misclassified as an unsupported GPU condition.
+    try:
         cpu = engine_worker.evaluate(body)
-        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=[unsupported],gpu_execution_verified=record['gpu_execution_verified'],**historical_status)
+    except Exception as error:
+        record.update(cpu_error=dict(error=str(error),error_type=type(error).__name__,
+            stage='cpu',traceback=traceback.format_exc()),elapsed_seconds=time.perf_counter()-started)
+        try:save()
+        except Exception as logging_error:error.add_note('CPU failure record could not be saved: '+type(logging_error).__name__)
+        raise
+    (folder/'cpu-payload.json').write_text(json.dumps(cpu,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    if unsupported is not None:
+        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=[unsupported],fallback_stage=stage,gpu_execution_verified=record['gpu_execution_verified'],**historical_status)
         return cpu
+    differences = [key for key in payload.keys() | cpu.keys() if key != 'compute' and
+        (key not in payload or key not in cpu or payload[key] != cpu[key])]
+    record.update(cpu_verification=dict(matched=not differences,differing_fields=differences),elapsed_seconds=time.perf_counter()-started)
+    (folder/'gpu-payload.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    if differences:
+        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUとCPUの照合に差があったため、CPUの結果を表示しています。',
+            gpu_result_rejected=True,cpu_verification=record['cpu_verification'],**historical_status)
+        record['backend']='cpu';save();return cpu
+    payload['compute']['cpu_verification']=record['cpu_verification']
+    record['backend']=requested;save();return payload
 
 
 MAX_PRODUCT_BATCH=8
@@ -632,7 +650,7 @@ def evaluate_many(bodies):
             generator=_evaluation(body);generators.append(generator)
             try:plan=next(generator)
             except StopIteration as finished:results[index]=dict(result=finished.value);continue
-            except (Exception,SystemExit) as error:results[index]=dict(error=str(error));continue
+            except Exception as error:results[index]=dict(error=str(error));continue
             key=(plan['source'],plan['input_words'],plan['output_words'],plan['backend'],tuple(sorted(plan['policy'].items())),plan['explicit_image'],str(plan['folder'].parent))
             groups.setdefault(key,[]).append((index,generator,plan))
         for group in groups.values():
@@ -642,7 +660,7 @@ def evaluate_many(bodies):
             except Exception as failure:outcomes=[None]*len(group);error=failure
             for (index,generator,_),outcome in zip(group,outcomes):
                 try:results[index]=dict(result=_finish_evaluation(generator,outcome=outcome,error=error))
-                except (Exception,SystemExit) as failure:results[index]=dict(error=str(failure))
+                except Exception as failure:results[index]=dict(error=str(failure))
         return results
     finally:
         for generator in generators:generator.close()
