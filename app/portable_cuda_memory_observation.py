@@ -46,10 +46,34 @@ def host_memory(loader=None):
         gpu_calls=0,driver_calls=0,calculation_verified=False)
 
 
+
+LIFECYCLE_BOUNDARIES=('cuCtxCreate_v2','cuModuleLoadData','cuModuleLoadDataEx',
+    'cuModuleGetFunction','cuFuncGetAttribute','cuCtxDestroy_v2')
+
+
+def validate_function_resources(row):
+    names=('max_threads_per_block','shared_size_bytes','const_size_bytes',
+        'local_size_bytes_per_thread','num_regs_per_thread','ptx_version','binary_version')
+    attributes=row.get('attributes')
+    if (row.get('schema')!='cuda-function-resources-v1' or type(attributes) is not list or len(attributes)!=7
+            or type(row.get('driver_attribute_query_calls')) is not int or not 0<=row['driver_attribute_query_calls']<=7
+            or type(row.get('kernel_calls_added')) is not int or row['kernel_calls_added']!=0
+            or any(type(row.get(k)) is not int for k in ('started_unix_ns','finished_unix_ns'))
+            or not 0<=row['started_unix_ns']<=row['finished_unix_ns']):raise ValueError('Invalid function resource record')
+    for index,(name,item) in enumerate(zip(names,attributes,strict=True)):
+        if (type(item) is not dict or type(item.get('attribute')) is not int or item['attribute']!=index
+                or item.get('name')!=name or type(item.get('available')) is not bool
+                or item.get('return_code') is not None and type(item['return_code']) is not int):raise ValueError('Invalid function resource attribute')
+        if item['available']:
+            if item.get('return_code')!=0 or type(item.get('value')) is not int or item['value']<0:raise ValueError('Invalid available function attribute')
+        elif item.get('value') is not None:raise ValueError('Unavailable function attribute cannot invent a value')
+    if sum(item['available'] for item in attributes)>row['driver_attribute_query_calls']:raise ValueError('Missing function attribute queries')
+
+
 class CudaMemorySampler:
     """Query only an already-loaded driver's current context; never create one."""
     def __init__(self,library,host):
-        self.host=host;self.query=None;self.query_error=None
+        self.library=library;self.host=host;self.query=None;self.query_error=None
         try:
             self.query=library.cuMemGetInfo_v2
             self.query.argtypes=[C.POINTER(C.c_size_t),C.POINTER(C.c_size_t)];self.query.restype=C.c_int
@@ -60,7 +84,10 @@ class CudaMemorySampler:
         except Exception as error:host=dict(available=False,reason=type(error).__name__)
         free=C.c_size_t();total=C.c_size_t();attempts=0
         device=dict(available=False,free_bytes=None,total_bytes=None,return_code=None)
-        if self.query is not None:
+        no_context=(boundary=='cuCtxCreate_v2' and (position=='before' or return_code!=0)
+            or boundary=='cuCtxDestroy_v2' and position=='after')
+        if no_context:device['reason']='Current owned context is not confirmed at this boundary'
+        elif self.query is not None:
             attempts=1
             try:
                 code=int(self.query(C.byref(free),C.byref(total)))
@@ -77,9 +104,42 @@ class CudaMemorySampler:
             scope='Point-in-time estimate only; not allocation capacity, failure cause, or calculation proof')
 
 
+    def function_resources(self,function_pointer):
+        """Query the function just returned by the owned cuModuleGetFunction.
+
+        Attribute values describe the loaded function, not total reservations.
+        Driver queries can affect lazy loading; surrounding snapshots retain it.
+        Never create a context, launch, change attributes or serialize a pointer.
+        """
+        attributes=('max_threads_per_block','shared_size_bytes','const_size_bytes',
+            'local_size_bytes_per_thread','num_regs_per_thread','ptx_version','binary_version')
+        started=time.time_ns();rows=[];calls=0;query=None;reason=None
+        try:
+            handle=C.cast(function_pointer,C.POINTER(C.c_void_p)).contents.value
+            if not handle:raise ValueError('Missing function')
+            query=self.library.cuFuncGetAttribute
+            query.argtypes=[C.POINTER(C.c_int),C.c_int,C.c_void_p];query.restype=C.c_int
+        except (AttributeError,OSError,TypeError,ValueError) as error:reason=type(error).__name__
+        for attribute,name in enumerate(attributes):
+            row=dict(attribute=attribute,name=name,available=False,value=None,return_code=None)
+            if query is None:row['reason']=reason
+            else:
+                value=C.c_int();calls+=1
+                try:
+                    code=int(query(C.byref(value),attribute,C.c_void_p(handle)));row['return_code']=code
+                    if code==0 and value.value>=0:row.update(available=True,value=value.value)
+                    else:row['reason']='Query failed or returned invalid attribute'
+                except Exception as error:row['reason']=type(error).__name__
+            rows.append(row)
+        return dict(schema='cuda-function-resources-v1',attributes=rows,
+            driver_attribute_query_calls=calls,kernel_calls_added=0,
+            started_unix_ns=started,finished_unix_ns=time.time_ns(),
+            scope='Loaded function attributes only; not total device/host reservation or failure cause')
+
+
 def summarize(rows):
     """Saved event data only. Missing arguments/observations remain unknown."""
-    allocations=[];launches=[];snapshots=[];pending={};expected_observations=[]
+    allocations=[];launches=[];snapshots=[];lifecycle=[];functions=[];pending={};expected_observations=[]
     for row in rows:
         stage=row.get('stage');state=row.get('state')
         if stage in ('cuMemAlloc_v2','cuLaunchKernel'):
@@ -104,16 +164,20 @@ def summarize(rows):
             elif state=='raised':
                 if stage not in pending:raise ValueError('Unpaired raised resource event')
                 pending.pop(stage)['exception']=row.get('exception')
-        elif stage=='cuda_memory_snapshot':
+        elif stage=='cuda_function_resources':
+            if state!='observed':raise ValueError('Invalid function resource event')
+            validate_function_resources(row)
+            functions.append({k:row[k] for k in ('schema','attributes','driver_attribute_query_calls','kernel_calls_added','started_unix_ns','finished_unix_ns','scope')})
+        elif stage in ('cuda_memory_snapshot','cuda_lifecycle_memory_snapshot'):
             if (state!='observed' or row.get('schema')!='cuda-memory-observation-v1'
-                or row.get('boundary') not in ('cuMemAlloc_v2','cuLaunchKernel') or row.get('position') not in ('before','after')
+                or row.get('boundary') not in (('cuMemAlloc_v2','cuLaunchKernel') if stage=='cuda_memory_snapshot' else LIFECYCLE_BOUNDARIES) or row.get('position') not in ('before','after')
                 or type(row.get('driver_memory_query_calls')) is not int or row['driver_memory_query_calls'] not in (0,1)
                 or type(row.get('kernel_calls_added')) is not int or row['kernel_calls_added']!=0):
                 raise ValueError('Invalid CUDA memory observation event')
             if (type(row.get('host')) is not dict or type(row.get('device')) is not dict
                 or any(type(row.get(k)) is not int for k in ('started_unix_ns','finished_unix_ns'))
                 or not 0<=row['started_unix_ns']<=row['finished_unix_ns']):raise ValueError('Invalid CUDA memory observation payload')
-            snapshots.append({k:row[k] for k in ('boundary','position','host','device','started_unix_ns','finished_unix_ns','driver_memory_query_calls')})
+            (snapshots if stage=='cuda_memory_snapshot' else lifecycle).append({k:row[k] for k in ('boundary','position','host','device','started_unix_ns','finished_unix_ns','driver_memory_query_calls')})
     def available(row):
         h=row['host'];d=row['device']
         if type(h) is not dict or type(d) is not dict:raise ValueError('Memory observation dictionaries required')
@@ -127,7 +191,7 @@ def summarize(rows):
             and h['parent'].get('handle_closed') is True)
     complete=bool(snapshots) and [(r['boundary'],r['position']) for r in snapshots]==expected_observations and all(available(r) for r in snapshots)
     return dict(schema='saved-cuda-resource-summary-v1',allocations=allocations,launches=launches,
-        snapshots=snapshots,incomplete_native_events=sorted(pending),
+        snapshots=snapshots,lifecycle_snapshots=lifecycle,function_resources=functions,incomplete_native_events=sorted(pending),
         allocation_arguments_recorded=bool(allocations) and all(r['requested_bytes'] is not None for r in allocations),
         launch_arguments_recorded=bool(launches) and all(r['grid'] is not None and r['block'] is not None and r['dynamic_shared_bytes'] is not None for r in launches),
         memory_observations_present=bool(snapshots),memory_observation_complete=complete,failure_cause_verified=False,

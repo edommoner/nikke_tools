@@ -56,9 +56,14 @@ class NativeFunction:
                 if self._name=='cuMemAlloc_v2':facts=dict(requested_bytes=integer(args[1]))
                 else:facts=dict(grid=[integer(v) for v in args[1:4]],block=[integer(v) for v in args[4:7]],dynamic_shared_bytes=integer(args[7]))
             except (IndexError,ValueError,TypeError) as error:facts=dict(argument_observation_error=type(error).__name__)
-        if self._sampler:self._journal.emit('cuda_memory_snapshot','observed',**self._sampler(self._name,'before'))
+        event='cuda_memory_snapshot' if self._name in ('cuMemAlloc_v2','cuLaunchKernel') else 'cuda_lifecycle_memory_snapshot'
+        if self._sampler:self._journal.emit(event,'observed',**self._sampler(self._name,'before'))
         result=self._journal.invoke(self._name, self._function, *args, native=True,event_facts=facts)
-        if self._sampler:self._journal.emit('cuda_memory_snapshot','observed',**self._sampler(self._name,'after',return_code=int(result)))
+        if self._sampler:self._journal.emit(event,'observed',**self._sampler(self._name,'after',return_code=int(result)))
+        if self._sampler and self._name=='cuModuleGetFunction' and int(result)==0:
+            self._journal.emit('cuda_lifecycle_memory_snapshot','observed',**self._sampler('cuFuncGetAttribute','before'))
+            self._journal.emit('cuda_function_resources','observed',**self._sampler.function_resources(args[0]))
+            self._journal.emit('cuda_lifecycle_memory_snapshot','observed',**self._sampler('cuFuncGetAttribute','after'))
         return result
 
 
@@ -70,7 +75,7 @@ class NativeLibrary:
     def __getattr__(self, name):
         if name not in self.functions:
             sample=None
-            if self.sampler_factory and name in ('cuMemAlloc_v2','cuLaunchKernel'):
+            if self.sampler_factory and name in ('cuMemAlloc_v2','cuLaunchKernel','cuCtxCreate_v2','cuModuleLoadData','cuModuleLoadDataEx','cuModuleGetFunction','cuCtxDestroy_v2'):
                 if self.sampler is None:self.sampler=self.sampler_factory(self.library)
                 sample=self.sampler
             self.functions[name] = NativeFunction(getattr(self.library, name), name, self.journal,sample)

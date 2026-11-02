@@ -883,6 +883,7 @@ SMOKE_TESTS.append('test_portable_test_golden_supplement.py')
 SMOKE_TESTS += ['test_portable_windows_observer.py','test_portable_snapshot_failure.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py','test_resident_arc_retention.py']
 SMOKE_TESTS += ['test_portable_prepared_audit.py','test_portable_prepared_runner.py','test_portable_prepared_stage.py']
 SMOKE_TESTS.append('test_portable_cuda_memory_observation.py')
+SMOKE_TESTS.append('test_portable_phase_audit.py')
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
@@ -2908,6 +2909,8 @@ def module_child(m,capture,backend):
     import portable_backend
     from portable_phase_audit import Journal,NativeLibrary
     journal=Journal(capture/'phases.jsonl');loader=portable_backend.C.WinDLL
+    resource_flag=os.environ.get('NIKKE_CUDA_RESOURCE_OBSERVATION','0')
+    if resource_flag not in ('0','1'):raise ValueError('Invalid module resource observation flag')
     class DriverOnly:
         def __init__(self,driver):self.driver=driver
         def __getattr__(self,name):
@@ -2922,7 +2925,7 @@ def module_child(m,capture,backend):
                         journal.emit('cuda_jit_native_options','verified',optimization_level=level,option=7)
                         return native(*args)
                 return CheckedLoader()
-            if name in MODULE_DRIVER_APIS:return getattr(self.driver,name)
+            if name in MODULE_DRIVER_APIS or resource_flag=='1' and name in ('cuMemGetInfo_v2','cuFuncGetAttribute'):return getattr(self.driver,name)
             def forbidden(*args):
                 journal.emit('cuda_module_forbidden_api','rejected',api=name)
                 raise RuntimeError('Battle API forbidden in module check: '+name)
@@ -2932,7 +2935,10 @@ def module_child(m,capture,backend):
             journal.emit('cuda_module_forbidden_library','rejected')
             raise RuntimeError('Only nvcuda.dll is allowed in module check; NVRTC forbidden')
         driver=journal.invoke('cuda_module_driver_load',loader,name,*args,**kwargs)
-        return NativeLibrary(DriverOnly(driver),journal)
+        def sampler_factory(library):
+            from portable_cuda_memory_observation import CudaMemorySampler,host_memory
+            return CudaMemorySampler(library,lambda:host_memory(loader))
+        return NativeLibrary(DriverOnly(driver),journal,sampler_factory if resource_flag=='1' else None)
     original_compile=portable_backend.compile_cuda_artifact
     def cached(*args,**kwargs):
         artifact,receipt=journal.invoke('cuda_compile_artifact',original_compile,*args,**kwargs)
@@ -2967,7 +2973,7 @@ def audit_module_capture(m,capture,*,verify_artifacts=True):
     if run.get('mode')!='module-only' or run['package_id']!=m['package_id'] or run['backend']!='cuda' or is_development(m):raise ValueError('Wrong module check capture')
     if type(facts['timeout_seconds']) is not int or not 1<=facts['timeout_seconds']<=60 or run['memory_limit_mb']!=2048:raise ValueError('Module check exceeds its bounded policy')
     if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
-    rows=[];error=None;verified=False
+    rows=[];error=None;verified=False;resource_observation=None
     try:
         rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
         if any(r['stage'].startswith('nvrtc') or r['stage'].startswith('cuda_module_forbidden') or r['stage'].startswith('cu') and len(r['stage'])>2 and r['stage'][2].isupper() and r['stage'] not in MODULE_DRIVER_APIS for r in rows):raise ValueError('Forbidden module check operation')
@@ -3019,18 +3025,32 @@ def audit_module_capture(m,capture,*,verify_artifacts=True):
             verify_cuda_layout_assertions(paths['cuda'],plan)
         expected=48 if proof['resident_runtime'] else 32
         if t.get('constant_buffer_bytes')!=expected or t.get('module_verified') is not True or t.get('kernel_calls')!=0 or t.get('buffer_allocations')!=0 or t.get('calculation_verified') is not False:raise ValueError('Wrong module proof scope or ABI')
+        requested=run.get('resource_observation_requested',False)
+        if type(requested) is not bool:raise ValueError('Invalid module resource request')
+        from portable_cuda_memory_observation import summarize as resource_summary
+        resource_observation=resource_summary(rows)
+        recorded=bool(resource_observation['lifecycle_snapshots'] or resource_observation['function_resources'])
+        if requested!=recorded:raise ValueError('Module resource request/record mismatch')
+        if requested:
+            runtime=load(capture/'runtime.json')
+            if runtime.get('cuda_resource_observation_enabled') is not True:raise ValueError('Module child resource flag missing')
+            if len(resource_observation['function_resources'])!=1:raise ValueError('One function resource record required')
+            boundaries=[(x['boundary'],x['position']) for x in resource_observation['lifecycle_snapshots']]
+            expected=[(boundary,position) for boundary in ('cuCtxCreate_v2',load_api,'cuModuleGetFunction','cuFuncGetAttribute','cuCtxDestroy_v2') for position in ('before','after')]
+            if boundaries!=expected:raise ValueError('Incomplete module lifecycle observation')
         verified=True
     except (ValueError,KeyError,OSError) as exc:error=str(exc)
     containment,pid=job_contained(capture,rows,memory_limit_bytes=2048*1024*1024)
     verified=bool(verified and facts['passed'] and containment)
     preservation=environment_preserved(capture,facts)
     return dict(mode='module-only',module_verified=verified,passed=verified and preservation is True,
-        containment_verified=containment,preservation_verified=preservation,calculation_verified=False,
+        containment_verified=containment,preservation_verified=preservation,calculation_verified=False,resource_observation=resource_observation,
         kernel_calls=0 if not any(r['stage']=='cuLaunchKernel' for r in rows) else None,
         buffer_allocations=0 if not any(r['stage']=='cuMemAlloc_v2' for r in rows) else None,error=error,gpu_retry_count=0)
 
 
-def module_capture(capture,timeout,original_workspace,jit_opt_level=None):
+def module_capture(capture,timeout,original_workspace,jit_opt_level=None,*,observe_cuda_resources=False):
+    if type(observe_cuda_resources) is not bool:raise ValueError('Boolean module resource option required')
     if jit_opt_level is not None and (type(jit_opt_level) is not int or jit_opt_level not in range(5)):raise ValueError('Invalid driver JIT optimization level')
     if os.name!='nt':raise ValueError('Module check requires Windows')
     if type(timeout) is not int or not 1<=timeout<=60:raise ValueError('Module check budget must be1..60 seconds')
@@ -3038,11 +3058,11 @@ def module_capture(capture,timeout,original_workspace,jit_opt_level=None):
     m=verify_package(ROOT)
     if is_development(m) or compiler_only(m):raise ValueError('Module check requires a sealed Metal battle package')
     capture.mkdir(parents=True,exist_ok=False)
-    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='module-only',status='loading',jit_optimization_level=jit_opt_level,memory_limit_mb=2048,gpu_retry_count=0))
+    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='module-only',status='loading',jit_optimization_level=jit_opt_level,memory_limit_mb=2048,gpu_retry_count=0,resource_observation_requested=observe_cuda_resources))
     try:
         with (ROOT/'module-claimed-cuda.json').open('x',encoding='utf-8') as stream:
             json.dump(dict(package_id=m['package_id'],capture=str(capture)),stream)
-        with patch.dict(os.environ,dict(NIKKE_CUDA_JIT_OPT_LEVEL='' if jit_opt_level is None else str(jit_opt_level),NIKKE_CUDA_ARTIFACT='ptx',NIKKE_CUDA_PTXAS_OPT_LEVEL='',NIKKE_CUDA_CACHE_REQUIRED='1',NIKKE_VALIDATION_JOB_MEMORY_MB='2048')):
+        with patch.dict(os.environ,dict(NIKKE_CUDA_RESOURCE_OBSERVATION='1' if observe_cuda_resources else '0',NIKKE_CUDA_JIT_OPT_LEVEL='' if jit_opt_level is None else str(jit_opt_level),NIKKE_CUDA_ARTIFACT='ptx',NIKKE_CUDA_PTXAS_OPT_LEVEL='',NIKKE_CUDA_CACHE_REQUIRED='1',NIKKE_VALIDATION_JOB_MEMORY_MB='2048')):
             run_job(capture,'cuda',timeout,original_workspace,module_only=True)
         copy_generated(capture,m,partial=True)
         result=audit_module_capture(m,capture,verify_artifacts=False);write(capture/'result.json',result)
@@ -3985,7 +4005,7 @@ def main(argv=None):
     for name in ('source-package','source-capture','cache-entry','phases','ptxas','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('partition-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     for name in ('source-package','source-capture','cache-entry','phases','candidate','ptxas','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
-    a=sub.add_parser('module-check');a.add_argument('--jit-opt-level',type=int,choices=range(5));a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
+    a=sub.add_parser('module-check');a.add_argument('--observe-cuda-resources',action='store_true');a.add_argument('--jit-opt-level',type=int,choices=range(5));a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path,required=True);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
     a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=60);a.add_argument('--compiler-certificate',type=Path,help='Create a full-source certificate from this same fresh audit');a.add_argument('--audit-receipt',type=Path,help='Record the same fresh child audit and elapsed time without repeating it');a.add_argument('--comparison-group-size',type=int,help='All inputs once across sequential fresh children; timeout applies to each child')
     a=sub.add_parser('compiler-certificate');a.add_argument('--suite',choices=[config['compiler_baseline_suite'] for config in SUITES.values() if config.get('compiler_baseline_suite')],required=True);a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=120)
@@ -4177,7 +4197,7 @@ def main(argv=None):
     elif a.command=='module-check':
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
         os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
-        result=module_capture(a.capture,a.timeout,a.original_workspace,a.jit_opt_level)
+        result=module_capture(a.capture,a.timeout,a.original_workspace,a.jit_opt_level,observe_cuda_resources=a.observe_cuda_resources)
     elif a.command=='recover-object':
         from portable_object_recovery import recover
         with forbid_gpu():

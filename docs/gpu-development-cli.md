@@ -1,3 +1,7 @@
+## 2026-11-02 CUDA module-onlyの資源観測
+
+既存`module-check --observe-cuda-resources`はcache-only PTXのmodule読込と関数属性を、kernel／battle buffer／SDK compileなしで観測する。2GiB／60秒／単発claimを維持。追加値はlifecycle snapshotとfunction_resourcesであり、計算証明や総メモリ予約量ではない。[使い方・CPU108検査・実Windows未測定](portable-cuda-memory-observation.md)。
+
 ## storage-checkの予備容量は一度だけ加算する
 
 `--required-bytes` は、保存する全input／readbackの追加peak量です。予備容量を含めません。共通CLIが `--reserve-bytes`（既定1GiB）を一度加算し、`free >= required + reserve` を検査します。APIでbatch親とmember rawを両方保存する場合は、両コピーをrequiredへ数えます。例：今回12条件はraw238661088byte＋予備1073741824byte＝1312402912byte。条件数を減らさず、元の二重加算失敗も保存しています。`storage-check` は計算証明や削除処理を行いません。

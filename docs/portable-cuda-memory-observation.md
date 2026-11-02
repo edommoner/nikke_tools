@@ -1,3 +1,13 @@
+## 2026-11-02 module-checkへ関数属性とlifecycle観測を追加
+
+既存の`module-check --observe-cuda-resources`で、バッファ確保／コピー／kernel実行なしのcache-only PTX検査へ観測を付けられる。2GiB・最大60秒・BelowNormalの所有Job、sealed package、厳密なcache／生成baseline、1回claimとcleanup監査を維持する。指定なしは追加query0。[実装・CPU108検査・限界](../research/product-cuda-resource-observer-v2.json)。
+
+context作成・module読込・関数取得・関数属性照会・context破棄の前後で、自分／実parent／Jobとdevice推定空き容量を分けて記録する。context作成前、作成失敗後、破棄後はcurrent contextを仮定せずdevice query0。`cuFuncGetAttribute`のenum0..6から、threads/block、shared／constant bytes、local bytes/thread、registers/thread、PTX／binary versionを取得する。失敗や欠落はunknownで0へ補完せず、handleの数値を記録しない。属性照会自体の前後も観測するため、lazy loadingの影響をlaunchの影響と混同しない。
+
+[NVIDIAの関数属性仕様](https://docs.nvidia.com/cuda/cuda-driver-api/cuda_driver_api/group__CUDA__EXEC.html)のlocal sizeは1threadあたりであり、総GPU予約量でもhost commit増分でもない。属性値から1.6GiB増加の原因を断定しない。現段階はMac上のfake driver／Windows ABI／module allowlistのCPU検査で、Windows実driverでの新観測はまだ0。`memory_observation_complete`は従来のallocation／launchを対象とし、moduleの別`lifecycle_snapshots`／`function_resources`を計算成功へ昇格しない。module監査はrequested、runtime flag、実記録、全境界順を別々に照合する。
+
+元の生成shader・計算backend・CPU正本・input／output wire・数値規約・goldenは全byte維持。標準266profile／203キャラの計算証拠は前のsealed owner5751e24c…から保持する。Windowsへは保存成果物のパス／SHA確認だけを依頼し、同じ戦闘を再実行していない。以下は過去記録。
+
 # CUDAメモリ観測と保存ログのCPU要約
 
 失敗した実行を繰り返さず、記録済みの値と未取得の値を分ける。計算・allocationの可否・原因・環境保全の認定を行うツールではない。消費済みのclaimを消したり、既存captureへ観測を追記したりしない。

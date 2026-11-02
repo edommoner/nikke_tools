@@ -128,6 +128,90 @@ class MemoryObservationTests(unittest.TestCase):
                 with patch.dict(os.environ,NIKKE_CUDA_RESOURCE_OBSERVATION=flag,NIKKE_SLANG_GENERATION_CACHE=''),phase.observe(backend,Journal(self.base/('factory'+flag+'.jsonl'))):
                     library=C.WinDLL('nvcuda.dll');self.assertEqual(library.cuLaunchKernel(None,15,1,1,1,1,1,0,None,None,None),2)
                 self.assertIs(C.WinDLL,loader);self.assertEqual(self.query_calls-before,queries)
+    def test_function_attributes_use_exact_abi_and_preserve_units_without_pointer_logging(self):
+        calls=[];handle=C.c_void_p(3735928559)
+        def query(out,attribute,function):
+            calls.append((attribute,function.value));out._obj.value=(1024,0,48,9784,128,75,86)[attribute];return 0
+        self.library.cuFuncGetAttribute=query
+        row=self.sampler().function_resources(C.byref(handle));memory.validate_function_resources(row)
+        self.assertEqual(calls,[(i,handle.value) for i in range(7)])
+        self.assertEqual(query.argtypes,[C.POINTER(C.c_int),C.c_int,C.c_void_p]);self.assertIs(query.restype,C.c_int)
+        self.assertEqual(row['attributes'][3]['name'],'local_size_bytes_per_thread');self.assertEqual(row['attributes'][3]['value'],9784)
+        self.assertEqual(row['attributes'][6]['value'],86);self.assertEqual(row['driver_attribute_query_calls'],7)
+        self.assertEqual(row['kernel_calls_added'],0);self.assertNotIn(str(handle.value),json.dumps(row))
+    def test_attribute_errors_unknown_values_and_missing_export_never_become_zero(self):
+        def query(out,attribute,function):
+            if attribute==0:raise OSError('private text must not leak')
+            out._obj.value=-1 if attribute==1 else 48
+            return 2 if attribute==2 else 0
+        self.library.cuFuncGetAttribute=query
+        row=self.sampler().function_resources(C.byref(C.c_void_p(99)));memory.validate_function_resources(row)
+        for item in row['attributes'][:3]:self.assertFalse(item['available']);self.assertIsNone(item['value'])
+        self.assertEqual(row['attributes'][2]['return_code'],2);self.assertNotIn('private text',json.dumps(row))
+        del self.library.cuFuncGetAttribute
+        missing=self.sampler().function_resources(C.byref(C.c_void_p(99)))
+        self.assertEqual(missing['driver_attribute_query_calls'],0);self.assertTrue(all(x['value'] is None for x in missing['attributes']));memory.validate_function_resources(missing)
+    def test_absent_function_handle_never_calls_driver(self):
+        def query(*args):self.fail('No valid function handle')
+        self.library.cuFuncGetAttribute=query
+        row=self.sampler().function_resources(C.byref(C.c_void_p()))
+        self.assertEqual(row['driver_attribute_query_calls'],0);memory.validate_function_resources(row)
+    def test_module_lifecycle_and_attribute_queries_are_separate_from_battle_proof(self):
+        path=self.base/'lifecycle.jsonl';calls=[]
+        def original(name):
+            def call(*args):
+                calls.append((name,args))
+                if name=='cuModuleGetFunction':args[0]._obj.value=99
+                return 0
+            return call
+        for name in ('cuCtxCreate_v2','cuModuleLoadData','cuModuleGetFunction','cuCtxDestroy_v2'):
+            setattr(self.library,name,original(name))
+        attrs=[]
+        def query(out,attribute,function):attrs.append(attribute);out._obj.value=attribute;return 0
+        self.library.cuFuncGetAttribute=query
+        lib=NativeLibrary(self.library,Journal(path),lambda dll:self.sampler());ctx=C.c_void_p();mod=C.c_void_p();fn=C.c_void_p()
+        args=[('cuCtxCreate_v2',(C.byref(ctx),0,0)),('cuModuleLoadData',(C.byref(mod),None)),('cuModuleGetFunction',(C.byref(fn),mod,b'portableEvents')),('cuCtxDestroy_v2',(ctx,))]
+        for name,values in args:self.assertEqual(getattr(lib,name)(*values),0)
+        self.assertEqual(calls,args);self.assertEqual(attrs,list(range(7)));self.assertEqual(self.query_calls,8)
+        rows=[json.loads(x) for x in path.read_text().splitlines()];summary=memory.summarize(rows)
+        self.assertEqual(len(summary['lifecycle_snapshots']),10);self.assertEqual(len(summary['function_resources']),1)
+        self.assertEqual(summary['snapshots'],[]);self.assertFalse(summary['memory_observation_complete']);self.assertFalse(summary['calculation_verified'])
+        self.assertIsNone(summary['lifecycle_snapshots'][0]['device']['free_bytes']);self.assertEqual(summary['lifecycle_snapshots'][0]['driver_memory_query_calls'],0)
+        self.assertEqual(summary['lifecycle_snapshots'][-1]['driver_memory_query_calls'],0)
+    def test_disabled_module_observer_adds_no_resource_queries(self):
+        path=self.base/'default-module.jsonl';seen=[]
+        def get_function(*args):seen.append(args);return 0
+        self.library.cuModuleGetFunction=get_function
+        def forbidden(*args):self.fail('Disabled observer must not query attributes')
+        self.library.cuFuncGetAttribute=forbidden
+        fn=C.c_void_p();args=(C.byref(fn),None,b'portableEvents');lib=NativeLibrary(self.library,Journal(path))
+        self.assertEqual(lib.cuModuleGetFunction(*args),0);self.assertEqual(seen,[args]);self.assertEqual(self.query_calls,0)
+        summary=memory.summarize([json.loads(x) for x in path.read_text().splitlines()]);self.assertEqual(summary['lifecycle_snapshots'],[]);self.assertEqual(summary['function_resources'],[])
+    def test_failed_module_function_does_not_query_attributes_or_invent_success(self):
+        path=self.base/'failed-function.jsonl';self.library.cuModuleGetFunction=lambda *args:500
+        def forbidden(*args):self.fail('Failed lookup cannot have function attributes')
+        self.library.cuFuncGetAttribute=forbidden
+        lib=NativeLibrary(self.library,Journal(path),lambda dll:self.sampler())
+        self.assertEqual(lib.cuModuleGetFunction(C.byref(C.c_void_p()),None,b'missing'),500)
+        rows=[json.loads(x) for x in path.read_text().splitlines()];self.assertEqual(memory.summarize(rows)['function_resources'],[])
+        self.assertEqual([x for x in rows if x['stage']=='cuModuleGetFunction'][-1]['return_code'],500)
+    def test_failed_context_creation_does_not_sample_an_unconfirmed_context(self):
+        path=self.base/'failed-context.jsonl';self.library.cuCtxCreate_v2=lambda *args:2
+        lib=NativeLibrary(self.library,Journal(path),lambda dll:self.sampler())
+        self.assertEqual(lib.cuCtxCreate_v2(None,0,0),2);self.assertEqual(self.query_calls,0)
+        row=memory.summarize([json.loads(x) for x in path.read_text().splitlines()]);self.assertEqual(len(row['lifecycle_snapshots']),2)
+        self.assertTrue(all(x['device']['available'] is False for x in row['lifecycle_snapshots']))
+    def test_saved_function_attribute_corruption_is_rejected(self):
+        import copy
+        row=self.sampler().function_resources(C.byref(C.c_void_p()))
+        for corrupt in ('invented-value','wrong-id','bool-counter','wrong-schema'):
+            bad=copy.deepcopy(row)
+            if corrupt=='invented-value':bad['attributes'][0]['value']=0
+            elif corrupt=='wrong-id':bad['attributes'][1]['attribute']=0
+            elif corrupt=='bool-counter':bad['driver_attribute_query_calls']=True
+            else:bad['schema']='unknown'
+            with self.assertRaises(ValueError):memory.summarize([dict(stage='cuda_function_resources',state='observed',**bad)])
+
     def test_invalid_observation_flag_fails_before_patching_backend(self):
         import os
         original=lambda:None;backend=SimpleNamespace(build=original)

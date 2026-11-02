@@ -1,0 +1,109 @@
+{
+  "schema": "product-cuda-resource-observer-v2",
+  "scope": "Opt-in diagnostics only;no battle or compiler change",
+  "packet_owner": "1641237695d90d1b476cfd813cd01c462f23ce05451b2466f100aa18c8577b3d",
+  "calculation_identity": {
+    "current_owner": "1641237695d90d1b476cfd813cd01c462f23ce05451b2466f100aa18c8577b3d",
+    "prior_owner": "5751e24c6c49a81cff53512333926c817188f7da9043dc98626f4d1fa7614afd",
+    "source_records_compared": 2806,
+    "reviewed_delta": [
+      "app/portable_cuda_memory_observation.py",
+      "research/portable_phase_audit.py",
+      "scripts/nikke_gpu.py",
+      "tests/test_portable_cuda_memory_observation.py",
+      "tests/test_portable_module_check.py"
+    ],
+    "all_other_sources_byte_exact": true,
+    "shader_changes": 0,
+    "numeric_rules_changes": 0,
+    "extra_gpu": 0,
+    "extra_native_battles": 0,
+    "tests": 108
+  },
+  "added_packet_file": "tests/test_portable_phase_audit.py",
+  "added_file_sha256": "447b669cf14f60d1d4b9c716ebac82592070350dac5bea78a8470b93692fdd5a",
+  "cpu_tests": [
+    {
+      "pattern": "test_portable_cuda_memory_observation.py",
+      "tests": 25,
+      "exit_code": 0
+    },
+    {
+      "pattern": "test_portable_module_check.py",
+      "tests": 26,
+      "exit_code": 0
+    },
+    {
+      "pattern": "test_portable_phase_audit.py",
+      "tests": 8,
+      "exit_code": 0
+    },
+    {
+      "pattern": "test_portable_prepared_audit.py",
+      "tests": 15,
+      "exit_code": 0
+    },
+    {
+      "pattern": "test_portable_prepared_execution.py",
+      "tests": 8,
+      "exit_code": 0
+    },
+    {
+      "pattern": "test_portable_prepared_runner.py",
+      "tests": 13,
+      "exit_code": 0
+    },
+    {
+      "pattern": "test_product_detail_packet.py",
+      "tests": 13,
+      "exit_code": 0
+    }
+  ],
+  "immutable_packet_tests_total": 108,
+  "windows_real_attribute_observation_performed": false,
+  "current_source_standard_profiles_metal": 266,
+  "current_source_cuda_profiles": 0,
+  "calculation_qualification_retained_from": "product-standard-current-source-v2.json",
+  "full_goal_complete": false,
+  "implementation": [
+    "Reuse module-check --observe-cuda-resources and its existing cache-only PTX,2GiB,60second Job,claim,driver allowlist and cleanup audit",
+    "Record own/parent/Job and device snapshots around owned context,module,function and cleanup boundaries",
+    "No device-memory query before a confirmed owned context or after destruction",
+    "Query cuFuncGetAttribute enum0..6 through the returned function;record per-thread local bytes/registers and unknown errors without pointer logging",
+    "Snapshot the attribute queries themselves because driver lazy loading can affect resource use",
+    "Keep allocation/launch completeness separate from lifecycle and function observations",
+    "Require run request,child runtime flag,one attribute record and exact lifecycle boundary order in module audit",
+    "Default mode performs no new memory/attribute queries;no launch/allocation/SDK added"
+  ],
+  "reference_urls": [
+    "https://docs.nvidia.com/cuda/cuda-driver-api/cuda_driver_api/group__CUDA__EXEC.html",
+    "https://docs.nvidia.com/cuda/cuda-driver-api/cuda_driver_api/group__CUDA__TYPES.html"
+  ],
+  "preserved_failures": [
+    "v2 packet did not include phase audit test;NO TESTS RAN retained",
+    "v3 phase audit sandbox denied ps used for its own child cleanup;original failure retained,identical CPU test passed with permitted process inspection"
+  ],
+  "proof_receipts": {
+    "product-cuda-resource-observer-v3-20261102/identity-v1.json": "f548c4f741aa167b17948a6db6f61e1fb47f7987587ceee0c2a8218b9deea5a8",
+    "product-cuda-resource-observer-v3-20261102/cpu-tests.json": "28088fe585cd24cc071f168e8bda6d54ecd4a82016849f438b3412990559db3e"
+  },
+  "windows_request": "Completed saved-file-only artifact/cache/packet inventory;no RAM/SDK/driver/module/GPU",
+  "remaining": [
+    "Use verified artifact identity for the next bounded module observation;PTX module-only JIT differs from the successful saved linked CUBIN provider",
+    "Attribute reads may cause driver lazy loading;observe rather than assume memory-neutral behavior",
+    "No measured cause attribution or current-source CUDA calculation yet"
+  ],
+  "windows_saved_inventory_peer_report": {
+    "path": "C:/Users/owner/Documents/Codex/product-logical-owner-current-windows-v1/product-logical-owner-existing-artifact-locations-v1.json",
+    "bytes": 5518,
+    "sha256": "ef9b8e1a52df44249dd32b6179021a84ded8ceec20356e9d4e59bec72b140b44",
+    "ptx_sha256": "59dc4f2b12c0728cc843862807bffddec30b9e12f9e22b552f00f91a54e12e07",
+    "object_sha256": "18240abc4fd5bd477fd8e0b47c92b7ae35b692c2eecd4052135840050c308fbe",
+    "linked_cubin_sha256": "479a2f7f470bd9a89988a97d97314de7d0878feaec1ad4704b006b74e3c65d6b",
+    "compile_cache_entry": "C:/Users/owner/Documents/Codex/nikke-product-parts-boundary-v1/compile-cache-v1/781c894036e8c6e1b4678c7e8efc80d826f02528a73f00cf291b6f66a8d4f4c9.json",
+    "inventory_json_imported_to_mac": false,
+    "evidence_scope": "Peer saved-file hash verification read from completed remote command;not independent import of inventory/artifact bytes",
+    "new_gpu_calls": 0,
+    "inputs_unchanged": true
+  }
+}

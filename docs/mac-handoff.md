@@ -1,3 +1,11 @@
+## 2026-11-02 CUDAのメモリ増加を切り分ける既存観測器を拡張
+
+共通CLIの`module-check --observe-cuda-resources`を既存cache-only PTX／2GiB／60秒／BelowNormal Jobへ接続。context・module・function・属性照会・cleanup前後を観測し、cuFuncGetAttribute0..6からlocal bytes/thread等を取得する。追加kernel／battle buffer／SDK compile0、default追加query0。値の欠落／エラーをunknownのまま残し、属性照会のlazy-loading影響も前後snapshotへ分離する。[実装と全108CPU検査](../research/product-cuda-resource-observer-v2.json)、[共通CLIの使い方と限界](portable-cuda-memory-observation.md)。
+
+不変packet16412376…のCPU108検査が成功。観測器25／module26／phase8／prepared監査15／prepared実行8／runner13／registry13。module正例でも計算成功・環境保全を主張せず、request/runtime食違い・属性欠落・境界欠落・偽値を拒否。最初のpacketにはphase検査が同梱されておらずNO TESTS RANで停止し、SMOKEへ既存検査を登録した新packetを作成。新packetではpsのsandbox拒否を保持し、所有child終了確認を許可された同一CPU検査だけ再実行して成功。GPU再試行なし。
+
+前packetの2806記録と比較し、変更は観測器・phase wrapper・CLI・関連test2の5fileだけ。新同梱は既存phase test1file、全GPU source／数値／wire／入力compiler／decoder／CPU43file／goldenは不変。現在の標準計算資格Metal266profile／203キャラ、CUDA現在0profileは前証拠を維持。Windowsの保存artifact/cache/packet読取は完了し、PTX59dc4f2b…／object18240abc…／linked CUBIN479a2f7f…と元ownerを照合。新RAM／driver／module／SDK／GPU0。5,518byteのinventory JSONはpeer出力で確認した範囲で、Macへの原文取込は未実施。既存module-checkはPTX-only JITで、成功時の保存linked CUBINと異なるproviderなので、その観測結果を同一と扱わない。関数属性はまだ実Windows未測定で、1.6GiB増加の原因未確定。以下は過去記録。
+
 ## 2026-11-02 現在版で標準266profileを全件再認定（GPU再実行0）
 
 commit311709a9／sealed owner5751e24c…で標準BODY1体・固定期待値・seed0・core50・180秒の266profile／203キャラがMetal／CPU／HTTP一致。元の実M5captureについて、現在の入力全byte、全raw SHA、decoderによる全公開payloadを再監査した。[全profileと9系統の生成SHA](../research/product-standard-current-source-v2.json)。追加battle／GPU0。標準の限定条件の認定で、全特殊効果分岐・任意場面・現source CUDAの完了ではない。

@@ -52,6 +52,51 @@ class ModuleCheckTests(unittest.TestCase):
     def audit(self):
         with self.context():return cli.audit_module_capture(self.m,self.capture,verify_artifacts=False)
 
+    def resource_proof(self):
+        def function(pointer,*args):pointer._obj.value=99;return 0
+        def attribute(pointer,index,handle):pointer._obj.value=(1024,0,48,9784,128,75,86)[index];return 0
+        def info(free,total):free._obj.value=8000;total._obj.value=16000;return 0
+        self.base.driver.cuModuleGetFunction.side_effect=function
+        self.base.driver.cuFuncGetAttribute=Mock(side_effect=attribute)
+        self.base.driver.cuMemGetInfo_v2=Mock(side_effect=info)
+        import portable_cuda_memory_observation as memory
+        with patch.dict(os.environ,NIKKE_CUDA_RESOURCE_OBSERVATION='1'),patch.object(memory,'host_memory',return_value=dict(available=False,reason='fixture')):
+            self.proof()
+        run=cli.load(self.capture/'run.json');run['resource_observation_requested']=True;cli.write(self.capture/'run.json',run)
+        cli.write(self.capture/'runtime.json',dict(cuda_resource_observation_enabled=True))
+    def test_module_only_resource_observation_records_attributes_without_battle_or_compilation(self):
+        self.resource_proof();result=self.audit();self.assertTrue(result['module_verified']);self.assertFalse(result['calculation_verified'])
+        resources=result['resource_observation'];self.assertEqual(len(resources['lifecycle_snapshots']),10)
+        self.assertEqual(resources['function_resources'][0]['attributes'][3]['value'],9784)
+        self.assertEqual(self.base.driver.cuFuncGetAttribute.call_count,7);self.assertEqual(self.base.driver.cuMemGetInfo_v2.call_count,8)
+        self.base.driver.cuMemAlloc_v2.assert_not_called();self.base.driver.cuLaunchKernel.assert_not_called();self.base.driver.cuMemcpyHtoD_v2.assert_not_called()
+        self.base.driver.cuCtxDestroy_v2.assert_called_once()
+    def test_module_resource_request_requires_matching_runtime_flag(self):
+        self.resource_proof();cli.write(self.capture/'runtime.json',dict(cuda_resource_observation_enabled=False))
+        self.assertFalse(self.audit()['module_verified'])
+    def test_module_resource_request_rejects_missing_attribute_record(self):
+        self.resource_proof();path=self.capture/'phases.jsonl';rows=[json.loads(x) for x in path.read_text().splitlines()]
+        path.write_text(''.join(json.dumps(x)+'\n' for x in rows if x['stage']!='cuda_function_resources'))
+        self.assertFalse(self.audit()['module_verified'])
+    def test_module_resource_request_rejects_missing_lifecycle_snapshot(self):
+        self.resource_proof();path=self.capture/'phases.jsonl';rows=[json.loads(x) for x in path.read_text().splitlines()]
+        index=next(i for i,x in enumerate(rows) if x['stage']=='cuda_lifecycle_memory_snapshot');del rows[index]
+        path.write_text(''.join(json.dumps(x)+'\n' for x in rows));self.assertFalse(self.audit()['module_verified'])
+    def test_unrequested_resource_records_cannot_be_silently_promoted(self):
+        self.resource_proof();run=cli.load(self.capture/'run.json');run['resource_observation_requested']=False;cli.write(self.capture/'run.json',run)
+        self.assertFalse(self.audit()['module_verified'])
+    def test_module_child_invalid_resource_option_stops_before_driver(self):
+        with self.context(),patch.dict(os.environ,NIKKE_CUDA_RESOURCE_OBSERVATION='yes'),self.assertRaises(ValueError):cli.module_child(self.m,self.capture,'cuda')
+        self.base.driver.cuInit.assert_not_called()
+    def test_module_capture_resource_option_is_scoped_and_keeps_bounded_policy(self):
+        env={'NIKKE_CUDA_COMPILE_CACHE':str(self.root/'cache')};new=self.root/'observed-fresh'
+        def job(*args,**kwargs):
+            self.assertTrue(kwargs['module_only']);self.assertEqual(args[2],60)
+            self.assertEqual(env['NIKKE_CUDA_RESOURCE_OBSERVATION'],'1');self.assertEqual(env['NIKKE_VALIDATION_JOB_MEMORY_MB'],'2048')
+        with self.context(),patch.object(cli,'os',types.SimpleNamespace(**dict(vars(os),name='nt',environ=env))),patch.object(cli,'verify_package',return_value=self.m),patch.object(cli,'run_job',side_effect=job),patch.object(cli,'copy_generated'),patch.object(cli,'audit_module_capture',return_value=dict(module_verified=True)):
+            self.assertTrue(cli.module_capture(new,60,self.root/'original',observe_cuda_resources=True)['module_verified'])
+        self.assertTrue(cli.load(new/'run.json')['resource_observation_requested']);self.assertEqual(env,{'NIKKE_CUDA_COMPILE_CACHE':str(self.root/'cache')})
+
     def test_module_success_requires_cleanup_cache_abi_and_job_and_is_not_calculation(self):
         self.proof();result=self.audit();self.assertTrue(result['module_verified']);self.assertTrue(result['containment_verified'])
         self.assertFalse(result['calculation_verified']);self.assertFalse(result['preservation_verified']);self.assertFalse(result['passed'])
