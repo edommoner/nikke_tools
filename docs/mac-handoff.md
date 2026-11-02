@@ -1,3 +1,9 @@
+## 2026-11-03 CPU consumer台帳の静的中間成果をClaudeが受理
+
+[有限台帳](../research/product-cpu-consumer-inventory-v1.json)でbuff stat 117キーを一意に整理。getter/query/field候補98、実処理での消費6（numeric4・state書込み1・接続数1）、既存H結合1、具体的なL3引継ぎ先を持つ未解決12。起動時のatk_copy追加を反映し、実効projectionは65ではなく66件。98候補や静的消費をGPU対応件数へ加算しない。dynamic71 site・field候補67は保持し、全行GPU未認定。buff_max_stack_addの過去H到達性は外部rewrite全体を再証明しておらず、現AST残存だけに限定した。計算コード・正本・golden・比較除外の変更0、追加CPU戦闘/GPU/Windows0。
+
+次はClaude指定のtyped_targets（projectile_dmg_pct／shield_dmg_pct）。既存登録から実効reader、factor5項までを追い、通常Metal製品経路の不足条件を1件に絞る。全効果・任意合成の完了ではない。Windowsは明示再開まで確認・依頼しない。
+
 ## 2026-11-03 混合場面の実ダウン・復活を通常Metal APIで確認
 
 Claudeが選んだ36秒typed／Lock On／敵回復／手動遮蔽の混合1構成と対照が合格。元MirandaをRapunzelへ1名変更し、元Soldier O.W.が2.75秒down→3.833333秒に元B1の81.67%（1994253.9948HP）で復帰→4.75秒に再down。遮蔽HP2800を保持し、GPUの既存revival traceのowner／時刻／HPとboss履歴がCPU観測と完全一致。対照はdownのみ。[要求2件・全SHA・範囲・失敗保持](../research/product-mixed-revival-v1.json)。
