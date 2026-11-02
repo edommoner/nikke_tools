@@ -1,3 +1,9 @@
+## 2026-11-03 Rapiのnamed stack接続と保存Metalカウンターを確認
+
+Claude指定の既存decoder検査で、原Rapi:Red Hoodのbuff_stack_add(type=buff)はharmfulな名前付き「유탄」carrierで、scaling_refから爆発係数へ読み、remove_named_buffで除去するL3接続だと確認。通常の百分率factor5やinstant型stack操作ではない。[定義・保存結果・差分・L4引き継ぎ](../research/product-buff-stack-carrier-consumer-v1.json)。標準profile5の受入済みMetal captureはcurrent closure／全input bytes／全readback SHAが一致。既存source contract成功、GPUカウンターは付与50／爆発6／除去6、最終carrierはstack0・inactive。これらは観測事実としてClaudeが受理し、stack数や時系列遷移の代用にはしない。
+
+保存形式はtrace total170に対してretained0、skill count0。各爆発時点のstack・係数・即時除去・異なるstack値の感度はこのcaptureでは証明不能で、L4残件を保持。旧CPU公開結果と現在再投影のevaluator差分は旧値／現値ごと記録し、除外や期待値変更なし。旧native dataclassも保存されておらず、比較前提を満たせないCPU再計算はしなかった。追加CPU／GPU／Windows0、計算ソース変更0。将来は既存sceneから異なるstack値を含むものを選び、170以上のskill履歴と爆発時stackを保存し、同一sourceのCPU1回＋GPU1回を全nativeで比較する条件を引き継ぐ。今回は実行しない。
+
 ## 2026-11-03 原Asuka/Anchorの対象別補正を通常Metal APIで実証
 
 Claude方針の8秒・shield前面／projectile前面2条件を1batchで検証し、fresh CPU・全公開結果・独立保存監査が一致、Claude最終チェック合格。[入力2件・全SHA・範囲・失敗記録](../research/product-typed-modifier-consumers-v1.json)。Asukaのshield601.01%はkind3命中84／0件、Anchorのprojectile25.6%はkind2命中12／12件で事前固定件数と一致。各条件196 scalarのowner／time／kind／damageがGPU packet全件と一致し、正の保持者命中は実crit固定の補正なし反実仮想と全件で異なる。CPU観測有無の全native／公開SHAも一致。入力axisは種別2／3、値は別のdefinition VALUEとして検査。最終snapshot25.6／0はAnchorの最終shotだけの証拠で、Asuka途中のsnapshotとは呼ばない。
