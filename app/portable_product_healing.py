@@ -56,6 +56,37 @@ def compile_product(prepared,producer):
     if coordinate:metadata['product_coordinate_healing']=True
     return ('gpu/product_'+('coordinate_healing_' if coordinate else 'healing_')+stem+'battle_entry.slang',INPUT_WORDS,O['OUTPUT_WORDS'],padded+bank,metadata)
 
+def compile_typed_product(prepared,producer):
+    """Append only declarations/receipts to the existing typed+cover prefix."""
+    from portable_runtime import UnsupportedPortable
+    from calculator.boss_pattern import validate as patterns_for
+    from portable_actor_specs import compile_registry
+    check_schema();declarations=copy.deepcopy(prepared.get('reference_models',{}))
+    allowed={'typed_targets','enemy_healing','enemy_movement','cover_defense','lock_on'}
+    if set(declarations)-allowed:raise UnsupportedPortable('Typed healing requires a checked combined consumer')
+    inner=dict(prepared,_product_healing_compiled=True)
+    inner['reference_models']={k:v for k,v in declarations.items() if k!='enemy_healing'}
+    with compiler_policy():source,iw,ow,words,metadata=producer(inner)
+    from portable_product_typed import COVER_INPUT as TI,COVER_OUTPUT as TO,INPUT as TIN,OUTPUT as TOUT
+    from portable_product_typed_lock import COVER_INPUT as LI,COVER_OUTPUT as LO,INPUT as LIN,OUTPUT as LOUT
+    locked=metadata.get('product_typed_lock') is not None
+    expected=(LI,LO) if locked else (TI,TO)
+    if (iw,ow)!=expected:raise UnsupportedPortable('Complete original typed+cover prefix required')
+    raw=prepared['enemy'].get('patterns') or [dict(id='portable-empty-world',kind='idle')]
+    patterns=patterns_for(copy.deepcopy(raw),coord=True);_,bindings=compile_registry(patterns,pools=True)
+    spec=declarations.get('enemy_healing')
+    if spec:
+        bank=pack(spec,patterns,bindings)
+        from portable_world_schedule_specs import INPUT_WORDS as SCHEDULE_WORDS
+        at=L['WORLD_FRAME_INPUT_BASE'];validate(bank,words[:H['BASE']],patterns,bindings,words[at:at+SCHEDULE_WORDS])
+    else:
+        bank=[0]*H['WORDS'];bank[:5]=[MAGIC,VERSION,0,len(patterns),len(bindings)]
+    metadata['product_typed_healing']=True
+    metadata['product_enemy_healing']=dict(declarations={k:v for k,v in declarations.items() if k=='enemy_healing'},nodes=[p.id for p in patterns],
+        bindings=[dict(kind=int(b.kind),identity=b.identity,label=b.label,run=b.run) for b in bindings],cpu_health_generations_or_schedule_supplied=False)
+    return source,LIN if locked else TIN,LOUT if locked else TOUT,list(words)+bank,metadata
+
+
 def read_result(block,metadata,names,duration,*,layout=O):
     """Use GPU receipts/pools only, with complete bounds/order/reserved checks."""
     from portable_runtime import UnsupportedPortable

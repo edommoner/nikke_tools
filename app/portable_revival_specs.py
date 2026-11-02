@@ -30,7 +30,8 @@ def validate(effect,*,combat,world_frame):
 def pack(words,L,effects,rows,seed):
     enabled=any(e.get('stat')=='revive' or e.get('persist_on_revive') for e,_ in effects)
     for i,((effect,_),row) in enumerate(zip(effects,rows)):
-        if enabled and effect.get('type')=='buff' and int(row[1]) in (4,12):words[L['DEFINITION_BASE']+i*L['DEFINITION_WORDS']+28]|=2048
+        enemy=words[L['HEALTH_DEFINITION_BASE']+i*L['HEALTH_DEFINITION_WORDS']+3]!=0
+        if enabled and not enemy and effect.get('type')=='buff' and int(row[1]) in (4,12):words[L['DEFINITION_BASE']+i*L['DEFINITION_WORDS']+28]|=2048
         if effect.get('persist_on_revive'):words[L['DEFINITION_BASE']+i*L['DEFINITION_WORDS']+28]|=PERSIST
         if effect.get('stat')!='revive':continue
         if type(seed) is not int or not 0<=seed<=2**64-1:raise ValueError('Revive requires a literal unsigned64 allied RNG seed')

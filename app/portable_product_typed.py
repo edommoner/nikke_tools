@@ -4,8 +4,11 @@ from portable_runtime import UnsupportedPortable
 from portable_coordinate_typed_specs import INPUT_WORDS as TYPED_INPUT,COORDINATE_OUTPUT_WORDS as BASE
 from portable_product_typed_movement import INPUT as BASE_INPUT,OUTPUT as BASE_OUTPUT
 from portable_cover_defense_wire import LAYOUT as COVER
-INPUT=BASE_INPUT+COVER['WORDS'];COVER_OUT=BASE_OUTPUT
-OUTPUT=BASE_OUTPUT+COVER['OUTPUT_WORDS']-COVER['OUTPUT_BASE']
+COVER_INPUT=BASE_INPUT+COVER['WORDS'];COVER_OUT=BASE_OUTPUT
+COVER_OUTPUT=BASE_OUTPUT+COVER['OUTPUT_WORDS']-COVER['OUTPUT_BASE']
+from portable_enemy_healing_wire import LAYOUT as HEALING,typed_output
+HEALING_OUT=COVER_OUTPUT;HEALING_OUTPUT=typed_output(HEALING_OUT)
+INPUT=COVER_INPUT+HEALING['WORDS'];OUTPUT=HEALING_OUTPUT['OUTPUT_WORDS']
 
 from portable_logical_geometry_wire import LAYOUT as LOGICAL
 NEARBY_BASE=TYPED_INPUT+LOGICAL['WORDS']
@@ -30,7 +33,7 @@ def check_schema(root):
             or '#define PORTABLE_LOGICAL_INPUT_BASE 115680U' not in source
             or '#define PORTABLE_COORDINATE_TYPED_MIXED' not in source
             or not 153568+1024*10+128+16<=170976
-            or TYPED_INPUT!=115680 or NEARBY_BASE!=121392 or BASE_INPUT!=123732 or INPUT!=123756 or OUTPUT!=2362296
+            or TYPED_INPUT!=115680 or NEARBY_BASE!=121392 or BASE_INPUT!=123732 or INPUT!=128124 or OUTPUT!=2395112
             or '#elif defined(PORTABLE_PRODUCT_TYPED_MOTION)\n    uint input=1+id.x*EMB_INPUT' not in entry):
         raise ValueError('Typed product requires adjacent complete typed/logical input banks')
 
@@ -42,6 +45,9 @@ def compile_product(prepared):
     from calculator.timeline import CharState,_when_label
     from calculator.boss_pattern import validate
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
+    if not prepared.get('_product_healing_compiled'):
+        from portable_product_healing import compile_typed_product
+        return compile_typed_product(prepared,compile_product)
     if not prepared.get('_product_cover_compiled'):
         from portable_product_cover import compile_product as cover
         return cover(prepared,compile_product)

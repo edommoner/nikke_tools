@@ -110,3 +110,14 @@ Rei variant（레이 (가칭)）とAsuka WILLEを含む1編成の宣言モデル
 通常HTTP→実M5のexpanded／small-base-control／late-spawn／retirementの4条件が全CPU payload一致。各54cast中52で500%／capacity3を読み、半径対照と退場で実選択数が変わった。保存raw再投影4もnative／GPU追加0。publicはcast全数量・BODY位置・ADD数を返し、private observerの候補距離／landing観測全体を返したとは主張しない。元private比較器・期待値は保持する。共有helper化後の旧移動5条件もinput全byte／GPU source／raw SHA／計算応答を保存結果から照合し、VCS evaluator stampだけを別記した。これは新GPU証明への読み替えではない。
 
 共通CLI既存product-detailにnamed-range-accumulateを登録し、新suite0。通常APIの成功をCLI独立seal／CUDA成功に数えない。root100unit／server10成功。ff01f9e9の固定ownerfa0f3c01…自身の100unit／fresh native1／M5実計算と、別fresh GPU禁止の独立sealが成功。旧v8の全24golden entryを保持したv9へnamed-range-accumulateだけ追加。専用4384停止、ユーザー4317／4327未操作、Windows追加依頼0。default形状・fixed・複数consumer・Heavy Arms・全catalog現source／CUDAは未完了。静的モデル監査の不足5statは広い未完了scopeとして保持する。証跡はresearch/product-named-range-v1.json。全目標を継続する。
+
+
+## 2026-11-02 Typed＋Lock On＋敵回復を製品経路へ接続
+
+既存の敵回復consumerを単独typed／Lock Onへ接続。元Annのheal_received_pct、元target-count、Soldierの独立cover、実incoming攻撃を保持する。入力128124word、出力2395112／2995048word。既存tailへ回復履歴を分離し、通常decodeも同じreaderを使う。元の数値・CPU正本・pinned・許容差・strict normalizerは変更0。
+
+通常APIは2編成の固定／蓄積×既定量／上限回復／部分対象、計12条件が実M5・全CPU/GPU/HTTP一致。参加する元profileは7（favorite stage0）、新inventory profileの加算0。宣言回復・形状条件であり、任意sceneの7profile全面認定ではない。最終owner7823d1c4…へ保存12を追加native/GPU0で再投影。現在source CUDA製品profile0。旧標準266profile／203キャラは過去sourceの製品成功として保持し、今回revival guard変更後の全件再認定は未完了。
+
+共通CLI4programの実Metal33＋独立seal成功、旧31のinput/raw全prefix・native完全一致、追加tailは空header／zeroのみ。v77へ4member更新、他40memberは履歴のまま保持。最終195unit相当は同一175を再利用しregistry13／ledger7を新実行。実Metal raw2件からmarker／旧alias／未使用tailの6故障を拒否。初期Lock status64と固定CPU timeoutを保全し、GPUの重複実行0。復活consumerは既存のkind0 scalar buffを初期化で許可し、enemy Lock Onにallied復活flagを付けない。実down→復活の合成実証ではない。
+
+UI http://127.0.0.1:4327/#single は所有PID/rootを確認して現版へ更新、HTTP200、個人設定変更0。Windowsの外部RAM改善後は1回測定で6.86GiB、pending0。新sealed packetのPTX生成だけをplan固定・2GiB／child60秒／全180秒で依頼する。旧residentと失敗CUBINは再試行しない。SDK前にfresh RAM gateを維持する。詳細と残件は [product-typed-healing-v1](../research/product-typed-healing-v1.json)。全目標は未完了。

@@ -11,6 +11,10 @@
 #define PORTABLE_COVER_DEFENSE_OUTPUT_BASE EMB_OUTPUT
 #define PORTABLE_COVER_DEFENSE_OUTPUT_END (EMB_OUTPUT+CDF_OUTPUT_WORDS-CDF_OUTPUT_BASE)
 #include "cover_defense_layout.slang"
+#define PORTABLE_PRODUCT_TYPED_HEALING
+#define PORTABLE_PRODUCT_ENEMY_HEALING
+#define PORTABLE_ENEMY_HEALING
+#include "enemy_healing_layout.slang"
 #define PORTABLE_PRODUCT_MANUAL_COVER_LOG
 #define PORTABLE_COORDINATE_LOGICAL_OWNERS
 #define PORTABLE_COORDINATE_TYPED_MIXED
@@ -39,3 +43,5 @@
 #include "product_coordinate_lock_battle_entry.slang"
 #include "named_range_battle_runtime.slang"
 #include "enemy_movement_runtime.slang"
+
+#include "enemy_healing_runtime.slang"

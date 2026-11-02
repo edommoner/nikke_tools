@@ -49,9 +49,9 @@ def compile_product(prepared,producer):
     from portable_product_movement_range import INPUT as MR_INPUT,OUTPUT as MR_OUTPUT,COVER_OUT,COVER_END,check_cover_schema
     movement_range=source in ('gpu/product_movement_range_battle_entry.slang','gpu/product_movement_range_fixed_battle_entry.slang') and (iw,ow)==(MR_INPUT,MR_OUTPUT)
     if movement_range:check_cover_schema()
-    from portable_product_typed import BASE_INPUT as TYPED_INPUT,BASE_OUTPUT as TYPED_OUTPUT,INPUT as TYPED_COVER_INPUT,OUTPUT as TYPED_COVER_OUTPUT
+    from portable_product_typed import BASE_INPUT as TYPED_INPUT,BASE_OUTPUT as TYPED_OUTPUT,COVER_INPUT as TYPED_COVER_INPUT,COVER_OUTPUT as TYPED_COVER_OUTPUT
     typed=source in ('gpu/product_typed_battle_entry.slang','gpu/product_typed_fixed_battle_entry.slang') and (iw,ow)==(TYPED_INPUT,TYPED_OUTPUT)
-    from portable_product_typed_lock import BASE_INPUT as TL_INPUT,BASE_OUTPUT as TL_OUTPUT,INPUT as TL_COVER_INPUT,OUTPUT as TL_COVER_OUTPUT
+    from portable_product_typed_lock import BASE_INPUT as TL_INPUT,BASE_OUTPUT as TL_OUTPUT,COVER_INPUT as TL_COVER_INPUT,COVER_OUTPUT as TL_COVER_OUTPUT
     typed_lock=source in ('gpu/product_typed_lock_battle_entry.slang','gpu/product_typed_lock_fixed_battle_entry.slang') and (iw,ow)==(TL_INPUT,TL_OUTPUT)
     from portable_cover_defense_wire import COMPOSED_STAT
     cover_stat=COMPOSED_STAT if named_range or locks or movement_range or typed or typed_lock else STAT

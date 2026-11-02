@@ -5,8 +5,11 @@ from portable_runtime import UnsupportedPortable
 from portable_product_coordinate_lock import COORDINATE_OUTPUT,OUTPUT as LOCK_PREFIX
 from portable_product_typed_movement import INPUT as BASE_INPUT,LOCK_OUTPUT as BASE_OUTPUT
 from portable_cover_defense_wire import LAYOUT as COVER
-INPUT=BASE_INPUT+COVER['WORDS'];COVER_OUT=BASE_OUTPUT
-OUTPUT=BASE_OUTPUT+COVER['OUTPUT_WORDS']-COVER['OUTPUT_BASE']
+COVER_INPUT=BASE_INPUT+COVER['WORDS'];COVER_OUT=BASE_OUTPUT
+COVER_OUTPUT=BASE_OUTPUT+COVER['OUTPUT_WORDS']-COVER['OUTPUT_BASE']
+from portable_enemy_healing_wire import LAYOUT as HEALING,typed_output
+HEALING_OUT=COVER_OUTPUT;HEALING_OUTPUT=typed_output(HEALING_OUT)
+INPUT=COVER_INPUT+HEALING['WORDS'];OUTPUT=HEALING_OUTPUT['OUTPUT_WORDS']
 WEAPON_START=170976
 WEAPON_SCRATCH=220768
 WEAPON_END=231152  # 1024 mixed pellets*10 +128 generations +16 notification words.
@@ -20,7 +23,7 @@ def check_schema(root):
     physical(root)
     from portable_wire_layout import check_metal
     check_metal(root,OUTPUT)
-    if not LOCK_PREFIX<BASE_OUTPUT==COVER_OUT<OUTPUT or (INPUT,OUTPUT)!=(123756,2962232):
+    if not LOCK_PREFIX<BASE_OUTPUT==COVER_OUT<OUTPUT or (INPUT,OUTPUT)!=(128124,2995048):
         raise ValueError('Typed lock cover must follow every existing lock/movement/continuation bank')
     if not 153568+32*544==WEAPON_START<HEAD+WORDS==WEAPON_SCRATCH<WEAPON_END<262144:
         raise ValueError('Typed skill, weapon history, aim and pellet scratch overlap')

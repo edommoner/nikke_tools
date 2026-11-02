@@ -5673,3 +5673,14 @@ input117632/output2032000の既存wire内で資源traceを最大15124件へ拡�
 最終release-v2のowner924d1499…はown175／fresh native3／deps成功、PTX・CUBIN O1 plan成功（compiler/GPU0）。最終sourceへ保存12のinput全byte／shader closure／CPU/GPU/HTTP全結果を追加battle/GPU0で再投影した。最初のrelease-v1は新baseline未追跡によるpayload不足でCPU開始前に拒否されたまま保全し、既存claimは再利用していない。静的source/dependency model-checkも成功だが全面対応を意味しない。証拠は `research/product-typed-lock-add-v1.json`、proof `product-typed-lock-add-run-v1-20261102`。
 
 今回は既存1profileの12条件を追加、new distinct profile0。直前の標準263/266＋明示3の実Metal記録はowner5f88…のまま保持し、新source全profile再認定へ読み替えない。全special-effect条件／任意合成は未完了。次は未接続consumer合成・単独typedのADD接続を優先する。Windows接続は復旧したが、residentの保存RAM1,438,969,856B<4GiB停止を保持し、SDK/API/GPU/RAMの再実行・再計測依頼0。ユーザーの外部RAM改善連絡が来るまでMac実装を進める。旧coordinate-lock v2 object/linkは成果物成功・外側終了2／環境保全falseとして保持。
+
+
+## 2026-11-02 Typed＋Lock On＋敵回復を製品経路へ接続
+
+既存の敵回復consumerを単独typed／Lock Onへ接続。元Annのheal_received_pct、元target-count、Soldierの独立cover、実incoming攻撃を保持する。入力128124word、出力2395112／2995048word。既存tailへ回復履歴を分離し、通常decodeも同じreaderを使う。元の数値・CPU正本・pinned・許容差・strict normalizerは変更0。
+
+通常APIは2編成の固定／蓄積×既定量／上限回復／部分対象、計12条件が実M5・全CPU/GPU/HTTP一致。参加する元profileは7（favorite stage0）、新inventory profileの加算0。宣言回復・形状条件であり、任意sceneの7profile全面認定ではない。最終owner7823d1c4…へ保存12を追加native/GPU0で再投影。現在source CUDA製品profile0。旧標準266profile／203キャラは過去sourceの製品成功として保持し、今回revival guard変更後の全件再認定は未完了。
+
+共通CLI4programの実Metal33＋独立seal成功、旧31のinput/raw全prefix・native完全一致、追加tailは空header／zeroのみ。v77へ4member更新、他40memberは履歴のまま保持。最終195unit相当は同一175を再利用しregistry13／ledger7を新実行。実Metal raw2件からmarker／旧alias／未使用tailの6故障を拒否。初期Lock status64と固定CPU timeoutを保全し、GPUの重複実行0。復活consumerは既存のkind0 scalar buffを初期化で許可し、enemy Lock Onにallied復活flagを付けない。実down→復活の合成実証ではない。
+
+UI http://127.0.0.1:4327/#single は所有PID/rootを確認して現版へ更新、HTTP200、個人設定変更0。Windowsの外部RAM改善後は1回測定で6.86GiB、pending0。新sealed packetのPTX生成だけをplan固定・2GiB／child60秒／全180秒で依頼する。旧residentと失敗CUBINは再試行しない。SDK前にfresh RAM gateを維持する。詳細と残件は [product-typed-healing-v1](../research/product-typed-healing-v1.json)。全目標は未完了。

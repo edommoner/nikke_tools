@@ -1,0 +1,352 @@
+{
+  "schema": "product-typed-healing-v1",
+  "scope": "Ordinary product typed/Lock On + independent cover + actual incoming attacks + original Ann enemy heal modifier; explicit enemy healing model",
+  "current_packet_id": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
+  "metal": {
+    "current_source_profiles": 7,
+    "profile_names": [
+      "N102",
+      "드레이크",
+      "미란다",
+      "솔져 O.W.",
+      "스노우 화이트 : 헤비암즈",
+      "앤 : 미라클 페어리",
+      "프림"
+    ],
+    "profile_scope": "Favorite stage0 squad participants in the two authored36-second mixed scenes; not unrestricted individual or all-effect certification",
+    "ordinary_api_conditions": 12,
+    "physical_dispatches": 4,
+    "full_cpu_gpu_http_equality": true,
+    "new_original_inventory_profiles": 0
+  },
+  "cuda": {
+    "current_source_profiles": 0,
+    "prior_source_ordinary_profiles": 5,
+    "prior_source_profile_count_not_revalidated_here": true,
+    "requested_new_gpu_dispatches": 0
+  },
+  "prior_standard": {
+    "profiles": 266,
+    "characters": 203,
+    "scope": "Historical fixed expected seed0 core50 BODY1 180s product success",
+    "current_source_requalified": false,
+    "reason": "Shared revival admission guard changed; previous generated-byte equivalence proof does not apply"
+  },
+  "implementation": [
+    "Use existing enemy healing runtime and disjoint typed tail: input128124, standalone output2395112, lock output2995048 words",
+    "Preserve original Ann and all squad effect definitions, cover and incoming definitions; no CPU schedule/HP supplied as GPU input",
+    "Revival initialization accepts kind0 scalar target-count buffs already supported by revival lifecycle; enemy Lock On rows do not receive allied revival provenance",
+    "No CPU canonical, pinned upstream, numerical contract, tolerances or strict normalizer changes"
+  ],
+  "golden": {
+    "version": 77,
+    "changed_programs": 4,
+    "metal_cases": 33,
+    "prior_cases_full_input_output_prefix_and_native_equal": 31,
+    "other40_members_retained_as_history": true
+  },
+  "api_results": [
+    {
+      "variant": "typed-fixed/authored36",
+      "index": 0,
+      "profile": "프림",
+      "favorite_stage": 0,
+      "capture": "fdcf927f40d945b78ae8db53bf0b68ca",
+      "backend": "metal_detail",
+      "api_cache_hit": false,
+      "physical_batch_and_exact_member_slices_verified": true,
+      "old_full_readback_anchor_verified": false,
+      "raw_hashes_verified": true,
+      "static_input_exact": true,
+      "current_source_exact": true,
+      "reprojected_raw_matches_cpu_gpu_api": true
+    },
+    {
+      "variant": "typed-fixed/capped36",
+      "index": 1,
+      "profile": "프림",
+      "favorite_stage": 0,
+      "capture": "1c07f35ed0554bb999bd5916b8b35efc",
+      "backend": "metal_detail",
+      "api_cache_hit": false,
+      "physical_batch_and_exact_member_slices_verified": true,
+      "old_full_readback_anchor_verified": false,
+      "raw_hashes_verified": true,
+      "static_input_exact": true,
+      "current_source_exact": true,
+      "reprojected_raw_matches_cpu_gpu_api": true
+    },
+    {
+      "variant": "typed-fixed/partial36",
+      "index": 2,
+      "profile": "프림",
+      "favorite_stage": 0,
+      "capture": "e692902e225b4d0689eaf74b32e1f5a1",
+      "backend": "metal_detail",
+      "api_cache_hit": false,
+      "physical_batch_and_exact_member_slices_verified": true,
+      "old_full_readback_anchor_verified": false,
+      "raw_hashes_verified": true,
+      "static_input_exact": true,
+      "current_source_exact": true,
+      "reprojected_raw_matches_cpu_gpu_api": true
+    },
+    {
+      "variant": "typed-accumulate/authored36",
+      "index": 3,
+      "profile": "프림",
+      "favorite_stage": 0,
+      "capture": "17a6cad0800e4fb49025b11dcdb9728d",
+      "backend": "metal_detail",
+      "api_cache_hit": false,
+      "physical_batch_and_exact_member_slices_verified": true,
+      "old_full_readback_anchor_verified": false,
+      "raw_hashes_verified": true,
+      "static_input_exact": true,
+      "current_source_exact": true,
+      "reprojected_raw_matches_cpu_gpu_api": true
+    },
+    {
+      "variant": "typed-accumulate/capped36",
+      "index": 4,
+      "profile": "프림",
+      "favorite_stage": 0,
+      "capture": "b5e6c76a12264476afaa0b0a860d2c3f",
+      "backend": "metal_detail",
+      "api_cache_hit": false,
+      "physical_batch_and_exact_member_slices_verified": true,
+      "old_full_readback_anchor_verified": false,
+      "raw_hashes_verified": true,
+      "static_input_exact": true,
+      "current_source_exact": true,
+      "reprojected_raw_matches_cpu_gpu_api": true
+    },
+    {
+      "variant": "typed-accumulate/partial36",
+      "index": 5,
+      "profile": "프림",
+      "favorite_stage": 0,
+      "capture": "07756202c5f049259b0273100a180116",
+      "backend": "metal_detail",
+      "api_cache_hit": false,
+      "physical_batch_and_exact_member_slices_verified": true,
+      "old_full_readback_anchor_verified": false,
+      "raw_hashes_verified": true,
+      "static_input_exact": true,
+      "current_source_exact": true,
+      "reprojected_raw_matches_cpu_gpu_api": true
+    },
+    {
+      "variant": "typed-lock-fixed/authored36",
+      "index": 6,
+      "profile": "스노우 화이트 : 헤비암즈",
+      "favorite_stage": 0,
+      "capture": "100cd672c4b04e7d913cdc282f5b7d24",
+      "backend": "metal_detail",
+      "api_cache_hit": false,
+      "physical_batch_and_exact_member_slices_verified": true,
+      "old_full_readback_anchor_verified": false,
+      "raw_hashes_verified": true,
+      "static_input_exact": true,
+      "current_source_exact": true,
+      "reprojected_raw_matches_cpu_gpu_api": true
+    },
+    {
+      "variant": "typed-lock-fixed/capped36",
+      "index": 7,
+      "profile": "스노우 화이트 : 헤비암즈",
+      "favorite_stage": 0,
+      "capture": "972860d52e6e4a74b2d7569d8bb6b55e",
+      "backend": "metal_detail",
+      "api_cache_hit": false,
+      "physical_batch_and_exact_member_slices_verified": true,
+      "old_full_readback_anchor_verified": false,
+      "raw_hashes_verified": true,
+      "static_input_exact": true,
+      "current_source_exact": true,
+      "reprojected_raw_matches_cpu_gpu_api": true
+    },
+    {
+      "variant": "typed-lock-fixed/partial36",
+      "index": 8,
+      "profile": "스노우 화이트 : 헤비암즈",
+      "favorite_stage": 0,
+      "capture": "5cbb34f7daf944ac9a8e24a0ae89dbef",
+      "backend": "metal_detail",
+      "api_cache_hit": false,
+      "physical_batch_and_exact_member_slices_verified": true,
+      "old_full_readback_anchor_verified": false,
+      "raw_hashes_verified": true,
+      "static_input_exact": true,
+      "current_source_exact": true,
+      "reprojected_raw_matches_cpu_gpu_api": true
+    },
+    {
+      "variant": "typed-lock-accumulate/authored36",
+      "index": 9,
+      "profile": "스노우 화이트 : 헤비암즈",
+      "favorite_stage": 0,
+      "capture": "ebc03a9689ec43e387ebd7112dcded36",
+      "backend": "metal_detail",
+      "api_cache_hit": false,
+      "physical_batch_and_exact_member_slices_verified": true,
+      "old_full_readback_anchor_verified": false,
+      "raw_hashes_verified": true,
+      "static_input_exact": true,
+      "current_source_exact": true,
+      "reprojected_raw_matches_cpu_gpu_api": true
+    },
+    {
+      "variant": "typed-lock-accumulate/capped36",
+      "index": 10,
+      "profile": "스노우 화이트 : 헤비암즈",
+      "favorite_stage": 0,
+      "capture": "988a90b5ba1e4c4090408d392e7a9371",
+      "backend": "metal_detail",
+      "api_cache_hit": false,
+      "physical_batch_and_exact_member_slices_verified": true,
+      "old_full_readback_anchor_verified": false,
+      "raw_hashes_verified": true,
+      "static_input_exact": true,
+      "current_source_exact": true,
+      "reprojected_raw_matches_cpu_gpu_api": true
+    },
+    {
+      "variant": "typed-lock-accumulate/partial36",
+      "index": 11,
+      "profile": "스노우 화이트 : 헤비암즈",
+      "favorite_stage": 0,
+      "capture": "8d9eeb80a0054bbca052fea37aee4bbb",
+      "backend": "metal_detail",
+      "api_cache_hit": false,
+      "physical_batch_and_exact_member_slices_verified": true,
+      "old_full_readback_anchor_verified": false,
+      "raw_hashes_verified": true,
+      "static_input_exact": true,
+      "current_source_exact": true,
+      "reprojected_raw_matches_cpu_gpu_api": true
+    }
+  ],
+  "final_check": {
+    "current_packet_id": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
+    "prior_packet_id": "b88acbaab98e80d5ae1a10c352068ca7458d685c0ad8c398f679191b2cc617ef",
+    "reviewed_delta": [
+      "app/portable_product_programs.py",
+      "app/portable_weighted_incoming_source_contract.py",
+      "research/portable-product-programs-v76-expected.json",
+      "tests/fixtures/portable-product-boss-debuff-source-delta.json",
+      "tests/test_product_detail_packet.py"
+    ],
+    "calculation_decoder_transport_sources_byte_exact": true,
+    "prior_cpu_receipt_sha256": "67a75c95f9264f6d00ce1505c7dcc6361cbd9b899b706f3729451cd00bff052a",
+    "fresh_registry_ledger_tests": 20,
+    "canonical_cpu_files_exact": 43,
+    "saved_api_payloads_audited": 12,
+    "saved_api_receipt_sha256": "15fc97c2eb68763ebd816404545e285fd5a76a7afcb40075c7a45c6ab06eb6a7",
+    "additional_gpu_calls": 0,
+    "additional_native_battles": 0
+  },
+  "retention": {
+    "programs": {
+      "typed-accumulate": {
+        "prior_cases": 10,
+        "current_cases": 11,
+        "source_closure_exact": true,
+        "all_prior_native_and_input_prefix_exact": true,
+        "all_prior_output_prefix_exact": true,
+        "new_empty_tail_magic_then_zero": true,
+        "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-typed-healing-run-v2-20261102/metal-v1"
+      },
+      "typed-lock-accumulate": {
+        "prior_cases": 9,
+        "current_cases": 10,
+        "source_closure_exact": true,
+        "all_prior_native_and_input_prefix_exact": true,
+        "all_prior_output_prefix_exact": true,
+        "new_empty_tail_magic_then_zero": true,
+        "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-typed-lock-healing-run-v3-20261102/metal-v1"
+      },
+      "typed-fixed": {
+        "prior_cases": 6,
+        "current_cases": 6,
+        "source_closure_exact": true,
+        "all_prior_native_and_input_prefix_exact": true,
+        "all_prior_output_prefix_exact": true,
+        "new_empty_tail_magic_then_zero": true,
+        "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-typed-healing-fixed-run-v2-20261102/metal-v2"
+      },
+      "typed-lock-fixed": {
+        "prior_cases": 6,
+        "current_cases": 6,
+        "source_closure_exact": true,
+        "all_prior_native_and_input_prefix_exact": true,
+        "all_prior_output_prefix_exact": true,
+        "new_empty_tail_magic_then_zero": true,
+        "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-typed-lock-healing-fixed-run-v2-20261102/metal-v2"
+      }
+    },
+    "other40_members_unchanged": true,
+    "numeric_masks": 0,
+    "normalizer_changes": 0
+  },
+  "decoder_faults": {
+    "actual_metal_readbacks": [
+      {
+        "request_index": 0,
+        "capture": "fdcf927f40d945b78ae8db53bf0b68ca",
+        "valid_actual_result_accepted": true,
+        "faults_rejected": [
+          "missing-marker",
+          "legacy-alias",
+          "unused-tail"
+        ]
+      },
+      {
+        "request_index": 6,
+        "capture": "100cd672c4b04e7d913cdc282f5b7d24",
+        "valid_actual_result_accepted": true,
+        "faults_rejected": [
+          "missing-marker",
+          "legacy-alias",
+          "unused-tail"
+        ]
+      }
+    ],
+    "extra_native_battles": 0,
+    "extra_gpu": 0
+  },
+  "ui": {
+    "url": "http://127.0.0.1:4327/#single",
+    "pid": 93421,
+    "html_http200": true,
+    "root": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/runtime-resident",
+    "prior_owned_server_group_stopped": true,
+    "user_sessions_or_settings_modified": false,
+    "persistent_ui_server_intentionally_running": true,
+    "additional_calculations": 0
+  },
+  "failures_preserved": [
+    "Lock On initial runs: status64 at revival admission; kind0 and enemy provenance problems corrected in new input/source",
+    "Both fixed initial CPU preflights timed out before GPU/claim; after contention ended CPU passed serially and first GPU runs succeeded",
+    "Final check receipt formatter expected dict but CPU receipt is list; completed tests/API audit retained, corrected receipt only",
+    "Compact packet model-check lacks upstream IMPL-STATUS.md; source audit passed from complete worktree"
+  ],
+  "model_check": {
+    "passed": true,
+    "scope": "Source/dependency only, not a battle proof"
+  },
+  "storage": {
+    "compression_receipt_sha256": "5dee358fd63504deda60f9ba9b3c94a502250cf8b89c651568ccdf5187ff9eeb",
+    "generation_cache_compressed_entries": 467,
+    "allocated_bytes_reclaimed": 3031793664,
+    "evidence_deleted": false
+  },
+  "remaining": [
+    "Unrestricted all-character/all-special-effect compositions",
+    "Current-source standard266 requalification after revival guard change",
+    "Current-source CUDA compilation and ordinary product execution",
+    "Typed enemy-ammo/weighted compositions and undeclared game geometry/positions",
+    "Actual down/revival restoration with these mixed scenes not proven"
+  ],
+  "full_goal_complete": false
+}

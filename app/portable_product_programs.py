@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v76-expected.json'
+GOLDEN = 'research/portable-product-programs-v77-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -52,7 +52,7 @@ def configuration(suites, selection):
     program = PROGRAMS[name]
     return dict(base, product_program=name, source=program['source'], golden=GOLDEN,
                 input_words=program['input_words'], output_words=program['output_words'],
-                inputs=7 if name=='ammo-cover-fixed-group' else 10 if name=='typed-accumulate' else 9 if name=='typed-lock-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1,native=7 if name=='ammo-cover-fixed-group' else 10 if name=='typed-accumulate' else 9 if name=='typed-lock-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
+                inputs=7 if name=='ammo-cover-fixed-group' else 11 if name=='typed-accumulate' else 10 if name=='typed-lock-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1,native=7 if name=='ammo-cover-fixed-group' else 11 if name=='typed-accumulate' else 10 if name=='typed-lock-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
 
 
 def registered_golden(root, config, *, allow_unsealed=False):
@@ -309,6 +309,27 @@ def cover_typed_body(root,name='typed-accumulate'):
     return body
 
 
+def healing_typed_body(root,name='typed-accumulate'):
+    """Original Anne debuff with explicit existing typed/cover/incoming world."""
+    from portable_original_identity_inventory import selected_profile_bodies
+    body=cover_typed_body(root,name);anne='앤 : 미라클 페어리';previous='도라'
+    original=selected_profile_bodies([anne],0)[0][2]
+    body['squad']=[anne if n==previous else n for n in body['squad']]
+    body['profile']['chars'][anne]=copy.deepcopy(original['profile']['chars'][anne])
+    for row in body['reference_models']['cover_defense']:
+        if row['name']==previous:row['name']=anne
+    if previous in body.get('manual_cover_sequences',{}):body['manual_cover_sequences'][anne]=body['manual_cover_sequences'].pop(previous)
+    body['duration']=36.
+    for node in body['enemy']['patterns']:
+        if 'time' in node.get('until',{}):node['until']['time']=37.
+    targets=[row['label'] for row in body['reference_models']['typed_targets']['logical_geometry']]
+    body['reference_models']['enemy_healing']=[]
+    for index,when in enumerate((1.,6.,25.,35.)):
+        node='typed-heal-'+str(index);body['enemy']['patterns'].append(dict(id=node,kind='idle',delay=when))
+        body['reference_models']['enemy_healing'].append(dict(node=node,targets=list(targets),amount=1e6))
+    return body
+
+
 def interrupt_typed_body(root,name='typed-lock-accumulate',*,kind='stun'):
     """Real ordinary-request regression for charging/cover state interruption."""
     if kind not in ('control','stun','cover_disabled'):raise ValueError('Known incoming state required')
@@ -449,4 +470,6 @@ def cases_for_program(root,name=None):
         rows.append(('manual-posture',manual_typed_body(root,name)))
         rows.append(('incoming-attacks',incoming_typed_body(root,name)))
         rows.append(('cover-incoming',cover_typed_body(root,name)))
+    if name in ('typed-accumulate','typed-lock-accumulate'):
+        rows.append(('healing-incoming-36',healing_typed_body(root,name)))
     return rows

@@ -50,7 +50,8 @@ bool initializeRevival(inout Runtime s)
 #ifndef PORTABLE_WORLD_PROJECTILE
             return false;
 #else
-            if(s.combat==0 || d.kind!=4 || d.enemyBuff!=0) return false;
+            // Legacy buff provenance also survives lowering to a scalar stat buff.
+            if(s.combat==0 || (d.kind!=0 && d.kind!=4) || d.enemyBuff!=0) return false;
             enabled=true;
 #endif
         }

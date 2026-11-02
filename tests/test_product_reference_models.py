@@ -1079,6 +1079,68 @@ class ProductReferenceModels(unittest.TestCase):
         from portable_specs import shader_schema
         self.assertIn('#elif defined(PORTABLE_PRODUCT_LONG_LOCK)\nstatic const uint P_OUTPUT_WORDS = PL_LAYOUT_OUTPUT;',shader_schema())
 
+    def test_typed_healing_uses_complete_original_world_and_disjoint_receipts(self):
+        from portable_product_programs import healing_typed_body
+        from portable_detail import prepare,compile_product
+        from portable_enemy_healing_wire import MAGIC,LAYOUT,OUTPUT as H
+        from portable_backend import validate_composed_stride
+        for name in ('typed-fixed','typed-accumulate','typed-lock-fixed','typed-lock-accumulate'):
+            body=healing_typed_body(ROOT,name);before=copy.deepcopy(body)
+            with patch.object(engine_worker.sim,'execute',side_effect=AssertionError('No native health or schedule in input')):
+                pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
+            self.assertEqual(body,before);self.assertEqual((iw,len(words)),(128124,128124));validate_composed_stride(source,iw,ow)
+            self.assertEqual(words[123756:123761],[MAGIC,1,4,7,3]);self.assertEqual(len(words[123756:]),LAYOUT['WORDS'])
+            self.assertTrue(meta['product_typed_healing']);self.assertFalse(meta['product_enemy_healing']['cpu_health_generations_or_schedule_supplied'])
+            from portable_specs import LIMITS as L,FIELDS as F
+            original={i:item['effect'] for i,item in enumerate(pre['effects'])}
+            self.assertTrue(any(e.get('stat')=='revive' for e in original.values()))
+            if name.startswith('typed-lock-'):
+                index=next(i for i,e in original.items() if e.get('stat')=='effect_target_count_add')
+                at=L['DEFINITION_BASE']+meta['binding_source_indices'].index(index)*L['DEFINITION_WORDS']
+                self.assertEqual(words[at+F['KIND']],0);self.assertTrue(words[at+F['FLAGS']]&2048)
+                pulse=next(i for i,e in original.items() if e.get('stat')=='lock_on')
+                at=L['DEFINITION_BASE']+meta['binding_source_indices'].index(pulse)*L['DEFINITION_WORDS']
+                self.assertFalse(words[at+F['FLAGS']]&2048,'Enemy lock marker is not an allied buff lost on down')
+            self.assertEqual(meta['product_enemy_healing']['declarations'],{'enemy_healing':body['reference_models']['enemy_healing']})
+            if 'lock_on' in body['reference_models']:
+                from portable_product_typed_lock import HEALING_OUT,COVER_OUTPUT,OUTPUT
+            else:
+                from portable_product_typed import HEALING_OUT,COVER_OUTPUT,OUTPUT
+            self.assertEqual(HEALING_OUT,COVER_OUTPUT);self.assertEqual(OUTPUT,HEALING_OUT+H['RECEIPT_BASE']+H['RECEIPTS']*H['RECEIPT_WORDS']);self.assertEqual(ow,OUTPUT)
+    def test_typed_healing_native_applies_original_anne_modifier_and_live_health(self):
+        from portable_product_programs import healing_typed_body
+        from portable_detail import prepare
+        from product_reference_models import execution
+        for name in ('typed-accumulate','typed-lock-accumulate'):
+            body=healing_typed_body(ROOT,name);pre,run=prepare(body)
+            with execution(pre['reference_models'],body['squad']) as models:engine_worker.sim.execute(run)
+            rows=models['enemy_healing']['receipts'];self.assertEqual(len(rows),8)
+            self.assertEqual(sum(r.get('applied',0)>0 for r in rows),7)
+            affected=[r for r in rows if r['node']=='typed-heal-2'];self.assertEqual(len(affected),2)
+            self.assertTrue(all(r['multiplier']==1.-78.93/100. for r in affected))
+            self.assertTrue(all(r['hits_before']==r['hits_after'] and r['dealt_after']<=r['dealt_before'] for r in rows if r['status']=='healed'))
+    def test_typed_healing_decoder_rejects_missing_marker_alias_and_unused_tail(self):
+        import array
+        from portable_detail import prepare,compile_product
+        from portable_product_programs import body_for_program
+        from portable_product_healing import read_result
+        from portable_enemy_healing_wire import MAGIC,OUTPUT as LEGACY
+        from portable_specs import LIMITS as L
+        from portable_runtime import UnsupportedPortable
+        for name in ('typed-fixed','typed-lock-fixed'):
+            body=body_for_program(ROOT,name);pre,_=prepare(body);_,_,ow,_,meta=compile_product(pre)
+            if name.startswith('typed-lock-'):
+                from portable_product_typed_lock import HEALING_OUTPUT as H
+            else:
+                from portable_product_typed import HEALING_OUTPUT as H
+            block=array.array('I',[0])*ow;head=H['OUTPUT_BASE'];block[head]=MAGIC
+            block[L['WORLD_ACTOR_POOL_OUTPUT_BASE']]=0x57485031;block[L['WORLD_ACTOR_POOL_OUTPUT_BASE']+1]=len(meta['product_enemy_healing']['bindings'])
+            names=body['squad'];self.assertIsNone(read_result(block,meta,names,body['duration'],layout=H))
+            block[-1]=1
+            with self.assertRaises(UnsupportedPortable):read_result(block,meta,names,body['duration'],layout=H)
+            block[-1]=0;block[head]=0;block[LEGACY['OUTPUT_BASE']]=MAGIC
+            with self.assertRaises(UnsupportedPortable):read_result(block,meta,names,body['duration'],layout=H)
+
     def test_typed_cover_uses_existing_explicit_bank_and_separate_stat(self):
         from portable_product_programs import cover_typed_body
         from portable_detail import prepare,compile_product
@@ -1088,9 +1150,9 @@ class ProductReferenceModels(unittest.TestCase):
             body=cover_typed_body(ROOT,name);before=copy.deepcopy(body)
             with patch.object(sim,'execute',side_effect=AssertionError('No CPU cover state in input')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual(body,before);self.assertEqual((iw,ow,len(words)),(123756,2962232 if name.startswith('typed-lock-') else 2362296,123756))
+            self.assertEqual(body,before);self.assertEqual((iw,ow,len(words)),(128124,2995048 if name.startswith('typed-lock-') else 2395112,128124))
             self.assertEqual(words[123732:123736],[MAGIC,1,5,0])
-            self.assertEqual(validate(words[123732:],[c['name'] for c in pre['chars']]),body['reference_models']['cover_defense'])
+            self.assertEqual(validate(words[123732:123756],[c['name'] for c in pre['chars']]),body['reference_models']['cover_defense'])
             self.assertTrue(meta['product_typed_cover']);self.assertTrue(meta['product_cover_defense']['definition_indices'])
             for i in meta['product_cover_defense']['definition_indices']:
                 row=meta['binding_source_indices'].index(i);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
@@ -1122,7 +1184,7 @@ class ProductReferenceModels(unittest.TestCase):
             body=manual_typed_body(ROOT,name);before=copy.deepcopy(body)
             with patch.object(sim,'execute',side_effect=AssertionError('No posture schedule or native state supplied to GPU')):
                 pre,run=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual(body,before);self.assertEqual(iw,123756)
+            self.assertEqual(body,before);self.assertEqual(iw,128124)
             self.assertEqual(words[L['WORLD_CONTROL_INPUT_BASE']+1],6 if 'fixed' in name else 3)
             self.assertEqual(meta['product_manual_cover_owners'],[0,4])
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
@@ -1139,7 +1201,7 @@ class ProductReferenceModels(unittest.TestCase):
             body=logical_owner_body(ROOT,name);before=copy.deepcopy(body)
             with patch.object(sim,'execute',side_effect=AssertionError('No native generations or fields supplied to GPU')):
                 pre,run=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual(body,before);self.assertEqual(iw,123756)
+            self.assertEqual(body,before);self.assertEqual(iw,128124)
             base=115680 if 'lock' in name else 109968
             self.assertEqual(words[base+12:base+16],[3,1,1,2]);self.assertEqual(words[base+3],0)
             for i,row in enumerate(body['reference_models']['typed_targets']['bindings']):
@@ -1685,7 +1747,7 @@ class ProductReferenceModels(unittest.TestCase):
         bad=copy.deepcopy(spec);bad['geometry']['point_source']='fixed';bad['geometry']['point']=[0.,0.];mutations.append(bad)
         for bad in mutations:
             with self.subTest(bad=bad),self.assertRaises(ValueError):normalize_product(bad)
-        with self.assertRaisesRegex(ValueError,'matching checked consumer'):normalize({'typed_targets':spec,'enemy_healing':[]})
+        with self.assertRaisesRegex(ValueError,'explicit healing source'):normalize({'typed_targets':spec,'enemy_healing':[]})
 
     def test_typed_product_packs_all_original_effects_and_no_cpu_target_state(self):
         import portable_detail as product
@@ -1699,7 +1761,7 @@ class ProductReferenceModels(unittest.TestCase):
                 source,iw,ow,words,meta=product.compile_product(prepared)
             self.assertEqual(body,before);self.assertEqual(prepared,original)
             self.assertFalse(run.expected);self.assertEqual(run.config['rng_mode'],'random')
-            self.assertEqual((iw,ow,len(words)),(123756,2362296,123756));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(128124,2395112,128124));validate_composed_stride(source,iw,ow)
             self.assertEqual(source,'gpu/product_typed_'+('fixed_' if mode=='fixed' else '')+'battle_entry.slang')
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
             self.assertFalse(meta['product_typed_targets']['cpu_state_or_schedule_supplied'])
@@ -2040,7 +2102,7 @@ class ProductReferenceModels(unittest.TestCase):
                         prepared,_=prepare(body)
                         original_prepared=copy.deepcopy(prepared)
                         source,iw,ow,words,meta=compile_product(prepared)
-                        self.assertEqual((iw,ow,len(words)),(123756,2962232,123756))
+                        self.assertEqual((iw,ow,len(words)),(128124,2995048,128124))
                         self.assertTrue(meta['product_typed_lock'])
                         self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
                         self.assertEqual(prepared,original_prepared)
@@ -2071,7 +2133,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
             with patch.object(sim,'execute',side_effect=AssertionError('No CPU oracle in packing')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow),(123756,2962232))
+            self.assertEqual((iw,ow),(128124,2995048))
             self.assertEqual(len(meta['product_coordinate']['declarations']['coordinate']['logical_geometry']),2)
 
     def test_typed_motion_uses_one_geometry_world_and_live_nearby_positions(self):
@@ -2101,7 +2163,7 @@ class ProductReferenceModels(unittest.TestCase):
             if name.startswith('typed-lock-'):self.assertTrue(result['lock_on']['shots'])
             with patch.object(sim,'execute',side_effect=AssertionError('No native positions in input')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow),(123756,2962232 if name.startswith('typed-lock-') else 2362296));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow),(128124,2995048 if name.startswith('typed-lock-') else 2395112));validate_composed_stride(source,iw,ow)
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
 
     def test_typed_physical_history_preserves_order_across_spill_and_rejects_unowned_words(self):
@@ -2177,7 +2239,7 @@ class ProductReferenceModels(unittest.TestCase):
                 self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
                 with patch.object(sim,'execute',side_effect=AssertionError('No native world state in input')):
                     pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-                self.assertEqual((iw,ow,len(words)),(123756,2962232,123756));validate_composed_stride(source,iw,ow)
+                self.assertEqual((iw,ow,len(words)),(128124,2995048,128124));validate_composed_stride(source,iw,ow)
                 self.assertEqual(words[115680+3],0 if len(set(kinds))>1 else kinds[0]);self.assertEqual(words[121394],1)
                 self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
 
@@ -2201,7 +2263,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
             with patch.object(sim,'execute',side_effect=AssertionError('No CPU-selected recipients in GPU input')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow,len(words)),(123756,2362296,123756));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(128124,2395112,128124));validate_composed_stride(source,iw,ow)
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
             self.assertEqual(words[121392:121395],[0x4e524231,1,1])
             self.assertEqual(words[121392+32+5],1)
@@ -2267,7 +2329,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(body,before)
             with patch.object(sim,'execute',side_effect=AssertionError('No native state in packing')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow,len(words)),(123756,2362296,123756));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(128124,2395112,128124));validate_composed_stride(source,iw,ow)
             self.assertEqual(words[115680:115683],[0x4c414731,1,2])
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
             missing=copy.deepcopy(body);missing['reference_models']['typed_targets']['logical_geometry'].pop()

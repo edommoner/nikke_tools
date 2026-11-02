@@ -23,10 +23,20 @@ OUTPUT = dict(OUTPUT_BASE=1867648, OUTPUT_HEADER=16, SEEN_BASE=16,
               OUTPUT_WORDS=2032000)
 
 
+def typed_output(base):
+    return dict(OUTPUT,OUTPUT_BASE=base,OUTPUT_WORDS=base+OUTPUT['RECEIPT_BASE']+OUTPUT['RECEIPTS']*OUTPUT['RECEIPT_WORDS'])
+
+
 def shader_schema():
-    return '// Generated from portable_enemy_healing_wire; literal declarations only.\n' + ''.join(
-        f'static const uint EHL_{key}={value}U;\n' for key, value in
-        dict(MAGIC=MAGIC, VERSION=VERSION, **LAYOUT, INPUT_WORDS=INPUT_WORDS, **OUTPUT).items())
+    values=dict(MAGIC=MAGIC,VERSION=VERSION,**LAYOUT,INPUT_WORDS=INPUT_WORDS,**OUTPUT)
+    expressions=dict(BASE='EMB_INPUT+CDF_WORDS',INPUT_WORDS='EMB_INPUT+CDF_WORDS+4368U',
+        OUTPUT_BASE='EMB_OUTPUT+CDF_OUTPUT_WORDS-CDF_OUTPUT_BASE',
+        OUTPUT_WORDS='EMB_OUTPUT+CDF_OUTPUT_WORDS-CDF_OUTPUT_BASE+32816U')
+    text='// Generated from portable_enemy_healing_wire; literal declarations only.\n'
+    for key,value in values.items():
+        literal=f'static const uint EHL_{key}={value}U;\n'
+        text+=('#ifdef PORTABLE_PRODUCT_TYPED_HEALING\n'+f'static const uint EHL_{key}={expressions[key]};\n'+'#else\n'+literal+'#endif\n') if key in expressions else literal
+    return text
 
 
 def check_schema(root=None):
