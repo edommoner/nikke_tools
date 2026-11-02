@@ -4140,9 +4140,15 @@
     "new_typed_lock_cover_conditions": 18,
     "previous_standard_profiles": 266,
     "previous_standard_source": "7e793c5104ed19c6a0a08651eadf0f4630ac7995",
-    "all_current_standard_profiles_verified": false,
+    "all_current_standard_profiles_verified": true,
     "current_source_cuda_profiles": 0,
-    "frozen_limited_cuda_conditions": 1
+    "frozen_limited_cuda_conditions": 1,
+    "standard_original_profiles_verified": 266,
+    "standard_original_characters_verified": 203,
+    "standard_duration_seconds": 180,
+    "standard266_requalified_with_additional_gpu": 0,
+    "standard266_requalified_with_additional_native_battles": 0
   },
-  "latest_typed_lock_cover_product_proof": "product-typed-lock-cover-v1.json"
+  "latest_typed_lock_cover_product_proof": "product-typed-lock-cover-v1.json",
+  "latest_standard266_current_source_proof": "product-standard-current-source-v2.json"
 }

@@ -1,3 +1,11 @@
+## 2026-11-02 現在版で標準266profileを全件再認定（GPU再実行0）
+
+commit311709a9／sealed owner5751e24c…で標準BODY1体・固定期待値・seed0・core50・180秒の266profile／203キャラがMetal／CPU／HTTP一致。元の実M5captureについて、現在の入力全byte、全raw SHA、decoderによる全公開payloadを再監査した。[全profileと9系統の生成SHA](../research/product-standard-current-source-v2.json)。追加battle／GPU0。標準の限定条件の認定で、全特殊効果分岐・任意場面・現source CUDAの完了ではない。
+
+9系統のsource差はportable_schemaのtyped-cover条件分岐1か所だけ。既存Slang build／paired reflection／cache guardを使いCUDAとMetalを再生成し、18生成物すべてが元実行の生成SHAと完全一致した。normalizer自体を使う必要もなく、変更0。CUDA backend／生成器／layout consumer／scope auditorは全byte同一、Swiftは出力幅2362296／2962232の許可節以外全byte同一、旧幅と最大サイズは維持。CPU正本43fileもbyte同一。入力・全readback・batch親とmember全slice・CPU／GPU／HTTP全fieldを既存保存auditorで比較し、未確定source一致を偽装せず、旧／新source closureと生成物一致を別々に検査した。
+
+現在版の標準実績はMetal266profile／203キャラ、CUDA0profile。以前の固定23f63332のCUDA1限定条件は別出所として保持。typed単独とLock On＋被弾・独立DEFの宣言30条件も既存の別証拠を保持。次は未対応のtyped敵回復／弾倉／配分と、Windows launch時メモリ増加の観測不足を進める。以下は過去記録。
+
 ## 2026-11-02 typed＋Lock On＋独立遮蔽を共通製品経路へ接続
 
 元のHeavy Arms／Soldier O.W.編成で、固定／蓄積×8／16秒、実周期遮蔽DEF、貫通、遮蔽破壊、DEF0の12条件と、充電中stunの対照ペア・遮蔽無効6条件を通常APIで確認。計18が実M5／CPU／HTTP全payload一致、4dispatch、cache0。stunは最後のLock On射撃を15.383333333333677→15.50000000000035へ遅らせ、取得回数64は維持する既存CPU規約と一致。遮蔽無効ではreceipt9→5。全員戦闘不能の強攻撃も比較し、未知の敵予約先死亡規則は追加していない。新inventory profile加算0。[全出所と18条件](../research/product-typed-lock-cover-v1.json)。

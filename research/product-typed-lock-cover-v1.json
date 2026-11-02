@@ -8,13 +8,13 @@
   "api_cache_hits": 0,
   "new_original_inventory_profiles": 0,
   "new_distinct_squad_orders": 1,
-  "current_source_standard_original_profiles_verified": 1,
-  "current_standard_scope": "Original Miranda fixed30s calculation reused with identical kernel/input and full saved payload projection;Swift only admits one additional output width",
+  "current_source_standard_original_profiles_verified": 266,
+  "current_standard_scope": "Original standard fixed expected-value,seed0,core50,BODY1,180 seconds;not unrestricted scenes or all special branches",
   "current_source_standalone_typed_cover_conditions_reused": 12,
   "previous_source_standard_profiles": 266,
   "previous_source_standard_characters": 203,
   "previous_standard_source_commit": "7e793c5104ed19c6a0a08651eadf0f4630ac7995",
-  "full_current_source_standard266_reaudit": false,
+  "full_current_source_standard266_reaudit": true,
   "current_source_cuda_verified_profiles": 0,
   "frozen_cuda_limited_condition_verified": 1,
   "frozen_cuda_proof": "product-logical-owner-windows-import-v1.json",
@@ -306,7 +306,6 @@
     "Moving typed attachments and unproven triggered exact-owner fields",
     "LockOn frozen-target death/missing delivery remains explicitly unsupported;no invented retarget/drop",
     "Current source CUDA compilation/numeric execution after resource review;keep2GiB/short checks and no blind replay",
-    "Current-source standard266 requalification;prefer strict generated-code identity/input checks and saved-result audit over repeating battles",
     "Unrestricted all-character/all-special-effect scene coverage"
   ],
   "full_goal_complete": false,
@@ -808,5 +807,6 @@
       ],
       "other43_baseline_members_unchanged": true
     }
-  }
+  },
+  "current_standard_proof": "product-standard-current-source-v2.json"
 }
