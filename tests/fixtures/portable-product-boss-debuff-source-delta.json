@@ -1296,13 +1296,13 @@
     },
     "app/portable_product_programs.py": {
       "before_sha256": "51d18a2191c24ef3b68f2d1cf71d792cdb9e8e01ed209e5c793827ce5b7d056d",
-      "after_sha256": "fb76c0ffed735df9a3d38309c44831dfea966671e04f03c4e2d8d5ceb98a6472",
+      "after_sha256": "bc07b261d2db60beca355974bb41bdf8e33fbcfacf539d0f1672d67edbb510f7",
       "hunks": [
         {
           "start": 318,
           "end": 382,
           "before": "GOLDEN = 'research/portable-product-programs-v1-expected.json'\n",
-          "after": "GOLDEN = 'research/portable-product-programs-v75-expected.json'\n"
+          "after": "GOLDEN = 'research/portable-product-programs-v76-expected.json'\n"
         },
         {
           "start": 1039,

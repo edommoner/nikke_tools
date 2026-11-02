@@ -1,3 +1,11 @@
+## 2026-11-02 現在版の標準固定4ケースをsealed化しWindowsコンパイルを準備
+
+現在の固定4ケースを実M5／独立sealで確認。Miranda標準30秒、Yuni／Yan標準30秒、Rapi:Red Hood180秒の元4編成で、旧入力／native／全readbackが全byte一致。v76はfixed4のsource hashだけを実証済み現行へ更新し、他43memberはそのまま履歴保持。最終sealed owner30e9e40c…、現在標準Metal266profile／203キャラの計算source／decoder／CPUは同一、現source CUDA0profileは維持。[実証と境界](../research/product-standard-current-fixed-v1.json)。
+
+元development packetのCPU192を通過。最終packetはgolden参照と対応する厳密inverse台帳だけが差分で、registry13＋台帳7を新実行し、同一172を再利用。release-v1は新基準JSONの未登録による梱包漏れをvalidation-depsで拒否し、元を保持。基準を共有対象へ登録したrelease-v2で全file／依存／compile-planが成功。最終差分検査の旧baseline JSON残存という誤った前提も、v75→v76の厳密な置換検査へ訂正した。数値・許容差・正本・shader変更0。
+
+生成CUDA2,745,490byteの標準kernelを、共通CLIの直接CUBIN O1へ送る計画。PTX→object→linkの複数SDK工程を成功時に省ける。sealed source ZIP12,303,978byte、SHA113f9c1f…を共有対象へ作成。個人設定・raw・生成PTX／CUBIN・SDK0。packet自身のCUBIN O1／2GiB／60秒planはpassed。Windows依頼はpaired generation／cache-probe／miss時compile1回だけ、外180秒、BelowNormal、直前RAM4GiBを1回計測し不足なら再計測なしで停止。失敗時PTX／object／linkへ自動切替せず、GPU依頼0。将来の通常Miranda30秒1requestはartifact/input/resourceの別gate後に行う。以下は過去記録。
+
 ## 2026-11-02 CUDAのメモリ増加を切り分ける既存観測器を拡張
 
 共通CLIの`module-check --observe-cuda-resources`を既存cache-only PTX／2GiB／60秒／BelowNormal Jobへ接続。context・module・function・属性照会・cleanup前後を観測し、cuFuncGetAttribute0..6からlocal bytes/thread等を取得する。追加kernel／battle buffer／SDK compile0、default追加query0。値の欠落／エラーをunknownのまま残し、属性照会のlazy-loading影響も前後snapshotへ分離する。[実装と全108CPU検査](../research/product-cuda-resource-observer-v2.json)、[共通CLIの使い方と限界](portable-cuda-memory-observation.md)。
