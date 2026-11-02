@@ -5767,3 +5767,13 @@ Windows新source owner7823d1c4…はPTX14,804,305B→O1 object8,120,624B→linke
 ユーザーの明示指示により [Claude主導の開発手順](claude-led-development.md) を現在の進め方とする。Claude Codeへの許可済み14ファイル抜粋の初回レビュー125.48秒＋事実確認35.04秒が完了。最終GPU目標をfallback達成へ狭めないことをClaudeと確認した。次はportable_detail.pyと既存製品テストだけで例外/fallback/CPU二重評価を修正する単位。CPU正本・Slang・成功decode・goldenは不変。実装後Claudeのaccept前に新しい合成や266再実行へ進まない。
 
 依頼済みWindows APIはCodexのbackend識別子cuda_detailの誤りでstatic guard停止。正規識別子はcuda_shared_detail。元requestを保持、POST/kernel/CPU戦闘0を保存report1a68dc8eから回収・SHA検証済み。まだ修正/再送していない。artifact成功/exit2/環境保全falseの過去記録は保持。
+
+
+## 2026-11-03 ゲージ／敵移動のL3静的unitをClaudeチェックで合格
+
+ユーザーがこのゴール完了までClaudeへの共有を一括許可（以後の送信ごとの確認は不要。個人設定・認証情報・生GPUバッファは除外、Claudeのツールは無効のまま）。
+
+- `gauge_charge_enabled`：Claudeの条件付き合格に対する記録修正2点が最終acceptされた。Claudeはツール無効で照合できないため、GPU anchor 6件・テスト2件のハッシュはローカルで照合済み。記録は proofs/…/gauge-acceptance-v1.json。
+- `enemy_movement_disable`／`force_move`：Claudeの7ゲートに対し4往復でaccept（record-only修正のみ）。upstream・ネイティブのreaderは0（Pythonヒット0、docs/data 6ファイルのみ）なので、宣言モデルなしでは**i（不活性）**。宣言モデル下では移動後の位置が既存のgeometry／named-range consumerへ流れ、これは**iii（宣言モデルの意味論、実機未確認）**。iiは空。cleanseは汎用経路のみで、敵を対象とする元cleanseは0件（全7行が味方側）。記録 movement-static-v1/record-v3.json の35 anchor・テスト・否定候補のハッシュはすべてローカルで再照合済み。
+- 新規の戦闘・GPU・Windows・テスト実行・製品変更はいずれも0。
+- 次unitは**storage sink**（Claudeのゲート：movement-L3-claude-v1/response.txt）。carry-forward：移動状態領域の全読み書きをbufferレベルで追跡（symbol grepだけでは直接読みを除外できないため）。
