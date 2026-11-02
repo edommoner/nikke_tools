@@ -1,3 +1,11 @@
+## 2026-11-02 レビュー済み計画と実引数をSDK起動前に照合
+
+新しいSDK依頼では、packet自身の`compile-plan`のJSON全byteのSHAを固定し、`compile --compile-plan /absolute/plan.json --compile-plan-sha256 HEX`へ渡す。共通`run-gpu-packet`のcompile stageはrequestに`{"compile_plan":"/absolute/plan.json","compile_plan_sha256":"HEX"}`を受け付け、同じ引数へ転送する。owner／artifact／O-level／RAM／timeout／compiler_optionsが現在の実引数と一致しない場合、capture／claim／Job／SDK作成前に停止する。親はoptionsとthread数を固定し、childもgeneration／SDK前に再検査する。post auditorは保存receiptと固定した実引数・plan bindingを比較する。[不変packet134検査と実失敗](../research/product-compile-plan-binding-v1.json)。
+
+今回のWindows固定owner30e9e40c…は、generation／compile-plan成功、CUBIN cache miss、NVRTC28.411秒で6を返して停止。生成cache必須hitによりcompile段階のSlang再実行0。ログにはptxasのMemory allocation failureとllcの`-split-compile=2`未認識が両方あり、実引数へplanに無い`--split-compile=2`が既存runnerから追加されていた。両エラーを保存し、どちらかを原因と断定しない。[NVRTC12.4公式文書](https://docs.nvidia.com/cuda/archive/12.4.0/nvrtc/index.html)にはこのoptionが記載されているため、versionだけによる非対応判定は行わない。
+
+外側Job peak2147983360byteは2GiBを499712byte超過し、制約内の成功へ昇格しない。全体72.396秒、CUBIN無し、module／GPU／battle0、再試行／PTX/object/link切替0。status18034byteとSHA付きmanifestをGitHubから全byte取得して照合済み。旧claim／stop／rawは保持。以下は過去記録。
+
 # 固定パッケージのコンパイル計画
 
 Windowsへ送る前に、不変パッケージ自身のCLIとcwdで以下を実行します。

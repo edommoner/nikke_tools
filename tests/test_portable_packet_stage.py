@@ -6,6 +6,20 @@ from unittest.mock import patch,Mock
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 spec=importlib.util.spec_from_file_location('packet_stage',ROOT/'scripts/run-gpu-packet.py');stage=importlib.util.module_from_spec(spec);spec.loader.exec_module(stage)
 class PacketStageTests(unittest.TestCase):
+    def test_compile_stage_forwards_pinned_reviewed_plan_and_sha(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve();request=dict(compile_plan=str(base/'reviewed.json'),compile_plan_sha256='a'*64)
+            plan=stage.recipe('id','compile-cubin-o1','cuda',base/'out',base/'original',180,request)
+            args=stage.proof_arguments(plan)
+            self.assertEqual(args[args.index('--compile-plan')+1],request['compile_plan'])
+            self.assertEqual(args[args.index('--compile-plan-sha256')+1],request['compile_plan_sha256'])
+            self.assertEqual(args[args.index('--timeout')+1],'60');self.assertEqual(args[args.index('--memory-limit-mb')+1],'2048')
+    def test_compile_plan_request_rejects_partial_extra_and_invalid_values(self):
+        with tempfile.TemporaryDirectory() as d:
+            good=dict(compile_plan=str(Path(d).resolve()/'p.json'),compile_plan_sha256='b'*64)
+            for request in ({'compile_plan':good['compile_plan']},dict(good,extra='x'),dict(good,compile_plan='relative'),dict(good,compile_plan_sha256='bad')):
+                with self.subTest(request=request),self.assertRaises(ValueError):stage.object_request('compile-cubin-o1',request)
+
     def test_linked_execution_preserves_optional_current_producer_pair_and_rejects_partial_requests(self):
         with tempfile.TemporaryDirectory() as d:
             base=Path(d).resolve()

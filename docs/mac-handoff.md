@@ -1,3 +1,11 @@
+## 2026-11-02 Windows単発CUBIN失敗を保存し、計画と実行の引数を固定
+
+owner30e9e40c…でgeneration成功、CUBIN O1 cache miss後のcompile1回はNVRTC6で停止。28.411秒、全体72.396秒、生成cache hitでSlang再実行0。ptxas Memory allocation failureとllcのsplit-compile未認識を両方保持。plan外の`--split-compile=2`を既存Windows runnerが追加していた。外側Job peakは2GiB＋499712byteで未解決、成功や制約内へ昇格しない。CUBIN無し、module／GPU／battle／fallback／retry0。[Windows全statusとmanifest](../research/windows-results/standard-current-fixed-v1/report-manifest.json)。18034byteの元statusをSHA7e77fea4…で独立取込済み。
+
+共通CLIへ`compile --compile-plan PATH --compile-plan-sha256 HEX`を接続し、既存packet stageも2field requestを転送する。planのSHA／owner／kind／level／予算／現在options不一致はcapture／claim／SDK前に停止。親run metadataとchild環境にoption/thread数を固定し、childもSDK前に検査、post auditはreceiptと固定値を照合。不変packet3ec090d8…で134検査成功、差分はCLI2とtest2だけ、計算／shader／CPU／wire／golden全byte不変。[計画binding検証](../research/product-compile-plan-binding-v1.json)、[使い方](portable-compile-plan.md)。旧fixtureは親runをchild後に生成していたため、新しい事前検査に合わせ、正規順序で親runを先に作るよう修正した。
+
+NVRTC12.4公式文書にはsplit-compileが存在するため、versionだけで未認識エラーを説明しない。次のWindowsSDKはまだ依頼せず、保存compiler/DLLとメモリ事実を確認する。Miranda標準30秒1requestの静的fixtureもinput本体SHA81e3b76d…／count付き転送b534ebb2…／Metal全raw9c72bd03…を別々に準備したが、CUDAの実行許可／計算証明ではない。現在標準Metal266profile／203キャラ、現sourceCUDA0profile。以下は過去記録。
+
 ## 2026-11-02 現在版の標準固定4ケースをsealed化しWindowsコンパイルを準備
 
 現在の固定4ケースを実M5／独立sealで確認。Miranda標準30秒、Yuni／Yan標準30秒、Rapi:Red Hood180秒の元4編成で、旧入力／native／全readbackが全byte一致。v76はfixed4のsource hashだけを実証済み現行へ更新し、他43memberはそのまま履歴保持。最終sealed owner30e9e40c…、現在標準Metal266profile／203キャラの計算source／decoder／CPUは同一、現source CUDA0profileは維持。[実証と境界](../research/product-standard-current-fixed-v1.json)。

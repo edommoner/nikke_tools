@@ -1,0 +1,477 @@
+{
+  "schema": "product-standard-current-fixed-windows-status-v1",
+  "status": "stopped-after-one-cubin-o1-compile-failure",
+  "owner": "30e9e40cc57796226732c0b47db1523e347a4abdd920e32fa781be98042af671",
+  "fixed_transport_commit": "216ff7aa93e6f0427401eeaf0754f886994295c0",
+  "source_commit": "2f0715a92dc80f0ece4489835e985a3714c04c67",
+  "request": {
+    "path": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\windows-request-v1.json",
+    "bytes": 2481,
+    "sha256": "95c17a8d89835b600521b1e05fbab514f4d0254deffb06b904235fbd8b3d7963"
+  },
+  "archive": {
+    "path": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\product-standard-current-fixed-v1.zip",
+    "bytes": 12303978,
+    "sha256": "113f9c1f3fa50e4470f8ca51db5ffc7d633fdfa197adfd70f74a444b40ba3c6c"
+  },
+  "archive_matches_request": true,
+  "packet": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\packet",
+  "manifest": {
+    "path": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\packet\\gpu-package.json",
+    "bytes": 593052,
+    "sha256": "01460c92dfabeee206af5fba71795a61b67aa6dc81c3b5ecf7eafa6de1ae58f0"
+  },
+  "manifest_files_verified": 2807,
+  "all_manifest_bytes_unchanged": true,
+  "shader_source": {
+    "path": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\packet\\gpu\\product_fixed_battle_entry.slang",
+    "bytes": 284,
+    "sha256": "d16d3b0b53d86817d816841d00e4d4f230d5184408efd7a2a804eea8052694d1"
+  },
+  "entry": "portableEvents",
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "30e9e40cc57796226732c0b47db1523e347a4abdd920e32fa781be98042af671",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=sm_86",
+      "--fmad=false",
+      "--ptxas-options",
+      "-O1"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "generation": {
+    "verified": true,
+    "stage_verified": true,
+    "cache": {
+      "hit": false,
+      "key": "0c21424ad0fed91dc64524a16f7a980d07d65f615772f6857adcd60c756698bc",
+      "compiler_invocations": 2
+    },
+    "generated": {
+      "generated.cu": {
+        "generation": {
+          "path": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\generation-v1\\proof\\generated.cu",
+          "bytes": 2836218,
+          "sha256": "f8856cc824421e897ff60fa3599d3295c010a9c6c550c1697db7cd7f823f37fb"
+        },
+        "compile": {
+          "path": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\compile-cubin-o1-v1\\proof\\generated.cu",
+          "bytes": 2836218,
+          "sha256": "f8856cc824421e897ff60fa3599d3295c010a9c6c550c1697db7cd7f823f37fb"
+        },
+        "bytes_identical": true
+      },
+      "generated.metal": {
+        "generation": {
+          "path": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\generation-v1\\proof\\generated.metal",
+          "bytes": 2971147,
+          "sha256": "9aac98b81fd1e2da146b684c4b399a10f6f508561bd9cdd5d48290947867dec0"
+        },
+        "compile": {
+          "path": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\compile-cubin-o1-v1\\proof\\generated.metal",
+          "bytes": 2971147,
+          "sha256": "9aac98b81fd1e2da146b684c4b399a10f6f508561bd9cdd5d48290947867dec0"
+        },
+        "bytes_identical": true
+      },
+      "generated.cu.reflection.json": {
+        "generation": {
+          "path": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\generation-v1\\proof\\generated.cu.reflection.json",
+          "bytes": 449999,
+          "sha256": "67bc4e1e6c76d5ee70b85741fa566280f3db85423ba1383180945320e92d3aac"
+        },
+        "compile": {
+          "path": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\compile-cubin-o1-v1\\proof\\generated.cu.reflection.json",
+          "bytes": 449999,
+          "sha256": "67bc4e1e6c76d5ee70b85741fa566280f3db85423ba1383180945320e92d3aac"
+        },
+        "bytes_identical": true
+      },
+      "generated.metal.reflection.json": {
+        "generation": {
+          "path": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\generation-v1\\proof\\generated.metal.reflection.json",
+          "bytes": 449534,
+          "sha256": "99e0e48883ceeb625b41233a6e4d9938904c75d498fc047fca12c561e5032203"
+        },
+        "compile": {
+          "path": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\compile-cubin-o1-v1\\proof\\generated.metal.reflection.json",
+          "bytes": 449534,
+          "sha256": "99e0e48883ceeb625b41233a6e4d9938904c75d498fc047fca12c561e5032203"
+        },
+        "bytes_identical": true
+      }
+    }
+  },
+  "probe": {
+    "passed": true,
+    "verified": true,
+    "hit": false,
+    "key": "a9b6c10a599bfe9eecdd96cdae751521be0980e49a2f47319bf18c280551abf9",
+    "identity": {
+      "schema": 1,
+      "artifact": "cubin",
+      "source_sha256": "f8856cc824421e897ff60fa3599d3295c010a9c6c550c1697db7cd7f823f37fb",
+      "options": [
+        "--std=c++17",
+        "--gpu-architecture=sm_86",
+        "--fmad=false",
+        "--split-compile=2",
+        "--ptxas-options",
+        "-O1"
+      ],
+      "headers": {
+        "C:\\Users\\owner\\Documents\\ChatGPT\\nikke tools\\.tools\\slang-2026.20-Windows-AMD64\\include\\slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
+      },
+      "compiler_files": {
+        "nvrtc-builtins64_124.dll": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43",
+        "nvrtc64_120_0.dll": "3aa3cd8aa10437e212760c0e1ed730807811ec3bc330216dbfde4b26211d2243"
+      }
+    }
+  },
+  "compile": {
+    "attempts": 1,
+    "nvrtc_returns": [
+      {
+        "stage": "nvrtcVersion",
+        "return_code": 0,
+        "elapsed_seconds": 1.16e-05
+      },
+      {
+        "stage": "nvrtcCreateProgram",
+        "return_code": 0,
+        "elapsed_seconds": 0.0023896
+      },
+      {
+        "stage": "nvrtcCompileProgram",
+        "return_code": 6,
+        "elapsed_seconds": 28.4111118
+      },
+      {
+        "stage": "nvrtcGetProgramLogSize",
+        "return_code": 0,
+        "elapsed_seconds": 5.9e-06
+      },
+      {
+        "stage": "nvrtcGetProgramLog",
+        "return_code": 0,
+        "elapsed_seconds": 4.8e-06
+      },
+      {
+        "stage": "nvrtcDestroyProgram",
+        "return_code": 0,
+        "elapsed_seconds": 0.0009346
+      }
+    ],
+    "compile_elapsed_seconds": 28.4111118,
+    "compile_return_code": 6,
+    "saved_error_lines": [
+      "ptxas fatal   : Memory allocation failure",
+      "RuntimeError: portable.cu(275): warning #20044-D: extern declaration of the entity SLANG_globalParams is treated as a static definition",
+      "llc: Unknown command line argument '-split-compile=2'.  Try: 'llc -help'",
+      "llc: Did you mean '-debug-compile=2'?",
+      "ptxas fatal   : Ptx assembly aborted due to errors"
+    ],
+    "generation_cache": {
+      "hit": true,
+      "key": "0c21424ad0fed91dc64524a16f7a980d07d65f615772f6857adcd60c756698bc",
+      "compiler_invocations": 0
+    },
+    "compiler_verified": false,
+    "artifact_exists": false,
+    "scope": "CUBIN O1 compilation only; no calculation proof",
+    "plan_options": [
+      "--std=c++17",
+      "--gpu-architecture=sm_86",
+      "--fmad=false",
+      "--ptxas-options",
+      "-O1"
+    ],
+    "observed_option_additions_to_plan": [
+      "--split-compile=2"
+    ],
+    "split_compile_setting": "2, explicitly retained from existing common Windows runner",
+    "error_interpretation": "Both memory allocation failure and option rejection are recorded; neither is discarded or reclassified as harmless."
+  },
+  "stop": {
+    "stage": "compile-cubin-o1",
+    "reason": "NVRTC returned 6. Saved stderr records ptxas Memory allocation failure, unrecognized -split-compile=2 in llc, and ptxas assembly aborted. Relative causal contribution is not established.",
+    "compile_attempts": 1,
+    "failed_cache_key": "a9b6c10a599bfe9eecdd96cdae751521be0980e49a2f47319bf18c280551abf9",
+    "retry_allowed": false,
+    "ptx_object_link_fallback_allowed": false
+  },
+  "stages": {
+    "unpack": {
+      "execution": {
+        "passed": true,
+        "timed_out": false,
+        "timeout_seconds": 60,
+        "elapsed_seconds": 23.851448100060225,
+        "final_child_exit_code": 0,
+        "below_normal_priority": true,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "job": {
+        "configured_limit_bytes": 2147483648,
+        "peak_bytes": 72798208,
+        "peak_excess_bytes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "inspection_errors": [],
+        "containment_within_recorded_peak_verified": true
+      },
+      "monitoring": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      }
+    },
+    "cubin-plan": {
+      "execution": {
+        "passed": true,
+        "timed_out": false,
+        "timeout_seconds": 60,
+        "elapsed_seconds": 8.513113399967551,
+        "final_child_exit_code": 0,
+        "below_normal_priority": true,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "job": {
+        "configured_limit_bytes": 2147483648,
+        "peak_bytes": 67055616,
+        "peak_excess_bytes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "inspection_errors": [],
+        "containment_within_recorded_peak_verified": true
+      },
+      "monitoring": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      }
+    },
+    "sdk-before-ram": {
+      "execution": {
+        "passed": true,
+        "timed_out": false,
+        "timeout_seconds": 60,
+        "elapsed_seconds": 0.11804149998351932,
+        "final_child_exit_code": 0,
+        "below_normal_priority": true,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "job": {
+        "configured_limit_bytes": 2147483648,
+        "peak_bytes": 9867264,
+        "peak_excess_bytes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "inspection_errors": [],
+        "containment_within_recorded_peak_verified": true
+      },
+      "monitoring": "not_recorded"
+    },
+    "sdk-pipeline": {
+      "execution": {
+        "passed": false,
+        "timed_out": false,
+        "timeout_seconds": 180,
+        "elapsed_seconds": 72.39588270010427,
+        "final_child_exit_code": 1,
+        "below_normal_priority": true,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "job": {
+        "configured_limit_bytes": 2147483648,
+        "peak_bytes": 2147983360,
+        "peak_excess_bytes": 499712,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "inspection_errors": [],
+        "containment_within_recorded_peak_verified": false
+      },
+      "monitoring": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      }
+    },
+    "generation-v1": {
+      "execution": {
+        "passed": true,
+        "timed_out": false,
+        "timeout_seconds": 59.82800000021234,
+        "elapsed_seconds": 20.63485909998417,
+        "final_child_exit_code": 0,
+        "below_normal_priority": true,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "job": {
+        "configured_limit_bytes": 2147483648,
+        "peak_bytes": 576901120,
+        "peak_excess_bytes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "inspection_errors": [],
+        "containment_within_recorded_peak_verified": true
+      },
+      "monitoring": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      }
+    },
+    "compile-cubin-o1-v1": {
+      "execution": {
+        "passed": false,
+        "timed_out": false,
+        "timeout_seconds": 117.84400000004098,
+        "elapsed_seconds": 46.798501800280064,
+        "final_child_exit_code": 1,
+        "below_normal_priority": true,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "job": {
+        "configured_limit_bytes": 2147483648,
+        "peak_bytes": 2103992320,
+        "peak_excess_bytes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "inspection_errors": [],
+        "containment_within_recorded_peak_verified": true
+      },
+      "monitoring": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      }
+    },
+    "compile-cubin-o1-v1/proof": {
+      "execution": {
+        "passed": false,
+        "timed_out": false,
+        "timeout_seconds": 60,
+        "elapsed_seconds": 38.53392180008814,
+        "final_child_exit_code": 1,
+        "below_normal_priority": true,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "job": {
+        "configured_limit_bytes": 2147483648,
+        "peak_bytes": 2068246528,
+        "peak_excess_bytes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "inspection_errors": [],
+        "containment_within_recorded_peak_verified": true
+      },
+      "monitoring": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      }
+    }
+  },
+  "ram": {
+    "passed": true,
+    "gate": "Immediately before first API worker launch",
+    "observed_unix_ns": 1793597552554635000,
+    "observed_at_jst": "2026-11-02T14:32:32.554635+09:00",
+    "available_physical_bytes": 8286126080,
+    "required_available_bytes": 4294967296,
+    "ram_measurements_at_this_gate": 1,
+    "resampling_loop": false,
+    "sdk_calls": 0,
+    "gpu_calls": 0
+  },
+  "memory_limit_observation": {
+    "outer_pipeline_peak_excess_bytes": 499712,
+    "cause": "unknown; saved observations do not establish why historical Job peak exceeds configured limit",
+    "preserve_as_unresolved": true
+  },
+  "historical_protected_files_unchanged": {
+    "product-typed-lock-resident-windows-v1\\stop.json": true,
+    "nikke-gpu-cli-3c44b97\\product-typed-lock-resident-windows-status-v1.json": true,
+    "nikke-gpu-cli-3c44b97\\product-coordinate-lock-windows-status-v2.json": true
+  },
+  "whole_environment_preservation_verified": false,
+  "calculation_verified": false,
+  "counts": {
+    "ram_gate_samples": 1,
+    "paired_generation_attempts": 1,
+    "slang_calls": 2,
+    "compile_generation_slang_calls": 0,
+    "cache_probes": 1,
+    "nvrtc_compile_attempts": 1,
+    "driver_loads": 0,
+    "module_loads": 0,
+    "gpu_kernels": 0,
+    "battles": 0,
+    "unit_tests": 0,
+    "native_reference_battles": 0,
+    "retries": 0,
+    "alternative_artifact_compiles": 0
+  },
+  "paths": {
+    "pipeline": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\sdk-pipeline",
+    "generation": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\generation-v1",
+    "compile": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\compile-cubin-o1-v1",
+    "phase": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\compile-cubin-o1-v1\\proof\\phases.jsonl",
+    "stderr": "C:\\Users\\owner\\Documents\\Codex\\product-standard-current-fixed-windows-v1\\compile-cubin-o1-v1\\proof\\stderr.log"
+  }
+}

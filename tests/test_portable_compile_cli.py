@@ -85,6 +85,51 @@ class CompileCLITests(unittest.TestCase):
             normal['purpose']='development'
             self.assertFalse(cli.compile_plan(self.root/'development.json','cubin',1,2048,60)['passed'])
 
+    def pinned_plan(self):
+        path=self.root/'reviewed-plan.json'
+        with patch.object(cli,'verify_package',return_value=self.m),patch.dict(os.environ,NIKKE_CUDA_SPLIT_COMPILE='1'):
+            cli.compile_plan(path,'cubin',1,2048,60)
+        return path,cli.sha(path.read_bytes())
+    def test_exact_plan_binding_is_file_only_and_preserves_options(self):
+        path,digest=self.pinned_plan()
+        with patch.dict(os.environ,NIKKE_CUDA_SPLIT_COMPILE='1'),patch.object(cli,'run_job',side_effect=AssertionError('No SDK child')):
+            result=cli.verify_compile_plan_binding(path,digest,self.m,'cubin',1,2048,60)
+        self.assertEqual(result['sha256'],digest);self.assertNotIn('--split-compile=2',result['compiler_options'])
+    def test_changed_runner_threads_reject_before_capture_claim_or_sdk(self):
+        path,digest=self.pinned_plan();capture=self.root/'never-started'
+        fake_os=types.SimpleNamespace(name='nt',environ=os.environ)
+        with patch.object(cli,'os',fake_os),patch.object(cli,'ROOT',self.root),patch.object(cli,'verify_package',return_value=self.m),patch.dict(os.environ,NIKKE_CUDA_SPLIT_COMPILE='2',NIKKE_CUDA_COMPILE_CACHE=str(self.root/'cache')),patch.object(cli,'run_job',side_effect=AssertionError('No SDK child')):
+            with self.assertRaisesRegex(ValueError,'differs from actual'):cli.compile_capture(capture,60,self.root/'original','cubin',1,2048,compile_plan_path=path,compile_plan_sha256=digest)
+        self.assertFalse(capture.exists());self.assertFalse((self.root/'compile-claimed-cuda.json').exists())
+    def test_plan_binding_rejects_changed_package_budget_kind_and_level(self):
+        path,digest=self.pinned_plan()
+        with patch.dict(os.environ,NIKKE_CUDA_SPLIT_COMPILE='1'):
+            for manifest,kind,level,memory,timeout in [(dict(self.m,package_id='other'),'cubin',1,2048,60),(self.m,'ptx',None,2048,60),(self.m,'cubin',0,2048,60),(self.m,'cubin',1,1024,60),(self.m,'cubin',1,2048,30)]:
+                with self.subTest(kind=kind,level=level,memory=memory,timeout=timeout),self.assertRaises(ValueError):cli.verify_compile_plan_binding(path,digest,manifest,kind,level,memory,timeout)
+    def test_plan_binding_rejects_modified_bytes_symlink_and_partial_arguments(self):
+        path,digest=self.pinned_plan();path.write_bytes(path.read_bytes()+b' ')
+        with self.assertRaisesRegex(ValueError,'SHA mismatch'):cli.verify_compile_plan_binding(path,digest,self.m,'cubin',1,2048,60)
+        link=self.root/'linked-plan.json';link.symlink_to(path)
+        with self.assertRaises(ValueError):cli.verify_compile_plan_binding(link,cli.sha(path.read_bytes()),self.m,'cubin',1,2048,60)
+        with patch.object(cli,'os',types.SimpleNamespace(name='nt',environ=os.environ)),patch.object(cli,'verify_package',return_value=self.m),patch.dict(os.environ,NIKKE_CUDA_COMPILE_CACHE=str(self.root/'cache')):
+            with self.assertRaisesRegex(ValueError,'paired'):cli.compile_capture(self.root/'unused',60,self.root/'original','cubin',1,2048,compile_plan_path=path)
+        self.assertFalse((self.root/'unused').exists())
+    def test_plan_binding_rejects_forged_success_and_numeric_type_aliases(self):
+        path,digest=self.pinned_plan();original=json.loads(path.read_bytes())
+        for key,value in [('passed',1),('claim_created',True),('execution_claim_available',False),('ptxas_level',True),('timeout_seconds',60.0)]:
+            modified=dict(original);modified[key]=value;path.write_text(json.dumps(modified))
+            with self.subTest(key=key),patch.dict(os.environ,NIKKE_CUDA_SPLIT_COMPILE='1'),self.assertRaises(ValueError):cli.verify_compile_plan_binding(path,cli.sha(path.read_bytes()),self.m,'cubin',1,2048,60)
+    def test_child_artifact_or_level_drift_is_rejected_before_sdk(self):
+        cli.write(self.capture/'run.json',dict(artifact_kind='cubin',ptxas_level=None,compiler_options=backend.cuda_compile_options('cubin',split_compile=1)))
+        for changes in ({'NIKKE_CUDA_ARTIFACT':'ptx'},{'NIKKE_CUDA_PTXAS_OPT_LEVEL':'1'}):
+            with self.subTest(changes=changes),self.context(),patch.dict(os.environ,changes),self.assertRaisesRegex(ValueError,'frozen parent'):cli.compile_child(self.m,self.capture,'cuda')
+        self.loader.assert_not_called();self.assertEqual(self.native.calls,[])
+
+    def test_child_option_drift_is_rejected_before_build_or_compiler(self):
+        cli.write(self.capture/'run.json',dict(artifact_kind='cubin',ptxas_level=None,compiler_options=backend.cuda_compile_options('cubin',split_compile=1)))
+        with patch.dict(os.environ,NIKKE_CUDA_SPLIT_COMPILE='2'),self.context(),self.assertRaisesRegex(ValueError,'frozen parent'):cli.compile_child(self.m,self.capture,'cuda')
+        self.loader.assert_not_called();self.assertEqual(self.native.calls,[])
+
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name);self.capture=self.root/'capture';self.capture.mkdir()
@@ -93,6 +138,7 @@ class CompileCLITests(unittest.TestCase):
         self.dll=self.root/'nvrtc64_dummy.dll';self.dll.write_bytes(b'compiler')
         self.m=dict(package_id='compiler-fixture',suite='readiness',purpose='sealed',
             golden=dict(source_sha256={},generated_normalized=dict(cuda=cli.sha(b'cuda'),metal=cli.sha(b'metal'))))
+        cli.write(self.capture/'run.json',dict(package_id=self.m['package_id'],artifact_kind='cubin',ptxas_level=None))
         self.native=NVRTC();self.journal=Journal(self.capture/'phases.jsonl')
         self.loader=Mock(return_value=NativeLibrary(self.native,self.journal))
 

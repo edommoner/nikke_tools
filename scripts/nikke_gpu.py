@@ -3619,6 +3619,14 @@ def compile_child(m,capture,backend):
     compiler_diagnostic_policy(m,os.environ.get('NIKKE_CUDA_ARTIFACT'),os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL') or None,
                                2048 if os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB')=='2048' else None,'child')
     import portable_backend
+    run=load(capture/'run.json')
+    if 'compiler_options' in run:
+        kind=portable_backend.cuda_artifact_kind();value=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL')
+        if value not in (None,'','0','1','2','3'):raise ValueError('Invalid compiler child level')
+        level=None if value in (None,'') else int(value)
+        if (kind!=run['artifact_kind'] or level!=run['ptxas_level']
+                or run['compiler_options']!=portable_backend.cuda_compile_options(kind,level)):
+            raise ValueError('Compiler child options differ from frozen parent options')
     from portable_phase_audit import Journal,observe
     journal=Journal(capture/'phases.jsonl')
     loader=getattr(portable_backend.C,'WinDLL',None)
@@ -3666,7 +3674,12 @@ def audit_compile_capture(m,capture,*,verify_artifacts=True):
             c=load(capture/'compiler.json');receipt=c['compile_artifact'];kind=receipt['identity']['artifact']
             if kind!=run['artifact_kind']:raise ValueError('Compiler artifact kind mismatch')
             from portable_backend import cuda_compile_options
-            if receipt['identity']['options']!=cuda_compile_options(kind,run['ptxas_level']):raise ValueError('Compiler options mismatch')
+            frozen=run.get('compiler_options')
+            expected=cuda_compile_options(kind,run['ptxas_level'],split_compile=2 if '--split-compile=2' in frozen else 1) if type(frozen) is list else cuda_compile_options(kind,run['ptxas_level'])
+            if frozen is not None and frozen!=expected:raise ValueError('Invalid frozen compiler options')
+            if receipt['identity']['options']!=expected:raise ValueError('Compiler options mismatch')
+            if 'compiler_options' in run and receipt['identity']['options']!=run['compiler_options']:raise ValueError('Compiler receipt differs from frozen parent options')
+            if run.get('compile_plan_binding') is not None and run['compile_plan_binding']['compiler_options']!=receipt['identity']['options']:raise ValueError('Compiler receipt differs from reviewed plan')
             if c['source_sha256']!=m['golden']['source_sha256'] or c['generated_normalized']!=m['golden']['generated_normalized']:raise ValueError('Compiler source baseline mismatch')
             normalized=module(ROOT/'research/summarize-portable-cross-gpu.py').normalized
             for backend,suffix in [('cuda','cu'),('metal','metal')]:
@@ -3690,7 +3703,28 @@ def audit_compile_capture(m,capture,*,verify_artifacts=True):
         gpu_calls=0 if no_gpu else None,driver_load_calls=0 if no_gpu else None,phase=phase,error=error,gpu_retry_count=0)
 
 
-def compile_capture(capture,timeout,original_workspace,artifact_kind='cubin',ptxas_level=None,memory_limit_mb=2048):
+
+def verify_compile_plan_binding(path,expected_sha256,m,artifact_kind,ptxas_level,memory_limit_mb,timeout):
+    """Bind a reviewed file to actual options before any claim/SDK child."""
+    from portable_admission_snapshot import hex_string
+    from portable_backend import cuda_compile_options
+    path=Path(path)
+    if not hex_string(expected_sha256,64) or path.is_symlink() or not path.is_file() or path.stat().st_size>65536:
+        raise ValueError('Pinned bounded compile plan required')
+    raw=path.read_bytes()
+    if sha(raw)!=expected_sha256:raise ValueError('Compile plan SHA mismatch')
+    value=json.loads(raw)
+    expected=dict(schema='compile-plan-v1',package_id=m['package_id'],artifact_kind=artifact_kind,
+        ptxas_level=ptxas_level,memory_limit_mb=memory_limit_mb,timeout_seconds=timeout,
+        compiler_options=cuda_compile_options(artifact_kind,ptxas_level))
+    if (type(value) is not dict or value.get('passed') is not True or value.get('execution_claim_available') is not True
+            or value.get('claim_created') is not False or value.get('calculation_verified') is not False
+            or any(type(value.get(k)) is not type(v) or value[k]!=v for k,v in expected.items())):
+        raise ValueError('Compile plan differs from actual package/options/budget')
+    return dict(path=str(path.resolve()),sha256=expected_sha256,compiler_options=expected['compiler_options'])
+
+
+def compile_capture(capture,timeout,original_workspace,artifact_kind='cubin',ptxas_level=None,memory_limit_mb=2048,*,compile_plan_path=None,compile_plan_sha256=None):
     if os.name!='nt':raise ValueError('Compile-only requires Windows')
     if type(timeout) is not int or not 1<=timeout<=60:raise ValueError('Compile-only budget must be1..60 seconds')
     if type(memory_limit_mb) is not int or not 64<=memory_limit_mb<=4096:raise ValueError('Compile-only memory must be64..4096 MiB')
@@ -3698,14 +3732,19 @@ def compile_capture(capture,timeout,original_workspace,artifact_kind='cubin',ptx
     cuda_compile_options(artifact_kind,ptxas_level)
     if not original_workspace or not os.environ.get('NIKKE_CUDA_COMPILE_CACHE'):raise ValueError('Original workspace and dedicated compiler cache required')
     m=verify_package(ROOT)
+    if (compile_plan_path is None)!=(compile_plan_sha256 is None):raise ValueError('Compile plan path and SHA must be paired')
+    binding=verify_compile_plan_binding(compile_plan_path,compile_plan_sha256,m,artifact_kind,ptxas_level,memory_limit_mb,timeout) if compile_plan_path is not None else None
+    compiler_options=cuda_compile_options(artifact_kind,ptxas_level)
+    from portable_backend import cuda_split_compile_threads
+    split_compile=cuda_split_compile_threads()
     if is_development(m):raise ValueError('Compile-only requires a sealed Metal package')
     compiler_diagnostic_policy(m,artifact_kind,ptxas_level,memory_limit_mb,'parent')
     capture.mkdir(parents=True,exist_ok=False)
-    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='compile-only',status='compiling',artifact_kind=artifact_kind,ptxas_level=ptxas_level,memory_limit_mb=memory_limit_mb,gpu_retry_count=0))
+    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='compile-only',status='compiling',artifact_kind=artifact_kind,ptxas_level=ptxas_level,memory_limit_mb=memory_limit_mb,gpu_retry_count=0,compiler_options=compiler_options,compile_plan_binding=binding))
     try:
         with (ROOT/'compile-claimed-cuda.json').open('x',encoding='utf-8') as stream:
             json.dump(dict(package_id=m['package_id'],capture=str(capture),artifact_kind=artifact_kind,ptxas_level=ptxas_level),stream)
-        environment=dict(NIKKE_CUDA_ARTIFACT=artifact_kind,NIKKE_CUDA_PTXAS_OPT_LEVEL='' if ptxas_level is None else str(ptxas_level),NIKKE_VALIDATION_JOB_MEMORY_MB=str(memory_limit_mb))
+        environment=dict(NIKKE_CUDA_SPLIT_COMPILE=str(split_compile),NIKKE_CUDA_ARTIFACT=artifact_kind,NIKKE_CUDA_PTXAS_OPT_LEVEL='' if ptxas_level is None else str(ptxas_level),NIKKE_VALIDATION_JOB_MEMORY_MB=str(memory_limit_mb))
         with patch.dict(os.environ,environment):run_job(capture,'cuda',timeout,original_workspace,compile_only=True)
         copy_generated(capture,m,partial=True)
         result=audit_compile_capture(m,capture,verify_artifacts=False);write(capture/'result.json',result)
@@ -3934,7 +3973,7 @@ def main(argv=None):
     a.add_argument('--historical-link-observation',type=Path,help='Existing exact retained-failure binding JSON; re-audited against original observation')
     a=sub.add_parser('compile-plan',help='CPU-only immutable packet artifact/budget policy check before transport')
     a.add_argument('--out',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin');a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--timeout',type=int,default=60)
-    a=sub.add_parser('compile');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
+    a=sub.add_parser('compile');a.add_argument('--compile-plan',type=Path);a.add_argument('--compile-plan-sha256');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin')
     a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
     a=sub.add_parser('assemble');a.add_argument('--capture',type=Path,required=True);a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--ptxas',type=Path,required=True);a.add_argument('--timeout',type=int,default=60);a.add_argument('--original-workspace',type=Path,required=True)
@@ -4184,7 +4223,7 @@ def main(argv=None):
     elif a.command=='compile':
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
         if a.compile_cache:os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
-        result=compile_capture(a.capture,a.timeout,a.original_workspace,a.artifact_kind,a.ptxas_level,a.memory_limit_mb)
+        result=compile_capture(a.capture,a.timeout,a.original_workspace,a.artifact_kind,a.ptxas_level,a.memory_limit_mb,compile_plan_path=a.compile_plan,compile_plan_sha256=a.compile_plan_sha256)
     elif a.command=='partition-object-recover':
         with forbid_gpu():result=recover_partition_object(a.experiment_package,a.capture,a.out,a.partial_sha256)
     elif a.command=='link-object':result=link_object_capture(a.capture,a.timeout,a.original_workspace,a.object_package,a.object_capture,a.object_sha256,a.nvlink)

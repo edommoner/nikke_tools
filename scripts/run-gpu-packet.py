@@ -83,6 +83,12 @@ def run_tests(cli,plan):
 
 
 def object_request(stage,value):
+    if stage in COMPILE_STAGES and value is not None:
+        from portable_admission_snapshot import hex_string
+        if type(value) is not dict or set(value)!={'compile_plan','compile_plan_sha256'}:raise ValueError('Exact pinned compile plan request required')
+        path=value['compile_plan']
+        if type(path) is not str or not Path(path).is_absolute() or any(c in path for c in ('\x00','\r','\n')) or not hex_string(value['compile_plan_sha256'],64):raise ValueError('Absolute pinned compile plan and SHA required')
+        return dict(compile_plan=str(Path(path).resolve()),compile_plan_sha256=value['compile_plan_sha256'])
     if stage==PREPARED_GPU_STAGE:
         from portable_admission_snapshot import hex_string
         fields=set(PREPARED_GPU_FIELDS)
@@ -438,6 +444,9 @@ def proof_arguments(plan):
         kind='ptx' if plan['stage']=='compile-ptx' else 'cubin'
         arguments=['compile','--capture',plan['proof_capture'],'--timeout',str(plan['inner_gpu_timeout_seconds']),'--artifact-kind',kind,'--memory-limit-mb','2048','--original-workspace',plan['original_workspace']]
         if kind=='cubin':arguments.extend(['--ptxas-level','1' if plan['stage']=='compile-cubin-o1' else '0'])
+        if plan.get('object_request') is not None:
+            pinned=object_request(plan['stage'],plan['object_request'])
+            arguments.extend(['--compile-plan',pinned['compile_plan'],'--compile-plan-sha256',pinned['compile_plan_sha256']])
         return arguments
     arguments=['run','--backend',plan['backend'],'--capture',plan['proof_capture'],'--timeout',str(plan['inner_gpu_timeout_seconds'])]
     if plan['stage']==LINKED_STAGE:

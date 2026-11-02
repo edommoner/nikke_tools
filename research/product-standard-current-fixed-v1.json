@@ -52,5 +52,7 @@
     "product-standard-cuda-current-fixed-v1-20261102/release-v2/final-check-v1.json": "05970b383c147330bbe261630c2ccaddc5985aeb229231d6ebed9d37cea7c9d4",
     "product-standard-cuda-current-fixed-v1-20261102/release-v2/compile-plan-cubin-o1.json": "902ac5cc9263303582bdb29a931606b96e917b0e490a0efee7738c1713a698d6"
   },
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "windows_compilation_result": "Failed once;NVRTC6,Memory allocation failure and split-compile rejection;no artifact/no GPU/no retries",
+  "windows_result_and_plan_binding_proof": "product-compile-plan-binding-v1.json"
 }
