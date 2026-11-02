@@ -33,7 +33,7 @@ CodexはClaudeの指摘を無条件に正しいとは扱わない。誤認や制
 
 ### Claudeが選んだ次の実装単位
 
-**製品APIの例外とCPU fallbackの整理（Pythonのみ）。状態：方針確定、実装未開始、変更後レビュー未実施。**
+**製品APIの例外とCPU fallbackの整理（Pythonのみ）。状態：実装4155099d、Claude再レビューaccept、完了。**
 
 対象は `app/portable_detail.py` と既存 `tests/test_portable_detail.py`。CPU正本4ファイル、Slang、成功時のdecode仕様、goldenは変更しない。
 
@@ -59,3 +59,36 @@ Claudeのstride不一致懸念は、両INPUTが128124であり実Metal3件batch�
 API1要求はCodexが `cuda_detail` を誤指定したため、既存guardが `cuda_shared_detail` の要求に合わないとしてGPU前に停止。POST／kernel／CPU戦闘は全て0。元要求・停止を保持した。修正と再送は上記単位に混ぜず後続へ回す。保存PTX／object／linked CUBINの成功、外側exit2／環境保全falseも変更しない。
 
 Claudeが提案した外部実行前の確認は、ユーザーの既存の許可と実際の承認制約に照らして扱う。ユーザーは関連GitHub共有と必要な短いWindows検証を既に許可しているので、Claudeの提案だけを理由に同じ確認を繰り返さない。
+
+
+## 例外処理単位の合格と次単位
+
+Claude初回チェックはchanges_required。既存strict source ledger同期2ファイルへの最小拡張、batchのCPU例外テスト、ammo metadata正例経路の確認を指示した。4155099dで対応し、再チェックはaccept。製品テスト73、source ledger7成功、既存ammo8成功。旧互換失敗と旧ledger拒否も保存。Slang・正本・goldenは不変、追加GPU/Windows実行0。この合格はGPU対応profile数の増加ではない。
+
+残件はcapture storage障害時の要求の扱い、CPU正本由来の被覆台帳、CUDA製品API、標準全件の現source確認。生成スクリプト本文は永続proofへ複製し、temporary-onlyにしない。
+
+次単位は266要求のMetal通常製品経路。まずPhase0（読み取りのみ）で要求manifestの一意性・保存CPU対応・既存実行器・容量をClaudeへ報告し停止する。Phase1はClaudeの判断後に8件以下のpilot、続いて残り。runtime oracle cacheは導入せず、製品経路のGPU後CPU1回を使い、監査でCPU/GPUを再計算しない。全てgpu_match/fallback/mismatch/cpu_errorへ分類、fallback等を完成へ数えない。新しいCLIが必要かは、既存HTTP batch driverを優先してClaudeと判断する。
+
+
+## 標準266 profileの最終チェック合格
+
+4155099dの固定条件（180秒・期待値・seed0・core50・BODY1）で203キャラ／266 profile-stageを通常Metal APIで確認し、Claudeがacceptした。[全件と出所](../research/product-standard266-claude-accept-v1.json)。元条件のHTTP成功258と、sleep抑止条件を付けた別試行8の成功を選定した266件であり、original266成功とは表記しない。40物理dispatch／274実行case、成功payload266のCPU照合と独立保存監査、過去全rawとの一致。完了CPUファイルは既知271、元の完了不明3は不明のまま保持する。
+
+旧timeout8、bind失敗、UTF8 scratch parser失敗、旧監査停止を保存。8の新試行は同じHTTP body・630秒・同じ415のままowned caffeinate -iを使用し、時計差0.519秒、元失敗rawとの直接比較も一致した。sleepとの相関は環境診断であり計算誤差へ付け替えない。historical3の当時dirty closure未証明ラベルとfull_payload_equal=falseは元記録のまま保持する。全266の旧CPUとの差分はevaluator stampだけで、除外も期待値更新もしていない。
+
+公開CPU/GPU payload比較の除外はcomputeだけ。cache_hitはHTTP wrapper項目。既存監査器のoptional old_full_readback_anchor_verifiedは期待SHA未指定によりfalseのままで、別の全raw SHA照合266件の成功を明記した。今後は既存request envelopeへexpected_output_sha256を入れ、HTTP bodyや元要求を変えない。除外集合の拡大には別レビューが必要。
+
+### Claudeが選んだ次の単位
+
+保存linked CUBINがあるtyped-lock-healing36秒・index9のCUDA製品1要求。新bodyはcuda_detailをcuda_shared_detailへ直すだけで、Slang／selector／正本／数値規約は変えない。元のstatic停止を保持する。Metalのinput／全output SHA一致、fresh CPU一致、通常HTTP GPU成功、source／owner／全artifact admission、verify_phases、追加SDK0、独立保存監査を必須とする。CPU fallbackはCUDA成功に数えない。
+
+WindowsはRAM4GiB一回確認、BelowNormal・fresh Job・2GiB・180秒・一回のみ。失敗は層を記録して停止し再試行しない。CUDA266／39dispatchを無条件に続けず、1件後はCPU由来coverage台帳と事前固定したsource-family代表deltaを優先する。fixed_battle_entryのCUBINは未成立なのでRapi等へtyped CUBINを転用しない。旧outer exit2／environment_preservation=falseは別境界で保持する。
+
+ClaudeがCUBIN guardのpost-dispatch例外分類を指摘したため、その分離と故障注入を次単位で確認する。guardを変更した後のconsumerは新固定commitとし、Metal266の計算証拠は4155099dに固定して不要な再実行をしない。全特殊効果・任意場面・現在CUDA全件は未完了。
+
+
+### CUBIN監査後の例外分類も合格
+
+body_entered以降は本体・context終了時とも元の例外を保持し、verify_phasesを既存Journalでpost-dispatchとして記録。製品75検査、strict source ledger7成功、Claudeチェックaccept。[修正と検査](../research/product-cubin-post-dispatch-review-v1.json)。呼出側はGPU側Exceptionを捕捉してからCPUをtry外で1回評価し、GPU／compilerを再試行しないことを確認した。CUDA検証はCPU fallbackを失敗と数える。Slang・正本・decode・goldenは不変、追加GPU／SDK0。
+
+verify_phases importの事前移動は非blockingの別unit候補として保持し、今回へ追加しない。Windows接続待ちには既存model-checkによるCPU由来coverageの読取りと欠落列挙だけを進める。完成条件・正本・goldenの変更や追加GPU実行は行わない。

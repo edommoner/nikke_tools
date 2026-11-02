@@ -1,3 +1,11 @@
+## 2026-11-02 Claudeが現行Metal標準266 profileを合格判定
+
+製品APIの例外処理／CPU二重評価を4155099dで修正しClaude再レビューaccept。製品73検査・strict source ledger7・既存ammo8を確認、正本・Slang・成功時decode・goldenは不変。続く標準180秒・期待値・seed0・core50・BODY1の203キャラ／266profile-stageもClaudeの最終チェックaccept。[全件・元失敗・受入記録](../research/product-standard266-claude-accept-v1.json)／[役割と次単位](claude-led-development.md)。
+
+元条件HTTP258成功と、owned caffeinate -iを用いた別条件8成功を選定した266件で、original266成功ではない。全成功CPU一致・独立保存監査・過去全raw一致、cache0。総40dispatch／274case、CPU完了ファイル既知271／元完了不明3。元timeout8とhistorical3の限定を保持し、evaluator stamp差を除外・期待値更新で隠していない。optional監査anchor=falseは別raw照合で補い、元要求は変更しなかった。
+
+次はClaude方針の保存CUBIN typed-lock-healing36秒1要求（cuda_shared_detail）。CUDA／Metalのstrict全rawとfresh CPU一致、追加compile0、2GiB／180秒／BelowNormal／一回のみを要求。Windows接続未確認の間は依頼しない。CUDA266を無条件実行せず、CPU由来coverageとsource-family代表deltaへ進む。旧outer exit2／環境保全falseを維持、全特殊効果・任意場面・現source全CUDAは未完了。以下は過去記録。
+
 ## 2026-11-02 Windows単発CUBIN失敗を保存し、計画と実行の引数を固定
 
 owner30e9e40c…でgeneration成功、CUBIN O1 cache miss後のcompile1回はNVRTC6で停止。28.411秒、全体72.396秒、生成cache hitでSlang再実行0。ptxas Memory allocation failureとllcのsplit-compile未認識を両方保持。plan外の`--split-compile=2`を既存Windows runnerが追加していた。外側Job peakは2GiB＋499712byteで未解決、成功や制約内へ昇格しない。CUBIN無し、module／GPU／battle／fallback／retry0。[Windows全statusとmanifest](../research/windows-results/standard-current-fixed-v1/report-manifest.json)。18034byteの元statusをSHA7e77fea4…で独立取込済み。

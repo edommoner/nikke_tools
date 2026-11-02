@@ -562,6 +562,45 @@ class PortableDetail(unittest.TestCase):
                 self.assertEqual(sys.path,previous)
                 self.assertEqual(sys.dont_write_bytecode,bytecode)
 
+    def test_saved_program_preserves_post_dispatch_audit_error_and_records_its_layer(self):
+        from portable_backend import source_hashes
+        import portable_linked_artifact
+        cli=artifacts.proof_cli()
+        owner=dict(package_id='mock-owner',suite='product-detail',purpose='sealed',
+                   golden=dict(source_sha256=source_hashes(product.SOURCE)))
+        receipt=dict(identity=dict(provider='mock; not hardware evidence'),key='mock')
+        @contextmanager
+        def provider(*args):yield receipt
+        for error in (KeyError('post-dispatch field'),TypeError('post-dispatch value'),ImportError('post-dispatch dependency')):
+            with self.subTest(error=type(error).__name__),tempfile.TemporaryDirectory() as folder:
+                path=self.descriptor(folder);capture=Path(folder)/'capture';capture.mkdir()
+                with patch.dict(os.environ,{artifacts.ENV:str(path)}),\
+                     patch.object(cli,'verify_package',return_value=owner),\
+                     patch.object(cli,'saved_linked_provider',side_effect=provider),\
+                     patch.object(portable_linked_artifact,'verify_phases',side_effect=error):
+                    with self.assertRaises(type(error)) as raised:
+                        with artifacts.saved_program(product.SOURCE,capture) as actual:
+                            self.assertEqual(actual,receipt)
+                    self.assertIs(raised.exception,error)
+                phases=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
+                post=[row for row in phases if row['stage']=='product_cubin_post_dispatch']
+                self.assertEqual([row['state'] for row in post],['entered','raised'])
+                self.assertEqual(post[-1]['exception'],type(error).__name__)
+
+    def test_saved_program_converts_only_pre_admission_metadata_errors(self):
+        @contextmanager
+        def rejected(*args):
+            raise KeyError('missing owner field')
+            yield
+        with tempfile.TemporaryDirectory() as folder:
+            path=self.descriptor(folder)
+            with patch.dict(os.environ,{artifacts.ENV:str(path)}),\
+                 patch.object(artifacts,'_audited_program',side_effect=rejected):
+                with self.assertRaisesRegex(ValueError,'metadata incomplete') as raised:
+                    with artifacts.saved_program(product.SOURCE,Path(folder)):
+                        self.fail('Unadmitted provider reached dispatch')
+                self.assertIsInstance(raised.exception.__cause__,KeyError)
+
     def test_product_saved_receipt_is_bound_to_transport_and_cpu_still_runs_after_gpu(self):
         body={**self.fixture['body'],'compute_backend':'cuda_shared_detail'}
         expected=copy.deepcopy(self.fixture['cpu_payload']);expected['evaluator']=product.engine_worker.sim.evaluator()

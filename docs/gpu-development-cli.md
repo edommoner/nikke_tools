@@ -1,3 +1,11 @@
+## 2026-11-02 Claudeが現行Metal標準266 profileを合格判定
+
+製品APIの例外処理／CPU二重評価を4155099dで修正しClaude再レビューaccept。製品73検査・strict source ledger7・既存ammo8を確認、正本・Slang・成功時decode・goldenは不変。続く標準180秒・期待値・seed0・core50・BODY1の203キャラ／266profile-stageもClaudeの最終チェックaccept。[全件・元失敗・受入記録](../research/product-standard266-claude-accept-v1.json)／[役割と次単位](claude-led-development.md)。
+
+元条件HTTP258成功と、owned caffeinate -iを用いた別条件8成功を選定した266件で、original266成功ではない。全成功CPU一致・独立保存監査・過去全raw一致、cache0。総40dispatch／274case、CPU完了ファイル既知271／元完了不明3。元timeout8とhistorical3の限定を保持し、evaluator stamp差を除外・期待値更新で隠していない。optional監査anchor=falseは別raw照合で補い、元要求は変更しなかった。
+
+次はClaude方針の保存CUBIN typed-lock-healing36秒1要求（cuda_shared_detail）。CUDA／Metalのstrict全rawとfresh CPU一致、追加compile0、2GiB／180秒／BelowNormal／一回のみを要求。Windows接続未確認の間は依頼しない。CUDA266を無条件実行せず、CPU由来coverageとsource-family代表deltaへ進む。旧outer exit2／環境保全falseを維持、全特殊効果・任意場面・現source全CUDAは未完了。以下は過去記録。
+
 ## 2026-11-02 CUDA module-onlyの資源観測
 
 既存`module-check --observe-cuda-resources`はcache-only PTXのmodule読込と関数属性を、kernel／battle buffer／SDK compileなしで観測する。2GiB／60秒／単発claimを維持。追加値はlifecycle snapshotとfunction_resourcesであり、計算証明や総メモリ予約量ではない。[使い方・CPU108検査・実Windows未測定](portable-cuda-memory-observation.md)。

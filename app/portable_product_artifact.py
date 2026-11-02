@@ -76,21 +76,19 @@ def proof_cli():
 def saved_program(source,capture):
     program=select(source)
     previous=list(sys.path);bytecode=sys.dont_write_bytecode
-    body_failed=False
+    body_entered=False
     try:
         with audit_imports(),_audited_program(source,capture,program) as receipt:
             audit_path=list(sys.path);audit_bytecode=sys.dont_write_bytecode
             sys.path[:]=previous;sys.dont_write_bytecode=bytecode
+            body_entered=True
             try:yield receipt
-            except BaseException:
-                body_failed=True
-                raise
             finally:
                 sys.path[:]=audit_path;sys.dont_write_bytecode=audit_bytecode
     except (KeyError,TypeError,ImportError) as error:
         # Metadata failures are safe fallback reasons; execution failures keep
         # their original type and traceback for accurate product diagnostics.
-        if body_failed:raise
+        if body_entered:raise
         raise ValueError('Saved CUBIN execution/audit metadata incomplete: '+str(error)) from error
 
 
@@ -128,7 +126,8 @@ def _audited_program(source,capture,program):
             from portable_phase_audit import observe
             with observe(portable_backend,journal):yield receipt
             from portable_linked_artifact import verify_phases
-            verify_phases([json.loads(line) for line in journal.path.read_text(encoding='utf-8').splitlines()],receipt)
+            journal.invoke('product_cubin_post_dispatch',verify_phases,
+                [json.loads(line) for line in journal.path.read_text(encoding='utf-8').splitlines()],receipt)
     except BaseException as error:
         if started is not None and not admitted:journal.emit('product_cubin_admission','raised',exception=type(error).__name__,elapsed_seconds=time.perf_counter()-started)
         raise
