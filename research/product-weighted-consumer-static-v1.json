@@ -1,0 +1,309 @@
+{
+  "schema": "product-weighted-consumer-static-v1",
+  "source_commit": "36d32565c8630540ae37d70cce7d4bb4322b804c",
+  "source_hashes": {
+    "app/product_reference_models.py": "9473543ca26dfc0ee3517d34403c3f02869ca5e6b878de7ca982e422c0eef99b",
+    "app/weighted_incoming_battle_model.py": "94dfe927885d53e30d0f73ab08b0cc2a6dddfa8430446000922d28c6a94a6c7f",
+    "app/incoming_weighted_allocation.py": "ce5c9effe3cec6397bb8aa700219d26e2ff326f9fc0873258bedea4b4cff9a68",
+    "app/portable_weighted_battle_wire.py": "49d778690522b1641cc5eaaff176f5e5ba3ad1e2f28764afd067baaf2e28742f",
+    "app/portable_product_weighted.py": "4ea8886709c411603aab20c56c203aeb3bfc423c69346dbd0095d45ae3858af3",
+    "gpu/weighted_incoming_runtime.slang": "498d56edd2c574de9ba7711e26291a7f21815f5b6aaa98b92ee5fbd3c17ec568",
+    "gpu/incoming_weighted_allocation.slang": "22baf169ddf14f686d2ed77408b524788dd6c8bef48b29eaed6cff16b0927362",
+    "gpu/dispatch_phases.slang": "7636a3b84dfd79bc8b1b64bcacdb4edc60883c0892b2273897544b93d149f682",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299"
+  },
+  "source_sites": [
+    {
+      "source": "app/product_reference_models.py",
+      "line": 40,
+      "function": "normalize",
+      "AST_sha256": "c7ad49bb83f6e161c46381d7e6ecb417b668496a8e25516990175a06c58f028f",
+      "source_sha256": "9473543ca26dfc0ee3517d34403c3f02869ca5e6b878de7ca982e422c0eef99b"
+    },
+    {
+      "source": "app/product_reference_models.py",
+      "line": 116,
+      "function": "execution",
+      "AST_sha256": "ed97f683fdfc46774961e2f580f040bbecc7f76c689726b96a90d3a95b85f5f1",
+      "source_sha256": "9473543ca26dfc0ee3517d34403c3f02869ca5e6b878de7ca982e422c0eef99b"
+    },
+    {
+      "source": "app/weighted_incoming_battle_model.py",
+      "line": 123,
+      "function": "weighted_incoming",
+      "AST_sha256": "20037346244f875ad711bba69804391a2e861aa6d3f4f5165fd5f69c066802df",
+      "source_sha256": "94dfe927885d53e30d0f73ab08b0cc2a6dddfa8430446000922d28c6a94a6c7f"
+    },
+    {
+      "source": "app/weighted_incoming_battle_model.py",
+      "line": 53,
+      "function": "__init__",
+      "AST_sha256": "1aec366c03028008672ba5ef00f523dd50feaf80fa03b82dd5ad03e5ae3be1ce",
+      "source_sha256": "94dfe927885d53e30d0f73ab08b0cc2a6dddfa8430446000922d28c6a94a6c7f"
+    },
+    {
+      "source": "app/weighted_incoming_battle_model.py",
+      "line": 84,
+      "function": "__init__",
+      "AST_sha256": "f0bd9b44203b1e7bdcf8e26a33c7534955d6dbdd5d774ed816a71571d4eac2b1",
+      "source_sha256": "94dfe927885d53e30d0f73ab08b0cc2a6dddfa8430446000922d28c6a94a6c7f"
+    },
+    {
+      "source": "app/weighted_incoming_battle_model.py",
+      "line": 91,
+      "function": "snapshot",
+      "AST_sha256": "12886006a2333c51e10b29f244261092a98fbcb181170988f3ab438c49bd5dfe",
+      "source_sha256": "94dfe927885d53e30d0f73ab08b0cc2a6dddfa8430446000922d28c6a94a6c7f"
+    },
+    {
+      "source": "app/incoming_weighted_allocation.py",
+      "line": 11,
+      "function": "allocate",
+      "AST_sha256": "8160ae31d0f4f14ab499ba507a27b342dcc38542c14d09b5b0dd1dcfb9a9f3d4",
+      "source_sha256": "ce5c9effe3cec6397bb8aa700219d26e2ff326f9fc0873258bedea4b4cff9a68"
+    },
+    {
+      "source": "app/portable_weighted_battle_wire.py",
+      "line": 17,
+      "function": "pack",
+      "AST_sha256": "043dfb81611d7f413cdaef9801cd60c6e4e620171056b9878b6474c795140e5e",
+      "source_sha256": "49d778690522b1641cc5eaaff176f5e5ba3ad1e2f28764afd067baaf2e28742f"
+    },
+    {
+      "source": "app/portable_weighted_battle_wire.py",
+      "line": 25,
+      "function": "compiler_policy",
+      "AST_sha256": "17477a9ad8d0857644352981d34d144b78ed6f07ba9c83d055c0b073b1306216",
+      "source_sha256": "49d778690522b1641cc5eaaff176f5e5ba3ad1e2f28764afd067baaf2e28742f"
+    },
+    {
+      "source": "app/portable_product_weighted.py",
+      "line": 14,
+      "function": "compile_product",
+      "AST_sha256": "07495f6621a28d3ea76216c1336ba0988b4ca5ffda6d9757dc2ed523e16f5771",
+      "source_sha256": "4ea8886709c411603aab20c56c203aeb3bfc423c69346dbd0095d45ae3858af3"
+    },
+    {
+      "source": "app/portable_product_weighted.py",
+      "line": 53,
+      "function": "read_result",
+      "AST_sha256": "987d232c089dc61d12cacda2c54e7957c53e21e284d601015697f34c27f1242d",
+      "source_sha256": "4ea8886709c411603aab20c56c203aeb3bfc423c69346dbd0095d45ae3858af3"
+    }
+  ],
+  "function_identity_checks": true,
+  "registry": "product reference_models.weighted_incoming context -> checked native landing rewrite -> WeightedIncoming.snapshot -> incoming_weighted_allocation.allocate",
+  "original_definitions": [
+    {
+      "effect": {
+        "source": "스킬1",
+        "type": "buff",
+        "name": "유 캔 두잇",
+        "trigger": {
+          "timing": [
+            "burst_cast"
+          ],
+          "condition": []
+        },
+        "target": "all_allies",
+        "stat": "received_dmg_split",
+        "polarity": "neutral",
+        "max_stack": 1,
+        "duration": -1,
+        "note": "`받는 대미지 차등 분배` — 로스터 유일 보유자. `received_dmg_split_even`(균등판, 폴리·율하·자칼)과 다른 축이고 분배 비율이 원문에 없다. `IMPL-STATUS.md` `received_dmg_split` 행이 구현 규격의 정본."
+      },
+      "owner": "베이"
+    },
+    {
+      "effect": {
+        "source": "스킬2",
+        "type": "buff",
+        "name": "치얼업 투게더",
+        "trigger": {
+          "timing": [
+            "burst_cast"
+          ],
+          "condition": []
+        },
+        "target": "self_cover",
+        "stat": "received_dmg_split",
+        "polarity": "neutral",
+        "max_stack": 1,
+        "duration": -1,
+        "note": "같은 stat이 **엄폐물**에 걸리는 첫 사례다(스킬1은 아군 전체). target `self_cover`는 로스터 최초 사용."
+      },
+      "owner": "베이"
+    }
+  ],
+  "unit": {
+    "original_marker_scalar_value": null,
+    "weights_unit": "Positive finite relative weights, not percent or recipient count; explicit declaration, game ratio unverified",
+    "original_max_stack": 1,
+    "original_trigger": "burst_cast",
+    "marker_targets": [
+      "all_allies",
+      "self_cover"
+    ]
+  },
+  "recipients": {
+    "names": "Five distinct original names; duplicates rejected",
+    "body_set": "Snapshot live body carrier recipients excluding down; caster included iff live recipient",
+    "cover": "Same caster self_cover carrier, living caster with positive cover HP; only if caster in live body mask",
+    "overlap": "Multiple live body/cover carriers and even-split overlap rejected",
+    "freeze": "Freeze all shares before callbacks; live/down checked again on delivery, discarded amounts not renormalized"
+  },
+  "ordering": {
+    "quantity": "Struck owner DEF and received modifiers once, then native minimum1, before weighted allocation",
+    "allocation": "Ordered denominator sum; each amount*(weight/total), divide before multiply; no per-share floor/rounding/residual assignment",
+    "delivery": "Squad order through original shield/cover/decoy/invincible/undying/HP handling; independent caster-cover last",
+    "HP": "Body state max(0,hp-to_hp), undying floor1 at native phase; cover min(current HP,share), excess discarded",
+    "cover_defense": "Combined independent cover DEF model currently rejected; do not confuse this cover share with cover_def_pct or uniform divisor"
+  },
+  "conservation": {
+    "exact_binary64_conservation_guaranteed": false,
+    "ordered_counterexample": {
+      "amount": 1.0,
+      "weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "body_mask": 31,
+      "cover_active": true,
+      "ordered_sum": 0.9999999999999999,
+      "ordered_sum_LE_hex": "ffffffffffffef3f",
+      "amount_LE_hex": "000000000000f03f"
+    },
+    "note": "Counterexample is pure static arithmetic, not new battle/GPU proof; Python compensated sum is not this ordered fold"
+  },
+  "wire": {
+    "bank": 115680,
+    "words": 16,
+    "weights_offsets": [
+      4,
+      6,
+      8
+    ],
+    "numeric_type": "LE binary64",
+    "source_row_offsets": [
+      10,
+      11
+    ],
+    "source_row_values": [
+      1,
+      3
+    ],
+    "source_rows": [
+      0,
+      2
+    ],
+    "marker_kind": 4,
+    "marker_stat": 0,
+    "no_simple_or_typed_numeric_stat_alias": true,
+    "compiled_bank_exact": true,
+    "typed_combination": "Unsupported by product declaration/consumer guards",
+    "GPU": "captureWeightedIncoming -> incomingWeightedAllocation ordered total/shares -> advanceWeightedIncoming original protection frames, cover last"
+  },
+  "numeric_saved_evidence": {
+    "schema": "weighted-saved-numeric-probe-v1",
+    "source": "gpu/incoming_weighted_probe.slang",
+    "input_current_builder_exact": true,
+    "full_batch_input_sha256": "3a6ffba50847f2495029f6bb27d9578b96cf986174ee233ef85500659d614fdc",
+    "full_batch_output_sha256": "f3c485926c06e2c858354b9876d45a8a616d47f0ceff557d5b924e3bdb10a351",
+    "current_source_closure_exact": true,
+    "existing_strict_comparator_all_words_passed": true,
+    "valid_cases": 1179,
+    "rejected_cases": 13,
+    "sample": {
+      "index": 1132,
+      "name": "weighted-incoming/survivors/31/0/1/0x1.e240c9fbe76c9p+16",
+      "args": [
+        123456.789,
+        31,
+        0,
+        8.0,
+        3.0,
+        262.0,
+        true
+      ],
+      "result": {
+        "status": 0,
+        "active_mask": 63,
+        "total": 282.0,
+        "shares": [
+          3502.320255319149,
+          1313.3700957446808,
+          1313.3700957446808,
+          1313.3700957446808,
+          1313.3700957446808,
+          114700.98836170213
+        ]
+      },
+      "output_words": [
+        0,
+        1463897137,
+        0,
+        63,
+        0,
+        1081188352,
+        4169225275,
+        1084972195,
+        4200660780,
+        1083475322,
+        4200660780,
+        1083475322,
+        4200660780,
+        1083475322,
+        4200660780,
+        1083475322,
+        3495189556,
+        1090257103,
+        0,
+        0
+      ]
+    },
+    "scope": "Current-source scalar allocation probe only, not live carrier/protection/normal API battle receipts",
+    "CPU_battles": 0,
+    "GPU_calls": 0,
+    "Windows_calls": 0
+  },
+  "saved_battle_evidence": {
+    "current_source_exact_live_receipt_found": false,
+    "checked_weighted_named_captures": 45,
+    "scope": "Existing proof paths containing weighted, excluding copied fixture evidence; not an exhaustive claim for arbitrary other path labels",
+    "note": "45 indexed captures: only scalar numeric probe has current exact closure; live product battle closure differs. Do not call probe output a battle receipt."
+  },
+  "L3_proposed": "Static connected; current live battle allocation receipt evidence missing",
+  "L4_remaining": [
+    "Unsupported weighted+independent-cover-DEF and weighted+typed compositions",
+    "Undeclared game ratios and arbitrary stack/overlap policies"
+  ],
+  "new_CPU_battles": 0,
+  "new_GPU_calls": 0,
+  "Windows_calls": 0,
+  "full_goal_complete": false,
+  "claude_decision": "accept static L3 only; current live battle evidence remains open L3 evidence requirement5",
+  "claude_review_sha256": "fa404d6f689e77e9d77cae958ea6c7a6bdac1fcc58e8f3fcecc2e7fbb0b3fa6c",
+  "claude_review": "# 判定:received_dmg_split(weighted)\n\n**静的L3接続として合格です。必須修正はありません。** 記録上のラベルは「静的L3合格、条件5(current live battle nonzero receipt)は実証未」とし、L4扱いにはしません。\n\n## 合格根拠\n1〜9の主張は互いに矛盾がなく、次の4点が揃っています。\n\n- **閉じた接続:** registry→context→native landing→snapshot→allocate がAST SHA付きで閉じています。\n- **仕様の出所:** 原定義にない比率を、明示宣言のweightで扱うと線引きしています。8/3/262をゲーム定数として扱っていません。\n- **binary64の厳密性:** 逐次加算と残差補正なしの性質を明示し、CPU/GPUで同じ式・同じ順序であることを確認しています。\n- **証拠の扱い:** 算術probeとlive receiptを区別し、歴史proofをcurrentへ昇格させていません。\n\n## 記録に残すべき注記(修正ではありません)\n- **amountの範囲:** `amount>=0` だけでは+infが通ります。結果nonfiniteのstatus16で捕捉されることを、拒否13件のどれが担保しているかを1行で紐付けてください。-0.0の受理も同様に1行明記すると確実です。\n- **cover share失効時の扱い:** 配送直前にcasterがdownしていた場合、cover shareは「失効・廃棄・再分配なし」です。このケースを3と4のどちらの規則で処理するかを明記してください。\n- **探索範囲:** 8に書いた探索範囲の限定(weightedを含むproof pathのみ)は、判定文にそのまま残してください。\n\n## 次の1単位\n**残L3の静的確認を続けます。最初の対象は `effect_range_pct` と `effect_target_count_add` で、同じ対象選択経路なので1単位として扱います。**\n\n製品未接続の組合せには今は進みません。理由は次のとおりです。\n\n- **原定義に根拠がない:** weighted+cover_defense も weighted+typed も、原定義に合成規則がありません。接続するには仕様を新しく決める必要があり、「原定義変更0」「推測で混ぜない」という方針に反します。\n- **現状で正しく閉じている:** 両方とも現在は明示的に拒否されているので、未接続のままでも誤動作しません。\n- **波及効果:** 対象選択(範囲と対象数)は多くの効果の前提になる経路です。ここを先に確定すると、後続の lock_on、enemy_movement系、全効果L4の確認範囲が狭まります。\n\n残りは次の順で進めます。lock_on は対象選択と隣接しているので次に置き、storage sink は他から独立しているので最後に回します。\n\n1. effect_range_pct / effect_target_count_add\n2. lock_on\n3. gauge_charge_enabled\n4. enemy_movement_disable / force_move\n5. storage sink\n\n## 終了条件\nweightedと同じ型で確認し、新しい測定・scene・suite・CLIは追加しません。\n\n1. **registry chain:** 実registryからallocateまで(この単位では対象選択関数まで)の経路を、FunctionDef AST SHA、file:line、source SHAで記録する。\n2. **原定義の整理:** markerとscalarを整理し、原定義にない値を「宣言値」と「認定しない値」に分ける。\n3. **wire照合:** 現bodyをcompileし、bankのword列とrow IDを厳密に照合する。numeric stat IDに依存していないことも確認する。\n4. **CPU/GPU同順序:** 範囲判定、対象数加算、上限・下限の適用順と境界(0件、超過、重複、down)を確認する。\n5. **保存証拠の索引化:** current closureと一致するものだけを採用する。\n   - live receiptが見つからなければ「静的L3のみ・実証未」で終了する。\n   - 組合せ拒否は確認して列挙するだけにし、接続はしない。\n\nWindows保留、全L4・全効果未完了の扱いは維持します。",
+  "L3_evidence_gap": "No source-exact current live battle nonzero allocation receipt found in indexed weighted-named captures; not satisfied by numeric probe",
+  "reviewer_correction": {
+    "nonfinite_amount": "CPU finite-input guard rejects +inf with ValueError; GPU probe !f64Finite rejects status64 before allocation, not arithmetic overflow status16",
+    "existing_13_reject_cases_explicit_plus_inf_amount": false,
+    "existing_positive_inf_weight_case": true,
+    "plus_inf_amount_validation": "source guard plus pure local guard evaluation; not an existing13-case coverage claim",
+    "CPU_pure_guard_error": "Finite explicit incoming quantity and weights required",
+    "negative_zero": "CPU pure allocate accepts -0.0; active shares preserve negative zero, inactive shares positive zero; current probe has no explicit -0 amount case",
+    "negative_zero_shares_LE_hex": [
+      "0000000000000080",
+      "0000000000000080",
+      "0000000000000080",
+      "0000000000000080",
+      "0000000000000080",
+      "0000000000000080"
+    ]
+  },
+  "delivery_rule": "Frozen allocation then live delivery: caster down before independent cover dispatch discards its frozen share, no renormalization",
+  "next_Claude_priority": "effect_range_pct/effect_target_count_add static selection-chain unit, then lock_on/gauge/movement/storage",
+  "unsupported_compositions_remain_goal_requirements": true,
+  "production_changes": 0
+}

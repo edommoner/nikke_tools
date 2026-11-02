@@ -1,3 +1,9 @@
+## 2026-11-03 received_dmg_splitの静的L3と保存算術probeを確認
+
+[加重配分の接続・単位・配線・証拠境界](../research/product-weighted-consumer-static-v1.json)。Bayのall_allies／self_cover状態2つから、明示したcaster／other／cover相対重みを使う。均等配分や百分率ではなく、ゲーム比率は未確定。struck ownerのDEF／receivedで計算したquantityを、live対象の順序付き重み和で割ってから掛け、bodyを元の保護・HP処理へ、独立caster coverを最後に渡す。下流で失効・down・cover超過があっても再配分せず、端数補正やshareの1point floorなし。binary64逐次和の厳密保存は保証しない。wireはkind4/stat0の元marker identityと16word bankで、重みword4/6/8、source row+1はword10/11。
+
+現source closureと現在builderの全1192入力が一致する既存Metal算術probeを再利用し、既存strict comparatorで正常1179／拒否13の全出力ワードが一致。戦闘receiptではない。weighted名の保存45件では現source一致のlive戦闘receiptが見つからず、Claudeは静的L3のみ合格、条件5のlive証拠不足を別の残件として保持した。入力+infは入口拒否（CPU ValueError／GPU64）で、結果overflow16と混同しない。既存13件に+inf amountの専用caseはないため、coverageを捏造しない。追加CPU戦闘／GPU／Windows0、計算source変更0。weighted＋独立cover DEF／typedの未接続は全目標の残件で、拒否が安全なだけでは完成に数えない。次はeffect_range_pct／effect_target_count_addを1単位で静的確認する。
+
 ## 2026-11-03 cover_def_pctの単位・配線と保存Metal非ゼロ5件が合格
 
 [L3接続・wire・保存非ゼロreceipt](../research/product-cover-def-consumer-static-v1.json)。実経路はreference_models.cover_defenseのcontextからchecked native cover landingへ接続され、CATALOGではない。原Soldier O.W.の128.57は百分率のまま保持し、base*(1+pct/100)で1回だけ換算。0〜100への新たな制限やpct clampは加えない。live recipientの値を既存stack規則で加算し、body DEFから独立した基礎cover DEFを使う。wireはowner基礎値をLE binary64、kind0・単純stat93／合成96として衝突を拒否し、共通Slangの同じ演算順へ渡す。
