@@ -39,7 +39,8 @@ class TypedLandings(ast.NodeTransformer):
 def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False,skill_shields=False,body_lifesteal=False,body_accumulation=False,typed_geometry=None,coordinate_weapon_targets=False,typed_aim_policy=None,typed_actor_policy=None,mixed_weapon_kinds=False):
     from calculator import timeline,buff_manager
     from runner import sim
-    if type(mixed_weapon_kinds) is not bool or mixed_weapon_kinds and (not coordinate_weapon_targets or typed_actor_policy!={'mode':'body-owned-current-fields-v1'}):raise ValueError('Mixed kinds require explicit BODY-owned coordinate weapons')
+    from coordinate_typed_actor_policy import owns_fields
+    if type(mixed_weapon_kinds) is not bool or mixed_weapon_kinds and (not coordinate_weapon_targets or not owns_fields(typed_actor_policy)):raise ValueError('Mixed kinds require explicit exact-owner coordinate weapons')
     if type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed battle observation capacity')
     if type(modifier_model) is not bool:raise ValueError('Explicit modifier model boolean required')
     if type(coordinate_weapon_targets) is not bool or coordinate_weapon_targets and (not modifier_model or typed_geometry is None or weapon_shields or shield_owner is not None):raise ValueError('Coordinate weapon targets require their own explicit geometry/modifier policy')

@@ -1079,6 +1079,28 @@ class ProductReferenceModels(unittest.TestCase):
         from portable_specs import shader_schema
         self.assertIn('#elif defined(PORTABLE_PRODUCT_LONG_LOCK)\nstatic const uint P_OUTPUT_WORDS = PL_LAYOUT_OUTPUT;',shader_schema())
 
+    def test_original_product_typed_owners_pack_exact_logical_handles_without_native_state(self):
+        from portable_product_programs import logical_owner_body
+        from portable_detail import prepare,compile_product
+        from product_typed_model import normalize_product
+        from coordinate_typed_actor_policy import FIELD_MODE
+        for name in ('typed-fixed','typed-accumulate','typed-lock-fixed','typed-lock-accumulate'):
+            body=logical_owner_body(ROOT,name);before=copy.deepcopy(body)
+            with patch.object(sim,'execute',side_effect=AssertionError('No native generations or fields supplied to GPU')):
+                pre,run=prepare(body);source,iw,ow,words,meta=compile_product(pre)
+            self.assertEqual(body,before);self.assertEqual(iw,123732)
+            base=115680 if 'lock' in name else 109968
+            self.assertEqual(words[base+12:base+16],[3,1,1,2]);self.assertEqual(words[base+3],0)
+            for i,row in enumerate(body['reference_models']['typed_targets']['bindings']):
+                self.assertEqual(words[base+2328+i*12+5:base+2328+i*12+8],row['owner'])
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
+            bad=copy.deepcopy(body);bad['reference_models']['typed_targets']['actor_policy']={'mode':FIELD_MODE}
+            with self.assertRaisesRegex(ValueError,'BODY-owned'):normalize_product(bad['reference_models']['typed_targets'])
+            bad=copy.deepcopy(body);bad['reference_models']['typed_targets']['bindings'][0]['owner']=[5,123,1]
+            if 'lock_on' in bad['reference_models']:bad['reference_models']['lock_on']['typed_bindings']=copy.deepcopy(bad['reference_models']['typed_targets']['bindings'])
+            with patch.object(sim,'execute',side_effect=AssertionError('Unknown owner must fail without native execution')):
+                with self.assertRaisesRegex(ValueError,'configured logical enemy'):compile_product(prepare(bad)[0])
+
     def test_plain_ammo_version_and_output_stride_are_checked_before_device_work(self):
         from portable_backend import validate_composed_stride,validate_product_ammo_versions
         from portable_enemy_ammo_wire import LAYOUT as E
@@ -1995,7 +2017,7 @@ class ProductReferenceModels(unittest.TestCase):
         from destructible_world_runtime import DestructibleWorld
         import coordinate_logical_actor_geometry as logical
         for name in ('typed-fixed','typed-accumulate','typed-lock-fixed','typed-lock-accumulate'):
-            body=copy.deepcopy(cases_for_program(ROOT,name)[-1][1]);before=copy.deepcopy(body)
+            body=copy.deepcopy(next(body for variant,body in cases_for_program(ROOT,name) if variant=='moving-long30'));before=copy.deepcopy(body)
             worlds=[];geometries=[];create=DestructibleWorld.from_clock;initialize=logical.LogicalGeometry.__init__
             def make(*a,**kw):
                 value=create(*a,**kw);worlds.append(value);return value

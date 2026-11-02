@@ -1,4 +1,5 @@
 // Ordinary product admission over the original typed owner/skill-history executor.
+#define PORTABLE_COORDINATE_LOGICAL_OWNERS
 #define PORTABLE_COORDINATE_TYPED_MIXED
 #define PORTABLE_PRODUCT_TYPED_MOTION
 #define PORTABLE_ENEMY_MOVEMENT

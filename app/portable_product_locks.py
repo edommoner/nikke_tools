@@ -141,10 +141,13 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
     if typed_model is not None:
         from portable_original_modifier_probe_input import pack_target_input
         from portable_typed_geometry_specs import pack as pack_geometry
-        extra,axes=pack_target_input(words,meta,prepared['effects'],patterns,spec['typed_bindings'],typed,2,128,coordinate_weapon_world=True)
+        from product_typed_model import validate_logical_owners,LOGICAL_FIELD_MODE
+        validate_logical_owners(typed_model,bindings)
+        logical_owners=typed_model['actor_policy']=={'mode':LOGICAL_FIELD_MODE}
+        extra,axes=pack_target_input(words,meta,prepared['effects'],patterns,spec['typed_bindings'],typed,2,128,coordinate_weapon_world=True,logical_owner_bindings=logical_owners)
         geometry,geometry_meta=pack_geometry(typed_model['geometry'],len(typed_rows),typed_model['bindings'][0]['kind'])
         if len({b['kind'] for b in typed_model['bindings']})>1:geometry[3]=0;geometry_meta['kind']=0
-        extra[:2320]=geometry;extra[12:16]=[1,1,1,2]
+        extra[:2320]=geometry;extra[12:16]=[3 if logical_owners else 1,1,1,2]
         meta['typed_geometry']=geometry_meta
         meta['product_typed_targets']=dict(declarations={'typed_targets':copy.deepcopy(typed_model)},cpu_state_or_schedule_supplied=False)
         meta['product_typed_lock']=True

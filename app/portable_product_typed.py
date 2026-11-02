@@ -31,7 +31,7 @@ def check_schema(root):
 
 
 def compile_product(prepared):
-    from product_typed_model import normalize_product
+    from product_typed_model import normalize_product,validate_logical_owners,LOGICAL_FIELD_MODE
     from portable_product_fixed import lower,attach
     from portable_coordinate_typed_input import compile_coordinate_typed
     from calculator.timeline import CharState,_when_label
@@ -59,7 +59,8 @@ def compile_product(prepared):
         effect=inner['effects'][found[0]]['effect']
         if effect.get('target')!='target_and_nearby:'+str(rule['base_count']-1):raise UnsupportedPortable('Nearby count must preserve original primary plus neighbours')
         effect['target']='enemies_nearest:'+str(rule['base_count'])
-    words,meta,bindings,scene=compile_coordinate_typed(inner,spec['bindings'],probe_kind=spec['bindings'][0]['kind'],geometry=spec['geometry'],coordinate_weapon_targets=True,coordinate_typed_aim=True,coordinate_typed_actors=True,coordinate_typed_owners=True,mixed_weapon_kinds=len({b['kind'] for b in spec['bindings']})>1)
+    words,meta,bindings,scene=compile_coordinate_typed(inner,spec['bindings'],probe_kind=spec['bindings'][0]['kind'],geometry=spec['geometry'],coordinate_weapon_targets=True,coordinate_typed_aim=True,coordinate_typed_actors=True,coordinate_typed_owners=True,coordinate_logical_owners=spec['actor_policy']=={'mode':LOGICAL_FIELD_MODE},mixed_weapon_kinds=len({b['kind'] for b in spec['bindings']})>1)
+    validate_logical_owners(spec,bindings)
     from portable_logical_geometry_wire import pack as logical_pack,validate as logical_validate
     shapes=spec.get('logical_geometry',[])
     if {b.label for b in bindings if int(b.kind)==5}!={row['label'] for row in shapes}:

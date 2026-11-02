@@ -1,3 +1,15 @@
+## 2026-11-02 ADD所有の飛翔体・HPシールドを通常typed経路へ接続
+
+元のキャラ定義を保持した単独typed／Lock On併用の2系統・5編成順で、固定／蓄積、projectile／HP shield混在、所有者退場、第2世代、typed再出現、移動ADD、元Primとの合成、有限HP破壊を確認。通常APIの36条件中34が実M5／CPU／HTTP一致。残2は予約先が着弾前に死亡するLock Onで、CPUの宣言規約require-live-frozen-slot-v1もstatus4を未確定として拒否するため成功へ含めない。失敗・元claim・rawを保持。[全出所・34条件・残件](../research/product-logical-owner-v1.json)。標準BODY180秒の266profile／203キャラは43CPUfile・入力全byte・全GPU依存sourceが不変で、現登録packetから全raw再投影も一致。追加戦闘／GPU0、新しい元inventory profileの加算0。
+
+reference_models.typed_targets.actor_policyへ既存logical-owned-current-fields-v1を接続。ownerはBODYの[0,0,1]か設定済みADDの[5,identity,generation]を明示し、存在しないidentityはdevice前に拒否。世代はliteralのまま、退場や再出現でBODY／新世代へ付け替えない。共有のowner consumerを単独・Lock Onと混在kindへ接続し、製品のskill履歴gateのみflag3を受理する。入力123732、出力2345384／2945320wordは不変。新suite／shader entry／layout file／Runtime領域0、CPU正本・pinned・数値式・許容差・生成normalizer変更0。
+
+元Primの通常hit_countによるDEF効果は、この標本ではcanonical BODYを保持する。宣言ownerを理由に通常効果をADDへ転送していないことをCPU追加観測2と最終GPU recipientで確認した。typed event contextに伴うADD field投影が発動したとは主張しない。移動ADDの条件もtyped形状が所有者へ追従するattachmentの証明ではない。この2点とLock On死亡配送、incoming／回復／独立cover／配分との合成は残件。
+
+既存CLI typed-accumulateへ元編成の混在1件をappendして7件、typed-lock-accumulateは旧6件のまま実Metal＋独立seal成功。旧12件のinput・native・全rawは完全一致。v71はこの2memberのみ更新し他40基準は履歴のまま保持。最終206検査は同一169を再利用、registry13／台帳7／private owner11／arena6を新実行。既存arena guardの古い表記は、private8word／2048行を保つ厳密な条件分岐へ更新し、capacity／stride／offsetの故障3件を拒否。最終34条件と既存266の保存監査は追加戦闘／GPU0。
+
+UI http://127.0.0.1:4327/#single は修正版でHTTP200、設定／session変更0。Windowsはユーザーの空き確保後に1回だけCPU観測し16728104960byte（15.58GiB）を確認。旧resident stopと旧coordinate-lock SDKの出所は保持し、別sourceのartifactを流用しない。現Metal証明のsealed7件を含むsource ZIPとPTX-only planを用意した。計算は後続の新1条件へ限定する予定で、この段落は新SDK／CUDA計算成功を主張しない。生成＋PTXはSDK child60秒・Job2GiB・BelowNormal・合計180秒、実工程直前のRAM gateで不足なら再計測せず停止する。個人設定・raw・PTX／CUBIN・SDK配布物は共有source ZIPに含めない。以下は過去記録。
+
 ## 2026-11-02 標準266profileの通常180秒がMetal／CPU一致
 
 通常APIの固定・期待値・seed0・core50・宣言なしBODY1体で、元266profile／データ内203キャラの180秒計算が全Metal／CPU／HTTP一致。最終登録sourceでも保存rawから266件を再投影し追加battle／GPU0。選択した実行出所は39dispatch、最後の修正では入力全byte・GPU全依存ソース・CPU正本43fileを検査して258件を再利用、残7＋依存変更cover1の8件だけを新実行。API cache0／最終CPU fallback0。[全profile・出所・限界](../research/product-standard-long180-v1.json)。

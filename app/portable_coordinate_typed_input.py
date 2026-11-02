@@ -8,7 +8,7 @@ from destructible_skill_specs import coefficient
 
 def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False,coordinate_typed_aim=False,coordinate_typed_actors=False,coordinate_typed_owners=False,coordinate_logical_owners=False,mixed_weapon_kinds=False):
     from coordinate_typed_actor_policy import owns_fields,LOGICAL_FIELD_MODE
-    if type(mixed_weapon_kinds) is not bool or mixed_weapon_kinds and (not coordinate_weapon_targets or not coordinate_typed_owners or prepared.get('typed_actor_policy')!={'mode':'body-owned-current-fields-v1'} or {b.get('kind') for b in bindings}!={2,3}):raise ValueError('Mixed kinds require checked BODY-owned coordinate weapon policy')
+    if type(mixed_weapon_kinds) is not bool or mixed_weapon_kinds and (not coordinate_weapon_targets or not coordinate_typed_owners or not owns_fields(prepared.get('typed_actor_policy')) or {b.get('kind') for b in bindings}!={2,3}):raise ValueError('Mixed kinds require checked exact-owner coordinate weapon policy')
     logical_policy=prepared.get('typed_actor_policy')=={'mode':LOGICAL_FIELD_MODE}
     if type(coordinate_logical_owners) is not bool:raise ValueError('Explicit logical owner consumer policy required')
     if logical_policy and not coordinate_logical_owners:raise ValueError('Logical ADD ownership requires a new shared GPU consumer')

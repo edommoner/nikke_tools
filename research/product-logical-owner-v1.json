@@ -1,0 +1,1117 @@
+{
+  "schema": "product-logical-owner-v1",
+  "scope": "Existing exact logical BODY/ADD ownership into ordinary typed and typed+LockOn product paths,including mixed projectile/HP-shield kinds. Explicit declared model; actual in-game ownership/range rules are not certified.",
+  "review_base_commit": "4c70a7972a6a0df2736eb97913d52d467d944329",
+  "final_runtime_owner": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+  "source_packet": "product-logical-owner-run-v4-20261102/release-v2/packet",
+  "current_standard_metal_verified_profiles": 266,
+  "current_standard_metal_verified_characters": 203,
+  "standard_scope": "default BODY-only180s,fixed,expected=True,seed0,core50;all43 canonical CPU files and every input/GPU closure unchanged;all266 raw projections reaudited without battles/GPU",
+  "new_original_inventory_profiles": 0,
+  "typed_product_profile_families": 2,
+  "typed_product_distinct_squad_orders": 5,
+  "typed_conditions_attempted": 36,
+  "typed_conditions_metal_cpu_http_verified": 34,
+  "explicit_unresolved_conditions": [
+    {
+      "directory": "broken-api-v1",
+      "index": 2,
+      "variant": "typed-lock-fixed/mixed-broken-owner",
+      "error": "Unresolved dead/missing/stale lock delivery: 4",
+      "numeric_result_claimed": false,
+      "policy": "require-live-frozen-slot-v1",
+      "remaining": "Queued frozen target died before delivery; canonical declared CPU model intentionally rejects status4. No retarget/drop game rule is invented."
+    },
+    {
+      "directory": "broken-residual-api-v1",
+      "index": 0,
+      "variant": "typed-lock-accumulate/mixed-broken-owner",
+      "error": "Unresolved dead/missing/stale lock delivery: 4",
+      "numeric_result_claimed": false,
+      "policy": "require-live-frozen-slot-v1",
+      "remaining": "Queued frozen target died before delivery; canonical declared CPU model intentionally rejects status4. No retarget/drop game rule is invented."
+    }
+  ],
+  "ordinary_api_successful_dispatches": 8,
+  "api_cache_hits": 0,
+  "new_source_cuda_verified_profiles": 0,
+  "all_original_effect_definitions_preserved": true,
+  "no_cpu_schedule_or_state_supplied_to_gpu": true,
+  "input_words_unchanged": 123732,
+  "output_words_unchanged": [
+    2345384,
+    2945320
+  ],
+  "new_runtime_bytes": 0,
+  "new_suites_shader_entries_layout_files": 0,
+  "common_cuda_metal_implementation_and_tests": true,
+  "protected_cpu_pinned_numeric_tolerances_normalizer_unchanged": true,
+  "implementation": [
+    "Accept existing logical-owned-current-fields-v1 in declared product model;preserve explicit BODY mode and all literal owners",
+    "Check configured owner identities before device admission;shared owner functions preserve exact generations without BODY fallback",
+    "Connect existing typed owner consumer to standalone and LockOn,including mixed projectile/shield geometry",
+    "Extend only product skill-history admission to ownership flag3;private BODY flag1 admission unchanged",
+    "Allow mixed exact ownership in existing CPU comparison adapter;underlying reference damage/weapon/HP arithmetic unchanged",
+    "Update obsolete private weapon arena string guards to exact private8word/2048row conditional branches;capacity/stride/offset drift faults rejected"
+  ],
+  "old_cli_retention": {
+    "typed": {
+      "old_cases": 6,
+      "new_cases": 7,
+      "all_old_native_input_output_hashes_exact": true,
+      "old_complete_readback_prefix_sha_exact": true,
+      "other41_baselines_unchanged": true,
+      "new_tolerances": 0
+    },
+    "typed_lock": {
+      "cases": 6,
+      "input_native_and_full_raw_sha_exact": true,
+      "other40_baselines_unchanged": true,
+      "new_tolerances": 0
+    }
+  },
+  "metal_cli_cases": 13,
+  "independently_saved_native_audited_cli_cases": 13,
+  "final_checks": {
+    "files_checked": 1807,
+    "only_delta": [
+      "app/portable_product_programs.py",
+      "app/portable_weighted_incoming_source_contract.py",
+      "tests/fixtures/portable-product-boss-debuff-source-delta.json",
+      "tests/test_coordinate_typed_weapon_gpu.py"
+    ],
+    "product_cpu_tests": 189,
+    "reused_identical_unit_groups": 169,
+    "new_registry_and_ledger_tests": 20,
+    "additional_private_owner_and_arena_tests": 17,
+    "total_tests_accounted": 206,
+    "calculation_and_product_tests_byte_exact": true,
+    "canonical_cpu_files_byte_exact": 43,
+    "new_product_conditions_saved_audited": 32,
+    "default266_saved_audited": 266,
+    "extra_native_battles": 0,
+    "extra_gpu": 0
+  },
+  "final_successful_saved_api_audits": 34,
+  "saved_default_profile_audits": 266,
+  "final_audit_extra_battles_and_gpu": 0,
+  "owner_field_diagnostics": {
+    "records": [
+      {
+        "variant": "typed-accumulate/second-generation",
+        "api_index": 11,
+        "original_effect_names": [
+          "…자고 싶다"
+        ],
+        "native_owner_queries": 0,
+        "exact_add_owner_queries": 0,
+        "add_owner_generation": 2,
+        "full_native_public_response_equal": true,
+        "all_final_gpu_native_fields_equal": true,
+        "actual_final_fields": [
+          {
+            "owner": "프림",
+            "name": "…자고 싶다",
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ]
+            ]
+          }
+        ],
+        "no_claim_of_triggered_add_field_without_typed_event_context": true,
+        "queries_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "cpu_witness": "api-v1-11-owner-native-witness-v1.json"
+      },
+      {
+        "variant": "lock-prim-accumulate/dead-owner",
+        "api_index": 3,
+        "original_effect_names": [
+          "…자고 싶다"
+        ],
+        "native_owner_queries": 0,
+        "exact_add_owner_queries": 0,
+        "add_owner_generation": 1,
+        "full_native_public_response_equal": true,
+        "all_final_gpu_native_fields_equal": true,
+        "actual_final_fields": [
+          {
+            "owner": "프림",
+            "name": "…자고 싶다",
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ]
+            ]
+          }
+        ],
+        "no_claim_of_triggered_add_field_without_typed_event_context": true,
+        "queries_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "cpu_witness": "combined-api-v1-3-owner-native-witness-v1.json"
+      }
+    ],
+    "native_diagnostic_battles": 2,
+    "first_witness_reused_without_rerun": true,
+    "gpu_calls": 0,
+    "no_added_effect_definitions": true
+  },
+  "owner_field_scope": "Original Prim ordinary hit_count DEF fields remain canonical BODY in these samples;diagnostic typed-context query counts are0. No triggered ADD-field projection is claimed. Existing exact-owner functions are shared unchanged;private owner/lifecycle tests remain separate evidence.",
+  "proof_receipts": {
+    "product-logical-owner-run-v4-20261102/independent-audit-v1.json": "135439af249e50fe011512e2a25a029d1a3c1ae02d28f1f48b3100fe4779bf87",
+    "product-logical-owner-lock-run-v1-20261102/independent-audit-v1.json": "1c48dab5dd91f6dcf86b74a68c19bfab5c818414311ba4c39e66e54e8e2b3ed0",
+    "product-logical-owner-run-v4-20261102/release-v2/source-and-test-reuse-v1.json": "993ea66a6f64366cbf627871869cd6d961c7ef62d225ad4863c65aebe55817ce",
+    "product-logical-owner-run-v4-20261102/owner-field-diagnostics-v1.json": "bc18c87b9b4fa8b02e97472a4f4c280bc00678094b01428f5d72f7e160dc091f",
+    "product-standard180-run-v5-20261102/joined-audit-v1/logical-owner-final-audit-v1.json": "ace9527a4777dd43b90e888cd1b42cf0405931a73923bf5763450d9c4833d9ee"
+  },
+  "ui": {
+    "url": "http://127.0.0.1:4327/#single",
+    "pid": 80187,
+    "html_http200": true,
+    "root": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/runtime-resident",
+    "prior_owned_server_group_stopped": true,
+    "user_sessions_or_settings_modified": false,
+    "persistent_ui_server_intentionally_running": true,
+    "additional_calculations": 0
+  },
+  "windows": {
+    "readiness_turn": "01a199cc-b3d3-7e71-8749-ede5918b9c2f",
+    "readiness_cursor": "20f61e43-c193-4c3d-95b9-55e58cc5d5d8:51",
+    "readiness_available_physical_bytes": 16728104960,
+    "readiness_observed_at_jst": "2026-11-02T10:09:14.702634+09:00",
+    "readiness_one_sample": true,
+    "readiness_report_sha256": "b6452e2e0b1c896d02d0a228fd92c826a39fb87b82acbbf31bbdf6cabbe489fe",
+    "readiness_full_report_imported": false,
+    "old_resident_stop_preserved": true,
+    "older_coordinate_sdk_not_reused": true,
+    "ptx_plan_passed": true,
+    "new_source_sdk_request_prepared": true,
+    "new_source_sdk_request_sent_at_this_record": false,
+    "new_sdk_gpu_executions_at_this_record": 0,
+    "source_request": "product-logical-owner-windows-request-v1.json"
+  },
+  "retained_failures": [
+    "v1 package rejected by old CPU mixed-kind policy guard;before GPU",
+    "v2 test incorrectly selected final case by list index after corpus append;selected moving-long30 by explicit variant instead",
+    "v3 old6 all native/input/full readback exact,new case status64 from BODY-only skill-history admission;fixed in product-scoped gate",
+    "private footprint validator had obsolete pre-continuation spellings;exact private branch guards and3fault checks replace them",
+    "selected sealed packet rejected by existing --case requires --develop policy;preserved andbuilt full7 sealed packet without changing policy",
+    "owner field diagnostic expected an ADD field without actual typed event context;witness retained and reused to verify real canonical BODY behavior without rerunning its battle",
+    "finite LockOn target-death cases rejected by both existing CPU declared policy and GPU status64;not counted as support"
+  ],
+  "remaining": [
+    "LockOn frozen-target death/missing delivery needs an explicit supported model;do not silently drop or retarget",
+    "ADD-owned moving typed attachments:current movement case moves logical owners,not typed authored shapes",
+    "Triggered typed-context owner field behavior is not newly proven by these ordinary sample effects",
+    "Typed worlds with incoming magazines,healing,independent cover and weighted damage composition",
+    "Current source CUDA execution and unrestricted all-character/all-effect scenes"
+  ],
+  "full_goal_complete": false,
+  "profile_results": [
+    {
+      "directory": "api-v1",
+      "index": 0,
+      "variant": "typed-fixed/mixed",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_fixed_battle_entry.slang",
+      "definitions": 71,
+      "input_sha256": "1e39f463cbfba8265704b43ed40b5f367c39fab2c89e5314be88d0ddf1702bf8",
+      "output_sha256": "efd959ff8f3bd40e085a39a720a306ae8f04c607eb777234bb8e05bc516e0ff6",
+      "capture": "0d2f3b5ecee4470989a4c186217065a3",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 260,
+      "typed_shot_count": 40,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 1,
+      "variant": "typed-fixed/projectiles",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_fixed_battle_entry.slang",
+      "definitions": 71,
+      "input_sha256": "9a37f56a453392b54a65484e062d5a6d3f1d5c279894653b899730f6ee77e8b9",
+      "output_sha256": "13f0682956b71d2dbb2bf267a3d746e4e2e4a520087b97f6f2b7531dbac4d009",
+      "capture": "471e50d4cc614c848f9268dc67a4a876",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 260,
+      "typed_shot_count": 40,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 2,
+      "variant": "typed-fixed/shields",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_fixed_battle_entry.slang",
+      "definitions": 71,
+      "input_sha256": "97efba92f994102d38850280334b88cdc87eb70f2e8c7e4c6fdfeab84fc1a3ec",
+      "output_sha256": "570565db6d6d4e8bc2232f1310959eb5cd3ce3f58e76964c867a212b633ee67a",
+      "capture": "9a82fc5911064c5cbeb4f7dfe0a785d1",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 260,
+      "typed_shot_count": 40,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 3,
+      "variant": "typed-fixed/dead-owner",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_fixed_battle_entry.slang",
+      "definitions": 71,
+      "input_sha256": "fa2eab0d7adf5d373fad7b0336e736d71425e080f88c6943c206bc57a7a62566",
+      "output_sha256": "48f96461531b2ddb723b82b2f9f240d7b2c2f7fa8ee675dc2b391a17863824d5",
+      "capture": "abc197eea5744b6887ac96811f1287e4",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 260,
+      "typed_shot_count": 40,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 4,
+      "variant": "typed-fixed/second-generation",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_fixed_battle_entry.slang",
+      "definitions": 71,
+      "input_sha256": "0c8110ef1c88d6805e5c50ba1003b2b425c0d4f2069e8027a021f95175e09443",
+      "output_sha256": "9da5a8374679da872255b803c6c377a57862406142811d8ab1df3549bfd36775",
+      "capture": "165866e985a543798b827f4e0b5e4803",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 218,
+      "typed_shot_count": 40,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 5,
+      "variant": "typed-fixed/typed-reentry",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_fixed_battle_entry.slang",
+      "definitions": 71,
+      "input_sha256": "d5841e183ed7905b2769fbca8d1b124e52e29a220db8adae062e7904b4abbfbe",
+      "output_sha256": "7d210256e108c12f667b28823527001c52422a77bcb792d4cfe228f30160658a",
+      "capture": "8a5135343a1f4750b21f2b003fc7a8b4",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 64,
+      "typed_shot_count": 40,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        2,
+        2
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 6,
+      "variant": "typed-fixed/moving-owner",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "유니"
+      ],
+      "source": "gpu/product_typed_fixed_battle_entry.slang",
+      "definitions": 73,
+      "input_sha256": "0be90b687e5d77bb328a7e7a8700c65515df27d216e00828c9a7ef0a652948da",
+      "output_sha256": "ba4c879c990857318353d31482a553a6a10064cd328ecf7619f3f6f83196edd6",
+      "capture": "83ab62d30c83455e9c7155c3b4c86e8c",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 148,
+      "typed_shot_count": 32,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 7,
+      "variant": "typed-accumulate/mixed",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_battle_entry.slang",
+      "definitions": 71,
+      "input_sha256": "589d8feb1dc9928fcb32ca01c068a95f72bb1ca42244f4efee3db215ee95477e",
+      "output_sha256": "fef677bccf60ece6493f2fd10641a7b58212ce89d22f5699c5ea3eccced1c794",
+      "capture": "c09bc4cb90984940999418ab9c75704a",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 260,
+      "typed_shot_count": 40,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 8,
+      "variant": "typed-accumulate/projectiles",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_battle_entry.slang",
+      "definitions": 71,
+      "input_sha256": "b1bca8ff22ea72672cd3c59926f0acc8c6baccef69ace8c817f92343ea57c383",
+      "output_sha256": "3f1ecc7d7339b57162ca2bbe90697f63e19b756d627dc03ccf1fedb496df53a0",
+      "capture": "1925856c8fed4682bb1d9c2640151c4c",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 260,
+      "typed_shot_count": 40,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 9,
+      "variant": "typed-accumulate/shields",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_battle_entry.slang",
+      "definitions": 71,
+      "input_sha256": "a2805d685e6a7c559b12aefd352e352670e5e1e2eae294a5b48bec7342ae7246",
+      "output_sha256": "92ea05b8b09f21098c21557e03a2f62b19c3bfaab365769023896ce446884b9a",
+      "capture": "b959caef3edd40ef90685fd8b98bc0c3",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 260,
+      "typed_shot_count": 40,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 10,
+      "variant": "typed-accumulate/dead-owner",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_battle_entry.slang",
+      "definitions": 71,
+      "input_sha256": "973d2def8fc091860e4da777df568e8e0191ec3dd77c57fb86355450d15aa15f",
+      "output_sha256": "fffa944d30cc7f402a921fccbff95ae8819abff6b12a137c445b7ee54243ae63",
+      "capture": "3ac74946586b4d64964477d6f1da5059",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 260,
+      "typed_shot_count": 40,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 11,
+      "variant": "typed-accumulate/second-generation",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_battle_entry.slang",
+      "definitions": 71,
+      "input_sha256": "05dd9b5f63948ce64d96a71ca2b05dfb46d5fc71ad55f67604bf841c6a053b1b",
+      "output_sha256": "6b5fa3041505ebace09bccba7701e5fc42623f705d7edff0586a5b01a9db85c9",
+      "capture": "03c612a30875481e902a69d89dd54563",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 218,
+      "typed_shot_count": 40,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 12,
+      "variant": "typed-accumulate/typed-reentry",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_battle_entry.slang",
+      "definitions": 71,
+      "input_sha256": "5507e9b312e343097f7a564a6e786e6c6b2f3db6c789d08f15f137604a9e586b",
+      "output_sha256": "546578edc04a2d08ebe8d350b9e5f2e731bba157afe13201be7ea7004a8c937f",
+      "capture": "3c90138424344927bcc87cd15bcda35b",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 64,
+      "typed_shot_count": 40,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        2,
+        2
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 13,
+      "variant": "typed-accumulate/moving-owner",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "유니"
+      ],
+      "source": "gpu/product_typed_battle_entry.slang",
+      "definitions": 73,
+      "input_sha256": "e671bf5aaba1368e6e6408f919f6a171c0042a12d5fb948e3f31e93835630d6f",
+      "output_sha256": "2e4495d85b7e56843458df13919a926618e21367b83c1f94234d00e06ea7ce86",
+      "capture": "d3b03812ee724bffa260906a4d9ad15a",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 148,
+      "typed_shot_count": 32,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 14,
+      "variant": "typed-lock-fixed/mixed",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "definitions": 91,
+      "input_sha256": "b3e9359850d244d71d31a1e40f6732621f26c27fd66d55c51d46f5a4a261ffa3",
+      "output_sha256": "f20c34d28000aa443637b8553617dab897e2d45614d1c28bd241558d675cc1da",
+      "capture": "def181eb7f3c426a9596c8d78e34185d",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 215,
+      "typed_shot_count": 217,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 15,
+      "variant": "typed-lock-fixed/projectiles",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "definitions": 91,
+      "input_sha256": "357d6421503ea3cb005f7e35f6f6469e4bdc11386ed14817188ad5a067562503",
+      "output_sha256": "5ad9bca3bb7e304eaabe6433e9220b9b033c3b2bda19517a8eb7445e2c90e07a",
+      "capture": "56609019c8284e7cacc27dd0b0d4d8fb",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 215,
+      "typed_shot_count": 217,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 16,
+      "variant": "typed-lock-fixed/shields",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "definitions": 91,
+      "input_sha256": "906c286b99c95f10ef2f005e8c97917b0cdd41a965e24a0c478d8370ee06f0d0",
+      "output_sha256": "18b868fce26aaf4ad57a0943367f641dac23c93c863b73ca01b493528dfbd713",
+      "capture": "822c8433381b4a6d8f7aee0128071de7",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 215,
+      "typed_shot_count": 217,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 17,
+      "variant": "typed-lock-fixed/dead-owner",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "definitions": 91,
+      "input_sha256": "173123e8291f55594c7ee0dbd765b941658383b3d718d5e4948e89d4d49bea01",
+      "output_sha256": "88d3616c44516a647a7c4aefb8801d18505161a96167cd608345ef053aed131e",
+      "capture": "455e46f2e50c42acb21234e72e33920b",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 215,
+      "typed_shot_count": 217,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 18,
+      "variant": "typed-lock-fixed/second-generation",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "definitions": 91,
+      "input_sha256": "4af5c54711a7d8b0dfbc4fc60046ab060a3b4cf9c3c3ce023b4ee5ac7045bcbc",
+      "output_sha256": "e9e797dc0a975776f6ccb46e5296e13516c7c7baf930624c02c956cf4dee9261",
+      "capture": "2222b99d9b3348719e3e76ef7d7a80d6",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 217,
+      "typed_shot_count": 217,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 19,
+      "variant": "typed-lock-fixed/typed-reentry",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "definitions": 91,
+      "input_sha256": "68db92f6ca0c3137544b85433d49c2903f23ff2cb56cb249442d3fe739b323bc",
+      "output_sha256": "c12bf0cc056a2d85116c5ed22bee5ce8b69c8c1feab0abda15177392cdeeef3e",
+      "capture": "435c33dc9ba74accb06b8c9698e2d200",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 85,
+      "typed_shot_count": 217,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 20,
+      "variant": "typed-lock-fixed/moving-owner",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "유니"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "definitions": 93,
+      "input_sha256": "821636a1cb7253201af74c4e2ce6b29e01ef467f2cb75e98cbe2acf3f71604ed",
+      "output_sha256": "18eb5eebad8ad94eb4b5ee03a71a5d01a489ba08d94843050b7ba182c4a8433c",
+      "capture": "f302675c6b0e4d80ac162e5fbaf8dbba",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 141,
+      "typed_shot_count": 209,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 21,
+      "variant": "typed-lock-accumulate/mixed",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "definitions": 91,
+      "input_sha256": "70757b2497884f31556732f9e7b63cef860bb03b6b0382afba30d60690b1364e",
+      "output_sha256": "3582d1426f049ca19a9bb3631aa0244c2293dbbc26705f08965fca8f4cc720cc",
+      "capture": "ffacca7607464864b14c1f28d44c68ff",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 215,
+      "typed_shot_count": 217,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 22,
+      "variant": "typed-lock-accumulate/projectiles",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "definitions": 91,
+      "input_sha256": "b42ba46749ab86ddb75f31f4d3ddae6a08d502805f898de11486f85006c2a194",
+      "output_sha256": "103bae82e681f5f1b521d8d0eaa5b86460be95212fe30dbb49e2e3f6c18642a7",
+      "capture": "9c39e3c94d03496a97229a2574fd0682",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 215,
+      "typed_shot_count": 217,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 23,
+      "variant": "typed-lock-accumulate/shields",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "definitions": 91,
+      "input_sha256": "35bf5e00d647e58790885977306eee2539aae600c2e169737c9379e480c46b9f",
+      "output_sha256": "1662c1d584b2fa7a338d222e01ea54420452a6c79a77d9fff72535ef949f1837",
+      "capture": "96fc26a9a2b240b2b9a84f4a4307b707",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 215,
+      "typed_shot_count": 217,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 24,
+      "variant": "typed-lock-accumulate/dead-owner",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "definitions": 91,
+      "input_sha256": "f9b28ecac3ebf504ac4938ccf715cd901983c154c3b24c4e2838c8525c0532ae",
+      "output_sha256": "e2d604239ad520da51337b38b8f614748c9f9774ed439208ba911cc8f0824dd1",
+      "capture": "1866fdf8f6244332913aca03342af804",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 215,
+      "typed_shot_count": 217,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 25,
+      "variant": "typed-lock-accumulate/second-generation",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "definitions": 91,
+      "input_sha256": "0e88f4ee17adf39c65d63c033c13818661724822c5a361ae044a95e174b42137",
+      "output_sha256": "6e389f9bfbd31e6193e76e20955237dc06f0ae98adb7b52e82c2d79d25f4aa8b",
+      "capture": "2fe21e82e2fe46bbbec877521909bba1",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 217,
+      "typed_shot_count": 217,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 26,
+      "variant": "typed-lock-accumulate/typed-reentry",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "definitions": 91,
+      "input_sha256": "27e3d5163c2309a78417e3d3ecda694666d39e0c37e9388033b800597f228c08",
+      "output_sha256": "29809495dd4b4fa2e51619039d3b8fe143e9e1fa0075fa121a71f9bd3c0fb4de",
+      "capture": "398b08d8f25946fbae6d556e8d959865",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 85,
+      "typed_shot_count": 217,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "directory": "api-v1",
+      "index": 27,
+      "variant": "typed-lock-accumulate/moving-owner",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "유니"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "definitions": 93,
+      "input_sha256": "b8b9b5110ba65edb13297cf13124fbbcda620b78d1cc2db69a6b880ef2c5a655",
+      "output_sha256": "25c22dbad818b2fa63f006ddf07a05f68192095aeee4fe093295ad8c7661dda2",
+      "capture": "8c8470397b62438f85a4dc31aad35c9a",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 141,
+      "typed_shot_count": 209,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "combined-api-v1",
+      "index": 0,
+      "variant": "lock-prim-fixed/mixed",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "프림"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "definitions": 92,
+      "input_sha256": "a83bc0f95422070714bb14e45229085884a18b54f686aa3dac81fd602b6b01bb",
+      "output_sha256": "2423434a29ea05a7230593f8096c4bd1e95423a831697f2d0be465d7b22d5d6d",
+      "capture": "f64d57bfee7a4c1886e015ac86b458c8",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 138,
+      "typed_shot_count": 211,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "combined-api-v1",
+      "index": 1,
+      "variant": "lock-prim-fixed/dead-owner",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "프림"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "definitions": 92,
+      "input_sha256": "b38994cceaddcfc5a996ab9eea908b9eeebe40839c5d36e224dc154305da9fa2",
+      "output_sha256": "70172791a9bf6accb0f1b7745c48b0874110bbcb0a7e3f42d5a9f5302cc51602",
+      "capture": "0faba40039d44af7b52c2dbf43413824",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 138,
+      "typed_shot_count": 211,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "combined-api-v1",
+      "index": 2,
+      "variant": "lock-prim-accumulate/mixed",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "프림"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "definitions": 92,
+      "input_sha256": "7fcfbf50b86669c411bfc5e1fcf0860be106eae0233af0dfc84c6ec430d79fd8",
+      "output_sha256": "95bddac207c053776db8593ed323d5b9930afb9d0636e5b3292e660b62305651",
+      "capture": "a162df4f3b2143f99c8a7586d0642ba4",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 138,
+      "typed_shot_count": 211,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "combined-api-v1",
+      "index": 3,
+      "variant": "lock-prim-accumulate/dead-owner",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "프림"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "definitions": 92,
+      "input_sha256": "8856a753b35a3b9e20d64beabd459d8f30ae327b674f5e729df3be889c29f958",
+      "output_sha256": "2370e886fa9e60d152cdc581758da58bfa0a787a072894a96a4cdc4d8f3ff656",
+      "capture": "9993861d46b745ba9863f20b145f39c9",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 138,
+      "typed_shot_count": 211,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "broken-api-v1",
+      "index": 0,
+      "variant": "typed-fixed/mixed-broken-owner",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_fixed_battle_entry.slang",
+      "definitions": 71,
+      "input_sha256": "212620f366ed7cff47835bdb430ff0f53e3e5d9ceb3a399087023000bcc2e0a4",
+      "output_sha256": "da7a38ffce4e7dbd3b18f5970999e873701d5de2586a70390a6d4d08e62bcf9a",
+      "capture": "136f60c0fa484ae3b4caf29cb66dab2b",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 20,
+      "typed_shot_count": 40,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1
+      ]
+    },
+    {
+      "directory": "broken-api-v1",
+      "index": 1,
+      "variant": "typed-accumulate/mixed-broken-owner",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_battle_entry.slang",
+      "definitions": 71,
+      "input_sha256": "6df7114a3f3f1f794559a1a8713eb94e314b95597b2b84741595d69f111f9268",
+      "output_sha256": "e91a140d04d69527fbb4eccc6327fcf5efe7c57f03b756c69b417a69f04b6ce2",
+      "capture": "5376cf6f43e44c4f8c7f694f2b364a04",
+      "all_cpu_gpu_http_fields_equal": true,
+      "literal_owner_handles_preserved": true,
+      "typed_packet_count": 20,
+      "typed_shot_count": 40,
+      "typed_final_alive": 0,
+      "typed_final_generations": [
+        1,
+        1
+      ]
+    }
+  ]
+}

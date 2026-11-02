@@ -3,7 +3,7 @@ import copy
 from contextlib import contextmanager
 from product_coordinate_model import normalize as coordinate_spec
 from coordinate_typed_aim_runtime import normalize as aim_spec
-from coordinate_typed_actor_policy import normalize as actor_spec,validate_bindings,FIELD_MODE
+from coordinate_typed_actor_policy import normalize as actor_spec,validate_bindings,FIELD_MODE,LOGICAL_FIELD_MODE
 from portable_typed_geometry_specs import normalize as geometry_spec
 
 
@@ -18,7 +18,7 @@ def normalize_product(value):
         if any(rule.get('selection')!='primary-center-edge-v1' for rule in rules):raise ValueError('Typed nearby rules require the explicit primary-center-edge policy')
         spec['nearby_rules']=rules
     aim_spec(spec['aim_policy']);actor_spec(spec['actor_policy'])
-    if spec['actor_policy']!={'mode':FIELD_MODE}:raise ValueError('Product typed targets require declared BODY-owned current fields')
+    if spec['actor_policy'] not in ({'mode':FIELD_MODE},{'mode':LOGICAL_FIELD_MODE}):raise ValueError('Product typed targets require declared exact logical ownership')
     rows=spec['bindings']
     if type(rows) is not list or not 1<=len(rows)<=128:raise ValueError('One to128 typed bindings required')
     from destructible_target_state import DestructibleTargets
@@ -33,6 +33,18 @@ def normalize_product(value):
     geometry_spec(spec['geometry'],len(rows),next(iter(kinds)))
     if spec['geometry'].get('point_source')!='caster_aim' or spec['geometry'].get('grow',0)!=0:raise ValueError('Typed product weapons require declared live caster aim and zero authored growth')
     return spec
+
+
+def validate_logical_owners(spec,bindings):
+    """Check literal owner identity against the same compiled enemy registry.
+
+    Generations stay literal; a future birth is not supplied by a CPU schedule
+    and re-entry never silently binds an old owner to the current generation.
+    """
+    if spec['actor_policy']!={'mode':LOGICAL_FIELD_MODE}:return
+    known={(int(b.kind),b.identity) for b in bindings}
+    if any(tuple(row['owner'][:2]) not in known for row in spec['bindings']):
+        raise ValueError('Typed owner must identify a configured logical enemy')
 
 
 def public_from_words(spec,state,rows,names,duration):

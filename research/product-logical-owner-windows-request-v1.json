@@ -1,0 +1,40 @@
+{
+  "schema": "product-logical-owner-windows-request-v1",
+  "package_id": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+  "source": "gpu/product_typed_battle_entry.slang",
+  "entry": "portableEvents",
+  "input_words": 123732,
+  "output_words": 2345384,
+  "source_packet": "research/windows-source-packets/product-logical-owner-current-v1.zip",
+  "source_packet_bytes": 12268182,
+  "source_packet_sha256": "3b2cff4d6eebe0530fcf060880c94bb990a61829eab4ca40cc6d4ff722eec764",
+  "metal_native_verified_case_count": 7,
+  "requested_first_stages": [
+    "paired-generation",
+    "compile-ptx"
+  ],
+  "cpu_only_sdk_stages": true,
+  "requested_gpu_dispatches": 0,
+  "later_api_target": "product/typed-accumulate/logical-owner-mixed-8s",
+  "ram_gate": {
+    "required_available_bytes": 4294967296,
+    "fresh_samples_per_execution_gate": 1,
+    "stop_without_resampling_if_insufficient": true,
+    "earlier_readiness_only_available_bytes": 16728104960,
+    "earlier_readiness_is_not_fresh_sdk_admission": true
+  },
+  "budget": {
+    "total_wall_seconds": 180,
+    "sdk_child_seconds": 60,
+    "memory_limit_mb": 2048,
+    "below_normal": true,
+    "fresh_child_job_and_start_gate_required": true
+  },
+  "preserve_original_workspace": true,
+  "old_resident_owner": "5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622",
+  "reuse_old_artifact_claim": false,
+  "stop_on_any_timeout_or_failed_gate": true,
+  "no_cubin_fallback_or_retries": true,
+  "no_full_battle_tests_before_compile": true,
+  "scope": "Existing CLI/compiler transport only; no SDK distribution,private settings,raw or generated PTX/CUBIN in this GitHub payload"
+}

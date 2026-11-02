@@ -13,6 +13,15 @@ class TypedWeaponInputTests(unittest.TestCase):
         from portable_arena_specs import audit_profile,audit_regions,Region
         plan=check_layout(ROOT);self.assertEqual((plan['input_words'],plan['output_words']),(115680,2032000))
         self.assertEqual((plan['extra_runtime_bytes'],plan['extra_output_words']),(0,0))
+        original=Path.read_text;shader=ROOT/'gpu/coordinate_typed_weapon_runtime.slang'
+        for before,after in (('CTW_KEEP=2048U','CTW_KEEP=2047U'),('return 8U;','return 10U;'),('170976)+64+index','170976)+65+index')):
+            def changed(path,*args,**kwargs):
+                text=original(path,*args,**kwargs)
+                if path==shader:
+                    self.assertIn(before,text);return text.replace(before,after)
+                return text
+            with self.subTest(drift=before),patch.object(Path,'read_text',changed):
+                with self.assertRaisesRegex(ValueError,'consumer arena changed'):check_layout(ROOT)
         self.assertTrue(plan['all_records_hashed']);self.assertTrue(plan['weapon_only_requires_zero_skill_routes'])
         self.assertTrue(audit_profile('coordinate-typed-weapon-v1')['address_plan_verified'])
         rows,iw,ow=regions();self.assertFalse(audit_regions(rows+[Region('output','overlap',1769856+171040,1)],iw,ow)['address_plan_verified'])

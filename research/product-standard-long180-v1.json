@@ -4184,5 +4184,14 @@
     "product-ammo-resource-long-run-v2-20261102/complete-original-resource-v1.json": "1347ca20f5df1ca68b52c966065c0028e927fc72132e8a963d76d78b53c2a307",
     "product-public-long-groups-run-v1-20261102/complete-original-history-v1.json": "80cf37602ba5d78a6c2daa5c50bec1f2451f68ae4d77ed4681ad38ca94aaa1f1",
     "product-standard180-run-v5-20261102/joined-audit-v1/final-audit-progress-v1.json": "ace9527a4777dd43b90e888cd1b42cf0405931a73923bf5763450d9c4833d9ee"
+  },
+  "latest_typed_owner_product_proof": "product-logical-owner-v1.json",
+  "standard266_current_source_reaudit": {
+    "owner": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+    "canonical_cpu_files_byte_exact": 43,
+    "all_prepared_inputs_and_complete_shader_closures_exact": true,
+    "all_saved_raw_projections_equal": true,
+    "extra_native_battles": 0,
+    "extra_gpu": 0
   }
 }

@@ -14,10 +14,10 @@ OUTPUT_WORDS=1048576
 
 def pack_target_input(words,meta,original,patterns,bindings,probe_row,probe_kind,max_attacks,*,weapon_only=False,logical_owner_bindings=False,empty_body=False,mixed_weapon_kinds=False,coordinate_weapon_world=False):
     """Same typed input block at either arena base; no battle/schedule evaluation."""
-    if type(coordinate_weapon_world) is not bool or coordinate_weapon_world and (weapon_only or logical_owner_bindings or probe_row is None or probe_kind!=2 or not bindings or any(b.get('kind') not in (2,3) or b.get('owner')!=[0,0,1] for b in bindings)):raise ValueError('Routed coordinate weapon world requires BODY-owned projectile/HP shield bindings and the original projectile source')
-    if type(mixed_weapon_kinds) is not bool or mixed_weapon_kinds and (not weapon_only or logical_owner_bindings or {b.get('kind') for b in bindings}!={2,3}):raise ValueError('Mixed kinds require an explicit weapon-only projectile/shield universe')
+    if type(coordinate_weapon_world) is not bool or coordinate_weapon_world and (weapon_only or probe_row is None or probe_kind!=2 or not bindings or any(b.get('kind') not in (2,3) or not logical_owner_bindings and b.get('owner')!=[0,0,1] for b in bindings)):raise ValueError('Routed coordinate weapon world requires exact-owner projectile/HP shield bindings and the original projectile source')
+    if type(mixed_weapon_kinds) is not bool or mixed_weapon_kinds and (not weapon_only or {b.get('kind') for b in bindings}!={2,3}):raise ValueError('Mixed kinds require an explicit weapon-only projectile/shield universe')
     if type(weapon_only) is not bool or weapon_only and probe_row is not None:raise ValueError('Weapon-only descriptor cannot name a skill probe')
-    if type(logical_owner_bindings) is not bool or logical_owner_bindings and not weapon_only:raise ValueError('Logical owners require their explicit weapon-only descriptor')
+    if type(logical_owner_bindings) is not bool or logical_owner_bindings and not (weapon_only or coordinate_weapon_world):raise ValueError('Logical owners require their explicit coordinate weapon descriptor')
     if type(empty_body) is not bool or empty_body and (bindings!=[] or not weapon_only or logical_owner_bindings):raise ValueError('Empty body requires no typed bindings or logical owners')
     if logical_owner_bindings:
         from coordinate_typed_actor_policy import validate_bindings,LOGICAL_FIELD_MODE

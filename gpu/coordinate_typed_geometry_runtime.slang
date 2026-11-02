@@ -9,7 +9,11 @@ bool validTypedGeometry(inout Runtime s)
     uint n=commands[p+2],kind=commands[p+3];
     bool mixed=false;
 #ifdef PORTABLE_COORDINATE_TYPED_MIXED
-    mixed=kind==0&&coordinateTypedWeapons(s)&&commands[p+12]==1&&commands[p+15]==2;
+    bool mixedOwners=commands[p+12]==1;
+#ifdef PORTABLE_COORDINATE_LOGICAL_OWNERS
+    mixedOwners=mixedOwners||commands[p+12]==3;
+#endif
+    mixed=kind==0&&coordinateTypedWeapons(s)&&mixedOwners&&commands[p+15]==2;
 #endif
     if(commands[p]!=TG_MAGIC||commands[p+1]!=1||n<1||n>128||n!=commands[p+2320]||(!mixed&&kind!=2&&kind!=3))return false;
     for(uint i=4;i<10;i+=2)if(!f64Finite(cNumber(p+i)))return false;

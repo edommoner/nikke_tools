@@ -23,6 +23,15 @@ def check_layout(root):
     if not audit['address_plan_verified']:raise ValueError('Typed weapon arena overlaps')
     if LAYOUT['FRAME']+LAYOUT['TARGETS']*LAYOUT['TARGET_WORDS']!=640 or 640+128!=LAYOUT['META_WORDS']:raise ValueError('Typed ordering must fit the unused sampling metadata tail')
     text=(root/'gpu/coordinate_typed_weapon_runtime.slang').read_text()
-    for literal in ('CTW_KEEP=2048U,CTW_WORDS=24U','DT_OUTPUT(s.resourceOutput,170976)','hit*8','+8192','h+64+min(count,CTW_KEEP)*CTW_WORDS'):
+    # The private consumer still has an8-word pellet and2048-row prefix.
+    # Product/mixed continuations are explicit conditional branches; verify the
+    # exact private branch rather than obsolete pre-continuation spellings.
+    for literal in ('CTW_WORDS=24U',
+        '#ifdef PORTABLE_PRODUCT_TYPED_MOTION\nstatic const uint CTW_KEEP=PTW_KEEP;\n#else\nstatic const uint CTW_KEEP=2048U;\n#endif',
+        'return DT_OUTPUT(s.resourceOutput,170976)+64+index*CTW_WORDS;',
+        '#ifdef PORTABLE_COORDINATE_TYPED_MIXED\n    if(commands[DF_EXTRA(s)+3]==0)return CTW_PELLET_WORDS;\n#endif\n    return 8U;',
+        'return CTW_SCRATCH(s)+hit*ctwPelletWords(s);',
+        'return CTW_SCRATCH(s)+1024U*ctwPelletWords(s);',
+        'uint at=ctwRecord(s,min(count,CTW_KEEP));'):
         if literal not in text:raise ValueError('Typed weapon consumer arena changed')
     return dict(plan,weapon_only_requires_zero_skill_routes=True,typed_order_words=128,retained_records=RETAINED,all_records_hashed=True,extra_runtime_bytes=0,extra_output_words=0)
