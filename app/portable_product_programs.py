@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v72-expected.json'
+GOLDEN = 'research/portable-product-programs-v73-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -287,6 +287,16 @@ def logical_owner_body(root,name='typed-accumulate'):
     return body
 
 
+def incoming_typed_body(root,name='typed-accumulate'):
+    """Original exact-owner squad with the shared literal incoming attack node."""
+    body=logical_owner_body(root,name)
+    body['enemy']['patterns'].append(dict(id='typed-incoming',kind='attack',delay=.75,
+        spec=dict(atk=10000.,coeff=100.,target='all',hits=5,interval=.5,
+            debuffs=[dict(stat='atk_pct',value=-10,duration=2.),
+                dict(stat='dot',coeff=10,interval=.5,duration=1.)])))
+    return body
+
+
 def manual_typed_body(root,name='typed-accumulate'):
     """Existing explicit posture controls in the same exact-owner world."""
     body=logical_owner_body(root,name)
@@ -404,4 +414,5 @@ def cases_for_program(root,name=None):
     if name=='typed-accumulate':
         rows.append(('logical-owner-mixed',logical_owner_body(root,name)))
         rows.append(('manual-posture',manual_typed_body(root,name)))
+        rows.append(('incoming-attacks',incoming_typed_body(root,name)))
     return rows

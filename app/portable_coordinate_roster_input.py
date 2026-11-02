@@ -60,7 +60,13 @@ def compile_coordinate_battle(prepared,*,typed_aim_targets=None):
     words+=pack_burst(names,delays=resolved.get('burst_delay'),waits=waits,patterns=resolved.get('burst_pattern'),sequence=resolved.get('burst_sequence'))
     seed=normalize_seed(prepared['policies']['seed']);words[META_BASE+1:META_BASE+3]=[seed&0xffffffff,seed>>32];meta['enemy_targeting']['seed']=seed
     if len(words)!=INPUT_WORDS:raise ValueError('Original complete coordinate stride changed')
-    if set(meta['binding_source_indices'])!=set(range(len(prepared['effects']))):raise ValueError('Original definition coverage is incomplete')
+    sources=meta['binding_source_indices'];original_count=len(prepared['effects'])
+    external=set(meta.get('boss_debuffs',{}).get('definitions',()))
+    from portable_specs import FIELDS as F
+    if (set(sources)!=set(range(original_count+len(external)))
+            or {row for row,source in enumerate(sources) if source>=original_count}!=external
+            or any(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['OWNER']]!=5 for row in external)):
+        raise ValueError('Original definition coverage or explicit external boss ownership is incomplete')
     if typed_aim_targets is not None or any(c.get('aim') for c in case['controls']):words[L['WORLD_META_BASE']+4]=0x46414330|int(bool(cfg.get('aim_interrupt')))
     meta['coordinate_original_input']=dict(all_effects_included=True,prepared_definitions=len(prepared['effects']),bound_definitions=len(meta['effects']),policy_mask=policy[2],original_weapon_metadata_preserved=True,original_controls_preserved=True,cpu_battle_executed=False,reference_kind='deterministic-common-cpu',physical_rng='sampled',definitions_sha256=hashlib.sha256(json.dumps(prepared['effects'],ensure_ascii=False,sort_keys=True).encode()).hexdigest())
     if owners:meta['coordinate_original_input']['group_owners']=owners

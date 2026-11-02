@@ -1079,6 +1079,23 @@ class ProductReferenceModels(unittest.TestCase):
         from portable_specs import shader_schema
         self.assertIn('#elif defined(PORTABLE_PRODUCT_LONG_LOCK)\nstatic const uint P_OUTPUT_WORDS = PL_LAYOUT_OUTPUT;',shader_schema())
 
+    def test_typed_incoming_preserves_literal_attacks_and_explicit_cover_boundary(self):
+        from portable_runtime import UnsupportedPortable
+        from portable_product_programs import incoming_typed_body
+        from portable_detail import prepare,compile_product
+        for name in ('typed-fixed','typed-accumulate'):
+            body=incoming_typed_body(ROOT,name);before=copy.deepcopy(body)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU incoming schedule supplied to GPU')):
+                pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
+            self.assertEqual(body,before)
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects'])+2)))
+            self.assertEqual(len(meta['boss_debuffs']['definitions']),2)
+            self.assertFalse(meta['boss_debuffs']['cpu_recipients_or_schedule_supplied'])
+            self.assertIn(dict(id='typed-incoming',kind='attack'),meta['product_world']['nodes'])
+            body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=1.)]}
+            pre,_=prepare(body)
+            with self.assertRaisesRegex(UnsupportedPortable,'combined checked cover consumer'):compile_product(pre)
+
     def test_typed_manual_posture_packs_existing_controls_and_preserves_original_effects(self):
         from portable_product_programs import manual_typed_body
         from portable_detail import prepare,compile_product

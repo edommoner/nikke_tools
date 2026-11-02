@@ -1,3 +1,13 @@
+## 2026-11-02 typed対象と敵の直接攻撃・デバフ・DoTを共通製品経路へ接続
+
+元の全定義を残した単独typedの固定／蓄積×通常・貫通・random:1／seed42・slot:3・同時多段・バースト後と、強い攻撃の計14通常API条件が実M5／CPU／HTTP全payload一致。物理dispatch4、cache0。元12の再実行なしでHP減少を確認する2条件を追加し、強攻撃は55件の全被弾履歴と合計2296509.6HPダメージ（固定例）がCPUと一致。[全条件・出所](../research/product-typed-incoming-v1.json)。新profile加算0で、標準266profile／203キャラとは別の追加条件。
+
+入口の一律attack拒否を外して既存共通worldへ接続し、敵デバフ／DoTは既存boss_debuff_effects／pack_boss_debuffsを再利用。CPUから受け渡すのはliteral定義だけで、敵caster5の対象・時刻・寿命はGPUが実行する。coordinate compilerは元全定義の完全性に加え、追加行が明示された敵定義と完全対応してowner5を保つことを検査。既存target modifier packerも敵行のaxis混入を拒否する。shader／数値本体／buffer寸法・CPU正本・pinned・許容差・normalizer変更0。
+
+既存CLI typed9が実Metal＋GPU禁止の独立seal成功。旧8の全input／native／全rawとGPU全依存ソースは完全一致。v73はこのmemberだけを更新し他41は保持。CPU191検査、最終は同一171＋成功済registry13を再利用、台帳負例7だけ新実行。最終packetで新14、既存手動24、標準266を保存rawから再投影し、追加battle／GPU0。UI http://127.0.0.1:4327/#single は修正版HTTP200、設定／session変更0。入力random構文、テストimport漏れ、登録後の台帳不整合は全てdevice前／CPU-only失敗として保持。
+
+Windowsは別の固定23f63332の生成・PTX・object・link成果物が成立。8秒1条件のstatic停止はMacがwords用SHAを件数ヘッダー付きtransportへ指定した範囲ミスで、両hostが元word差0を確認。words SHA abeda20f…／transport SHA589d8feb…を別々に保存し、元停止を残して未実行APIの初回処理だけを依頼した。新typed incoming版のCUDA確認とは分け、環境保全falseは維持する。typed＋独立DEF／手動遮蔽の被弾、ADD自攻撃・敵回復・weighted、LockOnとの被弾合成・予約先死亡、全特殊効果・任意場面と現sourceCUDAは未完了。以下は過去記録。
+
 ## 2026-11-02 手動遮蔽とtyped／Lock Onを共通実行器へ接続
 
 元の全キャラ定義を保持したtyped単独／Lock On併用、固定／蓄積、早期・バースト中・全員遮蔽・移動ADD・近傍移動の通常API24条件が実M5／CPU／HTTP一致。成功済み単独12条件は保存結果を再利用し、変更したLock On側12条件だけを新実行。最終固定packetでも全24と標準BODY180秒266profile／203キャラを保存rawから再投影し、追加battle／GPU0。CPU190検査、既存CLI typed8＋typed-lock6の実Metal／独立seal成功。[出所・条件・失敗保持](../research/product-typed-manual-posture-v1.json)。

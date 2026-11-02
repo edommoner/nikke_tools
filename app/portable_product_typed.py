@@ -44,12 +44,18 @@ def compile_product(prepared):
     spec=normalize_product(declarations['typed_targets'])
     if any(r['effect'].get('target') in ('all_projectiles','typed_point') for r in prepared['effects']):
         raise UnsupportedPortable('Original typed skill damage requires its checked common skill route; weapon typed admission cannot omit it')
-    if any(p.get('kind') not in ('idle','summon') or p.get('kind')=='summon' and (p.get('spec',{}).get('attack') or p.get('spec',{}).get('self_destruct')) for p in prepared['enemy'].get('patterns',[])):
+    if any(p.get('kind') not in ('idle','summon','attack') or p.get('kind')=='summon' and (p.get('spec',{}).get('attack') or p.get('spec',{}).get('self_destruct')) for p in prepared['enemy'].get('patterns',[])):
         raise UnsupportedPortable('Typed product attack world requires its combined checked incoming consumer')
+    from portable_product_world_contract import has_incoming_attacks
+    from portable_product_cover import required as cover_required
+    if has_incoming_attacks(prepared) and cover_required(prepared):
+        raise UnsupportedPortable('Typed incoming attacks with independent/manual cover require the combined checked cover consumer')
     manual=[i for i,c in enumerate(prepared['chars']) if any(a.get('action')=='cover' for a in c.get('control',{}).get('sequence',[]))]
     controlled=dict(prepared,_product_manual_cover=True) if manual else prepared
     inner,fixed=lower(controlled,manual_posture=True);inner=copy.deepcopy(inner);inner.pop('reference_models',None)
     inner['enemy']['coord']=copy.deepcopy(spec['coord']);inner['_product_native_equipment_carriers']=True
+    if any(p.get('kind')=='attack' and p.get('spec',{}).get('debuffs') for p in inner['enemy'].get('patterns',[])):
+        inner['_product_boss_debuffs']=True
     inner['typed_aim_policy']=copy.deepcopy(spec['aim_policy']);inner['typed_actor_policy']=copy.deepcopy(spec['actor_policy'])
     nearby_source=copy.deepcopy(inner)
     if 'enemy_movement' in prepared.get('reference_models',{}):
