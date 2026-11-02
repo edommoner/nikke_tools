@@ -215,7 +215,10 @@ def validate_composed_stride(source,input_words,output_words):
     if source in ('gpu/world_enemy_ammo_entry.slang','gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang','gpu/product_ammo_group_battle_entry.slang','gpu/product_ammo_fixed_group_battle_entry.slang','gpu/product_ammo_target_battle_entry.slang','gpu/product_ammo_fixed_target_battle_entry.slang'):
         from portable_enemy_ammo_wire import check_schema,LAYOUT
         check_schema(ROOT)
-        if (input_words,output_words)!=(LAYOUT['INPUT_WORDS'],LAYOUT['OUTPUT_WORDS']):raise ValueError('Enemy ammo requires complete actor and resource banks')
+        from portable_product_ammo import LONG_PLAIN_OUTPUT_WORDS
+        allowed={LAYOUT['OUTPUT_WORDS']}
+        if source in ('gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang'):allowed.add(LONG_PLAIN_OUTPUT_WORDS)
+        if input_words!=LAYOUT['INPUT_WORDS'] or output_words not in allowed:raise ValueError('Enemy ammo requires complete actor and resource banks')
         return
     if source=='gpu/world_add_self_destruct_entry.slang':
         from portable_add_self_destruct_wire import check_schema,LAYOUT
@@ -362,6 +365,16 @@ def validate_composed_stride(source,input_words,output_words):
             raise ValueError('Composed stride requires the registered shared entry and complete wire')
 
 
+def validate_product_ammo_versions(source,packed,input_words,output_words,count):
+    """A physical dispatch has one explicitly owned resource output stride."""
+    if source not in ('gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang'):return
+    from portable_enemy_ammo_wire import LAYOUT as E
+    from portable_product_ammo import LONG_PLAIN_OUTPUT_WORDS
+    version=2 if output_words==LONG_PLAIN_OUTPUT_WORDS else 1
+    for i in range(count):
+        if struct.unpack_from('<I',packed,4*(1+i*input_words+E['BASE']+1))[0]!=version:
+            raise ValueError('Enemy ammo input version and output stride disagree')
+
 def execute(source, entry, packed, input_words, output_words, backend='metal', *, readback_path=None):
     if backend not in ('metal', 'cuda'):
         raise ValueError('Explicit metal or cuda backend required; no CPU fallback')
@@ -371,6 +384,7 @@ def execute(source, entry, packed, input_words, output_words, backend='metal', *
     count, = struct.unpack_from('<I', packed)
     if not 1 <= count <= 65536 or 1+count*input_words>0xffffffff or count*output_words>0xffffffff or len(packed) != (1+count*input_words)*4:
         raise ValueError('Invalid portable wire dimensions')
+    validate_product_ammo_versions(source,packed,input_words,output_words,count)
     if readback_path is not None and Path(readback_path).is_symlink():raise ValueError('Fresh readback destination required')
     destination=Path(readback_path).resolve() if readback_path is not None else None
     partial=destination.with_name(destination.name+'.partial') if destination is not None else None
@@ -436,6 +450,7 @@ def execute_batches(source, entry, batches, input_words, output_words, backend='
         if len(packed)<4:raise ValueError('Missing portable batch header')
         count,=struct.unpack_from('<I',packed)
         if not 1<=count<=65536 or 1+count*input_words>0xffffffff or count*output_words>0xffffffff or len(packed)!=(1+count*input_words)*4:raise ValueError('Invalid portable wire dimensions')
+        validate_product_ammo_versions(source,packed,input_words,output_words,count)
         counts.append(count)
     outputs,hashes=build(source,entry)
     resident=resident_plan(source,entry,outputs)

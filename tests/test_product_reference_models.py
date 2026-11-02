@@ -1079,6 +1079,68 @@ class ProductReferenceModels(unittest.TestCase):
         from portable_specs import shader_schema
         self.assertIn('#elif defined(PORTABLE_PRODUCT_LONG_LOCK)\nstatic const uint P_OUTPUT_WORDS = PL_LAYOUT_OUTPUT;',shader_schema())
 
+    def test_plain_ammo_version_and_output_stride_are_checked_before_device_work(self):
+        from portable_backend import validate_composed_stride,validate_product_ammo_versions
+        from portable_enemy_ammo_wire import LAYOUT as E
+        from portable_product_ammo import LONG_PLAIN_OUTPUT_WORDS
+        source='gpu/product_ammo_fixed_battle_entry.slang'
+        words=array.array('I',[2]+[0]*(2*E['INPUT_WORDS']))
+        for i in range(2):words[1+i*E['INPUT_WORDS']+E['BASE']+1]=2
+        validate_composed_stride(source,E['INPUT_WORDS'],LONG_PLAIN_OUTPUT_WORDS)
+        validate_product_ammo_versions(source,words.tobytes(),E['INPUT_WORDS'],LONG_PLAIN_OUTPUT_WORDS,2)
+        for bad in (E['OUTPUT_WORDS'],LONG_PLAIN_OUTPUT_WORDS-1):
+            with self.assertRaises(ValueError):validate_product_ammo_versions(source,words.tobytes(),E['INPUT_WORDS'],bad,2)
+        words[1+E['INPUT_WORDS']+E['BASE']+1]=1
+        with self.assertRaisesRegex(ValueError,'version and output stride'):
+            validate_product_ammo_versions(source,words.tobytes(),E['INPUT_WORDS'],LONG_PLAIN_OUTPUT_WORDS,2)
+        for other in ('gpu/world_enemy_ammo_entry.slang','gpu/product_ammo_fixed_group_battle_entry.slang','gpu/product_ammo_fixed_target_battle_entry.slang'):
+            with self.assertRaises(ValueError):validate_composed_stride(other,E['INPUT_WORDS'],LONG_PLAIN_OUTPUT_WORDS)
+
+    def test_long_plain_ammo_resource_tail_has_explicit_version_and_complete_decoder(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_detail import prepare,compile_product
+        from portable_enemy_ammo_wire import LAYOUT as E
+        from portable_product_ammo import LONG_PLAIN_OUTPUT_WORDS
+        from portable_resource_decode import resource_readback
+        from portable_specs import LIMITS as L
+        for mode in ('fixed','accumulate'):
+            for duration,version,output in ((30.,1,E['OUTPUT_WORDS']),(30.01,2,LONG_PLAIN_OUTPUT_WORDS),(180.,2,LONG_PLAIN_OUTPUT_WORDS)):
+                body=copy.deepcopy(selected_profile_bodies(['\ubca8\ubcb3'],0)[0][2]);body.update(duration=duration,burst_gauge_mode=mode)
+                with patch.object(sim,'execute',side_effect=AssertionError('No native resource state supplied to GPU')):
+                    pre,run=prepare(body);before=copy.deepcopy(pre);source,iw,ow,words,meta=compile_product(pre)
+                self.assertEqual(pre,before);self.assertEqual((iw,ow),(E['INPUT_WORDS'],output))
+                self.assertEqual(words[E['BASE']+1],version)
+                self.assertEqual(meta['product_enemy_ammo']['output_words'],output)
+                self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
+        meta=dict(resource_names=['charge'],product_enemy_ammo=dict(output_words=LONG_PLAIN_OUTPUT_WORDS))
+        words=array.array('I',[0])*LONG_PLAIN_OUTPUT_WORDS
+        count=128+(E['OUTPUT_WORDS']-E['OUTPUT_BASE']-E['RESOURCE_BASE'])//8+1
+        words[L['RESOURCE_HEADER_BASE']]=words[L['RESOURCE_HEADER_BASE']+1]=count
+        for i in range(count):
+            at=L['RESOURCE_TRACE_BASE']+i*8 if i<128 else E['OUTPUT_BASE']+E['RESOURCE_BASE']+(i-128)*8
+            words[at]=26
+        result=resource_readback(words,meta,L,lambda at:0.)
+        self.assertEqual(len(result['resource_trace']),count)
+        self.assertEqual(result['resource_trace_total'],count)
+        with self.assertRaisesRegex(RuntimeError,'Invalid complete product resource history'):
+            resource_readback(words[:-1],meta,L,lambda at:0.)
+        bad=copy.deepcopy(meta);bad['product_enemy_ammo']['output_words']=LONG_PLAIN_OUTPUT_WORDS+1
+        with self.assertRaisesRegex(RuntimeError,'output ownership'):
+            resource_readback(words,bad,L,lambda at:0.)
+
+    def test_long_product_groups_choose_lossless_existing_codec_without_cpu_execution(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_detail import prepare,compile_product
+        from portable_battle_attack_group_input import product_history
+        for name in ('\ubca8\ub85c\ud0c0','\ub2c8\ud790\ub9ac\uc2a4\ud0c0'):
+            for duration,flag in ((30.,0),(30.01,1),(180.,1)):
+                body=copy.deepcopy(selected_profile_bodies([name],0)[0][2]);body.update(duration=duration,burst_gauge_mode='fixed')
+                with patch.object(sim,'execute',side_effect=AssertionError('No native schedules supplied to group input')):
+                    pre,run=prepare(body);before=copy.deepcopy(pre);source,iw,ow,words,meta=compile_product(pre)
+                self.assertEqual(pre,before);self.assertEqual((iw,ow),(104408,1048576))
+                self.assertEqual(words[104403],flag);self.assertEqual(product_history(pre),'compact' if flag else 'fixed64')
+                self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
+
     def test_default_body_preserves_expected_policy_and_all_original_motion_lock_definitions(self):
         from portable_original_identity_inventory import selected_profile_bodies
         from portable_detail import prepare,compile_product

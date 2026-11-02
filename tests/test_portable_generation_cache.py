@@ -1,3 +1,4 @@
+import copy
 """Exact artifact reuse, independent resident audits and no-compiler failures."""
 import base64,hashlib,json,os,shutil,subprocess,sys,tempfile,unittest
 from contextlib import ExitStack
@@ -146,6 +147,22 @@ class GenerationCacheTests(unittest.TestCase):
             second=cli.generation_capture(self.root/'warm');self.assertTrue(second['cache_hit']);self.assertEqual(second['compiler_invocations'],0)
             for folder in ('cold','warm'):
                 capture=self.root/folder;cli.write(capture/'run.json',dict(mode='gpu'));cli.write(capture/'runtime.json',dict(generation_cache_enabled=True,generation_cache_required=folder=='warm'));self.assertTrue(cli.audit_generation_capture(manifest,capture)['verified'])
+            # Real cold device preflight followed by a warm same-artifact
+            # build retains the cold journal and copies the final warm receipt.
+            recovered=self.root/'cold-then-warm';shutil.copytree(self.root/'cold',recovered)
+            warm=cli.load(self.root/'warm/generation-cache.json')
+            cli.write(recovered/'generation-cache.json',warm)
+            self.assertTrue(cli.audit_generation_capture(manifest,recovered)['verified'])
+            for field,value in [('key','different'),('compiler_invocations',2),('hit',False)]:
+                bad=copy.deepcopy(warm);bad[field]=value;cli.write(recovered/'generation-cache.json',bad)
+                with self.subTest(field=field),self.assertRaises(ValueError):cli.audit_generation_capture(manifest,recovered)
+            cli.write(recovered/'generation-cache.json',warm)
+            original=(recovered/'phases.jsonl').read_text()
+            events=[json.loads(line) for line in original.splitlines()]
+            for missing in ('slang_compiler','slang_generation_cache'):
+                (recovered/'phases.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in events if r['stage']!=missing))
+                with self.subTest(missing=missing),self.assertRaises(ValueError):cli.audit_generation_capture(manifest,recovered)
+            (recovered/'phases.jsonl').write_text(original)
             capture=self.root/'warm';rows=(capture/'phases.jsonl').read_text();(capture/'phases.jsonl').write_text(rows+json.dumps(dict(stage='slang_compiler',state='entered'))+'\n')
             with self.assertRaisesRegex(ValueError,'invocation'):cli.audit_generation_capture(manifest,capture)
         self.assertEqual(self.calls,['cuda','metal'])

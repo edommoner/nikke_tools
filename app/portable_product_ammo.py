@@ -5,6 +5,8 @@ from portable_enemy_ammo_wire import LAYOUT as E,MAGIC,enemy_percentage,compiler
 from portable_add_attack_battle_wire import LAYOUT as A
 from portable_runtime import UnsupportedPortable
 
+LONG_PLAIN_OUTPUT_WORDS=2064786
+
 def required(prepared):
     return 'enemy_ammo' in prepared.get('reference_models',{}) or any(enemy_percentage(r['effect']) for r in prepared['effects'])
 
@@ -72,12 +74,17 @@ def compile_product(prepared,producer):
     fixed='fixed_' in source
     targeted=source in ('gpu/product_target_battle_entry.slang','gpu/product_fixed_target_battle_entry.slang','gpu/product_add_target_battle_entry.slang','gpu/product_add_fixed_target_battle_entry.slang')
     stem=('fixed_' if fixed else '')+('group_' if grouped else 'target_' if targeted else '')
-    return ('gpu/product_ammo_'+stem+'battle_entry.slang',E['INPUT_WORDS'],E['OUTPUT_WORDS'],words+bank,meta)
+    # Version 2 owns a longer resource-only tail. Combined layouts retain v1.
+    long_plain=prepared['policies']['config']['duration']>30. and not grouped and not targeted and not healing and not self_destruct and not prepared.get('_product_cover_compiled')
+    if long_plain:bank[1]=2
+    output_words=LONG_PLAIN_OUTPUT_WORDS if long_plain else E['OUTPUT_WORDS']
+    meta['product_enemy_ammo']['output_words']=output_words
+    return ('gpu/product_ammo_'+stem+'battle_entry.slang',E['INPUT_WORDS'],output_words,words+bank,meta)
 
 def read_result(block,meta):
     from portable_enemy_ammo_readback import read_ammo,read_retirements
     info=meta['product_enemy_ammo'];bindings=[SimpleNamespace(**r) for r in info['bindings']]
-    if len(block)!=E['OUTPUT_WORDS']:raise UnsupportedPortable('Complete enemy magazine product readback required')
+    if len(block)!=info.get('output_words',E['OUTPUT_WORDS']):raise UnsupportedPortable('Complete enemy magazine product readback required')
     try:
         data=read_ammo(block,(info['case'],meta,bindings,None),allow_retired_queue=info['self_destruct'])
         if info['self_destruct']:
@@ -88,7 +95,7 @@ def read_result(block,meta):
     # unused words must still be empty, rather than discarded from the audit.
     from portable_specs import LIMITS as L
     count=block[L['RESOURCE_HEADER_BASE']]
-    end=E['OUTPUT_WORDS']
+    end=info.get('output_words',E['OUTPUT_WORDS'])
     if info['self_destruct'] or info.get('healing'):
         from portable_enemy_ammo_self_destruct_wire import LAYOUT as S
         if count>E['RESOURCE_CAPACITY']:raise UnsupportedPortable('Enemy magazine final-queue resource capacity exceeded')

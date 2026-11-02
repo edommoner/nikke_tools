@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v68-expected.json'
+GOLDEN = 'research/portable-product-programs-v70-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -52,7 +52,7 @@ def configuration(suites, selection):
     program = PROGRAMS[name]
     return dict(base, product_program=name, source=program['source'], golden=GOLDEN,
                 input_words=program['input_words'], output_words=program['output_words'],
-                inputs=7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1,native=7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
+                inputs=7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1,native=7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
 
 
 def registered_golden(root, config, *, allow_unsealed=False):
@@ -278,6 +278,11 @@ def cases_for_program(root,name=None):
         for i,owner in enumerate(owners):
             body=copy.deepcopy(selected_profile_bodies([owner],0)[0][2]);body.update(duration=30.,burst_gauge_mode=PROGRAMS[name]['mode'])
             rows.append(('default-body-'+str(i),body))
+    if name=='fixed-group':
+        from portable_original_identity_inventory import selected_profile_bodies
+        for i,owner in enumerate(['\ubca8\ub85c\ud0c0','\ub2c8\ud790\ub9ac\uc2a4\ud0c0']):
+            body=copy.deepcopy(selected_profile_bodies([owner],0)[0][2]);body.update(duration=180.,burst_gauge_mode='fixed')
+            rows.append(('complete-groups-180-'+str(i),body))
     if name=='fixed':
         body=copy.deepcopy(selected_profile_bodies(['\ub77c\ud53c : \ub808\ub4dc \ud6c4\ub4dc'],0)[0][2]);body.update(duration=180.,burst_gauge_mode='fixed')
         rows.append(('normal-skill-core-cold-mg-180',body))

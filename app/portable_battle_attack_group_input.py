@@ -19,6 +19,14 @@ PACKETS=_ARENA['PACKETS']
 COMPACT=_ARENA['COMPACT']
 COMPACT_WORDS=_ARENA['COMPACT_WORDS']
 
+def product_history(prepared):
+    """Keep the existing short wire; longer product runs use lossless pages.
+
+    This selects diagnostic storage only. It does not change group ownership,
+    recipients, thresholds, damage or the battle clock, and consumes no CPU run.
+    """
+    return 'compact' if prepared['policies']['config']['duration']>30. else 'fixed64'
+
 def compile_battle(prepared,*,routing,declared_effects=(),group_history='fixed64'):
     if routing not in ('native','all-logical-enemies'):raise ValueError('Explicit native or logical-enemy routing required')
     if group_history not in ('fixed64','compact'):raise ValueError('Explicit fixed64 or compact group history required')

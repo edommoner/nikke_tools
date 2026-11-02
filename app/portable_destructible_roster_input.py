@@ -49,7 +49,7 @@ def product_body_world(prepared):
     return raw
 
 
-def compile_body_modifier_group_roster(prepared):
+def compile_body_modifier_group_roster(prepared,*,group_history='fixed64'):
     """Compose native groups and lossless target carriers in a BODY/PART world."""
     product_body_world(prepared)
     original=prepared['effects'];lowered=copy.deepcopy(prepared)
@@ -58,7 +58,7 @@ def compile_body_modifier_group_roster(prepared):
             raise ValueError('A target modifier that is itself a multi_hit listener is not connected')
         dest['effect']=lower_effect(row['effect'])
     from portable_battle_attack_group_input import compile_battle
-    words,meta=compile_battle(lowered,routing='native')
+    words,meta=compile_battle(lowered,routing='native',group_history=group_history)
     axes=pack_axes(words,meta,[r['effect'] for r in original])
     count=sum(axis!=0 for axis in axes)
     if not count:raise ValueError('At least one original target modifier required')

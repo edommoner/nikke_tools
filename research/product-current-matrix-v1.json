@@ -1,4 +1,8 @@
 {
+  "latest_scoped_product_proof": "product-standard-long180-v1.json",
+  "latest_scoped_product_metal_profiles": 266,
+  "latest_scoped_product_cuda_profiles": 0,
+  "legacy_fields_below_are_historical": true,
   "schema": 1,
   "scope": "Current immutable runtime ordinary API: all266 original unmodified standard requests,30s,fixed,no declared models",
   "execution_owner": "836ade72e7dae4aa173038c4836d96e73bc0224d0d936113a8cc3f472a6815af",

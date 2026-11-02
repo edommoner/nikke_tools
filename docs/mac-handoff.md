@@ -1,3 +1,15 @@
+## 2026-11-02 標準266profileの通常180秒がMetal／CPU一致
+
+通常APIの固定・期待値・seed0・core50・宣言なしBODY1体で、元266profile／データ内203キャラの180秒計算が全Metal／CPU／HTTP一致。最終登録sourceでも保存rawから266件を再投影し追加battle／GPU0。選択した実行出所は39dispatch、最後の修正では入力全byte・GPU全依存ソース・CPU正本43fileを検査して258件を再利用、残7＋依存変更cover1の8件だけを新実行。API cache0／最終CPU fallback0。[全profile・出所・限界](../research/product-standard-long180-v1.json)。
+
+長時間のグループ履歴は既存compact codecへ接続し、元Belorta89／Nihilister120groupの全owner・identity・epoch・packet数・時刻・targets・通知数が独立CPU観測と一致。旧64件の重複prefixもbyte一致。Velvetは166秒付近でresource通知15124上限へ達していたため、長いplain ammoだけを入力version2／出力2064786wordにし、既存番地を保ったowned tailへ19222通知まで保存する。追加bufferは131144byte。元180秒の16500通知が順序・時刻・値まで全一致。30秒以下とcover／group／target／healing／self-destruct合成の既存layoutは維持。共通hostは入力版と出力幅、batch全memberの版一致をdevice前に検査。shaderも先頭の確定strideを使い不一致を拒否する。
+
+CLIでcold事前生成2回のあとwarm読込0回のreceiptが保存されると、元のcompiler journalと不一致になる既存監査問題も修正。最終receiptと全journal receiptのidentity／artifactを各々検証し、実compilerの全entered／returned組を照合する。元失敗captureは変更せず、修正auditorで保存出力を独立CPU照合しGPU再実行0。新cold→warm正例と欠落／偽receipt負例を含む13検査成功。生成code normalizerは変更0。
+
+既存group CLI3caseは実Metal＋独立seal成功。ammo短1caseのinput・全raw・nativeは旧版と完全一致し、修正した保存監査で現sourceと生成hashを確認。v69はgroup、v70はammo-fixedだけを更新し、他member基準は履歴のまま保持。最終release-v2はCPU188検査のうち同一168を再利用、registry13／台帳7を新実行、generation13も新実行（計201）。PTX／CUBIN O1 planは成功、compiler／GPU0。旧失敗・claim・raw・未登録goldenのrelease-v1は保持。新suite／shader entry／layout file0、CPU正本・pinned・数値規約・許容差変更0。
+
+UI http://127.0.0.1:4327/#single を修正版で再起動しHTTP200を確認、個人設定・session変更0。物理shotの内部診断は従来2048行と明示省略counterを保持し、全内部履歴を無省略で保存したとは主張しない。全射撃の実行と最終製品結果は照合済み。より長い時間、任意の敵構成、ADD所有typed attachment、全特殊効果分岐、現在版CUDAは未完了。Windowsは保存coordinate-lock v2 object／link成功を再確認しただけで新依頼・compile・GPU・RAM計測0。inner0／outer2／環境保全falseと既存resident RAM停止を保持する。以下は過去記録。
+
 ## 2026-11-02 通常攻撃式スキルのコア規約を修正
 
 標準180秒の最初の8件は7一致、ラピ：レッドフードだけ本人のダメージが6785266不足してCPUへ戻った。射撃7609回・全skill170件はCPUと同じ、保存された先頭2048射撃も全一致。45／60秒は一致、90秒以降で差。既存full traceで85.383秒作成の「부착형 유탄 4」がGPU4940401／CPU6859023と特定。CPUの通常攻撃式スキルはcore_px>0ならis_core=True、core_prob指定なし。GPUは武器散布の確率を使っていたため、MGが冷えたタイミングのスキルで差が出た。効果／CPU／数値規約を変えず、共通normalDamageCoreを非座標の通常攻撃式スキルだけへ適用。physical武器と座標skillの既存確率契約は維持。[出所・境界・回帰](../research/product-normal-skill-core-v1.json)。

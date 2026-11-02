@@ -15,8 +15,9 @@ def resource_readback(words,metadata,L,number):
     extended=metadata.get('product_enemy_ammo') is not None
     if extended:
         from portable_enemy_ammo_wire import LAYOUT as E
-        capacity=128+(E['OUTPUT_WORDS']-E['OUTPUT_BASE']-E['RESOURCE_BASE'])//8
-        expected=E['OUTPUT_WORDS']
+        expected=metadata['product_enemy_ammo'].get('output_words',E['OUTPUT_WORDS'])
+        if expected not in (E['OUTPUT_WORDS'],2064786):raise RuntimeError('Invalid product resource output ownership')
+        capacity=128+(expected-E['OUTPUT_BASE']-E['RESOURCE_BASE'])//8
         if metadata.get('product_ammo_cover'):
             from portable_cover_defense_wire import OUTPUT as expected
         if len(words)!=expected or count!=words[header+1] or count>capacity or any(words[header+2:header+8]):raise RuntimeError('Invalid complete product resource history')

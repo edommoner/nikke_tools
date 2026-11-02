@@ -24,7 +24,7 @@
     },
     "app/portable_detail.py": {
       "before_sha256": "085c7ccdcebfa6641bf124d95e6c320c337405202e4b148ae64dca08cb11db06",
-      "after_sha256": "f97918809084ec13c9920eecf2c82ff03a2b7b7600dcafdb1d7ee6a9a93cf573",
+      "after_sha256": "1620ba1236b0e72d7f8eafe0f67c981c35818d973bc984a720a57303b27d9165",
       "hunks": [
         {
           "start": 1719,
@@ -87,92 +87,104 @@
           "after": "            names=[c['name'] for c in prepared['chars']]\n            patterns=prepared['policies']['config']['burst_pattern']\n            packed=product_patterns(names,patterns)\n            for who,value in enumerate(packed):\n                words[limits['WEAPON_BASE']+who*limits['WEAPON_WORDS']+3]|=value\n            if any(packed):metadata['product_burst_patterns']=dict(patterns=copy.deepcopy(patterns),encoded=packed,cpu_schedule_or_state_supplied=False)\n        if add_patterns is not None:\n            from portable_product_add_attack import attach\n            return attach(source,words,metadata,prepared,add_patterns,original['enemy']['patterns'])\n"
         },
         {
-          "start": 13862,
-          "end": 14318,
+          "start": 12667,
+          "end": 12854,
+          "before": "            words,metadata=compile_body_modifier_group_roster(prepared)\n",
+          "after": "            from portable_battle_attack_group_input import product_history\n            words,metadata=compile_body_modifier_group_roster(prepared,group_history=product_history(prepared))\n"
+        },
+        {
+          "start": 13475,
+          "end": 13654,
+          "before": "        words, metadata = compile_battle(prepared,routing='native')\n",
+          "after": "        from portable_battle_attack_group_input import product_history\n        words, metadata = compile_battle(prepared,routing='native',group_history=product_history(prepared))\n"
+        },
+        {
+          "start": 14088,
+          "end": 14544,
           "before": "",
           "after": "    coordinate_spec=None\n    if 'coordinate' in body.get('reference_models',{}):\n        from product_coordinate_model import normalize_product\n        coordinate_spec=normalize_product(body['reference_models']['coordinate'])\n    if 'typed_targets' in body.get('reference_models',{}):\n        from product_typed_model import normalize_product as typed_model\n        coordinate_spec={'coord':typed_model(body['reference_models']['typed_targets'])['coord']}\n"
         },
         {
-          "start": 14466,
-          "end": 14721,
+          "start": 14692,
+          "end": 14947,
           "before": "",
           "after": "        if coordinate_spec is not None:\n            run.enemy['coord']=copy.deepcopy(coordinate_spec['coord'])\n        from calculator.boss_pattern import boss_mode\n        boss_mode(run.enemy) # Preserve native mode validation before any GPU allocation.\n"
         },
         {
-          "start": 15286,
-          "end": 15488,
+          "start": 15512,
+          "end": 15714,
           "before": "",
           "after": "    if set(prepared.get('reference_models',{}))&{'coordinate','enemy_movement','named_range','typed_targets'}:\n        captured['run'].expected=False\n        captured['run'].config['rng_mode']='random'\n"
         },
         {
-          "start": 15585,
-          "end": 15954,
+          "start": 15811,
+          "end": 16180,
           "before": "    view = decode(block[:159744], metadata)\n",
           "after": "    ammo_attempts=None\n    if not block or block[0]!=0:\n        raise UnsupportedPortable('Shared battle status: '+str(block[0] if block else 'missing')+(' (history capacity exceeded)' if block and block[0] in (2,8) else ''))\n    validate_world_frame_readback(block,metadata)\n    view = decode(block if metadata.get('product_enemy_ammo') else block[:159744], metadata)\n"
         },
         {
-          "start": 16549,
-          "end": 16667,
+          "start": 16775,
+          "end": 16893,
           "before": "    control_log=read_product_control_log(block,metadata,names,run.config['duration'])\n",
           "after": "    control_log=read_product_control_log(block,metadata,names,run.config['duration'],burst_trace=view['burst_trace'])\n"
         },
         {
-          "start": 19449,
-          "end": 25206,
+          "start": 19675,
+          "end": 25432,
           "before": "",
           "after": "    models=[]\n    if metadata.get('product_typed_lock'):\n        from portable_product_typed_lock import read_result\n        models.append(read_result(block,metadata,names,run.config['duration']))\n    if metadata.get('product_typed_targets') and not metadata.get('product_typed_lock'):\n        from portable_product_typed import read_result as typed_result\n        models.append(typed_result(block,metadata,names,run.config['duration']))\n    if metadata.get('product_coordinate') and not metadata.get('product_typed_lock'):\n        from portable_product_coordinate import read_result,OUTPUT as COORDINATE_OUTPUT\n        coordinate_block=(memoryview(block)[:COORDINATE_OUTPUT] if isinstance(block,array.array) else block[:COORDINATE_OUTPUT]) if metadata.get('product_coordinate_lock') else block[:COORDINATE_OUTPUT] if metadata.get('product_coordinate_cover') or metadata.get('product_coordinate_weighted') else block\n        models.append(read_result(coordinate_block,metadata,names=names,duration=run.config['duration']))\n    if metadata.get('product_enemy_healing') and not metadata.get('product_coordinate_healing'):\n        from portable_product_healing import read_result\n        from portable_enemy_healing_wire import OUTPUT as healing_output\n        healing_block=block[:healing_output['OUTPUT_WORDS']] if metadata.get('product_healing_cover') else block\n        if metadata.get('product_ammo_healing'):\n            from portable_enemy_healing_wire import AMMO_OUTPUT\n            healing_block=block[:AMMO_OUTPUT['OUTPUT_WORDS']]\n            model=read_result(healing_block,metadata,names,run.config['duration'],layout=AMMO_OUTPUT)\n        else:model=read_result(healing_block,metadata,names,run.config['duration'])\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_weighted_incoming'):\n        from portable_product_weighted import read_result\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_cover_defense'):\n        from portable_product_cover import read_result\n        options={}\n        if metadata.get('product_movement_range_cover'):\n            from portable_product_movement_range import COVER_OUT,OUTPUT as MRO,check_cover_schema\n            check_cover_schema();options=dict(out=COVER_OUT,output=MRO)\n        model=read_result(block,metadata,names,run.config['duration'],**options)\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_enemy_ammo'):\n        from portable_product_ammo import read_result\n        from portable_enemy_ammo_wire import LAYOUT as AMMO\n        ammo_block=block[:AMMO['OUTPUT_WORDS']] if metadata.get('product_ammo_cover') else block\n        model=read_result(ammo_block,metadata)\n        ammo_attempts=model['enemy_ammo']['attempts'] if model is not None else []\n        if model is not None:\n            models.append(model)\n    if metadata.get('product_lock_on') and not metadata.get('product_typed_lock'):\n        from portable_product_locks import read_result\n        if metadata.get('product_coordinate_lock'):\n            from portable_product_coordinate_lock import read_result\n        model=read_result(block,metadata,run.config['duration'])\n        if metadata.get('product_static_body_lock'):\n            info=metadata['product_lock_on'];locks=model['lock_on']\n            if (body.get('reference_models') or len(info['bindings'])!=1 or info['bindings'][0]['kind']!=0\n                or info['declarations']['lock_on']['typed_bindings'] or locks['typed']['state'] or locks['typed']['attacks']\n                or any(handle!=[0,0,1] for shot in locks['shots'] for handle in shot['handles'])):\n                raise UnsupportedPortable('Static BODY Lock On specialization has a non-singleton actor domain')\n            # All real lock/typed/packet banks were checked above. The\n            # canonical undeclared CPU response has no declared-model fields.\n        else:models.append(model)\n    if metadata.get('product_movement_range'):\n        from portable_product_movement_range import read_result as read_movement_range\n        models.extend(read_movement_range(block,metadata,run.config['duration']))\n    if metadata.get('product_enemy_movement') and not metadata.get('product_movement_range'):\n        from portable_product_movement import read_result\n        from portable_enemy_movement_wire import OUTPUT as MOVEMENT_OUTPUT\n        movement_block=block[:MOVEMENT_OUTPUT] if metadata.get('product_movement_cover') else block\n        model=read_result(movement_block,metadata,run.config['duration'])\n        models.append(model)\n    if metadata.get('product_named_range') and not metadata.get('product_movement_range'):\n        from portable_product_named_range import read_result\n        from portable_named_range_battle_wire import OUTPUT as RANGE_OUTPUT\n        range_block=block[:RANGE_OUTPUT] if metadata.get('product_named_range_cover') else block\n        model=read_result(range_block,metadata,run.config['duration'])\n        models.append(model)\n    if models:\n        from product_reference_models import combine_public,warning\n        payload['reference_models']=combine_public(models)\n        # Match the product CPU order: base, effect models, declarations,\n        # optional policy and hypothetical-growth notices. Keep list equality\n        # strict; a later declaration must not reorder the other notices.\n        payload['app_warnings'].insert(1+len(run._portable_detail_model_warnings),\n            warning(payload['reference_models']['declarations']))\n    if 'manual_cover_sequences' in body:\n        payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])\n"
         },
         {
-          "start": 26145,
-          "end": 26240,
+          "start": 26371,
+          "end": 26466,
           "before": "            if kind not in (1,2,3,4,5,6,7) or node>=(len(names) if kind==6 else len(nodes)):\n",
           "after": "            if kind not in (1,2,3,4,5,6,7,8) or node>=(len(names) if kind==6 else len(nodes)):\n"
         },
         {
-          "start": 26456,
-          "end": 26859,
+          "start": 26682,
+          "end": 27085,
           "before": "        world=read_histories(block,nodes)\n",
           "after": "        from portable_product_add_attack import query_sources\n        # Cover receipts were completely validated above. The ADD/ammo\n        # reader owns its original full prefix, not the appended cover bank.\n        sources=query_sources(ammo_block if metadata.get('product_ammo_cover') else block,metadata,ammo_attempts=ammo_attempts)\n        world=read_histories(block,nodes,attack_sources=sources)\n"
         },
         {
-          "start": 28157,
-          "end": 28295,
+          "start": 28383,
+          "end": 28521,
           "before": "                cover=round(hit['cover'],6),hp=round(hit['hp'],6),hp_after=round(hit['hp_after'],6),down=hit['down'],by='')\n",
           "after": "                cover=round(hit['cover'],6),hp=round(hit['hp'],6),hp_after=round(hit['hp_after'],6),down=hit['down'],by=hit.get('by',''))\n"
         },
         {
-          "start": 28358,
-          "end": 28461,
+          "start": 28584,
+          "end": 28687,
           "before": "def evaluate(body):\n    \"\"\"One isolated product request; reject unsupported conditions before dispatch.\"\"\"\n",
           "after": "def _evaluation(body):\n    \"\"\"Prepare and finish one request around a single deferred GPU boundary.\"\"\"\n"
         },
         {
-          "start": 30686,
-          "end": 30969,
+          "start": 30912,
+          "end": 31195,
           "before": "        with patch.dict(os.environ,policy) if policy else nullcontext():\n            context=saved_program(source,folder) if explicit_image else nullcontext()\n            with context as artifact_receipt:\n                history=artifact_receipt['identity'].get('historical_link_environment') if artifact_receipt is not None else None\n                if history is not None:\n                    from portable_linked_artifact import validate_historical_environment\n                    validate_historical_environment(history)\n                    historical_status.update(historical_link_preservation_verified=False,\n                        historical_link_missing_processes_count=len(history['missing_identities']),historical_link_termination_cause=history['termination_cause'])\n                    record.update(historical_status)\n                raw, evidence = execute(source,'portableEvents',packed,input_words,output_words,backend,readback_path=folder/'readback.bin')\n                if raw is not None:raise RuntimeError('Expected bounded file readback')\n                (folder/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\n",
           "after": "        evidence,artifact_receipt,member = yield dict(source=source,input_words=input_words,output_words=output_words,\n            packed=packed,backend=backend,policy=policy,explicit_image=explicit_image,folder=folder,\n            historical_status=historical_status,record=record)\n"
         },
         {
-          "start": 31337,
-          "end": 31780,
+          "start": 31563,
+          "end": 32006,
           "before": "        transport, timing = verified_transport(evidence,backend)\n        record.update(gpu_execution_verified=evidence['gpu_execution_verified'],input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'])\n",
           "after": "        transport, timing = verified_transport(evidence,backend,cases=member['cases'] if member else 1)\n        input_hash=member['input_sha256'] if member else evidence['input_sha256']\n        output_hash=member['output_sha256'] if member else evidence['output_sha256']\n        record.update(gpu_execution_verified=evidence['gpu_execution_verified'],input_sha256=input_hash,output_sha256=output_hash)\n        if member:record['batch']=member\n"
         },
         {
-          "start": 32210,
-          "end": 32287,
+          "start": 32436,
+          "end": 32513,
           "before": "            input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'],source=source,\n",
           "after": "            input_sha256=input_hash,output_sha256=output_hash,source=source,\n"
         },
         {
-          "start": 32419,
-          "end": 32724,
+          "start": 32645,
+          "end": 32950,
           "before": "",
           "after": "        if member:\n            payload['compute']['batch']=member\n            payload['compute']['input_sha256_scope']='logical single-case framing; physical transfer is batch.transport_input_sha256'\n            payload['compute']['timing_scope']='shared batch transport; not an individual case duration'\n"
         },
         {
-          "start": 34799,
-          "end": 42194,
+          "start": 35025,
+          "end": 42420,
           "before": "",
           "after": "\n\nMAX_PRODUCT_BATCH=8\n\n\ndef _execute_prepared(plans):\n    \"\"\"One actual transport for compatible prepared cases, with honest views.\"\"\"\n    first=plans[0];count=len(plans)\n    if not 1<=count<=MAX_PRODUCT_BATCH:raise ValueError('Shared detail batch exceeds its bounded case count')\n    key=lambda p:(p['source'],p['input_words'],p['output_words'],p['backend'],p['policy'],p['explicit_image'],p['folder'].parent)\n    if any(key(p)!=key(first) for p in plans):raise ValueError('Shared detail transport requires identical source, wire, policy and capture root')\n    folder=first['folder'] if count==1 else first['folder'].parent/('batch-'+uuid.uuid4().hex)\n    if count>1:folder.mkdir(exist_ok=False)\n    packed=first['packed'] if count==1 else struct.pack('<I',count)+b''.join(p['packed'][4:] for p in plans)\n    if any(len(p['packed'])!=4+4*first['input_words'] or p['packed'][:4]!=struct.pack('<I',1) for p in plans):\n        raise ValueError('Complete single-case framing required before batching')\n    if count>1:(folder/'input.bin').write_bytes(packed)\n    write=lambda name,value:(folder/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\n    try:\n        if count>1:\n            from portable_capture_storage import space_status\n            budget=space_status(folder,len(packed)+2*count*first['output_words']*4)\n            write('storage-budget.json',budget)\n            if not budget['passed']:raise RuntimeError('Insufficient space for shared batch and complete member readbacks')\n        with patch.dict(os.environ,first['policy']) if first['policy'] else nullcontext():\n            context=saved_program(first['source'],folder) if first['explicit_image'] else nullcontext()\n            with context as receipt:\n                history=receipt['identity'].get('historical_link_environment') if receipt is not None else None\n                if history is not None:\n                    from portable_linked_artifact import validate_historical_environment\n                    validate_historical_environment(history)\n                    for p in plans:\n                        p['historical_status'].update(historical_link_preservation_verified=False,\n                            historical_link_missing_processes_count=len(history['missing_identities']),historical_link_termination_cause=history['termination_cause'])\n                        p['record'].update(p['historical_status'])\n                raw,evidence=execute(first['source'],'portableEvents',packed,first['input_words'],first['output_words'],first['backend'],readback_path=folder/'readback.bin')\n                if raw is not None:raise RuntimeError('Expected bounded file readback')\n                write('evidence.json',evidence)\n        if count==1:return [(evidence,receipt,None)]\n        if receipt is not None and evidence.get('transport',{}).get('compile_artifact')!=receipt:\n            raise RuntimeError('Saved product CUBIN transport receipt mismatch')\n        verified_transport(evidence,first['backend'],cases=count)\n        data=(folder/'readback.bin').read_bytes();stride=first['output_words']*4\n        if (len(data)!=count*stride or hashlib.sha256(packed).hexdigest()!=evidence['input_sha256']\n                or hashlib.sha256(data).hexdigest()!=evidence['output_sha256']):\n            raise RuntimeError('Shared batch full input/readback digest mismatch')\n        members=[];returned=[]\n        for index,p in enumerate(plans):\n            block=data[index*stride:(index+1)*stride]\n            member=dict(capture_id=folder.name,index=index,cases=count,input_words=first['input_words'],output_words=first['output_words'],\n                input_sha256=hashlib.sha256(p['packed']).hexdigest(),output_sha256=hashlib.sha256(block).hexdigest(),\n                transport_input_sha256=evidence['input_sha256'],transport_output_sha256=evidence['output_sha256'],\n                input_scope='single-case framing of this exact physical batch member',output_scope='exact readback slice')\n            (p['folder']/'readback.bin').write_bytes(block)\n            (p['folder']/'batch-member.json').write_text(json.dumps(member,indent=2)+'\\n')\n            (p['folder']/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\\n')\n            members.append(dict(member,capture_id=p['folder'].name));returned.append((evidence,receipt,member))\n        write('result.json',dict(schema='product-batch-transport-v1',source=first['source'],backend=first['backend'],cases=count,\n            gpu_execution_verified=True,scope='Shared physical transport only; each member has its own complete CPU result check',members=members))\n        return returned\n    except Exception as error:\n        if count>1:write('result.json',dict(schema='product-batch-transport-v1',source=first['source'],backend=first['backend'],cases=count,\n            scope='Failed shared transport; preserve all member failures',error=str(error),error_type=type(error).__name__,gpu_execution_verified=False))\n        raise\n\n\ndef _finish_evaluation(generator,*,outcome=None,error=None):\n    try:\n        if error is None:generator.send(outcome)\n        else:generator.throw(error)\n    except StopIteration as finished:return finished.value\n    raise RuntimeError('A product request may have only one GPU execution boundary')\n\n\ndef evaluate(body):\n    \"\"\"Original single-request behavior through the same batch-capable engine.\"\"\"\n    generator=_evaluation(body)\n    try:\n        try:plan=next(generator)\n        except StopIteration as finished:return finished.value\n        try:outcome=_execute_prepared([plan])[0]\n        except Exception as error:return _finish_evaluation(generator,error=error)\n        return _finish_evaluation(generator,outcome=outcome)\n    finally:generator.close()\n\n\ndef evaluate_many(bodies):\n    \"\"\"Preserve row identity and per-case CPU checks in bounded shared dispatches.\"\"\"\n    if not isinstance(bodies,list) or not 1<=len(bodies)<=MAX_PRODUCT_BATCH:\n        raise ValueError('Shared detail evaluations must contain one to eight requests')\n    results=[None]*len(bodies);groups={};generators=[]\n    try:\n        for index,body in enumerate(bodies):\n            generator=_evaluation(body);generators.append(generator)\n            try:plan=next(generator)\n            except StopIteration as finished:results[index]=dict(result=finished.value);continue\n            except (Exception,SystemExit) as error:results[index]=dict(error=str(error));continue\n            key=(plan['source'],plan['input_words'],plan['output_words'],plan['backend'],tuple(sorted(plan['policy'].items())),plan['explicit_image'],str(plan['folder'].parent))\n            groups.setdefault(key,[]).append((index,generator,plan))\n        for group in groups.values():\n            try:\n                outcomes=_execute_prepared([p for _,_,p in group]);error=None\n                if len(outcomes)!=len(group):raise RuntimeError('Shared batch result count mismatch')\n            except Exception as failure:outcomes=[None]*len(group);error=failure\n            for (index,generator,_),outcome in zip(group,outcomes):\n                try:results[index]=dict(result=_finish_evaluation(generator,outcome=outcome,error=error))\n                except (Exception,SystemExit) as failure:results[index]=dict(error=str(failure))\n        return results\n    finally:\n        for generator in generators:generator.close()\n"
         }
@@ -558,7 +570,7 @@
     },
     "app/portable_destructible_roster_input.py": {
       "before_sha256": "bdf192454c12fe469b85b1fdd93f0a11d823a4c32782674e4b498c4c97b519ea",
-      "after_sha256": "450b0750635d9f3c82efe02c3c0ac7cdbe59dcbf05ee1d2553bbece7ed77251a",
+      "after_sha256": "1727516aeca816571d2b457c854587803fbbe2cc1bd2d8ff4bd0efdafdc7a31c",
       "hunks": [
         {
           "start": 951,
@@ -577,6 +589,18 @@
           "end": 2727,
           "before": "    if not bindings or int(bindings[0].kind)!=0 or any(int(b.kind)!=1 for b in bindings[1:]):\n",
           "after": "    actor_kinds=(1,5) if prepared.get('_product_add_attacks') is True else (1,)\n    if not bindings or int(bindings[0].kind)!=0 or any(int(b.kind) not in actor_kinds for b in bindings[1:]):\n"
+        },
+        {
+          "start": 2840,
+          "end": 2916,
+          "before": "def compile_body_modifier_group_roster(prepared):\n",
+          "after": "def compile_body_modifier_group_roster(prepared,*,group_history='fixed64'):\n"
+        },
+        {
+          "start": 3518,
+          "end": 3602,
+          "before": "    words,meta=compile_battle(lowered,routing='native')\n",
+          "after": "    words,meta=compile_battle(lowered,routing='native',group_history=group_history)\n"
         }
       ]
     },
@@ -900,7 +924,7 @@
     },
     "app/portable_backend.py": {
       "before_sha256": "56d708fa4162b19d35cb2ec16498380f762e11dea17162c57ceb37c651c9f8ac",
-      "after_sha256": "7dacf8e9623d616ad839788e3d38bbf103ad0f17ef1e3e7be5c639a50c0772f2",
+      "after_sha256": "fb528a86c9d0f99dba66f32f9c24b3a11592a8e5656ffa7dc41082025e3b028d",
       "hunks": [
         {
           "start": 3841,
@@ -945,74 +969,98 @@
           "after": "    if source in ('gpu/world_enemy_ammo_entry.slang','gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang','gpu/product_ammo_group_battle_entry.slang','gpu/product_ammo_fixed_group_battle_entry.slang','gpu/product_ammo_target_battle_entry.slang','gpu/product_ammo_fixed_target_battle_entry.slang'):\n"
         },
         {
-          "start": 15318,
-          "end": 15561,
+          "start": 14463,
+          "end": 14863,
+          "before": "        if (input_words,output_words)!=(LAYOUT['INPUT_WORDS'],LAYOUT['OUTPUT_WORDS']):raise ValueError('Enemy ammo requires complete actor and resource banks')\n",
+          "after": "        from portable_product_ammo import LONG_PLAIN_OUTPUT_WORDS\n        allowed={LAYOUT['OUTPUT_WORDS']}\n        if source in ('gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang'):allowed.add(LONG_PLAIN_OUTPUT_WORDS)\n        if input_words!=LAYOUT['INPUT_WORDS'] or output_words not in allowed:raise ValueError('Enemy ammo requires complete actor and resource banks')\n"
+        },
+        {
+          "start": 15558,
+          "end": 15801,
           "before": "    if source in ('gpu/world_lock_projectile_entry.slang','gpu/world_original_lock_composition_entry.slang','gpu/world_original_lock_health_parts_entry.slang'):\n",
           "after": "    if source in ('gpu/world_lock_projectile_entry.slang','gpu/world_original_lock_composition_entry.slang','gpu/world_original_lock_health_parts_entry.slang','gpu/product_lock_battle_entry.slang','gpu/product_lock_fixed_battle_entry.slang'):\n"
         },
         {
-          "start": 15647,
-          "end": 15854,
+          "start": 15887,
+          "end": 16094,
           "before": "        if source in ('gpu/world_original_lock_composition_entry.slang','gpu/world_original_lock_health_parts_entry.slang'):\n",
           "after": "        if source in ('gpu/world_original_lock_composition_entry.slang','gpu/world_original_lock_health_parts_entry.slang','gpu/product_lock_battle_entry.slang','gpu/product_lock_fixed_battle_entry.slang'):\n"
         },
         {
-          "start": 15965,
-          "end": 16174,
+          "start": 16205,
+          "end": 16414,
           "before": "",
           "after": "        if source in ('gpu/product_lock_battle_entry.slang','gpu/product_lock_fixed_battle_entry.slang'):\n            from portable_original_lock_layout import PRODUCT_OUTPUT\n            OUTPUT=PRODUCT_OUTPUT\n"
         },
         {
-          "start": 17668,
-          "end": 17827,
+          "start": 17908,
+          "end": 18067,
           "before": "    if source=='gpu/world_named_range_battle_entry.slang':\n",
           "after": "    if source in ('gpu/world_named_range_battle_entry.slang','gpu/product_named_range_battle_entry.slang','gpu/product_named_range_fixed_battle_entry.slang'):\n"
         },
         {
-          "start": 18078,
-          "end": 18434,
+          "start": 18318,
+          "end": 18674,
           "before": "    if source=='gpu/world_enemy_healing_entry.slang':\n",
           "after": "    if source in ('gpu/world_enemy_healing_entry.slang','gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang','gpu/product_healing_group_battle_entry.slang','gpu/product_healing_fixed_group_battle_entry.slang','gpu/product_coordinate_healing_battle_entry.slang','gpu/product_coordinate_healing_fixed_battle_entry.slang'):\n"
         },
         {
-          "start": 18541,
-          "end": 18999,
+          "start": 18781,
+          "end": 19239,
           "before": "",
           "after": "        if source.startswith('gpu/product_coordinate_healing_'):\n            from portable_logical_geometry_wire import check_schema as logical_schema,LAYOUT as G,SCRATCH\n            from portable_enemy_healing_wire import LAYOUT as H\n            logical_schema(ROOT)\n            if G['BASE']+G['WORDS']!=H['BASE'] or SCRATCH['OUTPUT_WORDS']!=OUTPUT['OUTPUT_WORDS']:\n                raise ValueError('Coordinate and healing require adjacent complete banks')\n"
         },
         {
-          "start": 19167,
-          "end": 21265,
+          "start": 19407,
+          "end": 21505,
           "before": "    if source=='gpu/world_coordinate_logical_actor_entry.slang':\n",
           "after": "    if source in ('gpu/product_typed_lock_battle_entry.slang','gpu/product_typed_lock_fixed_battle_entry.slang'):\n        from portable_product_typed_lock import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Typed weapons and Lock On require complete shared arenas')\n        return\n    if source in ('gpu/product_coordinate_lock_battle_entry.slang','gpu/product_coordinate_lock_fixed_battle_entry.slang'):\n        from portable_product_coordinate_lock import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Coordinate Lock On requires complete disjoint arenas')\n        return\n    if source in ('gpu/product_typed_battle_entry.slang','gpu/product_typed_fixed_battle_entry.slang'):\n        from portable_product_typed import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Typed product requires complete coordinate/typed/skill/logical banks')\n        return\n    if source in ('gpu/product_coordinate_add_battle_entry.slang','gpu/product_coordinate_add_fixed_battle_entry.slang'):\n        from portable_add_attack_battle_wire import check_schema,LAYOUT as A\n        from portable_add_self_destruct_wire import check_schema as retirement_schema\n        from portable_logical_geometry_wire import check_schema as logical_schema,LAYOUT as G,SCRATCH\n        check_schema(ROOT);retirement_schema(ROOT);logical_schema(ROOT)\n        if G['BASE']+G['WORDS']!=A['BASE'] or SCRATCH['OUTPUT_WORDS']!=A['OUTPUT_WORDS']:\n            raise ValueError('Coordinate and ADD require their complete disjoint input banks and registered output')\n        if (input_words,output_words)!=(A['INPUT_WORDS'],A['OUTPUT_WORDS']):raise ValueError('Coordinate ADD requires the complete shared source/retirement wire')\n        return\n    if source in ('gpu/world_coordinate_logical_actor_entry.slang','gpu/product_coordinate_battle_entry.slang','gpu/product_coordinate_fixed_battle_entry.slang'):\n"
         },
         {
-          "start": 43872,
-          "end": 44003,
+          "start": 28965,
+          "end": 29615,
+          "before": "",
+          "after": "def validate_product_ammo_versions(source,packed,input_words,output_words,count):\n    \"\"\"A physical dispatch has one explicitly owned resource output stride.\"\"\"\n    if source not in ('gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang'):return\n    from portable_enemy_ammo_wire import LAYOUT as E\n    from portable_product_ammo import LONG_PLAIN_OUTPUT_WORDS\n    version=2 if output_words==LONG_PLAIN_OUTPUT_WORDS else 1\n    for i in range(count):\n        if struct.unpack_from('<I',packed,4*(1+i*input_words+E['BASE']+1))[0]!=version:\n            raise ValueError('Enemy ammo input version and output stride disagree')\n\n"
+        },
+        {
+          "start": 30428,
+          "end": 30509,
+          "before": "",
+          "after": "    validate_product_ammo_versions(source,packed,input_words,output_words,count)\n"
+        },
+        {
+          "start": 35663,
+          "end": 35748,
+          "before": "",
+          "after": "        validate_product_ammo_versions(source,packed,input_words,output_words,count)\n"
+        },
+        {
+          "start": 44928,
+          "end": 45059,
           "before": "",
           "after": "            if cuda_split_compile_threads()==2:\n                signatures['nvrtcVersion']=[C.POINTER(C.c_int),C.POINTER(C.c_int)]\n"
         },
         {
-          "start": 50760,
-          "end": 51090,
+          "start": 51816,
+          "end": 52146,
           "before": "def cuda_compile_options(kind, ptxas_level=None):\n",
           "after": "def cuda_split_compile_threads():\n    value=os.environ.get('NIKKE_CUDA_SPLIT_COMPILE','1')\n    if value not in ('1','2'):\n        raise ValueError('NIKKE_CUDA_SPLIT_COMPILE must be1 or2; automatic/all-core compilation is forbidden')\n    return int(value)\n\n\ndef cuda_compile_options(kind, ptxas_level=None, *, split_compile=None):\n"
         },
         {
-          "start": 51481,
-          "end": 51883,
+          "start": 52537,
+          "end": 52939,
           "before": "",
           "after": "    threads=cuda_split_compile_threads() if split_compile is None else split_compile\n    if type(threads) is not int or threads not in (1,2):raise ValueError('NVRTC compiler threads must be1 or2')\n    # Opt-in only: default argv/cache identities stay byte-identical. The\n    # parallel optimizer count participates in the ordinary exact cache key.\n    if threads==2:options.append('--split-compile=2')\n"
         },
         {
-          "start": 52554,
-          "end": 52710,
+          "start": 53610,
+          "end": 53766,
           "before": "    options = cuda_compile_options(artifact_kind,None if level in (None,'') else int(level))\n",
           "after": "    threads=cuda_split_compile_threads()\n    options = cuda_compile_options(artifact_kind,None if level in (None,'') else int(level),split_compile=threads)\n"
         },
         {
-          "start": 53309,
-          "end": 53591,
+          "start": 54365,
+          "end": 54647,
           "before": "",
           "after": "        if threads==2:\n            major,minor=C.c_int(),C.c_int()\n            check(lib.nvrtcVersion(C.byref(major),C.byref(minor)))\n            if major.value!=12 or minor.value<4:\n                raise ValueError('Two-thread NVRTC compilation requires verified NVRTC12.4..12.x')\n"
         }
@@ -1248,13 +1296,13 @@
     },
     "app/portable_product_programs.py": {
       "before_sha256": "51d18a2191c24ef3b68f2d1cf71d792cdb9e8e01ed209e5c793827ce5b7d056d",
-      "after_sha256": "4fa789e62fbeb104b2897cd2a1e14645701e583cca2a9c4de6275953f1d56d03",
+      "after_sha256": "be9efe8a8c474d6ac6b5a0d8fb0f4dd19f1698bd8f1528a437a0f5e2a196de46",
       "hunks": [
         {
           "start": 318,
           "end": 382,
           "before": "GOLDEN = 'research/portable-product-programs-v1-expected.json'\n",
-          "after": "GOLDEN = 'research/portable-product-programs-v68-expected.json'\n"
+          "after": "GOLDEN = 'research/portable-product-programs-v70-expected.json'\n"
         },
         {
           "start": 1039,
@@ -1270,27 +1318,27 @@
         },
         {
           "start": 5747,
-          "end": 6210,
+          "end": 6270,
           "before": "                input_words=program['input_words'], output_words=program['output_words'])\n",
-          "after": "                input_words=program['input_words'], output_words=program['output_words'],\n                inputs=7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1,native=7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)\n"
+          "after": "                input_words=program['input_words'], output_words=program['output_words'],\n                inputs=7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1,native=7 if name=='ammo-cover-fixed-group' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)\n"
         },
         {
-          "start": 7372,
-          "end": 21546,
+          "start": 7432,
+          "end": 21606,
           "before": "    if program['kind'] in ('group', 'target'):\n",
           "after": "    if name is not None and name.startswith('typed-lock-'):\n        from coordinate_typed_actor_policy import FIELD_MODE\n        from coordinate_typed_aim_runtime import POLICY\n        body=body_for_program(root,'coordinate-lock-'+program['mode']);body['duration']=4.\n        body['enemy']['patterns'][0]['until']['time']=5.\n        models=body['reference_models'];locks=copy.deepcopy(models['lock_on'])\n        for i,row in enumerate(locks['typed_bindings']):row.update(owner=[0,0,1],label='projectile-'+str(i))\n        typed=dict(coord=models['coordinate']['coord'],bindings=copy.deepcopy(locks['typed_bindings']),\n            geometry=dict(point_source='caster_aim',shapes=[dict(x=0.,y=0.,r=1000.,z=float(i)) for i in range(3)]),\n            aim_policy={'mode':POLICY},actor_policy={'mode':FIELD_MODE})\n        body['reference_models']=dict(typed_targets=typed,lock_on=locks)\n    elif name is not None and name.startswith('typed-'):\n        from portable_coordinate_typed_owner_cases import fixtures\n        case=next(row for row in fixtures() if row['name'].endswith('/body'))\n        body=copy.deepcopy(case['body']);body['duration']=3.\n        body['reference_models']={'typed_targets':dict(coord=copy.deepcopy(case['coord']),bindings=copy.deepcopy(case['typed_bindings']),geometry=copy.deepcopy(case['typed_geometry']),aim_policy=copy.deepcopy(case['typed_aim_policy']),actor_policy=copy.deepcopy(case['typed_actor_policy']))}\n    elif name is not None and name.startswith('named-carriers-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['레이 (가칭)'],0)[0][2]\n    elif name is not None and name.startswith('coordinate-lock-'):\n        body=body_for_program(root,'lock-'+program['mode'])\n        body['reference_models']['coordinate']=dict(coord=dict(auto_aim=[0.,0.],pierce_px=10.,explosion_scale=1.),logical_geometry=[])\n        body['enemy']['patterns']=[dict(id='coordinate-projectiles',kind='idle',until=dict(time=31.))]\n        body['reference_models']['lock_on']['typed_bindings']=[dict(node='coordinate-projectiles',kind=2,identity=i,capacity=1e8) for i in (10,11,12)]\n    elif name is not None and name.startswith('coordinate-healing-'):\n        from portable_enemy_healing_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body']);body['duration']=30\n        body['reference_models']={'coordinate':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry'])),'enemy_healing':copy.deepcopy(case['enemy_healing'])}\n    elif name is not None and name.startswith('coordinate-add-'):\n        from portable_add_self_destruct_cases import fixtures\n        case=next(row for row in fixtures() if row['contract']['scenario']=='spaced')\n        body=copy.deepcopy(case['body'])\n        body['reference_models']={'coordinate':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']))}\n    elif name is not None and name.startswith('coordinate-weighted-'):\n        from portable_coordinate_original_cases import fixtures\n        body=body_for_program(root,'weighted-'+program['mode']+'-group')\n        case=fixtures()[0]\n        body['reference_models']['coordinate']=dict(coord=copy.deepcopy(case['coord']),logical_geometry=[])\n        # Original finite ADD actors with explicitly declared colliders, no PART proxies.\n        body['enemy']['patterns'].append(dict(id='declared-wave',kind='summon',spec=dict(count=4,hp=1e12)))\n        body['reference_models']['coordinate']['logical_geometry']=[dict(label='__enemy__:declared-wave#'+str(i+1),shape=dict(x=0.,y=0.,r=100.,z=i)) for i in range(4)]\n    elif name is not None and name.startswith('coordinate-cover-'):\n        body=body_for_program(root,'coordinate-'+program['mode'])\n        names=body['squad'];body['reference_models']['cover_defense']=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(names)]\n        body['manual_cover_sequences']={names[0]:[dict(action='cover',t=.5,duration=2.)]}\n        body['enemy']['patterns'].append(dict(id='coordinate-incoming',kind='attack',delay=.75,spec=dict(atk=1000,coeff=100,target='all',hits=2,interval=.5)))\n    elif name is not None and name.startswith('coordinate-'):\n        import engine_worker\n        from portable_coordinate_original_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body']);body['duration']=30\n        body['enemy']['patterns']=copy.deepcopy(case['patterns'])\n        body['reference_models']={'coordinate':dict(coord=copy.deepcopy(case['coord']),logical_geometry=[])}\n    elif name is not None and name.startswith('movement-range-cover-'):\n        from detail_coverage import body_for\n        body=body_for_program(root,'named-range-'+program['mode'])\n        motion=body_for_program(root,'movement-'+program['mode'])['reference_models']['enemy_movement']\n        roster=body['squad'][:2]+['솔져 O.W.','유니','얀'];body['squad']=roster;body['duration']=30\n        body['profile']=body_for(roster,30)['profile']\n        spec=body['reference_models']['named_range']\n        motion['coord']=copy.deepcopy(spec['coord']);motion['logical_geometry']=copy.deepcopy(spec['logical_geometry'])\n        motion['motion']['actors']=[dict(label=r['label'],velocity=[.1,0.],force_center=[0.,0.]) for r in spec['logical_geometry']]\n        body['reference_models'].update(enemy_movement=motion,cover_defense=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(roster)])\n        body['manual_cover_sequences']={roster[2]:[dict(action='cover',t=10,duration=2)]}\n        body['enemy']['patterns'].append(dict(id='declared-incoming',kind='attack',delay=10.25,spec=dict(atk=1000,coeff=100,target='all',hits=5,interval=.5)))\n    elif name is not None and name.startswith('lock-cover-'):\n        from detail_coverage import body_for\n        body=body_for_program(root,'lock-'+program['mode'])\n        roster=body['squad'][:-1]+['솔져 O.W.'];literal=body_for(roster,body['duration'])\n        body['squad']=roster;body['profile']=literal['profile']\n        body['reference_models']['cover_defense']=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(roster)]\n        body['manual_cover_sequences']={roster[0]:[dict(action='cover',t=10,duration=2)]}\n        body['enemy']['patterns']=[dict(id='lock-wave',kind='summon',spec=dict(count=2,hp=1e30)),dict(id='declared-incoming',kind='attack',delay=10.25,spec=dict(atk=1000,coeff=100,target='all',hits=5,interval=.5))]\n    elif name is not None and name.startswith('lock-'):\n        import engine_worker\n        from portable_heavyarms_lock_cases import fixtures,NAME,source_definitions\n        from product_lock_model import ORDER,MARKER,DELIVERY_MODEL\n        body=copy.deepcopy(fixtures()[1]['body'])\n        body['reference_models']={'lock_on':dict(owner=NAME,marker=MARKER,packet_skill=source_definitions()[8]['name'],candidate_order=ORDER,delivery=DELIVERY_MODEL,typed_bindings=[])}\n    elif name is not None and name.startswith('named-range-cover-'):\n        from detail_coverage import body_for\n        body=body_for_program(root,'named-range-'+program['mode'])\n        roster=body['squad'][:-1]+['솔져 O.W.'];literal=body_for(roster,body['duration'])\n        body['squad']=roster;body['profile']=literal['profile']\n        body['reference_models']['cover_defense']=[dict(name=n,base_defense=100+10*i) for i,n in enumerate(roster)]\n        body['manual_cover_sequences']={roster[0]:[dict(action='cover',t=10,duration=2)]}\n        body['enemy']['patterns'].append(dict(id='declared-incoming',kind='attack',delay=10.25,spec=dict(atk=1000,coeff=100,target='all',hits=5,interval=.5)))\n    elif name is not None and name.startswith('named-range-'):\n        from portable_named_range_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'named_range':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),rules=copy.deepcopy(case['named_range_rules']))}\n    elif name is not None and name.startswith('movement-cover-'):\n        body=body_for_program(root,'movement-'+program['mode'])\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('movement-'):\n        import engine_worker\n        from portable_enemy_movement_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'enemy_movement':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),motion=copy.deepcopy(case['enemy_movement']))}\n    elif name is not None and name.startswith('ammo-') and program['kind']=='target':\n        from detail_coverage import body_for\n        from portable_enemy_ammo_cases import fixtures\n        cover=name.startswith('ammo-cover-')\n        body=body_for(['벨벳','아스카','솔져 O.W.' if cover else '미란다','도라','드레이크'],30)\n        case=fixtures()[0];body['enemy'].update(has_parts=False,patterns=copy.deepcopy(case['patterns']))\n        body['reference_models']={'enemy_ammo':copy.deepcopy(case['enemy_ammo'])}\n        if cover:\n            body['reference_models']['cover_defense']=[dict(name=n,base_defense=1000.) for n in body['squad']]\n            body['manual_cover_sequences']={body['squad'][2]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and (name.startswith('ammo-') or name.startswith('ammo-cover-')) and program['kind']=='group':\n        from detail_coverage import body_for\n        from portable_enemy_ammo_cases import fixtures\n        body=body_for(['벨벳','벨로타','솔져 O.W.' if name.startswith('ammo-cover-') else '미란다','도라','드레이크'],30)\n        case=fixtures()[0]\n        body['enemy'].update(has_parts=False,patterns=copy.deepcopy(case['patterns']))\n        body['reference_models']={'enemy_ammo':copy.deepcopy(case['enemy_ammo'])}\n        if name.startswith('ammo-cover-'):\n            body['reference_models']['cover_defense']=[dict(name=n,base_defense=1000.) for n in body['squad']]\n            body['manual_cover_sequences']={body['squad'][2]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('ammo-cover-'):\n        from detail_coverage import body_for\n        body=body_for(['벨벳','솔져 O.W.','미란다','도라','드레이크'],30)\n        body['manual_cover_sequences']={body['squad'][1]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('ammo-'):\n        if program['mode']=='fixed':\n            from portable_original_identity_inventory import selected_profile_bodies\n            body=selected_profile_bodies(['벨벳'],0)[0][2]\n        else:\n            import engine_worker\n            from portable_enemy_ammo_cases import fixtures\n            case=fixtures()[0];body=copy.deepcopy(case['body'])\n            body['reference_models']={'enemy_ammo':copy.deepcopy(case['enemy_ammo'])}\n    elif name is not None and name.startswith('default-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['베이' if name.startswith('default-weighted-') else '솔져 O.W.'],0)[0][2]\n    elif name is not None and name.startswith('cover-') and program['kind']:\n        body=body_for_program(root,program['mode']+'-'+program['kind'])\n        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('cover-'):\n        from portable_cover_defense_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'cover_defense':copy.deepcopy(case['cover_defense'])}\n        body['manual_cover_sequences']=copy.deepcopy(case['declared_manual_sequences'])\n    elif name is not None and name.startswith('weighted-'):\n        from portable_weighted_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}\n        if program['kind']=='group':\n            from detail_coverage import body_for\n            names=['베이','벨로타','미란다','도라','드레이크']\n            literal=body_for(names,body['duration'])\n            literal['profile']['chars']['베이']=copy.deepcopy(body['profile']['chars']['베이'])\n            body.update(squad=names,profile=literal['profile'])\n    elif name is not None and name.startswith('healing-cover-') and program['kind']=='group':\n        from detail_coverage import body_for\n        from portable_enemy_healing_cases import fixtures\n        case=fixtures()[0];roster=['앤 : 미라클 페어리','벨로타','솔져 O.W.','도라','드레이크']\n        body=body_for(roster,30);body['enemy']['patterns']=copy.deepcopy(case['patterns'])\n        body['enemy']['patterns'].append(dict(id='declared-cover-hit',kind='attack',delay=7.5,spec=dict(atk=100000.,coeff=100,target='slot:3',ignore_taunt=True,pierce=False,hits=1,interval=.1)))\n        body['reference_models']={'enemy_healing':copy.deepcopy(case['enemy_healing']),'cover_defense':[dict(name=n,base_defense=1000.) for n in roster]}\n        body['manual_cover_sequences']={roster[2]:[dict(action='cover',t=7.4,duration=.25)]}\n    elif name is not None and name.startswith('healing-cover-'):\n        from detail_coverage import body_for\n        body=body_for(['앤 : 미라클 페어리','솔져 O.W.','미란다','도라','드레이크'],30)\n        body['manual_cover_sequences']={body['squad'][1]:[dict(action='cover',t=.5,duration=.25)]}\n    elif name is not None and name.startswith('healing-') and program['kind']=='group':\n        from detail_coverage import body_for\n        from portable_enemy_healing_cases import fixtures\n        case=fixtures()[0];roster=['앤 : 미라클 페어리','벨로타','미란다','도라','드레이크']\n        body=body_for(roster,30);body['enemy']['patterns']=copy.deepcopy(case['patterns'])\n        body['reference_models']={'enemy_healing':copy.deepcopy(case['enemy_healing'])}\n    elif name is not None and name.startswith('healing-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]\n    elif program['kind'] in ('group', 'target'):\n"
         },
         {
-          "start": 22124,
-          "end": 22557,
+          "start": 22184,
+          "end": 22617,
           "before": "",
           "after": "    if name is not None and name.startswith('add-'):\n        body['enemy']['patterns']=[dict(id='product-escort',kind='summon',until=dict(targets_cleared=True),spec=dict(\n            name='Escort',count=2,hp=1e12,attack_at=.25,self_destruct=True,\n            attack=dict(atk=1000,coeff=100,hits=2,interval=.5,target='all',debuffs=[\n                dict(stat='atk_pct',value=-10),dict(stat='dot',coeff=10,interval=.5,duration=1)])))]\n"
         },
         {
-          "start": 22573,
-          "end": 30361,
+          "start": 22633,
+          "end": 30808,
           "before": "",
-          "after": "\n\ndef cases_for_program(root,name=None):\n    \"\"\"Extend the existing product corpus, keeping its original case first.\"\"\"\n    base=body_for_program(root,name);rows=[(None,base)]\n    if name in ('fixed','lock-fixed'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        owners=['\\uc2a4\\ub178\\uc6b0 \\ud654\\uc774\\ud2b8 : \\ud5e4\\ube44\\uc554\\uc988'] if name.startswith('lock-') else ['\\uc720\\ub2c8','\\uc580']\n        for i,owner in enumerate(owners):\n            body=copy.deepcopy(selected_profile_bodies([owner],0)[0][2]);body.update(duration=30.,burst_gauge_mode=PROGRAMS[name]['mode'])\n            rows.append(('default-body-'+str(i),body))\n    if name=='fixed':\n        body=copy.deepcopy(selected_profile_bodies(['\\ub77c\\ud53c : \\ub808\\ub4dc \\ud6c4\\ub4dc'],0)[0][2]);body.update(duration=180.,burst_gauge_mode='fixed')\n        rows.append(('normal-skill-core-cold-mg-180',body))\n    if name is not None and name.startswith('coordinate-lock-'):\n        body=copy.deepcopy(base);body['duration']=56.;body['enemy']['patterns'][0]['until']['time']=57.\n        rows.append(('long56',body))\n    if name is not None and name.startswith('typed-lock-'):\n        body=copy.deepcopy(base)\n        for model,key in ((body['reference_models']['lock_on'],'typed_bindings'),(body['reference_models']['typed_targets'],'bindings')):\n            for row in model[key]:row['capacity']=1.\n        rows.append(('broken',body))\n        body=copy.deepcopy(base)\n        body['enemy']['patterns'].append(dict(id='typed-lock-wave',kind='summon',delay=.5,until=dict(time=3.5),spec=dict(count=2,hp=1e8)))\n        body['reference_models']['typed_targets']['logical_geometry']=[dict(label='__enemy__:typed-lock-wave#'+str(i+1),shape=dict(x=0.,y=0.,r=1000.,z=3.+i)) for i in range(2)]\n        rows.append(('two-adds',body))\n        body=copy.deepcopy(next(b for v,b in cases_for_program(root,'typed-'+PROGRAMS[name]['mode']) if v=='nearby-primary'))\n        from portable_heavyarms_lock_cases import NAME\n        body['squad']=[NAME if n=='\\ub4dc\\ub808\\uc774\\ud06c' else n for n in body['squad']]\n        body['profile']['chars'][NAME]=copy.deepcopy(base['profile']['chars'][NAME])\n        lock=copy.deepcopy(base['reference_models']['lock_on'])\n        lock['typed_bindings']=copy.deepcopy(body['reference_models']['typed_targets']['bindings'])\n        body['reference_models']['lock_on']=lock\n        rows.append(('nearby-mixed',body))\n    if name in ('typed-fixed','typed-accumulate'):\n        body=copy.deepcopy(base)\n        body['enemy']['patterns'].append(dict(id='typed-wave',kind='summon',delay=.5,until=dict(time=2.),spec=dict(count=2,hp=1e8)))\n        body['reference_models']['typed_targets']['logical_geometry']=[dict(label='__enemy__:typed-wave#'+str(i+1),shape=dict(x=0.,y=0.,r=1000.,z=3.+i)) for i in range(2)]\n        rows.append(('two-adds',body))\n        body=copy.deepcopy(body)\n        body['reference_models']['typed_targets']['bindings'][0]['kind']=2\n        rows.append(('mixed-two-adds',body))\n        from portable_original_identity_inventory import selected_profile_bodies\n        nearby=copy.deepcopy(selected_profile_bodies(['\\uc77c\\ub808\\uadf8'],0)[0][2])\n        nearby.update(duration=12.,burst_gauge_mode=PROGRAMS[name]['mode'])\n        nearby['enemy']['patterns']=copy.deepcopy(body['enemy']['patterns'])\n        nearby['enemy']['patterns'][0]['until']['time']=20.\n        nearby['enemy']['patterns'][-1].update(delay=0.,until=dict(time=20.),spec=dict(count=3,hp=1e30))\n        nearby['reference_models']=copy.deepcopy(body['reference_models'])\n        spec=nearby['reference_models']['typed_targets']\n        spec['bindings'][0]['kind']=3;spec['bindings'][1]['kind']=2\n        for shape in spec['geometry']['shapes']:shape.update(x=0.,y=0.,r=1000.)\n        spec['logical_geometry']=[dict(label='__enemy__:typed-wave#'+str(i+1),shape=dict(x=x,y=0.,r=1.,z=-3.)) for i,x in enumerate((0.,10.,100.))]\n        spec['nearby_rules']=[dict(owner='\\uc77c\\ub808\\uadf8',effect='\\uc1fc\\ud2b8 2',base_count=3,base_radius=20.,body_shape=dict(x=-10.,y=0.,r=1.),selection='primary-center-edge-v1')]\n        rows.append(('nearby-primary',nearby))\n    if name=='ammo-cover-fixed-group':\n        from portable_enemy_ammo_self_destruct_cases import fixtures\n        for case in fixtures():\n            scenario=case['contract']['scenario']\n            if scenario not in ('coincident','reload-final'):continue\n            body=copy.deepcopy(base);body['duration']=6\n            body['enemy']['patterns']=copy.deepcopy(case['patterns'])\n            body['reference_models']['enemy_ammo']=copy.deepcopy(case['enemy_ammo'])\n            rows.append((scenario+'-final-queue',body))\n        from detail_coverage import body_for\n        names=['벨벳','사쿠라','벨로타','솔져 O.W.','드레이크']\n        body=copy.deepcopy(base);body.update(squad=names,profile=body_for(names,15)['profile'],duration=15)\n        body['reference_models']['cover_defense']=[dict(name=n,base_defense=1000.) for n in names]\n        body['manual_cover_sequences']={names[3]:[dict(action='cover',t=.5,duration=.25)]}\n        rows.append(('target-modifier-carriers',body))\n        case=next(c for c in fixtures() if c['contract']['scenario']=='coincident')\n        body=copy.deepcopy(body);body['duration']=6;body['enemy']['patterns']=copy.deepcopy(case['patterns'])\n        body['reference_models']['enemy_ammo']=copy.deepcopy(case['enemy_ammo'])\n        rows.append(('target-modifier-final-queue',body))\n        names=['앤 : 미라클 페어리','벨벳','벨로타','솔져 O.W.','드레이크']\n        body=copy.deepcopy(base);body.update(squad=names,profile=body_for(names,15)['profile'],duration=15)\n        body['reference_models']['cover_defense']=[dict(name=n,base_defense=1000.) for n in names]\n        body['manual_cover_sequences']={names[3]:[dict(action='cover',t=.5,duration=.25)]}\n        times=[0.,.25,1.,2.]\n        body['enemy']['patterns'] += [dict(id='ammo-heal-'+str(i),kind='idle',delay=t) for i,t in enumerate(times)]\n        targets=[row['label'] for row in body['reference_models']['enemy_ammo'] if row['label']!='__enemy__']\n        body['reference_models']['enemy_healing']=[dict(node='ammo-heal-'+str(i),targets=targets,amount=1000000.) for i in range(len(times))]\n        rows.append(('healing-magazines',body))\n        body=copy.deepcopy(body);body['duration']=6\n        body['enemy']['patterns'][0]['spec'].update(self_destruct=True,attack_at=.25)\n        body['enemy']['patterns'][0]['spec']['attack'].update(hits=3,interval=0.)\n        rows.append(('healing-final-queue',body))\n    if name is not None and name.startswith('typed-'):\n        body=copy.deepcopy(rows[-1][1])\n        from portable_original_identity_inventory import selected_profile_bodies\n        owner='\\uc720\\ub2c8';healer='\\uba54\\uc5b4\\ub9ac'\n        original=selected_profile_bodies([owner],0)[0][2]\n        body['squad']=[owner if n==healer else n for n in body['squad']]\n        body['profile']['chars'][owner]=copy.deepcopy(original['profile']['chars'][owner])\n        typed=body['reference_models']['typed_targets']\n        motion=dict(precedence='disable-before-force',force_policy='snap-to-declared-center',recipient_policy='canonical-all-in-range',actors=[dict(label=row['label'],velocity=[v,0.],force_center=[0.,0.]) for row,v in zip(typed['logical_geometry'],[4.,-3.,-8.],strict=True)])\n        body['reference_models']['enemy_movement']=dict(coord=copy.deepcopy(typed['coord']),logical_geometry=copy.deepcopy(typed['logical_geometry']),motion=motion)\n        rows.append(('moving-nearby',body))\n        body=copy.deepcopy(body);body['duration']=30.\n        for pattern in body['enemy']['patterns']:\n            if 'time' in pattern.get('until',{}):pattern['until']['time']=31.\n        rows.append(('moving-long30',body))\n    return rows\n"
+          "after": "\n\ndef cases_for_program(root,name=None):\n    \"\"\"Extend the existing product corpus, keeping its original case first.\"\"\"\n    base=body_for_program(root,name);rows=[(None,base)]\n    if name in ('fixed','lock-fixed'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        owners=['\\uc2a4\\ub178\\uc6b0 \\ud654\\uc774\\ud2b8 : \\ud5e4\\ube44\\uc554\\uc988'] if name.startswith('lock-') else ['\\uc720\\ub2c8','\\uc580']\n        for i,owner in enumerate(owners):\n            body=copy.deepcopy(selected_profile_bodies([owner],0)[0][2]);body.update(duration=30.,burst_gauge_mode=PROGRAMS[name]['mode'])\n            rows.append(('default-body-'+str(i),body))\n    if name=='fixed-group':\n        from portable_original_identity_inventory import selected_profile_bodies\n        for i,owner in enumerate(['\\ubca8\\ub85c\\ud0c0','\\ub2c8\\ud790\\ub9ac\\uc2a4\\ud0c0']):\n            body=copy.deepcopy(selected_profile_bodies([owner],0)[0][2]);body.update(duration=180.,burst_gauge_mode='fixed')\n            rows.append(('complete-groups-180-'+str(i),body))\n    if name=='fixed':\n        body=copy.deepcopy(selected_profile_bodies(['\\ub77c\\ud53c : \\ub808\\ub4dc \\ud6c4\\ub4dc'],0)[0][2]);body.update(duration=180.,burst_gauge_mode='fixed')\n        rows.append(('normal-skill-core-cold-mg-180',body))\n    if name is not None and name.startswith('coordinate-lock-'):\n        body=copy.deepcopy(base);body['duration']=56.;body['enemy']['patterns'][0]['until']['time']=57.\n        rows.append(('long56',body))\n    if name is not None and name.startswith('typed-lock-'):\n        body=copy.deepcopy(base)\n        for model,key in ((body['reference_models']['lock_on'],'typed_bindings'),(body['reference_models']['typed_targets'],'bindings')):\n            for row in model[key]:row['capacity']=1.\n        rows.append(('broken',body))\n        body=copy.deepcopy(base)\n        body['enemy']['patterns'].append(dict(id='typed-lock-wave',kind='summon',delay=.5,until=dict(time=3.5),spec=dict(count=2,hp=1e8)))\n        body['reference_models']['typed_targets']['logical_geometry']=[dict(label='__enemy__:typed-lock-wave#'+str(i+1),shape=dict(x=0.,y=0.,r=1000.,z=3.+i)) for i in range(2)]\n        rows.append(('two-adds',body))\n        body=copy.deepcopy(next(b for v,b in cases_for_program(root,'typed-'+PROGRAMS[name]['mode']) if v=='nearby-primary'))\n        from portable_heavyarms_lock_cases import NAME\n        body['squad']=[NAME if n=='\\ub4dc\\ub808\\uc774\\ud06c' else n for n in body['squad']]\n        body['profile']['chars'][NAME]=copy.deepcopy(base['profile']['chars'][NAME])\n        lock=copy.deepcopy(base['reference_models']['lock_on'])\n        lock['typed_bindings']=copy.deepcopy(body['reference_models']['typed_targets']['bindings'])\n        body['reference_models']['lock_on']=lock\n        rows.append(('nearby-mixed',body))\n    if name in ('typed-fixed','typed-accumulate'):\n        body=copy.deepcopy(base)\n        body['enemy']['patterns'].append(dict(id='typed-wave',kind='summon',delay=.5,until=dict(time=2.),spec=dict(count=2,hp=1e8)))\n        body['reference_models']['typed_targets']['logical_geometry']=[dict(label='__enemy__:typed-wave#'+str(i+1),shape=dict(x=0.,y=0.,r=1000.,z=3.+i)) for i in range(2)]\n        rows.append(('two-adds',body))\n        body=copy.deepcopy(body)\n        body['reference_models']['typed_targets']['bindings'][0]['kind']=2\n        rows.append(('mixed-two-adds',body))\n        from portable_original_identity_inventory import selected_profile_bodies\n        nearby=copy.deepcopy(selected_profile_bodies(['\\uc77c\\ub808\\uadf8'],0)[0][2])\n        nearby.update(duration=12.,burst_gauge_mode=PROGRAMS[name]['mode'])\n        nearby['enemy']['patterns']=copy.deepcopy(body['enemy']['patterns'])\n        nearby['enemy']['patterns'][0]['until']['time']=20.\n        nearby['enemy']['patterns'][-1].update(delay=0.,until=dict(time=20.),spec=dict(count=3,hp=1e30))\n        nearby['reference_models']=copy.deepcopy(body['reference_models'])\n        spec=nearby['reference_models']['typed_targets']\n        spec['bindings'][0]['kind']=3;spec['bindings'][1]['kind']=2\n        for shape in spec['geometry']['shapes']:shape.update(x=0.,y=0.,r=1000.)\n        spec['logical_geometry']=[dict(label='__enemy__:typed-wave#'+str(i+1),shape=dict(x=x,y=0.,r=1.,z=-3.)) for i,x in enumerate((0.,10.,100.))]\n        spec['nearby_rules']=[dict(owner='\\uc77c\\ub808\\uadf8',effect='\\uc1fc\\ud2b8 2',base_count=3,base_radius=20.,body_shape=dict(x=-10.,y=0.,r=1.),selection='primary-center-edge-v1')]\n        rows.append(('nearby-primary',nearby))\n    if name=='ammo-cover-fixed-group':\n        from portable_enemy_ammo_self_destruct_cases import fixtures\n        for case in fixtures():\n            scenario=case['contract']['scenario']\n            if scenario not in ('coincident','reload-final'):continue\n            body=copy.deepcopy(base);body['duration']=6\n            body['enemy']['patterns']=copy.deepcopy(case['patterns'])\n            body['reference_models']['enemy_ammo']=copy.deepcopy(case['enemy_ammo'])\n            rows.append((scenario+'-final-queue',body))\n        from detail_coverage import body_for\n        names=['벨벳','사쿠라','벨로타','솔져 O.W.','드레이크']\n        body=copy.deepcopy(base);body.update(squad=names,profile=body_for(names,15)['profile'],duration=15)\n        body['reference_models']['cover_defense']=[dict(name=n,base_defense=1000.) for n in names]\n        body['manual_cover_sequences']={names[3]:[dict(action='cover',t=.5,duration=.25)]}\n        rows.append(('target-modifier-carriers',body))\n        case=next(c for c in fixtures() if c['contract']['scenario']=='coincident')\n        body=copy.deepcopy(body);body['duration']=6;body['enemy']['patterns']=copy.deepcopy(case['patterns'])\n        body['reference_models']['enemy_ammo']=copy.deepcopy(case['enemy_ammo'])\n        rows.append(('target-modifier-final-queue',body))\n        names=['앤 : 미라클 페어리','벨벳','벨로타','솔져 O.W.','드레이크']\n        body=copy.deepcopy(base);body.update(squad=names,profile=body_for(names,15)['profile'],duration=15)\n        body['reference_models']['cover_defense']=[dict(name=n,base_defense=1000.) for n in names]\n        body['manual_cover_sequences']={names[3]:[dict(action='cover',t=.5,duration=.25)]}\n        times=[0.,.25,1.,2.]\n        body['enemy']['patterns'] += [dict(id='ammo-heal-'+str(i),kind='idle',delay=t) for i,t in enumerate(times)]\n        targets=[row['label'] for row in body['reference_models']['enemy_ammo'] if row['label']!='__enemy__']\n        body['reference_models']['enemy_healing']=[dict(node='ammo-heal-'+str(i),targets=targets,amount=1000000.) for i in range(len(times))]\n        rows.append(('healing-magazines',body))\n        body=copy.deepcopy(body);body['duration']=6\n        body['enemy']['patterns'][0]['spec'].update(self_destruct=True,attack_at=.25)\n        body['enemy']['patterns'][0]['spec']['attack'].update(hits=3,interval=0.)\n        rows.append(('healing-final-queue',body))\n    if name is not None and name.startswith('typed-'):\n        body=copy.deepcopy(rows[-1][1])\n        from portable_original_identity_inventory import selected_profile_bodies\n        owner='\\uc720\\ub2c8';healer='\\uba54\\uc5b4\\ub9ac'\n        original=selected_profile_bodies([owner],0)[0][2]\n        body['squad']=[owner if n==healer else n for n in body['squad']]\n        body['profile']['chars'][owner]=copy.deepcopy(original['profile']['chars'][owner])\n        typed=body['reference_models']['typed_targets']\n        motion=dict(precedence='disable-before-force',force_policy='snap-to-declared-center',recipient_policy='canonical-all-in-range',actors=[dict(label=row['label'],velocity=[v,0.],force_center=[0.,0.]) for row,v in zip(typed['logical_geometry'],[4.,-3.,-8.],strict=True)])\n        body['reference_models']['enemy_movement']=dict(coord=copy.deepcopy(typed['coord']),logical_geometry=copy.deepcopy(typed['logical_geometry']),motion=motion)\n        rows.append(('moving-nearby',body))\n        body=copy.deepcopy(body);body['duration']=30.\n        for pattern in body['enemy']['patterns']:\n            if 'time' in pattern.get('until',{}):pattern['until']['time']=31.\n        rows.append(('moving-long30',body))\n    return rows\n"
         }
       ]
     },
@@ -1578,49 +1626,43 @@
     },
     "app/portable_resource_decode.py": {
       "before_sha256": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
-      "after_sha256": "bde8011fab12a50045f3e2784c65f446fac35e7b70a4da007b0b7c9eec4b0a9e",
+      "after_sha256": "99fea54d94e56940fd59a51568ead524882990348b3bebbf7272749513348240",
       "hunks": [
         {
-          "start": 1071,
-          "end": 1613,
-          "before": "",
-          "after": "extended=metadata.get('product_enemy_ammo') is not None\n    if extended:\n        from portable_enemy_ammo_wire import LAYOUT as E\n        capacity=128+(E['OUTPUT_WORDS']-E['OUTPUT_BASE']-E['RESOURCE_BASE'])//8\n        expected=E['OUTPUT_WORDS']\n        if metadata.get('product_ammo_cover'):\n            from portable_cover_defense_wire import OUTPUT as expected\n        if len(words)!=expected or count!=words[header+1] or count>capacity or any(words[header+2:header+8]):raise RuntimeError('Invalid complete product resource history')\n    el"
+          "start": 1067,
+          "end": 1852,
+          "before": "    if count>L['TRACE']:raise RuntimeError('Invalid resource notification count')\n",
+          "after": "    extended=metadata.get('product_enemy_ammo') is not None\n    if extended:\n        from portable_enemy_ammo_wire import LAYOUT as E\n        expected=metadata['product_enemy_ammo'].get('output_words',E['OUTPUT_WORDS'])\n        if expected not in (E['OUTPUT_WORDS'],2064786):raise RuntimeError('Invalid product resource output ownership')\n        capacity=128+(expected-E['OUTPUT_BASE']-E['RESOURCE_BASE'])//8\n        if metadata.get('product_ammo_cover'):\n            from portable_cover_defense_wire import OUTPUT as expected\n        if len(words)!=expected or count!=words[header+1] or count>capacity or any(words[header+2:header+8]):raise RuntimeError('Invalid complete product resource history')\n    elif count>L['TRACE']:raise RuntimeError('Invalid resource notification count')\n"
         },
         {
-          "start": 1742,
-          "end": 1817,
-          "before": "",
-          "after": "(E['OUTPUT_BASE']+E['RESOURCE_BASE']+(i-128)*8 if extended and i>=128 else "
+          "start": 1892,
+          "end": 2024,
+          "before": "        at=L['RESOURCE_TRACE_BASE']+i*8;key=words[at+2]\n",
+          "after": "        at=(E['OUTPUT_BASE']+E['RESOURCE_BASE']+(i-128)*8 if extended and i>=128 else L['RESOURCE_TRACE_BASE']+i*8);key=words[at+2]\n"
         },
         {
-          "start": 1845,
-          "end": 1846,
+          "start": 2112,
+          "end": 2260,
           "before": "",
-          "after": ")"
-        },
-        {
-          "start": 1948,
-          "end": 2096,
-          "before": "",
-          "after": "')\n        if extended and (words[at] not in (26,30) or words[at+1]>=5 or words[at+3]!=0):raise RuntimeError('Invalid complete resource notification"
+          "after": "        if extended and (words[at] not in (26,30) or words[at+1]>=5 or words[at+3]!=0):raise RuntimeError('Invalid complete resource notification')\n"
         }
       ]
     },
     "gpu/enemy_ammo_runtime.slang": {
       "before_sha256": "ed99c8dc9feaaf0dba90584280efb5782fee84f51c799aa76031fe94be7bebb7",
-      "after_sha256": "97e7f6b7f83d1c8f14fd954b328993c208a222d8c6122b6f09c2c5346959a116",
+      "after_sha256": "40ee9fdf474e3f487a6d38d461f6a381c16b8db0ca43d0dd8702eb2d03f56b69",
       "hunks": [
         {
-          "start": 3045,
-          "end": 3045,
-          "before": "==0||count",
-          "after": ""
+          "start": 2878,
+          "end": 2963,
+          "before": "",
+          "after": "#ifndef EAM_VERSION_VALID\n#define EAM_VERSION_VALID(s,version) ((version)==1)\n#endif\n"
         },
         {
-          "start": 3101,
-          "end": 3174,
-          "before": "",
-          "after": "\n#ifndef PORTABLE_PRODUCT_ENEMY_AMMO\n    if(count==0)return false;\n#endif"
+          "start": 3068,
+          "end": 3279,
+          "before": "    if(commands[input]!=EAM_MAGIC||commands[input+1]!=1||count==0||count>128||commands[input+3]!=actorPoolCount(s))return false;\n",
+          "after": "    if(commands[input]!=EAM_MAGIC||!EAM_VERSION_VALID(s,commands[input+1])||count>128||commands[input+3]!=actorPoolCount(s))return false;\n#ifndef PORTABLE_PRODUCT_ENEMY_AMMO\n    if(count==0)return false;\n#endif\n"
         }
       ]
     },
@@ -3453,6 +3495,18 @@
           "after": "        (aimedKind==1 || aimedKind==6) ? uint64_t(0) : COUNTER_PART_CORE(s,flags,(flags & H_CORE) != 0 ? ONE : normal ? normalDamageCore(s,who,b[S_accuracy_pct],physical,basisRow) : WORLD_MODE_CORE(s,who,flags,b[S_accuracy_pct]));\n"
         }
       ]
+    },
+    "app/portable_battle_attack_group_input.py": {
+      "before_sha256": "5a9e1438b89117ae877feb3d66838b500e58b143640cc4b2edda6b4455a8f285",
+      "after_sha256": "9346b5e5d010b8f7805b516932fd582f82b3bca3dd864fd604595fc1b3892bea",
+      "hunks": [
+        {
+          "start": 805,
+          "end": 1168,
+          "before": "",
+          "after": "\ndef product_history(prepared):\n    \"\"\"Keep the existing short wire; longer product runs use lossless pages.\n\n    This selects diagnostic storage only. It does not change group ownership,\n    recipients, thresholds, damage or the battle clock, and consumes no CPU run.\n    \"\"\"\n    return 'compact' if prepared['policies']['config']['duration']>30. else 'fixed64'\n"
+        }
+      ]
     }
   },
   "added_sources": {
@@ -3486,11 +3540,11 @@
     "app/product_named_range_model.py": "1eecc391b4188d6649dddff3d23d8866660ba1e5d205f7093d3b10516aeb99ca",
     "gpu/product_movement_range_battle_entry.slang": "2611612a142691878a8ca634ffc974d377d63da2778a053b627dc6c26704f757",
     "gpu/product_named_range_battle_entry.slang": "b727d7f73788e5bdd61810da53fc94c14c285af6e631379fee3c422a4c70f518",
-    "app/portable_product_ammo.py": "02d876de0a45d5a9eeef8bf807166b570f61256631b4c1e29c4375adf22770df",
-    "gpu/product_ammo_battle_entry.slang": "15c01b30f5f6016c7fd39bd98c5c1bf0fa98cae082ef327af29f5814b55e19b8",
+    "app/portable_product_ammo.py": "3011a1f2025d485965dffab2d7d3494c4b5c006db73477be333e1d3a66e76229",
+    "gpu/product_ammo_battle_entry.slang": "fccfb96b7b54a04d0585679a7811ded7f792d27586c3a6c2022da545179431a9",
     "gpu/product_ammo_cover_fixed_group_battle_entry.slang": "081aba2fa93760815411f35da7ef128e4106012f8a3509ea083c3c0d0080a844",
     "gpu/product_ammo_cover_group_battle_entry.slang": "4ab2ea8e29fab6e56e2e7e5b62880ac1bcb87ca5a805aae2f799086c23816779",
-    "gpu/product_ammo_entry.slang": "50d027cfe08c63ee138152caedc01373345cf50e0db06c677b75ff874b69ea4b",
+    "gpu/product_ammo_entry.slang": "82f107cf144cc7793e14811dd5fa70418ee134b7af06cf2b0a2f44b5f4fc6987",
     "gpu/product_ammo_fixed_group_battle_entry.slang": "859bd4674456131bd68dd8e4198b61a1b791133b050c5fa51c58004e2f140169",
     "gpu/product_ammo_group_battle_entry.slang": "bcc1ba842c507881d49a8c02b861851965972530c5d6f2c66be2d1c54384c0a5",
     "gpu/product_ammo_cover_fixed_target_battle_entry.slang": "697794f5e261bb1c2d387b68ebc04d03a21345903f9d4fb56bfcec91219f431c",

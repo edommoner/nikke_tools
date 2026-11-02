@@ -2458,8 +2458,19 @@ def audit_generation_capture(m,capture):
     result=audit_receipt(receipt,m['golden']['source_sha256'],{t:capture/('generated.'+suffix) for t,suffix in [('cuda','cu'),('metal','metal')]})
     rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
     calls=[r['state'] for r in rows if r['stage']=='slang_compiler']
-    if calls!=['entered','returned']*receipt['compiler_invocations']:raise ValueError('Slang generation compiler invocation mismatch')
-    if [r.get('receipt') for r in rows if r['stage']=='slang_generation_cache' and r['state']=='verified']!=[receipt]:raise ValueError('Slang generation cache journal mismatch')
+    journal=[r.get('receipt') for r in rows if r['stage']=='slang_generation_cache' and r['state']=='verified']
+    if not journal:raise ValueError('Slang generation cache journal mismatch')
+    artifacts={t:capture/('generated.'+suffix) for t,suffix in [('cuda','cu'),('metal','metal')]}
+    for recorded in journal:
+        audit_receipt(recorded,m['golden']['source_sha256'],artifacts)
+        if runtime.get('generation_cache_required') and not recorded['hit']:raise ValueError('Required Slang generation cache journal was not a hit')
+        if any(recorded[k]!=receipt[k] for k in ('key','identity','artifacts')):raise ValueError('Slang generation cache journal identity mismatch')
+    if calls!=['entered','returned']*sum(r['compiler_invocations'] for r in journal):raise ValueError('Slang generation compiler invocation mismatch')
+    # Device preflight can compile a cold source, then execute reads that same
+    # artifact from cache. The final copied receipt is warm; retain and audit
+    # the original cold journal rather than erase its compiler invocations.
+    if journal[-1]!=receipt and not (receipt['hit'] and receipt['compiler_invocations']==0):
+        raise ValueError('Slang generation cache journal mismatch')
     return result
 
 

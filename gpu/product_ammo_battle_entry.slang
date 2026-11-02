@@ -12,8 +12,14 @@
 #include "world_add_attack_battle_layout.slang"
 #include "enemy_ammo_layout.slang"
 #define WORLD_ENEMY_AMMO_RESOURCE_KIND(s,row,d,legacy) (d.kind==11 && worldSkillsEnabled(s) && resourceDefinition(s,row).op==3 && (resourceDefinition(s,row).flags&2)!=0 ? false : (legacy))
-// Use the complete existing output tail; no stride or runtime storage growth.
-#define RESOURCE_TRACE_CAPACITY ((productEnemyAmmoHasSelfDestruct(s)||ENEMY_HEALING_ENABLED(s)) ? EAM_RESOURCE_CAPACITY : (128U+(EAM_OUTPUT_WORDS-EAM_OUTPUT_BASE-EAM_RESOURCE_BASE)/8U))
+// Version 2 is confined to the plain product resource-only tail.
+#if !defined(PORTABLE_PRODUCT_AMMO_TARGET) && !defined(PORTABLE_PRODUCT_AMMO_GROUP) && !defined(PORTABLE_PRODUCT_COVER_AMMO)
+#define EAM_VERSION_VALID(s,version) ((version)==1 || ((version)==2 && !productEnemyAmmoHasSelfDestruct(s) && !ENEMY_HEALING_ENABLED(s)))
+#define PRODUCT_AMMO_OUTPUT_WORDS(input) (commands[(input)+EAM_BASE+1]==2 ? 2064786U : EAM_OUTPUT_WORDS)
+#else
+#define PRODUCT_AMMO_OUTPUT_WORDS(input) EAM_OUTPUT_WORDS
+#endif
+#define RESOURCE_TRACE_CAPACITY ((productEnemyAmmoHasSelfDestruct(s)||ENEMY_HEALING_ENABLED(s)) ? EAM_RESOURCE_CAPACITY : (128U+(PRODUCT_AMMO_OUTPUT_WORDS(s.inputBase)-EAM_OUTPUT_BASE-EAM_RESOURCE_BASE)/8U))
 #define RESOURCE_TRACE_ENABLED(s) true
 #define RESOURCE_TRACE_AT(output,index) ((index)<128U ? (output)+P_RESOURCE_TRACE_BASE+(index)*8U : (output)+EAM_OUTPUT_BASE+EAM_RESOURCE_BASE+((index)-128U)*8U)
 #define portableEvents unusedProductAmmoBaseEntry

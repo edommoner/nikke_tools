@@ -54,10 +54,13 @@ void enemyAmmoRefresh(inout Runtime s,uint64_t when)
     }
 }
 
+#ifndef EAM_VERSION_VALID
+#define EAM_VERSION_VALID(s,version) ((version)==1)
+#endif
 bool initializeEnemyAmmo(inout Runtime s)
 {
     uint input=s.inputBase+EAM_BASE,count=commands[input+2];
-    if(commands[input]!=EAM_MAGIC||commands[input+1]!=1||count>128||commands[input+3]!=actorPoolCount(s))return false;
+    if(commands[input]!=EAM_MAGIC||!EAM_VERSION_VALID(s,commands[input+1])||count>128||commands[input+3]!=actorPoolCount(s))return false;
 #ifndef PORTABLE_PRODUCT_ENEMY_AMMO
     if(count==0)return false;
 #endif

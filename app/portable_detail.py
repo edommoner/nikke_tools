@@ -202,7 +202,8 @@ def _compile_product(prepared):
     if any(modifier_axis(row['effect']) for row in prepared['effects']):
         if any(t.startswith('multi_hit:') for row in prepared['effects'] for t in row['effect'].get('trigger',{}).get('timing',[])):
             from portable_destructible_roster_input import compile_body_modifier_group_roster, GROUP_SOURCE, GROUP_INPUT_WORDS, OUTPUT_WORDS as group_ow
-            words,metadata=compile_body_modifier_group_roster(prepared)
+            from portable_battle_attack_group_input import product_history
+            words,metadata=compile_body_modifier_group_roster(prepared,group_history=product_history(prepared))
             return finish(GROUP_SOURCE,GROUP_INPUT_WORDS,group_ow,words,metadata)
         from portable_destructible_roster_input import compile_body_modifier_roster, INPUT_WORDS as iw, OUTPUT_WORDS as ow
         words,metadata=compile_body_modifier_roster(prepared)
@@ -211,7 +212,8 @@ def _compile_product(prepared):
         for t in item['effect'].get('trigger',{}).get('timing',[]))
     if grouped:
         from portable_battle_attack_group_input import compile_battle, INPUT_WORDS as iw, OUTPUT_WORDS as ow
-        words, metadata = compile_battle(prepared,routing='native')
+        from portable_battle_attack_group_input import product_history
+        words, metadata = compile_battle(prepared,routing='native',group_history=product_history(prepared))
         return finish('gpu/product_group_battle_entry.slang', iw, ow, words, metadata)
     words, metadata = compile_projectile_battle(prepared)
     return finish(SOURCE, INPUT_WORDS, OUTPUT_WORDS, words, metadata)

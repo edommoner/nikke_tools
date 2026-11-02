@@ -131,8 +131,9 @@
   "windows_ram_stop_retained": true,
   "all_profile180_validation": {
     "directory": "product-standard180-run-v2-20261102/api-v1",
-    "status": "running; this report makes no completed266 claim",
-    "do_not_resubmit": true
+    "status": "complete266/266; final registered source saved-audited without extra battle/GPU",
+    "do_not_resubmit": true,
+    "report": "product-standard-long180-v1.json"
   },
   "retained_failures": [
     "original standard180 batch0:7 native-exact and1 Rapi mismatch; all8 stored responses recovered,matched7 saved-audited without GPU",
