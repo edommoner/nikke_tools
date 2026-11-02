@@ -1,3 +1,11 @@
+## 2026-11-03 Lock Onの接続と既存36秒Metal domainをClaudeが受理
+
+[静的経路・保存照合・出所確認](../research/product-lock-consumer-static-v1.json)。元のcharging中periodic activationからdistinct actor lock、発射前snapshot、同一shot tokenでのqueue、frozen-slot着弾、元のdamage／HP処理へ接続。capacityはexact Lock On名へのfresh count query（base5／limit128）で、carrier.stackを対象数にしない。製品providerだけでなくdecoderもBODY／ADD(kind0／5)以外を拒否し、generic coreのPART許容を製品対応へ数えない。missing／stale／dead frozen deliveryはCPU exception／GPU64で閉じ、retargetやsilent dropは実装していない。
+
+既承認mixed-revival候補の保存Metal1caseを再利用。原入力全bytes・GPUclosure・当時の全CPU/GPU/app/data/canonical/server bytesが現worktreeと一致し、既存strict decoderでLockOn全domainが保存CPU＝GPU＝HTTP。取得134、発射snapshot18、解除19、owner quota18中2件で追加10／capacity15の残弾2→1→0、最後capacity5へ戻る。実membershipは最大3体・世代1であり、容量5超え、死・世代変更、空snapshot等の実行実証へ広げない。
+
+比較はcleanな専用runtime-resident（当時HEAD581ffabb）で、dirtyなmain checkoutではない。旧／現publicの差はevaluatorのruntime Git HEADだけで、生成元sim.pyは同SHA。repoラベルがJgaram/nikke-calcでもcommitがenclosing tool HEADを指す既知のprovenance不備を明記し、upstream同一性はsource hashesで確認。旧ref-file bytesは未保存なので旧SHAを捏造しない。同一runのjob/capture・CPU payload SHAは元のcommit済み結果へ結合した。全public bit一致とは称さない。追加CPU戦闘／GPU／Windows0、計算source変更0。次はgauge_charge_enabledのnamed markerと参照・非interceptを静的確認する。
+
 ## 2026-11-03 effect_range_pct／effect_target_count_addの静的接続を受理
 
 [定義・query・選択・wire・未実証範囲](../research/product-named-selection-consumers-static-v1.json)。原Reiの500%／+1は、原Asuka:WILLEが持つ同名damageへ作用するdeclared named range経路へ接続。ephemeral queryはexact stat／target_effectでcarrierを絞り、既存native readerを局所cloneしglobal mapは変更しない。空stubで確認したのはreader bindingの解決だけで、集計や選択の実行検証ではない。count93／range94を明示使用し、「numeric ID非依存」という前の仮定は撤回。HeavyArmsのcount+10も93で、exact TARGET_NAMEとrecipient／lifetime等の共通条件で効果先を区別する。row26／27は0-based compiled definition、wire ruleはdamage row+1。
