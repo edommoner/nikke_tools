@@ -1,3 +1,7 @@
+## ユーザー指示：Windows再開の明示までMac開発を継続
+
+現在のゴールと優先順位は[current-gpu-goal.md](current-gpu-goal.md)を参照。Windowsの接続確認・status取得・依頼・復旧質問・監視は行わない。準備済みCUDA1要求と固定consumerを保持し、Macの未対応範囲をClaude方針／Codex実装／Claudeチェックで進める。過去の「接続復旧待ち／復旧後に実行」という記述は自動再開の指示ではない。
+
 # Claude主導の開発とレビュー
 
 2026-11-02のユーザー指示により、基本の役割を次のとおり変更する。

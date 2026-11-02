@@ -1,3 +1,7 @@
+## ユーザー指示：Windows再開の明示までMac開発を継続
+
+現在のゴールと優先順位は[current-gpu-goal.md](current-gpu-goal.md)を参照。Windowsの接続確認・status取得・依頼・復旧質問・監視は行わない。準備済みCUDA1要求と固定consumerを保持し、Macの未対応範囲をClaude方針／Codex実装／Claudeチェックで進める。過去の「接続復旧待ち／復旧後に実行」という記述は自動再開の指示ではない。
+
 ## 2026-11-02 Claudeが現行Metal標準266 profileを合格判定
 
 製品APIの例外処理／CPU二重評価を4155099dで修正しClaude再レビューaccept。製品73検査・strict source ledger7・既存ammo8を確認、正本・Slang・成功時decode・goldenは不変。続く標準180秒・期待値・seed0・core50・BODY1の203キャラ／266profile-stageもClaudeの最終チェックaccept。[全件・元失敗・受入記録](../research/product-standard266-claude-accept-v1.json)／[役割と次単位](claude-led-development.md)。
