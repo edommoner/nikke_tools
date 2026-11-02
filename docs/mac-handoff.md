@@ -1,3 +1,13 @@
+## 2026-11-02 手動遮蔽とtyped／Lock Onを共通実行器へ接続
+
+元の全キャラ定義を保持したtyped単独／Lock On併用、固定／蓄積、早期・バースト中・全員遮蔽・移動ADD・近傍移動の通常API24条件が実M5／CPU／HTTP一致。成功済み単独12条件は保存結果を再利用し、変更したLock On側12条件だけを新実行。最終固定packetでも全24と標準BODY180秒266profile／203キャラを保存rawから再投影し、追加battle／GPU0。CPU190検査、既存CLI typed8＋typed-lock6の実Metal／独立seal成功。[出所・条件・失敗保持](../research/product-typed-manual-posture-v1.json)。
+
+既存手動制御の時計・イベント・状態を再利用し、fixed loweringへ明示consumer capability、typed shaderへ既存ログ定義を接続。Lock Onの初期6条件は初期化がposture bankを消去し、decoderも移設前番地を読んだため拒否。physical arena初期化後・戦闘前に既存initializerを呼び、正しいSHIFTを読み、旧番地の有効markerが不正な現番地を隠せない負例を追加。元失敗raw／claimは保持。新suite／shader entry／layout／buffer増加0、CPU正本・pinned・許容差・生成normalizer変更0。
+
+v72は実証したtyped-accumulate8とtyped-lock-accumulate6だけを更新し、他40memberは履歴として保持。旧typed7は診断marker6語だけ、旧LockOn6はpostureの-1初期値・marker16語だけが変わり、その他全raw／元input／nativeはbyte一致。UI http://127.0.0.1:4327/#single は修正版HTTP200、個人設定／session変更0。
+
+Windowsは別の固定23f63332／owner4c1bcd5a…を使用。空き確保後のRAM gateが通り、生成／PTX／object成果物まで検証済み。新手動遮蔽版のCUDA数値一致は未確認で、コンパイル成功をGPU計算成功と扱わない。低優先度2GiB・SDK60秒／外180秒、段階ごとに新RAM1回、失敗時の再試行なし。予約先死亡LockOn、typedと敵攻撃・回復等の合成、任意場面と全特殊効果の最終目標は未完了。以下は過去記録。
+
 ## 2026-11-02 ADD所有の飛翔体・HPシールドを通常typed経路へ接続
 
 元のキャラ定義を保持した単独typed／Lock On併用の2系統・5編成順で、固定／蓄積、projectile／HP shield混在、所有者退場、第2世代、typed再出現、移動ADD、元Primとの合成、有限HP破壊を確認。通常APIの36条件中34が実M5／CPU／HTTP一致。残2は予約先が着弾前に死亡するLock Onで、CPUの宣言規約require-live-frozen-slot-v1もstatus4を未確定として拒否するため成功へ含めない。失敗・元claim・rawを保持。[全出所・34条件・残件](../research/product-logical-owner-v1.json)。標準BODY180秒の266profile／203キャラは43CPUfile・入力全byte・全GPU依存sourceが不変で、現登録packetから全raw再投影も一致。追加戦闘／GPU0、新しい元inventory profileの加算0。

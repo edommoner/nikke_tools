@@ -46,7 +46,9 @@ def compile_product(prepared):
         raise UnsupportedPortable('Original typed skill damage requires its checked common skill route; weapon typed admission cannot omit it')
     if any(p.get('kind') not in ('idle','summon') or p.get('kind')=='summon' and (p.get('spec',{}).get('attack') or p.get('spec',{}).get('self_destruct')) for p in prepared['enemy'].get('patterns',[])):
         raise UnsupportedPortable('Typed product attack world requires its combined checked incoming consumer')
-    inner,fixed=lower(prepared);inner=copy.deepcopy(inner);inner.pop('reference_models',None)
+    manual=[i for i,c in enumerate(prepared['chars']) if any(a.get('action')=='cover' for a in c.get('control',{}).get('sequence',[]))]
+    controlled=dict(prepared,_product_manual_cover=True) if manual else prepared
+    inner,fixed=lower(controlled,manual_posture=True);inner=copy.deepcopy(inner);inner.pop('reference_models',None)
     inner['enemy']['coord']=copy.deepcopy(spec['coord']);inner['_product_native_equipment_carriers']=True
     inner['typed_aim_policy']=copy.deepcopy(spec['aim_policy']);inner['typed_actor_policy']=copy.deepcopy(spec['actor_policy'])
     nearby_source=copy.deepcopy(inner)
@@ -79,6 +81,7 @@ def compile_product(prepared):
     meta['named_range_battle']=dict(bindings=bound)
     meta['product_typed_nearby']=dict(declarations={'named_range':dict(coord=spec['coord'],logical_geometry=shapes,rules=rules)},names=[c['name'] for c in inner['chars']])
     meta['product_typed_targets']=dict(declarations={'typed_targets':spec},cpu_state_or_schedule_supplied=False)
+    meta['product_manual_cover_owners']=manual
     meta['product_control_labels']=[[dict(mode=e['mode'],producer=_when_label(e)) for e in CharState(c,atk,inner['enemy'].get('code'))._click_sched] for c,atk in zip(inner['chars'],inner['base_atk'])]
     nodes=validate(copy.deepcopy(inner['enemy'].get('patterns') or [dict(id='portable-empty-world',kind='idle')]),coord=True)
     meta['product_world']=dict(nodes=[dict(id=p.id,kind=p.kind) for p in nodes],literal_pattern_identity_only=True,cpu_schedule_or_state_supplied=False)

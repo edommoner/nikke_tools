@@ -4122,11 +4122,12 @@
   },
   "latest_typed_owner_product_proof": "product-logical-owner-v1.json",
   "standard266_current_source_reaudit": {
-    "owner": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+    "owner": "100d6b4da4e4e13a4d7c72a2e82aecfa272fa5f57498d519841970896b794d03",
     "canonical_cpu_files_byte_exact": 43,
     "all_prepared_inputs_and_complete_shader_closures_exact": true,
     "all_saved_raw_projections_equal": true,
     "extra_native_battles": 0,
     "extra_gpu": 0
-  }
+  },
+  "latest_typed_manual_posture_product_proof": "product-typed-manual-posture-v1.json"
 }

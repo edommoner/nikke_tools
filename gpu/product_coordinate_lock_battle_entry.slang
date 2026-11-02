@@ -80,5 +80,10 @@ bool initializeCoordinateLocks(inout Runtime s)
     for(uint row=0;row<256;row++)
         if(commands[DT_INPUT(s,5424)+row]!=(row==commands[DF_DESCRIPTOR(s)]?2U:0U))ready=false;
 #endif
+#ifdef PORTABLE_PRODUCT_MANUAL_COVER_LOG
+    // Physical-lock initialization clears its whole arena, including CMC.
+    // Restore the existing posture initializer before any battle frame runs.
+    if(ready){initializeManualControls(s);ready=s.error==0;}
+#endif
     return ready;
 }

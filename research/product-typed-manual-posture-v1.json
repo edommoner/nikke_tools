@@ -1,0 +1,691 @@
+{
+  "schema": "product-typed-manual-posture-v1",
+  "scope": "Declared typed target and typed+LockOn worlds, manual cover sequences with fixed/accumulate burst; original complete character definitions retained. This does not certify every game scene.",
+  "final_runtime_owner": "100d6b4da4e4e13a4d7c72a2e82aecfa272fa5f57498d519841970896b794d03",
+  "source_packet": "product-typed-manual-lock-run-v2-20261102/release-v1/packet",
+  "ordinary_api_conditions_metal_cpu_http_verified": 24,
+  "ordinary_api_physical_dispatches": 4,
+  "successful_initial_standalone_conditions_reused": 12,
+  "corrected_lock_conditions_new": 12,
+  "api_cache_hits": 0,
+  "extra_gpu_calls_for_final_audits": 0,
+  "extra_native_battles_for_final_audits": 0,
+  "metal_cli_cases": 14,
+  "independent_cli_native_audit_cases": 14,
+  "cpu_tests": 190,
+  "standard266_saved_results_current_source_reaudited": true,
+  "standard_scope": "266 profiles/203 characters; default BODY-only180s,fixed,expected,seed0,core50; every input and complete shader closure exact and all43 canonical CPU files unchanged",
+  "common_cuda_metal_runtime_and_tests": true,
+  "current_source_cuda_execution_verified": false,
+  "protected_cpu_pinned_numeric_tolerances_normalizer_unchanged": true,
+  "new_suites_shader_entries_layout_files": 0,
+  "new_input_output_words": 0,
+  "implementation": [
+    "Reuse existing literal posture sequence and common clock/controls in standalone typed and typed+LockOn entries",
+    "Require explicit fixed-lowering manual posture consumer capability; preserve generic unsupported guard",
+    "Initialize existing posture state after physical-lock arena clearing and before battle frames",
+    "Read shifted typed coordinate-lock manual bank; reject valid-looking obsolete-bank aliases"
+  ],
+  "golden": "portable-product-programs-v72-expected.json",
+  "golden_scope": "Only actual typed-accumulate8 and typed-lock-accumulate6 recertified; other40 members preserved as historical references",
+  "retention": {
+    "typed": {
+      "old_cases": 7,
+      "new_cases": 8,
+      "all_old_input_and_native_sha_exact": true,
+      "all_old_readback_differences_are_exact6_zero_to_diagnostic_markers": true,
+      "all_other_old_output_words_bit_exact": true,
+      "expected_markers": [
+        [
+          653333,
+          0,
+          1346587697
+        ],
+        [
+          919758,
+          0,
+          1347240753
+        ],
+        [
+          919774,
+          0,
+          1347240753
+        ],
+        [
+          919790,
+          0,
+          1347240753
+        ],
+        [
+          919806,
+          0,
+          1347240753
+        ],
+        [
+          919822,
+          0,
+          1347240753
+        ]
+      ],
+      "number_masks": 0,
+      "other41_baselines_unchanged": true
+    },
+    "typed_lock": {
+      "old_cases": 6,
+      "new_cases": 6,
+      "all_input_native_sha_exact": true,
+      "expected_exact_raw_deltas": [
+        [
+          653333,
+          0,
+          1346587697
+        ],
+        [
+          2311811,
+          0,
+          3220176896
+        ],
+        [
+          2311822,
+          0,
+          1347240753
+        ],
+        [
+          2311823,
+          0,
+          1296258609
+        ],
+        [
+          2311827,
+          0,
+          3220176896
+        ],
+        [
+          2311838,
+          0,
+          1347240753
+        ],
+        [
+          2311839,
+          0,
+          1296258609
+        ],
+        [
+          2311843,
+          0,
+          3220176896
+        ],
+        [
+          2311854,
+          0,
+          1347240753
+        ],
+        [
+          2311855,
+          0,
+          1296258609
+        ],
+        [
+          2311859,
+          0,
+          3220176896
+        ],
+        [
+          2311870,
+          0,
+          1347240753
+        ],
+        [
+          2311871,
+          0,
+          1296258609
+        ],
+        [
+          2311875,
+          0,
+          3220176896
+        ],
+        [
+          2311886,
+          0,
+          1347240753
+        ],
+        [
+          2311887,
+          0,
+          1296258609
+        ]
+      ],
+      "all_other_raw_words_bit_exact": true,
+      "sentinel_initialization": "manual clock -1 high binary64 word",
+      "number_masks": 0,
+      "other40_baselines_unchanged": true
+    }
+  },
+  "final_checks": {
+    "checked_files": 1805,
+    "source_delta": [],
+    "current_packet_id": "100d6b4da4e4e13a4d7c72a2e82aecfa272fa5f57498d519841970896b794d03",
+    "cpu_tests_preflight": 190,
+    "reused_identical_tests": 170,
+    "fresh_registry_ledger_tests": 20,
+    "canonical_cpu_files_exact": 43,
+    "manual_api_conditions_saved_reaudited": 24,
+    "standard266_saved_reaudited": 266,
+    "additional_gpu_calls": 0,
+    "additional_native_battles": 0
+  },
+  "proof_receipts": {
+    "product-typed-manual-run-v1-20261102/independent-audit-v1.json": "aa7569c63974640d762bb3634743cb1ef79cfc6933a72b872347c50d86ffbbc5",
+    "product-typed-manual-lock-run-v2-20261102/independent-audit-v1.json": "42b76d7751a9be6ba356a7ea84615437219cfe97fe9871e6d56bc76512430d81",
+    "product-typed-manual-run-v1-20261102/api-v1/final-audit-v1.json": "9c792f044383aae7a5ed51b50cf3c41a215d83b6555a48795ecac7c5e6db4602",
+    "product-typed-manual-lock-run-v2-20261102/api-v1/final-audit-v1.json": "912a07458b1b1a9f0087bc8cf3ecd001a505b877e1bf2d62c8c93b6f504a9e78",
+    "product-typed-manual-lock-run-v2-20261102/release-v1/final-check-v1.json": "0e689881da6e457b00d3cd332fdaa0f9bb251475b242e2600d25c68ed8d916f9",
+    "product-standard180-run-v5-20261102/joined-audit-v1/typed-manual-final-audit-v1.json": "ace9527a4777dd43b90e888cd1b42cf0405931a73923bf5763450d9c4833d9ee"
+  },
+  "retained_failures": [
+    "First LockOn manual API6 executed but GPU control history validation rejected: physical lock initialization cleared manual bank and decoder read old address. Those captures and claims are retained; only changed-source LockOn conditions were executed again.",
+    "Initial saved audit used pre-Node float representation, changing rendered spec text. Corrected CPU-only audit uses actual Node JSON roundtrip and compares every payload field; no numeric mask/tolerance change.",
+    "Final closure audit initially expected a source change, but actual delta was only golden data. All runtime/test files are byte-identical to verified packet."
+  ],
+  "ui": {
+    "url": "http://127.0.0.1:4327/#single",
+    "pid": 82270,
+    "html_http200": true,
+    "root": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/runtime-resident",
+    "prior_owned_server_group_stopped": true,
+    "user_sessions_or_settings_modified": false,
+    "persistent_ui_server_intentionally_running": true,
+    "additional_calculations": 0
+  },
+  "remaining": [
+    "Frozen-target death/missing LockOn delivery remains explicitly unsupported; no invented drop/retarget rule",
+    "Current source CUDA numerical execution remains pending; Windows frozen23f63332 pipeline is separate from current manual-posture source",
+    "Incoming magazines/healing/independent cover/weighted damage combined with typed worlds",
+    "Moving typed attachment shapes and unproven triggered typed-owner field consumers",
+    "All-character/all-effect unrestricted scenes"
+  ],
+  "full_goal_complete": false,
+  "profile_results": [
+    {
+      "index": 0,
+      "program": "gpu/product_typed_fixed_battle_entry.slang",
+      "variant": "typed-fixed/authored",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_fixed_battle_entry.slang",
+      "input_sha256": "3ffc26d03284c1038c5e81c8fef4587e0c62d21582de38d0351f5370359b0a01",
+      "output_sha256": "8dfdf015bbd6e17a15899bfdd448da5208ef9c1c9ccfe275fd037df07ba58e5f",
+      "capture": "8d9b3438bc2546838efc182979b3a954",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": true,
+      "proof_directory": "product-typed-manual-run-v1-20261102/api-v1"
+    },
+    {
+      "index": 1,
+      "program": "gpu/product_typed_fixed_battle_entry.slang",
+      "variant": "typed-fixed/early",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_fixed_battle_entry.slang",
+      "input_sha256": "bfcbc9a359a2fe201418fa17aae2e648c83e22761b047c623c06233ea266e860",
+      "output_sha256": "14d4dd23f4f7e30a78ccb17c4ee0bd7353a5499279508211457b583b647f9458",
+      "capture": "f5609aa72f40449ca47862081a44c330",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": true,
+      "proof_directory": "product-typed-manual-run-v1-20261102/api-v1"
+    },
+    {
+      "index": 2,
+      "program": "gpu/product_typed_fixed_battle_entry.slang",
+      "variant": "typed-fixed/cross-burst",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_fixed_battle_entry.slang",
+      "input_sha256": "a07c5bdf2e5b4073d3e97dccdc4b66114f8c7c333c12c85509a4f02b5a134d22",
+      "output_sha256": "9f85ccf618a024a4fec48810f83cd5a57a760716283d6040758d8ede4e075c14",
+      "capture": "d22f98d0db5749ea8737c233c8d0f432",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": true,
+      "proof_directory": "product-typed-manual-run-v1-20261102/api-v1"
+    },
+    {
+      "index": 3,
+      "program": "gpu/product_typed_fixed_battle_entry.slang",
+      "variant": "typed-fixed/all-cover",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_fixed_battle_entry.slang",
+      "input_sha256": "969f61d735a6e6d9ceef6d8686838daaa73dba88cbaad72e7b470bb226db0f67",
+      "output_sha256": "f31aeea1b3505894d5162805e4a52075a19674385bd74fb63a6be6e9546a383d",
+      "capture": "56ec9ff6e2a34c5991efca380dfedae4",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": true,
+      "proof_directory": "product-typed-manual-run-v1-20261102/api-v1"
+    },
+    {
+      "index": 4,
+      "program": "gpu/product_typed_fixed_battle_entry.slang",
+      "variant": "typed-fixed/logical-moving",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "유니"
+      ],
+      "source": "gpu/product_typed_fixed_battle_entry.slang",
+      "input_sha256": "1c1332ab7b1ef2461ba2bb08934f12cfdd83bcaf663165794ca22a77c68ef0f7",
+      "output_sha256": "e2b77b4a0d0f520fa30077d7327a1f38329f4b62396e3391de8b801502984f38",
+      "capture": "f4218af74b674effbc18b98d20de0e9d",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": true,
+      "proof_directory": "product-typed-manual-run-v1-20261102/api-v1"
+    },
+    {
+      "index": 5,
+      "program": "gpu/product_typed_fixed_battle_entry.slang",
+      "variant": "typed-fixed/nearby-moving",
+      "squad": [
+        "일레그",
+        "미란다",
+        "드레이크",
+        "N102",
+        "유니"
+      ],
+      "source": "gpu/product_typed_fixed_battle_entry.slang",
+      "input_sha256": "3491f3acf2d1475451a36503d7585b8cc54b52eaf7cd04c5beae2585e5e5b281",
+      "output_sha256": "0e3af3a1bb31458d0bc149a8693f613be9c32e9272ede8ff06dad786a6f4f0b9",
+      "capture": "fa9ec6009092412c90f7d6eaa67e6da8",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": true,
+      "proof_directory": "product-typed-manual-run-v1-20261102/api-v1"
+    },
+    {
+      "index": 6,
+      "program": "gpu/product_typed_battle_entry.slang",
+      "variant": "typed-accumulate/authored",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_battle_entry.slang",
+      "input_sha256": "3fce72258a3059faf9e8560fa4d204b0d9f857d8d5a376111e7d1a9535436d50",
+      "output_sha256": "f90d48edc0526de78f9bb116215ac81a6f9bc5134f73d43b6829117581443242",
+      "capture": "0e20b944dbe442d6b2df9e041dd69cbc",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": true,
+      "proof_directory": "product-typed-manual-run-v1-20261102/api-v1"
+    },
+    {
+      "index": 7,
+      "program": "gpu/product_typed_battle_entry.slang",
+      "variant": "typed-accumulate/early",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_battle_entry.slang",
+      "input_sha256": "28b58de39e16f65ae26d5ee8cfc7f325f2694c46a255f35812178895d556c258",
+      "output_sha256": "599c886b3709834646858c2e88ae2307736be0cced8018e41b87017ff971f4c4",
+      "capture": "28c7b43b6bd14dc6a49e78d8388f6110",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": true,
+      "proof_directory": "product-typed-manual-run-v1-20261102/api-v1"
+    },
+    {
+      "index": 8,
+      "program": "gpu/product_typed_battle_entry.slang",
+      "variant": "typed-accumulate/cross-burst",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_battle_entry.slang",
+      "input_sha256": "a11428bf5bf7a8690a62a8df27aa53969187b6de4b761a99932345acb4bc7d19",
+      "output_sha256": "05535e90c546e1ad24daeceab0fac199b7f020756bbc97890443da67206b11ff",
+      "capture": "c854043a2c1f4c7eb440aadb363538e8",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": true,
+      "proof_directory": "product-typed-manual-run-v1-20261102/api-v1"
+    },
+    {
+      "index": 9,
+      "program": "gpu/product_typed_battle_entry.slang",
+      "variant": "typed-accumulate/all-cover",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_battle_entry.slang",
+      "input_sha256": "a2aca37dc1606cac534d87c8d0e323d83e9e6738b16d263b664af91ad1c7be97",
+      "output_sha256": "2ffa1f3a4be1c070c9fc5853a6330308f43b919aeff1b67876228f24e8680d12",
+      "capture": "23869fbeb5b24f90875005e5a17b1b9b",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": true,
+      "proof_directory": "product-typed-manual-run-v1-20261102/api-v1"
+    },
+    {
+      "index": 10,
+      "program": "gpu/product_typed_battle_entry.slang",
+      "variant": "typed-accumulate/logical-moving",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "유니"
+      ],
+      "source": "gpu/product_typed_battle_entry.slang",
+      "input_sha256": "e0962cd8cce78f87cefd0eb2c418ac440fbf2dd06fe2ade5a88a64edc752abbe",
+      "output_sha256": "c7c4c6cd3de1952116637814f708ec1592964318cc7a6172b1e937974318109f",
+      "capture": "ed1214b0b4af49d88cce301e8090a4e2",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": true,
+      "proof_directory": "product-typed-manual-run-v1-20261102/api-v1"
+    },
+    {
+      "index": 11,
+      "program": "gpu/product_typed_battle_entry.slang",
+      "variant": "typed-accumulate/nearby-moving",
+      "squad": [
+        "일레그",
+        "미란다",
+        "드레이크",
+        "N102",
+        "유니"
+      ],
+      "source": "gpu/product_typed_battle_entry.slang",
+      "input_sha256": "899c6efb66cb7c38f294562967f1e7f8be4dca0fbe64583ee9683a7dabace787",
+      "output_sha256": "726fe6ea268317afc665790299169c39e25b8bf19678c05335a18b920938518a",
+      "capture": "f20af615c8cb4a8ab683dce9b3bd5432",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": true,
+      "proof_directory": "product-typed-manual-run-v1-20261102/api-v1"
+    },
+    {
+      "index": 12,
+      "program": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "variant": "typed-lock-fixed/authored",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "input_sha256": "7521877cda03e51cd5a0776b884522a8d8ae08d7dfe9fac941eb6edef8324c50",
+      "output_sha256": "cc197909041b59407079fd2523dbaaee7e3caf59840639b97a7ea13f38ab7611",
+      "capture": "de151aecb4144d0f8394d2d89f565b08",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": false,
+      "proof_directory": "product-typed-manual-lock-run-v2-20261102/api-v1"
+    },
+    {
+      "index": 13,
+      "program": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "variant": "typed-lock-fixed/early",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "input_sha256": "106b6c24d3d551fb573737fa0019732e4b1acf794107de30144354f0e5f3dcfc",
+      "output_sha256": "da101ae72d4b9dbd30ee80e5689184ae614356ec6f32bca048da487b84387590",
+      "capture": "c93abe3b70da451e992a1d356f2ff7df",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": false,
+      "proof_directory": "product-typed-manual-lock-run-v2-20261102/api-v1"
+    },
+    {
+      "index": 14,
+      "program": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "variant": "typed-lock-fixed/cross-burst",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "input_sha256": "b15e9ff432e82f79462971603a04e9f944a50b6d31d032279b75b647d3f84cd1",
+      "output_sha256": "22112a526ab33db45f3b0cc0a20250d1ad6b35c23d6b7018705aee881c46af3c",
+      "capture": "f796acb10bb3483090ed7dc4a33518ac",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": false,
+      "proof_directory": "product-typed-manual-lock-run-v2-20261102/api-v1"
+    },
+    {
+      "index": 15,
+      "program": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "variant": "typed-lock-fixed/all-cover",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "input_sha256": "872cade7fc9991b851c7afa1acbaff41fe3f6cf4813de78d2d8f9e87126fccc1",
+      "output_sha256": "f0e3e9c870c64bcb2a47980dea4e7dfcafec0890438760b02ea33043176756c5",
+      "capture": "75c10540823540fe8a0903de5b59d13e",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": false,
+      "proof_directory": "product-typed-manual-lock-run-v2-20261102/api-v1"
+    },
+    {
+      "index": 16,
+      "program": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "variant": "typed-lock-fixed/logical-moving",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "유니"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "input_sha256": "7a3c6dcd7044fb5eac38436b76698624052a4c9b23c840e7799633d561a9eca9",
+      "output_sha256": "2c7b6c6e52e0f59bd5fe5b80fa6e16dc9905af0b9681a282424522889cdc3a7b",
+      "capture": "e73d364a1638462484cda17d5dfec2e1",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": false,
+      "proof_directory": "product-typed-manual-lock-run-v2-20261102/api-v1"
+    },
+    {
+      "index": 17,
+      "program": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "variant": "typed-lock-fixed/nearby-moving",
+      "squad": [
+        "일레그",
+        "미란다",
+        "스노우 화이트 : 헤비암즈",
+        "N102",
+        "유니"
+      ],
+      "source": "gpu/product_typed_lock_fixed_battle_entry.slang",
+      "input_sha256": "37cd2ba6e7f31b1345e293d12d5095c3bf798c1d9444646c94eee3f1b824db47",
+      "output_sha256": "06d2383f994832463e0c76789a955550bf928fa081345aa5fcc8b7694507a3a5",
+      "capture": "97897cecb2264730827844b1c8f921a9",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": false,
+      "proof_directory": "product-typed-manual-lock-run-v2-20261102/api-v1"
+    },
+    {
+      "index": 18,
+      "program": "gpu/product_typed_lock_battle_entry.slang",
+      "variant": "typed-lock-accumulate/authored",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "input_sha256": "5965dc766c48dde25dd6a7b7aa82793fe287360376d0eb9fb007d970d436ca53",
+      "output_sha256": "fe3d79e920754b5bc7a50413104ad7a8d4855371ae36439e950f6c17d9ce29da",
+      "capture": "32af6d8f6a5d48a7b665089955dacdb1",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": false,
+      "proof_directory": "product-typed-manual-lock-run-v2-20261102/api-v1"
+    },
+    {
+      "index": 19,
+      "program": "gpu/product_typed_lock_battle_entry.slang",
+      "variant": "typed-lock-accumulate/early",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "input_sha256": "3fcd3e5fd59961622125dd5a4060bfad2d8b321dacadd486d4f592608406ddc8",
+      "output_sha256": "7c424c2a4f68f6a3d37fc7f50d79ac635f83f622df24b1cebdb1b06defc95d2d",
+      "capture": "af6d8f4820c246b2a0a7d44776ebe018",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": false,
+      "proof_directory": "product-typed-manual-lock-run-v2-20261102/api-v1"
+    },
+    {
+      "index": 20,
+      "program": "gpu/product_typed_lock_battle_entry.slang",
+      "variant": "typed-lock-accumulate/cross-burst",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "input_sha256": "db5a6684a06333eb8f416e27cb48dff25fca67a6e640d4c1414e650ad6c8e652",
+      "output_sha256": "d69925e91dd802e68a3a116b433bf8772c347a9f94d41983e4166afc62d79825",
+      "capture": "0906d474ea3347ce897b25f22422a0e4",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": false,
+      "proof_directory": "product-typed-manual-lock-run-v2-20261102/api-v1"
+    },
+    {
+      "index": 21,
+      "program": "gpu/product_typed_lock_battle_entry.slang",
+      "variant": "typed-lock-accumulate/all-cover",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "input_sha256": "48b5af11c4d0b0e6e42e51000593bd8ee2f55d3943798016f90eb07874a7a5e4",
+      "output_sha256": "ecd02343261c06ba90c98559d53b1dd1fbd2dfdb8a52596f69913701b8b5cba0",
+      "capture": "f9b879ef6ba0430b9627cfdc76049164",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": false,
+      "proof_directory": "product-typed-manual-lock-run-v2-20261102/api-v1"
+    },
+    {
+      "index": 22,
+      "program": "gpu/product_typed_lock_battle_entry.slang",
+      "variant": "typed-lock-accumulate/logical-moving",
+      "squad": [
+        "스노우 화이트 : 헤비암즈",
+        "미란다",
+        "도라",
+        "N102",
+        "유니"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "input_sha256": "ac6c808ca2f30382949e1d9a29b5cd9eab0028aa003f93b7db3fc113beaab93c",
+      "output_sha256": "0477603bd2432adf93713ecc025b58d999357ae63657ea54b7b52563101a2cfa",
+      "capture": "dc35b63d54e44bdc8be0661c5e0a5585",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": false,
+      "proof_directory": "product-typed-manual-lock-run-v2-20261102/api-v1"
+    },
+    {
+      "index": 23,
+      "program": "gpu/product_typed_lock_battle_entry.slang",
+      "variant": "typed-lock-accumulate/nearby-moving",
+      "squad": [
+        "일레그",
+        "미란다",
+        "스노우 화이트 : 헤비암즈",
+        "N102",
+        "유니"
+      ],
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "input_sha256": "b549101453e00f8e429e648ed3bf549247f31a21b1f6cffd2aa1bb688ce60b4c",
+      "output_sha256": "97266edfa3d6b9c19f9c149bca2aa3525d3e703a856e65ad554330acf46f6945",
+      "capture": "ae942d13e81a4f61a7350bd45f35ae9d",
+      "all_cpu_gpu_http_fields_equal": true,
+      "original_effect_definitions_preserved": true,
+      "initial_gpu_reused": false,
+      "proof_directory": "product-typed-manual-lock-run-v2-20261102/api-v1"
+    }
+  ]
+}

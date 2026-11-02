@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v71-expected.json'
+GOLDEN = 'research/portable-product-programs-v72-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -52,7 +52,7 @@ def configuration(suites, selection):
     program = PROGRAMS[name]
     return dict(base, product_program=name, source=program['source'], golden=GOLDEN,
                 input_words=program['input_words'], output_words=program['output_words'],
-                inputs=7 if name=='ammo-cover-fixed-group' else 7 if name=='typed-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1,native=7 if name=='ammo-cover-fixed-group' else 7 if name=='typed-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
+                inputs=7 if name=='ammo-cover-fixed-group' else 8 if name=='typed-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1,native=7 if name=='ammo-cover-fixed-group' else 8 if name=='typed-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
 
 
 def registered_golden(root, config, *, allow_unsealed=False):
@@ -287,6 +287,15 @@ def logical_owner_body(root,name='typed-accumulate'):
     return body
 
 
+def manual_typed_body(root,name='typed-accumulate'):
+    """Existing explicit posture controls in the same exact-owner world."""
+    body=logical_owner_body(root,name)
+    body['manual_cover_sequences']={body['squad'][0]:[
+        dict(action='cover',t=.5,duration=.5),dict(action='cover',t=2.25,duration=.25)],
+        body['squad'][-1]:[dict(action='cover',t=1.,duration=1.)]}
+    return body
+
+
 def cases_for_program(root,name=None):
     """Extend the existing product corpus, keeping its original case first."""
     base=body_for_program(root,name);rows=[(None,base)]
@@ -392,5 +401,7 @@ def cases_for_program(root,name=None):
         for pattern in body['enemy']['patterns']:
             if 'time' in pattern.get('until',{}):pattern['until']['time']=31.
         rows.append(('moving-long30',body))
-    if name=='typed-accumulate':rows.append(('logical-owner-mixed',logical_owner_body(root,name)))
+    if name=='typed-accumulate':
+        rows.append(('logical-owner-mixed',logical_owner_body(root,name)))
+        rows.append(('manual-posture',manual_typed_body(root,name)))
     return rows

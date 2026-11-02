@@ -110,6 +110,9 @@ def read_product_control_log(block,metadata,names,duration,*,burst_trace=None):
             from portable_physical_lock_cover_layout import BASE
             from portable_lock_typed_layout import OFFSET
             BASE+=OFFSET
+            if metadata.get('product_coordinate_lock'):
+                from portable_product_coordinate_lock import SHIFT
+                BASE+=SHIFT
         if len(set(manual))!=len(manual) or any(type(i) is not int or not 0<=i<5 for i in manual):fail()
         if len(block)<BASE+80 or any(block[BASE+i*16+14]!=0x504d4331 for i in range(5)):fail()
     if any(block[h+k] for k in ((7,9) if patterns else (7,9,14,15))):fail()

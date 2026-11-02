@@ -1079,6 +1079,23 @@ class ProductReferenceModels(unittest.TestCase):
         from portable_specs import shader_schema
         self.assertIn('#elif defined(PORTABLE_PRODUCT_LONG_LOCK)\nstatic const uint P_OUTPUT_WORDS = PL_LAYOUT_OUTPUT;',shader_schema())
 
+    def test_typed_manual_posture_packs_existing_controls_and_preserves_original_effects(self):
+        from portable_product_programs import manual_typed_body
+        from portable_detail import prepare,compile_product
+        from portable_specs import LIMITS as L
+        from portable_product_fixed import lower
+        for name in ('typed-fixed','typed-accumulate','typed-lock-fixed','typed-lock-accumulate'):
+            body=manual_typed_body(ROOT,name);before=copy.deepcopy(body)
+            with patch.object(sim,'execute',side_effect=AssertionError('No posture schedule or native state supplied to GPU')):
+                pre,run=prepare(body);source,iw,ow,words,meta=compile_product(pre)
+            self.assertEqual(body,before);self.assertEqual(iw,123732)
+            self.assertEqual(words[L['WORLD_CONTROL_INPUT_BASE']+1],6 if 'fixed' in name else 3)
+            self.assertEqual(meta['product_manual_cover_owners'],[0,4])
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
+            if 'fixed' in name:
+                with self.assertRaisesRegex(ValueError,'Fixed burst with manual cover'):lower(pre)
+                with self.assertRaisesRegex(ValueError,'capability'):lower(pre,manual_posture=1)
+
     def test_original_product_typed_owners_pack_exact_logical_handles_without_native_state(self):
         from portable_product_programs import logical_owner_body
         from portable_detail import prepare,compile_product
@@ -1526,6 +1543,19 @@ class ProductReferenceModels(unittest.TestCase):
         meta=dict(product_control_labels=[[] for _ in range(5)],product_manual_cover_owners=[0],states={})
         actual=read_product_control_log(words,meta,['a','b','c','d','e'],1.)
         row=actual.control_log[0];self.assertEqual((row.t0,row.t1,row.caster,row.input,row.mode,row.producer),(.5,.75,'a','cover','cover','엄폐(시퀀스)'))
+        # Typed coordinate locks retain CMC after the complete coordinate bank.
+        # A valid-looking obsolete bank must never hide a missing current bank.
+        from portable_physical_lock_cover_layout import BASE as LOCK_BASE
+        from portable_lock_typed_layout import OFFSET
+        from portable_product_coordinate_lock import SHIFT
+        relocated=array.array('I',[0])*2945320;relocated[:len(words)]=words
+        old=LOCK_BASE+OFFSET;current=old+SHIFT
+        for who in range(5):relocated[current+who*16+14]=0x504d4331
+        tagged=dict(meta,product_lock_on=True,product_coordinate_lock=True)
+        self.assertEqual(read_product_control_log(relocated,tagged,['a','b','c','d','e'],1.).control_log,actual.control_log)
+        for who in range(5):relocated[old+who*16+14]=0x504d4331
+        relocated[current+14]=0
+        with self.assertRaises(UnsupportedPortable):read_product_control_log(relocated,tagged,['a','b','c','d','e'],1.)
         for offset,value in [(BASE+14,0),(head+13,0),(trace,5),(trace+1,1),(trace+8,4),(trace+8+4,0)]:
             bad=array.array('I',words);bad[offset]=value
             with self.subTest(offset=offset),self.assertRaises(UnsupportedPortable):read_product_control_log(bad,meta,['a','b','c','d','e'],1.)

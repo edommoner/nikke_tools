@@ -78,7 +78,7 @@ def compile_product(prepared,*,coordinate_model=None,typed_model=None):
         raise error
     from portable_product_fixed import lower as lower_fixed,attach as attach_fixed
     original=prepared
-    prepared,fixed_values=lower_fixed(prepared)
+    prepared,fixed_values=lower_fixed(prepared,manual_posture=typed_model is not None)
     if coordinate_model is None and prepared['enemy'].get('coord') is not None:raise UnsupportedPortable('Coordinate Lock On needs a combined declared coordinate consumer')
     spec=normalize(declarations['lock_on']);effects=[r['effect'] for r in prepared['effects']];owners=[r['owner'] for r in prepared['effects']]
     pulse,packet,typed=validate_effects(effects,owners,spec)
