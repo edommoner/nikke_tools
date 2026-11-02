@@ -121,7 +121,7 @@ class ProductPacket(unittest.TestCase):
             for name,config in PROGRAMS.items():
                 selected=cli.open_suite(dict(suite='product-detail',product_program=name))
                 rows,raw=selected.prepare()
-                self.assertEqual(len(rows),7 if name=='ammo-cover-fixed-group' else 9 if name=='typed-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
+                self.assertEqual(len(rows),7 if name=='ammo-cover-fixed-group' else 10 if name=='typed-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
                 self.assertEqual((selected.SOURCE,selected.suite.INPUT,selected.suite.OUTPUT),(config['source'],config['input_words'],config['output_words']))
                 self.assertEqual(len(raw),4*(1+len(rows)*config['input_words']))
                 from portable_product_programs import GOLDEN
@@ -130,7 +130,28 @@ class ProductPacket(unittest.TestCase):
                     manifest_path=ROOT/'gpu-package.json'
                     manifest=json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
                     appended=manifest.get('purpose')=='development' and manifest.get('product_program')==name
-                    if appended:
+                    import array
+                    typed_cover_extension=(manifest.get('purpose')=='development'
+                        and manifest.get('product_program') in ('typed-fixed','typed-accumulate')
+                        and name in ('typed-fixed','typed-accumulate')
+                        and baseline['entries'][0]['input_sha256']!=hashlib.sha256(array.array('I',rows[0][1]).tobytes()).hexdigest())
+                    if typed_cover_extension:
+                        # One reviewed wire extension: preserve every old word and
+                        # append only the explicit unavailable-cover header. No
+                        # arbitrary prefix masks; sealed packets take the full path.
+                        import array
+                        from portable_cover_defense_wire import MAGIC
+                        sealed=len(baseline['entries']);self.assertGreaterEqual(len(rows),sealed,name)
+                        prefix=array.array('I',[sealed])
+                        for row,entry in zip(rows[:sealed],baseline['entries'],strict=True):
+                            self.assertEqual(len(row[1]),123756)
+                            self.assertEqual(row[1][123732:],[MAGIC,1,5,1]+[0]*20)
+                            part=array.array('I',row[1][:123732])
+                            self.assertEqual(hashlib.sha256(part.tobytes()).hexdigest(),entry['input_sha256'])
+                            prefix.extend(part)
+                        if sys.byteorder!='little':prefix.byteswap()
+                        self.assertEqual(hashlib.sha256(prefix.tobytes()).hexdigest(),baseline['input_sha256'])
+                    elif appended:
                         sealed=len(baseline['entries']);self.assertGreaterEqual(len(rows),sealed,name)
                         import array
                         prefix=array.array('I',[sealed])

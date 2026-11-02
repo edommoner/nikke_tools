@@ -4121,7 +4121,11 @@
     "current_cuda_profiles": 0
   },
   "latest_typed_owner_product_proof": "product-logical-owner-v1.json",
-  "standard266_current_source_reaudit": {
+  "latest_typed_manual_posture_product_proof": "product-typed-manual-posture-v1.json",
+  "latest_typed_incoming_product_proof": "product-typed-incoming-v1.json",
+  "latest_typed_cover_product_proof": "product-typed-cover-v1.json",
+  "latest_frozen_cuda_product_proof": "product-logical-owner-windows-import-v1.json",
+  "standard266_last_verified_source_reaudit": {
     "owner": "5238639433c3cf7b2cd06dfc3a53db08b72f30cf89bc5bb5f2273df133b55e11",
     "canonical_cpu_files_byte_exact": 43,
     "all_prepared_inputs_and_complete_shader_closures_exact": true,
@@ -4129,6 +4133,14 @@
     "extra_native_battles": 0,
     "extra_gpu": 0
   },
-  "latest_typed_manual_posture_product_proof": "product-typed-manual-posture-v1.json",
-  "latest_typed_incoming_product_proof": "product-typed-incoming-v1.json"
+  "latest_source_verification_scope": {
+    "owner": "9608d941d250ca81f8cb7c59c49aba071ab790ddad278a974b497732c29bb056",
+    "standard_original_fixed30s_profiles": 1,
+    "typed_cover_conditions": 12,
+    "previous_standard_profiles": 266,
+    "previous_standard_source": "7e793c5104ed19c6a0a08651eadf0f4630ac7995",
+    "all_current_standard_profiles_verified": false,
+    "current_source_cuda_profiles": 0,
+    "frozen_limited_cuda_conditions": 1
+  }
 }

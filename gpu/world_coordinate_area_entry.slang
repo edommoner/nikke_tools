@@ -21,7 +21,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 {
     if(id.x>=commands[0])return;
-#if defined(PORTABLE_PRODUCT_TYPED_MOTION)
+#if defined(PORTABLE_PRODUCT_TYPED_COVER)
+    uint input=1+id.x*(EMB_INPUT+CDF_WORDS),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
+#elif defined(PORTABLE_PRODUCT_TYPED_MOTION)
     uint input=1+id.x*EMB_INPUT,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_PRODUCT_TYPED_NEARBY)
     uint input=1+id.x*121936U,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
@@ -149,7 +151,7 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     uint queries;executePortableCommands(s,input,output,queries);
     for(uint i=5;i<16;i++)results[output+CP_BASE+i]=0;
     writePortableProgram(s,input,output,queries);
-#if defined(PORTABLE_PRODUCT_COVER_MOVEMENT_RANGE)
+#if defined(PORTABLE_PRODUCT_COVER_MOVEMENT_RANGE) || defined(PORTABLE_PRODUCT_TYPED_COVER)
     for(uint i=0;i<CDF_DEPTH*CDF_SNAPSHOT_WORDS;i++)results[coverDefenseHead(s)+CDF_SNAPSHOT_BASE+i]=0;
 #elif defined(PORTABLE_PRODUCT_COVER_MOVEMENT) || defined(PORTABLE_PRODUCT_COVER_NAMED_RANGE)
     for(uint i=0;i<CDF_DEPTH*CDF_SNAPSHOT_WORDS;i++)results[output+CDF_OUTPUT_BASE+CDF_SNAPSHOT_BASE+i]=0;

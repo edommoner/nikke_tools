@@ -341,7 +341,10 @@ def decode_payload(body, prepared, run, metadata, block):
     if metadata.get('product_cover_defense'):
         from portable_product_cover import read_result
         options={}
-        if metadata.get('product_movement_range_cover'):
+        if metadata.get('product_typed_cover'):
+            from portable_product_typed import COVER_OUT,OUTPUT as TCO
+            options=dict(out=COVER_OUT,output=TCO)
+        elif metadata.get('product_movement_range_cover'):
             from portable_product_movement_range import COVER_OUT,OUTPUT as MRO,check_cover_schema
             check_cover_schema();options=dict(out=COVER_OUT,output=MRO)
         model=read_result(block,metadata,names,run.config['duration'],**options)

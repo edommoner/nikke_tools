@@ -1,3 +1,17 @@
+## 2026-11-02 typed＋独立遮蔽DEF・実被弾を通常APIで接続
+
+元全定義のPrim／Soldier O.W.編成で、固定／蓄積×8秒・16秒、周期DEF増加、貫通、遮蔽破壊、DEF0の12通常API条件が実M5／CPU／HTTP全payload一致。実オウルウィンドは10秒に発火し、10.5秒のPrim遮蔽DEF1000→2285.7、attack100000に対する量97714.3を確認。貫通はcoverを無視するモデルではなく、同じhitで遮蔽と本人へ両方ダメージを与える既存CPU規約と一致。新inventory profile加算0。[条件と全出所](../research/product-typed-cover-v1.json)。
+
+既存coverパッカー／compiler policy／共通被弾関数／receipt decoderを再利用し、単独typed入力へ24語・出力へ16912語だけ追加。全旧番地を保持し、cover stat96をcount93／radius94／DoT95と分離。定義・数値・HP・時計の複製なし。未指定baseは利用不可の明示headerで、BODY DEFから推測せず、必要時には理由付きfallbackする。typed＋Lock Onのwireは維持し、そのcover合成は明示拒否のまま。新suite／shader entry／layout file0、CPU正本43file・pinned・許容差・normalizer変更0。
+
+CLI蓄積10＋固定6が実Metalと独立seal成功。v74は蓄積更新と固定typedの初登録で43member、他41は履歴として保持。旧蓄積9の元入力prefix／native／全raw prefixは完全一致、追加outputはmagic1語＋ゼロだけ。固定6は旧登録基準が存在しなかったため旧raw同一を主張しない。最終CPU192検査は同一172を再利用しregistry13＋台帳7を新実行。保存12再投影とmarker／未使用末尾／旧番地aliasの故障3件を追加battle／GPU0で確認。
+
+共通header変更後の通常BODYは元Miranda固定30秒1件がMetal／CPU一致し、旧全readback SHAも完全一致。標準266／203キャラの実績は前commit7e793c51の履歴として保持する。今回sourceの全266再認定を主張せず、matrixに現在1profile＋typed12条件と出所を明記した。UI http://127.0.0.1:4327/#single は修正版HTTP200、設定／session変更0。
+
+Windows固定23f63332の小JSON8個47,396byteをGitHubから取得しmanifest全SHA、元M5入力本体／count付き転送／全raw SHAを照合。8秒1条件が実kernel1回、freshCPU全payload差0、compiler/JIT再実行0、Job23.24秒／peak2145529856byte（2GiB内、余裕1953792byte）、欠落0。環境全体は未確認falseのまま。Windows rawをMacへ移した独立全raw監査ではなくpeerの全raw SHAとMac自身の全rawを照合した範囲で、現typed cover版のCUDA実績へ昇格しない。[取込記録](../research/product-logical-owner-windows-import-v1.json)。追加Windows実行0。
+
+API storage-checkの停止は予備1GiBの二重計上。親子raw238661088byte＋CLI予備1073741824byteを一度ずつ数え、同じ12条件で成功。CLI helpにもrequiredが予備を含まないことを明記した。既存sparsify-rawで完了7captureのゼロ領域386662400byteを未割当化し、全元rawのSHA・長さ・inode・証拠アンカーを前後確認。raw削除0、再計算0。残件はtyped＋Lock On cover、ADD自攻撃／敵回復／配分、未知配送、現sourceCUDAと最終全profile確認。以下は過去記録。
+
 ## 2026-11-02 typed対象と敵の直接攻撃・デバフ・DoTを共通製品経路へ接続
 
 元の全定義を残した単独typedの固定／蓄積×通常・貫通・random:1／seed42・slot:3・同時多段・バースト後と、強い攻撃の計14通常API条件が実M5／CPU／HTTP全payload一致。物理dispatch4、cache0。元12の再実行なしでHP減少を確認する2条件を追加し、強攻撃は55件の全被弾履歴と合計2296509.6HPダメージ（固定例）がCPUと一致。[全条件・出所](../research/product-typed-incoming-v1.json)。新profile加算0で、標準266profile／203キャラとは別の追加条件。

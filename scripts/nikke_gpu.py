@@ -4027,7 +4027,7 @@ def main(argv=None):
         a=sub.add_parser(storage_command);a.add_argument('--capture',type=Path,required=True);a.add_argument('--archive',type=Path,required=True)
         if storage_command=='archive-raw':a.add_argument('--remove-original',action='store_true')
     a=sub.add_parser('storage-check',help='CPU-only free-space budget check; does not archive or delete files')
-    a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=1024**3);a.add_argument('--path',type=Path,default=ROOT)
+    a.add_argument('--required-bytes',type=int,default=0,help='Peak additional bytes, excluding reserve; count retained raw copies');a.add_argument('--reserve-bytes',type=int,default=1024**3,help='Added once to required bytes (default1GiB)');a.add_argument('--path',type=Path,default=ROOT)
     a=sub.add_parser('unit-check',help='Bounded immutable unit groups only; no full native preflight or GPU proof');a.add_argument('--capture',type=Path,required=True);a.add_argument('--selection',type=Path);a.add_argument('--selection-sha256')
     a=sub.add_parser('source-baseline',help='Registered or verified development source closure only; no calculation proof')
     group=a.add_mutually_exclusive_group(required=True);group.add_argument('--suite');group.add_argument('--all-registered',action='store_true');a.add_argument('--product-program',choices=PRODUCT_PROGRAMS);a.add_argument('--out',type=Path,required=True)

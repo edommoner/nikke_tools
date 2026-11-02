@@ -1,3 +1,7 @@
+## storage-checkの予備容量は一度だけ加算する
+
+`--required-bytes` は、保存する全input／readbackの追加peak量です。予備容量を含めません。共通CLIが `--reserve-bytes`（既定1GiB）を一度加算し、`free >= required + reserve` を検査します。APIでbatch親とmember rawを両方保存する場合は、両コピーをrequiredへ数えます。例：今回12条件はraw238661088byte＋予備1073741824byte＝1312402912byte。条件数を減らさず、元の二重加算失敗も保存しています。`storage-check` は計算証明や削除処理を行いません。
+
 ## 2026-11-02 ADD所有の飛翔体・HPシールドを通常typed経路へ接続
 
 元のキャラ定義を保持した単独typed／Lock On併用の2系統・5編成順で、固定／蓄積、projectile／HP shield混在、所有者退場、第2世代、typed再出現、移動ADD、元Primとの合成、有限HP破壊を確認。通常APIの36条件中34が実M5／CPU／HTTP一致。残2は予約先が着弾前に死亡するLock Onで、CPUの宣言規約require-live-frozen-slot-v1もstatus4を未確定として拒否するため成功へ含めない。失敗・元claim・rawを保持。[全出所・34条件・残件](../research/product-logical-owner-v1.json)。標準BODY180秒の266profile／203キャラは43CPUfile・入力全byte・全GPU依存sourceが不変で、現登録packetから全raw再投影も一致。追加戦闘／GPU0、新しい元inventory profileの加算0。

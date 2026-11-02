@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "scope": "saved module-object-v1 only",
+  "owner": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+  "source_ptx": {
+    "receipt_input": {
+      "version": "8.4",
+      "target": "sm_86",
+      "bytes": 14477831,
+      "sha256": "59dc4f2b12c0728cc843862807bffddec30b9e12f9e22b552f00f91a54e12e07"
+    },
+    "source_partitioned": false,
+    "cache_key": "781c894036e8c6e1b4678c7e8efc80d826f02528a73f00cf291b6f66a8d4f4c9",
+    "matches_expected": true,
+    "sha256": "59dc4f2b12c0728cc843862807bffddec30b9e12f9e22b552f00f91a54e12e07",
+    "source_bytes_unchanged": true,
+    "bytes": 14477831
+  },
+  "object": {
+    "sha256": "18240abc4fd5bd477fd8e0b47c92b7ae35b692c2eecd4052135840050c308fbe",
+    "verified": true,
+    "receipt": {
+      "format": "elf64-little",
+      "type": "relocatable",
+      "machine": "cuda",
+      "cuda_format_version": 124,
+      "sections": 1154,
+      "bytes": 8047408,
+      "sha256": "18240abc4fd5bd477fd8e0b47c92b7ae35b692c2eecd4052135840050c308fbe"
+    },
+    "bytes": 8047408,
+    "exists": true
+  },
+  "ptxas": {
+    "elapsed_seconds": 14.098974899854511,
+    "tool_sha256": "0183c5b1fdecc69234597efac421eca4670a3f6ed6ed028ff6afb85d06f3efb8",
+    "entered_count": 1,
+    "argv": [
+      "$HOST_HOME/Documents/Codex/nikke-v130-diagnostic/component/extracted/nvidia/cuda_nvcc/bin/ptxas.exe",
+      "--gpu-name=sm_86",
+      "--opt-level=1",
+      "--fmad=false",
+      "--verbose",
+      "--compile-only",
+      "$VALIDATION_ROOT/module-object-v1/proof/module.ptx",
+      "-o",
+      "$VALIDATION_ROOT/module-object-v1/proof/module.o.partial"
+    ],
+    "returned_count": 1,
+    "return_code": 0,
+    "peak_scope": "Job peaks cover stage processes; ptxas-only peak was not sampled"
+  },
+  "execution": {
+    "outer": {
+      "passed": false,
+      "exit_code": 2,
+      "elapsed_seconds": 37.1204053000547,
+      "timed_out": false,
+      "below_normal_priority": true,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_peak_bytes": 573165568.0,
+      "job_limit_bytes": 2147483648,
+      "job_empty_after": true,
+      "monitoring": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      }
+    },
+    "inner": {
+      "passed": true,
+      "exit_code": 0,
+      "elapsed_seconds": 23.156190200243145,
+      "timed_out": false,
+      "below_normal_priority": true,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_peak_bytes": 522346496.0,
+      "job_limit_bytes": 2147483648,
+      "job_empty_after": true,
+      "monitoring": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      }
+    }
+  },
+  "judgments": {
+    "service_preservation": "unverified",
+    "containment_verified": true,
+    "proof_preservation_verified": false,
+    "whole_environment_preservation_verified": false,
+    "stage_complete": false,
+    "stage_verified": false,
+    "monitored_process_preservation_verified": true,
+    "bounded_execution_verified": false
+  },
+  "preservation_checks": {
+    "generation_status_unchanged": true,
+    "ptx_status_unchanged": true
+  },
+  "prior_claim_hash_matches": {
+    "compile-claimed-cuda.json": true,
+    "packet-stage-claimed-compile-ptx-cuda.json": true,
+    "packet-stage-claimed-generation-cuda.json": true
+  },
+  "activity": {
+    "link": 0,
+    "object_attempts": 1,
+    "ram_gate_attempts": 1,
+    "approval_note": "Initial preparation review timed out before process creation; one explicitly permitted retry ran. No object retry.",
+    "gpu_retries": 0,
+    "gpu_kernel_calls": 0,
+    "new_execution_during_status_collection": 0
+  },
+  "limitations": [
+    "Artifact success does not establish stage or environment success.",
+    "No link, GPU calculation, or CPU/GPU parity verified in this stage."
+  ]
+}

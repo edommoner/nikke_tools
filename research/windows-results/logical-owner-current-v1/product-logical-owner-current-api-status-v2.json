@@ -1,0 +1,224 @@
+{
+  "schema": 1,
+  "owner": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+  "fixed_transport_commit": "23f633327d14dde2673d8e1139431329807734d9",
+  "case": "logical_owner_body/typed-accumulate",
+  "duration_seconds": 8,
+  "calculation_verified": true,
+  "api_verified": true,
+  "whole_environment_preservation_verified": false,
+  "previous_static_stop_retained": true,
+  "previous_sdk_stage_false_values_retained": true,
+  "compute": {
+    "requested": "cuda_shared_detail",
+    "backend": "cuda_shared_detail",
+    "capture_id": "29cbcd3a874a4a5798f0dbe37b6b494d",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "elapsed_ms": 14678.17910015583,
+    "gpu_execution_verified": true,
+    "input_sha256": "589d8feb1dc9928fcb32ca01c068a95f72bb1ca42244f4efee3db215ee95477e",
+    "output_sha256": "fef677bccf60ece6493f2fd10641a7b58212ce89d22f5699c5ea3eccced1c794",
+    "source": "gpu/product_typed_battle_entry.slang",
+    "scope": "shared autonomous battle; CPU verified for this request",
+    "host_dispatch_seconds": 0.9074013000354171,
+    "saved_cubin_admission": "verified",
+    "artifact_provider": "saved-module-jit-cubin",
+    "artifact_key": "a2670b83b8eb5332d56b3f7eb94431c826a7cf22775e5b1ca556184bdf855d5e",
+    "cpu_verification": {
+      "matched": true,
+      "differing_fields": []
+    }
+  },
+  "raw": {
+    "input_bytes": 494932,
+    "input_sha256": "589d8feb1dc9928fcb32ca01c068a95f72bb1ca42244f4efee3db215ee95477e",
+    "words_only_sha256": "abeda20f4ad44e7ac1415924d0bba2a80a572070a570767b35084766fc0d5400",
+    "output_bytes": 9381536,
+    "output_sha256": "fef677bccf60ece6493f2fd10641a7b58212ce89d22f5699c5ea3eccced1c794",
+    "raw_matches_m5": true
+  },
+  "payload_comparison": [
+    {
+      "index": 0,
+      "performed": true,
+      "api_gpu_matched": true,
+      "gpu_cpu_matched": true,
+      "api_compute_matched": true,
+      "unicode_exclusions": [],
+      "excluded_transport_metadata": [
+        "compute",
+        "cache_hit"
+      ],
+      "api_gpu_differing_fields": [],
+      "gpu_cpu_differing_fields": []
+    }
+  ],
+  "generation_cache": {
+    "schema": 1,
+    "hit": true,
+    "key": "c3d4c29e6be342c78ec5dcf88d7403dea3f6f5922e1c039b447dd7f266e9f1b7",
+    "compiler_invocations": 0
+  },
+  "execution": {
+    "passed": true,
+    "timed_out": false,
+    "elapsed_seconds": 23.2437474001199,
+    "final_child_exit_code": 0,
+    "below_normal_priority": true,
+    "error": null,
+    "cleanup_error": null,
+    "observation_error": null
+  },
+  "containment": {
+    "verified": true,
+    "job_peak_bytes": 2145529856,
+    "job_limit_bytes": 2147483648
+  },
+  "monitoring": {
+    "all_monitored_processes_preserved": true,
+    "missing_existing_processes": [],
+    "identified_nikke_service_preservation_verified": false,
+    "nikke_service_status_before": "unverified",
+    "nikke_service_status_after": "unverified",
+    "termination_cause": null,
+    "command_lines_saved": false
+  },
+  "ram": {
+    "passed": true,
+    "gate": "Immediately before first API worker launch",
+    "observed_unix_ns": 1793587229936114700,
+    "observed_at_jst": "2026-11-02T11:40:29.936115+09:00",
+    "available_physical_bytes": 13049880576,
+    "required_available_bytes": 4294967296,
+    "ram_measurements_at_this_gate": 1,
+    "resampling_loop": false,
+    "sdk_calls": 0,
+    "gpu_calls": 0
+  },
+  "driver_api_returns": [
+    {
+      "stage": "cuInit",
+      "return_code": 0,
+      "elapsed_seconds": 0.0533772
+    },
+    {
+      "stage": "cuDeviceGet",
+      "return_code": 0,
+      "elapsed_seconds": 1.81e-05
+    },
+    {
+      "stage": "cuDeviceComputeCapability",
+      "return_code": 0,
+      "elapsed_seconds": 1.68e-05
+    },
+    {
+      "stage": "cuDeviceGetName",
+      "return_code": 0,
+      "elapsed_seconds": 1.08e-05
+    },
+    {
+      "stage": "cuCtxCreate_v2",
+      "return_code": 0,
+      "elapsed_seconds": 0.0985742
+    },
+    {
+      "stage": "cuModuleLoadData",
+      "return_code": 0,
+      "elapsed_seconds": 0.0051558
+    },
+    {
+      "stage": "cuModuleGetFunction",
+      "return_code": 0,
+      "elapsed_seconds": 0.0112342
+    },
+    {
+      "stage": "cuModuleGetGlobal_v2",
+      "return_code": 0,
+      "elapsed_seconds": 1.53e-05
+    },
+    {
+      "stage": "cuMemAlloc_v2",
+      "return_code": 0,
+      "elapsed_seconds": 0.0001484
+    },
+    {
+      "stage": "cuMemAlloc_v2",
+      "return_code": 0,
+      "elapsed_seconds": 0.0001464
+    },
+    {
+      "stage": "cuMemAlloc_v2",
+      "return_code": 0,
+      "elapsed_seconds": 2.57e-05
+    },
+    {
+      "stage": "cuMemcpyHtoD_v2",
+      "return_code": 0,
+      "elapsed_seconds": 9.38e-05
+    },
+    {
+      "stage": "cuMemsetD8_v2",
+      "return_code": 0,
+      "elapsed_seconds": 4.61e-05
+    },
+    {
+      "stage": "cuMemcpyHtoD_v2",
+      "return_code": 0,
+      "elapsed_seconds": 3.27e-05
+    },
+    {
+      "stage": "cuLaunchKernel",
+      "return_code": 0,
+      "elapsed_seconds": 0.0022597
+    },
+    {
+      "stage": "cuCtxSynchronize",
+      "return_code": 0,
+      "elapsed_seconds": 0.9001412
+    },
+    {
+      "stage": "cuMemcpyDtoH_v2",
+      "return_code": 0,
+      "elapsed_seconds": 0.0010343
+    },
+    {
+      "stage": "cuMemcpyDtoH_v2",
+      "return_code": 0,
+      "elapsed_seconds": 0.0002126
+    },
+    {
+      "stage": "cuCtxDestroy_v2",
+      "return_code": 0,
+      "elapsed_seconds": 0.033316
+    }
+  ],
+  "counts": {
+    "http_posts": 1,
+    "gpu_kernel_calls": 1,
+    "readback_files": 1,
+    "slang_compiler_calls": 0,
+    "nvrtc_calls": 0,
+    "ptxas_calls": 0,
+    "nvjitlink_calls": 0,
+    "retries": 0
+  },
+  "owned_server": {
+    "started": true,
+    "stopped": true,
+    "return_code": 1
+  },
+  "previous_request_stop_claims_unchanged": true,
+  "paths": {
+    "owner": "$VALIDATION_ROOT/packet",
+    "request": "$VALIDATION_ROOT/logical-owner-api-v2/job.json",
+    "http": "$VALIDATION_ROOT/logical-owner-api-v2/api-once-v1/api-final.json",
+    "raw_input": "$VALIDATION_ROOT/logical-owner-api-v2/api-once-v1/detail-captures/29cbcd3a874a4a5798f0dbe37b6b494d/input.bin",
+    "raw_output": "$VALIDATION_ROOT/logical-owner-api-v2/api-once-v1/detail-captures/29cbcd3a874a4a5798f0dbe37b6b494d/readback.bin",
+    "gpu_payload": "$VALIDATION_ROOT/logical-owner-api-v2/api-once-v1/detail-captures/29cbcd3a874a4a5798f0dbe37b6b494d/gpu-payload.json",
+    "cpu_payload": "$VALIDATION_ROOT/logical-owner-api-v2/api-once-v1/detail-captures/29cbcd3a874a4a5798f0dbe37b6b494d/cpu-payload.json",
+    "phase": "$VALIDATION_ROOT/logical-owner-api-v2/api-once-v1/detail-captures/29cbcd3a874a4a5798f0dbe37b6b494d/phases.jsonl",
+    "job": "$VALIDATION_ROOT/logical-owner-api-v2/api-once-v1/job.json",
+    "observation": "$VALIDATION_ROOT/logical-owner-api-v2/api-once-v1/observation.json"
+  },
+  "scope": "One 8-second standard fixture only; no full-character, performance, or whole-environment completion claim."
+}

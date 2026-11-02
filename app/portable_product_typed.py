@@ -2,7 +2,10 @@
 import copy,math,struct,array,hashlib
 from portable_runtime import UnsupportedPortable
 from portable_coordinate_typed_specs import INPUT_WORDS as TYPED_INPUT,COORDINATE_OUTPUT_WORDS as BASE
-from portable_product_typed_movement import INPUT,OUTPUT
+from portable_product_typed_movement import INPUT as BASE_INPUT,OUTPUT as BASE_OUTPUT
+from portable_cover_defense_wire import LAYOUT as COVER
+INPUT=BASE_INPUT+COVER['WORDS'];COVER_OUT=BASE_OUTPUT
+OUTPUT=BASE_OUTPUT+COVER['OUTPUT_WORDS']-COVER['OUTPUT_BASE']
 
 from portable_logical_geometry_wire import LAYOUT as LOGICAL
 NEARBY_BASE=TYPED_INPUT+LOGICAL['WORDS']
@@ -17,6 +20,8 @@ def check_schema(root):
     check_layout(root);history_layout(root);logical_layout(root)
     from portable_product_typed_movement import check_schema as motion_schema
     motion_schema(root)
+    from portable_wire_layout import check_metal
+    check_metal(root,OUTPUT)
     from portable_named_range_battle_wire import shader_schema
     if (Path(root)/'gpu/product_typed_nearby_layout.slang').read_text()!=shader_schema(base=NEARBY_BASE):raise ValueError('Typed nearby bank schema drift')
     source=(Path(root)/'gpu/product_typed_battle_entry.slang').read_text()
@@ -25,8 +30,8 @@ def check_schema(root):
             or '#define PORTABLE_LOGICAL_INPUT_BASE 115680U' not in source
             or '#define PORTABLE_COORDINATE_TYPED_MIXED' not in source
             or not 153568+1024*10+128+16<=170976
-            or TYPED_INPUT!=115680 or NEARBY_BASE!=121392 or INPUT!=123732
-            or '#if defined(PORTABLE_PRODUCT_TYPED_MOTION)\n    uint input=1+id.x*EMB_INPUT' not in entry):
+            or TYPED_INPUT!=115680 or NEARBY_BASE!=121392 or BASE_INPUT!=123732 or INPUT!=123756 or OUTPUT!=2362296
+            or '#elif defined(PORTABLE_PRODUCT_TYPED_MOTION)\n    uint input=1+id.x*EMB_INPUT' not in entry):
         raise ValueError('Typed product requires adjacent complete typed/logical input banks')
 
 
@@ -40,16 +45,15 @@ def compile_product(prepared):
     if {'typed_targets','lock_on'}<=set(declarations):
         from portable_product_locks import compile_product as locks
         return locks(prepared,typed_model=normalize_product(declarations['typed_targets']))
-    if set(declarations)-{'typed_targets','enemy_movement'}:raise UnsupportedPortable('Typed product composition requires its matching checked shared GPU consumer')
+    if set(declarations)-{'typed_targets','enemy_movement','cover_defense'}:raise UnsupportedPortable('Typed product composition requires its matching checked shared GPU consumer')
+    if not prepared.get('_product_cover_compiled'):
+        from portable_product_cover import compile_product as cover
+        return cover(prepared,compile_product)
     spec=normalize_product(declarations['typed_targets'])
     if any(r['effect'].get('target') in ('all_projectiles','typed_point') for r in prepared['effects']):
         raise UnsupportedPortable('Original typed skill damage requires its checked common skill route; weapon typed admission cannot omit it')
     if any(p.get('kind') not in ('idle','summon','attack') or p.get('kind')=='summon' and (p.get('spec',{}).get('attack') or p.get('spec',{}).get('self_destruct')) for p in prepared['enemy'].get('patterns',[])):
         raise UnsupportedPortable('Typed product attack world requires its combined checked incoming consumer')
-    from portable_product_world_contract import has_incoming_attacks
-    from portable_product_cover import required as cover_required
-    if has_incoming_attacks(prepared) and cover_required(prepared):
-        raise UnsupportedPortable('Typed incoming attacks with independent/manual cover require the combined checked cover consumer')
     manual=[i for i,c in enumerate(prepared['chars']) if any(a.get('action')=='cover' for a in c.get('control',{}).get('sequence',[]))]
     controlled=dict(prepared,_product_manual_cover=True) if manual else prepared
     inner,fixed=lower(controlled,manual_posture=True);inner=copy.deepcopy(inner);inner.pop('reference_models',None)
@@ -93,7 +97,7 @@ def compile_product(prepared):
     meta['product_world']=dict(nodes=[dict(id=p.id,kind=p.kind) for p in nodes],literal_pattern_identity_only=True,cpu_schedule_or_state_supplied=False)
     meta['product_parts']=[]
     attach(words,meta,prepared,fixed)
-    return 'gpu/product_typed_'+('fixed_' if fixed is not None else '')+'battle_entry.slang',INPUT,OUTPUT,words,meta
+    return 'gpu/product_typed_'+('fixed_' if fixed is not None else '')+'battle_entry.slang',BASE_INPUT,BASE_OUTPUT,words,meta
 
 
 class TypedStateView:
@@ -120,6 +124,8 @@ def read_result(block,metadata,names,duration):
     from product_typed_model import public_from_words
     def fail(message):raise UnsupportedPortable('Invalid or incomplete typed product readback: '+message)
     if len(block)!=OUTPUT or block[0]!=0:fail('wire/status')
+    # The adjacent cover bank has its own complete decoder in portable_detail.
+    block=block[:BASE_OUTPUT]
     spec=metadata['product_typed_targets']['declarations']['typed_targets']
     try:
         skill_rows=decode_pages(block,block[L['WORLD_SKILL_HEAD_BASE']+1],SKILLS)

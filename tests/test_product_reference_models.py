@@ -1079,6 +1079,23 @@ class ProductReferenceModels(unittest.TestCase):
         from portable_specs import shader_schema
         self.assertIn('#elif defined(PORTABLE_PRODUCT_LONG_LOCK)\nstatic const uint P_OUTPUT_WORDS = PL_LAYOUT_OUTPUT;',shader_schema())
 
+    def test_typed_cover_uses_existing_explicit_bank_and_separate_stat(self):
+        from portable_product_programs import cover_typed_body
+        from portable_detail import prepare,compile_product
+        from portable_cover_defense_wire import MAGIC,COMPOSED_STAT,validate
+        from portable_specs import LIMITS as L,FIELDS as F
+        for mode in ('fixed','accumulate'):
+            body=cover_typed_body(ROOT,'typed-'+mode);before=copy.deepcopy(body)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU cover state in input')):
+                pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
+            self.assertEqual(body,before);self.assertEqual((iw,ow,len(words)),(123756,2362296,123756))
+            self.assertEqual(words[123732:123736],[MAGIC,1,5,0])
+            self.assertEqual(validate(words[123732:],[c['name'] for c in pre['chars']]),body['reference_models']['cover_defense'])
+            self.assertTrue(meta['product_typed_cover']);self.assertTrue(meta['product_cover_defense']['definition_indices'])
+            for i in meta['product_cover_defense']['definition_indices']:
+                row=meta['binding_source_indices'].index(i);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
+                self.assertEqual((words[at+F['KIND']],words[at+F['STAT']]),(0,COMPOSED_STAT))
+
     def test_typed_incoming_preserves_literal_attacks_and_explicit_cover_boundary(self):
         from portable_runtime import UnsupportedPortable
         from portable_product_programs import incoming_typed_body
@@ -1094,7 +1111,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertIn(dict(id='typed-incoming',kind='attack'),meta['product_world']['nodes'])
             body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=1.)]}
             pre,_=prepare(body)
-            with self.assertRaisesRegex(UnsupportedPortable,'combined checked cover consumer'):compile_product(pre)
+            with self.assertRaisesRegex(UnsupportedPortable,'explicit reference_models.cover_defense'):compile_product(pre)
 
     def test_typed_manual_posture_packs_existing_controls_and_preserves_original_effects(self):
         from portable_product_programs import manual_typed_body
@@ -1105,7 +1122,7 @@ class ProductReferenceModels(unittest.TestCase):
             body=manual_typed_body(ROOT,name);before=copy.deepcopy(body)
             with patch.object(sim,'execute',side_effect=AssertionError('No posture schedule or native state supplied to GPU')):
                 pre,run=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual(body,before);self.assertEqual(iw,123732)
+            self.assertEqual(body,before);self.assertEqual(iw,123732 if name.startswith('typed-lock-') else 123756)
             self.assertEqual(words[L['WORLD_CONTROL_INPUT_BASE']+1],6 if 'fixed' in name else 3)
             self.assertEqual(meta['product_manual_cover_owners'],[0,4])
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
@@ -1122,7 +1139,7 @@ class ProductReferenceModels(unittest.TestCase):
             body=logical_owner_body(ROOT,name);before=copy.deepcopy(body)
             with patch.object(sim,'execute',side_effect=AssertionError('No native generations or fields supplied to GPU')):
                 pre,run=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual(body,before);self.assertEqual(iw,123732)
+            self.assertEqual(body,before);self.assertEqual(iw,123732 if name.startswith('typed-lock-') else 123756)
             base=115680 if 'lock' in name else 109968
             self.assertEqual(words[base+12:base+16],[3,1,1,2]);self.assertEqual(words[base+3],0)
             for i,row in enumerate(body['reference_models']['typed_targets']['bindings']):
@@ -1682,7 +1699,7 @@ class ProductReferenceModels(unittest.TestCase):
                 source,iw,ow,words,meta=product.compile_product(prepared)
             self.assertEqual(body,before);self.assertEqual(prepared,original)
             self.assertFalse(run.expected);self.assertEqual(run.config['rng_mode'],'random')
-            self.assertEqual((iw,ow,len(words)),(123732,2345384,123732));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(123756,2362296,123756));validate_composed_stride(source,iw,ow)
             self.assertEqual(source,'gpu/product_typed_'+('fixed_' if mode=='fixed' else '')+'battle_entry.slang')
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
             self.assertFalse(meta['product_typed_targets']['cpu_state_or_schedule_supplied'])
@@ -2084,7 +2101,7 @@ class ProductReferenceModels(unittest.TestCase):
             if name.startswith('typed-lock-'):self.assertTrue(result['lock_on']['shots'])
             with patch.object(sim,'execute',side_effect=AssertionError('No native positions in input')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow),(123732,2945320 if name.startswith('typed-lock-') else 2345384));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow),(123732 if name.startswith('typed-lock-') else 123756,2945320 if name.startswith('typed-lock-') else 2362296));validate_composed_stride(source,iw,ow)
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
 
     def test_typed_physical_history_preserves_order_across_spill_and_rejects_unowned_words(self):
@@ -2184,7 +2201,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.BossScript,timeline.calc_damage))
             with patch.object(sim,'execute',side_effect=AssertionError('No CPU-selected recipients in GPU input')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow,len(words)),(123732,2345384,123732));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(123756,2362296,123756));validate_composed_stride(source,iw,ow)
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
             self.assertEqual(words[121392:121395],[0x4e524231,1,1])
             self.assertEqual(words[121392+32+5],1)
@@ -2250,7 +2267,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(body,before)
             with patch.object(sim,'execute',side_effect=AssertionError('No native state in packing')):
                 pre,_=prepare(body);source,iw,ow,words,meta=compile_product(pre)
-            self.assertEqual((iw,ow,len(words)),(123732,2345384,123732));validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(123756,2362296,123756));validate_composed_stride(source,iw,ow)
             self.assertEqual(words[115680:115683],[0x4c414731,1,2])
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
             missing=copy.deepcopy(body);missing['reference_models']['typed_targets']['logical_geometry'].pop()

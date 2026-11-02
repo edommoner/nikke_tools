@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v73-expected.json'
+GOLDEN = 'research/portable-product-programs-v74-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -52,7 +52,7 @@ def configuration(suites, selection):
     program = PROGRAMS[name]
     return dict(base, product_program=name, source=program['source'], golden=GOLDEN,
                 input_words=program['input_words'], output_words=program['output_words'],
-                inputs=7 if name=='ammo-cover-fixed-group' else 8 if name=='typed-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1,native=7 if name=='ammo-cover-fixed-group' else 8 if name=='typed-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
+                inputs=7 if name=='ammo-cover-fixed-group' else 10 if name=='typed-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1,native=7 if name=='ammo-cover-fixed-group' else 10 if name=='typed-accumulate' else 6 if name.startswith('typed-') else 4 if name=='fixed' else 3 if name=='fixed-group' else 2 if name.startswith('coordinate-lock-') or name=='lock-fixed' else 1)
 
 
 def registered_golden(root, config, *, allow_unsealed=False):
@@ -297,6 +297,18 @@ def incoming_typed_body(root,name='typed-accumulate'):
     return body
 
 
+def cover_typed_body(root,name='typed-accumulate'):
+    """Original cover-DEF effect with explicit bases in the typed attack world."""
+    from detail_coverage import body_for
+    body=incoming_typed_body(root,name);old=body['squad'][-1];new='솔져 O.W.'
+    body['squad'][-1]=new
+    body['profile']['chars'][new]=body_for(body['squad'],8)['profile']['chars'][new]
+    body['reference_models']['cover_defense']=[dict(name=n,base_defense=1000.+100*i) for i,n in enumerate(body['squad'])]
+    body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=3.)],new:[dict(action='cover',t=1.,duration=1.)]}
+    body['enemy']['patterns'][-1]['spec']['atk']=100000.
+    return body
+
+
 def manual_typed_body(root,name='typed-accumulate'):
     """Existing explicit posture controls in the same exact-owner world."""
     body=logical_owner_body(root,name)
@@ -415,4 +427,5 @@ def cases_for_program(root,name=None):
         rows.append(('logical-owner-mixed',logical_owner_body(root,name)))
         rows.append(('manual-posture',manual_typed_body(root,name)))
         rows.append(('incoming-attacks',incoming_typed_body(root,name)))
+        rows.append(('cover-incoming',cover_typed_body(root,name)))
     return rows
