@@ -5797,3 +5797,16 @@ Codexが新規セッションで記録を作成（8分56秒、参照66件）。C
 Claudeの独立確認：66 anchor再現、counter全0、作業ツリー不変、元データ件数（buff_stack_add＝buff 1＋instant 4、buff_max_stack_add＝buff 9）、上限時も持続時間を更新（buff_manager.py:1311-1320）、max-addは効果を残さず即時処理（3540-3542）、`partial_skips` はupstreamのみ。
 
 これで117キーすべてに静的な扱いが決まった。次は実行レベル（Metal実行＋CPU照合）でL4を埋める作業へ移る。CUDAはWindows再開の明示時にまとめて行う。
+
+
+## 2026-11-03 実行レベル：117キーの発動と効き目を、保存済みMetal 266件の上で確認
+
+標準266件（seed0・core50・BODY1・180秒）の保存Metal結果は、GPU側コードが4155099d以降CUDA用guard以外不変のため現行の証拠として再利用。Codexが同じリクエストをCPUで計測付き再実行（e04d67abのクリーンsnapshot、166回、計測なしの保存CPU結果と評価器stamp以外一致54/54）。効果ごとに外したCPU計算で効き目も確認した。新しいGPU実行は0。
+
+- **発動し結果を変えた：59キー**。Metal一致済みリクエスト内で発動している → そのリクエスト範囲でii候補。
+- **発動したが結果は不変：52キー**。多くは防御・回復・遮蔽・被弾系で、標準場面に敵の攻撃がないため効き目が出ない。
+- **標準場面で発動せず：6キー**（accumulate_max_scale_pct、burst_stage_override:1、debuff_immune、debuff_immune:소음 공해、heal_overcharge_store_atk_pct、skill_cooldown_pct）。
+
+Claudeの独立確認：独自スクリプトでprofile 5の基準値1,112,885,848とbuff_stack_add除去時の差−36,741,368、profile 159のcover_def_pct除去で差0を再現。保存Metal結果（Apple M5、CPU一致）の総ダメージとも一致。作業ツリー不変。
+
+次：敵の攻撃がある場面などを作り、未発動6キー・不変52キーが効く条件でMetal実行して照合する。
