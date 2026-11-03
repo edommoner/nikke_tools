@@ -16,6 +16,8 @@ def admitted(target, *, instant=False):
         return 1<=len(flat)<=21 and all(admitted(item,instant=instant) for item in flat)
     if not isinstance(target, str):
         return False
+    if target=='allies_down_all':return True
+    if target=='self_and_engaged_allies':return True
     if instant and re.fullmatch(r'allies_down_(?:top_atk_excl:[1-5]|class_random:[^:]+:[1-5])',target):return True
     if re.fullmatch(r'allies_lowest_cover_hp:[1-5]',target):return True
     from portable_ally_random_specs import contains
@@ -48,7 +50,7 @@ def pack(words, index, row, limits, effect, stat_key, merge_search, lazy_group,*
     from portable_enemy_specs import enemy_buff_plan
     enemy = enemy_buff_plan(effect) is not None
     if enemy:kind=4
-    if kind not in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25):
+    if kind not in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27):
         raise ValueError('Unported compiled recipient selector')
     at = limits['RECIPIENT_BASE'] + index * 8
     independent_quantity=not (native_equipment_carriers and merge_search) and effect.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37)

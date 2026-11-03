@@ -4,7 +4,10 @@ from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'research')]
 s=importlib.util.spec_from_file_location('original_burst_revival_test',ROOT/'research/verify-coordinate-original-burst-revival-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
+from historical_engine_reference import historical_compiler
+
 class OriginalBurstRevivalTests(unittest.TestCase):
+    @historical_compiler
     def test_all_original_definitions_pack_without_battle(self):
         from calculator import timeline
         from portable_parent_oracles import provider

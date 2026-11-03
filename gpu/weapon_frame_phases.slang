@@ -128,7 +128,10 @@ void advanceWeaponCharge(inout Runtime s,inout Weapon w,uint who,uint64_t when,u
             if (w.infinite == 0 && s.ammo[who] == 1) dispatch(s,0,21,who,0,when,output);
             if (changedWeaponSession(s,who,epoch,mode)) return;
         }
-        if(PARTIAL_USE_HEAVY(s,who)) s.chargeUntil[who] = f64Add(s.chargeStartedAt[who],effectiveCharge(s,who,w.chargeTime,when));
+        if(PARTIAL_USE_HEAVY(s,who) && s.fullCharged[who]==0) s.chargeUntil[who] = f64Add(s.chargeStartedAt[who],effectiveCharge(s,who,w.chargeTime,when));
+        // Native latches before hold callbacks; taps never set _charge_full_t.
+        if((s.fullChargeOwners&(1U<<who))!=0 && PARTIAL_USE_HEAVY(s,who) && s.fullCharged[who]==0 && !f64Less(when,s.chargeUntil[who]))
+        { s.fullCharged[who]=1;invalidateNativeNumeric(s); }
         WORLD_CHARGE_HOLD(s,w,who,when) if (s.error != 0 || f64Less(when,s.chargeUntil[who])) return;
         if(PARTIAL_IS_FULL(w)) dispatch(s,0,10,who,0,when,output);
         w.infinite = uint(hasInfiniteAmmo(s,who,when));
@@ -227,7 +230,7 @@ void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint
         { uint name = definition_name(s.inputBase,mode); s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0; clearMode(s,who,when); dispatch(s,0,29,who,int(name),when,output); return; }
     }
     if (w.mode == 1)
-    { s.pendingAutoReload[who] |= uint(scheduleAutoReload); s.charging[who] = 0;invalidateNativeNumeric(s); s.nextShot[who] = larger(f64Add(when,WORLD_FRACTION_POST_DELAY(s,who,mode,f64Add(w.interval,w.chargeTime ^ F64_SIGN))),f64Add(s.chargeStartedAt[who],w.minCycle)); }
+    { s.pendingAutoReload[who] |= uint(scheduleAutoReload); s.charging[who] = 0; clearFullCharge(s,who);invalidateNativeNumeric(s); s.nextShot[who] = larger(f64Add(when,WORLD_FRACTION_POST_DELAY(s,who,mode,f64Add(w.interval,w.chargeTime ^ F64_SIGN))),f64Add(s.chargeStartedAt[who],w.minCycle)); }
     else s.nextShot[who] = larger(when,f64Add(s.nextShot[who],shotInterval));
 #ifdef PORTABLE_PARTIAL_CHARGE
     if(w.mode==1 && w.partialTapRow!=0)

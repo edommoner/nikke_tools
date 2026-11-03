@@ -70,6 +70,14 @@ bool initializeRevival(inout Runtime s)
         for(uint leaf=0;leaf<leaves;leaf++)
         {
             uint selector=commands[commands[plan]==17 ? s.inputBase+P_RECIPIENT_NODE_BASE+(commands[plan+2]+leaf)*8 : plan];
+            if(selector==26 || selector==27)
+            {
+#ifndef PORTABLE_WORLD_PROJECTILE
+                return false;
+#else
+                if(s.combat==0 || !worldFrameEnabled(s)) return false;
+#endif
+            }
             if((selector==22 || selector==23) && d.kind!=29) return false;
 #ifdef PORTABLE_RANDOM_CLEANSE
             if(selector==20)
@@ -89,7 +97,7 @@ bool initializeRevival(inout Runtime s)
         return false;
 #else
         uint at=s.inputBase+P_MODE_BASE+row*P_MODE_WORDS;
-        if(s.combat==0 || !worldFrameEnabled(s) || d.stat!=0 || d.enemyBuff!=0 || d.quantityFlags!=0 || d.healthScaling!=0 || d.alliedFlags!=0 || d.damageFlags!=0 || !f64Finite(d.value) || !f64Less(0,d.value) || !f64Zero(d.interval) || commands[at]!=P_REVIVAL_MAGIC || commands[at+3]!=0) return false;
+        if(s.combat==0 || !worldFrameEnabled(s) || d.stat!=0 || d.enemyBuff!=0 || d.target>1 || d.quantityFlags!=0 || d.healthScaling!=0 || d.alliedFlags!=0 || d.damageFlags!=0 || !f64Finite(d.value) || !f64Less(0,d.value) || !f64Zero(d.interval) || commands[at]!=P_REVIVAL_MAGIC || commands[at+3]!=0) return false;
         for(uint word=4;word<28;word++) if(commands[at+word]!=0) return false;
         uint64_t next=uint64_t(commands[at+1])|(uint64_t(commands[at+2])<<32);
         if(seeded && next!=seed) return false;
@@ -124,9 +132,16 @@ void advanceRevival(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int dept
     if(f.mode==28)
     {
         uint encoded=f.cursor<21 ? uint(f.value>>(f.cursor*3))&7 : 0;
-        if(encoded==0) { depth--;return; }
+        if(encoded==0)
+        {
+            depth--;
+            if(f.healthPrevious!=0 && readDefinition(s.inputBase,uint(f.argument)).target!=0)
+                pushFrame(s,frames,depth,0,31,f.owner,int(definition_name(s.inputBase,uint(f.argument))),f.time);
+            return;
+        }
         frames[depth].cursor++;
         if((s.downMask&(1U<<(encoded-1)))==0) return;
+        frames[depth].healthPrevious=1;
         pushFrame(s,frames,depth,29,0,encoded-1,f.argument,f.time,f.healthValue);return;
     }
     if(f.event==0)
@@ -162,7 +177,7 @@ void advanceRevival(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int dept
     s.hp[who]=f64Div(f64Mul(maximum,f.value),HUNDRED);results[base+5]|=bit;
     syncHealthActor(s,who,f.time);
     results[base+who]=0;
-    s.charging[who]=0;s.reloadUntil[who]=F64_SIGN|ONE;s.postReloadUntil[who]=F64_SIGN|ONE;s.pendingAutoReload[who]=0;
+    s.charging[who]=0; clearFullCharge(s,who);s.reloadUntil[who]=F64_SIGN|ONE;s.postReloadUntil[who]=F64_SIGN|ONE;s.pendingAutoReload[who]=0;
     s.modeIndex[who]=-1;s.physicalModeIndex[who]=-2;s.modeEpoch[who]++;s.appliedEpoch[who]=s.modeEpoch[who];s.modeEntryUntil[who]=F64_SIGN|ONE;s.modeEntryPhase[who]=0;
     WORLD_CONTROL_RELOAD(s,who)
     s.ammo[who]=int(fullCapacity(s,who,s.capacity[who],true,f.time));s.nextShot[who]=f.time;s.weaponInitialized[who]=1;

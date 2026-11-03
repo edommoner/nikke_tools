@@ -1,16 +1,19 @@
 // Persona is presence in already-resolved active membership, just as native
 // _has_persona_state. Do not resolve lazy carriers or evaluate value/conditions.
-bool statusPersona(inout Runtime s,uint who)
+bool statusMarker(inout Runtime s,uint who,uint flag)
 {
     if(who>=5 || (s.quantityMask&16384)==0) return false;
     for(uint pass=0;pass<s.orderedCount;pass++)
     {
         uint slot=s.orderedRows[pass],definition=s.carrierDefinition[slot];
         if(s.alive[slot]!=0 && s.lazyPending[slot]==0 && definition_kind(s.inputBase,definition)==4 &&
-           (definition_quantityFlags(s.inputBase,definition)&1)!=0 && (s.activeRecipients[slot]&(1U<<who))!=0) return true;
+           (definition_quantityFlags(s.inputBase,definition)&flag)!=0 && (s.activeRecipients[slot]&(1U<<who))!=0) return true;
     }
     return false;
 }
+
+bool statusPersona(inout Runtime s,uint who) { return statusMarker(s,who,1U); }
+bool statusEngaged(inout Runtime s,uint who) { return statusMarker(s,who,2048U); }
 
 // Presence reads the already-resolved carrier membership, without consuming a
 // lazy selector or rechecking conditions/expiry ahead of the shared lifecycle.

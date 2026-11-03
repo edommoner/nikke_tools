@@ -109,7 +109,11 @@ class EntryInventoryTests(unittest.TestCase):
     def test_full_inventory_separates_packing_from_gpu_admission(self):
         with tempfile.TemporaryDirectory() as directory:
             path=Path(directory)/'report.json';result=inventory.run(path,write=write,forbid_gpu=forbid_gpu);report=json.loads(path.read_text())
-        self.assertTrue(result['passed']);self.assertEqual(result['profile_count'],269);self.assertEqual(result['packed_profiles'],247)
+        self.assertTrue(result['passed']);self.assertEqual(result['profile_count'],269);self.assertEqual(result['packed_profiles'],250)
+        names={'마리안 : 퀸','라푼젤 : 생츄어리','홍련 : 신살'}
+        ported=[row for row in report['profiles'] if row['character'] in names]
+        self.assertEqual(len(ported),3);self.assertEqual({row['character'] for row in ported},names)
+        self.assertTrue(all(row['input_packed'] and not row['gpu_admission_verified'] for row in ported))
         self.assertEqual(result['forbidden_calls'],dict(cpu_battle=0,gpu=0))
         self.assertFalse(result['gpu_admission_verified']);self.assertFalse(result['calculation_verified'])
         gauge_profiles=report['definition_kind_profiles']['9']

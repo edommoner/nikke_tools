@@ -13,7 +13,8 @@ bool actorStackBlocked(inout Runtime s,uint target)
 }
 bool actorStackAffected(inout Runtime s,uint row,ActorBits scope)
 {
-#ifdef PORTABLE_COORDINATE_EXISTING_HANDLERS
+#if defined(PORTABLE_COORDINATE_EXISTING_HANDLERS) || defined(PORTABLE_COORDINATE_ORIGINAL_SOURCE_OPS)
+    // Both original and product entries keep DoT recipients in periodic snapshots.
     // Periodic snapshots take logical slots; recipient fields take tagged refs.
     for(uint target=0;target<actorPoolCount(s);target++)
         if(actorBitsHas(scope,target)&&(actorRecipientMember(s,row,target==0?0:ACTOR_REF|target)||worldPeriodicNamedMember(s,row,target))&&!actorStackBlocked(s,target)) return true;

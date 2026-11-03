@@ -67,6 +67,7 @@ void initializeRuntime(inout Runtime s)
     s.combat = 0;
     s.targetCount = 0;
     s.target = 0;
+    s.fullChargeOwners = 0;
     s.infiniteRowCount = 0;
     s.enemyBuffCount = 0;
     s.enemyEpoch = 0;
@@ -235,6 +236,7 @@ void initializeRuntime(inout Runtime s)
         s.shots[index] = 0;
         s.stage[index] = 0;
         s.charging[index] = 0;
+        s.fullCharged[index] = 0;
         s.ammo[index] = 0;
         s.reloadCancelOnFull[index] = 0;
         s.modeCapacityEpoch[index] = 0;

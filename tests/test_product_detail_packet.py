@@ -7,6 +7,8 @@ sys.path[:0]=[str(ROOT/'app'),str(ROOT/'research')]
 spec=importlib.util.spec_from_file_location('product_packet',ROOT/'research/verify-product-detail.py')
 adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
 
+from historical_engine_reference import historical_compiler
+
 class ProductPacket(unittest.TestCase):
     def test_typed_skill_decoder_uses_exact_static_coefficient_without_research_imports(self):
         import builtins,struct
@@ -113,6 +115,7 @@ class ProductPacket(unittest.TestCase):
                 configuration(cli.SUITES,dict(suite='product-detail',product_program=name))
         with self.assertRaises(ValueError):configuration(cli.SUITES,dict(suite='damage-factors',product_program='fixed'))
         self.assertEqual(cli.SUITES['product-detail'],base)
+    @historical_compiler
     def test_each_program_uses_the_actual_static_product_input_and_exact_wire(self):
         from portable_product_programs import PROGRAMS
         from portable_specs import LIMITS

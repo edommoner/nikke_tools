@@ -34,7 +34,7 @@ MASK_WORDS=(NE+31)//32
 B3_MASK,REDUCER_MASK,EXTEND_MASK=270,278,286
 NT,TD,TS=8,145,7
 DETAIL_ABI='detail_timer_registry_v81'
-SNAPSHOT_HP_TARGETS=frozenset((0,1,2,3,8,9,10,11,12,13,18,20,21,22,23,24,25))
+SNAPSHOT_HP_TARGETS=frozenset((0,1,2,3,8,9,10,11,12,13,18,20,21,22,23,24,25,26,27))
 class UnsupportedDetail(ValueError):
  def __init__(self,issues):
   self.issues=issues if isinstance(issues,list) else [{'reason':str(issues)}]
@@ -84,7 +84,7 @@ def compile_effects(chars,effects,*,enemy_fields=False):
     compile_target(leaf,row,owner);descriptors.append(row)
     kind=int(row[4]);count=int(row[5])
     if kind==4:raise UnsupportedDetail('enemy identities in ordered target lists are not yet implemented')
-    bound+=1 if kind in (0,4) else 5 if kind in (1,9,10,12,13,14) else min(count,5-owner-1) if kind==2 else 1+min(count,int(owner>0)+int(owner<4)) if kind==3 else min(count,5-int(row[49]>0)) if kind in (5,6,7,15,16,21,22,23,24) else min(count,4 if kind==19 else 5) if kind in (19,20,25) else int(row[48]).bit_count()
+    bound+=1 if kind in (0,4) else 5 if kind in (1,9,10,12,13,14,26,27) else min(count,5-owner-1) if kind==2 else 1+min(count,int(owner>0)+int(owner<4)) if kind==3 else min(count,5-int(row[49]>0)) if kind in (5,6,7,15,16,21,22,23,24) else min(count,4 if kind==19 else 5) if kind in (19,20,25) else int(row[48]).bit_count()
    if bound>21:raise UnsupportedDetail('target list exceeds 21 ordered recipients')
    q[4]=17;q[48]=len(descriptors);target_plans.append((q,descriptors))
   elif isinstance(target,str) and re.fullmatch(r'allies_random(?:_with_debuff)?:[0-5]',target):
@@ -92,6 +92,8 @@ def compile_effects(chars,effects,*,enemy_fields=False):
   elif isinstance(target,str) and re.fullmatch(r'allies_down_top_atk_excl:[1-5]',target):q[4]=22;q[5]=int(target.rsplit(':',1)[1])
   elif isinstance(target,str) and re.fullmatch(r'allies_down_class_random:[^:]+:[1-5]',target):
    _,role,count=target.split(':');q[4]=23;q[5]=int(count);q[48]=sum(1<<i for i,ch in enumerate(chars) if ch['_weapon'].get('class')==role)
+  elif target=='self_and_engaged_allies':q[4]=26
+  elif target=='allies_down_all':q[4]=27
   elif target=='self':q[4]=0
   elif target=='all_allies':q[4]=1
   elif target=='allies_below_def':q[4]=14
@@ -278,7 +280,8 @@ def compile_effects(chars,effects,*,enemy_fields=False):
    elif kind=='buff' and stat=='reload_time_fixed':q[1]=4;q[242]=int('fixed_value' in eff or 'values' in eff)
    elif kind=='buff' and stat=='buff_max_stack_add':q[1]=19
    elif kind=='buff' and stat=='stack_change_immune':q[1]=4;q[211]=1
-   elif kind=='buff' and stat in ('persona_state','stun_immune'):q[1]=4;q[213]=1 if stat=='persona_state' else 2
+   elif kind=='buff' and stat in ('persona_state','stun_immune','engaged_state'):q[1]=4;q[213]={'persona_state':1,'stun_immune':2,'engaged_state':2048}[stat]
+   elif kind=='buff' and stat=='normal_atk_width_pct':q[1]=4 # Native single-boss path has no reader.
    elif kind=='buff' and stat=='def_pct':q[1]=0;q[2]=2
    elif kind=='buff' and stat=='':q[1]=4
    elif kind=='buff' and stat in EXTRA:
@@ -517,6 +520,11 @@ def compile_effects(chars,effects,*,enemy_fields=False):
     elif condition.startswith('target_state:'):typ=16;name=state(condition[len('target_state:'):])
     elif condition.startswith('not_target_state:'):typ=17;name=state(condition[len('not_target_state:'):])
     elif condition=='during_shield':typ=12
+    elif condition=='during_full_charge':typ=45
+    elif condition.startswith(('ally_down_count_above:','ally_down_count_below:')):
+     match=re.fullmatch(r'ally_down_count_(above|below):([+-]?[0-9]+)',condition)
+     if not match or abs(int(match[2]))>2**31-1:raise UnsupportedDetail('invalid ally down threshold')
+     typ=46 if match[1]=='above' else 47;arg=int(match[2])
     elif condition=='during_charge':typ=29
     elif condition=='focusing':typ=30
     elif condition=='not_self_caused_heal':typ=13

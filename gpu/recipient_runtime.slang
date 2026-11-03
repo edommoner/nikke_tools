@@ -41,10 +41,10 @@ bool validRecipientLeaf(uint at, bool enemy = false)
     if(kind==24) return !enemy && count<=5 && mask<=31 && commands[at+3]==0 && commands[at+4]==0 && commands[at+5]==0 && commands[at+6]<P_DEFINITIONS && (commands[at+7]&~7U)==0;
 #endif
     if (enemy) return kind == 4 && count == 0 && mask == 0 && commands[at+3] == 0 && commands[at+4] == 0 && commands[at+5] == 0 && commands[at+6] < P_DEFINITIONS && (commands[at+7] & ~7U) == 0;
-    if (kind > 25 || (kind == 17 || kind == 20 || kind == 24) || kind == 4 || kind == 14 || count > 5 || mask > 31 || commands[at+3] > (kind == 12 || kind == 13 ? 2 : 1)) return false;
+    if (kind > 27 || (kind == 17 || kind == 20 || kind == 24) || kind == 4 || kind == 14 || count > 5 || mask > 31 || commands[at+3] > (kind == 12 || kind == 13 ? 2 : 1)) return false;
     if ((kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16 || kind == 21) && count == 0) return false;
     if((kind==22 || kind==23) && (count==0 || commands[at+3]!=0 || commands[at+4]!=0 || commands[at+5]!=0 || (commands[at+7]>>4)!=0)) return false;
-    if(kind==18 && (count!=0 || commands[at+3]!=0 || commands[at+4]!=0 || commands[at+5]!=0 || (commands[at+7]>>4)!=0)) return false;
+    if((kind==18 || kind==26 || kind==27) && (count!=0 || commands[at+3]!=0 || commands[at+4]!=0 || commands[at+5]!=0 || (commands[at+7]>>4)!=0)) return false;
     if((kind==19 || kind==25) && (mask!=0 || commands[at+3]!=0 || commands[at+4]!=0 || commands[at+5]!=0)) return false;
     uint order = commands[at+4], seen = 0; bool ended = false;
     if (order >> 15 != 0 || commands[at+6] >= P_DEFINITIONS || (commands[at+7] & 8) != 0 || (commands[at+7] >> 4) > P_DEFINITIONS) return false;
@@ -88,6 +88,12 @@ uint selectRecipientLeaf(inout Runtime s, uint row, uint at, uint64_t when, out 
         return mask;
     }
 #endif
+    if(kind==27)
+    {
+        uint mask=s.downMask&31U,written=0;order=0;
+        for(uint who=0;who<5;who++) if((mask&(1U<<who))!=0) order|=uint64_t(who+1)<<(3*written++);
+        return mask;
+    }
     if (kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16 || kind==22) return rankedRecipientsAt(s,row,at,when,order);
     if(kind==19 || kind==25
 #ifdef PORTABLE_RANDOM_CLEANSE
@@ -150,6 +156,7 @@ uint selectRecipientLeaf(inout Runtime s, uint row, uint at, uint64_t when, out 
     else
     {
         uint pool = kind == 8 || kind == 15 || kind == 16 || kind == 18 ? candidates : 31;
+        if(kind==26) for(uint who=0;who<5;who++) if(who!=d.owner && !statusEngaged(s,who)) pool &= ~(1U<<who);
         if(kind==18)
         {
             pool &= ~(1U<<d.owner);

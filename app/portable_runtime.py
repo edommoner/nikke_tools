@@ -47,6 +47,8 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     from portable_focus_specs import validate as validate_focus
     try:validate_focus(eff,combat=combat,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error
+    if isinstance(target,str) and target in ('self_and_engaged_allies','allies_down_all') and (combat is None or not world_frame):
+        raise UnsupportedPortable('New character recipients require private combat world',reason='recipient')
     if target=='allies_below_def' and (combat is None or not world_frame):
         raise UnsupportedPortable('Final-defense recipients require a private combat world',reason='recipient')
     from portable_ally_random_specs import validate as validate_ally_random
@@ -59,7 +61,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error
     from portable_persona_specs import validate as validate_persona
     try:validate_persona(eff,combat=combat,world_frame=world_frame)
-    except ValueError as error:raise UnsupportedPortable(str(error),reason='effect' if eff.get('stat')=='persona_state' else 'recipient') from error
+    except ValueError as error:raise UnsupportedPortable(str(error),reason='effect' if eff.get('stat') in ('persona_state','engaged_state') else 'recipient') from error
     from portable_base_copy_specs import validate as validate_base_copy,enabled as base_copy
     try:validate_base_copy(eff,combat=combat,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason="effect") from error
@@ -203,12 +205,12 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     if stat in ('force_reload','reload_time_fixed') and (combat is None or not world_frame):raise UnsupportedPortable('Reload control requires the private combat world adapter')
     if combat is None and stat in ('ammo_charge_pct','ammo_charge_flat','fullburst_duration','burst_cooldown','burst_cooldown_reduce','burst_charge_pct','attack_speed_pct','mg_warmup_speed_pct','reload_speed_pct','reload_ratio_pct','accuracy_pct','max_ammo_pct','max_ammo_flat','charge_speed_pct','charge_speed_caster_based_pct','charge_time_flat','charge_time_fixed','charge_speed_buff_immune','charge_speed_debuff_immune','charge_speed_overflow_conversion_pct'):
         raise UnsupportedPortable('Weapon/burst modifier requires combat mechanics')
-    if combat is None and set(eff.get('trigger',{}).get('condition',[])) & {'during_charge','burst_casted','burst_not_casted','has_burst1_ally','no_burst1_ally'}:
+    if combat is None and set(eff.get('trigger',{}).get('condition',[])) & {'during_charge','during_full_charge','burst_casted','burst_not_casted','has_burst1_ally','no_burst1_ally'}:
         raise UnsupportedPortable('Predicate requires combat-owned charge/burst state')
     if 'event_scope' in eff and eff['event_scope'] not in ('squad','recipients'):
         raise UnsupportedPortable('Invalid named event audience',reason='event_scope')
     if kind=='buff':
-        if stat not in BUFFS and stat not in (None,'','stack_change_immune','stun_immune','persona_state','trigger_count_reduce','effect_interval','skill_cooldown') and not immunity(eff) and not protection and stack is None and resource_op not in (4,5) and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat)):
+        if stat not in BUFFS and stat not in (None,'','stack_change_immune','stun_immune','persona_state','engaged_state','normal_atk_width_pct','trigger_count_reduce','effect_interval','skill_cooldown') and not immunity(eff) and not protection and stack is None and resource_op not in (4,5) and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat)):
             raise UnsupportedPortable('Unported buff stat', reason='effect')
         if not (recipient_admitted(target) or enemy_buff_plan(eff) is not None or stack is not None):
             raise UnsupportedPortable('Unported buff recipient selector', reason='recipient')
@@ -484,7 +486,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
                 'EVENT':int(row[145]),'THRESHOLD':int(row[146]),'COUNT_MODE':int(row[147]),
                 'EVENT_NAME':int(row[148]),'TARGET_NAME':int(row[36]),
                 'FORCE_MASK':int(row[legacy.B3_MASK]),'RECIPIENTS':31 if row[4]==1 else 1<<int(row[0]),
-                'TARGET':cleansing[0] if cleansing is not None else stack[1] if stack is not None else extension[0] if extension is not None else removal[0] if removal is not None else int(bool(effects[index][0].get('name'))) if row[1] in (2,13) else int(effects[index][0].get('target')=='boss'), 'STAGE_ARG':int(row[151]),
+                'TARGET':cleansing[0] if cleansing is not None else stack[1] if stack is not None else extension[0] if extension is not None else removal[0] if removal is not None else int(bool(effects[index][0].get('name'))) if row[1] in (2,13,29) else int(effects[index][0].get('target')=='boss'), 'STAGE_ARG':int(row[151]),
                 'STAGE_OVERRIDE':int(row[252]),'REENTRY':int(row[253]),'TOGGLE':int(bool(int(row[213]) & 128)), 'DAMAGE_FLAGS':int(row[39])}
         from portable_parent_fixed_specs import enabled as parent_fixed_enabled,FLAG as PARENT_FIXED_FLAG
         if parent_fixed_enabled(eff):

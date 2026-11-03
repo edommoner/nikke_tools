@@ -31,6 +31,6 @@ bool advanceModeEntry(inout Runtime s,inout Weapon w,uint who,uint64_t when)
     w.capacity=w.sentinelMode!=0 ? 999999 : ammoInstantCapacity(s,who,when);
     s.modeMagazine[who]=w.capacity;s.ammo[who]=w.capacity;
     if(w.mode!=1) s.nextShot[who]=when;
-    s.charging[who]=0;s.chargeStartedAt[who]=when;
+    s.charging[who]=0; clearFullCharge(s,who);s.chargeStartedAt[who]=when;
     return false;
 }

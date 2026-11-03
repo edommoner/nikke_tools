@@ -27,6 +27,11 @@ def install():
     import portable_backend
     def forbidden(*args,**kwargs):raise RuntimeError('Device execution forbidden in historical CPU reference')
     portable_backend.execute=forbidden;portable_backend.execute_batches=forbidden
+    # Old seals also bind the pre-port compiler's exact revive notification wire.
+    # This module replacement is confined to the explicitly pinned child process.
+    name='portable_runtime';path=ROOT/'app/portable_runtime.py'
+    historical=types.ModuleType(name);historical.__file__=str(path);sys.modules[name]=historical
+    exec(compile(source_preimage(ROOT,'app/portable_runtime.py'),str(path),'exec'),historical.__dict__)
     return module
 
 def historical_reference(method):
@@ -49,8 +54,43 @@ def source_preimage(root,name):
     if hashlib.sha256(raw).hexdigest()!='8a9a84b4de04ebb8d425054e9ba5131b9bb774045447f8bd15ea51122c9ef961':raise ValueError('Upstream source history changed')
     row=json.loads(raw)['files'].get(name)
     current=(root/name).read_bytes()
-    if row is None:return current
+    if row is None:
+        from portable_weighted_incoming_source_contract import reference_engine_preimages,reference_engine_source_bytes
+        if name in reference_engine_preimages(root):return reference_engine_source_bytes(root,name)
+        return current
     if hashlib.sha256(current).hexdigest()!=row['current_sha256']:raise ValueError('Unreviewed current upstream bytes: '+name)
     old=(root/row['old_path']).read_bytes()
     if hashlib.sha256(old).hexdigest()!=row['old_sha256']:raise ValueError('Historical upstream bytes changed: '+name)
     return old
+
+
+def install_compiler():
+    """Bind only old input packing for a CPU-only historical wire assertion."""
+    if 'engine_worker' in sys.modules:raise RuntimeError('Historical compiler must be selected before product imports')
+    sys.path[:0]=[str(ROOT/'app'),str(ROOT/'research'),str(ROOT/'tests')]
+    import engine_worker,portable_backend
+    def forbidden(*args,**kwargs):raise RuntimeError('Device execution forbidden in historical compiler reference')
+    portable_backend.execute=forbidden;portable_backend.execute_batches=forbidden
+    path=ROOT/'app/portable_runtime.py';source=source_preimage(ROOT,'app/portable_runtime.py')
+    name='portable_runtime';module=types.ModuleType(name);module.__file__=str(path)
+    module.__historical_source_sha256__=hashlib.sha256(source).hexdigest();sys.modules[name]=module
+    exec(compile(source,str(path),'exec'),module.__dict__)
+    os.environ['NIKKE_TEST_HISTORICAL_COMPILER']=module.__historical_source_sha256__
+    return module
+
+
+def historical_compiler(method):
+    """Old seals retain exact compiler/input bytes, never current GPU admission."""
+    @functools.wraps(method)
+    def run(self,*args,**kwargs):
+        marker=os.environ.get('NIKKE_TEST_HISTORICAL_COMPILER')
+        if marker:
+            import portable_runtime
+            expected=hashlib.sha256(source_preimage(ROOT,'app/portable_runtime.py')).hexdigest()
+            if marker!=expected or getattr(portable_runtime,'__historical_source_sha256__',None)!=expected:
+                raise AssertionError('Historical compiler marker without exact historical compiler')
+            return method(self,*args,**kwargs)
+        code="import sys;sys.path.insert(0,'tests');import historical_engine_reference as h;h.install_compiler();import unittest;r=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromName(sys.argv[1]));sys.exit(not r.wasSuccessful())"
+        result=subprocess.run([sys.executable,'-W','ignore::ResourceWarning','-c',code,self.id()],cwd=ROOT,text=True,capture_output=True)
+        self.assertEqual(result.returncode,0,'Exact historical compiler comparison failed:\n'+result.stdout+result.stderr)
+    return run

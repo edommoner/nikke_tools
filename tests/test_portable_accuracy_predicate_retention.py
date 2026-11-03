@@ -3,7 +3,10 @@ import hashlib,importlib.util,json,sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 
+from historical_engine_reference import historical_compiler
+
 class AccuracyPredicateRetentionTests(unittest.TestCase):
+    @historical_compiler
     def test_all_original_inputs_and_rejection_domains_retained(self):
         s=importlib.util.spec_from_file_location('accuracy_retention_test',ROOT/'research/verify-world-accuracy-predicate-retention-short.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
         import nikke_gpu as cli

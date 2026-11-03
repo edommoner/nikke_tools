@@ -159,7 +159,7 @@ void selectWeapon(inout Runtime s,uint who,uint64_t when,out Weapon w)
             w.capacity = w.sentinelMode != 0 ? 999999 : ammoInstantCapacity(s,who,when); s.modeMagazine[who] = w.capacity;
             s.ammo[who] = w.capacity;
         }
-        WORLD_MODE_CHARGE_CANCEL(s,who) s.nextShot[who] = when; s.charging[who] = 0; s.reloadUntil[who] = F64_SIGN | ONE; s.postReloadUntil[who] = F64_SIGN | ONE;
+        WORLD_MODE_CHARGE_CANCEL(s,who) s.nextShot[who] = when; s.charging[who] = 0; clearFullCharge(s,who); s.reloadUntil[who] = F64_SIGN | ONE; s.postReloadUntil[who] = F64_SIGN | ONE;
     }
     if (index >= 0) w.capacity = s.modeMagazine[who];
     else w.capacity = fullCapacity(s,who,s.capacity[who],true,when);

@@ -16,7 +16,7 @@ def validate(effect,*,combat,world_frame):
         if type(effect['persist_on_revive']) is not bool or effect.get('type')!='buff' or combat is None or not world_frame:
             raise ValueError('Revival persistence requires a private combat world buff and boolean flag')
     if effect.get('stat')!='revive':
-        def down_target(target):return any(down_target(t) for t in target) if isinstance(target,list) else isinstance(target,str) and target.startswith('allies_down_')
+        def down_target(target):return any(down_target(t) for t in target) if isinstance(target,list) else isinstance(target,str) and target!='allies_down_all' and target.startswith('allies_down_')
         if down_target(effect.get('target','self')):raise ValueError('Down-only recipients currently require a revive instant')
         return
     if effect.get('type')!='instant' or combat is None or not world_frame:raise ValueError('Revive requires a private combat world instant')

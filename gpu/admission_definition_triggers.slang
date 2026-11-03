@@ -12,6 +12,17 @@
         for(uint slot=0;slot<d.conditionCount;slot++)
         {
             uint at=input+P_CONDITION_BASE+j*P_CONDITION_WORDS+slot*4;
+            if(commands[at]==C_FULL_CHARGED || commands[at]==C_ALLY_DOWN_ABOVE || commands[at]==C_ALLY_DOWN_BELOW)
+            {
+#ifndef PORTABLE_WORLD_PROJECTILE
+                s.error=64;break;
+#else
+                uint64_t arg=loadNumber(at+2);uint status;uint64_t integer=f64ToI64(arg,1,status);
+                if(s.combat==0 || d.owner>=5 || !worldFrameEnabled(s) || commands[at+1]!=0 || !f64Finite(arg) ||
+                   (commands[at]==C_FULL_CHARGED ? !f64Zero(arg) : status!=0 || !f64Equal(arg,f64FromI64(integer)) || f64Less(f64FromI64(2147483647),f64Abs(arg)))) { s.error=64;break; }
+                if(commands[at]==C_FULL_CHARGED) s.fullChargeOwners|=1U<<d.owner;
+#endif
+            }
             if(commands[at]==C_NOT_CORE)
             {
 #ifdef PORTABLE_NOT_CORE

@@ -52,12 +52,12 @@
             s.quantityMask|=2048;
 #endif
         }
-        if((d.quantityFlags&1)!=0)
+        if((d.quantityFlags&2049U)!=0)
         {
 #ifndef PORTABLE_WORLD_PROJECTILE
             s.error=64;break;
 #else
-            if(d.kind!=4 || s.combat==0 || d.stat!=0 || (d.quantityFlags&~32U)!=1 || d.enemyBuff!=0 ||
+            if(d.kind!=4 || s.combat==0 || d.stat!=0 || ((d.quantityFlags&~32U)!=1 && d.quantityFlags!=2048U) || d.enemyBuff!=0 ||
                d.alliedFlags!=0 || d.healthScaling!=0 || d.damageFlags!=0 || !f64Finite(d.value)) { s.error=64;break; }
             s.quantityMask|=16384;
 #endif

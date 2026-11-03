@@ -32,7 +32,7 @@ void beginReload(inout Runtime s, Weapon w, uint who, uint64_t when)
 #ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
     if(!manualBaseReload(s,who))
 #endif
-    {s.charging[who] = 0; WORLD_CONTROL_RELOAD(s,who)}
+    {s.charging[who] = 0; clearFullCharge(s,who); WORLD_CONTROL_RELOAD(s,who)}
     WORLD_RELOAD_RECORD(s,who,when,1)
 }
 bool completeReload(inout Runtime s, Weapon w, uint who, uint64_t when, uint output)

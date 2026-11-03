@@ -63,6 +63,13 @@ bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
         if(kind==C_CHARGING)
         { if(s.combat==0 || commands[at+1]!=0 || !f64Zero(arg)) return false;continue; }
 #endif
+        if(kind==C_FULL_CHARGED || kind==C_ALLY_DOWN_ABOVE || kind==C_ALLY_DOWN_BELOW)
+        {
+            if(s.combat==0 || commands[at+1]!=0 || !f64Finite(arg)) return false;
+            if(kind==C_FULL_CHARGED) { if(!f64Zero(arg)) return false; }
+            else { uint status;uint64_t value=f64ToI64(arg,1,status);if(status!=0 || !f64Equal(arg,f64FromI64(value)) || f64Less(f64FromI64(2147483647),f64Abs(arg))) return false; }
+            continue;
+        }
         if(kind==C_FOCUSING || kind==C_NO_BROKEN_COVER_ALLY)
         { if(!validStatePredicate(s.inputBase,row,at,s.combat)) return false;continue; }
         if(kind==C_SELF_UNDYING)

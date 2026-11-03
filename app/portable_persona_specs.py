@@ -4,8 +4,8 @@ SELECTOR=18
 
 
 def validate(effect,*,combat,world_frame):
-    marker=effect.get('stat')=='persona_state'
-    selector=effect.get('target')=='allies_burst3_persona_excl_self'
+    marker=effect.get('stat') in ('persona_state','engaged_state')
+    selector=effect.get('target') in ('allies_burst3_persona_excl_self','self_and_engaged_allies')
     if not marker and not selector:return
     if combat is None or not world_frame:raise ValueError('Persona requires private combat-owned state')
     if marker:

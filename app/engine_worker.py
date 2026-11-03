@@ -365,7 +365,8 @@ def evaluate(body):
             from engine_gpu_admission import require_supported
             manager = BuffManager(run.squad)
             require_supported((effect for effect, owner in manager._effects),
-                              (char.get('cube', {}).get('name') for char in run.squad))
+                              (char.get('cube', {}).get('name') for char in run.squad),
+                              legacy=bool(body.get('_compile_gpu_detail') or body.get('_compile_gpu') or body.get('compute_backend') == 'cuda_detail'))
         if body.get('_portable_static_inputs'):
             from portable_roster_input import prepare_static_inputs
             static=prepare_static_inputs(run, changed)

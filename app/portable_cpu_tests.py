@@ -237,3 +237,13 @@ HISTORICAL_ENGINE_TESTS = ('test_coordinate_typed.py', 'test_destructible_aoe_bu
 for _test in HISTORICAL_ENGINE_TESTS:
     AUDIT_FILES[_test]=tuple(AUDIT_FILES.get(_test,()))+('tests/historical_engine_reference.py','tests/fixtures/reference-engine-upstream-history-v1.json')
 AUDIT_FILES['test_detail_native.py']=('tests/fixtures/reference-engine-burst-source-history-v1.json',)
+
+# Exact pre-port packing is isolated to old-wire evidence tests.
+HISTORICAL_COMPILER_TESTS = ('test_portable_accuracy_predicate_retention.py', 'test_portable_ally_random_retention.py', 'test_portable_ammo_equivalent_retention.py', 'test_portable_lost_hp_attack_retention.py', 'test_portable_manual_swap_retention.py', 'test_portable_pellet_shot_retention.py', 'test_portable_skill_hp_basis_retention.py', 'test_portable_state_focus_retention.py', 'test_portable_undying_predicate_retention.py', 'test_original_burst_revival.py', 'test_product_detail_packet.py')
+for _test in HISTORICAL_COMPILER_TESTS:
+    AUDIT_FILES[_test]=tuple(AUDIT_FILES.get(_test,()))+('tests/historical_engine_reference.py','tests/fixtures/reference-engine-burst-source-history-v1.json')
+AUDIT_FILES['test_gpu_new_characters_source_history.py']=('tests/historical_engine_reference.py','tests/fixtures/reference-engine-burst-source-history-v1.json')
+AUDIT_FILES['test_gpu_new_characters_product_route.py']=('tests/fixtures/gpu-new-characters-product-v1.json',)
+
+AUDIT_FILES['test_gpu_new_characters_v3.py']=('tests/fixtures/gpu-mihara-stack-product-v3.json',)
+AUDIT_FILES['test_original_enemy_stack.py']=tuple(AUDIT_FILES.get('test_original_enemy_stack.py',()))+('tests/fixtures/reference-engine-burst-source-history-v1.json',)

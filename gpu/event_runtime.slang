@@ -152,7 +152,8 @@ struct Runtime
     uint64_t targetHP[8], targetMaxHP[8], targetDamage[8], targetDefense[8];
     uint64_t scoredDamage[5], addScoredDamage[5], addOverkill[5], targetScoredDamage[8], targetDealt[8];
     uint timerTarget[P_DEFINITIONS], periodicOrder[P_DEFINITIONS], periodicGeneration[P_DEFINITIONS*8], periodicOwner[P_DEFINITIONS];
-    uint weaponEnabled[5], weaponMode[5], capacity[5], shots[5], stage[5], charging[5];
+    uint weaponEnabled[5], weaponMode[5], capacity[5], shots[5], stage[5], charging[5], fullCharged[5];
+    uint fullChargeOwners;
     int ammo[5]; uint reloadCancelOnFull[5], modeCapacityEpoch[5];
     uint frameAmmoActive[5], frameAmmoBase[5], infiniteRowCount, infiniteRows[P_CARRIERS];
     uint enemyBuffCount, enemyBuffRows[P_CARRIERS], enemyCaptureGeneration[P_CARRIERS], enemyEpoch, enemyBirth[8];
@@ -922,6 +923,14 @@ uint64_t targetStateStack(inout Runtime s,int name,uint64_t when,out bool presen
     return count;
 }
 [noinline]
+void clearFullCharge(inout Runtime s,uint who)
+{
+    // Only newly admitted full-charge consumers set this latch. Preserve the
+    // historical numeric-cache sequence for programs without the predicate.
+    if(s.fullCharged[who]!=0) invalidateNativeNumeric(s);
+    s.fullCharged[who]=0;
+}
+[noinline]
 bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uint recipient = 0xffffffff, uint conditionSlot = 0xffffffff)
 {
     uint definition = s.carrierDefinition[row], owner = WORLD_TEAM_OWNER(s,definition,runtime,definition_owner(s.inputBase,definition));
@@ -943,7 +952,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
             continue;
         }
         if(kind==C_NOT_CORE) { if(!runtime || (definition_flags(s.inputBase,definition)&1)!=0) { if(!notCorePredicate(s,definition,owner)) return false; }continue; }
-        if (runtime && kind != C_FOCUSING && kind != C_GAUGE_ABOVE && kind != C_GAUGE_BELOW && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW && kind != C_COVER_ALIVE && kind != C_COVER_BROKEN && kind != C_SHIELD && kind != C_TARGET_CODE) continue;
+        if (runtime && kind != C_FULL_CHARGED && kind != C_FOCUSING && kind != C_GAUGE_ABOVE && kind != C_GAUGE_BELOW && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW && kind != C_COVER_ALIVE && kind != C_COVER_BROKEN && kind != C_SHIELD && kind != C_TARGET_CODE) continue;
         if (kind >= C_GAUGE_ABOVE && kind <= C_GAUGE_MOD && !resourceCondition(s,owner,kind,uint(name),arg,int(commands[s.inputBase+P_RESOURCE_CONDITION_BASE+definition*3+i]))) return false;
         if(kind==C_FOCUSING && runtime && (predicateFocusCamera(s,definition)&(1U<<definition_owner(s.inputBase,definition)))==0) return false;
         if(kind==C_NO_BROKEN_COVER_ALLY && !runtime && !allAliveCovers(s)) return false;
@@ -956,6 +965,9 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
             uint code=commands[s.inputBase+P_WORLD_META_BASE];
             if(code!=0 && code!=uint(name)) return false;
         }
+        if(kind==C_FULL_CHARGED && s.fullCharged[owner]==0) return false;
+        if(kind==C_ALLY_DOWN_ABOVE && f64Less(f64FromI64(countbits(s.downMask&31U)),arg) ||
+           kind==C_ALLY_DOWN_BELOW && f64Less(arg,f64FromI64(countbits(s.downMask&31U)))) return false;
         if (kind == C_FULL && s.phase != 5 || kind == C_NOT_FULL && s.phase == 5) return false;
         if (kind == C_SELF_STATE || kind == C_NOT_SELF_STATE)
         {
@@ -1273,7 +1285,7 @@ void clearMode(inout Runtime s, uint who, uint64_t when)
     // restart cadence at its own sampling time, without refilling a second time.
     s.physicalModeIndex[who] = -2; s.pendingAutoReload[who] = 0;
     s.ammo[who] = fullCapacity(s,who,s.capacity[who],true,when); s.weaponInitialized[who] = 1; s.reloadUntil[who] = F64_SIGN | ONE;
-    s.charging[who] = 0; s.nextShot[who] = when; s.modeShots[who] = 0; s.postReloadUntil[who] = F64_SIGN | ONE;
+    s.charging[who] = 0; clearFullCharge(s,who); s.nextShot[who] = when; s.modeShots[who] = 0; s.postReloadUntil[who] = F64_SIGN | ONE;
     // Native end_weapon_change invalidates after end_session restores ammo,
     // before its named end callback and the next base-weapon frame.
     invalidateNativeNumeric(s);

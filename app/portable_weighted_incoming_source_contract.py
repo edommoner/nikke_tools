@@ -1,22 +1,39 @@
 """Exact historical source inverse, not generated-code normalization or a seal."""
-import hashlib,json,re
+import functools,hashlib,json,re
 from pathlib import Path
 LEDGER_SHA256='93afb12ae4b67224a4cfe099ccf64bead769c52229d85ddfe0b45bfbc282f2f6'
 PRODUCT_LEDGER_SHA256='9187d38559f8e40c2735afb95892f8cba4174b8a1ccf01b0d9d4bb0873894d38'
 BOSS_LEDGER_SHA256='8cec2347d60a6ed892cdb5d0fcb997c0f242145ccd3ce00cc9fb2a93345d2f4f'
 
 
+REFERENCE_HISTORY_SHA256='2da8678a28496e018254b4cbbaf5b3f05ec30d5803d57d296c060f60ccf657dd'
+
+@functools.lru_cache(maxsize=2)
+def _reference_history(raw):
+    if hashlib.sha256(raw).hexdigest()!=REFERENCE_HISTORY_SHA256:raise ValueError('Reference engine source history changed')
+    data=json.loads(raw)
+    if (data.get('schema')!='reference-engine-burst-source-history-v1' or data.get('upstream_revision')!='67835ca3033a95482749ea2db35a8ee2a0856a92' or data.get('reviewed_port',{}).get('base_commit')!='1e2b8c38834ac4b7b703b4deda47959bd8b6ede0' or data.get('reviewed_port',{}).get('prior_ledger_sha256')!='b6c173e18adff1f881930addea4a4d351c20971e5c99f8c97365c0fabcbc990b' or data.get('normalizer_changed') is not False or data.get('current_product_equivalence_claim') is not False):
+        raise ValueError('Reference engine source history scope changed')
+    return data
+
 def reference_engine_preimages(root):
     """Exact old sources for historical audits; never current GPU parity."""
     raw=(Path(root)/'tests/fixtures/reference-engine-burst-source-history-v1.json').read_bytes()
-    if hashlib.sha256(raw).hexdigest()!='b6c173e18adff1f881930addea4a4d351c20971e5c99f8c97365c0fabcbc990b':raise ValueError('Reference engine source history changed')
+    data=_reference_history(raw)
     out={}
-    for name,row in json.loads(raw)['files'].items():
+    for name,row in data['files'].items():
         path=Path(root)/name
         if not path.is_file():continue
         text=path.read_bytes().decode('utf-8')
-        if text!=row['current'] or hashlib.sha256(text.encode()).hexdigest()!=row['current_sha256']:continue
         if hashlib.sha256(row['baseline'].encode()).hexdigest()!=row['baseline_sha256']:raise ValueError('Reference engine baseline changed')
+        # A historical inverse may already have materialized one of these exact,
+        # hash-bound preimages. Preserve idempotence without accepting new edits.
+        accepted={row['current'],row['baseline'],row['baseline'].replace('\r\n','\n')}
+        if 'port_baseline' in row:
+            if hashlib.sha256(row['port_baseline'].encode()).hexdigest()!=row['port_baseline_sha256']:raise ValueError('Reviewed port baseline changed')
+            accepted.update((row['port_baseline'],row['port_baseline'].replace('\r\n','\n')))
+        if text not in accepted:continue
+        if text==row['current'] and hashlib.sha256(text.encode()).hexdigest()!=row['current_sha256']:raise ValueError('Reviewed current source changed')
         out[name]=row['baseline'].replace('\r\n','\n')
     return out
 
@@ -29,7 +46,7 @@ def boss_source_preimages(root):
     data=json.loads(raw)
     if data.get('schema')!='product-boss-debuff-source-history-v1' or data.get('baseline_commit')!='88cda975122d394f6409c7cec68b21efbdde12ab' or data.get('normalizer_changed') is not False or data.get('current_product_equivalence_claim') is not False:
         raise ValueError('Boss product source history scope changed')
-    preimages=reference_engine_preimages(root);projected={};older=None
+    preimages=reference_engine_preimages(root);projected=dict(preimages);older=None
     for name,row in data['files'].items():
         text=preimages.get(name,(root/name).read_bytes().decode('utf-8'));digest=hashlib.sha256(text.encode()).hexdigest()
         if digest==row['before_sha256']:projected[name]=text;continue
@@ -160,11 +177,11 @@ def project_sources(root):
         projected[name]=text
     return projected
 def projected_hashes(root,source,sources):
-    root=Path(root).resolve();found={}
+    root=Path(root).resolve();found={};preimages=reference_engine_preimages(root)
     def visit(path):
         name=path.relative_to(root).as_posix()
         if name in found:return
-        raw=sources[name].encode() if name in sources else reference_engine_preimages(root).get(name,path.read_text()).encode();found[name]=hashlib.sha256(raw).hexdigest()
+        raw=sources[name].encode() if name in sources else preimages.get(name,path.read_text()).encode();found[name]=hashlib.sha256(raw).hexdigest()
         for inc in re.findall(rb'^\s*#include\s+"([^"]+)"',raw,re.M):visit((path.parent/inc.decode()).resolve())
     visit(root/source);return found
 def historical_hashes(root,source):return projected_hashes(root,source,project_sources(root))
