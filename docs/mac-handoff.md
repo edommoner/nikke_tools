@@ -5777,3 +5777,14 @@ Windows新source owner7823d1c4…はPTX14,804,305B→O1 object8,120,624B→linke
 - `enemy_movement_disable`／`force_move`：Claudeの7ゲートに対し4往復でaccept（record-only修正のみ）。upstream・ネイティブのreaderは0（Pythonヒット0、docs/data 6ファイルのみ）なので、宣言モデルなしでは**i（不活性）**。宣言モデル下では移動後の位置が既存のgeometry／named-range consumerへ流れ、これは**iii（宣言モデルの意味論、実機未確認）**。iiは空。cleanseは汎用経路のみで、敵を対象とする元cleanseは0件（全7行が味方側）。記録 movement-static-v1/record-v3.json の35 anchor・テスト・否定候補のハッシュはすべてローカルで再照合済み。
 - 新規の戦闘・GPU・Windows・テスト実行・製品変更はいずれも0。
 - 次unitは**storage sink**（Claudeのゲート：movement-L3-claude-v1/response.txt）。carry-forward：移動状態領域の全読み書きをbufferレベルで追跡（symbol grepだけでは直接読みを除外できないため）。
+
+
+## 2026-11-03 新体制の初回：storage sink（回復貯蔵）L3をCodex実装・Claudeチェックで合格
+
+体制は「構想・チェック＝Claude Code、実装＝Codex CLI（作業ごとに新規セッション）」。Codexは `codex exec` で7分45秒、記録2ファイルだけを書き、作業ツリーは不変。
+
+- 分類：upstreamは**i**（reader 0件）。`heal_overcharge_store`／`heal_overcharge_store_atk_pct`／`accumulate_max_scale_pct`／`heal_overcharge_discharge`／`heal_split` はすべて**iii**（宣言CPU拡張の意味論、実機未確認）。iiは空。現行CPU/GPU一致・CUDA・同時刻の順序・容量上限などはL4。
+- Claudeの独立チェック：725 anchorを全件再現（byte行基準）、counter全0、upstream不在、adapterの書込→読出を確認。
+- **移動記録への訂正**：`gpu/moving_typed_attachment_runtime.slang` の `movingTypedCenter` が移動状態を直接読む（typed geometry／weapon の距離計算）。symbol検索だけでは漏れていた。分類はiiiのまま。
+- 作業ツリーには、別のCodexセッション（ストレージ整理の依頼）による未コミット5ファイルが残っている。触れず、コミットもしていない。
+- 次：117キー台帳の残り（`buff_stack_add`、`buff_max_stack_add`）を閉じ、その後は実行レベル（L4）の作業へ移る。
