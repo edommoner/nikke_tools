@@ -7,6 +7,8 @@ s=importlib.util.spec_from_file_location('weapon_roster_tests',ROOT/'research/ve
 from portable_destructible_roster_input import compile_weapon_shield_roster
 from portable_specs import LIMITS as L,FIELDS as F
 
+from historical_engine_reference import historical_reference
+
 class WeaponRosterTests(unittest.TestCase):
  def prepared(self):
   c=a.fixtures()[0];return c,a.roster.engine_worker.evaluate(dict(c['body'],_portable_static_inputs=True))
@@ -75,6 +77,7 @@ class WeaponRosterSavedTests(unittest.TestCase):
    with self.subTest(name=name):
     self.assertEqual(name,expected['name']);self.assertEqual(hashlib.sha256(array.array('I',w).tobytes()).hexdigest(),expected['input_sha256'])
     self.assertEqual(a.cross.digest(dict(status=64) if domain is None else a.prior.native_reference(domain)),expected['native_sha256'])
+ @historical_reference
  def test_actual_original_roster_readback_rejects_hp_ammo_and_typed_corruption(self):
   from portable_backend import source_hashes
   f=json.loads((ROOT/'tests/fixtures/portable-destructible-weapon-rosters-raw.json').read_text());rows,_=a.prepare()

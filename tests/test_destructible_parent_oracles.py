@@ -5,12 +5,15 @@ from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 s=importlib.util.spec_from_file_location('typed_parent_tests',ROOT/'research/verify-destructible-body-heal-share-retention-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
 from portable_parent_oracles import ParentOracles,provider
+from historical_engine_reference import historical_reference
+
 class DestructibleParentTests(unittest.TestCase):
     def test_all52_domains_have_the_same_direct_provider(self):
         rows,_=a.prepare();found=[provider(a,d) for _,_,d in rows if d is not None]
         self.assertEqual(len(found),52)
         for value in found:
             self.assertIs(value[0],a.__dict__);self.assertEqual(value[1],'native_reference');self.assertIs(value[2],a.native_reference)
+    @historical_reference
     def test_real_old_and_shared_blocks_reuse_once_and_still_detect_corruption(self):
         from portable_specs import LIMITS as L
         rows,_=a.prepare();golden=json.loads((ROOT/'research/portable-destructible-body-heal-share-retention-short-expected.json').read_text())

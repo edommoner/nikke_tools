@@ -7,6 +7,8 @@ spec=importlib.util.spec_from_file_location('aoe_roster_tests',ROOT/'research/ve
 adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
 
 
+from historical_engine_reference import historical_reference
+
 class AoEBurstRosterTests(unittest.TestCase):
     def test_all_original_definitions_survive_static_input_without_simulation(self):
         from calculator import timeline
@@ -46,6 +48,7 @@ class AoEBurstRosterTests(unittest.TestCase):
                 with self.assertRaises(AssertionError):adapter.validate_rejection(block,'reject/destructible-aoe-burst/test')
         adapter.validate_rejection([64],'reject/destructible-aoe-burst/test')
 
+    @historical_reference
     def test_saved_trina_hp_and_hit_outputs_detect_factor_flag_and_receipt_corruption(self):
         from portable_backend import source_hashes
         fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-aoe-burst-rosters-raw.json').read_text());rows,_=adapter.prepare()

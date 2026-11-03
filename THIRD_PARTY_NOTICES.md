@@ -2,7 +2,7 @@
 
 Calculation and raw growth conversion use Jgaram/nikke-calc:
 https://github.com/Jgaram/nikke-calc
-Pinned revision: 23164e4a88fe46af609cc99b0de38a98313a5f4d
+Pinned revision: 67835ca3033a95482749ea2db35a8ee2a0856a92
 The upstream source is downloaded separately and remains unmodified.
 
 MIT License

@@ -7,6 +7,8 @@ s=importlib.util.spec_from_file_location('skill_gpu_tests',ROOT/'research/verify
 from portable_specs import LIMITS as L,FIELDS as F
 from portable_destructible_roster_input import compile_weapon_shield_roster
 
+from historical_engine_reference import historical_reference
+
 class SkillShieldGPUTests(unittest.TestCase):
  def test_all157_inputs_pack_without_native_events(self):
   from calculator import timeline
@@ -47,6 +49,7 @@ class SkillShieldGPUTests(unittest.TestCase):
    with self.subTest(kind=kind),self.assertRaisesRegex(ValueError,'single boss'):compile_weapon_shield_roster(bad,c['typed_bindings'],skill_shields=True)
 
 class SavedSkillReadbackTests(unittest.TestCase):
+ @historical_reference
  def test_actual_original_skill_readback_rejects_metadata_and_landing_corruption(self):
   from portable_backend import source_hashes
   f=json.loads((ROOT/'tests/fixtures/portable-destructible-skill-rosters-raw.json').read_text());rows,_=a.prepare()

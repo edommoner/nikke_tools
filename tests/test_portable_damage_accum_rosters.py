@@ -5,9 +5,12 @@ ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('ap
 from portable_damage_accum_roster_cases import fixtures
 from portable_damage_accum_roster_contracts import verify
 from world_damage_accum_roster_native import observe,bare
+from historical_engine_reference import historical_reference
+
 class DamageAccumRosterTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):cls.cases=fixtures();cls.answers=[observe(c)[0] for c in cls.cases]
+    @historical_reference
     def test_original_definitions_and_positive_consumer_paths(self):
         self.assertEqual(len(self.cases),4)
         for c,n in zip(self.cases,self.answers):

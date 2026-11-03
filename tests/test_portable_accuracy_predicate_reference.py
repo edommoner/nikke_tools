@@ -83,7 +83,8 @@ class AccuracyPredicateReferenceTests(unittest.TestCase):
         self.assertIn('구현 규격 미정',source);self.assertEqual(hashlib.sha256(source.encode()).hexdigest(),evidence['row_sha256'])
         original=ROOT/evidence['source_path']
         if original.is_file():
-            self.assertEqual(hashlib.sha256(original.read_bytes()).hexdigest(),evidence['document_sha256'])
+            from historical_engine_reference import source_preimage
+            self.assertEqual(hashlib.sha256(source_preimage(ROOT,evidence['source_path'])).hexdigest(),evidence['document_sha256'])
             self.assertIn(source,original.read_text().splitlines())
         from portable_runtime import validate_effect,UnsupportedPortable
         for target in ('all_allies','self_cover'):

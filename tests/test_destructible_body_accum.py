@@ -4,6 +4,8 @@ from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 s=importlib.util.spec_from_file_location('accum_shield_tests',ROOT/'research/verify-destructible-body-accum-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
+from historical_engine_reference import historical_reference
+
 class BodyAccumTests(unittest.TestCase):
     def test_all_original_definitions_static_without_native_hit_input(self):
         from calculator import timeline
@@ -44,6 +46,7 @@ class BodyAccumTests(unittest.TestCase):
         f=json.loads((ROOT/'tests/fixtures/portable-destructible-accum-source-delta.json').read_text());project_sources(ROOT)
         for name,row in f['sources'].items():
             with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n'})
+    @historical_reference
     def test_saved_quantity_credit_and_pool_corruptions_are_detected(self):
         from portable_backend import source_hashes
         from portable_specs import LIMITS as L

@@ -151,9 +151,8 @@ void coordinateAimBurstEnd(inout Runtime s,uint64_t when)
     uint64_t at=when;
     for(uint stage=1;stage<=3;stage++)
     {
-        uint64_t best=FOREVER;bool found=false,explicitCandidate=false;
-        for(uint who=0;who<5;who++){uint candidate;effectiveStage(s,who,when,candidate);if((candidate==stage||candidate==4)&&(commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3]&1024U)!=0)explicitCandidate=true;}
-        for(uint who=0;who<5;who++){uint candidate;effectiveStage(s,who,when,candidate);if(candidate!=stage&&candidate!=4)continue;found=true;best=smaller(best,larger(at,s.ready[who]));if(stage<3&&!explicitCandidate)break;}
+        uint64_t best=FOREVER;bool found=false;
+        for(uint who=0;who<5;who++){uint candidate;effectiveStage(s,who,when,candidate);if(candidate!=stage&&candidate!=4)continue;found=true;best=smaller(best,larger(at,s.ready[who]));}
         if(!found){storeNumber(h+12,ONE|F64_SIGN);return;}at=stage==3?f64Add(best,FULL_DELAY):f64Add(best,STAGE_DELAY);
     }
     storeNumber(h+12,at);

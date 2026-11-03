@@ -635,7 +635,7 @@
     "battle_sha256": "27d683d28c5fd1e80c7671a100dd195d39dcfe88d0be9d059b088d638fb43ebc",
     "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
   },
-  "not-core-real/\uae38\ub85c\ud2f4 : \uc708\ud130 \uc2ac\ub808\uc774\uc5b4/3s": {
+  "not-core-real/길로틴 : 윈터 슬레이어/3s": {
     "checks": 6,
     "passed_checks": 3,
     "context_present": 6,
@@ -653,10 +653,10 @@
     "instant_calls_sha256": "cbc361f3a2d70569058ccaffbd7c9ba51721fbce2e5b9705aa084b431d2c6763",
     "definitions": 79,
     "expected_mode": true,
-    "battle_sha256": "93388f80b29fd405d867932d74158952e59e6df750312df01d57773ade747f30",
+    "battle_sha256": "f98ff90a2a610f2e55da19a452af594bee7eeb0d60677c471805bf4952d66db7",
     "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
   },
-  "not-core-real/\uae38\ub85c\ud2f4 : \uc708\ud130 \uc2ac\ub808\uc774\uc5b4/30s": {
+  "not-core-real/길로틴 : 윈터 슬레이어/30s": {
     "checks": 58,
     "passed_checks": 34,
     "context_present": 58,
@@ -674,7 +674,7 @@
     "instant_calls_sha256": "660ea5a686615eec747cc8f9fecfff527bc52fe054be3b03630e53f78a946022",
     "definitions": 79,
     "expected_mode": true,
-    "battle_sha256": "79336fa21027d1094218b79836a5d84cfe6ad0094f2610c8a4ed378571af3a65",
+    "battle_sha256": "9c0e0abaefd135f94f0e4944c67453ad9defa892f3d08f771e6ff49589079794",
     "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
   }
 }

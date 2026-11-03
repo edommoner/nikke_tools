@@ -26,7 +26,7 @@ class OriginalSharedTests(unittest.TestCase):
         from portable_original_entry_inventory import run
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/'inventory.json';r=run(p,write=nikke_gpu.write,forbid_gpu=nikke_gpu.forbid_gpu,source='gpu/world_coordinate_original_shared_entry.slang',comparison_source='gpu/world_coordinate_original_cover_entry.slang');report=json.loads(p.read_text())
-        self.assertEqual((r['profile_count'],r['packed_profiles'],r['kind_rejected_profiles'],r['expanded_kind_profiles']),(266,247,0,8));self.assertEqual(r['forbidden_calls'],dict(cpu_battle=0,gpu=0));self.assertFalse(r['calculation_verified']);self.assertFalse(r['gpu_admission_verified']);self.assertEqual(r['full_character_verified'],0)
-        self.assertEqual({r['operator']['kind'] for r in report['expanded_kind_operator_priorities']},{18,20,21,31,34,35,37});self.assertEqual(len(report['packing_failures']),19)
+        self.assertEqual((r['profile_count'],r['packed_profiles'],r['kind_rejected_profiles'],r['expanded_kind_profiles']),(269,247,0,8));self.assertEqual(r['forbidden_calls'],dict(cpu_battle=0,gpu=0));self.assertFalse(r['calculation_verified']);self.assertFalse(r['gpu_admission_verified']);self.assertEqual(r['full_character_verified'],0)
+        self.assertEqual({r['operator']['kind'] for r in report['expanded_kind_operator_priorities']},{18,20,21,31,34,35,37});self.assertEqual(len(report['packing_failures']),22)
         expanded={(r['character'],r['favorite_stage']) for r in report['profiles'] if r.get('expanded_kind_effects')};classified={(p['character'],p['favorite_stage']) for c in report['expanded_kind_operator_priorities'] for p in c['profiles']};self.assertEqual(expanded,classified)
 if __name__=='__main__':unittest.main()

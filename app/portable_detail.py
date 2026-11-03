@@ -477,8 +477,8 @@ def _evaluation(body):
     unsupported=None
     try:
         record['request_sha256'] = hashlib.sha256(json.dumps(body,ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
-        policy = execution_environment(backend)
         prepared, run = prepare(body)
+        policy = execution_environment(backend)
         # These need product history/operation projections, not silent omission.
         from detail_world import read_parts
         parts=read_parts(body.get('enemy',{}).get('parts',[]))
@@ -525,6 +525,11 @@ def _evaluation(body):
             payload['compute']['artifact_provider']=artifact_receipt['identity']['provider']
             payload['compute']['artifact_key']=artifact_receipt['key']
     except Exception as error:
+        from engine_gpu_admission import UnsupportedEngineKeys
+        if isinstance(error, UnsupportedEngineKeys):
+            record.update(error=str(error),error_type=type(error).__name__,stage=stage)
+            save()
+            raise
         unsupported=dict(getattr(error,'effect_context',{}),reason=str(error))
         record.update(backend='cpu',error=str(error),error_type=type(error).__name__,stage=stage,
             traceback=traceback.format_exc(),unsupported=[unsupported]);save()

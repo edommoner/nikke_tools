@@ -2468,9 +2468,9 @@ __device__ int squad_frame(const double* c,const double* e,int ne,State* s,const
  if(s->phase>=1&&s->phase<=3&&t>=s->action-1e-9){
   int stage=s->phase,picked=-1;double earliest=1e30;int stop=0,mask=0;s->wait_mask=0;
   if(s->reenter_slot)for(int i=0;i<5;i++)code|=notify(c,e,ne,s,env,t,4,i,stage,0);
-  int first=-1,restricted=stage<3&&!s->reenter_slot;for(int i=0;i<5;i++)if(candidate_stage[i]==stage||candidate_stage[i]==4){if(first<0)first=i;if(c[i*CW+22]!=0||c[i*CW+160]>0)restricted=0;}
+  // All automatic stages scan squad order, including B1/B2.
   for(int rank=0;rank<3&&!stop;rank++)for(int i=0;i<5;i++){
-   const double* a=c+i*CW;if((candidate_stage[i]!=stage&&candidate_stage[i]!=4)||(restricted&&i!=first))continue;mask|=1<<i;
+   const double* a=c+i*CW;if((candidate_stage[i]!=stage&&candidate_stage[i]!=4))continue;mask|=1<<i;
    int pr=1;
    if(a[22]>0)pr=s->cycle%(int)a[22]==0?0:2;
    else if(a[22]<0){int cycle=s->cycle-1;pr=cycle>=0&&cycle<160&&((unsigned int)a[35+cycle/32]&(1u<<(cycle%32)))?0:2;}

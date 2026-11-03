@@ -5,6 +5,8 @@ from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 s=importlib.util.spec_from_file_location('lifesteal_shield_tests',ROOT/'research/verify-destructible-body-lifesteal-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
 
+from historical_engine_reference import historical_reference
+
 class BodyLifestealTests(unittest.TestCase):
     def test_all_definitions_pack_without_native_events(self):
         from calculator import timeline
@@ -42,6 +44,7 @@ class BodyLifestealTests(unittest.TestCase):
         with patch.object(destructible_damage_policy,'calculate',side_effect=RuntimeError('lifesteal observer failure')):
             with self.assertRaisesRegex(RuntimeError,'lifesteal observer failure'):a.observe(a.fixtures()[0])
         self.assertEqual(before,(sys.getprofile(),timeline.simulate,timeline.calc_damage,timeline.HitEvent,timeline.CharState._fire,buff_manager.BuffManager.register_damage_handler))
+    @historical_reference
     def test_saved_hp_healing_and_body_trace_corruptions_are_detected(self):
         from portable_backend import source_hashes
         from portable_specs import LIMITS as L

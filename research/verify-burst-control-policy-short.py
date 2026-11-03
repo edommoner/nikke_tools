@@ -35,7 +35,7 @@ def base(**kw):
 def fixtures():
     rows=[]
     def add(label,**kw):rows.append((label,base(**kw)))
-    add('automatic-reserves-first',ready=[8.,0.,0.,0.,0.])
+    add('automatic-ready-fallback',ready=[8.,0.,0.,0.,0.])
     add('explicit-stage-allows-fallback',ready=[8.,0.,0.,0.,0.],explicit=2)
     add('reentry-allows-fallback',ready=[8.,0.,0.,0.,0.],reentry=1)
     add('empty-pattern-demotes',patterns={'one':[]})
@@ -120,8 +120,8 @@ def native_reference(d):
     c._check_reenter=lambda *args:None
     bm=SimpleNamespace(is_stunned=lambda name:bool(d['unavailable']&(1<<NAMES.index(name))),is_down=lambda name:False)
     if c._burst_sequence is not None and c._burst_count<len(c._burst_sequence):order=c._burst_sequence[c._burst_count].get(str(d['stage']),[])
-    else:order=sorted(c._automatic_candidates(str(d['stage']),reenter_slot=bool(d['reentry'])),key=lambda name:c._pattern_rank(name,c._burst_count+1))
-    c._try_use_stage(str(d['stage']),d['when'],bm,{},reenter_slot=bool(d['reentry']))
+    else:order=sorted(c._automatic_candidates(str(d['stage'])),key=lambda name:c._pattern_rank(name,c._burst_count+1))
+    c._try_use_stage(str(d['stage']),d['when'],bm,{})
     result=dict(owner=NAMES.index(picked[0]) if picked else 5,wait_mask=sum(1<<NAMES.index(n) for n in c._cd_wait_candidates or []),action=bits(c._next_action_t),order=[NAMES.index(n)+1 for n in order])
     c._phase='idle';c._max_burst_count=None;c._gauge_mode='accumulate';c.config={}
     result['prediction']=bits(c._predict_next_fb_start(d['when']))

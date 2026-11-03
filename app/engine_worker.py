@@ -4,7 +4,16 @@ import copy, hashlib, json, math, sys, zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+REVISION = '67835ca3033a95482749ea2db35a8ee2a0856a92'
 ENGINE = ROOT / 'research/upstream/nikke-calc-master'
+from engine_revision import verify_runtime as verify_engine_runtime
+try:
+    verify_engine_runtime(ENGINE, REVISION)
+except (ValueError, OSError) as error:
+    if __name__ == '__main__':
+        print(json.dumps({'error': str(error)}, ensure_ascii=True))
+        sys.exit(1)
+    raise
 sys.path.insert(0, str(ENGINE))
 from runner import sim, spec
 from calculator import base_stat, timeline
@@ -15,7 +24,6 @@ engine_compat.install()
 MAPPINGS = json.loads((ROOT / 'data/import-mappings.json').read_text(encoding='utf-8-sig'))
 META = json.loads((ENGINE / 'data/parsed_nikke.json').read_text(encoding='utf-8'))
 RESOURCE_NAMES = importer._load_resource_name_map()
-REVISION = '23164e4a88fe46af609cc99b0de38a98313a5f4d'
 PARTS = ['머리', '몸통', '팔', '다리']
 REQUIRED = ['breakthrough', 'core_enhancement', 'affinity', 'skill_levels', 'equipment', 'equip_skills', 'collection_stage', 'cube']
 
@@ -46,7 +54,7 @@ def catalog():
                       'image': display.get(str(rid), {}).get('image'), 'burst': m.get('burst_stage', '?'), 'weapon': m.get('weapon_type', ''), 'element': m.get('element_code', '')})
     cube_display_path = ROOT / 'data/cube-display.json'
     cube_display = json.loads(cube_display_path.read_text(encoding='utf-8-sig')) if cube_display_path.exists() else {'cubes': []}
-    return {'characters': chars, 'cubes': list(spec.CUBES), 'cube_labels': {c['name']['ko']: c['name']['ja'] for c in cube_display['cubes']}, 'revision': REVISION,
+    return {'characters': chars, 'cubes': list(spec.CUBES), 'cube_labels': {c['name']['ko']: c['name'].get('ja', c['name']['ko']) for c in cube_display['cubes']}, 'revision': REVISION,
             'enemy_presets': enemy_presets(), 'overload': {k: v['values'] for k, v in spec._EQUIP_SKILL_TABLE.items() if not k.startswith('_')}}
 
 
@@ -256,6 +264,7 @@ def detail_demo():
 
 
 def evaluate(body):
+    verify_engine_runtime(ENGINE, REVISION)
     from product_reference_models import normalize as reference_models,execution as reference_execution,warning as reference_warning
     declared_models=reference_models(body.get('reference_models'))
     if declared_models and (body.get('_compile_gpu_detail') or body.get('_compile_gpu')):
@@ -352,6 +361,11 @@ def evaluate(body):
         for char in run.squad:
             if char['name'] in no_cube:
                 char['cube'] = {'name': '__none__', 'level': 1}
+        if body.get('compute_backend', 'cpu') != 'cpu' or body.get('_compile_gpu_detail') or body.get('_compile_gpu'):
+            from engine_gpu_admission import require_supported
+            manager = BuffManager(run.squad)
+            require_supported((effect for effect, owner in manager._effects),
+                              (char.get('cube', {}).get('name') for char in run.squad))
         if body.get('_portable_static_inputs'):
             from portable_roster_input import prepare_static_inputs
             static=prepare_static_inputs(run, changed)
@@ -439,6 +453,7 @@ def candidate_scores(body):
     return {'characters': chars, 'skipped': skipped, 'templates': templates}
 
 def dispatch(body):
+    verify_engine_runtime(ENGINE, REVISION)
     action = body.get('action')
     if action == 'gpu_probe':
         from gpu_selector import probe

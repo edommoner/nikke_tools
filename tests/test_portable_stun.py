@@ -48,8 +48,9 @@ class StunTests(unittest.TestCase):
         self.assertEqual(self.native[9][0]['shots'],self.native[0][0]['shots'])
         self.assertEqual(self.native[10][0]['shots'],[0,0,0,0,8])
 
-    def test_stunned_first_burst_candidate_is_reserved_and_recovers_after_expiry(self):
-        for i in (27,29):self.assertEqual(self.native[i][0]['manual_control']['burst_users'],[1,4,8])
+    def test_stunned_first_burst_candidate_falls_back_and_recovers_after_expiry(self):
+        self.assertEqual(self.native[27][0]['manual_control']['burst_users'],[2,4,8])
+        self.assertEqual(self.native[29][0]['manual_control']['burst_users'],[1,4,8])
         self.assertEqual(self.native[25][0]['shots'],self.native[0][0]['shots'])
 
     def test_pack_preserves_definitions_canonical_immunity_bit_and_schema(self):

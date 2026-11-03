@@ -224,3 +224,16 @@ def complete(rows,patterns):
 AUDIT_FILES['test_enemy_movement_cuda_words.py']=('tests/fixtures/enemy-movement-math-cuda-v1.json','research/portable-enemy-movement-math-v1-expected.json')
 AUDIT_FILES['test_moving_typed_wire.py']=('tests/fixtures/portable-moving-many-source-delta.json','tests/fixtures/portable-moving-typed-source-delta.json','tests/fixtures/portable-enemy-movement-source-delta.json','tests/fixtures/portable-coordinate-typed-weapon-source-delta.json','tests/fixtures/moving-typed-metal-v1.json','research/portable-moving-typed-v1-expected.json')
 AUDIT_FILES['test_moving_many_wire.py']=('tests/fixtures/portable-moving-many-source-delta.json','tests/fixtures/portable-moving-typed-source-delta.json','tests/fixtures/portable-enemy-movement-source-delta.json','tests/fixtures/moving-many-metal-v1.json','research/portable-moving-many-v1-expected.json')
+
+# Exact source history is an audit dependency only for consumers of that history.
+_REFERENCE_HISTORY_TESTS = ('test_weighted_source_contract.py','test_cover_defense_modifiers.py',
+    'test_cover_defense_modifiers_sealed.py','test_cover_defense_sealed.py','test_enemy_ammo_wire.py',
+    'test_coordinate_typed.py')
+for _test in _REFERENCE_HISTORY_TESTS:
+    AUDIT_FILES[_test]=tuple(AUDIT_FILES.get(_test,()))+('tests/fixtures/reference-engine-burst-source-history-v1.json',)
+
+# Saved receipts explicitly require their original reference-engine snapshot.
+HISTORICAL_ENGINE_TESTS = ('test_coordinate_typed.py', 'test_destructible_aoe_burst_rosters.py', 'test_destructible_body_accum.py', 'test_destructible_body_lifesteal.py', 'test_destructible_parent_oracles.py', 'test_destructible_skill_gpu.py', 'test_destructible_weapon_rosters.py', 'test_enemy_healing_model.py', 'test_portable_accuracy_predicate_reference.py', 'test_portable_combat.py', 'test_portable_damage_accum_rosters.py', 'test_portable_detail.py', 'test_weighted_battle_contracts.py')
+for _test in HISTORICAL_ENGINE_TESTS:
+    AUDIT_FILES[_test]=tuple(AUDIT_FILES.get(_test,()))+('tests/historical_engine_reference.py','tests/fixtures/reference-engine-upstream-history-v1.json')
+AUDIT_FILES['test_detail_native.py']=('tests/fixtures/reference-engine-burst-source-history-v1.json',)

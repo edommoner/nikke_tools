@@ -9,6 +9,7 @@ from runner import sim
 from calculator.boss_pattern import BossScript,validate
 from calculator.sim_result import HitEvent
 from enemy_healing_model import normalize,EnemyHealing,enemy_healing
+from historical_engine_reference import historical_reference
 from portable_enemy_healing_cases import fixtures
 from portable_enemy_healing_contracts import verify
 from world_enemy_healing_native import observe
@@ -18,7 +19,22 @@ class EnemyHealingModel(unittest.TestCase):
     def setUpClass(cls):
         cls.cases=fixtures();cls.native={}
         for c in cls.cases:
+            if c['contract']['scenario']=='fractional-death':
+                # New automatic bursts change the final clipped packet owner.
+                # Keep the fractional-credit test positive with declared .25 HP;
+                # the original integer-HP scene remains separately checked below.
+                c['name']+='/current-burst-fractional-hp'
+                for pattern in c['patterns']:
+                    if pattern['id']=='healing-low':pattern['spec']['hp']=14000000.25
+                c['body']['enemy']['patterns']=copy.deepcopy(c['patterns'])
             n,_=observe(c);verify(c,n);cls.native[c['contract']['scenario']]=n
+
+    @historical_reference
+    def test_historical_fractional_death_original_integer_hp(self):
+        case=next(c for c in fixtures() if c['contract']['scenario']=='fractional-death')
+        self.assertEqual(case['patterns'][0]['spec']['hp'],14000000.)
+        native,_=observe(case)
+        verify(case,native)
 
     def test_original_levels_change_real_add_healing_and_preserve_all_definitions(self):
         for level in (1,10):

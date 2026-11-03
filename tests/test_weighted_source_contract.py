@@ -11,6 +11,9 @@ class WeightedSourceContract(unittest.TestCase):
         boss_name='tests/fixtures/portable-product-boss-debuff-source-delta.json'
         boss=json.loads((ROOT/boss_name).read_bytes())
         names={'gpu/attack_group_runtime.slang','gpu/counter_landing_runtime.slang',*ledger['files'],*ledger['added_sources'],*product['files'],*product['added_sources'],*boss['files'],boss_name,'tests/fixtures/portable-weighted-incoming-source-delta.json','tests/fixtures/portable-product-source-delta.json'}
+        pin_name='tests/fixtures/reference-engine-burst-source-history-v1.json'
+        pin=json.loads((ROOT/pin_name).read_text())
+        names.update((pin_name,*pin['files']))
         for name in names:
             target=root/name;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes((ROOT/name).read_bytes())
         return ledger

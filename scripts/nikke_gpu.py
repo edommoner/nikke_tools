@@ -1187,6 +1187,13 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
     for folder in ('calculator','runner','scraper','data'):
         names.extend(p.relative_to(ROOT).as_posix() for p in (upstream/folder).rglob('*')
                      if p.is_file() and not p.is_symlink() and p.suffix in ('.py','.json'))
+    from portable_cpu_tests import HISTORICAL_ENGINE_TESTS
+    if set(config['tests']) & set(HISTORICAL_ENGINE_TESTS):
+        historical=ROOT/'research/upstream/nikke-calc-23164e4'
+        if not (historical/'calculator/timeline.py').is_file():
+            raise ValueError('Preserved historical engine required for saved receipt tests')
+        names.extend(p.relative_to(ROOT).as_posix() for p in historical.rglob('*')
+                     if p.is_file() and not p.is_symlink() and (p.suffix in ('.py','.json','.md') or p.name=='LICENSE'))
     license_path = upstream/'LICENSE'
     if not license_path.is_file() or not (upstream/'data/parsed_nikke.json').is_file():
         raise ValueError('Pinned upstream source/data must be installed first')

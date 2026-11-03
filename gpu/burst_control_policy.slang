@@ -52,10 +52,8 @@ BurstControlCandidates burstControlCandidates(BurstControlPolicy p,BurstControlS
     BurstControlCandidates c;c.count=0;for(uint i=0;i<5;i++)c.owners[i]=0;
     if(s.cycle<p.words[3])
     {uint word=p.words[128+s.cycle*3+stage-1];for(uint i=0;i<5;i++){uint v=(word>>(3*i))&7;if(v==0)break;c.owners[c.count++]=v-1;}return c;}
-    bool explicitChoice=false;
     for(uint who=0;who<5;who++)if(s.stages[who]==stage||s.stages[who]==4)
-    {c.owners[c.count++]=who;if(p.words[8+who*24+22]!=0||(s.explicitStage&(1U<<who))!=0)explicitChoice=true;}
-    if(stage<3&&s.reentry==0&&!explicitChoice&&c.count>1)c.count=1;
+    {c.owners[c.count++]=who;}
     if(actual)for(uint i=1;i<c.count;i++)
     {uint who=c.owners[i],rank=burstControlRank(p,who,s.cycle+1),j=i;while(j>0&&burstControlRank(p,c.owners[j-1],s.cycle+1)>rank){c.owners[j]=c.owners[j-1];j--;}c.owners[j]=who;}
     return c;

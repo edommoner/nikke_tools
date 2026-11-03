@@ -9,6 +9,8 @@ import portable_detail as product
 import portable_product_artifact as artifacts
 from portable_projectile_roster_input import compile_projectile_battle
 
+from historical_engine_reference import historical_reference
+
 class PortableDetail(unittest.TestCase):
     @staticmethod
     def synthetic_stationary_readback(words):
@@ -601,6 +603,7 @@ class PortableDetail(unittest.TestCase):
                         self.fail('Unadmitted provider reached dispatch')
                 self.assertIsInstance(raised.exception.__cause__,KeyError)
 
+    @historical_reference
     def test_product_saved_receipt_is_bound_to_transport_and_cpu_still_runs_after_gpu(self):
         body={**self.fixture['body'],'compute_backend':'cuda_shared_detail'}
         expected=copy.deepcopy(self.fixture['cpu_payload']);expected['evaluator']=product.engine_worker.sim.evaluator()
@@ -662,6 +665,7 @@ class PortableDetail(unittest.TestCase):
                 if failure=='tampered owner':self.assertFalse((capture/'linked-artifact-request.json').exists())
                 self.assertEqual(sys.path,previous);self.assertEqual(sys.dont_write_bytecode,bytecode)
 
+    @historical_reference
     def test_product_uses_actual_saved_loader_and_forbids_nvrtc_with_mocked_driver_output(self):
         import test_portable_linked_artifact as existing
         import portable_backend as backend
@@ -723,6 +727,7 @@ class PortableDetail(unittest.TestCase):
                 self.assertNotIn('artifact_receipt',json.loads((capture/'result.json').read_text()))
                 self.assertTrue((capture/'evidence.json').exists())
 
+    @historical_reference
     def test_descriptor_history_reaches_real_admission_loader_and_product_result(self):
         import test_portable_linked_artifact as existing
         import portable_linked_artifact as saved
@@ -770,6 +775,7 @@ class PortableDetail(unittest.TestCase):
         with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('Preparation must not run a battle')):
             cls.prepared,cls.prepared_run=product.prepare(cls.fixture['body'])
             cls.words,cls.metadata=compile_projectile_battle(cls.prepared)
+    @historical_reference
     def test_saved_actual_gpu_projection_reconstructs_complete_original_product_payload(self):
         with patch.object(product,'decode',return_value=self.fixture['gpu_projection']):
             payload=product.decode_payload(self.fixture['body'],self.prepared,self.prepared_run,self.metadata,[0])
@@ -849,6 +855,7 @@ class PortableDetail(unittest.TestCase):
             result=product.evaluate(body)
             self.assertEqual(result['compute']['backend'],'cpu')
             self.assertIn('パーツ',result['compute']['unsupported'][0]['reason'])
+    @historical_reference
     def test_both_backends_use_identical_inputs_decoder_and_post_readback_cpu_check(self):
         wires=[]
         for requested,backend in product.BACKENDS.items():

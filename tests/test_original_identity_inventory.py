@@ -11,7 +11,7 @@ class IdentityInventoryTests(unittest.TestCase):
         import portable_runtime,portable_backend
         def forbidden(*args,**kwargs):raise AssertionError('Static identity audit cannot run or pack battle')
         with patch.object(timeline,'simulate',forbidden),patch.object(portable_runtime,'compile_program',forbidden),patch.object(portable_backend,'execute',forbidden),patch.object(portable_backend,'build',forbidden):result=inspect()
-        self.assertEqual(result['profiles'],266)
+        self.assertEqual(result['profiles'],269)
         self.assertEqual({row['character'] for row in result['duplicate_groups']},{'하란','쿠루미'})
         self.assertEqual(result['nonperiodic_duplicate_groups'],[])
         self.assertEqual(result['nonperiodic_admission_restriction'],'unobserved-restriction')

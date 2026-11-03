@@ -125,4 +125,5 @@ class ModeSessionContractTests(unittest.TestCase):
         import json,hashlib
         contract=json.loads((ROOT/'research/portable-mode-session-contract.json').read_text())
         for key,digest in [('primary_source','primary_source_sha256'),('pinned_cpu_source','pinned_cpu_sha256')]:
-            self.assertEqual(hashlib.sha256((ROOT/contract[key]).read_bytes()).hexdigest(),contract[digest])
+            from historical_engine_reference import source_preimage
+            self.assertEqual(hashlib.sha256(source_preimage(ROOT,contract[key])).hexdigest(),contract[digest])

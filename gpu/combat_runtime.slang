@@ -262,14 +262,11 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
         else
 #endif
         {
-        bool explicitCandidate=false;
-        for(uint who=0;who<5;who++) if((stages[who]==s.phase || stages[who]==4) && (commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3]&1024U)!=0) explicitCandidate=true;
         for (uint who = 0; who < 5; who++) if (stages[who] == s.phase || stages[who] == 4)
         {
             candidates |= 1U << who; earliest = smaller(earliest,s.ready[who]);
             if ((s.downMask&(1U<<who))==0 && !statusStunned(s,who) && reached(when,s.ready[who])) { picked = who; break; }
-            // Default automatic B1/B2 reserves the first candidate; reentry and B3 scan alternatives.
-            if (s.phase < 3 && s.reentrySlot == 0 && !explicitCandidate) break;
+            // Every automatic stage scans squad order for the first ready candidate.
         }
         if (picked == 5) { s.action = larger(s.action,earliest); s.cooldownWaitMask = candidates; }
         }

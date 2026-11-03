@@ -12,7 +12,12 @@ def project_sources(root,sources=None):
     root=Path(root);out=actors(root,sources);data=ledger(root)
     for name,digest in data['added_sources'].items():assert hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()==digest,'Unreviewed typed aim dependency'
     for name,row in data['sources'].items():
-        if name.endswith('.slang'):out[name]=checked(out.get(name,(root/name).read_text()),row)
+        if name.endswith('.slang'):
+            current=out.get(name,(root/name).read_text())
+            if name=='gpu/coordinate_aim_runtime.slang' and name not in out:
+                from portable_weighted_incoming_source_contract import reference_engine_preimages
+                current=reference_engine_preimages(root)[name]
+            out[name]=checked(current,row)
     return out
 
 def project_backend_source(root,source=None):

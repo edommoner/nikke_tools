@@ -21,7 +21,7 @@ class BurstPolicyTests(unittest.TestCase):
         self.assertEqual(rows['delay-after-cooldown']['action'],a.bits(5.))
         self.assertEqual(rows['wait-blocks-ready-alternative']['wait_mask'],1)
         self.assertEqual(rows['wait-down-skipped']['owner'],1)
-        self.assertEqual(rows['automatic-reserves-first']['owner'],5)
+        self.assertEqual(rows['automatic-ready-fallback']['owner'],1)
         self.assertEqual(rows['explicit-stage-allows-fallback']['owner'],1)
         self.assertEqual(rows['reentry-allows-fallback']['owner'],1)
         self.assertEqual(rows['empty-pattern-demotes']['owner'],1)

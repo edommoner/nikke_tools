@@ -109,7 +109,7 @@ class EntryInventoryTests(unittest.TestCase):
     def test_full_inventory_separates_packing_from_gpu_admission(self):
         with tempfile.TemporaryDirectory() as directory:
             path=Path(directory)/'report.json';result=inventory.run(path,write=write,forbid_gpu=forbid_gpu);report=json.loads(path.read_text())
-        self.assertTrue(result['passed']);self.assertEqual(result['profile_count'],266);self.assertEqual(result['packed_profiles'],247)
+        self.assertTrue(result['passed']);self.assertEqual(result['profile_count'],269);self.assertEqual(result['packed_profiles'],247)
         self.assertEqual(result['forbidden_calls'],dict(cpu_battle=0,gpu=0))
         self.assertFalse(result['gpu_admission_verified']);self.assertFalse(result['calculation_verified'])
         gauge_profiles=report['definition_kind_profiles']['9']
@@ -153,5 +153,5 @@ class EntryInventoryTests(unittest.TestCase):
         from portable_original_identity_inventory import inspect
         import portable_runtime
         with patch.object(portable_runtime,'compile_program',side_effect=AssertionError('Identity catalog cannot pack')):result=inspect()
-        self.assertEqual(result['profiles'],266);self.assertEqual(result['nonperiodic_duplicate_groups'],[])
+        self.assertEqual(result['profiles'],269);self.assertEqual(result['nonperiodic_duplicate_groups'],[])
 if __name__=='__main__':unittest.main()

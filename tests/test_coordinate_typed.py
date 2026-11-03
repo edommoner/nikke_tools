@@ -5,6 +5,8 @@ from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research')]
 def module(name,path):
     s=importlib.util.spec_from_file_location(name,ROOT/path);a=importlib.util.module_from_spec(s);s.loader.exec_module(a);return a
+from historical_engine_reference import historical_reference
+
 class CoordinateTypedTests(unittest.TestCase):
     def test_nonoverlapping_complete_wire_and_registered_source(self):
         from portable_coordinate_typed_specs import check_layout,INPUT_WORDS,OUTPUT_WORDS,SOURCE
@@ -28,6 +30,7 @@ class CoordinateTypedTests(unittest.TestCase):
         for name,words,(c,m,b,scene) in rows[1:]:
             self.assertEqual(c['effects'][:-1],[e['effect'] for e in c['original_run']['prepared']['effects']]);self.assertEqual(len(m['binding_source_indices']),len(c['effects']))
             source=m['binding_source_indices'].index(c['probe_source']);self.assertEqual(words[109968+5424:109968+5680],[c['probe_kind'] if i==source else 0 for i in range(256)])
+    @historical_reference
     def test_old19_original_modifier_inputs_and_native_observer_are_identical(self):
         a=module('typed_retained_modifier_test','research/verify-original-modifier-probe-short.py');old=json.loads((ROOT/'research/portable-original-modifier-probe-short-expected.json').read_text())
         import array
