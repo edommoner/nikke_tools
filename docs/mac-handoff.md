@@ -5788,3 +5788,12 @@ Windows新source owner7823d1c4…はPTX14,804,305B→O1 object8,120,624B→linke
 - **移動記録への訂正**：`gpu/moving_typed_attachment_runtime.slang` の `movingTypedCenter` が移動状態を直接読む（typed geometry／weapon の距離計算）。symbol検索だけでは漏れていた。分類はiiiのまま。
 - 作業ツリーには、別のCodexセッション（ストレージ整理の依頼）による未コミット5ファイルが残っている。触れず、コミットもしていない。
 - 次：117キー台帳の残り（`buff_stack_add`、`buff_max_stack_add`）を閉じ、その後は実行レベル（L4）の作業へ移る。
+
+
+## 2026-11-03 117キー台帳の静的確認を完了（buff_stack_add／buff_max_stack_add）
+
+Codexが新規セッションで記録を作成（8分56秒、参照66件）。Claudeのチェックで1回差し戻し：初版は2項目を**iii**としたが、両方とも固定upstream自体に実装があるため**L4**（upstreamの処理経路は特定済み、現行の計算一致は未テスト。テストすればii候補）へ修正（resumeで53秒）。
+
+Claudeの独立確認：66 anchor再現、counter全0、作業ツリー不変、元データ件数（buff_stack_add＝buff 1＋instant 4、buff_max_stack_add＝buff 9）、上限時も持続時間を更新（buff_manager.py:1311-1320）、max-addは効果を残さず即時処理（3540-3542）、`partial_skips` はupstreamのみ。
+
+これで117キーすべてに静的な扱いが決まった。次は実行レベル（Metal実行＋CPU照合）でL4を埋める作業へ移る。CUDAはWindows再開の明示時にまとめて行う。
