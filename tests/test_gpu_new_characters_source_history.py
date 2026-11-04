@@ -27,7 +27,7 @@ class ReviewedNewCharacterHistoryTests(unittest.TestCase):
                 self.assertEqual(projected[name],row['baseline'].replace('\r\n','\n'))
 
     def test_extra_source_edits_and_ledger_edits_cannot_borrow_history(self):
-        names=('app/engine_worker.py','app/portable_runtime.py','gpu/admission_definition_triggers.slang','gpu/event_runtime.slang','gpu/portable_schema.slang','gpu/revival_runtime.slang','gpu/world_actor_stacks.slang','app/portable_coordinate_original_enemy_stack_source_contract.py')
+        names=('gpu/dispatch_phases.slang','app/engine_worker.py','app/portable_runtime.py','gpu/admission_definition_triggers.slang','gpu/event_runtime.slang','gpu/portable_schema.slang','gpu/revival_runtime.slang','gpu/world_actor_stacks.slang','app/portable_coordinate_original_enemy_stack_source_contract.py')
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder)
             for name in (HISTORY,*names):

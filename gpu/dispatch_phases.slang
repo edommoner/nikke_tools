@@ -636,6 +636,9 @@ void advanceDefinitionFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inou
         }
         if (row == s.count) { depth--; continue; }
         Definition d = readDefinition(s.inputBase,row); WORLD_TEAM_GUARD(s,row,f)
+        // Squad ammo is broadcast even when its emitter is down. Keep the
+        // shared count advancing, but native _notify skips each down owner.
+        if (f.mode == 0 && f.event == 26 && (s.downMask & (1U << d.owner)) != 0) continue;
         if (f.mode == 2)
         { pushFrame(s,frames,depth,1,47,d.owner,int(row),f.time); continue; }
         if (f.mode == 0 && !activationConditions(s,row,f.time) && !(f.event == 0 && f64Less(d.duration,0) && passive != 0)) continue;

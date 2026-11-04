@@ -1,0 +1,409 @@
+{
+  "key": "instant|burst_charge_pct",
+  "scene_source": "sensitivity-scene-22-scene-055",
+  "body": {
+    "profile": {
+      "chars": {
+        "리틀 머메이드": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 0,
+          "affinity": 30,
+          "skill_levels": {
+            "1": 10,
+            "2": 10,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": 22.22,
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": 0,
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "__none__",
+            "level": 0
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "없음",
+          "favorite_stage": 0
+        },
+        "도라": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 0,
+          "affinity": 30,
+          "skill_levels": {
+            "1": 10,
+            "2": 10,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": 22.22,
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": 0,
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "__none__",
+            "level": 0
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "없음",
+          "favorite_stage": 0
+        },
+        "드레이크": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 0,
+          "affinity": 30,
+          "skill_levels": {
+            "1": 10,
+            "2": 10,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": 22.22,
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": 0,
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "__none__",
+            "level": 0
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "없음",
+          "favorite_stage": 0
+        },
+        "N102": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 0,
+          "affinity": 30,
+          "skill_levels": {
+            "1": 10,
+            "2": 10,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": 22.22,
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": 0,
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "__none__",
+            "level": 0
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "없음",
+          "favorite_stage": 0
+        },
+        "메어리": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 0,
+          "affinity": 30,
+          "skill_levels": {
+            "1": 10,
+            "2": 10,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": 22.22,
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": 0,
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "__none__",
+            "level": 0
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "없음",
+          "favorite_stage": 0
+        }
+      },
+      "_account": {
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        }
+      }
+    },
+    "squad": [
+      "리틀 머메이드",
+      "도라",
+      "드레이크",
+      "N102",
+      "메어리"
+    ],
+    "duration": 180.0,
+    "level": 400,
+    "enemy": {
+      "def": 31784,
+      "code": "풍압",
+      "core_px": 50,
+      "distance": 25,
+      "parts": [
+        {
+          "name": "permanent-part",
+          "hp": 0,
+          "reach": 5
+        },
+        {
+          "name": "breakable-part",
+          "hp": 50000000,
+          "reach": 5
+        }
+      ],
+      "patterns": [
+        {
+          "id": "pressure-all",
+          "kind": "attack",
+          "delay": 0.25,
+          "spec": {
+            "atk": 100000,
+            "coeff": 100,
+            "target": "all",
+            "pierce": true,
+            "hits": 120,
+            "interval": 1.5
+          }
+        },
+        {
+          "id": "pressure-aim",
+          "kind": "attack",
+          "delay": 1.0,
+          "spec": {
+            "atk": 100000,
+            "coeff": 100,
+            "target": "top_atk:1",
+            "pierce": false,
+            "hits": 90,
+            "interval": 2.0
+          }
+        },
+        {
+          "id": "status",
+          "kind": "debuff",
+          "delay": 5.0,
+          "spec": {
+            "target": "all",
+            "hits": 12,
+            "interval": 12.0,
+            "debuffs": [
+              {
+                "name": "scene-stun",
+                "stat": "stun",
+                "duration": 2.0
+              },
+              {
+                "name": "scene-slow",
+                "stat": "charge_speed_pct",
+                "value": -20,
+                "duration": 8.0
+              }
+            ]
+          }
+        },
+        {
+          "id": "enemy-buff",
+          "kind": "buff",
+          "delay": 1.0,
+          "enemy": {
+            "received_dmg_pct": -20
+          },
+          "until": {
+            "time": 179
+          }
+        }
+      ]
+    },
+    "burst_policy": "rules",
+    "burst_gauge_mode": "accumulate",
+    "compute_backend": "metal_detail",
+    "shooting_policy": "character",
+    "weapon_mode_swap": true
+  },
+  "ablation_definition": "Drop authored (type, stat prefix) rows from BuffManager.char_effects and _effects; rebuild notify index; retain collection. buff|possessed aliases runtime target_hit_counter.",
+  "expected_cpu_ablated_total": 86669329,
+  "expected_cpu_ablated_members": {
+    "리틀 머메이드": 19536034,
+    "도라": 10154740,
+    "드레이크": 32910893,
+    "N102": 6859612,
+    "메어리": 17208050
+  },
+  "expected_cpu_ablated_public_sha256": "cf88cd9df92d4597c16bf6113ec7189940f04158276e6f5e792e3707edafd403",
+  "cpu_removal": {
+    "removed_rows": [
+      {
+        "owner": "리틀 머메이드",
+        "effect": {
+          "source": "스킬1",
+          "type": "instant",
+          "name": "버블 오더 4",
+          "trigger": {
+            "timing": [
+              "squad_ammo_consume:400"
+            ],
+            "condition": []
+          },
+          "target": "all_allies",
+          "stat": "burst_charge_pct",
+          "values": {
+            "1": 23.12,
+            "2": 24.66,
+            "3": 26.2,
+            "4": 27.75,
+            "5": 29.29,
+            "6": 30.83,
+            "7": 32.37,
+            "8": 33.91,
+            "9": 35.46,
+            "10": 37.0
+          }
+        }
+      }
+    ],
+    "suppressed_notifications": 0
+  }
+}
