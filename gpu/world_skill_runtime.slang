@@ -57,6 +57,11 @@ uint64_t sampleWorldPartSkill(inout Runtime s,Definition d,uint64_t coefficient,
 #endif
 bool validWorldSkillDefinition(inout Runtime s,uint row,Definition d)
 {
+#ifdef PORTABLE_PRODUCT_UPSTREAM_PROJECTILE_RETURN
+    if((d.damageFlags&1048576U)!=0 &&
+       (d.damageFlags!=1048576U || d.damageRoute!=1 || d.damageCount!=1 || d.damageHits!=1 ||
+        d.damageNormal!=0 || d.damagePending!=0 || d.periodicFlags!=0 || !f64Zero(d.interval) || referenceScaleMode(s,row)!=0))return false;
+#endif
 #ifdef PORTABLE_COORDINATE_SKILLS
     if(!validCoordinateSkillDefinition(s,d)) return false;
 #endif
@@ -65,6 +70,9 @@ bool validWorldSkillDefinition(inout Runtime s,uint row,Definition d)
     if(!validParentFixed(s,row,d)) return false;
 #endif
     if((d.damageFlags&~uint(
+#ifdef PORTABLE_PRODUCT_UPSTREAM_PROJECTILE_RETURN
+        1048576U|
+#endif
 #ifdef PORTABLE_PROJECTILE_CHAIN
         524288U|
 #endif

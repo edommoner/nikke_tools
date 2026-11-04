@@ -510,6 +510,11 @@ void applyDefinitionFrame(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
         else if(d.kind==34) releaseDamageAccum(s,d,row,f,uint(depth+1));
 #endif
         else if (d.kind == 33) pushFrame(s,frames,depth,2,0,d.owner,int(row),f.time);
+#ifdef PORTABLE_PRODUCT_UPSTREAM_PROJECTILE_RETURN
+        // Upstream returns before any coefficient sample, packet, damage,
+        // gauge or weapon_hit notification for ordinary all_projectiles.
+        else if(d.kind==3 && (d.damageFlags&1048576U)!=0) {}
+#endif
 #ifdef PORTABLE_PARENT_FIXED_DAMAGE
         else if(d.kind==3 && (d.damageFlags&262144U)!=0) enqueueParentFixed(s,d,row,f,depth);
 #endif

@@ -78,6 +78,11 @@ def compile_product(prepared,producer):
     long_plain=prepared['policies']['config']['duration']>30. and not grouped and not targeted and not healing and not self_destruct and not prepared.get('_product_cover_compiled')
     if long_plain:bank[1]=2
     output_words=LONG_PLAIN_OUTPUT_WORDS if long_plain else E['OUTPUT_WORDS']
+    if long_plain:
+        from portable_product_resource_budget import output_words as budget,SUPPLY_OUTPUT_WORDS
+        output_words,bound=budget(prepared,output_words)
+        if output_words==SUPPLY_OUTPUT_WORDS:bank[1]=3
+        meta['product_enemy_ammo']['notification_supply_bound']=bound
     meta['product_enemy_ammo']['output_words']=output_words
     return ('gpu/product_ammo_'+stem+'battle_entry.slang',E['INPUT_WORDS'],output_words,words+bank,meta)
 

@@ -86,6 +86,8 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source in ('gpu/product_ordinary_lock_battle_entry.slang','gpu/product_ordinary_lock_fixed_battle_entry.slang'):
+        return validate_composed_stride(source.replace('product_ordinary_lock_','product_',1),input_words,output_words)
     if source in ('gpu/product_movement_range_cover_battle_entry.slang','gpu/product_movement_range_cover_fixed_battle_entry.slang'):
         from portable_product_movement_range import check_cover_schema,COVER_INPUT,OUTPUT
         check_cover_schema(ROOT)
@@ -216,8 +218,9 @@ def validate_composed_stride(source,input_words,output_words):
         from portable_enemy_ammo_wire import check_schema,LAYOUT
         check_schema(ROOT)
         from portable_product_ammo import LONG_PLAIN_OUTPUT_WORDS
+        from portable_product_resource_budget import SUPPLY_OUTPUT_WORDS
         allowed={LAYOUT['OUTPUT_WORDS']}
-        if source in ('gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang'):allowed.add(LONG_PLAIN_OUTPUT_WORDS)
+        if source in ('gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang'):allowed.update((LONG_PLAIN_OUTPUT_WORDS,SUPPLY_OUTPUT_WORDS))
         if input_words!=LAYOUT['INPUT_WORDS'] or output_words not in allowed:raise ValueError('Enemy ammo requires complete actor and resource banks')
         return
     if source=='gpu/world_add_self_destruct_entry.slang':
@@ -370,7 +373,10 @@ def validate_product_ammo_versions(source,packed,input_words,output_words,count)
     if source not in ('gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang'):return
     from portable_enemy_ammo_wire import LAYOUT as E
     from portable_product_ammo import LONG_PLAIN_OUTPUT_WORDS
-    version=2 if output_words==LONG_PLAIN_OUTPUT_WORDS else 1
+    from portable_product_resource_budget import SUPPLY_OUTPUT_WORDS
+    if output_words not in (E['OUTPUT_WORDS'],LONG_PLAIN_OUTPUT_WORDS,SUPPLY_OUTPUT_WORDS):
+        raise ValueError('Enemy ammo input version and output stride disagree')
+    version=3 if output_words==SUPPLY_OUTPUT_WORDS else 2 if output_words==LONG_PLAIN_OUTPUT_WORDS else 1
     for i in range(count):
         if struct.unpack_from('<I',packed,4*(1+i*input_words+E['BASE']+1))[0]!=version:
             raise ValueError('Enemy ammo input version and output stride disagree')

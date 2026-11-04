@@ -117,7 +117,15 @@ class ProductReferenceModels(unittest.TestCase):
                 self.assertEqual(struct.pack('<2I',*words[at+F['DURATION']:at+F['DURATION']+2]),struct.pack('<d',e['duration']))
                 self.assertEqual(words[L['RECIPIENT_BASE']+row*8],12)
             changed=copy.deepcopy(prepared);changed['effects'][-1]['effect']['name']=info['definitions'][0]['effect']['target_effect']
-            with self.assertRaisesRegex(UnsupportedPortable,'matching skill definition'):compile_product(changed)
+            matched=compile_product(changed)
+            self.assertFalse(matched[4]['product_named_carriers']['no_matching_definition_names'])
+            self.assertEqual(matched[:3],(source,iw,ow))
+            self.assertEqual(set(matched[4]['binding_source_indices']),set(range(len(changed['effects']))))
+            # A real declared consumer still cannot borrow the inert entry.
+            from portable_product_named_carriers import compile_product as carriers
+            declared=copy.deepcopy(changed);declared['reference_models']={'named_range':{}}
+            with self.assertRaisesRegex(UnsupportedPortable,'matching combined model consumer'):
+                carriers(declared,lambda p:self.fail('Declared consumer must refuse before lowering'))
 
     def test_coordinate_cover_combines_literal_banks_without_cpu_battle(self):
         from portable_product_programs import body_for_program
@@ -769,6 +777,10 @@ class ProductReferenceModels(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'combined checked'):normalize({'lock_on':spec,'enemy_healing':[]})
         prepared,_=product.prepare(body)
         authored=copy.deepcopy(prepared);authored['reference_models']={};authored['enemy']['patterns']=[dict(id='future-target',kind='summon',delay=5.,spec=dict(count=1,hp=1e8))]
+        source,_,_,_,metadata=product.compile_product(authored)
+        self.assertIn('ordinary_lock',source);self.assertIn('product_ordinary_lock',metadata)
+        # A separate declared magazine consumer must not be silently omitted.
+        authored['reference_models']={'enemy_ammo':[dict(label='__enemy__',capacity=16,initial=16,reload_seconds=1.,cancel_on_full=True)]}
         with self.assertRaisesRegex(UnsupportedPortable,'explicit reference_models.lock_on'):product.compile_product(authored)
         changed=copy.deepcopy(prepared);next(r['effect'] for r in changed['effects'] if r['effect'].get('stat')=='lock_on')['duration']=1
         with self.assertRaisesRegex(ValueError,'Unchanged original'):product.compile_product(changed)
@@ -1236,10 +1248,11 @@ class ProductReferenceModels(unittest.TestCase):
         from portable_detail import prepare,compile_product
         from portable_enemy_ammo_wire import LAYOUT as E
         from portable_product_ammo import LONG_PLAIN_OUTPUT_WORDS
+        from portable_product_resource_budget import SUPPLY_OUTPUT_WORDS
         from portable_resource_decode import resource_readback
         from portable_specs import LIMITS as L
         for mode in ('fixed','accumulate'):
-            for duration,version,output in ((30.,1,E['OUTPUT_WORDS']),(30.01,2,LONG_PLAIN_OUTPUT_WORDS),(180.,2,LONG_PLAIN_OUTPUT_WORDS)):
+            for duration,version,output in ((30.,1,E['OUTPUT_WORDS']),(30.01,3,SUPPLY_OUTPUT_WORDS),(180.,3,SUPPLY_OUTPUT_WORDS)):
                 body=copy.deepcopy(selected_profile_bodies(['\ubca8\ubcb3'],0)[0][2]);body.update(duration=duration,burst_gauge_mode=mode)
                 with patch.object(sim,'execute',side_effect=AssertionError('No native resource state supplied to GPU')):
                     pre,run=prepare(body);before=copy.deepcopy(pre);source,iw,ow,words,meta=compile_product(pre)
@@ -1288,8 +1301,9 @@ class ProductReferenceModels(unittest.TestCase):
                 self.assertEqual(pre['policies']['config']['rng_mode'],'expected');self.assertFalse(body.get('reference_models'))
                 self.assertEqual(set(meta['binding_source_indices']),set(range(len(pre['effects']))))
                 if name.startswith('\uc2a4\ub178\uc6b0'):
-                    self.assertTrue(meta['product_static_body_lock']);self.assertEqual(len(meta['product_lock_on']['bindings']),1)
-                    self.assertEqual(meta['product_lock_on']['declarations']['lock_on']['typed_bindings'],[])
+                    self.assertIn('product_ordinary_lock',meta);self.assertNotIn('product_lock_on',meta)
+                    self.assertFalse(meta['product_ordinary_lock']['declared_lock_model_inferred'])
+                    self.assertEqual((iw,ow),(104400,786432))
                 else:
                     info=meta['product_static_enemy_movement'];self.assertEqual(info['movable_actor_count'],0)
                     self.assertFalse(info['coordinate_model_inferred']);self.assertEqual(info['original_effects'],[pre['effects'][i] for i in info['source_indices']])
@@ -1304,7 +1318,14 @@ class ProductReferenceModels(unittest.TestCase):
             for change in (dict(patterns=[dict(id='future',kind='summon',delay=5.,spec=dict(count=1,hp=1e8))]),dict(patterns=[dict(id='idle',kind='idle')]),dict(has_parts=True),dict(part_break_interval=1.),dict(coord=dict(auto_aim=[0.,0.],pierce_px=10.,explosion_scale=1.))):
                 body=copy.deepcopy(base);body['enemy'].update(change)
                 with patch.object(sim,'execute',side_effect=AssertionError('Unknown active model must stop before battle')):
-                    with self.assertRaises((UnsupportedPortable,ValueError)):
+                    if name.startswith('\uc2a4\ub178\uc6b0') and not set(change)&{'coord','part_break_interval'}:
+                        # Ordinary markers use the existing logical recipient
+                        # path, not an inferred declared acquisition model.
+                        pre,_=prepare(body);_,_,_,_,meta=compile_product(pre)
+                        self.assertIn('product_ordinary_lock',meta);self.assertNotIn('product_lock_on',meta)
+                        self.assertFalse(meta['product_ordinary_lock']['declared_lock_model_inferred'])
+                    else:
+                      with self.assertRaises((UnsupportedPortable,ValueError)):
                         pre,_=prepare(body);compile_product(pre)
 
     def test_movement_declarations_reject_unknown_geometry_or_composition_before_battle(self):
@@ -1461,7 +1482,11 @@ class ProductReferenceModels(unittest.TestCase):
         from portable_runtime import UnsupportedPortable
         case=fixtures()[0];body=copy.deepcopy(case['body'])
         prepared,_=product.prepare(body)
-        with self.assertRaisesRegex(UnsupportedPortable,'explicit.*bases'):product.compile_product(prepared)
+        ordinary=product.compile_product(prepared)
+        self.assertTrue(ordinary[4]['product_cover_defense']['unspecified_quantities'])
+        self.assertEqual(ordinary[4]['product_cover_defense']['declarations'],{})
+        self.assertEqual(ordinary[3][115680:115684],[0x43444231,1,5,2])
+        self.assertFalse(any(ordinary[3][115684:115704]))
         body['reference_models']={'cover_defense':case['cover_defense']}
         body['manual_cover_sequences']=case['declared_manual_sequences'];body['burst_gauge_mode']='fixed'
         prepared,_=product.prepare(body)
@@ -1526,12 +1551,14 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(words[C['BASE']:C['BASE']+4],[MAGIC,1,5,1])
             self.assertEqual(words[L['WORLD_CONTROL_INPUT_BASE']+1],6 if mode=='fixed' else 3)
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
-            # An authored attack still requires independent declared DEF;
-            # the routing change must never manufacture a defense value.
+            # Ordinary upstream attacks use the already defended body quantity
+            # for cover; there is no independent cover base in this contract.
             body['enemy']['patterns']=[dict(id='incoming',kind='attack',spec=dict(atk=100,coeff=100,hits=1,target='all'))]
             incoming,_=product.prepare(body)
-            with self.assertRaisesRegex(UnsupportedPortable,'explicit.*cover_defense'):
-                product.compile_product(incoming)
+            _,_,_,incoming_words,incoming_meta=product.compile_product(incoming)
+            self.assertEqual(incoming_words[C['BASE']:C['BASE']+4],[MAGIC,1,5,2])
+            self.assertFalse(any(incoming_words[C['BASE']+4:C['BASE']+C['WORDS']]))
+            self.assertTrue(incoming_meta['product_cover_defense']['unspecified_quantities'])
 
     def test_cover_and_original_group_listeners_share_one_product_input(self):
         import portable_detail as product

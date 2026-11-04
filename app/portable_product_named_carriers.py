@@ -1,7 +1,7 @@
-"""Preserve named modifier carriers when their consumer is absent by name.
+"""Preserve upstream-inert named modifiers in ordinary undeclared battles.
 
-No effect is dropped. A matching definition anywhere in the complete program
-requires the spatial/count consumer instead, before any device execution.
+Upstream 67835ca3 reads neither stat. Matching names alone do not opt into the
+separate declared spatial/count model. Every original carrier is retained.
 """
 import copy
 from portable_runtime import UnsupportedPortable
@@ -22,9 +22,6 @@ def compile_product(prepared,producer):
         if stat not in STATS:continue
         if stat=='effect_range_pct':range_effect(e)
         else:count_effect(e,allow_marked_allies=True)
-        if e['target_effect'] in names:
-            error=UnsupportedPortable('Named range/count has a matching skill definition and requires explicit reference_models.named_range geometry and rules')
-            error.effect_context=dict(character=row['owner'],effect=e['name'],stat=stat,target=e['target']);raise error
         domains[index]=STATS[stat];inner['effects'][index]['effect']['stat']=''
     if not domains:raise ValueError('Original named modifier definitions required')
     source,iw,ow,words,meta=producer(inner)
@@ -40,6 +37,6 @@ def compile_product(prepared,producer):
         words[at+F['KIND']]=0;words[at+F['STAT']]=stat;words[at+F['TARGET_NAME']]=meta['states'][name]
         words[at+F['FLAGS']] &= ~2048 # Marker-only lazy revival flag, retain every other lifetime flag.
     meta['product_named_carriers']=dict(source_indices=list(domains),definitions=[copy.deepcopy(prepared['effects'][i]) for i in domains],
-        no_matching_definition_names=True,all_original_effects_preserved=True,cpu_state_or_schedule_supplied=False)
+        no_matching_definition_names=all(prepared['effects'][i]['effect']['target_effect'] not in names for i in domains),all_original_effects_preserved=True,cpu_state_or_schedule_supplied=False)
     fixed=source=='gpu/product_fixed_battle_entry.slang'
     return 'gpu/product_named_carriers_'+('fixed_' if fixed else '')+'battle_entry.slang',iw,ow,words,meta

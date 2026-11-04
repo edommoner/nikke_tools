@@ -15,16 +15,17 @@ def compile_product(prepared,producer):
     unspecified='cover_defense' not in declarations
     from portable_product_world_contract import has_incoming_attacks
     typed_world='typed_targets' in declarations
-    if unspecified and has_incoming_attacks(prepared) and (not typed_world or required(prepared)):
+    if unspecified and declarations and has_incoming_attacks(prepared) and (not typed_world or required(prepared)):
         raise UnsupportedPortable('Independent cover DEF requires explicit reference_models.cover_defense bases; no body DEF or level curve is inferred')
+    canonical_body=unspecified and not declarations and has_incoming_attacks(prepared)
     combined_typed=set(declarations)-{'cover_defense'} in ({'typed_targets'},{'typed_targets','enemy_movement'},{'typed_targets','lock_on'},{'typed_targets','lock_on','enemy_movement'})
     combined_motion_range=set(declarations)-{'cover_defense'} in ({'enemy_movement','named_range'},{'enemy_ammo','enemy_healing'})
     if set(declarations)-{'coordinate','cover_defense','enemy_healing','enemy_ammo','enemy_movement','named_range','lock_on','typed_targets'} or len(set(declarations)-{'cover_defense'})>1 and not (combined_motion_range or combined_typed):
         raise UnsupportedPortable('Cover DEF product composition requires a matching combined consumer wire')
     check_schema();names=[c['name'] for c in prepared['chars']]
-    # Product-only unavailable flag; zero payload is reserved padding, not a
-    # guessed DEF. The device rejects any attempt to consume an absent base.
-    bank=[MAGIC,1,5,1]+[0]*20 if unspecified else pack(declarations['cover_defense'],names)
+    # Mode1 retains the unavailable-base device guard. Mode2 explicitly selects
+    # upstream's already defended body quantity; neither supplies a DEF base.
+    bank=[MAGIC,1,5,2 if canonical_body else 1]+[0]*20 if unspecified else pack(declarations['cover_defense'],names)
     inner=dict(prepared,_product_cover_compiled=True);inner.pop('reference_models',None)
     consumers={k:v for k,v in declarations.items() if k!='cover_defense'}
     if consumers:inner['reference_models']=consumers
@@ -86,6 +87,7 @@ def compile_product(prepared,producer):
         words[at+F['FLAGS']] &= ~2048
     meta['product_cover_defense']=dict(declarations=cover_declarations,definition_indices=indices,unspecified_quantities=unspecified,
         cpu_state_or_schedule_supplied=False)
+    if canonical_body:meta['product_cover_defense']['ordinary_body_quantity']=True
     if fixed_values is not None:
         # Use the already checked combined header for both explicit cover and
         # automatic controls. No posture, readiness clock or native state is

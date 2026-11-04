@@ -239,6 +239,13 @@ void advanceProtectionHit(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
         if((pierce || !f64Less(0,f.healthPrevious)) && covered)
         {
 #ifdef PORTABLE_COVER_DEFENSE
+#ifdef PORTABLE_PRODUCT_UNSPECIFIED_COVER
+            // Ordinary upstream landing applies the already defended/shared
+            // body quantity to cover. Independent cover DEF is opt-in only.
+            if(commands[s.inputBase+PORTABLE_COVER_DEFENSE_INPUT_BASE+3]==2)
+                cover=smaller(s.coverHP[f.owner],f.healthValue);
+            else
+#endif
             cover=coverDefenseQuantity(s,uint(depth),f.owner,f.time);
             if(s.error!=0)return;
 #else

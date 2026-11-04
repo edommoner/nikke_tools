@@ -14,8 +14,8 @@
 #define WORLD_ENEMY_AMMO_RESOURCE_KIND(s,row,d,legacy) (d.kind==11 && worldSkillsEnabled(s) && resourceDefinition(s,row).op==3 && (resourceDefinition(s,row).flags&2)!=0 ? false : (legacy))
 // Version 2 is confined to the plain product resource-only tail.
 #if !defined(PORTABLE_PRODUCT_AMMO_TARGET) && !defined(PORTABLE_PRODUCT_AMMO_GROUP) && !defined(PORTABLE_PRODUCT_COVER_AMMO)
-#define EAM_VERSION_VALID(s,version) ((version)==1 || ((version)==2 && !productEnemyAmmoHasSelfDestruct(s) && !ENEMY_HEALING_ENABLED(s)))
-#define PRODUCT_AMMO_OUTPUT_WORDS(input) (commands[(input)+EAM_BASE+1]==2 ? 2064786U : EAM_OUTPUT_WORDS)
+#define EAM_VERSION_VALID(s,version) ((version)==1 || (((version)==2 || (version)==3) && !productEnemyAmmoHasSelfDestruct(s) && !ENEMY_HEALING_ENABLED(s)))
+#define PRODUCT_AMMO_OUTPUT_WORDS(input) (commands[(input)+EAM_BASE+1]==3 ? 10422672U : commands[(input)+EAM_BASE+1]==2 ? 2064786U : EAM_OUTPUT_WORDS)
 #else
 #define PRODUCT_AMMO_OUTPUT_WORDS(input) EAM_OUTPUT_WORDS
 #endif

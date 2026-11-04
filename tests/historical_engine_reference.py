@@ -75,6 +75,15 @@ def install_compiler():
     name='portable_runtime';module=types.ModuleType(name);module.__file__=str(path)
     module.__historical_source_sha256__=hashlib.sha256(source).hexdigest();sys.modules[name]=module
     exec(compile(source,str(path),'exec'),module.__dict__)
+    # Old packet seals bind entry ownership as well as scalar packing. Keep
+    # the reviewed lock adapter beside the historical scalar compiler; ordinary
+    # product imports outside this explicit child retain the current adapter.
+    name='portable_product_locks';path=ROOT/'app/portable_product_locks.py'
+    source=source_preimage(ROOT,'app/portable_product_locks.py')
+    adapter=types.ModuleType(name);adapter.__file__=str(path)
+    adapter.__historical_source_sha256__=hashlib.sha256(source).hexdigest()
+    sys.modules[name]=adapter
+    exec(compile(source,str(path),'exec'),adapter.__dict__)
     os.environ['NIKKE_TEST_HISTORICAL_COMPILER']=module.__historical_source_sha256__
     return module
 

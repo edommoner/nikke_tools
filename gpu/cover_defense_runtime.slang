@@ -16,7 +16,7 @@ bool initializeCoverDefense(inout Runtime s)
     uint input=s.inputBase+PORTABLE_COVER_DEFENSE_INPUT_BASE;
     if(commands[input]!=CDF_MAGIC||commands[input+1]!=1||commands[input+2]!=5)return false;
 #ifdef PORTABLE_PRODUCT_UNSPECIFIED_COVER
-    if(commands[input+3]>1)return false;
+    if(commands[input+3]>2)return false;
 #else
     if(commands[input+3]!=0)return false;
 #endif
@@ -26,7 +26,7 @@ bool initializeCoverDefense(inout Runtime s)
     {
         uint64_t base=loadNumber(input+8+who*2);
 #ifdef PORTABLE_PRODUCT_UNSPECIFIED_COVER
-        if(commands[input+3]==1&&base!=0)return false;
+        if(commands[input+3]!=0&&base!=0)return false;
 #endif
         if(!f64Finite(base)||f64Less(base,0)||f64Less((uint64_t(0x46293e59)<<32)|uint64_t(0x39a08cea),base))return false;
     }

@@ -468,6 +468,10 @@ class PortableDetail(unittest.TestCase):
         for name,stat in [('얀','force_move'),('유니','enemy_movement_disable'),('스노우 화이트 : 헤비암즈','lock_on')]:
             body=selected_profile_bodies([name],0)[0][2];body.update(burst_gauge_mode='fixed',compute_backend='metal_detail')
             body['enemy']['patterns']=[dict(id='future-target',kind='summon',delay=5.,spec=dict(count=1,hp=1e8))]
+            if stat=='lock_on':
+                # Ordinary ADD markers are supported; the declared magazine/lock
+                # composition still requires its own connected consumer.
+                body['reference_models']={'enemy_ammo':[dict(label='__enemy__',capacity=16,initial=16,reload_seconds=1.,cancel_on_full=True)]}
             prepared,run=product.prepare(body);before=copy.deepcopy(prepared)
             with self.assertRaises(product.UnsupportedPortable) as raised:product.compile_product(prepared)
             context=raised.exception.effect_context

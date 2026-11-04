@@ -16,7 +16,8 @@ def resource_readback(words,metadata,L,number):
     if extended:
         from portable_enemy_ammo_wire import LAYOUT as E
         expected=metadata['product_enemy_ammo'].get('output_words',E['OUTPUT_WORDS'])
-        if expected not in (E['OUTPUT_WORDS'],2064786):raise RuntimeError('Invalid product resource output ownership')
+        from portable_product_resource_budget import SUPPLY_OUTPUT_WORDS
+        if expected not in (E['OUTPUT_WORDS'],2064786,SUPPLY_OUTPUT_WORDS):raise RuntimeError('Invalid product resource output ownership')
         capacity=128+(expected-E['OUTPUT_BASE']-E['RESOURCE_BASE'])//8
         if metadata.get('product_ammo_cover'):
             from portable_cover_defense_wire import OUTPUT as expected
