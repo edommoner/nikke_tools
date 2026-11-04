@@ -26,6 +26,10 @@ def reference_engine_reviewed_bytes(name,raw):
     This does not authorize current detail/GPU parity or alter stored seals.
     Any additional edit remains outside the old historical contract.
     """
+    if name=='app/portable_backend.py':
+        from portable_metal_deadline_source_contract import AFTER_SHA256,historical_backend_bytes
+        if hashlib.sha256(raw).hexdigest()==AFTER_SHA256:
+            raw=historical_backend_bytes(Path(__file__).resolve().parents[1],raw)
     if name=='app/engine_worker.py' and hashlib.sha256(raw).hexdigest()==COARSE_ADMISSION_AFTER_SHA256:
         after=b"if body.get('_compile_gpu_detail') or not body.get('_compile_gpu') and body.get('compute_backend', 'cpu') != 'cpu':"
         before=b"if body.get('compute_backend', 'cpu') != 'cpu' or body.get('_compile_gpu_detail') or body.get('_compile_gpu'):"
@@ -164,6 +168,8 @@ def project_sources(root):
     data=json.loads(raw)
     if data['schema']!=1 or data['normalizer_changed'] is not False or data['baseline_commit']!='e93182fb61ed6fce5cb7d02e13e1aa5ac59ec840':raise ValueError('Weighted source baseline changed')
     projected=boss_source_preimages(root)
+    from portable_revival_union_source_contract import preimages as revival_union_preimages
+    projected.update(revival_union_preimages(root))
     for name,digest in data['added_sources'].items():
         raw=projected[name].encode() if name in projected else (root/name).read_bytes()
         if hashlib.sha256(raw).hexdigest()!=digest:raise ValueError('Unreviewed weighted dependency: '+name)

@@ -1,0 +1,32 @@
+{
+  "schema": "revival-stack-union-source-history-v2",
+  "base_commit": "00120d0e90983c4597e9097b538e13c8bd1b5647",
+  "normalizer_changed": false,
+  "current_gpu_equivalence_claim": false,
+  "files": {
+    "app/portable_stack_specs.py": {
+      "before_sha256": "ac4614c46962fb212a20f11588307e2c0607538850314752b3909bacdc4082f6",
+      "after_sha256": "8a7161369ab15c376b65a817cc0f6bf3ba5b75b853542dd7e6de9e5cf5546f0b",
+      "hunks": [
+        {
+          "start": 2713,
+          "end": 3362,
+          "before": "    # MODE_BASE is a tagged union: weapon modes retain all 32 original words.\n    # Nonweapon records carry the literal native duration and init binding.\n    for i,(e,owner) in enumerate(effects):\n        if e.get('type')=='weapon_change':continue\n        buff=e.get('type')=='buff'\n        duration=e.get('duration')\n        bits=[0,0x7ff00000] if duration in (None,-1) else double_words(duration)\n",
+          "after": "    # MODE_BASE is a tagged union: weapon modes retain all 32 original words.\n    # Nonweapon records carry the literal native duration and init binding.\n    for i,(e,owner) in enumerate(effects):\n        # Revive instants own MODE0..3 (RVV1 + literal seed), just as\n        # weapon changes own their complete mode record. They never become\n        # stack-mutated carriers; preserve their independently checked union.\n        if e.get('type')=='weapon_change' or e.get('stat')=='revive':continue\n        buff=e.get('type')=='buff'\n        duration=e.get('duration')\n        bits=[0,0x7ff00000] if duration in (None,-1) else double_words(duration)\n"
+        }
+      ]
+    },
+    "gpu/stack_runtime.slang": {
+      "before_sha256": "27ff740a41b8b794123c602615b53a4dd02f84c7bee698eec1feedbd6e0a1619",
+      "after_sha256": "14b13695a63381423f02c9ae727e9ec96746d3679d8baf80bf4a7d1a70411bd3",
+      "hunks": [
+        {
+          "start": 8323,
+          "end": 9039,
+          "before": "        if((d.flags&8)!=0 && d.kind!=4) return false;\n        if(!enabled || d.kind==2) continue;\n        uint meta=stackMeta(s,row);\n        if(commands[meta]!=STACK_META_MAGIC || commands[meta+1]!=uint(d.kind==0 || d.kind==4 || d.kind==19)) return false;\n        uint64_t duration=loadNumber(meta+2);if(!f64Finite(duration) && duration!=F64_INF) return false;\n        uint selected=commands[meta+4];\n",
+          "after": "        if((d.flags&8)!=0 && d.kind!=4) return false;\n        if(!enabled || d.kind==2) continue;\n        uint meta=stackMeta(s,row);\n        // RVV1/seed owns MODE0..3; initializeRevival checks MODE0..27.\n        // Retain the stack-enabled reserved tail checks for this union arm.\n        if(d.kind==29)\n        {\n            for(uint field=28;field<P_MODE_WORDS;field++) if(commands[meta+field]!=0) return false;\n            continue;\n        }\n        if(commands[meta]!=STACK_META_MAGIC || commands[meta+1]!=uint(d.kind==0 || d.kind==4 || d.kind==19)) return false;\n        uint64_t duration=loadNumber(meta+2);if(!f64Finite(duration) && duration!=F64_INF) return false;\n        uint selected=commands[meta+4];\n"
+        }
+      ]
+    }
+  }
+}

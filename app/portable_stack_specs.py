@@ -46,7 +46,10 @@ def pack_metadata(words,L,effects,double_words):
     # MODE_BASE is a tagged union: weapon modes retain all 32 original words.
     # Nonweapon records carry the literal native duration and init binding.
     for i,(e,owner) in enumerate(effects):
-        if e.get('type')=='weapon_change':continue
+        # Revive instants own MODE0..3 (RVV1 + literal seed), just as
+        # weapon changes own their complete mode record. They never become
+        # stack-mutated carriers; preserve their independently checked union.
+        if e.get('type')=='weapon_change' or e.get('stat')=='revive':continue
         buff=e.get('type')=='buff'
         duration=e.get('duration')
         bits=[0,0x7ff00000] if duration in (None,-1) else double_words(duration)

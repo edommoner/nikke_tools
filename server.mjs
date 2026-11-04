@@ -61,8 +61,15 @@ export function sharedCudaConfigured(platform=process.platform,env=process.env) 
 }
 export function workerTimeoutSeconds(body) {
   if(body.action==='evaluate_portable_detail_batch'&&body.evaluations?.[0]?.compute_backend==='cuda_shared_detail')return 120;
-  // Match portable_runtime.evaluate's default backend.
-  return body.action==='evaluate_portable_detail_batch' || body.action==='evaluate_portable_events' && (body.backend ?? 'metal')==='metal' ? 630 : 120;
+  // Each detail case may have its own kernel: 2*90s generation + 300s
+  // compilation + 600s GPU + 30s overhead. Compatible cases share this budget.
+  if(body.action==='evaluate_portable_detail_batch')return 1110*Math.min(8,Math.max(1,body.evaluations?.length||1));
+  // Search uses the same transport, capped at 4800s per command.
+  // Selection expands once per team (one or five); prefilter dispatches once.
+  if(body.backend==='metal'&&['combat_prefilter','select'].includes(body.action))return 5310*(body.action==='select'&&body.teamCount!==1?5:1);
+  if(body.action==='metal_search_probe')return 630;
+  // Match portable_runtime.evaluate's default backend (one event program).
+  return body.action==='evaluate_portable_events' && (body.backend ?? 'metal')==='metal' ? 1110 : 120;
 }
 function worker(body, job) {
   if(body.backend==='metal'&&['combat_prefilter','select'].includes(body.action)||body.action==='metal_search_probe')return metalSearchWorker(body,job);
@@ -72,7 +79,7 @@ function worker(body, job) {
     const child = workerTextStreams(spawn(python, [path.join(root,script)], {cwd:root, windowsHide:true, env:{...process.env,PYTHONIOENCODING:'utf-8',PYTHONUTF8:'1'}}));
     if (job) job.child=child;
     let out='', err='';
-    // Metal may spend 2*90s generating sources, 300s compiling, then 120s on GPU.
+    // Cover every possible source group, compilation and bounded GPU phase.
     const timeoutSeconds = workerTimeoutSeconds(body);
     const timer=setTimeout(()=>{child.kill();reject(Error(`計算が${timeoutSeconds}秒を超えました。`));},timeoutSeconds*1000);
     child.stdout.on('data',b=>out+=b); child.stderr.on('data',b=>err+=b);
@@ -91,8 +98,8 @@ function metalSearchWorker(body,job){
     const child = workerTextStreams(spawn(python, [path.join(root,script)], {cwd:root, windowsHide:true, env:{...process.env,PYTHONIOENCODING:'utf-8',PYTHONUTF8:'1'}}));
     if (job) job.child=child;
     let out='', err='';
-    // Metal may spend 2*90s generating sources, 300s compiling, then 120s on GPU.
-    const timeoutSeconds = 630;
+    // Include every bounded shared-transport command in this search request.
+    const timeoutSeconds = workerTimeoutSeconds(body);
     const timer=setTimeout(()=>{child.kill();reject(Error(`計算が${timeoutSeconds}秒を超えました。`));},timeoutSeconds*1000);
     child.stdout.on('data',b=>out+=b); child.stderr.on('data',b=>err+=b);
     child.on('error',e=>{clearTimeout(timer);reject(e);});

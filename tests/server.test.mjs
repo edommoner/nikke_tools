@@ -60,9 +60,9 @@ test('alternative skill representations preserve unrelated skill levels',()=>{
 
  test('portable Metal HTTP deadline covers source generation, compilation and GPU bounds',async()=>{
   const {workerTimeoutSeconds}=await import('../server.mjs');
-  assert.ok(workerTimeoutSeconds({action:'evaluate_portable_events',backend:'metal'}) > 2*90+300+120);
-  assert.equal(workerTimeoutSeconds({action:'evaluate_portable_events'}),630);
-  assert.equal(workerTimeoutSeconds({action:'evaluate_portable_detail_batch'}),630);
+  assert.ok(workerTimeoutSeconds({action:'evaluate_portable_events',backend:'metal'}) > 2*90+300+600);
+  assert.equal(workerTimeoutSeconds({action:'evaluate_portable_events'}),1110);
+  assert.equal(workerTimeoutSeconds({action:'evaluate_portable_detail_batch'}),1110);
 });
  test('CUDA and ordinary CPU worker deadlines remain bounded at 120 seconds',async()=>{
   const {workerTimeoutSeconds}=await import('../server.mjs');
@@ -132,4 +132,35 @@ test('CPU and GPU worker text streams retain split UTF-8 payloads and diagnostic
  child.stdout.end();child.stderr.end();await done;
  const rows=output.trimEnd().split('\n').map(line=>JSON.parse(line));
  assert.deepEqual(rows,[expected,{id:'two',result:expected}]);assert.equal(error,diagnostic);
+});
+
+test('Metal detail worker budget covers every compatible or separate source group',async()=>{
+ const {workerTimeoutSeconds}=await import('../server.mjs');
+ // Enumerate all ordered partitions: preparation can produce any grouping of 8 cases.
+ const partitions=n=>n===0?[[]]:Array.from({length:n},(_,i)=>i+1).flatMap(k=>partitions(n-k).map(rest=>[k,...rest]));
+ for(let n=1;n<=8;n++){
+  const outer=workerTimeoutSeconds({action:'evaluate_portable_detail_batch',evaluations:Array.from({length:n},()=>({compute_backend:'metal_detail'}))});
+  assert.equal(outer,1110*n);
+  for(const groups of partitions(n))assert.ok(outer>groups.reduce((sum,k)=>sum+180+300+Math.min(4800,600*k),0));
+ }
+ assert.equal(workerTimeoutSeconds({action:'evaluate_portable_detail_batch',evaluations:Array(100).fill({compute_backend:'metal_detail'})}),8880);
+});
+
+test('server budget uses the Python Metal deadline policy',async()=>{
+ const {spawnSync}=await import('node:child_process');
+ const {workerTimeoutSeconds}=await import('../server.mjs');
+ const {resolvePython}=await import('../app/python-runtime.mjs');
+ const result=spawnSync(resolvePython(),['-c',"import sys,json;sys.path.insert(0,'app');import portable_backend as b;print(json.dumps([b.METAL_COMPILE_TIMEOUT_SECONDS,*[b.metal_gpu_timeout_seconds(n) for n in range(1,9)]]))"],{encoding:'utf8'});
+ assert.equal(result.status,0,result.stderr);
+ const [compile,...gpu]=JSON.parse(result.stdout);
+ for(let n=1;n<=8;n++)assert.ok(workerTimeoutSeconds({action:'evaluate_portable_detail_batch',evaluations:Array(n).fill({compute_backend:'metal_detail'})})>n*(180+compile)+gpu[n-1]);
+});
+
+test('other Metal transport consumers fit the calibrated guard and command counts',async()=>{
+ const {workerTimeoutSeconds}=await import('../server.mjs');
+ const command=180+300+4800;
+ assert.ok(workerTimeoutSeconds({action:'combat_prefilter',backend:'metal'})>command);
+ assert.ok(workerTimeoutSeconds({action:'select',backend:'metal',teamCount:1})>command);
+ assert.ok(workerTimeoutSeconds({action:'select',backend:'metal',teamCount:5})>5*command);
+ assert.equal(workerTimeoutSeconds({action:'metal_search_probe'}),630);
 });

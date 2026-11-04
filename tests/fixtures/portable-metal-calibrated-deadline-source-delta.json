@@ -1,0 +1,16 @@
+{
+  "schema": "metal-calibrated-deadline-source-history-v3",
+  "path": "app/portable_backend.py",
+  "normalizer_changed": false,
+  "current_gpu_equivalence_claim": false,
+  "before_sha256": "1c5586206da404682c045dfe9cd89faa33530cf47b5b99207a8d2b7607421de2",
+  "after_sha256": "ad1f55129422b4b80e34bd21f41cdb045f2d1a0d9f0a201e0c6c2e8be8c5b08e",
+  "hunks": [
+    {
+      "start": 414,
+      "end": 1126,
+      "before": "from portable_wire_layout import MAX_INPUT_WORDS,MAX_OUTPUT_WORDS,LARGE_OUTPUT_WORDS\nREADBACK_CHUNK_BYTES=8*1024*1024\nMETAL_COMPILE_TIMEOUT_SECONDS=300\nMETAL_GPU_SECONDS_PER_CASE=120\nMETAL_GPU_TIMEOUT_MAX_SECONDS=960\n\n\ndef metal_gpu_timeout_seconds(cases):\n    \"\"\"Bound the whole command, including all sequential dispatches/readbacks.\n\n    One case retains its original deadline. Packed cases can run serially on\n    the device, so budget per case rather than per host command or batch.\n    \"\"\"\n    if type(cases) is not int or cases<1:raise ValueError('Positive Metal case count required')\n    return min(cases*METAL_GPU_SECONDS_PER_CASE,METAL_GPU_TIMEOUT_MAX_SECONDS)\n",
+      "after": "from portable_wire_layout import MAX_INPUT_WORDS,MAX_OUTPUT_WORDS,LARGE_OUTPUT_WORDS\nREADBACK_CHUNK_BYTES=8*1024*1024\nMETAL_COMPILE_TIMEOUT_SECONDS=300\nMETAL_GPU_SECONDS_PER_CASE=600\nMETAL_GPU_TIMEOUT_MAX_SECONDS=4800\n\n\ndef metal_gpu_timeout_seconds(cases):\n    \"\"\"Bound the whole command, including all sequential dispatches/readbacks.\n\n    Calibrated against a 149.585s CPU-matched M5 case: 600s per case\n    provides about 4x margin. Packed cases can run serially on the device;\n    the whole command remains capped at 4800s.\n    \"\"\"\n    if type(cases) is not int or cases<1:raise ValueError('Positive Metal case count required')\n    return min(cases*METAL_GPU_SECONDS_PER_CASE,METAL_GPU_TIMEOUT_MAX_SECONDS)\n"
+    }
+  ]
+}

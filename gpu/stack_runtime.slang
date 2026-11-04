@@ -154,6 +154,13 @@ bool validStackDefinitions(inout Runtime s)
         if((d.flags&8)!=0 && d.kind!=4) return false;
         if(!enabled || d.kind==2) continue;
         uint meta=stackMeta(s,row);
+        // RVV1/seed owns MODE0..3; initializeRevival checks MODE0..27.
+        // Retain the stack-enabled reserved tail checks for this union arm.
+        if(d.kind==29)
+        {
+            for(uint field=28;field<P_MODE_WORDS;field++) if(commands[meta+field]!=0) return false;
+            continue;
+        }
         if(commands[meta]!=STACK_META_MAGIC || commands[meta+1]!=uint(d.kind==0 || d.kind==4 || d.kind==19)) return false;
         uint64_t duration=loadNumber(meta+2);if(!f64Finite(duration) && duration!=F64_INF) return false;
         uint selected=commands[meta+4];
