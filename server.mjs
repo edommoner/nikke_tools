@@ -65,6 +65,7 @@ export function workerTimeoutSeconds(body) {
   return body.action==='evaluate_portable_detail_batch' || body.action==='evaluate_portable_events' && (body.backend ?? 'metal')==='metal' ? 630 : 120;
 }
 function worker(body, job) {
+  if(body.backend==='metal'&&['combat_prefilter','select'].includes(body.action)||body.action==='metal_search_probe')return metalSearchWorker(body,job);
   if(body.action==='gpu_probe'||body.action==='evaluate_detail'||body.action==='evaluate_detail_batch'||body.action==='combat_prefilter'||body.action==='select'&&body.backend==='cuda')return gpuWorker(body,job);
   return new Promise((resolve,reject) => {
     const script=body.action==='evaluate_portable_detail_batch'?'app/portable_detail_service.py':'app/engine_worker.py';
@@ -73,6 +74,25 @@ function worker(body, job) {
     let out='', err='';
     // Metal may spend 2*90s generating sources, 300s compiling, then 120s on GPU.
     const timeoutSeconds = workerTimeoutSeconds(body);
+    const timer=setTimeout(()=>{child.kill();reject(Error(`計算が${timeoutSeconds}秒を超えました。`));},timeoutSeconds*1000);
+    child.stdout.on('data',b=>out+=b); child.stderr.on('data',b=>err+=b);
+    child.on('error',e=>{clearTimeout(timer);reject(e);});
+    child.on('close',code=>{
+      clearTimeout(timer); if(job)job.child=null;
+      try {const value=JSON.parse(out); if(code || value.error) reject(Error(value.error || err || '計算に失敗しました。')); else resolve(value);}
+      catch(e){reject(Error(err || e.message));}
+    });
+    child.stdin.on('error',()=>{}); child.stdin.end(JSON.stringify(body));
+  });
+}
+function metalSearchWorker(body,job){
+  return new Promise((resolve,reject) => {
+    const script='app/metal_search.py';
+    const child = workerTextStreams(spawn(python, [path.join(root,script)], {cwd:root, windowsHide:true, env:{...process.env,PYTHONIOENCODING:'utf-8',PYTHONUTF8:'1'}}));
+    if (job) job.child=child;
+    let out='', err='';
+    // Metal may spend 2*90s generating sources, 300s compiling, then 120s on GPU.
+    const timeoutSeconds = 630;
     const timer=setTimeout(()=>{child.kill();reject(Error(`計算が${timeoutSeconds}秒を超えました。`));},timeoutSeconds*1000);
     child.stdout.on('data',b=>out+=b); child.stderr.on('data',b=>err+=b);
     child.on('error',e=>{clearTimeout(timer);reject(e);});
@@ -146,10 +166,26 @@ export function boardCases(teams){
     return {value:t.index+1,evaluation:structuredClone(t.evaluation)};
   });
 }
-async function run(job) {
+const optimizerWorker=worker,optimizerEvaluator=evaluator;
+export async function run(job,{worker=optimizerWorker,evaluator=optimizerEvaluator}={}) {
   if(job.running)return;
   job.running=true;job.status='running';
   try {
+    if(job.kind==='optimize'&&job.selectionBackend==='metal'&&!job.prefilterAttempted){
+      job.prefilterAttempted=true;job.phase='GPUで戦闘を概算して候補を絞り込み中';
+      try{
+        const coarse=await worker({action:'combat_prefilter',backend:'metal',evaluation:job.evaluation,squads:job.pool},job);
+        if(job.status==='cancelled')return;
+        const order=rankCombatPool(job.pool,job.groups,coarse.scores);
+        const oldPool=job.pool,reverse=new Map(order.map((old,index)=>[old,index]));
+        job.pool=order.map(i=>oldPool[i]);job.groups=job.groups.map(g=>g.map(i=>reverse.get(i)));
+        job.cases=job.pool.slice(0,job.cases.length).map((squad,i)=>({value:i+1,evaluation:{...clone(job.evaluation),squad,stat_deltas:Object.fromEntries(Object.entries(job.evaluation.stat_deltas||{}).filter(([n])=>squad.includes(n)))}}));
+        job.combatAcceleration={...coarse,scores:undefined};
+        job.combatEstimates=new Map(coarse.scores.map(s=>[JSON.stringify(s.squad),s.damage]));
+      }catch(error){if(job.status==='cancelled')return;job.combatAcceleration={backend:'cpu',requested:'metal',reason:error.message,candidates:job.pool.length,scored_candidates:0,unscored_candidates:job.pool.length};}
+      job.phase=null;
+      if(job.pauseRequested){job.status='paused';return;}
+    }
     if(job.kind==='optimize'&&job.selectionBackend==='cuda'&&!job.prefilterAttempted){
       job.prefilterAttempted=true;job.phase='GPUで戦闘を概算して候補を絞り込み中';
       try{
@@ -161,12 +197,26 @@ async function run(job) {
         job.cases=job.pool.slice(0,job.cases.length).map((squad,i)=>({value:i+1,evaluation:{...clone(job.evaluation),squad,stat_deltas:Object.fromEntries(Object.entries(job.evaluation.stat_deltas||{}).filter(([n])=>squad.includes(n)))}}));
         job.combatAcceleration={...coarse,scores:undefined};
         job.combatEstimates=new Map(coarse.scores.map(s=>[JSON.stringify(s.squad),s.damage]));
-      }catch(error){if(job.status==='cancelled')return;job.combatAcceleration={backend:'cpu',reason:error.message};}
+      }catch(error){if(job.status==='cancelled')return;job.combatAcceleration={backend:'cpu',reason:error.message,candidates:job.pool.length,scored_candidates:0,unscored_candidates:job.pool.length};}
       job.phase=null;
       if(job.pauseRequested){job.status='paused';return;}
     }
     await advanceCases(job,evaluator);
     if(job.index===job.cases.length && job.status==='running'){
+      if(job.kind==='optimize'&&job.selectionBackend==='metal'){
+        job.phase='GPUで部隊の組合せを評価中';
+        try{
+          const candidates=job.results.filter(r=>r.result).map(r=>({squad:r.result.members.map(m=>m.name),damage:r.result.total_damage}));
+          const selected=await worker({action:'select',backend:'metal',width:1024,teamCount:job.teamCount,candidates},job);
+          if(job.status!=='cancelled'){
+            const found=selected.recommendation;
+            if(found){const names=found.teams.flatMap(t=>t.squad);if(found.teams.length!==job.teamCount||new Set(names).size!==job.teamCount*5||found.teams.reduce((n,t)=>n+t.damage,0)!==found.damage||found.teams.some(t=>!candidates.some(c=>JSON.stringify(c)===JSON.stringify(t))))throw Error('GPU result validation failed');
+              if(!job.incumbent||found.damage>job.incumbent.damage)job.incumbent=found;}
+            job.acceleration={...selected,at_candidates:job.index,recommendation:undefined};
+          }
+        }catch(error){if(job.status!=='cancelled')job.acceleration={backend:'cpu',requested:'metal',reason:error.message};}
+        job.phase=null;
+      }
       if(job.kind==='optimize'&&job.selectionBackend==='cuda'){
         job.phase='GPUで部隊の組合せを評価中';
         try{
@@ -196,6 +246,10 @@ function view(job) {
     const errors=job.results.filter(r=>r.result?.total_damage>0).map(r=>{const estimate=job.combatEstimates?.get(JSON.stringify(r.result.members.map(m=>m.name)));return estimate===undefined?null:Math.abs(estimate-r.result.total_damage)/r.result.total_damage;}).filter(v=>v!==null);
     job.combatAcceleration.validation={samples:errors.length,mean_absolute_relative_error:errors.length?errors.reduce((a,b)=>a+b,0)/errors.length:null,max_absolute_relative_error:errors.length?Math.max(...errors):null};
   }
+  if(job.combatAcceleration?.backend==='metal'){
+    const errors=job.results.filter(r=>r.result?.total_damage>0).map(r=>{const estimate=job.combatEstimates?.get(JSON.stringify(r.result.members.map(m=>m.name)));return estimate===undefined?null:Math.abs(estimate-r.result.total_damage)/r.result.total_damage;}).filter(v=>v!==null);
+    job.combatAcceleration.validation={samples:errors.length,mean_absolute_relative_error:errors.length?errors.reduce((a,b)=>a+b,0)/errors.length:null,max_absolute_relative_error:errors.length?Math.max(...errors):null};
+  }
   const feasible=job.results.filter(r=>r.meets);
   return {id:job.id,status:job.status,kind:job.kind,index:job.index,total:job.cases.length,results:job.results,error:job.error,
     target:job.target,strict:job.strict,best:feasible[0]||null,complete:job.status==='complete',updatedAt:job.updatedAt,
@@ -212,14 +266,14 @@ const server=http.createServer(async(req,res)=>{
     if(req.method==='GET' && assets[url.pathname]) {
       const file=assets[url.pathname];res.writeHead(200,{'Content-Type':(/\.m?js$/.test(file))?'text/javascript; charset=utf-8':file.endsWith('.css')?'text/css; charset=utf-8':'text/html; charset=utf-8','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data: https://sg-tools-cdn.blablalink.com; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"});res.end(readFileSync(path.join(root,'web',file)));return;
     }
-    if(req.method==='GET' && url.pathname==='/api/hardware'){const gpu=await worker({action:'gpu_probe'});return json(res,{...gpu,metal:{available:process.platform==='darwin',verification:'per-request'},shared_cuda:{available:sharedCudaConfigured(),verification:'per-request',cold_compilation:false}});}
+    if(req.method==='GET' && url.pathname==='/api/hardware'){const gpu=await worker({action:'gpu_probe'});const metalSearch=await worker({action:'metal_search_probe'});return json(res,{...gpu,metal_search:metalSearch,metal:{available:process.platform==='darwin',verification:'per-request'},shared_cuda:{available:sharedCudaConfigured(),verification:'per-request',cold_compilation:false}});}
     if(req.method==='GET' && url.pathname==='/api/catalog')return json(res,await worker({action:'catalog'}));
     if(req.method==='GET' && url.pathname==='/api/demo')return json(res,await worker({action:'demo',expanded:url.searchParams.get('expanded')==='true',gpu_detail:url.searchParams.get('gpu_detail')==='true'}));
     if(req.method==='POST' && url.pathname==='/api/portable-events')return json(res,await worker(portableEventRequest(await body(req))));
     if(req.method==='POST' && url.pathname==='/api/import'){const data=await body(req);return json(res,await worker({action:'import',data}));}
     if(req.method==='POST' && url.pathname==='/api/jobs') {
       const b=await body(req);
-      if(b.selectionBackend&&!['cuda','cpu'].includes(b.selectionBackend))throw Error('GPU/CPUの指定が正しくありません。');
+      if(b.selectionBackend!==undefined&&!['cuda','metal','cpu'].includes(b.selectionBackend))throw Error('GPU/CPUの指定が正しくありません。');
       if([...jobs.values()].some(j=>j.running))throw Error('実行中の計算を一時停止または終了してから開始してください。');
       if(jobs.size>=30){const old=[...jobs.values()].find(j=>!j.running&&j.status!=='paused');if(!old)throw Error('保持できる計算が上限です。');jobs.delete(old.id);}
       let cases;
@@ -227,7 +281,7 @@ const server=http.createServer(async(req,res)=>{
       if(b.kind==='optimize'){
         teamCount=b.teamCount===1?1:5;
         const scored=await worker({action:'candidates',evaluation:b.evaluation,excluded:b.excluded||[]});
-        ({pool,groups}=candidatePool(scored.characters,teamCount,b.selectionBackend==='cuda'?800:160,41,scored.templates));skipped=scored.skipped;
+        ({pool,groups}=candidatePool(scored.characters,teamCount,b.selectionBackend==='cuda'?800:b.selectionBackend==='metal'?800:160,41,scored.templates));skipped=scored.skipped;
         const limit={fast:20,detail:80,long:160}[b.mode];if(!limit)throw Error('探索モードを選択してください。');
         cases=pool.slice(0,limit).map((squad,i)=>({value:i+1,evaluation:{...clone(b.evaluation),squad,stat_deltas:Object.fromEntries(Object.entries(b.evaluation.stat_deltas||{}).filter(([n])=>squad.includes(n)))}}));
       }

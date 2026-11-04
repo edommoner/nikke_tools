@@ -361,7 +361,7 @@ def evaluate(body):
         for char in run.squad:
             if char['name'] in no_cube:
                 char['cube'] = {'name': '__none__', 'level': 1}
-        if body.get('compute_backend', 'cpu') != 'cpu' or body.get('_compile_gpu_detail') or body.get('_compile_gpu'):
+        if body.get('_compile_gpu_detail') or not body.get('_compile_gpu') and body.get('compute_backend', 'cpu') != 'cpu':
             from engine_gpu_admission import require_supported
             manager = BuffManager(run.squad)
             require_supported((effect for effect, owner in manager._effects),

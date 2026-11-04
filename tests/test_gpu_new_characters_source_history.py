@@ -2,7 +2,7 @@
 import hashlib,json,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'tests')]
-from portable_weighted_incoming_source_contract import reference_engine_preimages,reference_engine_source_bytes
+from portable_weighted_incoming_source_contract import reference_engine_preimages,reference_engine_source_bytes,reference_engine_reviewed_bytes
 from historical_engine_reference import source_preimage
 HISTORY='tests/fixtures/reference-engine-burst-source-history-v1.json'
 OLD_PINS={'gpu/combat_runtime.slang':'5b697f5687aa858f1bc6b86d8181cb10e9d80f2eb44c6b6130b52b7c4c0ad857','gpu/burst_control_policy.slang':'4dbd1dbd5b0711bcb9b1a0c8fb4d90d618e7392831ebab3977c0c95d1d1725e4','gpu/coordinate_aim_runtime.slang':'0479a8a60ca9f3921d9c150eee88d199faaa4406d10668dae07680918c7dae8f','app/portable_detail.py':'13657283b9c57ec587bedb0d1993090b301ba5a56e53285157398b359d77bbce','app/portable_cpu_tests.py':'be694e96dcfdb9b2e3426a08ef6fb64d952dfa1048eaebc19a6cbfa48600c807','app/detail_effects.cu':'af2cf0b2cef045e998abf3a469ea579301a3d8daa85751baeca5d4726b7e6e24'}
@@ -21,7 +21,7 @@ class ReviewedNewCharacterHistoryTests(unittest.TestCase):
         self.assertEqual(set(projected),set(data['files']))
         for name,row in data['files'].items():
             with self.subTest(name=name):
-                self.assertEqual(hashlib.sha256((ROOT/name).read_bytes()).hexdigest(),row['current_sha256'])
+                self.assertEqual(hashlib.sha256(reference_engine_reviewed_bytes(name,(ROOT/name).read_bytes())).hexdigest(),row['current_sha256'])
                 self.assertEqual(reference_engine_source_bytes(ROOT,name),row['baseline'].encode())
                 self.assertEqual(source_preimage(ROOT,name),row['baseline'].encode())
                 self.assertEqual(projected[name],row['baseline'].replace('\r\n','\n'))

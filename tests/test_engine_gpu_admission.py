@@ -30,8 +30,11 @@ class EngineGPUAdmissionTests(unittest.TestCase):
         demo=engine_worker.detail_demo();body=dict(profile=demo['profile'],squad=demo['squad'],duration=3)
         body['profile']['chars'][body['squad'][0]]['cube']={'name':'렐릭 베젤 큐브','level':15}
         with patch.object(engine_worker.sim,'execute',side_effect=AssertionError('CPU battle forbidden')):
-            for flag in ('_compile_gpu_detail','_compile_gpu'):
-                with self.subTest(flag=flag),self.assertRaisesRegex(UnsupportedEngineKeys,'cube:렐릭 베젤 큐브'):engine_worker.evaluate(dict(copy.deepcopy(body),**{flag:True}))
+            for flags in ({'_compile_gpu_detail':True},{'compute_backend':'cuda_detail'},{'_compile_gpu_detail':True,'_compile_gpu':True}):
+                with self.subTest(flags=flags),self.assertRaisesRegex(UnsupportedEngineKeys,'cube:렐릭 베젤 큐브'):engine_worker.evaluate(dict(copy.deepcopy(body),**flags))
+            coarse=engine_worker.evaluate(dict(copy.deepcopy(body),_compile_gpu=True))
+            self.assertEqual(coarse['names'],body['squad'])
+            self.assertTrue(any('큐브:렐릭 베젤 큐브'==issue['effect'] for issue in coarse['issues']))
 
     def test_real_product_characters_and_cube_compile_without_battle_or_device(self):
         import engine_worker,portable_detail,portable_backend

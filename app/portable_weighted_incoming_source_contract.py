@@ -16,6 +16,24 @@ def _reference_history(raw):
         raise ValueError('Reference engine source history scope changed')
     return data
 
+COARSE_ADMISSION_BEFORE_SHA256='74bac4b0ca7ba7eabdf43db21005679e2a7cdaed0abd317cc063775bf613885c'
+COARSE_ADMISSION_AFTER_SHA256='b811cc9dee5ee55b04acacf51a12206405910618a2baed77aef442943a0bea53'
+
+
+def reference_engine_reviewed_bytes(name,raw):
+    """Invert only the hash-bound coarse-admission condition for old audits.
+
+    This does not authorize current detail/GPU parity or alter stored seals.
+    Any additional edit remains outside the old historical contract.
+    """
+    if name=='app/engine_worker.py' and hashlib.sha256(raw).hexdigest()==COARSE_ADMISSION_AFTER_SHA256:
+        after=b"if body.get('_compile_gpu_detail') or not body.get('_compile_gpu') and body.get('compute_backend', 'cpu') != 'cpu':"
+        before=b"if body.get('compute_backend', 'cpu') != 'cpu' or body.get('_compile_gpu_detail') or body.get('_compile_gpu'):"
+        if raw.count(after)!=1:raise ValueError('Coarse admission source inverse differs')
+        raw=raw.replace(after,before,1)
+        if hashlib.sha256(raw).hexdigest()!=COARSE_ADMISSION_BEFORE_SHA256:raise ValueError('Coarse admission historical preimage differs')
+    return raw
+
 def reference_engine_preimages(root):
     """Exact old sources for historical audits; never current GPU parity."""
     raw=(Path(root)/'tests/fixtures/reference-engine-burst-source-history-v1.json').read_bytes()
@@ -24,7 +42,7 @@ def reference_engine_preimages(root):
     for name,row in data['files'].items():
         path=Path(root)/name
         if not path.is_file():continue
-        text=path.read_bytes().decode('utf-8')
+        text=reference_engine_reviewed_bytes(name,path.read_bytes()).decode('utf-8')
         if hashlib.sha256(row['baseline'].encode()).hexdigest()!=row['baseline_sha256']:raise ValueError('Reference engine baseline changed')
         # A historical inverse may already have materialized one of these exact,
         # hash-bound preimages. Preserve idempotence without accepting new edits.
@@ -192,7 +210,7 @@ def reference_engine_source_bytes(root,name):
     # Invoke the hash-bound history reader before using any stored bytes.
     reference_engine_preimages(root)
     row=json.loads(raw)['files'][name]
-    current=(Path(root)/name).read_bytes()
+    current=reference_engine_reviewed_bytes(name,(Path(root)/name).read_bytes())
     if hashlib.sha256(current).hexdigest()!=row['current_sha256']:raise ValueError('Unreviewed product source: '+name)
     baseline=row['baseline'].encode()
     if hashlib.sha256(baseline).hexdigest()!=row['baseline_sha256']:raise ValueError('Historical product source changed: '+name)

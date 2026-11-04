@@ -25,12 +25,22 @@ def compile_run(run,stats,body):
   except (ValueError,TypeError):stage=0;issues.append({'character':c['name'],'effect':'burst_stage','reason':'複数段階・特殊バーストは概算未対応'})
   chars.extend([attacks[i],w['damage_coeff'],w['max_ammo'],w['reload_time']*st.clip_count,st.fire_rate,st.fire_rate_max or st.fire_rate,st.warmup_bullets,st.charge_time_base,st.post_fire_delay,w.get('full_charge_mult',100),st.pellets,st.muzzles,w.get('core_dmg_mult',200),st.spread_end,optimal,float(ELEMENT.get(w.get('element_code'))==enemy['code']),stage,w['burst_cooldown'],c.get('burst_regen_time',2),st._min_fire_cycle])
  bm=BuffManager(run.squad)
- def fail(c,e,reason):issues.append({'character':c,'effect':e.get('name',e.get('stat','?')),'reason':reason})
+ def fail(c,e,reason):issues.append({'character':c,'effect':str(e.get('name',e.get('stat','?'))),'reason':reason})
  for effect,owner in bm._effects:
-  e=effect;i=names.index(owner);c=by_name[owner];stat=e.get('stat','');kind=e.get('type');trigger=e.get('trigger',{});cond=trigger.get('condition',[])
+  e=effect;i=names.index(owner);c=by_name[owner];stat=e.get('stat','');kind=e.get('type');trigger=e.get('trigger',{})
   # Fail closed: omit the whole effect if any semantics would be lost.
   allowed_keys={'source','type','name','trigger','target','stat','polarity','values','fixed_value','duration','duration_values','max_stack','favorite','note','trigger_values','_source_tag','_quant_group'}
   if set(e)-allowed_keys:fail(owner,e,'特殊な効果指定: '+', '.join(sorted(set(e)-allowed_keys)));continue
+  # The authored engine also permits composite/list targets. This coarse
+  # model has no union/engaged-target interpreter: omit that whole effect.
+  if not isinstance(stat,str) or not isinstance(kind,str) or not isinstance(e.get('source',''),str):fail(owner,e,'未対応の効果フィールド形式');continue
+  if not isinstance(trigger,dict):fail(owner,e,'未対応トリガー形式: '+str(trigger));continue
+  cond=trigger.get('condition',[]);timings=trigger.get('timing',[])
+  if isinstance(cond,str):cond=[cond]
+  if isinstance(timings,str):timings=[timings]
+  if not isinstance(cond,(list,tuple)) or any(not isinstance(x,str) for x in cond):fail(owner,e,'未対応条件形式: '+str(cond));continue
+  if not isinstance(timings,(list,tuple)) or any(not isinstance(x,str) for x in timings):fail(owner,e,'未対応タイミング形式: '+str(timings));continue
+  if not isinstance(e.get('target'),str):fail(owner,e,'未対応対象形式: '+str(e.get('target')));continue
   if any(x not in ('during_full_burst','not_during_full_burst') for x in cond):fail(owner,e,'未対応条件: '+', '.join(cond));continue
   if len(set(cond))>1:fail(owner,e,'複合条件');continue
   target=e.get('target');mask=0
@@ -54,9 +64,9 @@ def compile_run(run,stats,body):
   elif kind=='damage' and (stat in DAMAGE or re.fullmatch(r'sequential_damage:\d+',stat)):
    sk=0;kt=1;flags=DAMAGE.get(stat,2)
    if stat.startswith('sequential_damage:'):nhits=int(stat.rsplit(':',1)[1])
-  elif kind=='instant' and stat=='burst_cooldown_reduce' and not cond and all(t in ('full_burst_start','burst_cast') for t in trigger.get('timing',[])):sk=0;kt=2
+  elif kind=='instant' and stat=='burst_cooldown_reduce' and not cond and all(t in ('full_burst_start','burst_cast') for t in timings):sk=0;kt=2
   else:fail(owner,e,'未対応の効果種別: '+str(kind)+' / '+stat);continue
-  timings=trigger.get('timing',[]);compiled=[];bad=False
+  compiled=[];bad=False
   for timing in timings:
    ev=EVENT.get(timing);arg=0
    pattern=re.fullmatch(r'(every|on_attack_count|hit_count|squad_ammo_consume):(.+)',timing)
@@ -130,12 +140,12 @@ def prefilter(body,device,combat=None):
   evaluation={**body['evaluation'],'squad':squad,'_compile_gpu':True}
   evaluation['stat_deltas']={k:v for k,v in evaluation.get('stat_deltas',{}).items() if k in squad}
   try:m=evaluate(evaluation)
-  except (Exception,SystemExit) as error:errors.append({'index':i,'error':str(error)});continue
+  except (Exception,SystemExit) as error:errors.append({'index':i,'squad':squad,'error':str(error)});continue
   models.append(m);indices.append(i)
   for issue in m['issues']:issues[(issue['character'],issue['effect'],issue['reason'])]=issue
- if not models:raise ValueError('GPU概算で計算できる候補がありません。')
  prepare_ms=(time.perf_counter()-started)*1000
- result=(combat or Combat(device)).run(models)
+ result=(combat or Combat(device)).run(models) if models else {'scores':[],'backend':'cpu','requested':body.get('backend','cuda'),'reason':'GPU概算で準備できる候補がありません。全候補を詳細計算の候補に保持します。','approximate':True}
+ if len(result['scores'])!=len(models):raise RuntimeError('GPU combat score count mismatch')
  for score,i in zip(result['scores'],indices):score['index']=i
- result.update(issues=list(issues.values()),errors=errors,prepare_ms=round(prepare_ms,3),elapsed_ms=round((time.perf_counter()-started)*1000,3),candidates=len(squads),frames=sum(int(m['enemy'][0]*60)*5 for m in models))
+ result.update(issues=list(issues.values()),errors=errors,prepare_ms=round(prepare_ms,3),elapsed_ms=round((time.perf_counter()-started)*1000,3),candidates=len(squads),prepared_candidates=len(models),scored_candidates=len(result['scores']),unscored_candidates=len(errors),unscored_indices=[e['index'] for e in errors],frames=sum(int(m['enemy'][0]*60)*5 for m in models))
  return result
