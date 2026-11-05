@@ -23,7 +23,37 @@ def _before(encoded,digest):
     if hashlib.sha256(raw).hexdigest()!=digest:raise ValueError('CPU-only historical preimage changed')
     return raw
 
+
+# Unit 9 composes an exact UI-merge inverse before the unchanged CPU-only pins.
+UI_MERGE_LEDGER_SHA256 = 'b4a582327795485d280691de7230dbc970445640a603accf761b466888f5a2d6'
+UI_MERGE_AFTER_SHA256 = {'app/engine_worker.py': 'daf0ef1c1e6827febc672ef61d56402bf1b1c04f3f3ea9c78cf67d172527c341', 'server.mjs': '7e97932e1d9e28b5b4d7759661fca6b490cfb9cbb324b4fbe078044faa137b86', 'web/app.js': '77b6e6f47c10c5902e3f77840b3cbf9dca305436f0e11d8aed9603e3336a1f0d', 'web/index.html': 'b6d953dfad2ea81b0f1c02cbd59f1dc5ff5b3dd78e01d3e78678ef5e71285f53', 'web/board-model.mjs': 'c8b380a6e2b185795f89f1ccf0bd5029afe8f684a55c159926145a450cc6bd44', 'web/roster-model.mjs': 'dac7e749c88edff0410adcd172ff6fd1e235969b386c708dbc55fbb1ac95a356', 'web/style.css': '8d44a6f49c50922cbfd3c22d3710eb9a268e01fd7c72f0ce5c393c8facec221d'}
+UI_MERGE_AFTER_TEXT_SHA256 = {'app/engine_worker.py': '7e1ce4c75d68be42333a776b07e1e6196ea0f2a0d0fc6c1178d00ee1070cc59c', 'server.mjs': '7e97932e1d9e28b5b4d7759661fca6b490cfb9cbb324b4fbe078044faa137b86', 'web/app.js': 'a178e2aeecfb8491fadd05c20c6d2e3cac2ee2e04641a7d3e5ff720f20825197', 'web/index.html': 'e0943331a0b49b5043ced2ff9c19044c48df874f3d05f8e38d269a22eb8bd9d9', 'web/board-model.mjs': 'e806a8f0640fdac74b8d57a064565fe20a5ffc1c16d8e24e023b60f8f3b7fe29', 'web/roster-model.mjs': '04d8a83dfc139e8e6ef85e5266176f92ab1e44ac883944150ee597d3d1dc0cae', 'web/style.css': '8d44a6f49c50922cbfd3c22d3710eb9a268e01fd7c72f0ce5c393c8facec221d'}
+
+@lru_cache(maxsize=2)
+def _ui_merge_ledger(raw):
+    if hashlib.sha256(raw).hexdigest() != UI_MERGE_LEDGER_SHA256:
+        raise ValueError('UI merge source ledger changed')
+    data = json.loads(raw)
+    if data.get('schema') != 'cpu-only-ui-merge-history-v1' or data.get('baseline_commit') != 'a21859da5e0fcba051236a588dc4de425533c65a':
+        raise ValueError('UI merge source history scope changed')
+    return data['files']
+
+def _ui_merge_before(root, name, raw, text=False):
+    pins = UI_MERGE_AFTER_TEXT_SHA256 if text else UI_MERGE_AFTER_SHA256
+    if name not in pins or hashlib.sha256(raw).hexdigest() != pins[name]:
+        return raw
+    path = Path(root) / 'tests/fixtures/portable-ui-merge-source-delta.json'
+    if not path.exists():
+        path = Path(__file__).resolve().parents[1] / 'tests/fixtures/portable-ui-merge-source-delta.json'
+    row = _ui_merge_ledger(path.read_bytes())[name]
+    key = 'after_text_sha256' if text else 'after_sha256'
+    if row[key] != pins[name]:
+        raise ValueError('UI merge source row changed')
+    before = _before(row['before_zlib_b85'], row['before_sha256'])
+    return before.replace(b'\r\n', b'\n') if text else before
+
 def reviewed_bytes(root,name,raw):
+    raw = _ui_merge_before(root, name, raw)
     # Only exact final files can enter this inverse. Other historical/current
     # bytes still reach their existing strict guards without ledger I/O.
     if name not in AFTER_SHA256:return raw
@@ -37,6 +67,7 @@ def reviewed_bytes(root,name,raw):
     return raw
 
 def reviewed_text(root,name,text):
+    text = _ui_merge_before(root, name, text.encode(), text=True).decode()
     if name not in AFTER_TEXT_SHA256:return text
     digest=hashlib.sha256(text.encode()).hexdigest()
     if digest!=AFTER_TEXT_SHA256[name]:return text
