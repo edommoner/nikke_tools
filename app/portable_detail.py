@@ -28,11 +28,16 @@ from portable_product_artifact import descriptor_file, saved_program
 
 SOURCE = 'gpu/product_battle_entry.slang'
 ROOT = Path(__file__).resolve().parents[1]
-BACKENDS = {'metal_detail': 'metal', 'cuda_shared_detail': 'cuda', 'native_detail': 'native'}
+BACKENDS = {'metal_detail': 'metal', 'cuda_shared_detail': 'cuda', 'native_detail': 'native', 'browser_detail': 'browser'}
 
 
 def execution_environment(backend):
     """Require warm generation plus an explicit saved image or native cache."""
+    if backend == 'browser':
+        from portable_wasm import availability
+        status=availability(ROOT)
+        if not status['available']:raise UnsupportedPortable(status['reason'])
+        return {}
     if backend == 'native':
         from portable_native import availability
         status=availability(ROOT)
@@ -52,11 +57,13 @@ def execution_environment(backend):
 
 
 def verified_transport(evidence, backend, *, cases=1):
-    timing = 'host_seconds' if backend=='native' else 'gpu_seconds' if backend == 'metal' else 'host_dispatch_seconds'
+    timing = 'browser_seconds' if backend=='browser' else 'host_seconds' if backend=='native' else 'gpu_seconds' if backend == 'metal' else 'host_dispatch_seconds'
     try:
         transport = evidence['transport']
-        valid = (evidence['backend'] == backend and evidence.get('native_execution_verified' if backend=='native' else 'gpu_execution_verified') is True
+        valid = (evidence['backend'] == backend and evidence.get('browser_execution_reported' if backend=='browser' else 'native_execution_verified' if backend=='native' else 'gpu_execution_verified') is True
             and (backend!='native' or evidence.get('gpu_execution_verified') is not True)
+            and (backend!='browser' or evidence.get('gpu_execution_verified') is False)
+            and (backend!='browser' or evidence.get('native_execution_verified') is False and transport.get('timing_scope')=='client-reported')
             and transport['command_status'] == 'completed' and type(transport['cases']) is int and transport['cases'] == cases
             and isinstance(transport['device'], str) and bool(transport['device'])
             and type(transport[timing]) in (int,float) and math.isfinite(transport[timing]) and transport[timing] >= 0
@@ -513,16 +520,18 @@ def _evaluation(body):
         output_hash=member['output_sha256'] if member else evidence['output_sha256']
         record.update(gpu_execution_verified=evidence.get('gpu_execution_verified',False),input_sha256=input_hash,output_sha256=output_hash)
         if backend=='native':record['native_execution_verified']=True
+        if backend=='browser':record.update(browser_execution_reported=True,native_execution_verified=False)
         if member:record['batch']=member
         block = array.array('I');block.frombytes((folder/'readback.bin').read_bytes())
         if sys.byteorder != 'little':block.byteswap()
         stage='decode'
         payload = decode_payload(body,prepared,run,metadata,block)
         payload['compute'] = dict(requested=requested,backend=requested,capture_id=folder.name,device=evidence['transport']['device'],
-            elapsed_ms=(time.perf_counter()-started)*1000,gpu_execution_verified=backend!='native',
+            elapsed_ms=(time.perf_counter()-started)*1000,gpu_execution_verified=backend not in ('native','browser'),
             input_sha256=input_hash,output_sha256=output_hash,source=source,
             scope='shared autonomous battle; CPU verified for this request')
         if backend=='native':payload['compute'].update(native_execution_verified=True,scope='native CPU execution of the shared kernel; full CPU payload verified for this request')
+        if backend=='browser':payload['compute'].update(browser_execution_reported=True,native_execution_verified=False,timing_scope='client-reported',scope='browser execution reported; full CPU payload verified for this request')
         payload['compute'][timing] = transport[timing]
         if member:
             payload['compute']['batch']=member
@@ -574,7 +583,7 @@ NATIVE_PRODUCT_BATCH=32
 
 
 def batch_limit(bodies):
-    return NATIVE_PRODUCT_BATCH if bodies and all(isinstance(b,dict) and b.get("compute_backend")=="native_detail" for b in bodies) else MAX_PRODUCT_BATCH
+    return NATIVE_PRODUCT_BATCH if bodies and all(isinstance(b,dict) and b.get("compute_backend") in ("native_detail","browser_detail") for b in bodies) else MAX_PRODUCT_BATCH
 
 
 def _execute_prepared(plans):
@@ -648,6 +657,7 @@ def _finish_evaluation(generator,*,outcome=None,error=None):
 
 def evaluate(body):
     """Original single-request behavior through the same batch-capable engine."""
+    if isinstance(body,dict) and body.get('compute_backend')=='browser_detail':raise ValueError('ブラウザ計算は画面からジョブとして実行してください。')
     generator=_evaluation(body)
     try:
         try:plan=next(generator)
@@ -662,6 +672,7 @@ def evaluate_many(bodies):
     """Preserve row identity and per-case CPU checks in bounded shared dispatches."""
     if not isinstance(bodies,list) or not 1<=len(bodies)<=batch_limit(bodies):
         raise ValueError('Shared detail evaluations exceed the backend batch limit')
+    if any(isinstance(b,dict) and b.get('compute_backend')=='browser_detail' for b in bodies):raise ValueError('ブラウザ計算は画面からジョブとして実行してください。')
     results=[None]*len(bodies);groups={};generators=[]
     try:
         for index,body in enumerate(bodies):
@@ -682,3 +693,65 @@ def evaluate_many(bodies):
         return results
     finally:
         for generator in generators:generator.close()
+
+
+def _browser_rows(bodies, uploads=None):
+    """Stateless prepare/finish around the existing single-yield evaluator."""
+    import base64
+    import gzip
+    import io
+    from portable_wasm import build_product
+    if not isinstance(bodies,list) or not 1<=len(bodies)<=32 or any(not isinstance(b,dict) or b.get('compute_backend')!='browser_detail' for b in bodies):
+        raise ValueError('Expected 1..32 browser detail evaluations')
+    if uploads is not None and (not isinstance(uploads,list) or len(uploads)!=len(bodies)):
+        raise ValueError('Browser upload row count mismatch')
+    results=[];builds={}
+    for index,body in enumerate(bodies):
+        generator=_evaluation(body)
+        try:
+            try:plan=next(generator)
+            except StopIteration as done:
+                results.append(dict(result=done.value));continue
+            try:
+                digest=hashlib.sha256(plan['packed']).hexdigest()
+                if uploads is None:
+                    if plan['source'] not in builds:builds[plan['source']]=build_product(ROOT,plan['source'])[1]
+                    receipt=builds[plan['source']]
+                    wire=dict(source=plan['source'],input_words=plan['input_words'],output_words=plan['output_words'],
+                        input_sha256=digest,wasm_identity=receipt['identity'],input_gzip_base64=base64.b64encode(gzip.compress(plan['packed'],mtime=0)).decode())
+                    (plan['folder']/'browser-prepare.json').write_text(json.dumps(dict(phase='browser-prepare',record=plan['record'],wire=wire,build=receipt),indent=2)+'\n')
+                    results.append(dict(wire=wire));continue
+                upload=uploads[index]
+                if not isinstance(upload,dict) or upload.get('input_sha256')!=digest:raise ValueError('Browser input sha256 mismatch')
+                seconds=upload.get('browser_seconds')
+                if type(seconds) not in (int,float) or not math.isfinite(seconds) or seconds<0:raise ValueError('Invalid client-reported browser seconds')
+                encoded=upload.get('readback_gzip_base64')
+                if not isinstance(encoded,str) or len(encoded)>12*1024*1024:raise ValueError('Invalid browser readback encoding')
+                expected=plan['output_words']*4
+                with gzip.GzipFile(fileobj=io.BytesIO(base64.b64decode(encoded,validate=True))) as stream:raw=stream.read(expected+1)
+                if len(raw)!=expected:raise ValueError('Browser readback length mismatch')
+                device=upload.get('device')
+                if not isinstance(device,str) or not device or len(device)>512:raise ValueError('Invalid browser device summary')
+                evidence=dict(backend='browser',browser_execution_reported=True,gpu_execution_verified=False,native_execution_verified=False,
+                    input_sha256=digest,output_sha256=hashlib.sha256(raw).hexdigest(),
+                    transport=dict(command_status='completed',cases=1,device=device,browser_seconds=seconds,timing_scope='client-reported'))
+                verified_transport(evidence,'browser')
+                (plan['folder']/'readback.bin').write_bytes(raw)
+                (plan['folder']/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
+                outcome=(evidence,None,None);failure=None
+            except Exception as error:
+                outcome=None;failure=error
+            result=_finish_evaluation(generator,outcome=outcome,error=failure)
+            results.append(dict(result=result))
+        except Exception as error:results.append(dict(error=str(error)))
+        finally:generator.close()
+    return results
+
+
+def prepare_browser_wires(bodies):
+    return _browser_rows(bodies)
+
+
+def finish_browser(bodies,uploads):
+    if not isinstance(uploads,list):raise ValueError('Browser uploads must be a list')
+    return _browser_rows(bodies,uploads)

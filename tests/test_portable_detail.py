@@ -862,7 +862,7 @@ class PortableDetail(unittest.TestCase):
     @historical_reference
     def test_both_backends_use_identical_inputs_decoder_and_post_readback_cpu_check(self):
         wires=[]
-        for requested,backend in product.BACKENDS.items():
+        for requested,backend in ((k,v) for k,v in product.BACKENDS.items() if v!="browser"):
             body={**self.fixture['body'],'compute_backend':requested}
             with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle in input')):
                 prepared,run=product.prepare(body)

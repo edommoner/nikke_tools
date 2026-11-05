@@ -105,7 +105,10 @@ class NativeSourceHistoryTests(unittest.TestCase):
         rows=self.rows();self.assertEqual(set(rows),{'app/portable_slang_generation.py','app/portable_detail.py','app/portable_backend.py'})
         for name,row in rows.items():
             with self.subTest(name=name):
-                raw=(ROOT/name).read_bytes();self.assertEqual(hashlib.sha256(raw).hexdigest(),row['after_sha256'])
+                raw=(ROOT/name).read_bytes()
+                from portable_browser_backend_source_contract import reviewed_bytes as browser_reviewed_bytes
+                reviewed=browser_reviewed_bytes(ROOT,name,raw)
+                self.assertEqual(hashlib.sha256(reviewed).hexdigest(),row['after_sha256'])
                 previous=native_preimage(ROOT,name,raw)
                 self.assertEqual(hashlib.sha256(previous).hexdigest(),row['before_sha256'])
                 if name in expected:self.assertEqual(row['before_sha256'],expected[name])

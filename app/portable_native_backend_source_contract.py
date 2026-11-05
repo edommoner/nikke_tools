@@ -12,6 +12,8 @@ AFTER_SHA256={'app/portable_slang_generation.py': '1fc0467944a3a6eb73b79456a230a
 
 
 def native_preimage(root,name,raw):
+    from portable_browser_backend_source_contract import reviewed_bytes as browser_reviewed_bytes
+    raw=browser_reviewed_bytes(root,name,raw)
     ledger=(Path(root)/'tests/fixtures/portable-native-backend-source-delta.json').read_bytes()
     if hashlib.sha256(ledger).hexdigest()!=LEDGER_SHA256:raise ValueError('Native backend source ledger changed')
     data=json.loads(ledger)
@@ -35,6 +37,8 @@ def native_preimage(root,name,raw):
 def reviewed_bytes(root,name,raw):
     # Other historical versions still go through their existing strict guards.
     # Only the exact reviewed native digest enters this new inverse.
+    from portable_browser_backend_source_contract import reviewed_bytes as browser_reviewed_bytes
+    raw=browser_reviewed_bytes(root,name,raw)
     if name in AFTER_SHA256 and hashlib.sha256(raw).hexdigest()==AFTER_SHA256[name]:
         return native_preimage(root,name,raw)
     return raw
