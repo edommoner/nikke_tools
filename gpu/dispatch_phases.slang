@@ -447,6 +447,9 @@ void applyDefinitionFrame(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
             }
             if (!f64Finite(value) || !f64Finite(spent)) { s.error = 16; break; }
             setResourceValue(s,at,value); results[resourceAddress(s,at)] |= 1;
+            // Canonical gauge charge/consume invalidates before synchronous
+            // every-stack or ammo-consume children, only on a changed value.
+            if (!f64Equal(old,value)) invalidateNativeNumeric(s);
             if (d.kind == 9 && f64Less(old,value) && results[s.resourceOutput+P_RESOURCE_STEP_HEAD_BASE+at] != 0)
             {
                 pushFrame(s,frames,depth,14,0,d.owner,int(key),f.time);
