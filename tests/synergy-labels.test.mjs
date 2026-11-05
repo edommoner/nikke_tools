@@ -115,3 +115,10 @@ test('empty and missing stats display special effect in both label lengths', () 
 test('conditional trait selectors retain their full explanatory suffix', () => {
   assert.equal(selectorLabel({kind:'trait',value:'explosion',rule:'conditional'}),'爆発の味方（条件で選ばれる対象）');
 });
+
+test('classLabel translates character classes', async () => {
+  const {classLabel} = await import('../web/synergy-labels.mjs');
+  assert.equal(classLabel('지원형'), '支援型');
+  assert.equal(classLabel('화력형'), '火力型');
+  assert.equal(classLabel(undefined), '');
+});

@@ -1,6 +1,7 @@
 import {elementLabels} from './roster-model.mjs';
 
 const classes = {'화력형':'火力型','지원형':'支援型','방어형':'防御型'};
+export const classLabel = value => classes[value] ?? value ?? '';
 const traits = {pierce:'貫通',armor_break:'装甲破壊',explosion:'爆発',split:'分割',dot:'持続ダメージ',charge:'チャージ武器',mg:'MG',sg:'SG'};
 const burstLabel = value => ({'1':'Ⅰ','2':'Ⅱ','3':'Ⅲ'}[value] ?? value);
 export function selectorLabel(selector, labelOf = name => name) {

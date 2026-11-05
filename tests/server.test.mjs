@@ -42,3 +42,24 @@ test('alternative skill representations preserve unrelated skill levels',()=>{
   const burst=cases.find(c=>c.field==='burst'&&c.value===10);
   assert.deepEqual(burst.evaluation.patches.a.skill_levels,{'1':7,'2':8,'3':10});
 });
+
+import {swapCases} from '../server.mjs';
+test('swap cases put baseline first, replace only the slot, filter deltas and preserve inputs',()=>{
+  const body={evaluation:{squad:['i','ii','iii','x','y'],profile:{chars:{}},patches:{z:{skill_levels:10}},stat_deltas:{ii:{atk:1},z:{atk:2},i:{hp:3}}},slot:1,includeBaseline:true};
+  const scored={characters:['i','ii','iii','x','y','z'].map((name,i)=>({name,burst:['1','2','3','3','3','2'][i],potential:i})),skipped:['missing']};
+  const saved=structuredClone({body,scored}),{cases,swap,skipped}=swapCases(body,scored);
+  assert.deepEqual({body,scored},saved);assert.equal(cases[0].value,'現在');
+  assert.deepEqual(cases[0].evaluation,body.evaluation);
+  assert.deepEqual(cases[1].evaluation.squad,['i','z','iii','x','y']);
+  assert.deepEqual(cases[1].evaluation.stat_deltas,{z:{atk:2},i:{hp:3}});
+  assert.deepEqual(swap,{slot:1,outgoing:'ii',remaining:0,names:['z'],bursts:Object.fromEntries(scored.characters.map(c=>[c.name,c.burst]))});
+  assert.deepEqual(skipped,['missing']);
+  cases[0].evaluation.patches.z.skill_levels=1;
+  assert.equal(cases[1].evaluation.patches.z.skill_levels,10);
+  assert.equal(swapCases({...body,includeBaseline:false},scored).cases.length,1);
+});
+test('swap validates five distinct nonempty members and an integer slot',()=>{
+  const scored={characters:[],skipped:[]},evaluation={squad:['a','b','c','d','e']};
+  for(const squad of [[],['a','b','c','d',''],['a','a','c','d','e'],['a','b','c','d',' ']])assert.throws(()=>swapCases({evaluation:{squad},slot:0},scored));
+  for(const slot of [-1,5,0.5,'0'])assert.throws(()=>swapCases({evaluation,slot},scored));
+});

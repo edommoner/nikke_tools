@@ -1,5 +1,5 @@
 import {createEvaluator,advanceCases} from './app/evaluation-queue.mjs';
-import {candidatePool,bestDisjoint,rankCombatPool} from './app/optimizer.mjs';
+import {candidatePool,bestDisjoint,rankCombatPool,swapCandidates} from './app/optimizer.mjs';
 import http from 'node:http';
 import {spawn} from 'node:child_process';
 import {readFileSync, existsSync} from 'node:fs';
@@ -100,6 +100,23 @@ export function boardCases(teams){
     return {value:t.index+1,evaluation:structuredClone(t.evaluation)};
   });
 }
+function validateSwap(body){
+  const squad=body.evaluation?.squad;
+  if(!Array.isArray(squad)||squad.length!==5||!squad.every(n=>typeof n==='string'&&n.trim())||new Set(squad).size!==5)throw Error('入れ替えには異なる5人の部隊を指定してください。');
+  integer(body.slot,0,4,'入れ替える枠');
+}
+export function swapCases(body,scored){
+  validateSwap(body);
+  const {squad}=body.evaluation,{slot}=body;
+  const {names,total}=swapCandidates(scored.characters,squad,slot,{synergyOrder:body.synergyOrder,sameStage:body.sameStage,skip:body.skip});
+  const cases=body.includeBaseline?[{value:'現在',evaluation:clone(body.evaluation)}]:[];
+  for(const name of names){
+    const evaluation=clone(body.evaluation);evaluation.squad[slot]=name;
+    evaluation.stat_deltas=Object.fromEntries(Object.entries(evaluation.stat_deltas||{}).filter(([n])=>evaluation.squad.includes(n)));
+    cases.push({value:name,evaluation});
+  }
+  return {cases,swap:{slot,outgoing:squad[slot],remaining:total-names.length,names,bursts:Object.fromEntries(scored.characters.map(c=>[c.name,c.burst]))},skipped:scored.skipped};
+}
 async function run(job) {
   if(job.running)return;
   job.running=true;job.status='running';
@@ -119,7 +136,17 @@ async function run(job) {
       job.phase=null;
       if(job.pauseRequested){job.status='paused';return;}
     }
-    await advanceCases(job,evaluator);
+    if(job.kind==='swap'){
+      while(job.index<job.cases.length&&job.status==='running'){
+        const item=job.cases[job.index];let row;
+        const evaluation={...item.evaluation,stat_deltas:Object.fromEntries(Object.entries(item.evaluation.stat_deltas||{}).filter(([n])=>item.evaluation.squad.includes(n)))};
+        try{row={value:item.value,result:await evaluate(evaluation,job)};}
+        catch(error){row={value:item.value,error:error.message};}
+        if(job.status==='cancelled')break;
+        job.results.push(row);job.index++;job.updatedAt=Date.now();
+        if(job.pauseRequested){job.status='paused';break;}
+      }
+    }else await advanceCases(job,evaluator);
     if(job.index===job.cases.length && job.status==='running'){
       if(job.kind==='optimize'&&job.selectionBackend==='cuda'){
         job.phase='GPUで部隊の組合せを評価中';
@@ -153,7 +180,7 @@ function view(job) {
   const feasible=job.results.filter(r=>r.meets);
   return {id:job.id,status:job.status,kind:job.kind,index:job.index,total:job.cases.length,results:job.results,error:job.error,
     target:job.target,strict:job.strict,best:feasible[0]||null,complete:job.status==='complete',updatedAt:job.updatedAt,
-    combatAcceleration:job.combatAcceleration,selectionBackend:job.selectionBackend,phase:job.phase,acceleration:job.acceleration,recommendation:job.incumbent||null,poolSize:job.pool?.length,skipped:job.skipped,mode:job.mode,searchKind:job.searchKind,bestByField:Object.fromEntries([...new Set(feasible.map(r=>r.field).filter(Boolean))].map(f=>[f,feasible.find(r=>r.field===f)]))};
+    combatAcceleration:job.combatAcceleration,selectionBackend:job.selectionBackend,phase:job.phase,acceleration:job.acceleration,recommendation:job.incumbent||null,poolSize:job.pool?.length,swap:job.swap,skipped:job.skipped,mode:job.mode,searchKind:job.searchKind,bestByField:Object.fromEntries([...new Set(feasible.map(r=>r.field).filter(Boolean))].map(f=>[f,feasible.find(r=>r.field===f)]))};
 }
 function json(res,value,code=200){res.writeHead(code,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});res.end(JSON.stringify(value));}
 async function body(req){let size=0;const chunks=[];for await(const chunk of req){size+=chunk.length;if(size>12*1024*1024)throw Error('JSONは12MB以内にしてください。');chunks.push(chunk);}return JSON.parse(Buffer.concat(chunks).toString('utf8'));}
@@ -176,7 +203,7 @@ const server=http.createServer(async(req,res)=>{
       if([...jobs.values()].some(j=>j.running))throw Error('実行中の計算を一時停止または終了してから開始してください。');
       if(jobs.size>=30){const old=[...jobs.values()].find(j=>!j.running&&j.status!=='paused');if(!old)throw Error('保持できる計算が上限です。');jobs.delete(old.id);}
       let cases;
-      let pool,groups,skipped,teamCount;
+      let pool,groups,skipped,teamCount,swap;
       if(b.kind==='optimize'){
         teamCount=b.teamCount===1?1:5;
         const scored=await worker({action:'candidates',evaluation:b.evaluation,excluded:b.excluded||[]});
@@ -184,11 +211,21 @@ const server=http.createServer(async(req,res)=>{
         const limit={fast:20,detail:80,long:160}[b.mode];if(!limit)throw Error('探索モードを選択してください。');
         cases=pool.slice(0,limit).map((squad,i)=>({value:i+1,evaluation:{...clone(b.evaluation),squad,stat_deltas:Object.fromEntries(Object.entries(b.evaluation.stat_deltas||{}).filter(([n])=>squad.includes(n)))}}));
       }
+      else if(b.kind==='swap'){
+        validateSwap(b);
+        const scored=await worker({action:'candidates',evaluation:b.evaluation,excluded:b.excluded||[]});
+        const missingMembers=b.evaluation.squad.filter(n=>!scored.characters.some(c=>c.name===n));
+        if(missingMembers.length){
+          const catalog=await worker({action:'catalog'});
+          scored.characters.push(...catalog.characters.filter(c=>missingMembers.includes(c.name)).map(c=>({name:c.name,burst:c.burst,potential:0})));
+        }
+        ({cases,swap,skipped}=swapCases(b,scored));
+      }
       else if(b.kind==='search')cases=searchCases(b);
       else if(b.kind==='board')cases=boardCases(b.teams);
       else if(b.kind==='compare')cases=[{value:'原本',evaluation:{...clone(b.evaluation),patches:{},stat_deltas:{}}},{value:'検討案',evaluation:clone(b.evaluation)}];
       else throw Error('Unknown job kind');
-      const job={id:randomUUID(),kind:b.kind,cases,index:0,results:[],target:b.target,strict:!!b.strict,status:'queued',updatedAt:Date.now(),pool,groups,skipped,teamCount,selectionBackend:b.selectionBackend||'cpu',mode:b.mode,searchKind:b.variable?.kind,evaluation:clone(b.evaluation)};jobs.set(job.id,job);void run(job);return json(res,view(job),202);
+      const job={id:randomUUID(),kind:b.kind,cases,index:0,results:[],target:b.target,strict:!!b.strict,status:'queued',updatedAt:Date.now(),pool,groups,skipped,teamCount,swap,selectionBackend:b.selectionBackend||'cpu',mode:b.mode,searchKind:b.variable?.kind,evaluation:clone(b.evaluation)};jobs.set(job.id,job);void run(job);return json(res,view(job),202);
     }
     const match=url.pathname.match(/^\/api\/jobs\/([\w-]+)(?:\/(pause|resume|cancel|extend))?$/);
     if(match){const job=jobs.get(match[1]);if(!job)return json(res,{error:'計算情報がありません。サーバー再起動後は新しく実行してください。'},404);
