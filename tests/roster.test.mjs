@@ -8,6 +8,16 @@ test('observed power sorting keeps missing values last in both directions',()=>{
  assert.deepEqual(sortRoster(['a','b','c'],{...args,direction:'asc'}),['a','c','b']);
  assert.equal(rosterValue({_observed_combat_power:'200'},'power'),null);
 });
+test('overload sorting forwards context and keeps unknown totals last in both directions',()=>{
+ const entries={a:{total:0},b:{total:null},c:{total:87},d:{total:20}};
+ const context={overloadLevelTotal:entry=>entry.total};
+ const args={field:'overload',entry:n=>entries[n],label:n=>n,context};
+ assert.deepEqual(sortRoster(['a','b','c','d'],{...args,direction:'desc'}),['c','d','a','b']);
+ assert.deepEqual(sortRoster(['a','b','c','d'],{...args,direction:'asc'}),['a','d','c','b']);
+ assert.equal(rosterValue(entries.c,'overload',context),87);
+ assert.equal(rosterValue(entries.c,'overload'),null);
+ assert.equal(rosterValue(entries.c,'overload',{}),null);
+});
 test('limit break includes core enhancement and incomplete skills are unknown',()=>{
  assert.equal(rosterValue({breakthrough:3,core_enhancement:4},'limit'),7);
  assert.equal(rosterValue({skill_levels:'7/8/9'},'skill'),24);
