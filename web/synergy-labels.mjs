@@ -33,6 +33,7 @@ export function conditionLabel(condition) {
   return `${subject}が${condition.negate ? 'いない' : 'いる'}と発動`;
 }
 const stats = {
+  ammo_charge_flat:'弾薬回復（10発ごと）',cover_hp_pct:'遮蔽物の最大HP',outgoing_heal_pct:'与える回復量',
   atk_pct:'攻撃力',atk_caster_based_pct:'攻撃力（発動者基準）',atk_dmg_pct:'攻撃ダメージ',crit_rate:'会心率',crit_dmg:'会心ダメージ',
   normal_atk_crit_rate:'通常攻撃の会心率',normal_atk_dmg_pct:'通常攻撃ダメージ',pierce_dmg_pct:'貫通ダメージ',armor_break_dmg_pct:'装甲破壊ダメージ',
   charge_dmg_pct:'チャージダメージ',charge_speed_pct:'チャージ速度',charge_speed_caster_based_pct:'チャージ速度（発動者基準）',charge_time_flat:'チャージ時間',
