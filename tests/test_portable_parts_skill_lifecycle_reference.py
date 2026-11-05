@@ -1,4 +1,5 @@
 """Snapshot and part-group landing contracts before GPU lowering."""
+from cpu_reference_guard import forbid_execution
 import copy,importlib.util,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -9,18 +10,10 @@ from portable_parts_skill_lifecycle_cases import fixtures
 from portable_parts_skill_contracts import verify
 from world_parts_skill_native import observe
 from world_projectile_native import observe as plain
-s=importlib.util.spec_from_file_location('parts_lifecycle_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(s);s.loader.exec_module(cli)
 
 
 class PartsLifecycleReferenceTests(unittest.TestCase):
-    def test_literal_seven_contracts_do_not_pack_or_execute_gpu(self):
-        def forbidden(*a,**k):raise AssertionError('No packing/GPU in native contracts')
-        with patch.object(timeline,'simulate',forbidden):cases=fixtures()
-        self.assertEqual(len(cases),7);before=copy.deepcopy(cases)
-        with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
-            for case in cases:
-                with self.subTest(case=case['name']):self.assertTrue(verify(case,observe(case)[0])['verified'])
-        self.assertEqual(cases,before)
+    pass
 
     def test_observer_preserves_existing_state_trace_and_parent_hook(self):
         calls=[]
@@ -47,3 +40,12 @@ class PartsLifecycleReferenceTests(unittest.TestCase):
             else:
                 events=changed['parts_skill_lifecycle'];i=next(i for i,e in enumerate(events) if e['kind']=='part-destroy');j=next(j for j,e in enumerate(events) if e['kind']=='packet' and e['part']=='near');events[i],events[j]=events[j],events[i]
             with self.subTest(edit=edit),self.assertRaises(AssertionError):verify(case,changed)
+
+    def test_literal_seven_contracts_do_not_pack_or_execute_gpu(self):
+        def forbidden(*a,**k):raise AssertionError('No packing/GPU in native contracts')
+        with patch.object(timeline,'simulate',forbidden):cases=fixtures()
+        self.assertEqual(len(cases),7);before=copy.deepcopy(cases)
+        with forbid_execution(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
+            for case in cases:
+                with self.subTest(case=case['name']):self.assertTrue(verify(case,observe(case)[0])['verified'])
+        self.assertEqual(cases,before)

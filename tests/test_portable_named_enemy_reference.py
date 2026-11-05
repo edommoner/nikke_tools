@@ -10,7 +10,6 @@ from calculator.boss_pattern import BossScript
 from portable_named_enemy_cases import fixtures
 from portable_named_enemy_contracts import verify
 from world_named_enemy_native import observe,plain
-from portable_readiness_semantics import reference_readiness
 
 class NamedEnemyReferenceTests(unittest.TestCase):
     def test23_literal_native_contracts_without_gpu_or_portable_packing(self):
@@ -50,20 +49,5 @@ class NamedEnemyReferenceTests(unittest.TestCase):
         c=fixtures()[0];n=observe(c)[0];n['named_enemy']['rankings'][0]['order']=[]
         with self.assertRaises(AssertionError):verify(c,n)
 
-    def test_gpu_host_admission_and_routing_has_only_recorded_native_scope(self):
-        from portable_reference import REFERENCES
-        self.assertIn('named-enemy',REFERENCES)
-        for c in fixtures():
-            with self.subTest(case=c['name']):
-                portable_runtime.validate_effect(c['effects'][-1],combat={},world_frame=True)
-                with self.assertRaises(ValueError):portable_runtime.validate_effect(c['effects'][-1],combat=None,world_frame=True)
-                with self.assertRaises(ValueError):portable_runtime.validate_effect(c['effects'][-1],combat={},world_frame=False)
-        rows=[dict(kind='buff',stat='received_dmg_pct'),dict(kind='damage',stat='bonus_damage'),dict(kind='instant',stat='named_buff_duration_extend'),dict(kind='damage',stat='sequential_damage:ref')]
-        for row in rows:
-            issue=dict(phase='effect',category='recipient',target='enemies_with_buff:mark',**row);r=reference_readiness(issue)
-            self.assertEqual(r['lane'],'native_contract_extension');self.assertEqual(r['recorded_cases'],23);self.assertEqual(r['reference_suites'],['named-enemy'])
-            for flag in ('gpu_supported','gpu_admission_verified','full_character_verified','runtime_validation_performed'):self.assertFalse(r[flag])
-            self.assertEqual(reference_readiness(dict(issue,fields=['unproven']))['lane'],'reference_review')
-        self.assertEqual(reference_readiness(dict(phase='effect',category='recipient',kind='instant',stat='ammo_charge_pct',target='enemies_with_buff:mark'))['lane'],'reference_review')
 
 if __name__=='__main__':unittest.main()

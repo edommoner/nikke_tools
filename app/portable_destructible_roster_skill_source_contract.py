@@ -3,6 +3,8 @@ import hashlib,json
 from pathlib import Path
 
 def project_sources(root,sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     from portable_destructible_lifesteal_source_contract import project_sources as lifesteal_sources
     root=Path(root);sources=lifesteal_sources(root,sources)
     data=json.loads((root/'tests/fixtures/portable-destructible-roster-skill-source-delta.json').read_text())
@@ -22,5 +24,9 @@ def verify_retained_sources(root,source,expected):
     name='gpu/full_burst_landing_runtime.slang'
     if name not in projected:projected[name]=project_file(root,name)
     for name,text in projected.items():
-        if name in actual:actual[name]=hashlib.sha256(text.encode()).hexdigest()
+        if name in actual:
+            if name=='gpu/quantity_runtime.slang':
+                from portable_quantity_visited_source_contract import historical_source
+                text=historical_source(root,text)
+            actual[name]=hashlib.sha256(text.encode()).hexdigest()
     assert actual==expected,'Retained source differs beyond exact roster-skill delta'

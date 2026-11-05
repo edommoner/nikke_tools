@@ -16,6 +16,8 @@ class CoreTests(unittest.TestCase):
         import array,hashlib
         prior=json.loads((ROOT/'research/portable-coordinate-accum-emission-short-expected.json').read_text())
         for (name,words,_),gold in zip(rows,prior['entries']):
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             raw_prefix=array.array('I',words[:BASE_INPUT])
             if sys.byteorder!='little':raw_prefix.byteswap()
             self.assertEqual(name,gold['name']);self.assertEqual(hashlib.sha256(raw_prefix.tobytes()).hexdigest(),gold['input_sha256'])
@@ -77,6 +79,8 @@ class CoreTests(unittest.TestCase):
         data=json.loads((ROOT/'tests/fixtures/portable-coordinate-core-source-delta.json').read_text());projected=project_sources(ROOT)
         for name,row in data['sources'].items():self.assertEqual(projected[name],row['baseline'])
         for name in [*data['sources'],*data['added_sources']]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed\n'})
         self.assertEqual(project_backend_source(ROOT),data['transport']['baseline'])
         with self.assertRaises(ValueError):project_backend_source(ROOT,(ROOT/data['transport']['path']).read_text()+'\n// unreviewed\n')

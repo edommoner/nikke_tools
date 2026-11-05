@@ -37,6 +37,8 @@ class ResidentArcTests(unittest.TestCase):
   from portable_coordinate_resident_arc_source_contract import ledger,project_sources,project_backend_source
   data=ledger(ROOT);old=project_sources(ROOT)
   for name,row in data['sources'].items():
+   from portable_removed_sources import REMOVED_SOURCES
+   if name in REMOVED_SOURCES:continue
    if name.endswith('.slang'):
     self.assertEqual(old[name],row['baseline'])
     with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n// unreviewed'})
@@ -48,7 +50,7 @@ class ResidentArcTests(unittest.TestCase):
   before,after=text.split('executeComposedCoordinateEvents(runtimeStates[id.x],id);')
   self.assertIn(needle,before);self.assertIn(needle,after)
  def test_all_native_routes_keep_the_original_provider_and_full_tail_comparator(self):
-  from portable_parent_oracles import provider
+  from native_comparison_provider import provider
   rows,_=a.prepare();native=0
   for _,_,domain in rows:
    if domain is None:continue

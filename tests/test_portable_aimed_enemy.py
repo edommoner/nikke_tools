@@ -19,11 +19,16 @@ class AimedEnemyTests(unittest.TestCase):
 
     def test_source_delta_is_exact_and_old_scope_cannot_return(self):
         project_sources(ROOT)
+        import portable_aimed_enemy_source_contract as stage_contract
+        from source_stage_guard import stage_inputs
+        stages=stage_inputs(ROOT,stage_contract)
         for name,row in ledger(ROOT)['sources'].items():
-            original=(ROOT/name).read_text()
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
+            original,stage_options=stages[name]
             for change in row['changes']:
                 changed=original.replace(change['current'],change['baseline'],1);self.assertNotEqual(changed,original)
-                with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:changed})
+                with self.subTest(name=name),self.assertRaises(AssertionError):stage_contract.baseline_source(ROOT,name,changed,**stage_options)
 
     def test_native_packet_and_accounting_faults_rejected(self):
         case=fixtures()[0];native,_=observe(case)

@@ -6,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[1];sp=importlib.util.spec_from_file_locati
 class HealingStorageBoundaries(unittest.TestCase):
     def setUp(self):
         b=v.body(1);b['enemy']['patterns']=[]
-        with v.s.v.context('storage-boundary',{v.N[0]:[v.B('reserve','heal_overcharge_store',5)]}):self.compiled=v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True})
+        with v.s.v.context('storage-boundary',{v.N[0]:[v.B('reserve','heal_overcharge_store',5)]}):self.compiled=v.s.v.v.a.evaluate({**b,'_compile_detail':True})
     def reject(self,p,pattern,script=None):
         with patch.object(g,'module_image',side_effect=AssertionError('CUDA must not be reached')),self.assertRaisesRegex(ValueError,pattern):g.run(object(),[p],script or [[0,2,101,0,0,0,0,0]],[self.compiled['enemy']],[self.compiled['base_stats']])
     def test_storage_is_distinct_from_HP_shield_decoy_stats(self):

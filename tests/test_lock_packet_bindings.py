@@ -43,6 +43,8 @@ class PacketBindingTests(unittest.TestCase):
         from portable_lock_packet_source_contract import project_sources
         data=json.loads((ROOT/'tests/fixtures/portable-lock-packet-source-delta.json').read_text());old=project_sources(ROOT)
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(old[name],row['baseline'])
             with self.subTest(name=name),self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n// mutation'})
 

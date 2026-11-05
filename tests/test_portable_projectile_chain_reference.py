@@ -48,14 +48,6 @@ class ProjectileChainReferenceTests(unittest.TestCase):
     def test_pinned_handler_and_buff_instant_producers(self):
         from portable_projectile_chain_contract import verify as sources
         r=sources(ROOT);self.assertTrue(r['buff_kind_uses_regular_activation']);self.assertEqual(r['weapon_hit_producers'],1)
-    def test_readiness_routes_confirmed_producers_without_changing_admission(self):
-        from portable_readiness_semantics import reference_readiness
-        issues=[dict(phase='effect',category='trigger',kind='damage',stat='projectile_explosion_damage',target='target',scaling=None,operator=dict(domain='timing',descriptor='weapon_hit:source: 부착 ')),dict(phase='effect',category='effect',kind='buff',stat='buff_stack_add',target='target',scaling=None),dict(phase='effect',category='fields',kind='damage',stat='projectile_attachment_damage',target='target',scaling=None,fields=['weapon_type'])]
-        for issue in issues:
-            r=reference_readiness(issue);self.assertEqual(r['recorded_cases'],26);self.assertFalse(r['gpu_supported']);self.assertFalse(r['gpu_admission_verified'])
-        self.assertEqual(reference_readiness(issues[0])['lane'],'gpu_lowering_candidate')
-        self.assertEqual(reference_readiness(issues[2])['lane'],'native_contract_extension')
-        empty=dict(issues[0],operator=dict(domain='timing',descriptor='weapon_hit:'));self.assertEqual(reference_readiness(empty)['lane'],'reference_review');self.assertEqual(reference_readiness(dict(issues[0],operator=None))['lane'],'reference_review')
     def test_weapon_completion_timing_requires_private_world(self):
         c=self.cases[0]
         with self.assertRaises(ValueError):portable_runtime.validate_effect(c['effects'][-1],combat=c['combat'],world_frame=False)

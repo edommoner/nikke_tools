@@ -36,6 +36,8 @@ class ManualSwapTests(unittest.TestCase):
     def test_exact_source_delta_rejects_lost_hooks_or_changed_order_and_budget(self):
         data=ledger(ROOT);self.assertEqual(set(verify(ROOT)['reviewed_manual_swap_sources']),set(data['sources']))
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             for change in row['changes']:
                 source=(ROOT/name).read_text();modified=source.replace(change['current'],change['baseline'],1)
                 with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:modified})

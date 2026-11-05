@@ -3,7 +3,6 @@ import copy,hashlib,json,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
-import nikke_gpu as cli
 from portable_original_support_profiles import profiles
 from portable_original_support_contracts import verify
 from world_original_support_native import selected
@@ -11,9 +10,11 @@ from world_original_support_native import selected
 class OriginalSupportConditions(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        m=dict(suite='original-support-conditions',purpose='development',selected_cases=[]);cls.adapter=cli.open_suite(m)
-        with patch('calculator.timeline.simulate',side_effect=AssertionError('Packing cannot simulate')):
-            cls.rows,_=cli.prepare_entries(cls.adapter,m)
+        from cpu_reference_guard import catalogue_cohort,forbid_execution
+        with forbid_execution(),patch('calculator.timeline.simulate',side_effect=AssertionError('Static packing cannot run a battle')):
+            cls.config,cls.adapter,cls.rows,cls.data=catalogue_cohort(ROOT,'original-support-conditions')
+
+    pass
 
     def fixture(self,case):
         scene=case['catalogue_profile']['scene_witness']['scenario'];pair=scene.startswith('Naga-Tia');injured=scene!='Naga-Tia-shield'
@@ -79,27 +80,5 @@ class OriginalSupportConditions(unittest.TestCase):
         case=self.rows[0][2][0];native['support_conditions']['heals'][0]['row']=-1
         with self.assertRaises(AssertionError):verify(case,native)
 
-    def test_sealed_source_inputs_and_cache_only_profile_keep_one_shared_executor(self):
-        from portable_backend import source_hashes
-        config=cli.SUITES['original-support-conditions'];cached=cli.SUITES['original-support-conditions-cache-only']
-        self.assertFalse(config['development_only']);self.assertTrue(cached['require_paired_generation'])
-        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
-        for key in ('script','source','golden','inputs','native','frozen_cases','input_words','output_words'):
-            self.assertEqual(config[key],cached[key])
-        _,data=cli.prepare_entries(self.adapter,dict(suite='original-support-conditions',purpose='sealed',selected_cases=[]))
-        raw=(ROOT/config['golden']).read_bytes();golden=json.loads(raw)
-        self.assertEqual(hashlib.sha256(data).hexdigest(),golden['input_sha256'])
-        self.assertEqual(golden['source_sha256'],source_hashes(config['source']))
-        prior=json.loads((ROOT/'research/portable-original-catalogue-support-v1-expected.json').read_text())
-        self.assertEqual(golden['source_sha256'],prior['source_sha256'])
-        self.assertEqual(golden['generated_normalized'],prior['generated_normalized'])
-        certificate=json.loads((ROOT/cli.SUITES[cli.compiler_alias('original-support-conditions')]['golden']).read_text())
-        self.assertEqual(certificate['baseline_golden_sha256'],hashlib.sha256(raw).hexdigest())
-        self.assertEqual(certificate['source_sha256'],golden['source_sha256'])
-        self.assertFalse(certificate['calculation_verified'])
-        receipt=json.loads((ROOT/'tests/fixtures/original-support-conditions-independent-v1.json').read_text())
-        self.assertEqual((receipt['input_count'],receipt['native_cases'],receipt['gpu_calls']),(4,4,0))
-        self.assertFalse(receipt['live_parent_receipt_present'])
-        for key in ('input_sha256','output_sha256'):self.assertEqual(receipt[key],golden[key])
 
 if __name__=='__main__':unittest.main()

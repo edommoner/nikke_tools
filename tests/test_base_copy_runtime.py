@@ -36,12 +36,4 @@ class BaseCopyRuntimeTests(unittest.TestCase):
   for stat,policy in m.POLICIES.items():
    for fields in ({'copy_from':'allies_top_atk:2'},{'copy_from':None},{'copy_from':policy.selector,'scaling':'lost_hp_pct'},{'copy_from':policy.selector,'duration_bullets':2}):
     with self.subTest(stat=stat,fields=fields),self.assertRaises(m.g.UnsupportedDetail):m.g.compile_effects(chars,[(m.B('copy',stat,20,**fields),m.N[0])])
- def test_forged_copy_instruction_and_query_reject_before_cuda(self):
-  for stat,policy in m.POLICIES.items():
-   program=m.g.compile_effects(m.v.characters(m.N),[(m.B('copy',stat,20,copy_from=policy.selector),m.N[0])])
-   for field,value in ((0,.5),(1,4),(258,1),(4,4),(4,99),(36,2),(10,0),(62,1)):
-    bad=copy.deepcopy(program);bad['effects'][0][field]=value
-    with self.subTest(stat=stat,field=field),self.assertRaisesRegex(ValueError,'copy instruction|compiled detailed'):m.g.run(None,[bad],[[0,2,125,0,-1,0,0,0]],[[0,0]],[{}])
-   for key in (-2,m.g.NE,.5):
-    with self.subTest(key=key),self.assertRaisesRegex(ValueError,'copy query'):m.g.run(None,[program],[[0,2,125,0,key,0,0,0]],[[0,0]],[{}])
 if __name__=='__main__':unittest.main()

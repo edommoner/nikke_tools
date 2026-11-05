@@ -59,8 +59,12 @@ class HealChargeGPUContracts(unittest.TestCase):
         from portable_heal_charge_source_contract import project_sources
         d=json.loads((ROOT/'tests/fixtures/portable-heal-charge-source-delta.json').read_text());result=project_sources(ROOT)
         for name,row in d['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(result[name],row['baseline'])
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n'})
         for name in d['added_sources']:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
 if __name__=='__main__':unittest.main()

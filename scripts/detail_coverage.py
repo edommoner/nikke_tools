@@ -19,7 +19,7 @@ def coverage():
  for name,data in a.META.items():
   if not isinstance(data,dict) or name.startswith(('_','test_')) or a.spec.is_preview(name):continue
   names=[name]+[n for n in ['모더니아','루주','마스트 : 로망틱 메이드','도라','얀'] if n!=name][:4]
-  try:a.evaluate({**body_for(names),'_compile_gpu_detail':True});results.append({'character':name,'supported':True})
+  try:a.evaluate({**body_for(names),'_compile_detail':True});results.append({'character':name,'supported':True})
   except UnsupportedDetail as e:results.append({'character':name,'supported':False,'issues':e.issues})
   except (Exception,SystemExit) as e:results.append({'character':name,'supported':False,'setup_error':str(e)})
  count=collections.Counter(i.get('reason','') for r in results for i in r.get('issues',[]))

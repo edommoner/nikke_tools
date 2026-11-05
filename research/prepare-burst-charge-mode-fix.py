@@ -31,21 +31,3 @@ def expected_sources():
     files['gpu/runtime_init.slang']=text.encode()
     files['burst_charge_mode_fix_runtime.slang']=b'#include "gpu/event_runtime.slang"\n'
     return files
-
-
-def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--verify',action='store_true');args=parser.parse_args()
-    folder=ROOT/'research/portable-build/burst-charge-mode-fix-candidate'
-    expected=expected_sources()
-    if not args.verify:
-        folder.mkdir()
-        for name,data in expected.items():
-            path=folder/name;path.parent.mkdir(exist_ok=True,parents=True);path.write_bytes(data)
-    for name,data in expected.items():
-        assert (folder/name).read_bytes()==data,name
-    print(len(expected),'candidate sources byte-exact to archived baseline plus explicit patch')
-    for name in ('gpu/event_runtime.slang','gpu/combat_runtime.slang','gpu/runtime_init.slang'):
-        print(name,hashlib.sha256(expected[name]).hexdigest())
-
-
-if __name__=='__main__':main()

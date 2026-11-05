@@ -15,12 +15,6 @@ def roster():
     s=importlib.util.spec_from_file_location('group_test_roster',ROOT/'research/verify-world-projectile-rosters.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
 def snapshot():return (timeline.simulate,sim.simulate,timeline.BossScript,timeline.HitEvent,timeline.CharState._fire,timeline.CharState._charge_fire,buff_manager.BuffManager.notify,buff_manager.BuffManager._resolve_target,buff_manager.BuffManager.register_damage_handler,buff_manager.BuffManager.publish_landing)
 class BattleAttackGroupTests(unittest.TestCase):
-    def test_source_audit_names_are_identical_on_windows_and_posix(self):
-        from portable_missing_consumer_audit import source_name
-        for path_type,root in [(PureWindowsPath,'C:/repo'),(PurePosixPath,'/repo')]:
-            base=path_type(root)
-            self.assertEqual(source_name(base/'app'/'battle_attack_group_runtime.py',base),'app/battle_attack_group_runtime.py')
-            with self.assertRaises(ValueError):source_name(base.parent/'other'/'producer.py',base)
     def test_full_original_effects_and_factories_do_not_simulate(self):
         with patch.object(timeline,'simulate',side_effect=AssertionError('No CPU hit input')):
             cases=fixtures();self.assertEqual(len(cases),22)
@@ -77,23 +71,4 @@ class BattleAttackGroupTests(unittest.TestCase):
         c=copy.deepcopy(fixtures()[0]);c['body']['enemy']['has_parts']=True;before=snapshot()
         with self.assertRaisesRegex(ValueError,'plain body/add'):observe(c)
         self.assertEqual(snapshot(),before)
-    def test_typed_coordinate_opt_in_source_guards_fail_closed(self):
-        from pathlib import Path
-        from portable_missing_consumer_audit import verify as audit
-        original=Path.read_text;path=ROOT/'app/battle_attack_group_runtime.py';source=path.read_text()
-        variants=[source.replace('coordinate_typed_packets=False','coordinate_typed_packets=True'),source.replace('coordinate_typed_packets=False','unknown=False'),source.replace('type(coordinate_typed_packets) is not bool or coordinate_typed_packets and not coordinate_packets','coordinate_typed_packets and not coordinate_packets')]
-        for changed in variants:
-            self.assertNotEqual(changed,source)
-            def altered(p,*args,**kwargs):return changed if p==path else original(p,*args,**kwargs)
-            with patch.object(Path,'read_text',altered),self.assertRaises(AssertionError):audit(ROOT)
-    def test_forged_matched_set_and_uninstalled_default_are_rejected(self):
-        from test_target_counter_runtime import manager as make_manager,NAMES
-        from attack_group_specs import AttackTargets,AttackKey
-        from impact_specs import ActorHandle,ActorKind
-        from reference_rewrite import referenced_names
-        from portable_missing_consumer_audit import verify as audit
-        m=make_manager([]);token=AttackTargets(AttackKey(NAMES[0],7,1),(ActorHandle(ActorKind.BODY,0),))
-        with battle_attack_groups(routing='all-logical-enemies'):
-            with self.assertRaisesRegex(ValueError,'owned sealed'):m.notify('multi_hit:1',0,NAMES[0],attack_targets=token)
-        self.assertNotIn('_nikke_shot_land_scope',referenced_names(timeline.simulate));self.assertEqual(audit(ROOT)['default_battle_attack_group_producer_calls'],[])
 if __name__=='__main__':unittest.main()

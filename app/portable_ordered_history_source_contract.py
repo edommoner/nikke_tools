@@ -22,7 +22,10 @@ def baseline_source(root,name,source,*,diagnostic_projected=False):
 
 
 def project_sources(root,sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     from portable_query_diagnostic_source_contract import project_sources as project_diagnostic
     root=Path(root);sources,_=project_diagnostic(root,sources);rows=ledger(root)['sources']
-    for name in rows:sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()),diagnostic_projected=True)
+    for name in rows:
+        sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()),diagnostic_projected=True)
     return sources,list(rows)

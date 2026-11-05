@@ -7,7 +7,7 @@ files=list((ROOT/'app').glob('*.py'))+[Path(__file__).resolve(),ROOT/'scripts/de
 before={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in files};report=coverage();stages=[]
 for stage in range(4):
     body=body_for(['사쿠라 : 블룸 인 서머','리타','크라운','앨리스','모더니아'],8,True);body['profile']['chars']['사쿠라 : 블룸 인 서머']['favorite_stage']=stage
-    compiled=a.evaluate({**body,'_compile_gpu_detail':True});assert sum(row[340]>0 for row in compiled['program']['effects'])==1;stages.append(stage)
+    compiled=a.evaluate({**body,'_compile_detail':True});assert sum(row[340]>0 for row in compiled['program']['effects'])==1;stages.append(stage)
 prior=json.loads((ROOT/'research/ports/v57-source-index-verified/research/source-index-coverage.json').read_text(encoding='utf-8'))
 supported=lambda r:{row['character'] for row in r['results'] if row['supported']}
 assert supported(prior)<=supported(report) and supported(report)-supported(prior)=={'사쿠라 : 블룸 인 서머'}

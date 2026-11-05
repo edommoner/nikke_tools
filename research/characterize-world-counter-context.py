@@ -26,10 +26,3 @@ def inspect_case(case):
  if expected.get('impact') is False:assert activation['impact'] is None
  assert all(row['conditions']==[expected['condition']] for row in rows)
  return dict(name=case['name'],input_sha256=hashlib.sha256(payload).hexdigest(),expected=expected,condition_observations=rows,native=native)
-
-def main():
- rows=[inspect_case(c) for c in cases.fixtures(physical)]
- report=dict(passed=True,cases=rows,case_count=len(rows),gpu_calls=0,cpu_state_used_as_input=False,normal_ui='CPU',canonical_world_admission=False,full_character_verified=0,full_goal_complete=False)
- (ROOT/'research/portable-world-counter-context-native-contract.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
- print('Full native counter context contracts:',len(rows),'GPU0')
-if __name__=='__main__':main()

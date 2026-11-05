@@ -81,17 +81,6 @@ class ArenaSpecsTests(unittest.TestCase):
                 return raw.replace(old,new,1) if path.name==name else raw
             with self.subTest(name=name),patch.object(Path,'read_bytes',changed),self.assertRaises(ValueError):audit_live_sources(ROOT)
 
-    def test_cli_exit_status_preserves_unsafe_result_and_never_runs_gpu(self):
-        with tempfile.TemporaryDirectory() as folder:
-            for profile,status in [('combined-legacy',1),('combined-v1',0)]:
-                out=Path(folder)/(profile+'.json')
-                process=subprocess.run([sys.executable,str(ROOT/'scripts/nikke_gpu.py'),'arena-check',
-                    '--profile',profile,'--out',str(out)],cwd=ROOT,capture_output=True,text=True)
-                self.assertEqual(process.returncode,status,process.stderr)
-                result=json.loads(out.read_bytes())
-                self.assertEqual(result['gpu_calls'],0)
-                self.assertFalse(result['calculation_verified'])
-                self.assertEqual(result['address_plan_verified'],status==0)
 
 
 if __name__=='__main__':unittest.main()

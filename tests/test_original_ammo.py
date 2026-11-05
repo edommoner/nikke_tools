@@ -8,7 +8,7 @@ class OriginalAmmoTests(unittest.TestCase):
     def test_all_definitions_pack_and_old_entry_rejects_before_gpu(self):
         from calculator import timeline
         from portable_coordinate_kind_admission import KindAdmission
-        from portable_parent_oracles import provider
+        from native_comparison_provider import provider
         with patch.object(timeline,'simulate',side_effect=AssertionError('No CPU schedule in input')):rows,_=a.prepare()
         self.assertEqual(len(rows),4)
         old=KindAdmission(ROOT,'gpu/world_coordinate_original_resource_entry.slang');current=KindAdmission(ROOT,a.SOURCE)

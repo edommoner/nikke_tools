@@ -105,31 +105,6 @@ class CommonPhysicalTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             common_landing(0., 0., 1., [], k=0.)
 
-    def test_shared_cli_records_policy_sources_and_forbids_gpu(self):
-        import portable_reference
-        spec = importlib.util.spec_from_file_location('physical_common_cli', ROOT/'scripts/nikke_gpu.py')
-        cli = importlib.util.module_from_spec(spec); spec.loader.exec_module(cli)
-        with tempfile.TemporaryDirectory() as folder:
-            output = Path(folder)/'reference.json'
-            result = portable_reference.run_reference('coordinate-physical-common', output,
-                        write=cli.write, forbid_gpu=cli.forbid_gpu)
-            self.assertEqual(result['case_count'], 9)
-            self.assertEqual(result['stage'], 'cpu-common-policy-contract')
-            self.assertEqual(result['gpu_calls'], dict(build=0, execute=0))
-            self.assertEqual(result['packing_calls'], 0)
-            report = json.loads(output.read_text())
-            self.assertFalse(report['historical_native_equivalence'])
-            self.assertFalse(report['calculation_verified'])
-            self.assertFalse(report['gpu_supported'])
-            for name in ['world_coordinate_physical_common.py',
-                         'world_coordinate_physical_common_reference.py',
-                         'coordinate_landing_reference.py', 'coordinate_geometry_reference.py']:
-                self.assertIn('research/'+name, report['source_sha256'])
-            old = output.read_bytes()
-            with self.assertRaises(FileExistsError):
-                portable_reference.run_reference('coordinate-physical-common', output,
-                        write=cli.write, forbid_gpu=cli.forbid_gpu)
-            self.assertEqual(output.read_bytes(), old)
 
     def test_contract_rejects_wrong_packet_topology_amount_and_notification(self):
         from portable_coordinate_physical_common_contracts import verify

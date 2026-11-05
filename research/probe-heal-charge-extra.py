@@ -18,7 +18,7 @@ for name,b,x in extra.fixtures(d):
         return result
     try:
         with d.v.s.v.context(name,x),patch.object(BM,'take_heal_charge',take),patch.object(BM,'collect_heal_charge',collect):
-            compiled=d.v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True});cpu=d.v.s.v.v.a.evaluate(b)
+            compiled=d.v.s.v.v.a.evaluate({**b,'_compile_detail':True});cpu=d.v.s.v.v.a.evaluate(b)
         checks=dict(compile=True,positive_charge=any(r['current']>0 for r in deposits))
         if name.endswith('same-name-two-owners'):checks['both_owners_release']=len({r['owner'] for r in releases if r['amount']>0})==2
         if name.endswith('expiry-recreate-before-release'):checks['recreation_does_not_lose_previous_quantity']=any(r['amount']>0 for r in releases)

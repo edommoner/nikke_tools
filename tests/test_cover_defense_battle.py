@@ -120,16 +120,5 @@ class CoverBattle(unittest.TestCase):
         bad['battle']['hits']=[h for h in bad['battle']['hits'] if h['pattern']!='phase-7.5-0']
         with self.assertRaisesRegex(AssertionError,'prior death'):verify(row['case'],bad)
 
-    def test_cli_registration_preserves_declared_reference_boundary(self):
-        from portable_reference import REFERENCES
-        import nikke_gpu
-        self.assertEqual(REFERENCES['cover-defense-common'],('portable_cover_defense_battle_cases','world_cover_defense_battle_native','portable_cover_defense_battle_contracts'))
-        self.assertNotIn('cover-defense-common',nikke_gpu.SUITES)
-        from portable_readiness_semantics import reference_readiness
-        result=reference_readiness(dict(phase='effect',kind='buff',stat='cover_def_pct',target='allies_top_atk:3'))
-        self.assertEqual(result['lane'],'reference_model_gap');self.assertFalse(result['gpu_supported'])
-        proof=result['declared_cover_defense_battle_cpu'];self.assertTrue(proof['private_cpu_reference_verified'])
-        self.assertEqual(proof['evidence_sha256'],hashlib.sha256((ROOT/proof['evidence']).read_bytes()).hexdigest())
-        for key in ('gpu_wire_connected','metal_battle_verified','cuda_battle_verified','canonical_default_changed','in_game_rules_verified'):self.assertFalse(proof[key])
 
 if __name__=='__main__':unittest.main()

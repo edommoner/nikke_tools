@@ -49,6 +49,8 @@ class BelowDefenseTests(unittest.TestCase):
         s=importlib.util.spec_from_file_location('below_retention_test',ROOT/'research/verify-world-below-def-retention-short.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
         rows,data=m.prepare();self.assertEqual(len(rows),95);self.assertEqual(sum(d is None for _,_,d in rows),23);self.assertEqual(len(data),4+95*104400*4)
         for name,_,domain in rows:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             if domain is None:m.validate_rejection([64],name)
 
     def test_source_ledger_rejects_base_only_non_strict_wrong_caster_and_scope(self):

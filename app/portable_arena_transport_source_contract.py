@@ -4,6 +4,8 @@ from pathlib import Path
 
 
 def historical_backend_source(root,source=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if source is not None:source=cpu_boundary_text(root,'app/portable_backend.py',source)
     from portable_coordinate_physical_source_contract import project_backend_source
     root=Path(root)
     row=json.loads((root/'tests/fixtures/portable-arena-transport-source-delta.json').read_text())

@@ -12,9 +12,12 @@ def ledger(root):
 
 
 def project_sources(root,sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     from portable_coordinate_generation_source_contract import project_sources as project_generations
     root=Path(root);sources=project_generations(root,sources);data=ledger(root)
-    for name in data['sources']:sources[name]=project_file(root,name,sources.get(name,(root/name).read_text()))
+    for name in data['sources']:
+        sources[name]=project_file(root,name,sources.get(name,(root/name).read_text()))
     for name,digest in data['added_sources'].items():
         assert hashlib.sha256(sources.get(name,(root/name).read_text()).encode()).hexdigest()==digest,'Unreviewed coordinate full-burst entry: '+name
     return sources

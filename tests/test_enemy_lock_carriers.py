@@ -40,19 +40,14 @@ class EnemyLockTests(unittest.TestCase):
         self.assertIn(False,named['enemy_memberships'])
         self.assertEqual(counts,[len(named['enemy_memberships'])]*2)
 
-    def test_cached_cli_shares_the_sealed_calculation_without_resident_flags(self):
-        import nikke_gpu as cli
-        normal=cli.SUITES['enemy-lock-carriers'];cached=cli.SUITES['enemy-lock-carriers-cache-only']
-        for key in ('script','source','golden','inputs','native','input_words','output_words'):self.assertEqual(normal[key],cached[key])
-        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
-        self.assertFalse(cached.get('require_paired_generation',False))
-        self.assertFalse(normal['development_only'])
 
     def test_exact_source_inverse_and_wire_guard(self):
         from portable_lock_enemy_carrier_source_contract import project_sources
         from portable_backend import validate_composed_stride
         data=json.loads((ROOT/'tests/fixtures/portable-lock-enemy-carrier-source-delta.json').read_text());projected=project_sources(ROOT)
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(projected[name],row['baseline'])
             with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n// mutation'})
         validate_composed_stride(suite.SOURCE,104400,806912)

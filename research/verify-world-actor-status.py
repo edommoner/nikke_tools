@@ -37,36 +37,3 @@ def prepare():
  import copy
  hit=copy.deepcopy(c);hit['patterns'][0]['spec'].pop('hp',None);hit['patterns'][0]['spec']['hit_hp']=2;hw,_,_=compile_case(hit);bad.append(('pure-hit-hp-max-rank-unresolved-native-contract',hw))
  return rows,programs,bad
-
-def main():
- ap=argparse.ArgumentParser();ap.add_argument('--backend',choices=('metal','cuda'),default='metal');ap.add_argument('--cpu-only',action='store_true');ap.add_argument('--replay',type=Path);a=ap.parse_args();rows,programs,bad=prepare();native=[recipient.state.fields.pool.observe(c) for c in rows]
- if a.cpu_only:
-  (ROOT/'research/portable-build/world-actor-status-native.json').write_text(json.dumps(dict(names=[c['name'] for c in rows],cases=native),ensure_ascii=False,indent=2)+'\n');print('CPU typed status native',len(rows),'raw',len(bad),'GPU0');return
- old=json.loads((ROOT/'research/portable-world-actor-recipient-metal.json').read_text());op=Path(old['captured']);before=(op/'input.bin').read_bytes();beforeout=(op/'readback.bin').read_bytes();n=int.from_bytes(before[:4],'little');assert n==484;iw=92336*4;ow=524288*4
- packed=array.array('I',[len(rows)+len(bad)+n])
- for w,_,_ in programs:packed.extend(w)
- for _,w in bad:packed.extend(w)
- for i in range(n):
-  w=list(struct.unpack_from('<'+'I'*92336,before,4+i*iw));w[0]=L['WORLD_ACTOR_STATUS_ABI'];packed.extend(w)
- if sys.byteorder!='little':packed.byteswap()
- data=packed.tobytes()
- if a.replay:
-  folder=a.replay;raw=(folder/'readback.bin').read_bytes();evidence=json.loads((folder/'evidence.json').read_text());assert (folder/'input.bin').read_bytes()==data and evidence['source_sha256']==source_hashes(SOURCE)
- else:
-  folder=ROOT/'research/portable-build'/('world-actor-status-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'));folder.mkdir(parents=True);(folder/'input.bin').write_bytes(data)
-  try:raw,evidence=execute(SOURCE,'portableEvents',data,92336,524288,a.backend)
-  except Exception as err:(folder/'failure.json').write_text(json.dumps(dict(error=repr(err),source_sha256=source_hashes(SOURCE)),indent=2)+'\n');raise
-  (folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
- values=array.array('I');values.frombytes(raw)
- if sys.byteorder!='little':values.byteswap()
- results=[]
- for i,(c,(_,m,b),expected) in enumerate(zip(rows,programs,native)):
-  block=values[i*524288:(i+1)*524288]
-  try:actual=decoded(block,m,c,b);changed=[k for k in expected if k!='scope' and actual[k]!=expected[k]]
-  except Exception as err:actual=dict(status=block[0],decode_error=repr(err));changed=['decode']
-  results.append(dict(name=c['name'],passed=block[0]==0 and not changed,changed=changed,actual=actual,native=expected))
- rejected=[dict(name=name,status=values[(len(rows)+j)*524288],passed=values[(len(rows)+j)*524288]==64) for j,(name,_) in enumerate(bad)]
- prior=[dict(index=j,passed=raw[(len(rows)+len(bad)+j)*ow:(len(rows)+len(bad)+j+1)*ow]==beforeout[j*ow:(j+1)*ow]) for j in range(n)]
- report=dict(passed=all(x['passed'] for x in results+rejected+prior),cases=results,rejected_cases=rejected,preserved484=prior,captured=str(folder),evidence=evidence,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),cpu_state_used_as_input=False,normal_ui='CPU',canonical_world_admission=False,full_character_verified=0,full_goal_complete=False)
- (ROOT/f'research/portable-world-actor-status-{a.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[x.get('name',x.get('index')) for x in results+rejected+prior if not x['passed']];print('Typed status native',len(rows),'raw',len(bad),'old484 exact',a.backend)
-if __name__=='__main__':main()

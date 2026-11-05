@@ -51,7 +51,7 @@ class StackContracts(unittest.TestCase):
         self.assertEqual(words[at+F['FLAGS']]&4,0)
         self.assertIn('zero',meta['resource_names'])
     def test_malformed_stack_definitions_fail_before_any_gpu(self):
-        for update in [dict(type='buff'),dict(target=[]),dict(target_effect=7),dict(scaling='lost_hp_pct'),dict(scaling='stack_count',scaling_ref='bad:ref')]:
+        for update in [dict(type='damage'),dict(target=[]),dict(target_effect=7),dict(scaling='lost_hp_pct'),dict(scaling='stack_count',scaling_ref='bad:ref')]:
             with self.subTest(update=update),self.assertRaises(ValueError):plan(dict(operation(),**update))
         e=operation('buff_max_stack_add');e['type']='buff';e['fixed_value']=2**53+1
         with self.assertRaises(ValueError):value(e,{})

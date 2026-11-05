@@ -1,18 +1,19 @@
+import engine_worker
 """Frozen original burst compositions share one implementation and cache key."""
 import hashlib,importlib.util,json,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
-import nikke_gpu as cli,engine_worker
 spec=importlib.util.spec_from_file_location('catalogue_burst_tests',ROOT/'research/verify-original-catalogue.py');adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
 
 class OriginalCatalogueBurst(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        from calculator import timeline
-        cls.config=cli.SUITES['original-catalogue-burst']
-        with cli.forbid_gpu(),patch.object(timeline,'simulate',side_effect=AssertionError('Static regression must not run a battle')):
-            cls.rows,cls.data=cli.prepare_entries(adapter,dict(suite='original-catalogue-burst',purpose='sealed',selected_cases=[]))
+        from cpu_reference_guard import catalogue_cohort,forbid_execution
+        with forbid_execution(),patch('calculator.timeline.simulate',side_effect=AssertionError('Static packing cannot run a battle')):
+            cls.config,cls.adapter,cls.rows,cls.data=catalogue_cohort(ROOT,'original-catalogue-burst',adapter)
+
+    pass
 
     def test_all_four_original_30s_rosters_and_definitions_are_preserved(self):
         self.assertEqual([r[2][0]['names'][0] for r in self.rows],['라피 : 레드 후드','홍련 : 흑영','레드 후드','신데렐라'])
@@ -35,21 +36,6 @@ class OriginalCatalogueBurst(unittest.TestCase):
             raw=self.data[4+i*115680*4:4+(i+1)*115680*4]
             self.assertEqual(hashlib.sha256(raw).hexdigest(),entry['input_sha256'])
 
-    def test_same_gpu_kernel_and_expected_outputs_drive_both_backends(self):
-        cached=cli.SUITES['original-catalogue-burst-cache-only']
-        for key in ('source','script','golden','frozen_cases','inputs','native','input_words','output_words'):self.assertEqual(self.config[key],cached[key])
-        self.assertFalse(self.config['development_only']);self.assertTrue(cached['require_paired_generation'])
-        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
-        current=json.loads((ROOT/self.config['golden']).read_text());prior=json.loads((ROOT/cli.SUITES['original-catalogue-initial']['golden']).read_text())
-        self.assertEqual(current['source_sha256'],prior['source_sha256'])
-        self.assertEqual(current['generated_normalized'],prior['generated_normalized'])
 
-    def test_comparison_golden_is_a_required_package_and_cpu_audit_dependency(self):
-        from portable_cpu_tests import AUDIT_FILES,validate_dependency_files
-        prior=cli.SUITES['original-catalogue-initial']['golden']
-        self.assertIn(prior,self.config['support_files'])
-        self.assertIn(prior,AUDIT_FILES['test_original_catalogue_burst.py'])
-        with self.assertRaisesRegex(ValueError,'missing from immutable payload'):
-            validate_dependency_files(ROOT,['test_original_catalogue_burst.py'],included=[])
 
 if __name__=='__main__':unittest.main()

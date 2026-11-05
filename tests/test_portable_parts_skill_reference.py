@@ -1,4 +1,5 @@
 """Native packet/notification prerequisites; no portable admission yet."""
+from cpu_reference_guard import forbid_execution
 import copy,importlib.util,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -9,16 +10,7 @@ from portable_parts_skill_cases import fixtures
 from portable_parts_skill_contracts import verify
 from world_parts_skill_native import observe
 from world_projectile_native import observe as plain_observe
-s=importlib.util.spec_from_file_location('parts_reference_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(s);s.loader.exec_module(cli)
 class PartsSkillReferenceTests(unittest.TestCase):
-    def test_fifteen_literal_contracts_forbid_packing_and_gpu(self):
-        def forbidden(*a,**k):raise AssertionError('GPU/packing forbidden')
-        with patch.object(timeline,'simulate',forbidden):cases=fixtures()
-        self.assertEqual(len(cases),15);before=copy.deepcopy(cases)
-        with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
-            for case in cases:
-                with self.subTest(case=case['name']):self.assertTrue(verify(case,observe(case)[0])['verified'])
-        self.assertEqual(cases,before)
     def test_observer_preserves_full_native_state_and_trace(self):
         for case in fixtures():
             native,trace=observe(case);plain,plain_trace=plain_observe(case);native.pop('parts_skill_events');native.pop('parts_skill_accounting',None)
@@ -53,3 +45,12 @@ class PartsSkillReferenceTests(unittest.TestCase):
                     packet=next(e for e in changed['parts_skill_events'] if e['kind']=='packet')
                     packet['reach' if edit=='reach' else 'time']=999
                 with self.subTest(case=case['name'],edit=edit),self.assertRaises(AssertionError):verify(case,changed)
+
+    def test_fifteen_literal_contracts_forbid_packing_and_gpu(self):
+        def forbidden(*a,**k):raise AssertionError('GPU/packing forbidden')
+        with patch.object(timeline,'simulate',forbidden):cases=fixtures()
+        self.assertEqual(len(cases),15);before=copy.deepcopy(cases)
+        with forbid_execution(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
+            for case in cases:
+                with self.subTest(case=case['name']):self.assertTrue(verify(case,observe(case)[0])['verified'])
+        self.assertEqual(cases,before)

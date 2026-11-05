@@ -80,12 +80,5 @@ class LogicalActorGeometry(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'configured ADD'):observe(bad)
         self.assertEqual(before,(timeline.simulate,sim.simulate,timeline.BossScript))
 
-    def test_native_reference_is_not_registered_as_a_gpu_suite(self):
-        import nikke_gpu
-        from portable_reference import REFERENCES
-        self.assertIn('logical-actor-geometry-common',REFERENCES)
-        self.assertNotIn('logical-actor-geometry-common',nikke_gpu.SUITES)
-        result=verify(self.cases['four-live'],self.observed['four-live'])
-        self.assertFalse(result['gpu_supported']);self.assertFalse(result['gpu_wire_connected']);self.assertTrue(result['reference_model_gap'])
 
 if __name__=='__main__':unittest.main()

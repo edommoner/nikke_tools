@@ -15,17 +15,3 @@ def fixtures():
     b['profile']['chars']['A2']['cube']={'name':'렐릭 커버 큐브','level':4}
     b['enemy']['patterns'].append(dict(id='A2 cover-cube hits',kind='attack',delay=.2,until={'time':30},spec=dict(coeff=100,atk=100000,target='all',hits=6,interval=4)))
     yield 'raw-A2-capacity-cover-cube',b,extra
-if __name__=='__main__':
-    ap=argparse.ArgumentParser();ap.add_argument('--backend',choices=['native','ptx'],required=True);ap.add_argument('--output',required=True);args=ap.parse_args()
-    files=['scripts/verify-cover-capacity-cube-carriers.py','scripts/verify-cover-capacity.py','scripts/verify-hp-edge-real.py','scripts/verify-hp-edge.py','scripts/verify-survival-scaling.py','scripts/verify-survival-detail.py','scripts/verify-incoming-detail.py','app/engine_worker.py','app/engine_compat.py','app/survival_compat.py','app/survival_scaling_compat.py','app/detail_world.py','app/detail_boss.py','research/upstream/nikke-calc-master/calculator/buff_manager.py','research/upstream/nikke-calc-master/calculator/timeline.py','research/upstream/nikke-calc-master/data/parsed_skills.json']+['app/'+n for n in (['detail_gpu.py','detail_effects.cu','detail_effects.ptx','detail_effects-build.json'] if args.backend=='ptx' else ['detail_gpu.py','detail_effects.cu','detail_effects-sm86.cubin','detail_effects-sm86.json'])]
-    sha=lambda p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest();hashes={p:sha(p) for p in files};planned=list(fixtures());rows=[];device=cap.v.s.v.v.v.Cuda()
-    try:
-        for name,b,extra in planned:
-            try:r=cap.compare(device,name,b,extra,args.backend)
-            except Exception as exc:r=dict(name=name,passed=False,error=repr(exc));print(json.dumps(r),flush=True)
-            rows.append(r)
-            if not r['passed']:break
-    finally:device.close()
-    assert hashes=={p:sha(p) for p in files}
-    r=dict(generated_at=datetime.now(timezone.utc).isoformat(),passed=len(rows)==len(planned) and all(x['passed'] for x in rows),stage_only=False,objective_complete=False,abi=cap.g.DETAIL_ABI,backend=args.backend,planned_cases=len(planned),not_run_cases=len(planned)-len(rows),cases=rows,source_sha256=hashes,cpu_trace_used_as_gpu_input=False)
-    (ROOT/args.output).write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if r['passed'] else 1)

@@ -1,6 +1,6 @@
-"""Product battle adapter: original preparation -> shared GPU -> original payload.
+"""Product battle adapter: original preparation -> shared kernel -> original payload.
 
-No CPU battle, damage or event schedule is used as GPU input. Until broader
+No CPU battle, damage or event schedule is used as kernel input. Until broader
 product admission is established every successful shared-kernel result is CPU-checked.
 Policy 2026-11-05: optimize jobs alone may defer checks to every displayed squad
 plus a reproducible 1/8 sample; any mismatch escalates to the entire job. All
@@ -27,11 +27,10 @@ import engine_worker
 from portable_runtime import UnsupportedPortable, decode
 from portable_projectile_roster_input import compile_projectile_battle, INPUT_WORDS, OUTPUT_WORDS
 from portable_backend import execute
-from portable_product_artifact import descriptor_file, saved_program
 
 SOURCE = 'gpu/product_battle_entry.slang'
 ROOT = Path(__file__).resolve().parents[1]
-BACKENDS = {'metal_detail': 'metal', 'cuda_shared_detail': 'cuda', 'native_detail': 'native', 'browser_detail': 'browser'}
+BACKENDS = {'native_detail': 'native', 'browser_detail': 'browser'}
 
 
 def execution_environment(backend):
@@ -46,24 +45,14 @@ def execution_environment(backend):
         status=availability(ROOT)
         if not status['available']:raise UnsupportedPortable(status['reason'])
         return {}
-    if backend == 'metal':
-        return {}
-    if platform.system() != 'Windows':
-        raise UnsupportedPortable('共通CUDA詳細はWindowsで利用できます。')
-    keys=('NIKKE_SLANG_GENERATION_CACHE',) if descriptor_file() is not None else ('NIKKE_SLANG_GENERATION_CACHE','NIKKE_CUDA_COMPILE_CACHE')
-    for key in keys:
-        value = os.environ.get(key)
-        if not value or not Path(value).is_absolute() or not Path(value).is_dir():
-            raise UnsupportedPortable('共通CUDAの実行用キャッシュが未準備です: '+key)
-    return dict(NIKKE_SLANG_GENERATION_REQUIRED='1', NIKKE_CUDA_CACHE_REQUIRED='1',
-                NIKKE_CUDA_ARTIFACT='cubin', NIKKE_CUDA_PTXAS_OPT_LEVEL='1')
+    raise UnsupportedPortable('Unsupported execution backend')
 
 
 def verified_transport(evidence, backend, *, cases=1):
-    timing = 'browser_seconds' if backend=='browser' else 'host_seconds' if backend=='native' else 'gpu_seconds' if backend == 'metal' else 'host_dispatch_seconds'
+    timing = 'browser_seconds' if backend=='browser' else 'host_seconds'
     try:
         transport = evidence['transport']
-        valid = (evidence['backend'] == backend and evidence.get('browser_execution_reported' if backend=='browser' else 'native_execution_verified' if backend=='native' else 'gpu_execution_verified') is True
+        valid = (evidence['backend'] == backend and evidence.get('browser_execution_reported' if backend=='browser' else 'native_execution_verified') is True
             and (backend!='native' or evidence.get('gpu_execution_verified') is not True)
             and (backend!='browser' or evidence.get('gpu_execution_verified') is False)
             and (backend!='browser' or evidence.get('native_execution_verified') is False and transport.get('timing_scope')=='client-reported')
@@ -75,7 +64,7 @@ def verified_transport(evidence, backend, *, cases=1):
     except (KeyError, TypeError, OverflowError):
         valid = False
     if not valid:
-        raise RuntimeError('Shared GPU execution metadata is incomplete or unverified')
+        raise RuntimeError('Shared kernel execution metadata is incomplete or unverified')
     return transport, timing
 
 
@@ -98,7 +87,7 @@ def validate_world_frame_readback(block,metadata):
     base=L['WORLD_FRAME_OUTPUT_BASE'];count=contract['nodes']
     if (len(block)<base+788 or block[base]!=0 or not 1<=block[base+1]<=512 or list(block[base+784:base+788])!=[32,0,0,0]
         or any(block[base+16+i*24]!=0 for i in range(count))):
-        raise UnsupportedPortable('Shared world clock readback is missing or incomplete; the GPU result is rejected')
+        raise UnsupportedPortable('Shared world clock readback is missing or incomplete; the compiled result is rejected')
 
 
 def _compile_product(prepared):
@@ -152,11 +141,11 @@ def _compile_product(prepared):
     if not prepared.get('_product_healing_compiled') and required(prepared):
         return compile_healing(prepared,compile_product)
     if prepared.get('reference_models'):
-        raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared GPU product wire; no model may be silently omitted')
+        raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared kernel product wire; no model may be silently omitted')
     from portable_enemy_specs import lower_single_body_nearby
     original=prepared
     # The product promises the canonical battle's named-carrier lifecycle.
-    # Keep every equipment definition and let the existing shared GPU carrier
+    # Keep every equipment definition and let the existing shared kernel carrier
     # merge/refresh them exactly as native does. Standalone component-quantity
     # proofs retain their distinct, explicitly documented contract.
     prepared=dict(prepared,_product_native_equipment_carriers=True)
@@ -255,7 +244,7 @@ def prepare(body):
         if coordinate_spec is not None:
             run.enemy['coord']=copy.deepcopy(coordinate_spec['coord'])
         from calculator.boss_pattern import boss_mode
-        boss_mode(run.enemy) # Preserve native mode validation before any GPU allocation.
+        boss_mode(run.enemy) # Preserve native mode validation before any native allocation.
         def observe(manager):
             # Constructor metadata only: do not execute a CPU battle to obtain it.
             run._portable_detail_model_warnings = manager.effect_model_warnings()
@@ -286,7 +275,7 @@ def decode_payload(body, prepared, run, metadata, block):
         raise RuntimeError('Missing final battle query')
     values = view['queries'][0]['damage']
     if any(not math.isfinite(x) or x < 0 for x in values):
-        raise RuntimeError('Invalid GPU damage totals')
+        raise RuntimeError('Invalid kernel damage totals')
     names = [c['name'] for c in prepared['chars']]
     from portable_world_result import read_product_control_log
     control_log=read_product_control_log(block,metadata,names,run.config['duration'],burst_trace=view['burst_trace'])
@@ -471,9 +460,9 @@ def decode_payload(body, prepared, run, metadata, block):
 
 
 def _evaluation(body, *, verification='full'):
-    """Prepare and finish one request around a single deferred GPU boundary."""
+    """Prepare and finish one request around a single deferred execution boundary."""
     if not isinstance(body,dict) or body.get('compute_backend') not in BACKENDS:
-        raise ValueError('Expected an explicit shared GPU detail request')
+        raise ValueError('Expected an explicit shared kernel detail request')
     if verification not in ('full', 'deferred'):raise ValueError('Invalid verification policy')
     requested = body['compute_backend']
     backend = BACKENDS[requested]
@@ -484,9 +473,9 @@ def _evaluation(body, *, verification='full'):
     capture_root = Path(os.environ.get('NIKKE_DETAIL_CAPTURE_ROOT',ROOT/'research/portable-build/product-detail'))
     folder = capture_root / uuid.uuid4().hex
     folder.mkdir(parents=True,exist_ok=False)
-    record = dict(verification=verification,requested=requested, capture_id=folder.name, gpu_execution_verified=False, cpu_battle_used_as_gpu_input=False)
-    explicit_image=backend=='cuda' and 'NIKKE_SHARED_CUDA_ARTIFACTS' in os.environ
-    historical_status=dict(saved_cubin_admission='not_admitted') if explicit_image else {}
+    record = dict(verification=verification,requested=requested, capture_id=folder.name, native_execution_verified=False, browser_execution_reported=False, gpu_execution_verified=False, cpu_battle_used_as_gpu_input=False)
+    explicit_image=False
+    historical_status={}
     record.update(historical_status)
     def save():
         (folder/'result.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -514,11 +503,6 @@ def _evaluation(body, *, verification='full'):
         evidence,artifact_receipt,member = yield dict(source=source,input_words=input_words,output_words=output_words,
             packed=packed,backend=backend,policy=policy,explicit_image=explicit_image,folder=folder,
             historical_status=historical_status,record=record)
-        if artifact_receipt is not None:
-            if evidence.get('transport',{}).get('compile_artifact')!=artifact_receipt:
-                raise RuntimeError('Saved product CUBIN transport receipt mismatch')
-            record['artifact_receipt']=artifact_receipt
-            historical_status['saved_cubin_admission']='verified';record.update(historical_status)
         transport, timing = verified_transport(evidence,backend,cases=member['cases'] if member else 1)
         input_hash=member['input_sha256'] if member else evidence['input_sha256']
         output_hash=member['output_sha256'] if member else evidence['output_sha256']
@@ -568,9 +552,9 @@ def _evaluation(body, *, verification='full'):
         record.update(backend=requested,cpu_verification=dict(status='pending'),elapsed_seconds=time.perf_counter()-started)
         save();return payload
 
-    # CPU evaluation is outside the GPU exception boundary and runs once per
-    # request, after readback or a GPU failure. A CPU error is never retried or
-    # misclassified as an unsupported GPU condition.
+    # CPU evaluation is outside the compiled execution exception boundary and runs once per
+    # request, after readback or a compiled execution failure. A CPU error is never retried or
+    # misclassified as an unsupported compiled execution condition.
     try:
         cpu = engine_worker.evaluate(body)
     except Exception as error:
@@ -584,7 +568,7 @@ def _evaluation(body, *, verification='full'):
     record.update(cpu_verification=dict(matched=not differences,differing_fields=differences),elapsed_seconds=time.perf_counter()-started)
     (folder/'gpu-payload.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     if differences:
-        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUとCPUの照合に差があったため、CPUの結果を表示しています。',
+        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通カーネルとCPUの照合に差があったため、CPUの結果を表示しています。',
             gpu_result_rejected=True,cpu_verification=record['cpu_verification'],**historical_status)
         record['backend']='cpu';save();return cpu
     payload['compute']['cpu_verification']=record['cpu_verification']
@@ -611,7 +595,7 @@ def _cpu_fallback(body,folder,record,*,started=None):
     (folder/'cpu-payload.json').write_text(json.dumps(cpu,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     historical_status={k:v for k,v in record.items() if k=='saved_cubin_admission' or k.startswith('historical_link_')}
     cpu['compute']=dict(requested=record['requested'],backend='cpu',capture_id=folder.name,
-        fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=record['unsupported'],
+        fallback_reason='共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=record['unsupported'],
         fallback_stage=record['stage'],gpu_execution_verified=record['gpu_execution_verified'],**historical_status)
     return cpu
 
@@ -660,7 +644,7 @@ def verify_portable_detail(bodies_with_capture_ids):
         if differences:
             historical_status={k:v for k,v in record.items() if k=='saved_cubin_admission' or k.startswith('historical_link_')}
             cpu['compute']=dict(requested=record['requested'],backend='cpu',capture_id=capture_id,
-                fallback_reason='共通GPUとCPUの照合に差があったため、CPUの結果を表示しています。',
+                fallback_reason='共通カーネルとCPUの照合に差があったため、CPUの結果を表示しています。',
                 gpu_result_rejected=True,cpu_verification=check,**historical_status)
             record['backend']='cpu'
         (folder/'result.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -695,23 +679,11 @@ def _execute_prepared(plans):
             budget=space_status(folder,len(packed)+2*count*first['output_words']*4)
             write('storage-budget.json',budget)
             if not budget['passed']:raise RuntimeError('Insufficient space for shared batch and complete member readbacks')
-        with patch.dict(os.environ,first['policy']) if first['policy'] else nullcontext():
-            context=saved_program(first['source'],folder) if first['explicit_image'] else nullcontext()
-            with context as receipt:
-                history=receipt['identity'].get('historical_link_environment') if receipt is not None else None
-                if history is not None:
-                    from portable_linked_artifact import validate_historical_environment
-                    validate_historical_environment(history)
-                    for p in plans:
-                        p['historical_status'].update(historical_link_preservation_verified=False,
-                            historical_link_missing_processes_count=len(history['missing_identities']),historical_link_termination_cause=history['termination_cause'])
-                        p['record'].update(p['historical_status'])
-                raw,evidence=execute(first['source'],'portableEvents',packed,first['input_words'],first['output_words'],first['backend'],readback_path=folder/'readback.bin')
-                if raw is not None:raise RuntimeError('Expected bounded file readback')
-                write('evidence.json',evidence)
+        raw,evidence=execute(first['source'],'portableEvents',packed,first['input_words'],first['output_words'],first['backend'],readback_path=folder/'readback.bin')
+        if raw is not None:raise RuntimeError('Expected bounded file readback')
+        write('evidence.json',evidence)
+        receipt=None
         if count==1:return [(evidence,receipt,None)]
-        if receipt is not None and evidence.get('transport',{}).get('compile_artifact')!=receipt:
-            raise RuntimeError('Saved product CUBIN transport receipt mismatch')
         verified_transport(evidence,first['backend'],cases=count)
         data=(folder/'readback.bin').read_bytes();stride=first['output_words']*4
         if (len(data)!=count*stride or hashlib.sha256(packed).hexdigest()!=evidence['input_sha256']
@@ -742,7 +714,7 @@ def _finish_evaluation(generator,*,outcome=None,error=None):
         if error is None:generator.send(outcome)
         else:generator.throw(error)
     except StopIteration as finished:return finished.value
-    raise RuntimeError('A product request may have only one GPU execution boundary')
+    raise RuntimeError('A product request may have only one compiled execution boundary')
 
 
 def evaluate(body):

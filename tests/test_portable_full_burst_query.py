@@ -49,12 +49,6 @@ class FullBurstQueryTests(unittest.TestCase):
         for c in old():
             if c['contract'].get('reference_model_gap'):
                 with self.assertRaisesRegex(ValueError,'reference_model_gap'):m.suite.compile_case(c)
-    def test_readiness_indexes_scoped_evidence_without_global_promotion(self):
-        from portable_readiness_semantics import reference_readiness
-        issue=dict(phase='effect',category='fields',kind='damage',stat='sequential_damage:6',target='enemies_random',fields=['land_in_full_burst'])
-        r=reference_readiness(issue);self.assertEqual(r['followup_metal_validation']['ordered_query_events'],41);self.assertEqual(r['followup_metal_validation']['inputs'],291)
-        for key in ('gpu_supported','gpu_admission_verified','full_character_verified','runtime_validation_performed'):self.assertFalse(r[key])
-        self.assertNotIn('live_reentrant_landing_queue_and_capacity_contracts',r['required_extensions'])
     def test_diagnostic_decoder_accepts_saved_word_array_and_rejects_truncation(self):
         import array
         s=importlib.util.spec_from_file_location('query_diag_type_test',ROOT/'research/verify-world-full-burst-query-diagnostic-short.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
@@ -66,6 +60,8 @@ class FullBurstQueryTests(unittest.TestCase):
         from portable_full_burst_landing_source_contract import project_sources
         project_sources(ROOT)
         for name,old,new in [('gpu/program_phases.slang','initializeNativeQueryDiagnostic(s)','initializeWrongDiagnostic(s)'),('gpu/hp_attack_runtime.slang','if(parentRow<s.count)','if(false)'),('gpu/dispatch_phases.slang','queryOnlyFullBurstLanding','sampleFullBurstLanding'),('gpu/damage_runtime.slang','readFullBurstLandingReference(s,basisRow,when)','fullBurstLandingCount(s,basisRow)'),('gpu/skill_hp_basis_runtime.slang','deferredInvalid && d.damagePending!=2','false')]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             s=(ROOT/name).read_text();self.assertIn(old,s)
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:s.replace(old,new)})
 if __name__=='__main__':unittest.main()

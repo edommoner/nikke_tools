@@ -17,6 +17,8 @@ class UndyingPredicateTests(unittest.TestCase):
         m=adapter();entries,data=m.prepare();self.assertEqual(len(entries),28);self.assertEqual(sum(e[2] is not None for e in entries),22)
         at=L['CONDITION_BASE']+2*L['CONDITION_WORDS'];self.assertEqual(entries[1][1][at:at+4],[38,0,0,0]);self.assertEqual(len(data),4+sum(len(e[1])*4 for e in entries))
         for name,words,domain in entries[-6:]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertIsNone(domain);m.validate_rejection([64],name)
             with self.assertRaises(AssertionError):m.validate_rejection([0],name)
         self.assertEqual((ROOT/'gpu/portable_schema.slang').read_text(),shader_schema())
@@ -30,6 +32,8 @@ class UndyingPredicateTests(unittest.TestCase):
     def test_every_source_delta_and_marker_semantics_are_guarded(self):
         data=ledger(ROOT);self.assertEqual(set(verify(ROOT)['reviewed_undying_predicate_sources']),set(data['sources']))
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             source=(ROOT/name).read_text()
             for change in row['changes']:
                 with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(change['current'],change['baseline'],1)})

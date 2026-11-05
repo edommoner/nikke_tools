@@ -126,19 +126,6 @@ class EnemyHealingModel(unittest.TestCase):
         n,_=observe(c);self.assertEqual(len(n['enemy_healing']['sources']),1)
         self.assertEqual(len(n['enemy_healing']['receipts']),2)
 
-    def test_reference_contract_never_becomes_gpu_admission(self):
-        import nikke_gpu
-        from portable_reference import REFERENCES
-        self.assertIn('enemy-healing-common',REFERENCES);self.assertNotIn('enemy-healing-common',nikke_gpu.SUITES)
-        c=self.cases[0];result=verify(c,self.native['level10'])
-        self.assertFalse(result['gpu_supported']);self.assertFalse(result['gpu_wire_connected'])
-        self.assertTrue(result['reference_model_gap'])
-        from portable_readiness_semantics import reference_readiness
-        issue=dict(phase='effect',kind='buff',stat='heal_received_pct',target='all_enemies')
-        r=reference_readiness(issue);contract=r['declared_enemy_healing_contract']
-        self.assertTrue(contract['actual_finite_ADD_health']);self.assertTrue(contract['cpu_reference_verified'])
-        self.assertFalse(contract['gpu_wire_connected']);self.assertFalse(r['gpu_supported'])
-        self.assertEqual(r['lane'],'reference_model_gap')
 
     def test_hit_count_health_and_combined_actor_overflow_are_rejected(self):
         for spec in (dict(count=1,hit_hp=3),dict(count=1,hp=100,hit_hp=3,hit_hp_after=1),dict(count=128,hp=100)):

@@ -4,6 +4,8 @@ from pathlib import Path
 
 
 def project_sources(root,sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     from portable_coordinate_core_source_contract import project_sources as project_core
     root=Path(root);sources=project_core(root,sources)
     data=json.loads((root/'tests/fixtures/portable-coordinate-accum-emission-source-delta.json').read_text())

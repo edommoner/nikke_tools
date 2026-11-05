@@ -1,4 +1,5 @@
 """Exact registration inverse for earlier audits, never a GPU normalizer."""
+from portable_cpu_only_source_contract import reviewed_bytes as cpu_only_bytes, reviewed_text as cpu_only_text
 import hashlib,json
 from pathlib import Path
 BEFORE_BACKEND_SHA256='b5234e00159b5d747c95c24578a6630c495f8174bac5e7a84ae97dc4a7fe05a9'
@@ -7,6 +8,8 @@ AFTER_BACKEND_SHA256='a435f15cf96e980e3471eb4cb29bcb08b683b0765117c1faf31f04cc06
 AFTER_AREA_SHA256='7de8a80bcf3686e1b266e644e591a08094b70991ec1bb5eb3948b423586c07a9'
 
 def project_sources(root,sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     root=Path(root);out=dict(sources or {});later={}
     if (root/'gpu/world_cover_defense_entry.slang').exists():
         from portable_cover_defense_source_contract import project_sources as cover
@@ -28,7 +31,7 @@ def project_sources(root,sources=None):
         if (set(row)!={'before_sha256','after_sha256','hunks'} or row['before_sha256']!=anchor or
             row['after_sha256']!=after_anchor or len(row['hunks'])!=1 or set(row['hunks'][0])!={'before','after'}):
             raise ValueError('Recipient-order source anchor changed')
-        current=later.get(name,(root/name).read_text(encoding='utf-8'))
+        current=later.get(name,cpu_only_text(root,name,(root/name).read_text(encoding='utf-8')))
         if digest(current)!=row['after_sha256']:raise ValueError('Recipient-order registered source changed')
         before=current
         for hunk in reversed(row['hunks']):

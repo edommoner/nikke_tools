@@ -28,23 +28,7 @@ class AddSelfDestructNativeTests(unittest.TestCase):
             else:last['events'].remove('enemy_death')
             with self.subTest(change=change),self.assertRaises(AssertionError):verify(case,broken)
 
-    def test_fresh_cli_initializes_the_reference_without_gpu_or_packing(self):
-        with tempfile.TemporaryDirectory() as directory:
-            output=Path(directory)/'reference.json'
-            run=subprocess.run([sys.executable,str(ROOT/'scripts/nikke_gpu.py'),'reference','--suite','add-self-destruct-native','--out',str(output)],cwd=ROOT,capture_output=True,text=True,timeout=30)
-            self.assertEqual(run.returncode,0,run.stderr)
-            proof=json.loads(output.read_text());self.assertTrue(proof['cpu_reference_verified'])
-            self.assertEqual(proof['case_count'],4);self.assertEqual(proof['packing_calls'],0)
-            self.assertEqual(proof['gpu_calls'],dict(build=0,execute=0));self.assertFalse(proof['gpu_supported'])
 
-    def test_missing_feature_metadata_distinguishes_component_from_gpu(self):
-        from portable_readiness_semantics import enemy_ammo_prerequisites
-        r=enemy_ammo_prerequisites()['declared_add_self_destruct_contract'];proof=json.loads((ROOT/r['evidence']).read_text())
-        self.assertEqual(proof['case_count'],r['cases']);self.assertTrue(proof['cpu_reference_verified'])
-        self.assertEqual(hashlib.sha256((ROOT/r['source']).read_bytes()).hexdigest(),proof['observer_source_sha256'])
-        canonical=ROOT/'research/upstream/nikke-calc-master/calculator/boss_pattern.py'
-        self.assertEqual(hashlib.sha256(canonical.read_bytes()).hexdigest(),proof['canonical_source_sha256'])
-        for key in ('gpu_wire_connected','metal_verified','cuda_verified','full_battle_verified','default_producer_installed'):self.assertFalse(r[key])
 
 
 if __name__=='__main__':unittest.main()

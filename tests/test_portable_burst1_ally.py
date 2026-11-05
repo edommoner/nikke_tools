@@ -47,6 +47,8 @@ class Burst1AllyTests(unittest.TestCase):
     def test_combiner_has125_inputs_and31_rejections(self):
         m=adapter('burst1-ally-retention');rows,data=m.prepare();self.assertEqual(len(rows),125);self.assertEqual(sum(d is None for _,_,d in rows),31);self.assertEqual(len(data),4+125*104400*4)
         for name,_,d in rows:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             if d is None:m.validate_rejection([64],name)
     def test_exact_source_delta_rejects_weakened_guards_or_evaluator_changes(self):
         project_sources(ROOT);name='gpu/world_actor_fields.slang';s=(ROOT/name).read_text()

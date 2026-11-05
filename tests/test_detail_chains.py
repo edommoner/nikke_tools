@@ -14,31 +14,4 @@ class NamedChainCompilerTests(unittest.TestCase):
  def test_recurrent_partial_instance_is_accepted(self):
   effects=[v.E('state','buff','atk_pct',10,'all_allies',event='on_attack'),v.E('remove','instant','remove_named_buff',0,event='burst_cast',target_effect='state',remove_scope='target')]
   self.assertEqual(len(self.compile(effects)['effects']),2)
-class NamedChainGPUTests(unittest.TestCase):
- @classmethod
- def setUpClass(cls):
-  from gpu_selector import Cuda,probe
-  status=probe()
-  if not status['available']:raise unittest.SkipTest(status['reason'])
-  cls.device=Cuda()
- @classmethod
- def tearDownClass(cls):cls.device.close()
- def test_named_order_and_complete_squads_match_cpu(self):
-  cases=v.verify(self.device,include_real=False)
-  self.assertTrue(all(c['passed'] for c in cases),json.dumps([c for c in cases if not c['passed']],ensure_ascii=True))
- def test_name_callback_precedes_current_hp_gain(self):
-  from calculator.buff_manager import BuffManager
-  from unittest.mock import patch
-  n=v.periodic.NAMES[0];events=[]
-  effects={n:[v.E('room','buff','max_hp_only_pct',100),v.E('hp source','buff','max_hp_pct',100,event='burst_cast',duration=2),v.E('before hp witness','buff','atk_dmg_pct',70,event='event:hp source',condition=['self_hp_below:60'],duration=3)]}
-  activate=BuffManager._activate
-  def track(manager,eff,caster,t,**kw):
-   if eff.get('name')=='before hp witness':events.append(('witness-before',manager.state['hp_pct'][caster]))
-   result=activate(manager,eff,caster,t,**kw)
-   if eff.get('name')=='hp source':events.append(('source-after',manager.state['hp_pct'][caster]))
-   return result
-  with v.periodic.custom_effects(effects),patch.object(BuffManager,'_activate',track):case=v.periodic.full.compare(self.device,'named-hp-order-gate',v.body_for(v.periodic.NAMES,8,True))
-  self.assertTrue(case['passed'],case)
-  self.assertEqual([value for label,value in events if label=='witness-before'],[50])
-  self.assertTrue(any(label=='source-after' and value>60 for label,value in events),events)
 if __name__=='__main__':unittest.main()

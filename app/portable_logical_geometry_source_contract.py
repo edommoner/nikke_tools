@@ -1,8 +1,11 @@
 """Exact historical source projection; never a generated-code normalizer."""
+from portable_cpu_only_source_contract import reviewed_bytes as cpu_only_bytes, reviewed_text as cpu_only_text
 import hashlib,json
 from pathlib import Path
 
 def project_sources(root,sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     root=Path(root)
     ledger=json.loads((root/'tests/fixtures/portable-logical-geometry-source-delta.json').read_text())
     projected=dict(sources or {})
@@ -19,10 +22,10 @@ def project_sources(root,sources=None):
         # an older caller reload current source in the middle of its inverse.
         projected=healing(root,projected)
     for name,digest in ledger['added_sources'].items():
-        source=projected.get(name,(root/name).read_text())
+        source=projected.get(name,cpu_only_text(root,name,(root/name).read_text()))
         if hashlib.sha256(source.encode()).hexdigest()!=digest:raise ValueError('Logical geometry dependency changed: '+name)
     for name,record in ledger['files'].items():
-        source=projected.get(name,(root/name).read_text())
+        source=projected.get(name,cpu_only_text(root,name,(root/name).read_text()))
         if name in projected and hashlib.sha256(source.encode()).hexdigest()==record['before_sha256']:continue
         if hashlib.sha256(source.encode()).hexdigest()!=record['after_sha256']:raise ValueError('Logical geometry source changed: '+name)
         for change in reversed(record['changes']):
@@ -37,6 +40,8 @@ def project_sources(root,sources=None):
     return projected
 
 def project_backend_source(root,source=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if source is not None:source=cpu_boundary_text(root,'app/portable_backend.py',source)
     root=Path(root);name='app/portable_backend.py'
     # Composed backend callers may already have passed this exact inverse.
     # Do not feed its historical output into the newer inverse chain again.
@@ -50,6 +55,6 @@ def project_backend_source(root,source=None):
         return source
     # Let the complete newer inverse chain validate and project the actual
     # current file. Seeding it as a caller override would mask that projection.
-    if source is None or source==(root/name).read_text():
+    if source is None or source==cpu_only_text(root,name,(root/name).read_text()):
         return project_sources(root)[name]
     return project_sources(root,{name:source})[name]

@@ -10,7 +10,7 @@ class OriginalBurstRevivalTests(unittest.TestCase):
     @historical_compiler
     def test_all_original_definitions_pack_without_battle(self):
         from calculator import timeline
-        from portable_parent_oracles import provider
+        from native_comparison_provider import provider
         with patch.object(timeline,'simulate',side_effect=AssertionError('No CPU battle in input')):entries,_=a.prepare()
         self.assertEqual(len(entries),4)
         for _,w,domain in entries:

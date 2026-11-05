@@ -52,7 +52,7 @@ for(const mode of ['sample','displayed'])test(`${mode} mismatch escalates to all
  assert.equal(j.incumbent.damage,Math.max(...j.results.map(r=>r.result.total_damage)));
  assert.ok(displayedRows(j).every(r=>!pending(r.result)));
 });
-test('stale GPU incumbent scores are refreshed before selecting CPU-corrected recommendation',async()=>{
+test('stale native incumbent scores are refreshed before selecting CPU-corrected recommendation',async()=>{
  const j=job(3);j.incumbent={damage:999999,teams:[{squad:squad(2),damage:999999}]};
  const e=fakeEvaluator({mismatch:r=>r.body.squad[0]==='2:0'});await verifyOptimizer(j,e);
  assert.equal(j.incumbent.damage,2);assert.deepEqual(j.incumbent.teams[0].squad,squad(1));
@@ -118,7 +118,7 @@ test('run pauses with a verified recommendation, resumes pending candidates and 
  await run(j,{evaluator:e});assert.equal(j.status,'paused');assert.equal(j.index,1);assert.ok(view(j).recommendation);assert.ok(displayedRows(j).every(r=>!pending(r.result)));
  j.pauseRequested=false;await run(j,{evaluator:e});assert.equal(j.status,'complete');assert.equal(j.index,4);assert.ok(view(j).recommendation);
 });
-for(const selectionBackend of ['metal','cuda'])test(`${selectionBackend} selection is verified after its GPU selection stage`,async()=>{
+for(const selectionBackend of ['metal','cuda'])test(`${selectionBackend} selection is verified after its native selection stage`,async()=>{
  const j=job(4);j.index=0;j.results=[];j.selectionBackend=selectionBackend;j.prefilterAttempted=true;const calls=[];
  const worker=async r=>{calls.push(r.action);if(r.action==='select')return {recommendation:{damage:4,teams:[{squad:squad(3),damage:4}]}};if(r.action==='verify_portable_detail')return r.evaluations.map(({body})=>({matched:true,differing_fields:[],cpu_result:result(body,1,false)}));return r.evaluations.map(b=>({result:result(b)}));};
  const e=createEvaluator({keyOf:JSON.stringify,worker});await run(j,{worker,evaluator:e});

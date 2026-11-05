@@ -48,6 +48,8 @@ class TypedWeaponInputTests(unittest.TestCase):
         from portable_coordinate_typed_weapon_source_contract import ledger,project_sources,project_backend_source
         data=ledger(ROOT);old=project_sources(ROOT)
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             if name.endswith('.slang'):
                 self.assertEqual(hashlib.sha256(old[name].encode()).hexdigest(),row['baseline_sha256'])
                 with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n// unreviewed\n'})
@@ -63,7 +65,7 @@ class TypedWeaponInputTests(unittest.TestCase):
         domain[0]['python_observers_only']=False;ordinary=a.native_reference(domain)
         self.assertEqual(filtered,ordinary)
     def test_live_preflight_cache_uses_the_actual_delegated_call_site(self):
-        from portable_parent_oracles import provider
+        from native_comparison_provider import provider
         s=importlib.util.spec_from_file_location('typed_weapon_owner_test',ROOT/'research/verify-coordinate-typed-weapon-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
         rows,_=a.prepare()
         old=next(d for _,_,d in rows if d is not None and not d[0].get('coordinate_weapon_targets'))

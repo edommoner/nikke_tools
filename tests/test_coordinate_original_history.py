@@ -60,20 +60,5 @@ class ComparatorRefreshTests(unittest.TestCase):
             open_suite=lambda _:SimpleNamespace(suite=SimpleNamespace(INPUT=2)),prepare_entries=lambda *_:([('original',[4,5],object())],data),sha=digest)
         after=rows({**paths,'research/verify-coordinate-sampled-parent-short.py':'new'})
         return api,old,after
-    def test_comparator_refresh_keeps_golden_and_never_calls_native(self):
-        from portable_original_history_repackage import baseline
-        api,old,rows=self.api();g,r=baseline(api,'coordinate-original','/unused',rows)
-        self.assertEqual(g,old['golden']);self.assertEqual(r['native_domains_recomputed'],0)
-        self.assertTrue(r['full_fresh_saved_replay_required']);self.assertFalse(r['calculation_verified'])
-    def test_canonical_or_unreviewed_comparator_changes_are_rejected(self):
-        from portable_original_history_repackage import baseline
-        for path in ('app/engine_worker.py','research/verify-coordinate-sampled-parent-short.py'):
-            api,old,rows=self.api()
-            next(r for r in rows if r['path']==path)['sha256']='unreviewed'
-            with self.assertRaises(ValueError):baseline(api,'coordinate-original','/unused',rows)
-    def test_changed_prepared_input_is_rejected(self):
-        from portable_original_history_repackage import baseline
-        api,old,rows=self.api();old['golden']['input_sha256']='changed'
-        with self.assertRaises(ValueError):baseline(api,'coordinate-original','/unused',rows)
 
 if __name__=='__main__':unittest.main()

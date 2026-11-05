@@ -43,6 +43,8 @@ class FullBurstQueueTests(unittest.TestCase):
         from portable_full_burst_landing_source_contract import project_sources
         project_sources(ROOT)
         for name,old,new in [('gpu/full_burst_landing_runtime.slang','index<s.pendingCount','index<1'),('gpu/full_burst_landing_runtime.slang','i<38','i<0'),('gpu/pending_burst_runtime.slang','releasePendingBatch(s,count)','releasePendingBatch(s,0)')]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             text=(ROOT/name).read_text();self.assertIn(old,text)
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:text.replace(old,new)})
     def test_wire_defaults_preserve_native_and_full_fixture_count(self):

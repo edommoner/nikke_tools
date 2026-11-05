@@ -18,6 +18,8 @@ def ledger(root):
 
 
 def historical_bytes(root,name,raw):
+    from portable_cpu_only_source_contract import reviewed_bytes as cpu_only_bytes
+    raw=cpu_only_bytes(root,name,raw)
     from portable_kernel_speed_source_contract import reviewed_bytes as speed_reviewed_bytes
     raw=speed_reviewed_bytes(root,name,raw)
     row=ledger(root)['files'][name];digest=hashlib.sha256(raw).hexdigest()
@@ -34,6 +36,8 @@ def historical_bytes(root,name,raw):
 
 
 def reviewed_bytes(root,name,raw):
+    from portable_cpu_only_source_contract import reviewed_bytes as cpu_only_bytes
+    raw=cpu_only_bytes(root,name,raw)
     from portable_kernel_speed_source_contract import reviewed_bytes as speed_reviewed_bytes
     raw=speed_reviewed_bytes(root,name,raw)
     if name in AFTER_SHA256 and hashlib.sha256(raw).hexdigest()==AFTER_SHA256[name]:return historical_bytes(root,name,raw)
@@ -47,7 +51,8 @@ def preimages(root):
     for name,digest in AFTER_SHA256.items():
         path=Path(root)/name
         if path.is_file():
-            raw=out.get(name,path.read_text()).encode()
+            from portable_cpu_only_source_contract import reviewed_text
+            raw=out.get(name,reviewed_text(root,name,path.read_text())).encode()
             current=hashlib.sha256(raw).hexdigest()
             if current in (digest,data['files'][name]['before_sha256']):out[name]=historical_bytes(root,name,raw).decode()
     return out

@@ -104,6 +104,8 @@ class NativeSourceHistoryTests(unittest.TestCase):
         }
         rows=self.rows();self.assertEqual(set(rows),{'app/portable_slang_generation.py','app/portable_detail.py','app/portable_backend.py'})
         for name,row in rows.items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.subTest(name=name):
                 raw=(ROOT/name).read_bytes()
                 from portable_browser_backend_source_contract import reviewed_bytes as browser_reviewed_bytes
@@ -118,6 +120,8 @@ class NativeSourceHistoryTests(unittest.TestCase):
     def test_one_byte_extra_edit_is_rejected_for_each_reviewed_file(self):
         from portable_native_backend_source_contract import native_preimage,reviewed_bytes
         for name in self.rows():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             raw=(ROOT/name).read_bytes()
             for changed in (raw+b'\n',b'!'+raw[1:],raw[:-1]):
                 with self.subTest(name=name,delta=len(changed)-len(raw)),self.assertRaisesRegex(ValueError,'Unreviewed native backend source'):

@@ -25,6 +25,8 @@ class BurstControlTests(unittest.TestCase):
         self.assertIn(4,self.ticks('A-stage')[0]['stages'])
         self.assertGreater(max(t['cycles'] for t in self.ticks('explicit-expired')),0)
         for name in ('reduce-cooldown-wait','reduce-delay-wait','reload-into-next-fb','full-end-stage-override'):
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertGreater(max(t['cycles'] for t in self.ticks(name)),0)
         log=self.native['cover-down-all']['battle']['boss_log']
         events=[x['event'] for x in log if x['pattern']=='all-covers' and x['event'] in ('cover_break','down')]

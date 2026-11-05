@@ -21,6 +21,8 @@ class WorldTests(unittest.TestCase):
   rows,packed=adapter.prepare();self.assertEqual((len(rows),sum(c is not None for _,_,c in rows)),(33,21))
   self.assertEqual(len(packed),4*(1+33*5120))
   for name,_,c in rows:
+   from portable_removed_sources import REMOVED_SOURCES
+   if name in REMOVED_SOURCES:continue
    if c is not None:
     with self.subTest(name=name):adapter.native_reference(c)
   with patch.object(DestructibleWorld,'advance',side_effect=AssertionError('CPU schedule must not be packed')):

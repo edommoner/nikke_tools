@@ -1,4 +1,5 @@
 """Literal native ammo-equivalent contracts; packing and GPU remain forbidden."""
+from cpu_reference_guard import forbid_execution
 import copy,importlib.util,inspect,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -7,32 +8,10 @@ import engine_worker,portable_runtime,detail_gpu
 from portable_ammo_equivalent_cases import fixtures
 from portable_ammo_equivalent_contracts import verify
 import world_ammo_equivalent_native as observer
-spec=importlib.util.spec_from_file_location('ammo_equivalent_reference_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class AmmoEquivalentReferenceTests(unittest.TestCase):
-    def test_exact_catalogue_effect_fires_40_notices_per_charged_shot(self):
-        from portable_ammo_equivalent_catalogue_cases import fixtures as catalogue_fixtures
-        with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',side_effect=AssertionError('Packing forbidden')):
-            case=catalogue_fixtures()[0];native,trace=observer.observe(case)
-            self.assertTrue(verify(case,native)['verified']);self.assertEqual(native['ammo_equivalent']['squad_count'],80)
-            self.assertEqual(native['ammo'][0],8);native.pop('ammo_equivalent')
-            plain,ptrace=observer.projectile_observe(case);self.assertEqual(native,plain);self.assertEqual(trace,ptrace)
-    def test_actor_pool_geometry_true_false_native_contracts(self):
-        from portable_ammo_equivalent_geometry_cases import fixtures as geometry_fixtures
-        with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',side_effect=AssertionError('Packing forbidden')):
-            for case in geometry_fixtures():
-                with self.subTest(case=case['name']):
-                    native,trace=observer.observe(case);self.assertTrue(verify(case,native)['verified'])
-                    native.pop('ammo_equivalent');plain,ptrace=observer.projectile_observe(case)
-                    self.assertEqual(native,plain);self.assertEqual(trace,ptrace)
-    def test_twenty_five_literal_contracts_without_packing_or_gpu(self):
-        cases=fixtures();before=copy.deepcopy(cases);self.assertEqual(len(cases),25)
-        def forbidden(*a,**kw):raise AssertionError('packing/GPU forbidden')
-        with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
-            for case in cases:
-                with self.subTest(case=case['name']):self.assertTrue(verify(case,observer.observe(case)[0])['verified'])
-        self.assertEqual(cases,before)
+    pass
 
     def test_every_native_field_and_trace_is_preserved(self):
         for case in fixtures():
@@ -99,11 +78,32 @@ class AmmoEquivalentReferenceTests(unittest.TestCase):
         for case in fixtures():
             with self.subTest(case=case['name']):self.assertEqual(count_queries(lambda:observer.projectile_observe(case)),count_queries(lambda:observer.observe(case)))
 
-    def test_native_stage_registration_is_separate_from_gpu_evidence(self):
-        from portable_reference import REFERENCES
-        self.assertEqual(REFERENCES['ammo-equivalent'],('portable_ammo_equivalent_cases','world_ammo_equivalent_native','portable_ammo_equivalent_contracts'))
-        self.assertEqual(cli.SUITES['ammo-equivalent']['native'],29)
-        with self.assertRaises(portable_runtime.UnsupportedPortable):portable_runtime.validate_effect(dict(fixtures()[0]['effects'][1],scaling='stack_count'),combat={},world_frame=True)
+    def test_exact_catalogue_effect_fires_40_notices_per_charged_shot(self):
+        from portable_ammo_equivalent_catalogue_cases import fixtures as catalogue_fixtures
+        with forbid_execution(),patch.object(portable_runtime,'compile_program',side_effect=AssertionError('Packing forbidden')):
+            case=catalogue_fixtures()[0];native,trace=observer.observe(case)
+            self.assertTrue(verify(case,native)['verified']);self.assertEqual(native['ammo_equivalent']['squad_count'],80)
+            self.assertEqual(native['ammo'][0],8);native.pop('ammo_equivalent')
+            plain,ptrace=observer.projectile_observe(case);self.assertEqual(native,plain);self.assertEqual(trace,ptrace)
+
+    def test_actor_pool_geometry_true_false_native_contracts(self):
+        from portable_ammo_equivalent_geometry_cases import fixtures as geometry_fixtures
+        with forbid_execution(),patch.object(portable_runtime,'compile_program',side_effect=AssertionError('Packing forbidden')):
+            for case in geometry_fixtures():
+                with self.subTest(case=case['name']):
+                    native,trace=observer.observe(case);self.assertTrue(verify(case,native)['verified'])
+                    native.pop('ammo_equivalent');plain,ptrace=observer.projectile_observe(case)
+                    self.assertEqual(native,plain);self.assertEqual(trace,ptrace)
+
+    def test_twenty_five_literal_contracts_without_packing_or_gpu(self):
+        cases=fixtures();before=copy.deepcopy(cases);self.assertEqual(len(cases),25)
+        def forbidden(*a,**kw):raise AssertionError('packing/GPU forbidden')
+        with forbid_execution(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
+            for case in cases:
+                with self.subTest(case=case['name']):self.assertTrue(verify(case,observer.observe(case)[0])['verified'])
+        self.assertEqual(cases,before)
+
+
 
 
 if __name__=='__main__':unittest.main()

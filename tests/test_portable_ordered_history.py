@@ -60,6 +60,8 @@ class OrderedHistoryTests(unittest.TestCase):
         project_sources(ROOT)
         projected,_=project_diagnostic(ROOT)
         for name,row in ledger(ROOT)['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             source=projected.get(name,(ROOT/name).read_text())
             for change in row['changes']:
                 with self.subTest(name=name),self.assertRaises(AssertionError):

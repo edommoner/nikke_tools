@@ -23,8 +23,8 @@ def check_schema(root):
     check_layout(root);history_layout(root);logical_layout(root)
     from portable_product_typed_movement import check_schema as motion_schema
     motion_schema(root)
-    from portable_wire_layout import check_metal
-    check_metal(root,OUTPUT)
+    from portable_wire_layout import check_output_words
+    check_output_words(OUTPUT)
     from portable_named_range_battle_wire import shader_schema
     if (Path(root)/'gpu/product_typed_nearby_layout.slang').read_text()!=shader_schema(base=NEARBY_BASE):raise ValueError('Typed nearby bank schema drift')
     source=(Path(root)/'gpu/product_typed_battle_entry.slang').read_text()

@@ -4,7 +4,7 @@ import {attachBrowser,cancelBrowser,acceptBrowserResults,browserWasm} from './ap
 import {createEvaluator,advanceCases} from './app/evaluation-queue.mjs';
 import {resolvePython} from './app/python-runtime.mjs';
 import {portableEventRequest} from './app/portable_http_policy.mjs';
-import {candidatePool,rankCombatPool} from './app/optimizer.mjs';
+import {candidatePool} from './app/optimizer.mjs';
 import http from 'node:http';
 import {spawn} from 'node:child_process';
 import {readFileSync, existsSync, statSync, lstatSync} from 'node:fs';
@@ -15,7 +15,7 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const port = Number(process.env.PORT || 4317);
 const python = resolvePython();
 const jobs = new Map(), cache = new Map();
-const fingerprint = createHash('sha256').update(readFileSync(path.join(root, 'app/engine_worker.py'))).update(readFileSync(path.join(root, 'app/engine_revision.py'))).update(readFileSync(path.join(root, 'data/engine-revisions.json'))).update(readFileSync(path.join(root, 'app/engine_gpu_admission.py'))).update(readFileSync(path.join(root, 'app/engine_compat.py'))).update(readFileSync(path.join(root, 'app/survival_compat.py'))).update(readFileSync(path.join(root, 'app/survival_scaling_compat.py'))).update(readFileSync(path.join(root, 'app/detail_gpu.py'))).update(readFileSync(path.join(root, 'app/detail_world.py'))).update(readFileSync(path.join(root, 'app/detail_boss.py'))).update(readFileSync(path.join(root, 'app/detail_effects-build.json'))).update(existsSync(path.join(root,'app/detail_effects-sm86.json'))?readFileSync(path.join(root,'app/detail_effects-sm86.json')):'').update(readFileSync(path.join(root, 'app/gpu_service.py'))).update(readFileSync(path.join(root,'app/portable_detail.py'))).update(readFileSync(path.join(root,'app/portable_product_healing.py'))).update(readFileSync(path.join(root,'app/portable_product_weighted.py'))).update(readFileSync(path.join(root,'app/portable_product_ammo.py'))).update(readFileSync(path.join(root,'app/enemy_ammo_model.py'))).update(readFileSync(path.join(root,'app/portable_resource_decode.py'))).update(readFileSync(path.join(root,'app/portable_enemy_ammo_readback.py'))).update(readFileSync(path.join(root,'app/portable_product_world_contract.py'))).update(readFileSync(path.join(root,'app/portable_product_cover.py'))).update(readFileSync(path.join(root,'app/cover_defense_battle_model.py'))).update(readFileSync(path.join(root,'app/portable_declared_manual_sequences.py'))).update(readFileSync(path.join(root,'app/weighted_incoming_battle_model.py'))).update(readFileSync(path.join(root,'app/product_reference_models.py'))).update(readFileSync(path.join(root,'app/product_lock_model.py'))).update(readFileSync(path.join(root,'app/portable_product_locks.py'))).update(readFileSync(path.join(root,'app/portable_product_coordinate_lock.py'))).update(readFileSync(path.join(root,'app/portable_product_typed_lock.py'))).update(readFileSync(path.join(root,'app/portable_product_fixed.py'))).update(readFileSync(path.join(root,'app/product_movement_model.py'))).update(readFileSync(path.join(root,'app/product_coordinate_model.py'))).update(readFileSync(path.join(root,'app/product_typed_model.py'))).update(readFileSync(path.join(root,'app/portable_product_typed.py'))).update(readFileSync(path.join(root,'app/product_named_range_model.py'))).update(readFileSync(path.join(root,'app/portable_product_coordinate.py'))).update(readFileSync(path.join(root,'app/portable_product_named_carriers.py'))).update(readFileSync(path.join(root,'app/portable_product_named_range.py'))).update(readFileSync(path.join(root,'app/named_range_battle.py'))).update(readFileSync(path.join(root,'app/effect_range_policy.py'))).update(readFileSync(path.join(root,'app/effect_target_count_policy.py'))).update(readFileSync(path.join(root,'app/portable_product_movement.py'))).update(readFileSync(path.join(root,'app/enemy_movement_model.py'))).update(readFileSync(path.join(root,'app/coordinate_logical_actor_geometry.py'))).update(readFileSync(path.join(root,'app/portable_coordinate_sample_v1.py'))).update(readFileSync(path.join(root,'research/coordinate_geometry_reference.py'))).update(readFileSync(path.join(root,'research/portable_coordinate_math_cases.py'))).update(readFileSync(path.join(root,'app/enemy_healing_model.py'))).update(readFileSync(path.join(root,'app/portable_world_result.py'))).update(readFileSync(path.join(root,'app/portable_product_add_attack.py'))).update(readFileSync(path.join(root,'app/portable_product_artifact.py'))).update(readFileSync(path.join(root,'app/portable_detail_service.py'))).update(readFileSync(path.join(root,'app/portable_backend.py'))).update(readFileSync(path.join(root,'app/portable_native.py'))).update(readFileSync(path.join(root,'app/portable_wasm.py'))).update(readFileSync(path.join(root,'scripts/wasm-product-host.cpp'))).update(readFileSync(path.join(root,'scripts/wasm-platform.h'))).update(readFileSync(path.join(root,'app/portable_slang_generation.py'))).update(readFileSync(path.join(root,'scripts/native-product-host.cpp'))).update(readFileSync(path.join(root,'app/portable_runtime.py'))).update(readFileSync(path.join(root,'data/portable-product-programs.json'))).update(readFileSync(path.join(root, 'data/import-mappings.json'))).update(readFileSync(path.join(root, 'data/engine-effect-overrides.json'))).update(readFileSync(path.join(root, 'research/engine-probe-results.json'))).digest('hex');
+const fingerprint = createHash('sha256').update(readFileSync(path.join(root, 'app/engine_worker.py'))).update(readFileSync(path.join(root, 'app/engine_revision.py'))).update(readFileSync(path.join(root, 'data/engine-revisions.json'))).update(readFileSync(path.join(root, 'app/engine_gpu_admission.py'))).update(readFileSync(path.join(root, 'app/engine_compat.py'))).update(readFileSync(path.join(root, 'app/survival_compat.py'))).update(readFileSync(path.join(root, 'app/survival_scaling_compat.py'))).update(readFileSync(path.join(root, 'app/detail_gpu.py'))).update(readFileSync(path.join(root, 'app/detail_world.py'))).update(readFileSync(path.join(root, 'app/detail_boss.py'))).update(readFileSync(path.join(root,'app/portable_detail.py'))).update(readFileSync(path.join(root,'app/portable_product_healing.py'))).update(readFileSync(path.join(root,'app/portable_product_weighted.py'))).update(readFileSync(path.join(root,'app/portable_product_ammo.py'))).update(readFileSync(path.join(root,'app/enemy_ammo_model.py'))).update(readFileSync(path.join(root,'app/portable_resource_decode.py'))).update(readFileSync(path.join(root,'app/portable_enemy_ammo_readback.py'))).update(readFileSync(path.join(root,'app/portable_product_world_contract.py'))).update(readFileSync(path.join(root,'app/portable_product_cover.py'))).update(readFileSync(path.join(root,'app/cover_defense_battle_model.py'))).update(readFileSync(path.join(root,'app/portable_declared_manual_sequences.py'))).update(readFileSync(path.join(root,'app/weighted_incoming_battle_model.py'))).update(readFileSync(path.join(root,'app/product_reference_models.py'))).update(readFileSync(path.join(root,'app/product_lock_model.py'))).update(readFileSync(path.join(root,'app/portable_product_locks.py'))).update(readFileSync(path.join(root,'app/portable_product_coordinate_lock.py'))).update(readFileSync(path.join(root,'app/portable_product_typed_lock.py'))).update(readFileSync(path.join(root,'app/portable_product_fixed.py'))).update(readFileSync(path.join(root,'app/product_movement_model.py'))).update(readFileSync(path.join(root,'app/product_coordinate_model.py'))).update(readFileSync(path.join(root,'app/product_typed_model.py'))).update(readFileSync(path.join(root,'app/portable_product_typed.py'))).update(readFileSync(path.join(root,'app/product_named_range_model.py'))).update(readFileSync(path.join(root,'app/portable_product_coordinate.py'))).update(readFileSync(path.join(root,'app/portable_product_named_carriers.py'))).update(readFileSync(path.join(root,'app/portable_product_named_range.py'))).update(readFileSync(path.join(root,'app/named_range_battle.py'))).update(readFileSync(path.join(root,'app/effect_range_policy.py'))).update(readFileSync(path.join(root,'app/effect_target_count_policy.py'))).update(readFileSync(path.join(root,'app/portable_product_movement.py'))).update(readFileSync(path.join(root,'app/enemy_movement_model.py'))).update(readFileSync(path.join(root,'app/coordinate_logical_actor_geometry.py'))).update(readFileSync(path.join(root,'app/portable_coordinate_sample_v1.py'))).update(readFileSync(path.join(root,'research/coordinate_geometry_reference.py'))).update(readFileSync(path.join(root,'research/portable_coordinate_math_cases.py'))).update(readFileSync(path.join(root,'app/enemy_healing_model.py'))).update(readFileSync(path.join(root,'app/portable_world_result.py'))).update(readFileSync(path.join(root,'app/portable_product_add_attack.py'))).update(readFileSync(path.join(root,'app/portable_detail_service.py'))).update(readFileSync(path.join(root,'app/portable_backend.py'))).update(readFileSync(path.join(root,'app/portable_native.py'))).update(readFileSync(path.join(root,'app/portable_wasm.py'))).update(readFileSync(path.join(root,'scripts/wasm-product-host.cpp'))).update(readFileSync(path.join(root,'scripts/wasm-platform.h'))).update(readFileSync(path.join(root,'app/portable_slang_generation.py'))).update(readFileSync(path.join(root,'scripts/native-product-host.cpp'))).update(readFileSync(path.join(root,'app/portable_runtime.py'))).update(readFileSync(path.join(root,'data/portable-product-programs.json'))).update(readFileSync(path.join(root, 'data/import-mappings.json'))).update(readFileSync(path.join(root, 'data/engine-effect-overrides.json'))).update(readFileSync(path.join(root, 'research/engine-probe-results.json'))).digest('hex');
 export function nativeHardware(module='portable_native') {
   return new Promise(resolve=>{
     const child=spawn(python,['-c',`import json; from pathlib import Path; from ${module} import availability; print(json.dumps(availability(Path.cwd())))`],{cwd:root,env:{...process.env,PYTHONPATH:path.join(root,'app')},windowsHide:true});
@@ -32,62 +32,11 @@ export function workerTextStreams(child) {
   child.stdout.setEncoding('utf8');child.stderr.setEncoding('utf8');
   return child;
 }
-let gpuProcess=null,gpuOutput='',gpuRequests=new Map();
-function gpuWorker(body,job){
-  if(!gpuProcess){
-    const child=workerTextStreams(spawn(python,[path.join(root,'app/gpu_service.py')],{cwd:root,windowsHide:true,env:{...process.env,PYTHONIOENCODING:'utf-8',PYTHONUTF8:'1'}}));
-    gpuProcess=child;gpuOutput='';
-    const fail=error=>{if(gpuProcess!==child)return;error.gpuUnavailable=true;gpuProcess=null;for(const pending of gpuRequests.values()){clearTimeout(pending.timer);pending.reject(error);}gpuRequests.clear();};
-    child.on('error',fail);child.on('close',()=>fail(Error('GPUワーカーが終了しました。')));child.stderr.on('data',()=>{});
-    child.stdin.on('error',fail);
-    child.stdout.on('data',chunk=>{gpuOutput+=chunk.toString('utf8');let end;while((end=gpuOutput.indexOf('\n'))>=0){const line=gpuOutput.slice(0,end);gpuOutput=gpuOutput.slice(end+1);try{const response=JSON.parse(line),pending=gpuRequests.get(response.id);if(!pending)continue;gpuRequests.delete(response.id);clearTimeout(pending.timer);if(response.error)pending.reject(Error(response.error));else pending.resolve(response.result);}catch(error){child.kill();fail(error);}}});
-  }
-  const child=gpuProcess,id=randomUUID();if(job)job.child=child;
-  return new Promise((resolve,reject)=>{const timer=setTimeout(()=>{const error=Error('GPU処理が制限時間を超えました。');error.gpuUnavailable=true;gpuRequests.delete(id);reject(error);child.kill();},['evaluate_detail','evaluate_detail_batch'].includes(body.action)?300000:120000);gpuRequests.set(id,{timer,resolve,reject});child.stdin.write(JSON.stringify({id,body})+'\n');}).finally(()=>{if(job?.child===child)job.child=null;});
-}
-process.on('exit',()=>gpuProcess?.kill());
-export function sharedCudaConfigured(platform=process.platform,env=process.env) {
-  if(platform!=='win32')return false;
-  const directory=value=>{try{return Boolean(value&&path.isAbsolute(value)&&statSync(value).isDirectory());}catch{return false;}};
-  if(!directory(env.NIKKE_SLANG_GENERATION_CACHE))return false;
-  if(env.NIKKE_SHARED_CUDA_ARTIFACTS!==undefined){
-    try{
-      const file=env.NIKKE_SHARED_CUDA_ARTIFACTS;
-      if(!file||!path.isAbsolute(file)||lstatSync(file).isSymbolicLink()||!statSync(file).isFile()||statSync(file).size>65536)return false;
-      const d=JSON.parse(readFileSync(file,'utf8')),keys=o=>o&&typeof o==='object'&&!Array.isArray(o)?Object.keys(o).sort().join(','):'';
-      const registry=JSON.parse(readFileSync(path.join(root,'data/portable-product-programs.json'),'utf8'));
-      const sources=new Set(Object.values(registry.programs).map(program=>program.source));
-      if(d?.schema!==1||keys(d)!=='programs,schema'||!d.programs||typeof d.programs!=='object'||Array.isArray(d.programs)||Object.keys(d.programs).length===0||Object.keys(d.programs).some(source=>!sources.has(source)))return false;
-      return Object.values(d.programs).every(program=>{
-      if(keys(program)!=='battle_package,request'||!directory(program.battle_package)||!program.request)return false;
-      const {historical_link_observation:history,...paths}=program.request;
-      if(!['capture,package','capture,package,producer_capture,producer_package'].includes(keys(paths))||!Object.values(paths).every(directory))return false;
-      if(history===undefined)return true;
-      if(keys(history)!=='capture,disposition,missing_identities,observation_sha256'||history.disposition!=='retained-failure'||typeof history.capture!=='string'||!path.isAbsolute(history.capture)||path.resolve(history.capture).toLowerCase()!==path.resolve(paths.capture).toLowerCase()||typeof history.observation_sha256!=='string'||!/^[0-9a-f]{64}$/.test(history.observation_sha256)||!Array.isArray(history.missing_identities)||history.missing_identities.length===0)return false;
-      const identities=history.missing_identities;
-      const ordered=(a,b)=>a.pid-b.pid||(a.path<b.path?-1:a.path>b.path?1:0)||(a.creation_filetime_ticks<b.creation_filetime_ticks?-1:a.creation_filetime_ticks>b.creation_filetime_ticks?1:0);
-      return identities.every((row,index)=>(index===0||ordered(identities[index-1],row)<0)&&keys(row)==='creation_filetime_ticks,path,pid'&&Number.isInteger(row.pid)&&row.pid>0&&row.pid<=0xffffffff&&typeof row.path==='string'&&row.path.length>0&&row.path===row.path.toLowerCase()&&typeof row.creation_filetime_ticks==='string'&&/^[1-9][0-9]*$/.test(row.creation_filetime_ticks)&&BigInt(row.creation_filetime_ticks)<2n**64n);
-      });
-    }catch{return false;}
-  }
-  return directory(env.NIKKE_CUDA_COMPILE_CACHE);
-}
 export function workerTimeoutSeconds(body) {
-  if(['verify_portable_detail','cpu_fallback_portable_detail'].includes(body.action))return 120;
-  if(body.action==='evaluate_portable_detail_batch'&&body.evaluations?.[0]?.compute_backend==='cuda_shared_detail')return 120;
-  // Each detail case may have its own kernel: 2*90s generation + 300s
-  // compilation + 600s GPU + 30s overhead. Compatible cases share this budget.
-  if(['evaluate_portable_detail_batch','prepare_browser_wires','finish_browser','verify_portable_detail','cpu_fallback_portable_detail'].includes(body.action))return 1110*Math.min(8,Math.max(1,body.evaluations?.length||1));
-  // Search uses the same transport, capped at 4800s per command.
-  // Selection expands once per team (one or five); prefilter dispatches once.
-  if(body.backend==='metal'&&['combat_prefilter','select'].includes(body.action))return 5310*(body.action==='select'&&body.teamCount!==1?5:1);
-  if(body.action==='metal_search_probe')return 630;
-  // Match portable_runtime.evaluate's default backend (one event program).
-  return body.action==='evaluate_portable_events' && (body.backend ?? 'metal')==='metal' ? 1110 : 120;
+  if(['evaluate_portable_detail_batch','prepare_browser_wires','finish_browser'].includes(body.action))return 1110*Math.min(32,Math.max(1,body.evaluations?.length||1));
+  return 120;
 }
 function worker(body, job) {
-  if(body.backend==='metal'&&['combat_prefilter','select'].includes(body.action)||body.action==='metal_search_probe')return metalSearchWorker(body,job);
-  if(body.action==='gpu_probe'||body.action==='evaluate_detail'||body.action==='evaluate_detail_batch'||body.action==='combat_prefilter'||body.action==='select'&&body.backend==='cuda')return gpuWorker(body,job);
   return new Promise((resolve,reject) => {
     const script=['evaluate_portable_detail_batch','prepare_browser_wires','finish_browser','verify_portable_detail','cpu_fallback_portable_detail'].includes(body.action)?'app/portable_detail_service.py':'app/engine_worker.py';
     const nativeGroup=body.action==='evaluate_portable_detail_batch'&&body.evaluations?.[0]?.compute_backend==='native_detail'&&process.platform!=='win32';
@@ -95,7 +44,7 @@ function worker(body, job) {
     ownNativeProcessGroup(child,nativeGroup);
     if (job) {job.child=child;(job.children ||= new Set()).add(child);}
     let out='', err='';
-    // Cover every possible source group, compilation and bounded GPU phase.
+    // Cover every possible source group, compilation and bounded execution phase.
     const timeoutSeconds = workerTimeoutSeconds(body);
     const timer=setTimeout(()=>{child.kill();reject(Error(`計算が${timeoutSeconds}秒を超えました。`));},timeoutSeconds*1000);
     child.stdout.on('data',b=>out+=b); child.stderr.on('data',b=>err+=b);
@@ -108,26 +57,7 @@ function worker(body, job) {
     child.stdin.on('error',()=>{}); child.stdin.end(JSON.stringify(body));
   });
 }
-function metalSearchWorker(body,job){
-  return new Promise((resolve,reject) => {
-    const script='app/metal_search.py';
-    const child = workerTextStreams(spawn(python, [path.join(root,script)], {cwd:root, windowsHide:true, env:{...process.env,PYTHONIOENCODING:'utf-8',PYTHONUTF8:'1'}}));
-    if (job) {job.child=child;(job.children ||= new Set()).add(child);}
-    let out='', err='';
-    // Include every bounded shared-transport command in this search request.
-    const timeoutSeconds = workerTimeoutSeconds(body);
-    const timer=setTimeout(()=>{child.kill();reject(Error(`計算が${timeoutSeconds}秒を超えました。`));},timeoutSeconds*1000);
-    child.stdout.on('data',b=>out+=b); child.stderr.on('data',b=>err+=b);
-    child.on('error',e=>{clearTimeout(timer);reject(e);});
-    child.on('close',code=>{
-      clearTimeout(timer); if(job){if(job.child===child)job.child=null;job.children?.delete(child);}
-      try {const value=JSON.parse(out); if(code || value.error) reject(Error(value.error || err || '計算に失敗しました。')); else resolve(value);}
-      catch(e){reject(Error(err || e.message));}
-    });
-    child.stdin.on('error',()=>{}); child.stdin.end(JSON.stringify(body));
-  });
-}
-const evaluator=createEvaluator({worker,cache,cacheable:body=>!(body.compute_backend==='cuda_shared_detail'&&process.env.NIKKE_SHARED_CUDA_ARTIFACTS!==undefined),keyOf:body=>createHash('sha256').update(fingerprint+JSON.stringify(stable(body))).digest('hex')});
+const evaluator=createEvaluator({worker,cache,keyOf:body=>createHash('sha256').update(fingerprint+JSON.stringify(stable(body))).digest('hex')});
 const evaluate=evaluator.one;
 function integer(v,lo,hi,label){if(!Number.isInteger(v)||v<lo||v>hi)throw Error(`${label}: ${lo}〜${hi}の整数を指定してください。`);return v;}
 function skillDict(value){if(value===undefined)return {};if(typeof value==='number')return {'1':value,'2':value,'3':value};if(typeof value==='string')value=value.split('/').map(Number);if(Array.isArray(value))return Object.fromEntries(value.map((v,i)=>[String(i+1),v]));return {...value};}
@@ -199,66 +129,8 @@ export async function run(job,{worker=optimizerWorker,evaluator=optimizerEvaluat
   attachBrowser(job);
   job.running=true;job.status='running';
   try {
-    if(job.kind==='optimize'&&job.selectionBackend==='metal'&&!job.prefilterAttempted){
-      job.prefilterAttempted=true;job.phase='GPUで戦闘を概算して候補を絞り込み中';
-      try{
-        const coarse=await worker({action:'combat_prefilter',backend:'metal',evaluation:job.evaluation,squads:job.pool},job);
-        if(job.status==='cancelled')return;
-        const order=rankCombatPool(job.pool,job.groups,coarse.scores);
-        const oldPool=job.pool,reverse=new Map(order.map((old,index)=>[old,index]));
-        job.pool=order.map(i=>oldPool[i]);job.groups=job.groups.map(g=>g.map(i=>reverse.get(i)));
-        job.cases=job.pool.slice(0,job.cases.length).map((squad,i)=>({value:i+1,evaluation:{...clone(job.evaluation),squad,stat_deltas:Object.fromEntries(Object.entries(job.evaluation.stat_deltas||{}).filter(([n])=>squad.includes(n)))}}));
-        job.combatAcceleration={...coarse,scores:undefined};
-        job.combatEstimates=new Map(coarse.scores.map(s=>[JSON.stringify(s.squad),s.damage]));
-      }catch(error){if(job.status==='cancelled')return;job.combatAcceleration={backend:'cpu',requested:'metal',reason:error.message,candidates:job.pool.length,scored_candidates:0,unscored_candidates:job.pool.length};}
-      job.phase=null;
-      if(job.pauseRequested){job.status='paused';return;}
-    }
-    if(job.kind==='optimize'&&job.selectionBackend==='cuda'&&!job.prefilterAttempted){
-      job.prefilterAttempted=true;job.phase='GPUで戦闘を概算して候補を絞り込み中';
-      try{
-        const coarse=await worker({action:'combat_prefilter',evaluation:job.evaluation,squads:job.pool},job);
-        if(job.status==='cancelled')return;
-        const order=rankCombatPool(job.pool,job.groups,coarse.scores);
-        const oldPool=job.pool,reverse=new Map(order.map((old,index)=>[old,index]));
-        job.pool=order.map(i=>oldPool[i]);job.groups=job.groups.map(g=>g.map(i=>reverse.get(i)));
-        job.cases=job.pool.slice(0,job.cases.length).map((squad,i)=>({value:i+1,evaluation:{...clone(job.evaluation),squad,stat_deltas:Object.fromEntries(Object.entries(job.evaluation.stat_deltas||{}).filter(([n])=>squad.includes(n)))}}));
-        job.combatAcceleration={...coarse,scores:undefined};
-        job.combatEstimates=new Map(coarse.scores.map(s=>[JSON.stringify(s.squad),s.damage]));
-      }catch(error){if(job.status==='cancelled')return;job.combatAcceleration={backend:'cpu',reason:error.message,candidates:job.pool.length,scored_candidates:0,unscored_candidates:job.pool.length};}
-      job.phase=null;
-      if(job.pauseRequested){job.status='paused';return;}
-    }
     await advanceCases(job,evaluator);
     if(job.index===job.cases.length && job.status==='running'){
-      if(job.kind==='optimize'&&job.selectionBackend==='metal'){
-        job.phase='GPUで部隊の組合せを評価中';
-        try{
-          const candidates=job.results.filter(r=>r.result).map(r=>({squad:r.result.members.map(m=>m.name),damage:r.result.total_damage}));
-          const selected=await worker({action:'select',backend:'metal',width:1024,teamCount:job.teamCount,candidates},job);
-          if(job.status!=='cancelled'){
-            const found=selected.recommendation;
-            if(found){const names=found.teams.flatMap(t=>t.squad);if(found.teams.length!==job.teamCount||new Set(names).size!==job.teamCount*5||found.teams.reduce((n,t)=>n+t.damage,0)!==found.damage||found.teams.some(t=>!candidates.some(c=>JSON.stringify(c)===JSON.stringify(t))))throw Error('GPU result validation failed');
-              if(!job.incumbent||found.damage>job.incumbent.damage)job.incumbent=found;}
-            job.acceleration={...selected,at_candidates:job.index,recommendation:undefined};
-          }
-        }catch(error){if(job.status!=='cancelled')job.acceleration={backend:'cpu',requested:'metal',reason:error.message};}
-        job.phase=null;
-      }
-      if(job.kind==='optimize'&&job.selectionBackend==='cuda'){
-        job.phase='GPUで部隊の組合せを評価中';
-        try{
-          const candidates=job.results.filter(r=>r.result).map(r=>({squad:r.result.members.map(m=>m.name),damage:r.result.total_damage}));
-          const selected=await worker({action:'select',backend:'cuda',width:1024,teamCount:job.teamCount,candidates},job);
-          if(job.status!=='cancelled'){
-            const found=selected.recommendation;
-            if(found){const names=found.teams.flatMap(t=>t.squad);if(found.teams.length!==job.teamCount||new Set(names).size!==job.teamCount*5||found.teams.reduce((n,t)=>n+t.damage,0)!==found.damage||found.teams.some(t=>!candidates.some(c=>JSON.stringify(c)===JSON.stringify(t))))throw Error('GPU result validation failed');
-              if(!job.incumbent||found.damage>job.incumbent.damage)job.incumbent=found;}
-            job.acceleration={...selected,at_candidates:job.index,recommendation:undefined};
-          }
-        }catch(error){if(job.status!=='cancelled')job.acceleration={backend:'cpu',requested:'cuda',reason:error.message};}
-        job.phase=null;
-      }
       await verifyOptimizer(job,evaluator);
       if(job.status==='running')job.status=job.pauseRequested?'paused':'complete';
     }else if(job.kind==='optimize'&&job.status==='paused'){
@@ -269,14 +141,6 @@ export async function run(job,{worker=optimizerWorker,evaluator=optimizerEvaluat
   finally {job.running=false;}
 }
 export function view(job) {
-  if(job.combatAcceleration?.backend==='cuda'){
-    const errors=job.results.filter(r=>r.result?.total_damage>0).map(r=>{const estimate=job.combatEstimates?.get(JSON.stringify(r.result.members.map(m=>m.name)));return estimate===undefined?null:Math.abs(estimate-r.result.total_damage)/r.result.total_damage;}).filter(v=>v!==null);
-    job.combatAcceleration.validation={samples:errors.length,mean_absolute_relative_error:errors.length?errors.reduce((a,b)=>a+b,0)/errors.length:null,max_absolute_relative_error:errors.length?Math.max(...errors):null};
-  }
-  if(job.combatAcceleration?.backend==='metal'){
-    const errors=job.results.filter(r=>r.result?.total_damage>0).map(r=>{const estimate=job.combatEstimates?.get(JSON.stringify(r.result.members.map(m=>m.name)));return estimate===undefined?null:Math.abs(estimate-r.result.total_damage)/r.result.total_damage;}).filter(v=>v!==null);
-    job.combatAcceleration.validation={samples:errors.length,mean_absolute_relative_error:errors.length?errors.reduce((a,b)=>a+b,0)/errors.length:null,max_absolute_relative_error:errors.length?Math.max(...errors):null};
-  }
   const feasible=job.results.filter(r=>r.meets);
   return {verification:verificationView(job),browser_request:job.awaitingBrowser,id:job.id,status:job.status,kind:job.kind,index:job.index,total:job.cases.length,results:job.results,error:job.error,
     target:job.target,strict:job.strict,best:feasible[0]||null,complete:job.status==='complete',updatedAt:job.updatedAt,
@@ -293,18 +157,18 @@ const server=http.createServer(async(req,res)=>{
     if(req.method==='GET' && assets[url.pathname]) {
       const file=assets[url.pathname];res.writeHead(200,{'Content-Type':(/\.m?js$/.test(file))?'text/javascript; charset=utf-8':file.endsWith('.css')?'text/css; charset=utf-8':'text/html; charset=utf-8','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data: https://sg-tools-cdn.blablalink.com; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"});res.end(readFileSync(path.join(root,'web',file)));return;
     }
-    if(req.method==='GET' && url.pathname==='/api/hardware'){const gpu=await worker({action:'gpu_probe'});const metalSearch=await worker({action:'metal_search_probe'});return json(res,{...gpu,metal_search:metalSearch,native:await nativeHardware(),browser:await nativeHardware('portable_wasm'),metal:{available:process.platform==='darwin',verification:'per-request'},shared_cuda:{available:sharedCudaConfigured(),verification:'per-request',cold_compilation:false}});}
+    if(req.method==='GET' && url.pathname==='/api/hardware')return json(res,{native:await nativeHardware(),browser:await nativeHardware('portable_wasm')});
     if(req.method==='GET' && url.pathname.startsWith('/api/browser-wasm/')){
       try{const raw=browserWasm(root,url.pathname.slice('/api/browser-wasm/'.length));res.writeHead(200,{'Content-Type':'application/wasm','X-Content-Type-Options':'nosniff','Cache-Control':'private, max-age=31536000, immutable'});res.end(raw);return;}
       catch{return json(res,{error:'ブラウザ計算のWASMが見つかりません。'},404);}
     }
     if(req.method==='GET' && url.pathname==='/api/catalog')return json(res,await worker({action:'catalog'}));
-    if(req.method==='GET' && url.pathname==='/api/demo')return json(res,await worker({action:'demo',expanded:url.searchParams.get('expanded')==='true',gpu_detail:url.searchParams.get('gpu_detail')==='true'}));
+    if(req.method==='GET' && url.pathname==='/api/demo')return json(res,await worker({action:'demo',expanded:url.searchParams.get('expanded')==='true',detail:url.searchParams.get('detail')==='true'}));
     if(req.method==='POST' && url.pathname==='/api/portable-events')return json(res,await worker(portableEventRequest(await body(req))));
     if(req.method==='POST' && url.pathname==='/api/import'){const data=await body(req);return json(res,await worker({action:'import',data}));}
     if(req.method==='POST' && url.pathname==='/api/jobs') {
       const b=await body(req);
-      if(b.selectionBackend!==undefined&&!['cuda','metal','cpu'].includes(b.selectionBackend))throw Error('GPU/CPUの指定が正しくありません。');
+      if(b.selectionBackend!==undefined&&b.selectionBackend!=='cpu')throw Error('候補選択方法の指定が正しくありません。');
       if([...jobs.values()].some(j=>j.running))throw Error('実行中の計算を一時停止または終了してから開始してください。');
       if(jobs.size>=30){const old=[...jobs.values()].find(j=>!j.running&&j.status!=='paused');if(!old)throw Error('保持できる計算が上限です。');jobs.delete(old.id);}
       let cases;
@@ -312,7 +176,7 @@ const server=http.createServer(async(req,res)=>{
       if(b.kind==='optimize'){
         teamCount=b.teamCount===1?1:5;
         const scored=await worker({action:'candidates',evaluation:b.evaluation,excluded:b.excluded||[]});
-        ({pool,groups}=candidatePool(scored.characters,teamCount,b.selectionBackend==='cuda'?800:b.selectionBackend==='metal'?800:160,41,scored.templates));skipped=scored.skipped;
+        ({pool,groups}=candidatePool(scored.characters,teamCount,160,41,scored.templates));skipped=scored.skipped;
         const limit={fast:20,detail:80,long:160}[b.mode];if(!limit)throw Error('探索モードを選択してください。');
         cases=pool.slice(0,limit).map((squad,i)=>({value:i+1,evaluation:{...clone(b.evaluation),squad,stat_deltas:Object.fromEntries(Object.entries(b.evaluation.stat_deltas||{}).filter(([n])=>squad.includes(n)))}}));
       }
@@ -350,12 +214,3 @@ const server=http.createServer(async(req,res)=>{
 });
 if(process.argv[1]===fileURLToPath(import.meta.url))server.listen(port,'127.0.0.1',()=>console.log(`NIKKE TOOLS http://127.0.0.1:${port}`));
 export {server,body as readJSONBody};
-
-
-
-
-
-
-
-
-

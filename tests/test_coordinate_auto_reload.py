@@ -34,7 +34,8 @@ class AutoReloadTests(unittest.TestCase):
         with self.assertRaises(ValueError):validate_composed_stride(a.SOURCE,a.INPUT_WORDS-1,a.OUTPUT_WORDS)
         golden=json.loads((ROOT/'research/portable-coordinate-mode-actions-short-expected.json').read_text())
         projected=project_sources(ROOT)
-        for name,text in projected.items():self.assertEqual(hashlib.sha256(text.encode()).hexdigest(),golden['source_sha256'][name])
+        from portable_coordinate_group_source_contract import historical_source_hashes
+        self.assertEqual(historical_source_hashes(ROOT,a.parent.SOURCE,projected),golden['source_sha256'])
         name='gpu/weapon_frame_phases.slang'
         with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
 

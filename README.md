@@ -1,3 +1,5 @@
+現在の実行経路は CPU-native とブラウザ WASM です。[高速化のノウハウ](docs/performance-knowhow.md)。以下のGPU関連記録は履歴です。
+
 # NIKKE TOOLS — ローカル編成ラボ
 
 MacBookへの開発移行とCUDA／Metalの共通化を進めています。[移行手順と未解決事項](docs/mac-migration.md)を参照してください。現時点で通常画面のGPU計算はCUDA専用です。小さな共通ソースのMetal実証4ケースはApple M5で実GPU実行済みです。さらに共通binary64候補の14,034ケースがMetalでbit一致しました。[数値規約と残作業](docs/portable-numerics.md)を参照してください。整数変換とコア命中確率powを含む34,874件、共通イベント実行器16ケースをMetalで検証し、[ローカルAPIへ接続](docs/portable-event-runtime.md)しました。通常画面の自律戦闘と全キャラ対応は未完了です。Macでは `./Start-NikkeTools.command` で起動します。
@@ -6,9 +8,9 @@ GitHubには現行のソース、GPU生成物、検証スクリプトと記録�
 
 所持・育成データに基づくダメージ比較、育成条件の探索、重複なしのレイド部隊候補探索の試作です。計算はPC内のPythonプロセスで実行し、UIは127.0.0.1のみで配信します。外部サービスへの公開・育成データの送信は行いません。
 
-## 共通GPU開発の検証ツール
+## 保存領域の確認ツール
 
-[共通CLIとWindows検証パッケージ](docs/gpu-development-cli.md)で、CPU事前検査、短時間GPU検証、保存結果の回収・監査を実行できます。`python scripts/nikke_gpu.py list`で利用可能なスイートとgoldenの整合性を確認します。[NIKKE共通GPU開発スキル](skills/nikke-shared-gpu-development/SKILL.md)も同じCLIを使います。
+GPU開発CLI（`scripts/nikke_gpu.py`）と共通GPU開発スキルは削除しました（2026-11-05）。大きな計測や復元の前の空き容量確認は `python scripts/nikke_storage.py storage-check --required-bytes N` で行います（`archive-raw`／`restore-raw`／`sparsify-raw` も同じCLI）。[旧CLIの説明](docs/gpu-development-cli.md)は履歴として残しています。
 
 ## 共通仕様と既存キャラの移行
 

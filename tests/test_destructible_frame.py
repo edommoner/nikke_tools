@@ -31,6 +31,8 @@ class FrameTests(unittest.TestCase):
         from portable_destructible_frame_source_contract import project_sources
         data=json.loads((ROOT/'tests/fixtures/portable-destructible-frame-source-delta.json').read_text());project_sources(ROOT)
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n'})
     def test_typed_child_continuations_do_not_reenter_dispatch(self):
         source=(ROOT/'gpu/destructible_frame_runtime.slang').read_text()

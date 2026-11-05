@@ -52,6 +52,8 @@ class AlliedRandomTests(unittest.TestCase):
         self.assertEqual(set(verify(ROOT)['reviewed_ally_random_sources']),set(data['sources']))
         projected,_=project_focus(ROOT)
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             source=projected.get(name,(ROOT/name).read_text())
             for change in row['changes']:
                 with self.subTest(name=name),self.assertRaises(AssertionError):

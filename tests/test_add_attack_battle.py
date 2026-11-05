@@ -27,6 +27,8 @@ class AddAttackBattleTests(unittest.TestCase):
         old=project_sources(ROOT)
         for name,r in ledger['files'].items():self.assertEqual(old[name],r['before'])
         for name in [*ledger['files'],*ledger['added_sources']]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.subTest(path=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
 
     def test_new_wire_is_disjoint_and_only_its_entry_accepts_it(self):
@@ -53,25 +55,6 @@ class AddAttackBattleTests(unittest.TestCase):
         self.assertIn('addAttackEmit(s,w,node,slot,results[p],index,when)',runtime)
         self.assertIn('collectWorldEnemyAttackFlat(s,0,when)',runtime)
 
-    def test_registered_proof_and_cached_profile_keep_ammo_and_cuda_unverified(self):
-        from portable_readiness_semantics import enemy_ammo_prerequisites
-        p=enemy_ammo_prerequisites();r=p['declared_add_battle_validation'];raw=(ROOT/r['evidence']).read_bytes();a=json.loads(raw)
-        self.assertEqual(hashlib.sha256(raw).hexdigest(),r['evidence_sha256'])
-        self.assertEqual((a['input_count'],a['native_cases']),(17,6));self.assertTrue(a['calculation_verified'])
-        self.assertEqual(a['gpu_calls'],0);self.assertFalse(r['ammo_connected']);self.assertFalse(r['cuda_verified'])
-        self.assertFalse(p['enemy_shot_reload_connected'])
-        sys.path.insert(0,str(ROOT/'scripts'));import nikke_gpu
-        normal=nikke_gpu.SUITES['add-attack-battle'];cached=nikke_gpu.SUITES['add-attack-battle-cache-only']
-        for key in ('script','source','golden','inputs','native','input_words','output_words'):self.assertEqual(normal[key],cached[key])
-        self.assertTrue(cached['require_paired_generation']);self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
-        from portable_backend import source_hashes
-        current_raw=(ROOT/normal['golden']).read_bytes();current=json.loads(current_raw)
-        old=json.loads((ROOT/'research/portable-add-attack-battle-v1-expected.json').read_text())
-        self.assertEqual(current['source_sha256'],source_hashes(normal['source']))
-        self.assertEqual(current['entries'],old['entries']);self.assertEqual(current['output_sha256'],old['output_sha256'])
-        cert=json.loads((ROOT/nikke_gpu.SUITES['compiler-full--add-attack-battle']['golden']).read_text())
-        self.assertEqual(cert['baseline_golden_sha256'],hashlib.sha256(current_raw).hexdigest())
-        self.assertEqual(cert['source_sha256'],current['source_sha256'])
 
 
 if __name__=='__main__':unittest.main()

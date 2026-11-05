@@ -37,8 +37,12 @@ class DamageBattleTests(unittest.TestCase):
     def test_exact_inverse_refuses_source_mutation(self):
         data=json.loads((ROOT/'tests/fixtures/portable-damage-accum-source-delta.json').read_text());projected=project_sources(ROOT)
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(hashlib.sha256(projected[name].encode()).hexdigest(),row['baseline_sha256'])
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n'})
         for name in data['added_sources']:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
 if __name__=='__main__':unittest.main()

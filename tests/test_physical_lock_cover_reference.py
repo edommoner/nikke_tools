@@ -44,11 +44,5 @@ class CoverReferenceTests(unittest.TestCase):
                 with self.subTest(case=case['name']),self.assertRaisesRegex(ValueError,'Non-hold sequence requires common physical control primitives'):
                     suite.compile_case(case)
 
-    def test_reference_registry_and_source_identity_include_dynamic_factory(self):
-        from portable_reference import REFERENCES,source_identity
-        self.assertEqual(REFERENCES['physical-lock-cover-native'][0],'portable_physical_lock_cover_cases')
-        hashes=source_identity()
-        for name in ('research/verify-physical-locks.py','research/portable_physical_lock_cover_cases.py','research/world_physical_lock_cover_native.py','research/world_physical_locks_native.py','research/portable_physical_lock_cover_contracts.py'):
-            self.assertIn(name,hashes)
 
 if __name__=='__main__':unittest.main()

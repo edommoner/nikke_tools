@@ -34,15 +34,6 @@ class PackingTests(unittest.TestCase):
             c=copy.deepcopy(base);c['controls'][0]=control
             with self.subTest(control=control),patch.object(timeline,'simulate',side_effect=AssertionError('simulation')):
                 with self.assertRaises(ValueError):a.compile_case(c)
-    def test_cli_rejects_inherited_wrong_gpu_source_before_preparation(self):
-        from types import SimpleNamespace
-        s=importlib.util.spec_from_file_location('manual_cli_test',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(s);s.loader.exec_module(cli)
-        self.assertEqual(cli.SUITES['coordinate-manual']['source'],a.SOURCE)
-        fake=SimpleNamespace(STRICT_WIRE_DIMENSIONS=True,SOURCE=a.SOURCE,suite=SimpleNamespace(OUTPUT=a.OUTPUT_WORDS))
-        with patch.object(cli,'module',return_value=fake):
-            self.assertIs(cli.open_suite({'suite':'coordinate-manual'}),fake)
-            with patch.dict(cli.SUITES['coordinate-manual'],source=a.parent.SOURCE):
-                with self.assertRaisesRegex(ValueError,'source'):cli.open_suite({'suite':'coordinate-manual'})
     def test_static_input_type_rejects_conflicting_minimum_cycle(self):
         c=next(c for c in fixtures() if c['name'].endswith('/hold-then-cover'));c['combat']['weapons'][0]['min_cycle']=.2
         with self.assertRaisesRegex(ValueError,'minimum cycle'):a.compile_case(c)

@@ -41,11 +41,5 @@ class ModeActionTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256(project_sources(ROOT)[name].encode()).hexdigest(),expected)
         with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
 
-    def test_unregistered_wire_rejected_before_packing_or_native(self):
-        spec=importlib.util.spec_from_file_location('mode_action_cli_test',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
-        import portable_backend
-        with patch.object(portable_backend,'validate_composed_stride',side_effect=ValueError('unregistered wire')),patch.object(cli,'prepare_entries') as prepare:
-            with self.assertRaisesRegex(ValueError,'unregistered wire'):cli.development_baseline('coordinate-mode-actions',())
-            prepare.assert_not_called()
 
 if __name__=='__main__':unittest.main()

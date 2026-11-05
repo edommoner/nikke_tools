@@ -20,13 +20,6 @@ class WeightedBattleWire(unittest.TestCase):
                 at=L['DEFINITION_BASE']+i*L['DEFINITION_WORDS'];e=c['effects'][i]
                 self.assertEqual((words[at+F['KIND']],words[at+F['STAT']]),(4,0))
                 self.assertEqual(e,c['original_run']['prepared']['effects'][i]['effect'])
-    def test_complete_stride_is_registered_without_changing_transport_limits(self):
-        from portable_backend import validate_composed_stride
-        from portable_wire_layout import LARGE_OUTPUT_WORDS,check_metal
-        wire.check_schema();self.assertIn(wire.OUTPUT,LARGE_OUTPUT_WORDS);check_metal(ROOT,wire.OUTPUT)
-        validate_composed_stride(wire.SOURCE,wire.INPUT,wire.OUTPUT)
-        for iw,ow in [(wire.INPUT-1,wire.OUTPUT),(wire.INPUT,wire.OUTPUT-1)]:
-            with self.assertRaises(ValueError):validate_composed_stride(wire.SOURCE,iw,ow)
     def test_private_lowering_restores_default_rejection_and_functions(self):
         import portable_runtime,portable_element_specs
         functions=(portable_runtime.validate_effect,portable_element_specs.legacy_effect)

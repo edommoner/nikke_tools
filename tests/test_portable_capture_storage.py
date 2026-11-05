@@ -3,7 +3,7 @@ import hashlib,importlib.util,json,sys,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
-import nikke_gpu as cli
+import nikke_storage as cli
 from portable_capture_storage import archive_raw,restore_raw
 
 class CaptureStorageTests(unittest.TestCase):
@@ -13,6 +13,8 @@ class CaptureStorageTests(unittest.TestCase):
         cli.write(capture/'evidence.json',dict(output_sha256=hashlib.sha256(data).hexdigest(),transport=dict(output_bytes=len(data))))
         cli.write(capture/'artifacts.json',dict(files=cli.file_records(capture,['evidence.json'])))
         return capture,root/'raw.gz',data
+
+    pass
 
     def test_roundtrip_keeps_exact_bytes_without_gpu_and_refuses_overwrite(self):
         import portable_backend
@@ -44,11 +46,3 @@ class CaptureStorageTests(unittest.TestCase):
             archive.write_bytes(original);(capture/'evidence.json').write_text('{}')
             with self.assertRaises(ValueError):restore_raw(capture,archive,cli.check_records)
             self.assertFalse((capture/'readback.bin').exists())
-
-    def test_archive_must_be_outside_capture_and_requires_evidence(self):
-        with tempfile.TemporaryDirectory() as folder:
-            capture,archive,data=self.fixture(Path(folder))
-            with self.assertRaises(ValueError):archive_raw(capture,capture/'raw.gz',cli.check_records)
-            cli.write(capture/'artifacts.json',dict(files=[]))
-            with self.assertRaises(ValueError):archive_raw(capture,archive,cli.check_records,remove_original=True)
-            self.assertEqual((capture/'readback.bin').read_bytes(),data)

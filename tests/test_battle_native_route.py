@@ -33,17 +33,5 @@ class NativeRouteTests(unittest.TestCase):
             with self.assertRaises(AssertionError):verify(case,changed)
             changed=copy.deepcopy(n);changed['child_landings'][0]['target']=[5,0,2]
             with self.assertRaises(AssertionError):verify(case,changed)
-    def test_source_audit_rejects_native_route_rewriting_or_open_policy(self):
-        from portable_missing_consumer_audit import verify as audit
-        target=(ROOT/'app/battle_attack_group_runtime.py').resolve()
-        read=Path.read_text;source=read(target)
-        for old,new in [("routing not in ('native','all-logical-enemies')","False"),
-                        ("routing=='all-logical-enemies' and current","routing=='native' and current"),
-                        ("replace(event,rule='all_enemies')","replace(event,rule='enemies_random')")]:
-            self.assertIn(old,source);changed=source.replace(old,new)
-            def fake(path,*args,**kwargs):
-                return changed if path.resolve()==target else read(path,*args,**kwargs)
-            with patch.object(Path,'read_text',fake):
-                with self.assertRaises(AssertionError):audit(ROOT)
 
 if __name__=='__main__':unittest.main()

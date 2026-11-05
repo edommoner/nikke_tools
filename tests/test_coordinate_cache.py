@@ -80,6 +80,8 @@ class CacheTests(unittest.TestCase):
         from portable_coordinate_cache_source_contract import project_sources,project_backend_source
         data=json.loads((ROOT/'tests/fixtures/portable-coordinate-cache-source-delta.json').read_text());project_sources(ROOT);project_backend_source(ROOT)
         for name in [*data['sources'],*data['added_sources']]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed\n'})
         with self.assertRaises(ValueError):project_backend_source(ROOT,(ROOT/'app/portable_backend.py').read_text()+'\n// unreviewed\n')
         from portable_backend import validate_composed_stride

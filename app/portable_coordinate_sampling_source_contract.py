@@ -2,6 +2,8 @@
 import hashlib,json
 from pathlib import Path
 def project_sources(root,sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     from portable_coordinate_sampled_parent_source_contract import project_sources as parent_sources
     from portable_coordinate_sampled_skill_source_contract import project_sources as skill_sources
     from portable_coordinate_sampled_burst_source_contract import project_sources as burst_sources
@@ -11,9 +13,12 @@ def project_sources(root,sources=None):
     for name,row in d['sources'].items():
         current=out.get(name,(root/name).read_text());assert current==row['current'] and hashlib.sha256(current.encode()).hexdigest()==row['current_sha256'],'Unreviewed sampled hook: '+name
         assert hashlib.sha256(row['baseline'].encode()).hexdigest()==row['baseline_sha256'];out[name]=row['baseline']
-    for name,h in d['added_sources'].items():assert hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()==h,'Unreviewed sampled implementation: '+name
+    for name,h in d['added_sources'].items():
+        assert hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()==h,'Unreviewed sampled implementation: '+name
     return out
 def project_backend_source(root,source=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if source is not None:source=cpu_boundary_text(root,'app/portable_backend.py',source)
     root=Path(root);d=json.loads((root/'tests/fixtures/portable-coordinate-sampling-source-delta.json').read_text())['transport']
     from portable_coordinate_sampled_parent_source_contract import project_backend_source as parent_backend
     from portable_coordinate_sampled_skill_source_contract import project_backend_source as skill_backend

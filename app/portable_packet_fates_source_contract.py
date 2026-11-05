@@ -3,6 +3,8 @@ import hashlib,json
 from pathlib import Path
 
 def project_sources(root,sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     from portable_lock_enemy_carrier_source_contract import project_sources as enemy
     root=Path(root);out=enemy(root,sources)
     ledger=json.loads((root/'tests/fixtures/portable-packet-fates-source-delta.json').read_text())

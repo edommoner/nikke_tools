@@ -3,8 +3,6 @@ import importlib.util,json,sys,math,hashlib
 from pathlib import Path
 from datetime import datetime,timezone
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
-from gpu_selector import Cuda
-from detail_gpu import run
 from detail_coverage import body_for,coverage
 spec=importlib.util.spec_from_file_location('list_targets_oracle',ROOT/'scripts/verify-targets-detail.py');base=importlib.util.module_from_spec(spec);spec.loader.exec_module(base)
 E=base.E;oracle=base.oracle;periodic=base.periodic;NAMES=base.NAMES
@@ -47,34 +45,3 @@ def full_scenarios():
  yield 'full-state-list-overlapping-instance-lifetimes',{n[0]:[E('mark','buff','',0,n[3],event='every:2s',duration=1),E('overlap','buff','atk_pct',20,['allies_with_buff:mark','self'],event='every:0.5s',duration=3,max_stack=3)]},12
  yield 'full-list-bullet-refresh-and-consumption',{n[0]:[E('shots','buff','atk_pct',25,[n[2],n[2],n[3]],event='on_attack_count:3',duration_bullets=2,max_stack=3)]},10
  yield 'full-list-skill-clock-reduction-deduplicates',{n[0]:[E('pulse','buff','atk_pct',1,'all_allies',event='every:4s',duration=10,max_stack=20),E('reduce','instant','skill_cooldown_reduce_pct',50,['self','self'],event='every:1s')]},10
-
-def verify(device,backend='auto',include_real=True):
- out=[]
- for name,p,script,expected in primitives():
-  bs={n:{'atk':100000+i*10000,'hp':1000000,'def':1000} for i,n in enumerate(NAMES)};cpu,totals=oracle.oracle(p,script,[31784,50],bs);gpu=run(device,[p],script,[[31784,50]],[bs],module_backend=backend);errors=[]
-  assert len(cpu)==len(expected)==len(gpu['queries'][0])
-  for i,(x,y,z) in enumerate(zip(cpu,gpu['queries'][0],expected)):
-   if x[0]!=z or y[0]!=z:errors.append([i,'expected atk',z,x[0],y[0]])
-   for k in list(range(32))+[36,37]:
-    if not math.isclose(x[k],y[k],rel_tol=1e-12,abs_tol=1e-8):errors.append([i,k,x[k],y[k]])
-  c={'name':name,'passed':not errors and totals==gpu['totals'][0],'errors':errors,'backend':backend};out.append(c);print(json.dumps(c),flush=True)
- for name,effects,seconds in full_scenarios():
-  with periodic.custom_effects(effects):c=periodic.full.compare(device,name,body_for(NAMES,seconds,True),module_backend=backend)
-  if name=='full-duplicate-hp-buff-postprocessing':
-   # With 30% lost HP, two +10% current-HP posts give 90% of base HP.
-   n=NAMES[0];c['duplicate_hp_posts_exercised']=math.isclose(c['cpu_health'][n]['hp']/c['cpu_health'][n]['max_hp'],.9/1.1,rel_tol=1e-12);c['passed'] &= c['duplicate_hp_posts_exercised']
-  c['backend']=backend;out.append(c);print(json.dumps({'name':name,'passed':c['passed'],'cpu':c['cpu_total'],'gpu':c['gpu_total']}),flush=True)
- if include_real:
-  before=json.loads((ROOT/'research/detail-coverage-targets.json').read_text(encoding='utf-8'));was={r['character'] for r in before['results'] if r['supported']}
-  for r in coverage()['results']:
-   if not r['supported'] or r['character'] in was:continue
-   name=r['character'];names=[name]+[n for n in NAMES if n!=name][:4];c=periodic.full.compare(device,'real-'+name,body_for(names,60,True),module_backend=backend);c['backend']=backend;out.append(c);print(json.dumps({'name':name,'passed':c['passed'],'cpu':c['cpu_total'],'gpu':c['gpu_total']},ensure_ascii=True),flush=True)
- return out
-
-if __name__=='__main__':
- device=Cuda()
- try:cases=verify(device,'native')+verify(device,'ptx')
- finally:device.close()
- files=['app/detail_gpu.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-build.json','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json','scripts/verify-lists-detail.py']
- report={'generated_at':datetime.now(timezone.utc).isoformat(),'passed':all(c['passed'] for c in cases),'cases':cases,'cpu_trace_used_as_gpu_input':False,'scope':'ordered/duplicate friendly target lists within 21 recipients and 128 total definition rows, static boss; not all effects/characters/combinations','source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files}}
- (ROOT/'research/detail-lists-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if report['passed'] else 1)

@@ -47,10 +47,4 @@ class HealthParts(unittest.TestCase):
         from portable_original_lock_source_contract import project_sources as complete
         previous=json.loads((ROOT/'tests/fixtures/portable-original-lock-source-delta.json').read_text())
         self.assertEqual(complete(ROOT)['app/portable_backend.py'],previous['sources']['app/portable_backend.py']['baseline'])
-    def test_shared_cache_profile_requires_the_same_calculation_and_paired_generation(self):
-        import nikke_gpu as cli
-        normal=cli.SUITES['original-lock-health-parts'];cached=cli.SUITES['original-lock-health-parts-cache-only']
-        for key in ('script','source','golden','inputs','native','input_words','output_words','development_only'):self.assertEqual(normal[key],cached[key])
-        self.assertFalse(normal['development_only'])
-        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1');self.assertIs(cached['require_paired_generation'],True)
 if __name__=='__main__':unittest.main()

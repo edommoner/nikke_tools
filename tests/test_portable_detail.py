@@ -1,4 +1,5 @@
 """Product payload parity and fail-closed paths, without a GPU or CPU replay."""
+from cpu_reference_guard import forbid_execution
 import array,copy,hashlib,json,os,struct,sys,tempfile,unittest
 from contextlib import nullcontext,contextmanager
 from types import SimpleNamespace
@@ -6,7 +7,6 @@ from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'app'))
 import portable_detail as product
-import portable_product_artifact as artifacts
 from portable_projectile_roster_input import compile_projectile_battle
 
 from historical_engine_reference import historical_reference
@@ -466,7 +466,7 @@ class PortableDetail(unittest.TestCase):
     def test_real_unsupported_effect_reports_owner_and_definition_without_dispatch(self):
         from portable_original_identity_inventory import selected_profile_bodies
         for name,stat in [('얀','force_move'),('유니','enemy_movement_disable'),('스노우 화이트 : 헤비암즈','lock_on')]:
-            body=selected_profile_bodies([name],0)[0][2];body.update(burst_gauge_mode='fixed',compute_backend='metal_detail')
+            body=selected_profile_bodies([name],0)[0][2];body.update(burst_gauge_mode='fixed',compute_backend='native_detail')
             body['enemy']['patterns']=[dict(id='future-target',kind='summon',delay=5.,spec=dict(count=1,hp=1e8))]
             if stat=='lock_on':
                 # Ordinary ADD markers are supported; the declared magazine/lock
@@ -510,272 +510,19 @@ class PortableDetail(unittest.TestCase):
         self.assertEqual(actual['burst_timeline'],expected)
         self.assertEqual(actual['burst_gauge_mode'],'fixed')
 
-    def test_saved_artifact_descriptor_is_explicit_and_strict(self):
-        with tempfile.TemporaryDirectory() as folder:
-            path=self.descriptor(folder)
-            with patch.dict(os.environ,{artifacts.ENV:str(path)}):
-                self.assertEqual(artifacts.select(product.SOURCE)['battle_package'],folder)
-                with self.assertRaisesRegex(ValueError,'未準備'):artifacts.select('gpu/product_group_battle_entry.slang')
-            for document in [dict(schema=True,programs={}),dict(schema=1,programs={'gpu/unknown.slang':{}}),dict(schema=1,programs=[],extra=1)]:
-                path.write_text(json.dumps(document))
-                with patch.dict(os.environ,{artifacts.ENV:str(path)}),self.assertRaises(ValueError):artifacts.select(product.SOURCE)
-            path=self.descriptor(folder);document=json.loads(path.read_text());document['programs'][product.SOURCE]['request']['package']='relative';path.write_text(json.dumps(document))
-            with patch.dict(os.environ,{artifacts.ENV:str(path)}),self.assertRaisesRegex(ValueError,'absolute'):artifacts.select(product.SOURCE)
-            for value in ('','relative.json',str(Path(folder)/'missing.json')):
-                with patch.dict(os.environ,{artifacts.ENV:value}),self.assertRaises(ValueError):artifacts.descriptor_file()
 
-    def test_saved_program_requires_the_current_sealed_source_before_loading_image(self):
-        cli=artifacts.proof_cli()
-        from portable_backend import source_hashes
-        owner=dict(package_id='mock-owner',suite='product-detail',purpose='sealed',golden=dict(source_sha256=source_hashes(product.SOURCE)))
-        with tempfile.TemporaryDirectory() as folder:
-            path=self.descriptor(folder);capture=Path(folder)/'capture';capture.mkdir()
-            for changed in [dict(purpose='development'),dict(selected_cases=['one']),dict(golden=dict(source_sha256={})),dict(suite='damage-factors')]:
-                with patch.dict(os.environ,{artifacts.ENV:str(path)}),patch.object(artifacts,'proof_cli',return_value=cli),\
-                     patch.object(cli,'verify_package',return_value={**owner,**changed}),patch.object(cli,'saved_linked_provider') as provider:
-                    with self.assertRaisesRegex(ValueError,'current battle source'):
-                        with artifacts.saved_program(product.SOURCE,capture):pass
-                    provider.assert_not_called()
-            receipt=dict(identity=dict(provider='mock; not hardware evidence'),key='mock')
-            @contextmanager
-            def provider(manifest,where,backend,journal):
-                self.assertEqual(manifest,owner);self.assertEqual(backend,'cuda')
-                self.assertEqual(json.loads((where/'linked-artifact-request.json').read_text()),dict(package=folder,capture=folder))
-                journal.emit('cuda_linked_origin','verified',receipt=receipt)
-                journal.emit('cuda_linked_artifact','entered')
-                journal.emit('cuda_linked_artifact','returned')
-                journal.emit('cuda_linked_artifact_receipt','verified',receipt=receipt)
-                yield receipt
-            with patch.dict(os.environ,{artifacts.ENV:str(path)}),patch.object(artifacts,'proof_cli',return_value=cli),\
-                 patch.object(cli,'verify_package',return_value=owner),patch.object(cli,'saved_linked_provider',side_effect=provider):
-                with artifacts.saved_program(product.SOURCE,capture) as actual:self.assertEqual(actual,receipt)
 
-    def test_saved_program_preserves_execution_errors_and_restores_import_state(self):
-        @contextmanager
-        def admitted(*args):
-            # Only the provider boundary is mocked; no hardware claim.
-            yield dict(identity=dict(provider='mock'),key='mock')
-        with tempfile.TemporaryDirectory() as folder:
-            path=self.descriptor(folder)
-            previous=list(sys.path);bytecode=sys.dont_write_bytecode
-            for error in (KeyError('execution field'),TypeError('execution argument'),ImportError('execution dependency')):
-                with patch.dict(os.environ,{artifacts.ENV:str(path)}),patch.object(artifacts,'_audited_program',side_effect=admitted):
-                    with self.assertRaises(type(error)) as raised:
-                        with artifacts.saved_program(product.SOURCE,Path(folder)):
-                            self.assertEqual(sys.path,previous)
-                            raise error
-                self.assertIs(raised.exception,error)
-                self.assertEqual(sys.path,previous)
-                self.assertEqual(sys.dont_write_bytecode,bytecode)
 
-    def test_saved_program_preserves_post_dispatch_audit_error_and_records_its_layer(self):
-        from portable_backend import source_hashes
-        import portable_linked_artifact
-        cli=artifacts.proof_cli()
-        owner=dict(package_id='mock-owner',suite='product-detail',purpose='sealed',
-                   golden=dict(source_sha256=source_hashes(product.SOURCE)))
-        receipt=dict(identity=dict(provider='mock; not hardware evidence'),key='mock')
-        @contextmanager
-        def provider(*args):yield receipt
-        for error in (KeyError('post-dispatch field'),TypeError('post-dispatch value'),ImportError('post-dispatch dependency')):
-            with self.subTest(error=type(error).__name__),tempfile.TemporaryDirectory() as folder:
-                path=self.descriptor(folder);capture=Path(folder)/'capture';capture.mkdir()
-                with patch.dict(os.environ,{artifacts.ENV:str(path)}),\
-                     patch.object(cli,'verify_package',return_value=owner),\
-                     patch.object(cli,'saved_linked_provider',side_effect=provider),\
-                     patch.object(portable_linked_artifact,'verify_phases',side_effect=error):
-                    with self.assertRaises(type(error)) as raised:
-                        with artifacts.saved_program(product.SOURCE,capture) as actual:
-                            self.assertEqual(actual,receipt)
-                    self.assertIs(raised.exception,error)
-                phases=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
-                post=[row for row in phases if row['stage']=='product_cubin_post_dispatch']
-                self.assertEqual([row['state'] for row in post],['entered','raised'])
-                self.assertEqual(post[-1]['exception'],type(error).__name__)
 
-    def test_saved_program_converts_only_pre_admission_metadata_errors(self):
-        @contextmanager
-        def rejected(*args):
-            raise KeyError('missing owner field')
-            yield
-        with tempfile.TemporaryDirectory() as folder:
-            path=self.descriptor(folder)
-            with patch.dict(os.environ,{artifacts.ENV:str(path)}),\
-                 patch.object(artifacts,'_audited_program',side_effect=rejected):
-                with self.assertRaisesRegex(ValueError,'metadata incomplete') as raised:
-                    with artifacts.saved_program(product.SOURCE,Path(folder)):
-                        self.fail('Unadmitted provider reached dispatch')
-                self.assertIsInstance(raised.exception.__cause__,KeyError)
 
-    @historical_reference
-    def test_product_saved_receipt_is_bound_to_transport_and_cpu_still_runs_after_gpu(self):
-        body={**self.fixture['body'],'compute_backend':'cuda_shared_detail'}
-        expected=copy.deepcopy(self.fixture['cpu_payload']);expected['evaluator']=product.engine_worker.sim.evaluator()
-        receipt=dict(identity=dict(provider='mock; not hardware evidence'),key='mock-key')
-        for matching,retained_history in ((True,False),(False,False),(True,True),(False,True)):
-            receipt['identity'].pop('historical_link_environment',None)
-            if retained_history:receipt['identity']['historical_link_environment']=dict(capture=str(ROOT),observation_sha256='a'*64,missing_identities=[dict(pid=71,path='c:/tools/node.exe',creation_filetime_ticks='133700000000000007')],disposition='retained-failure',preservation_verified=False,service_preservation_verified=False,service_status_before='unverified',service_status_after='unverified',termination_cause='unknown')
-            events=[]
-            @contextmanager
-            def provider(source,folder):
-                self.assertEqual(source,product.SOURCE);events.append('admission');yield receipt
-            def execute(source,entry,packed,iw,ow,backend,*,readback_path):
-                events.append('gpu');raw=self.synthetic_stationary_readback(ow);readback_path.write_bytes(raw)
-                return None,dict(backend='cuda',gpu_execution_verified=True,input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),transport=dict(device='mock',cases=1,command_status='completed',host_dispatch_seconds=.1,compile_artifact=receipt if matching else {}))
-            def cpu(request):events.append('cpu');return copy.deepcopy(expected)
-            with tempfile.TemporaryDirectory() as folder:
-                path=self.descriptor(folder)
-                with patch.dict(os.environ,{artifacts.ENV:str(path),'NIKKE_DETAIL_CAPTURE_ROOT':folder,'NIKKE_SLANG_GENERATION_CACHE':folder,'NIKKE_CUDA_COMPILE_CACHE':''}),\
-                     patch.object(product.platform,'system',return_value='Windows'),patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
-                     patch.object(product,'saved_program',side_effect=provider),patch.object(product,'execute',side_effect=execute),\
-                     patch.object(product,'decode',return_value=self.fixture['gpu_projection']),patch.object(product.engine_worker,'evaluate',side_effect=cpu):
-                    result=product.evaluate(body)
-                self.assertEqual(events,['admission','gpu','cpu'])
-                self.assertEqual(result['compute']['backend'],'cuda_shared_detail' if matching else 'cpu')
-                self.assertEqual(result['compute']['saved_cubin_admission'],'verified' if matching else 'not_admitted')
-                capture=next(Path(folder).glob('*/result.json')).parent
-                self.assertTrue((capture/'evidence.json').is_file())
-                if matching:
-                    self.assertEqual(result['compute']['artifact_key'],receipt['key'])
-                    self.assertEqual(json.loads((capture/'result.json').read_text())['artifact_receipt'],receipt)
-                else:self.assertIn('receipt mismatch',result['compute']['unsupported'][0]['reason'])
-                if retained_history:
-                    self.assertIs(result['compute']['historical_link_preservation_verified'],False)
-                    self.assertEqual(result['compute']['historical_link_missing_processes_count'],1)
-                    self.assertIs(json.loads((capture/'result.json').read_text())['historical_link_preservation_verified'],False)
 
-    def test_real_product_admission_rejects_missing_processes_tampered_owner_and_missing_entry(self):
-        cli=artifacts.proof_cli()
-        from portable_backend import source_hashes
-        owner=dict(package_id='mock-owner',suite='product-detail',purpose='sealed',golden=dict(source_sha256=source_hashes(product.SOURCE)))
-        body={**self.fixture['body'],'compute_backend':'cuda_shared_detail'}
-        for failure in ('missing_existing_processes','tampered owner','missing entry','malformed metadata','missing dependency'):
-            with tempfile.TemporaryDirectory() as folder:
-                path=self.descriptor(folder)
-                if failure=='missing entry':
-                    d=json.loads(path.read_text());d['programs']={};path.write_text(json.dumps(d))
-                previous=list(sys.path);bytecode=sys.dont_write_bytecode
-                with patch.dict(os.environ,{artifacts.ENV:str(path),'NIKKE_DETAIL_CAPTURE_ROOT':folder,'NIKKE_SLANG_GENERATION_CACHE':folder}),\
-                     patch.object(product.platform,'system',return_value='Windows'),patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
-                     patch.object(artifacts,'proof_cli',return_value=cli),patch.object(cli,'verify_package',side_effect=ValueError(failure) if failure=='tampered owner' else None,return_value=owner),\
-                     patch.object(cli,'saved_linked_admission',side_effect=KeyError('comparison') if failure=='malformed metadata' else ImportError('observer') if failure=='missing dependency' else ValueError('missing_existing_processes')) as admission,\
-                     patch.object(product,'execute',side_effect=AssertionError('No GPU or compiler')) as dispatch,\
-                     patch.object(product.engine_worker,'evaluate',return_value=copy.deepcopy(self.fixture['cpu_payload'])):
-                    result=product.evaluate(body)
-                self.assertEqual(result['compute']['backend'],'cpu');dispatch.assert_not_called()
-                capture=next(Path(folder).glob('*/result.json')).parent
-                self.assertNotIn('artifact_receipt',json.loads((capture/'result.json').read_text()))
-                if failure in ('tampered owner','missing entry'):admission.assert_not_called()
-                if failure=='tampered owner':self.assertFalse((capture/'linked-artifact-request.json').exists())
-                self.assertEqual(sys.path,previous);self.assertEqual(sys.dont_write_bytecode,bytecode)
 
-    @historical_reference
-    def test_product_uses_actual_saved_loader_and_forbids_nvrtc_with_mocked_driver_output(self):
-        import test_portable_linked_artifact as existing
-        import portable_backend as backend
-        fixture=existing.LinkedArtifactTests();fixture.setUp();self.addCleanup(fixture.doCleanups)
-        cli=artifacts.proof_cli()
-        owner=dict(package_id='mock-owner',suite='product-detail',purpose='sealed',golden=dict(source_sha256=backend.source_hashes(product.SOURCE)))
-        state=fixture.state();events=[]
-        expected=copy.deepcopy(self.fixture['cpu_payload']);expected['evaluator']=product.engine_worker.sim.evaluator()
-        def execute(source,entry,packed,iw,ow,actual_backend,*,readback_path):
-            self.assertEqual(sys.path,previous);self.assertEqual(sys.dont_write_bytecode,bytecode)
-            image,receipt=backend.compile_cuda_source(fixture.source)
-            self.assertEqual(image,fixture.image.read_bytes());self.assertEqual(receipt,state['receipt'])
-            if attempt_forbidden:
-                with self.assertRaisesRegex(RuntimeError,'forbidden'):backend.compile_cuda_artifact(None,b'',[])
-            events.append('gpu');raw=self.synthetic_stationary_readback(ow);readback_path.write_bytes(raw)
-            return None,dict(backend='cuda',gpu_execution_verified=True,input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),transport=dict(device='mock; no actual GPU',cases=1,command_status='completed',host_dispatch_seconds=.1,compile_artifact=receipt))
-        def cpu(request):events.append('cpu');return copy.deepcopy(expected)
-        for attempt_forbidden in (False,True):
-            events.clear()
-            with tempfile.TemporaryDirectory() as folder:
-                path=self.descriptor(folder);previous=list(sys.path);bytecode=sys.dont_write_bytecode
-                with patch.dict(os.environ,{artifacts.ENV:str(path),'NIKKE_DETAIL_CAPTURE_ROOT':folder,'NIKKE_SLANG_GENERATION_CACHE':folder}),\
-                     patch.object(product.platform,'system',return_value='Windows'),patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
-                     patch.object(artifacts,'proof_cli',return_value=cli),patch.object(cli,'verify_package',return_value=owner),\
-                     patch.object(cli,'saved_linked_admission',return_value=state),patch.object(product,'execute',side_effect=execute),\
-                     patch.object(product,'decode',return_value=self.fixture['gpu_projection']),patch.object(product.engine_worker,'evaluate',side_effect=cpu):
-                    result=product.evaluate({**self.fixture['body'],'compute_backend':'cuda_shared_detail'})
-                self.assertEqual(result['compute']['backend'],'cpu' if attempt_forbidden else 'cuda_shared_detail');self.assertEqual(events,['gpu','cpu'])
-                if not attempt_forbidden:self.assertEqual(result['compute']['artifact_key'],state['receipt']['key'])
-                self.assertEqual(sys.path,previous);self.assertEqual(sys.dont_write_bytecode,bytecode)
 
-    def test_bad_saved_image_phase_order_or_completion_rejects_product_output(self):
-        cli=artifacts.proof_cli()
-        from portable_backend import source_hashes
-        owner=dict(package_id='mock-owner',suite='product-detail',purpose='sealed',golden=dict(source_sha256=source_hashes(product.SOURCE)))
-        receipt=dict(identity=dict(provider='mock; not hardware evidence'),key='mock')
-        for bad in ('missing-return','duplicate-marker','wrong-order'):
-            @contextmanager
-            def provider(manifest,where,backend,journal):
-                rows=[('cuda_linked_origin','verified',dict(receipt=receipt)),('cuda_linked_artifact','entered',{}),('cuda_linked_artifact','returned',{}),('cuda_linked_artifact_receipt','verified',dict(receipt=receipt))]
-                if bad=='missing-return':rows.pop(2)
-                elif bad=='duplicate-marker':rows.append(rows[-1])
-                else:rows[0],rows[1]=rows[1],rows[0]
-                for stage,state,facts in rows:journal.emit(stage,state,**facts)
-                yield receipt
-            def execute(source,entry,packed,iw,ow,backend,*,readback_path):
-                raw=self.synthetic_stationary_readback(ow);readback_path.write_bytes(raw)
-                return None,dict(transport=dict(compile_artifact=receipt))
-            with tempfile.TemporaryDirectory() as folder:
-                path=self.descriptor(folder)
-                with patch.dict(os.environ,{artifacts.ENV:str(path),'NIKKE_DETAIL_CAPTURE_ROOT':folder,'NIKKE_SLANG_GENERATION_CACHE':folder}),\
-                     patch.object(product.platform,'system',return_value='Windows'),patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
-                     patch.object(artifacts,'proof_cli',return_value=cli),patch.object(cli,'verify_package',return_value=owner),\
-                     patch.object(cli,'saved_linked_provider',side_effect=provider),patch.object(product,'execute',side_effect=execute),\
-                     patch.object(product.engine_worker,'evaluate',return_value=copy.deepcopy(self.fixture['cpu_payload'])):
-                    result=product.evaluate({**self.fixture['body'],'compute_backend':'cuda_shared_detail'})
-                self.assertEqual(result['compute']['backend'],'cpu')
-                capture=next(Path(folder).glob('*/result.json')).parent
-                self.assertNotIn('artifact_receipt',json.loads((capture/'result.json').read_text()))
-                self.assertTrue((capture/'evidence.json').exists())
 
-    @historical_reference
-    def test_descriptor_history_reaches_real_admission_loader_and_product_result(self):
-        import test_portable_linked_artifact as existing
-        import portable_linked_artifact as saved
-        import portable_backend as backend
-        from windows_validation_observer import compare_snapshots
-        f=existing.LinkedArtifactTests();f.setUp();self.addCleanup(f.doCleanups);cli=artifacts.proof_cli()
-        hashes=backend.source_hashes(product.SOURCE)
-        for item in (f.golden,f.linked['golden'],f.producer,f.compiler):item['source_sha256']=hashes
-        owner=dict(package_id='mock-owner',suite='product-detail',purpose='sealed',golden=copy.deepcopy(f.golden))
-        package=f.root/'link-owner';capture=f.root/'link';obj=f.root/'object';producer=f.root/'producer'
-        for p in (package,capture,obj,producer):p.mkdir()
-        cli.write(package/'gpu-package.json',f.linked);cli.write(package/'jit-link-object-claimed-cuda.json',{});cli.write(capture/'artifacts.json',{})
-        cli.write(capture/'object-request.json',dict(object_capture=str(obj)));cli.write(obj/'object-request.json',dict(source_capture=str(producer)));cli.write(producer/'compiler.json',f.compiler)
-        cli.write(capture/'jit-link.json',dict(origin=dict(object_receipt=dict(identity=dict(origin=dict(producer=f.producer)))),receipt=f.link));(capture/'jit-linked.cubin').write_bytes(f.image.read_bytes())
-        row=dict(pid=71,path='C:/Tools/CUA/node.exe',creation_filetime_ticks='133700000000000007',role='unrelated')
-        before=dict(processes=[row],service_status='unverified');after=dict(processes=[],service_status='unverified')
-        cli.write(capture/'observation.json',dict(before=before,after=after,comparison=compare_snapshots(before,after)))
-        binding=dict(capture=str(capture),observation_sha256=saved.digest((capture/'observation.json').read_bytes()),missing_identities=saved.missing_identities([row]),disposition='retained-failure')
-        path=self.descriptor(str(f.root));document=json.loads(path.read_text());request=dict(package=str(package),capture=str(capture),historical_link_observation=binding);document['programs'][product.SOURCE]['request']=request;path.write_text(json.dumps(document))
-        expected=copy.deepcopy(self.fixture['cpu_payload']);expected['evaluator']=product.engine_worker.sim.evaluator()
-        def verify(where,**kwargs):return f.linked if where==package else owner
-        def execute(source,entry,packed,iw,ow,actual_backend,*,readback_path):
-            image,receipt=backend.compile_cuda_source(f.source);self.assertEqual(image,f.image.read_bytes())
-            self.assertFalse(receipt['identity']['historical_link_environment']['preservation_verified'])
-            raw=self.synthetic_stationary_readback(ow);readback_path.write_bytes(raw)
-            return None,dict(backend='cuda',gpu_execution_verified=True,input_sha256=saved.digest(packed),output_sha256=saved.digest(raw),transport=dict(device='mock; not GPU evidence',cases=1,command_status='completed',host_dispatch_seconds=.1,compile_artifact=receipt))
-        with patch.dict(os.environ,{artifacts.ENV:str(path),'NIKKE_DETAIL_CAPTURE_ROOT':str(f.root/'requests'),'NIKKE_SLANG_GENERATION_CACHE':str(f.root)}),\
-             patch.object(product.platform,'system',return_value='Windows'),patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
-             patch.object(artifacts,'proof_cli',return_value=cli),patch.object(cli,'verify_package',side_effect=verify),\
-             patch.object(cli,'audit_jit_link_capture',return_value=dict(link_verified=True,containment_verified=True)),\
-             patch.object(product,'execute',side_effect=execute),patch.object(product,'decode',return_value=self.fixture['gpu_projection']),patch.object(product.engine_worker,'evaluate',return_value=copy.deepcopy(expected)):
-            self.assertEqual(artifacts.select(product.SOURCE)['request'],request)
-            result=product.evaluate({**self.fixture['body'],'compute_backend':'cuda_shared_detail'})
-            self.assertEqual(result['compute']['backend'],'cuda_shared_detail');self.assertIs(result['compute']['historical_link_preservation_verified'],False)
-            where=f.root/'requests'/result['compute']['capture_id'];self.assertEqual(json.loads((where/'linked-artifact-request.json').read_text()),request)
-            self.assertFalse(json.loads((where/'result.json').read_text())['artifact_receipt']['identity']['historical_link_environment']['preservation_verified'])
-            changed=copy.deepcopy(document);changed['programs'][product.SOURCE]['request']['historical_link_observation']['capture']=str(f.root);path.write_text(json.dumps(changed))
-            with self.assertRaisesRegex(ValueError,'capture mismatch'):artifacts.select(product.SOURCE)
-            changed=copy.deepcopy(document);changed['programs'][product.SOURCE]['request']['historical_link_observation']['missing_identities']=[];path.write_text(json.dumps(changed))
-            with self.assertRaises(ValueError):artifacts.select(product.SOURCE)
 
     @classmethod
     def setUpClass(cls):
-        cls.fixture=json.loads((ROOT/'tests/fixtures/portable-detail-product-v1.json').read_text(encoding='utf-8'))
+        cls.fixture=json.loads((ROOT/'tests/fixtures/portable-detail-product-v1.json').read_text(encoding='utf-8'));cls.fixture['body']['compute_backend']='native_detail'
         with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('Preparation must not run a battle')):
             cls.prepared,cls.prepared_run=product.prepare(cls.fixture['body'])
             cls.words,cls.metadata=compile_projectile_battle(cls.prepared)
@@ -831,7 +578,7 @@ class PortableDetail(unittest.TestCase):
                 payload=product.decode_payload(body,prepared,run,self.metadata,[0])
             self.assertEqual(payload['app_warnings'],[self.fixture['cpu_payload']['app_warnings'][0],warning])
     def test_backend_failure_preserves_cpu_label_and_strips_internal_request_flags(self):
-        body={**self.fixture['body'],'_compile_gpu_detail':True}
+        body={**self.fixture['body'],'compute_backend':'native_detail','_compile_detail':True}
         calls=[]
         def cpu(request):
             calls.append(request);return copy.deepcopy(self.fixture['cpu_payload'])
@@ -842,16 +589,16 @@ class PortableDetail(unittest.TestCase):
                  patch.object(product.engine_worker,'evaluate',side_effect=cpu):
                 result=product.evaluate(body)
                 self.assertEqual(result['compute']['backend'],'cpu')
-                self.assertEqual(result['compute']['requested'],'metal_detail')
+                self.assertEqual(result['compute']['requested'],'native_detail')
                 self.assertFalse(result['compute']['gpu_execution_verified'])
-                self.assertNotIn('_compile_gpu_detail',calls[0])
+                self.assertNotIn('_compile_detail',calls[0])
                 self.assertEqual(len(list(Path(folder).glob('*/result.json'))),1)
                 record=json.loads(next(Path(folder).glob('*/result.json')).read_text())
                 self.assertEqual(record['error_type'],type(error).__name__)
                 self.assertEqual(record['error'],str(error))
                 self.assertNotIn('audit metadata incomplete',record['error'])
     def test_invalid_product_parts_fall_back_before_any_gpu_dispatch(self):
-        body=copy.deepcopy(self.fixture['body']);body['enemy']['parts']=[dict(id='example')]
+        body=copy.deepcopy(self.fixture['body']);body['compute_backend']='native_detail';body['enemy']['parts']=[dict(id='example')]
         with tempfile.TemporaryDirectory() as folder,patch.dict('os.environ',NIKKE_DETAIL_CAPTURE_ROOT=folder),\
              patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
              patch.object(product,'execute',side_effect=AssertionError('No dispatch')),\
@@ -870,12 +617,9 @@ class PortableDetail(unittest.TestCase):
             events=[]
             def execute(source,entry,packed,iw,ow,actual_backend,*,readback_path):
                 self.assertEqual(actual_backend,backend);wires.append(packed);events.append('gpu')
-                if backend=='cuda':
-                    self.assertEqual({k:os.environ[k] for k in ('NIKKE_CUDA_ARTIFACT','NIKKE_CUDA_CACHE_REQUIRED','NIKKE_CUDA_PTXAS_OPT_LEVEL','NIKKE_SLANG_GENERATION_REQUIRED')},
-                        dict(NIKKE_CUDA_ARTIFACT='cubin',NIKKE_CUDA_CACHE_REQUIRED='1',NIKKE_CUDA_PTXAS_OPT_LEVEL='1',NIKKE_SLANG_GENERATION_REQUIRED='1'))
                 raw=self.synthetic_stationary_readback(ow);readback_path.write_bytes(raw)
                 return None,dict(backend=backend,gpu_execution_verified=backend!='native',native_execution_verified=backend=='native',input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),
-                    transport=dict(device='mock transport; not GPU evidence',cases=1,command_status='completed',**{'host_seconds' if backend=='native' else 'gpu_seconds' if backend=='metal' else 'host_dispatch_seconds':.1}))
+                    transport=dict(device='mock transport; not GPU evidence',cases=1,command_status='completed',**{'host_seconds' if backend=='native' else 'host_seconds' if backend=='native' else 'host_dispatch_seconds':.1}))
             def cpu(request):
                 self.assertEqual(events,['gpu']);events.append('cpu');return copy.deepcopy(expected)
             with tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,dict(NIKKE_DETAIL_CAPTURE_ROOT=folder,NIKKE_SLANG_GENERATION_CACHE=folder,NIKKE_CUDA_COMPILE_CACHE=folder,
@@ -884,74 +628,13 @@ class PortableDetail(unittest.TestCase):
                 patch.object(product,'decode',return_value=self.fixture['gpu_projection']),patch.object(product,'execute',side_effect=execute),patch.object(product.engine_worker,'evaluate',side_effect=cpu):
                 result=product.evaluate(body);self.assertEqual(events,['gpu','cpu'])
                 self.assertEqual(result['compute']['backend'],requested);self.assertTrue(result['compute']['cpu_verification']['matched'])
-                self.assertIn('host_seconds' if backend=='native' else 'gpu_seconds' if backend=='metal' else 'host_dispatch_seconds',result['compute'])
-                self.assertNotIn('host_dispatch_seconds' if backend=='metal' else 'gpu_seconds',result['compute'])
-                self.assertEqual(os.environ['NIKKE_CUDA_ARTIFACT'],'ptx')
+                self.assertIn('host_seconds' if backend=='native' else 'host_seconds' if backend=='native' else 'host_dispatch_seconds',result['compute'])
+                self.assertNotIn('host_dispatch_seconds' if backend=='native' else 'host_seconds',result['compute'])
                 record=json.loads(next(Path(folder).glob('*/result.json')).read_text())
                 self.assertEqual(len(record['request_sha256']),64)
                 self.assertEqual(record['capture_id'],result['compute']['capture_id'])
-        self.assertEqual(len(wires),3)
+        self.assertEqual(len(wires),1)
         self.assertTrue(all(wire==wires[0] for wire in wires))
-    def test_cuda_environment_and_required_cache_failures_remain_cpu_results(self):
-        body={**self.fixture['body'],'compute_backend':'cuda_shared_detail'}
-        for platform_name,configured,error in [('Darwin',True,'Windows'),('Windows',False,'キャッシュ'),('Windows',True,'required cache miss')]:
-            with tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,dict(NIKKE_DETAIL_CAPTURE_ROOT=folder,
-                NIKKE_SLANG_GENERATION_CACHE=folder if configured else '',NIKKE_CUDA_COMPILE_CACHE=folder if configured else '')),\
-                patch.object(product.platform,'system',return_value=platform_name),patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
-                patch.object(product,'execute',side_effect=RuntimeError('required cache miss; compiler forbidden')) as dispatch,\
-                patch.object(product.engine_worker,'evaluate',return_value=copy.deepcopy(self.fixture['cpu_payload'])):
-                result=product.evaluate(body);self.assertEqual(result['compute']['requested'],'cuda_shared_detail')
-                self.assertEqual(result['compute']['backend'],'cpu');self.assertFalse(result['compute']['gpu_execution_verified'])
-                self.assertIn(error,result['compute']['unsupported'][0]['reason'])
-                self.assertEqual(dispatch.call_count,int(platform_name=='Windows' and configured))
-    def test_actual_backend_cache_misses_do_not_reach_generators_compilers_or_driver(self):
-        import importlib.util
-        def isolated(name,path):
-            spec=importlib.util.spec_from_file_location(name,ROOT/path)
-            module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
-        # Keep the outer CPU-stage guards installed. Only this fake-SDK fixture
-        # gets an isolated copy of the real transport/cache-prefix functions;
-        # every native generator/library/driver boundary below still fails.
-        backend=isolated('product_cache_miss_backend','app/portable_backend.py')
-        generation_code=isolated('product_cache_miss_generation','app/portable_slang_generation.py')
-        cli=isolated('product_cache_miss_cli','scripts/nikke_gpu.py')
-        body={**self.fixture['body'],'compute_backend':'cuda_shared_detail'}
-        for guarded,stage in ((g,s) for g in (False,True) for s in ('generation','cubin')):
-            with self.subTest(guarded=guarded,stage=stage),(cli.forbid_gpu() if guarded else nullcontext()),tempfile.TemporaryDirectory() as folder:
-                root=Path(folder);sdk=root/'sdk';(sdk/'bin').mkdir(parents=True)
-                for name in ('slangc','slangc.exe','nvrtc64_test.dll','nvrtc-builtins64_test.dll'):
-                    (sdk/'bin'/name).write_bytes(b'identity only; must never execute')
-                generation=root/'generation';generation.mkdir();cache=root/'compile';cache.mkdir()
-                cuda=root/'never-compile.cu';cuda.write_bytes(b'// cache miss, no compiler allowed\n')
-                env=dict(NIKKE_DETAIL_CAPTURE_ROOT=str(root/'captures'),NIKKE_SLANG_ROOT=str(sdk),CUDA_PATH=str(sdk),
-                    NIKKE_SLANG_GENERATION_CACHE=str(generation),NIKKE_CUDA_COMPILE_CACHE=str(cache),
-                    NIKKE_CUDA_CACHE_REQUIRED='0',NIKKE_SLANG_GENERATION_REQUIRED='0')
-                windows=SimpleNamespace(name='nt',environ=os.environ,add_dll_directory=lambda _:nullcontext())
-                build=(patch.object(backend,'build',return_value=({'cuda':cuda},backend.source_hashes(product.SOURCE))) if stage=='cubin'
-                       else patch.object(backend,'build',side_effect=lambda source,entry:generation_code.build(ROOT,source,entry)))
-                clean={k:v for k,v in os.environ.items() if not k.startswith('SLANG_') and k not in ('LD_LIBRARY_PATH','DYLD_LIBRARY_PATH','DYLD_FRAMEWORK_PATH')}
-                clean.update(env)
-                with patch.dict(os.environ,clean,clear=True),patch.object(product.platform,'system',return_value='Windows'),\
-                    patch.object(product,'execute',backend.execute),\
-                    patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
-                    patch.object(product.engine_worker,'evaluate',return_value=copy.deepcopy(self.fixture['cpu_payload'])),\
-                    patch.object(generation_code,'_build_resident',side_effect=AssertionError('No Slang')) as generator,\
-                    patch.object(backend,'_cuda_module',side_effect=AssertionError('No CUDA driver')) as driver,\
-                    patch.object(backend.C,'WinDLL',create=True,side_effect=AssertionError('No NVRTC DLL')) as compiler,\
-                    patch.object(backend,'resident_plan',return_value=None),patch.object(backend,'os',windows),build:
-                    result=product.evaluate(body)
-                    self.assertEqual(result['compute']['backend'],'cpu');self.assertFalse(result['compute']['gpu_execution_verified'])
-                    self.assertIn('cache miss',result['compute']['unsupported'][0]['reason'].lower())
-                    generator.assert_not_called();driver.assert_not_called();compiler.assert_not_called()
-    def test_incomplete_or_wrong_execution_metadata_fails_closed(self):
-        valid=dict(backend='cuda',gpu_execution_verified=True,input_sha256='0'*64,output_sha256='1'*64,
-            transport=dict(device='mock',cases=1,command_status='completed',host_dispatch_seconds=.1))
-        self.assertEqual(product.verified_transport(valid,'cuda')[1],'host_dispatch_seconds')
-        variants=[None,{},dict(valid,backend='metal'),dict(valid,input_sha256='bad')]
-        for key,value in [('device',None),('cases',True),('host_dispatch_seconds',float('nan'))]:
-            item=copy.deepcopy(valid);item['transport'][key]=value;variants.append(item)
-        for item in variants:
-            with self.assertRaises(RuntimeError):product.verified_transport(item,'cuda')
     def test_real_multi_hit_uses_existing_native_group_wire_without_changing_effects(self):
         sys.path.insert(0,str(ROOT/'research'))
         from portable_original_identity_inventory import selected_profile_bodies
@@ -1107,6 +790,8 @@ class PortableDetail(unittest.TestCase):
             case=copy.deepcopy(prepared);case['effects'][1]['effect']['target']=target
             with self.subTest(target=target),self.assertRaisesRegex(ValueError,'recipient count'):product.compile_product(case)
 
+
+
 class BossDotNativeContract(unittest.TestCase):
     """Observed CPU product rules for the pending shared boss-DoT consumer.
 
@@ -1220,8 +905,9 @@ if __name__=='__main__':unittest.main()
 
 class ProductBatchProtocol(unittest.TestCase):
     """Protocol/fault injection only; mock transport is never GPU evidence."""
+
     @contextmanager
-    def harness(self,folder,*,corrupt=False,fail=False,other_source=False,backend='metal'):
+    def harness(self,folder,*,corrupt=False,fail=False,other_source=False,backend='native'):
         events=[];calls=[]
         def prepare(body):
             if body.get('invalid'):raise ValueError('declared invalid row')
@@ -1245,14 +931,13 @@ class ProductBatchProtocol(unittest.TestCase):
              patch.object(product,'execute',side_effect=execute),patch.object(product,'decode_payload',side_effect=lambda body,pre,run,meta,block:dict(marker=block[1])),\
              patch.object(product.engine_worker,'evaluate',side_effect=cpu),\
              patch('portable_capture_storage.space_status',side_effect=lambda path,needed:dict(passed=True,required_bytes=needed,reserve_bytes=0,free_bytes=needed+1)):
-            os.environ.pop(artifacts.ENV,None)
             yield calls,events
 
-    def bodies(self,n=3,backend='metal_detail'):
+    def bodies(self,n=3,backend='native_detail'):
         return [dict(seed=i,compute_backend=backend,verify_detail=True,enemy={}) for i in range(n)]
 
     def test_compatible_cases_share_one_real_framing_and_preserve_individual_views(self):
-        for backend,requested in [('metal','metal_detail'),('cuda','cuda_shared_detail')]:
+        for backend,requested in [('native','native_detail')]:
             with self.subTest(backend=backend),tempfile.TemporaryDirectory() as folder,self.harness(folder,backend=backend) as (calls,events):
                 rows=product.evaluate_many(self.bodies(3,requested))
                 self.assertEqual([r['result']['marker'] for r in rows],[0,1,2]);self.assertEqual(len(calls),1)
@@ -1275,32 +960,15 @@ class ProductBatchProtocol(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder,self.harness(folder,corrupt=True) as (calls,events):
             rows=product.evaluate_many(self.bodies())
             self.assertEqual(len(calls),1);self.assertEqual([r['result']['marker'] for r in rows],[0,1,2])
-            self.assertEqual([r['result']['compute']['backend'] for r in rows],['metal_detail','cpu','metal_detail'])
+            self.assertEqual([r['result']['compute']['backend'] for r in rows],['native_detail','cpu','native_detail'])
             self.assertTrue(rows[1]['result']['compute']['gpu_result_rejected'])
 
-    def test_one_saved_image_admission_is_shared_and_bound_to_all_batch_members(self):
-        receipt=dict(identity=dict(provider='mock protocol provider; no hardware'),key='mock')
-        admissions=[]
-        @contextmanager
-        def provider(source,folder):
-            admissions.append((source,folder));yield receipt
-        with tempfile.TemporaryDirectory() as folder,self.harness(folder,backend='cuda') as (calls,_):
-            original=product.execute
-            def with_receipt(*args,**kwargs):
-                raw,evidence=original(*args,**kwargs);evidence['transport']['compile_artifact']=copy.deepcopy(receipt)
-                return raw,evidence
-            with patch.dict(os.environ,{artifacts.ENV:'mock-not-read'}),patch.object(product,'saved_program',side_effect=provider),patch.object(product,'execute',side_effect=with_receipt):
-                rows=product.evaluate_many(self.bodies(3,'cuda_shared_detail'))
-            self.assertEqual(len(admissions),1);self.assertEqual(len(calls),1)
-            for row in rows:
-                self.assertEqual(row['result']['compute']['saved_cubin_admission'],'verified')
-                self.assertEqual(row['result']['compute']['artifact_key'],'mock')
 
     def test_incompatible_sources_are_not_packed_into_one_dispatch(self):
         with tempfile.TemporaryDirectory() as folder,self.harness(folder,other_source=True) as (calls,_):
             rows=product.evaluate_many(self.bodies())
-            self.assertEqual([n for _,n,_ in calls],[2,1]);self.assertEqual([r['result']['marker'] for r in rows],[0,1,2])
-            self.assertTrue(all(r['result']['compute']['backend']=='metal_detail' for r in rows))
+            self.assertEqual(sorted(n for _,n,_ in calls),[1,2]);self.assertEqual([r['result']['marker'] for r in rows],[0,1,2])
+            self.assertTrue(all(r['result']['compute']['backend']=='native_detail' for r in rows))
 
     def test_bad_row_and_shared_failure_keep_all_indices_and_never_retry(self):
         with tempfile.TemporaryDirectory() as folder,self.harness(folder) as (calls,_):
@@ -1310,7 +978,7 @@ class ProductBatchProtocol(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder,self.harness(folder,fail=True) as (calls,_):
             rows=product.evaluate_many(self.bodies());self.assertEqual(len(calls),1)
             self.assertTrue(all(r['result']['compute']['backend']=='cpu' for r in rows))
-        for bodies in ([],self.bodies(9),{}):
+        for bodies in ([],self.bodies(33),{}):
             with self.assertRaises(ValueError):product.evaluate_many(bodies)
 
     def test_storage_shortage_stops_before_gpu_instead_of_shrinking_the_batch(self):
@@ -1339,7 +1007,7 @@ class ProductBatchProtocol(unittest.TestCase):
 
     def test_gpu_stage_exceptions_fall_back_once_with_stage_and_traceback(self):
         import subprocess
-        for backend,requested in [('metal','metal_detail'),('cuda','cuda_shared_detail')]:
+        for backend,requested in [('native','native_detail')]:
             for function,stage in [('prepare','prepare'),('compile_product','compile'),('execute','transport'),('decode_payload','decode')]:
                 for error in (AttributeError('attribute fault'),IndexError('index fault'),subprocess.TimeoutExpired('mock transport',1)):
                     with self.subTest(backend=backend,function=function,error=type(error).__name__),tempfile.TemporaryDirectory() as folder,self.harness(folder,backend=backend) as (_,events),patch.object(product,function,side_effect=error):
@@ -1362,7 +1030,8 @@ class ProductBatchProtocol(unittest.TestCase):
                     self.assertEqual(record['cpu_error']['error_type'],type(error).__name__)
                     self.assertEqual(record['cpu_error']['stage'],'cpu');self.assertIn(str(error),record['cpu_error']['traceback'])
                     self.assertEqual('unsupported' in record,gpu_failure)
-                    self.assertEqual(record['gpu_execution_verified'],not gpu_failure)
+                    self.assertFalse(record['gpu_execution_verified'])
+                    self.assertEqual(record['native_execution_verified'],not gpu_failure)
 
     def test_base_exceptions_are_not_converted_to_fallback_or_batch_error(self):
         for function in ('prepare','compile_product','execute','decode_payload'):
@@ -1382,7 +1051,7 @@ class ProductBatchProtocol(unittest.TestCase):
                 return dict(marker=block[1])
             with patch.object(product,'decode_payload',side_effect=decode):rows=product.evaluate_many(self.bodies())
             self.assertEqual(len(calls),1);self.assertEqual([row['result']['marker'] for row in rows],[0,1,2])
-            self.assertEqual([row['result']['compute']['backend'] for row in rows],['metal_detail','cpu','metal_detail'])
+            self.assertEqual([row['result']['compute']['backend'] for row in rows],['native_detail','cpu','native_detail'])
             self.assertEqual(events,['gpu',('cpu',0),('cpu',1),('cpu',2)])
             self.assertEqual(rows[1]['result']['compute']['fallback_stage'],'decode')
             for i in (0,2):self.assertEqual(rows[i]['result']['compute']['cpu_verification'],dict(matched=True,differing_fields=[]))
@@ -1407,7 +1076,7 @@ class ProductBatchProtocol(unittest.TestCase):
             self.assertEqual(rows[1],dict(error='one CPU row failed'));self.assertEqual(len(calls),1)
             self.assertEqual(events,['gpu',('cpu',0),('cpu',1),('cpu',2)])
             for i in (0,2):
-                self.assertEqual(rows[i]['result']['compute']['backend'],'metal_detail')
+                self.assertEqual(rows[i]['result']['compute']['backend'],'native_detail')
                 self.assertEqual(rows[i]['result']['compute']['cpu_verification'],dict(matched=True,differing_fields=[]))
             records=[json.loads(p.read_text()) for p in Path(folder).glob('*/result.json')]
             errors=[r for r in records if 'cpu_error' in r];self.assertEqual(len(errors),1)
@@ -1435,5 +1104,3 @@ class ProductBatchProtocol(unittest.TestCase):
                 record=json.loads((Path(folder)/rows[0]['result']['compute']['batch']['capture_id']/'result.json').read_text())
                 self.assertFalse(record['gpu_execution_verified']);self.assertTrue(record['native_execution_verified'])
         with self.assertRaises(ValueError):product.evaluate_many(self.bodies(33,'native_detail'))
-        for backend in ('metal_detail','cuda_shared_detail'):
-            with self.assertRaises(ValueError):product.evaluate_many(self.bodies(9,backend))

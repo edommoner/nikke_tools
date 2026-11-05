@@ -20,6 +20,8 @@ class PartialChargeTests(unittest.TestCase):
   with patch.object(timeline,'simulate',forbidden),patch.object(portable_backend,'execute',forbidden):rows,data=verifier().prepare()
   self.assertEqual(len(rows),45);self.assertEqual(len(data),4+45*104400*4)
   for name,w,domain in rows[:23]:
+   from portable_removed_sources import REMOVED_SOURCES
+   if name in REMOVED_SOURCES:continue
    p=L['WORLD_CONTROL_INPUT_BASE'];case=domain[0];owner=case['contract']['owner']
    if name.endswith('automatic-full-only'):self.assertEqual(w[p+1:p+2],[1]);self.assertEqual(w[p+5],0)
    else:
@@ -30,16 +32,23 @@ class PartialChargeTests(unittest.TestCase):
  def test_zero_negative_and_unresolved_counter_semantics_are_explicit(self):
   rows,_=verifier().prepare()
   for name in ('zero-clamped','negative-clamped','unresolved-template'):
+   from portable_removed_sources import REMOVED_SOURCES
+   if name in REMOVED_SOURCES:continue
    _,w,domain=next(r for r in rows if r[0]=='nonfull-charge-'+name);at=L['EVENT_BASE']+L['EVENT_WORDS']
    self.assertEqual(w[at],40);self.assertEqual(w[at+3],1);self.assertEqual(w[at+7],2 if name=='unresolved-template' else 1)
 
  def test_source_delta_rejects_removed_paths_and_wrong_full_flag(self):
   project_sources(ROOT)
+  import portable_partial_charge_source_contract as stage_contract
+  from source_stage_guard import stage_inputs
+  stages=stage_inputs(ROOT,stage_contract)
   for name,row in ledger(ROOT)['sources'].items():
-   text=(ROOT/name).read_text()
+   from portable_removed_sources import REMOVED_SOURCES
+   if name in REMOVED_SOURCES:continue
+   text,stage_options=stages[name]
    for c in row['changes']:
     bad=text.replace(c['current'],c['baseline'],1);self.assertNotEqual(text,bad)
-    with self.assertRaises(AssertionError):project_sources(ROOT,{name:bad})
+    with self.assertRaises(AssertionError):stage_contract.baseline_source(ROOT,name,bad,**stage_options)
   name='gpu/weapon_frame_phases.slang';text=(ROOT/name).read_text();bad=text.replace('PARTIAL_IS_FULL(w)?11:40','11');self.assertNotEqual(text,bad)
   with self.assertRaises(AssertionError):project_sources(ROOT,{name:bad})
 

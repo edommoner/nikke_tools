@@ -41,8 +41,8 @@ def shader_schema():
             f'static const uint PTW_KEEP={WEAPON_CAPACITY}U,PTW_PREFIX={WEAPON_PREFIX_CAPACITY}U,PTW_EXTRA=EMB_END,PTW_END=EMB_END+{SPILL_WORDS}U;\n')
 
 def check_schema(root):
-    from portable_wire_layout import check_metal
-    check_metal(root,OUTPUT);check_metal(root,LOCK_OUTPUT)
+    from portable_wire_layout import check_output_words
+    check_output_words(OUTPUT);check_output_words(LOCK_OUTPUT)
     if (Path(root)/'gpu/product_typed_movement_layout.slang').read_text()!=shader_schema():raise ValueError('Typed movement schema drift')
     if not BASE+WORDS==123732 or not OUT<END<END+SPILL_WORDS<OUTPUT or not LOCK_OUT<LOCK_END<LOCK_END+SPILL_WORDS<LOCK_OUTPUT:raise ValueError('Typed movement banks overlap')
 

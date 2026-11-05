@@ -22,16 +22,6 @@ class WeaponModeSpecs(unittest.TestCase):
         for bad in (mode(toggle=1),mode(name=''),effect('bad','buff','atk_pct',1,toggle=True)):
             with self.assertRaises(ValueError):toggle_flag(bad)
 
-    def test_compiled_commands_reject_ambiguous_or_forged_metadata(self):
-        stats={n:dict(atk=1000,hp=1000000,**{'def':0}) for n in NAMES}
-        es=[mode(),effect('ammo','instant','squad_ammo_consume_as',40)]
-        p=g.compile_effects(chars(),[(e,NAMES[0]) for e in es])
-        self.assertEqual(p['effects'][0][213],TOGGLE_FLAG);self.assertEqual(p['effects'][1][1],AMMO_EQUIVALENT)
-        for index,field,value in ((0,35,0),(0,1,4),(1,4,1),(1,10,2),(1,6,4097),(1,213,TOGGLE_FLAG)):
-            forged=copy.deepcopy(p);forged['effects'][index][field]=value
-            with self.subTest(index=index,field=field),self.assertRaises(ValueError):g.run(None,[forged],[[0,2,0,0,-1,0,0,0]],[[0,0]],[stats])
-        for changes in ({'scaling':'stack_count','scaling_ref':'x'},{'target':'all_allies'},{'fixed_value':4097}):
-            with self.subTest(changes=changes),self.assertRaises(ValueError):g.compile_effects(chars(),[({**es[1],**changes},NAMES[0])])
 
     def test_cpu_mode_toggle_and_expiry_use_the_same_end_notification(self):
         observer=effect('ended','buff','atk_pct',1,'event:state_end:mode',duration=-1,max_stack=100)

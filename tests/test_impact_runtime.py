@@ -4,7 +4,7 @@ from pathlib import Path
 from types import SimpleNamespace as NS
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'app'))
-from impact_specs import ActorHandle,ActorKind,HitFamily,HitOutcome,Impact,ImpactTrace,impact_command,decode_command,classify_hit,gpu_source_matches
+from impact_specs import ActorHandle,ActorKind,HitFamily,HitOutcome,Impact,ImpactTrace,impact_command,decode_command,classify_hit
 from effect_runtime import state,publish_impact,CATALOG
 
 
@@ -20,7 +20,6 @@ class ImpactContract(unittest.TestCase):
                     self.assertEqual(decode_command(impact_command(.5,p,names),names),p)
         p=self.packet()
         with self.assertRaises(FrozenInstanceError):p.target.generation=9
-        self.assertTrue(gpu_source_matches())
     def test_invalid_descriptors_and_independent_credit(self):
         for thunk in (lambda:ActorHandle(True,0),lambda:ActorHandle(0,True),lambda:ActorHandle(0,0,0),
                       lambda:Impact('a',ActorHandle(0,0),0,0,0,1),lambda:Impact('a',ActorHandle(0,0),0,1,5),

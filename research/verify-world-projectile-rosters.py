@@ -41,30 +41,3 @@ def compare(block,prepared,program,native,shots):
  diff+=reference.differences(events,shots[:TRACE_COUNT],'physical_shots')
  if len(shots)-len(events)!=omitted:diff.append(dict(path='physical_history_omitted',gpu=omitted,cpu=len(shots)-len(events)))
  return actual,events,omitted,diff
-
-def main():
- ap=argparse.ArgumentParser();ap.add_argument('--backend',choices=('metal','cuda'),default='metal');ap.add_argument('--cpu-only',action='store_true');ap.add_argument('--replay',type=Path);a=ap.parse_args();rows=prepare();packed=array.array('I',[len(rows)])
- for c,p,w,m in rows:packed.extend(w)
- if sys.byteorder!='little':packed.byteswap()
- data=packed.tobytes()
- if a.cpu_only:
-  for c,p,w,m in rows:native_reference(c['body'])
-  print('Complete real',len(rows),'battles;GPU0');return
- if a.replay:
-  folder=a.replay;assert (folder/'input.bin').read_bytes()==data;raw=(folder/'readback.bin').read_bytes();e=json.loads((folder/'evidence.json').read_text());assert e['source_sha256']==source_hashes(SOURCE)
- else:
-  folder=ROOT/'research/portable-build'/('world-projectile-rosters-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'));folder.mkdir();(folder/'input.bin').write_bytes(data)
-  try:raw,e=execute(SOURCE,'portableEvents',data,INPUT_WORDS,OUTPUT_WORDS,a.backend)
-  except Exception as error:(folder/'failure.json').write_text(json.dumps(dict(error=repr(error),source_sha256=source_hashes(SOURCE)),indent=2)+'\n');raise
-  (folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(e,indent=2)+'\n')
- results=[];ow=OUTPUT_WORDS*4
- for i,(c,p,w,m) in enumerate(rows):
-  block=array.array('I');block.frombytes(raw[i*ow:(i+1)*ow]);block.byteswap() if sys.byteorder!='little' else None
-  row=dict(**c,status=block[0],passed=False,prepared_effects=len(p['effects']),bound_effects=len(m['effects']))
-  try:
-   native,shots=native_reference(c['body']);actual,events,omitted,diff=compare(block,p,(w,m),native,shots);row.update(actual=actual,native=native,physical_shots=events,native_physical_shots=shots,physical_history_omitted=omitted,differences=diff,passed=block[0]==0 and not diff)
-  except (AssertionError,ValueError,KeyError,IndexError) as error:row['error']=repr(error)
-  results.append(row)
- report=dict(passed=all(r['passed'] for r in results),cases=results,evidence=e,captured=str(folder),source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),full_character_verified=0,canonical_world_admission=False,normal_ui='CPU',full_goal_complete=False,cpu_trace_used_as_gpu_input=False,unchanged_gpu_retries=0,scope='Eleven complete real base/favorite profiles at3/30s, all definitions and physical shot snapshots; not full catalog/variants/world/control certification')
- (ROOT/f'research/portable-world-projectile-rosters-{a.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');print([(r['character'],r['favorite_stage'],r['duration'],r['status'],len(r.get('differences',[])),r.get('error')) for r in results]);assert report['passed']
-if __name__=='__main__':main()

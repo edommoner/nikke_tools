@@ -5,7 +5,6 @@ from types import SimpleNamespace
 from unittest.mock import Mock,patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'research'),str(ROOT/'scripts')]
 from portable_coordinate_kind_admission import KindAdmission,render,FRAGMENT
-import nikke_gpu
 
 def adapter():
     spec=importlib.util.spec_from_file_location('resource_kind_test',ROOT/'research/verify-coordinate-original-resources-short.py');a=importlib.util.module_from_spec(spec);spec.loader.exec_module(a);return a
@@ -31,23 +30,7 @@ class KindAdmissionTests(unittest.TestCase):
         clock=KindAdmission(ROOT,'gpu/world_coordinate_original_clock_entry.slang').inspect(words)
         self.assertEqual(clock['unsupported'],[])
 
-    def test_development_rejects_before_any_native_or_gpu_execution(self):
-        fake=SimpleNamespace(prepare=lambda:(self.rows,None))
-        native=Mock(side_effect=AssertionError('Native must not start'))
-        with patch.object(nikke_gpu,'open_suite',return_value=fake),patch.object(nikke_gpu,'native_hash',native):
-            with self.assertRaisesRegex(ValueError,'rejected before native/GPU'):nikke_gpu.development_baseline('coordinate-original',[])
-        native.assert_not_called()
 
-    def test_explicit_subset_and_expected_rejections_remain_valid(self):
-        from portable_coordinate_original_cases import prepare_case
-        from portable_coordinate_original_revival_cases import fixtures
-        case,prepared=prepare_case(fixtures()[0]);words,m,b,d=self.a.compile_coordinate_battle(prepared)
-        entries=[self.rows[0],('good',words,(case,m,b,d)),('expected-rejection',self.rows[0][1],None)]
-        fake=SimpleNamespace(prepare=lambda:(entries,None))
-        selected,_=nikke_gpu.prepare_entries(fake,dict(suite='coordinate-original',purpose='development',selected_cases=['good']))
-        self.assertEqual([r[0] for r in selected],['good'])
-        selected,_=nikke_gpu.prepare_entries(fake,dict(suite='coordinate-original',purpose='development',selected_cases=['expected-rejection']))
-        self.assertIsNone(selected[0][2])
 
     def test_runtime_burst_control_predicate_is_not_assumed(self):
         from portable_burst_control_specs import INPUT_BASE

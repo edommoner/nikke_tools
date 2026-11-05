@@ -21,30 +21,3 @@ def prepare():
  w=list(programs[14][0]);w[L['CONDITION_BASE']+1]=1;bad.append(('enemy-attack-hp-condition-reserved-name',w))
  return rows,programs,bad
 def sha(b):return hashlib.sha256(b).hexdigest()
-def main():
- ap=argparse.ArgumentParser();ap.add_argument('--backend',choices=('metal','cuda'),default='metal');ap.add_argument('--cpu-only',action='store_true');ap.add_argument('--replay',type=Path);a=ap.parse_args()
- rows,programs,bad=prepare();native=[observe(c) for c in rows]
- if a.cpu_only:print('Enemy attack native',len(rows),'raw',len(bad),'GPU0');return
- packed=array.array('I',[len(rows)+len(bad)])
- for w,_,_ in programs:packed.extend(w)
- for _,w in bad:packed.extend(w)
- if sys.byteorder!='little':packed.byteswap()
- data=packed.tobytes();ow=OUTPUT*4
- if a.replay:
-  folder=a.replay;assert (folder/'input.bin').read_bytes()==data;raw=(folder/'readback.bin').read_bytes();e=json.loads((folder/'evidence.json').read_text());assert e['source_sha256']==source_hashes(SOURCE)
- else:
-  folder=ROOT/'research/portable-build'/('world-enemy-attack-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'));folder.mkdir();(folder/'input.bin').write_bytes(data)
-  try:raw,e=execute(SOURCE,'portableEvents',data,97464,OUTPUT,a.backend)
-  except Exception as error:(folder/'failure.json').write_text(json.dumps(dict(error=repr(error),source_sha256=source_hashes(SOURCE)),indent=2)+'\n');raise
-  (folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(e,indent=2)+'\n')
- checked=[]
- for i,(c,(_,m,b),n) in enumerate(zip(rows,programs,native)):
-  block=array.array('I');block.frombytes(raw[i*ow:(i+1)*ow])
-  if sys.byteorder!='little':block.byteswap()
-  try:r=decoded(block,m,c,b);changed=[k for k in n if k!='scope' and r[k]!=n[k]]
-  except Exception as error:r=dict(error=repr(error));changed=['decode']
-  checked.append(dict(name=c['name'],passed=block[0]==0 and not changed,status=block[0],changed=changed,actual=r,native=n))
- rejected=[dict(name=name,status=int.from_bytes(raw[(len(rows)+i)*ow:(len(rows)+i)*ow+4],'little'),passed=int.from_bytes(raw[(len(rows)+i)*ow:(len(rows)+i)*ow+4],'little')==64) for i,(name,_) in enumerate(bad)]
- report=dict(passed=all(c['passed'] for c in checked+rejected),cases=checked,rejected_cases=rejected,captured=str(folder),evidence=e,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),unchanged_gpu_retries=0,normal_ui='CPU',canonical_world_admission=False,full_character_verified=0,full_goal_complete=False)
- (ROOT/f'research/portable-world-enemy-attack-{a.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[(c['name'],c.get('changed'),c['status']) for c in checked+rejected if not c['passed']];print('Enemy attack',len(rows),'native',len(bad),'raw',a.backend)
-if __name__=='__main__':main()

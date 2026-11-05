@@ -61,24 +61,6 @@ class WorldActorTests(unittest.TestCase):
             with patch('world_actor_specs.bindings',side_effect=AssertionError('Oversized actors must not be materialized')):
                 with self.assertRaisesRegex(ValueError,'capacity'):packed_bindings(parsed,{0:0})
 
-    def test_source_packet_does_not_enable_unconnected_battle_and_keeps_attack_controls(self):
-        from detail_boss import compile_world,validate_world,WB
-        from detail_gpu import run,compile_effects,UnsupportedDetail
-        raw=[dict(id='wave',kind='summon',spec=dict(count=1,hp=13))]
-        bm=test_manager([])
-        chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES]
-        program=compile_effects(chars,[]);program['world'],_=compile_world({'patterns':raw},[],{'enemy':{'patterns':raw}},program)
-        with self.assertRaisesRegex(UnsupportedDetail,'routing'):
-            run(None,[program],[[0,4,0,0,0,-1,0,0],[1,5,0,0,0,-1,0,0],[1,2,134,0,0,0,0,0]],[[0,0]],[bm.state['base_stats']])
-        with self.assertRaisesRegex(ValueError,'time0'):
-            run(None,[program],[[1,15,0,0,0,-1,0,0],[2,5,0,0,0,-1,0,0],[2,2,134,0,0,0,0,0]],[[0,0]],[bm.state['base_stats']])
-        raw[0]['spec']['attack']=dict(coeff=1,atk=1,target='all')
-        raw[0]['spec'].update(attack_at=.3,self_destruct=True)
-        w,_=compile_world({'patterns':raw},[],{'enemy':{'patterns':raw}},program)
-        self.assertEqual(w[WB+76:WB+78],[.3,1]);self.assertEqual(w[WB+80:WB+82],[1,1])
-        for at,value in ((WB+77,2),(WB+80,0)):
-            bad=w.copy();bad[at]=value
-            with self.assertRaises(ValueError):validate_world(bad)
 
     def test_shared_binding_order_and_strict_immutable_packet(self):
         boss,enemy=world();rows=bindings([r.p for r in boss._runs])
@@ -97,7 +79,7 @@ class WorldActorTests(unittest.TestCase):
         from test_target_counter_runtime import NAMES
         from detail_boss import WA,validate_world
         body=body_for(NAMES,1);body['enemy']['parts']=[dict(name='right',hp=1,reach=1),dict(name='left',hp=0,reach=2)]
-        compiled=a.evaluate({**body,'_compile_gpu_detail':True});packet=compiled['program']['world']
+        compiled=a.evaluate({**body,'_compile_detail':True});packet=compiled['program']['world']
         self.assertEqual(packet[WA:],empty_bindings(2))
         bad=packet.copy();bad[WA+1+ACTOR_WORDS+1]=4
         # Fixed part bindings must retain the same stable index as their pool.
@@ -175,7 +157,7 @@ class WorldActorTests(unittest.TestCase):
         adds=[p for p in seen if p.target.kind==ActorKind.ADD]
         self.assertEqual([(p.target,p.damage) for p in adds],[(ActorHandle(ActorKind.ADD,i),1) for i in range(2)])
         from detail_gpu import UnsupportedDetail
-        with self.assertRaises((ValueError,UnsupportedDetail)):a.evaluate({**body,'_compile_gpu_detail':True})
+        with self.assertRaises((ValueError,UnsupportedDetail)):a.evaluate({**body,'_compile_detail':True})
 
     def test_manager_reset_discards_world_binding(self):
         from test_target_counter_runtime import manager

@@ -43,17 +43,6 @@ class NamedEnemyRemovalTests(unittest.TestCase):
                 with self.subTest(case=c['name'],fault=fault),self.assertRaises(AssertionError):verify(c,bad)
         c=fixtures()[2];n=observe(c)[0];n['named_enemy_removal']['selection']['recipients'][0]['picked']=['__enemy__']
         with self.assertRaises(AssertionError):verify(c,n)
-    def test_global_scope_does_not_pack_or_allocate_selector_operand(self):
-        m=load('named-enemy-removal');rows,_=m.prepare();self.assertEqual((len(rows),sum(r[2] is not None for r in rows)),(23,16))
-        for _,w,domain in rows[:16]:
-            c=domain[0];at=L['MODE_BASE']+(len(c['effects'])-1)*L['MODE_WORDS']+24
-            if c['contract']['scope']=='global':self.assertEqual(w[at:at+4],[0]*4);self.assertIsNone(selection_name(c['effects'][-1]))
-            else:self.assertNotEqual(w[at],0)
-        self.assertTrue(all(d is None for _,_,d in rows[16:]))
-        from portable_readiness_semantics import reference_readiness
-        issue=dict(phase='effect',category='effect',kind='instant',stat='remove_named_buff',target='enemies_with_buff:mark')
-        r=reference_readiness(issue);self.assertEqual(r['recorded_cases'],18);self.assertFalse(r['full_character_verified']);self.assertFalse(r['gpu_supported'])
-        self.assertEqual(reference_readiness(dict(issue,fields=['unknown']))['lane'],'reference_review')
     def test_retained207_input_bytes_and_source_guard(self):
         a,data=load('named-enemy-retention').prepare();rows,current=load('named-enemy-removal-retention').prepare();self.assertEqual((len(rows),sum(d is not None for _,_,d in rows)),(230,171));self.assertEqual(current[4:len(data)],data[4:])
         from portable_named_enemy_source_contract import project_sources

@@ -50,13 +50,4 @@ class NumericTests(unittest.TestCase):
     def test_accuracy_sample_bound(self):
         for samples in [-1,10001,True]:
             with self.assertRaises(ValueError):audit(ROOT,samples)
-    def test_cli_audit_writes_once_without_gpu_or_native_battle(self):
-        import contextlib,io,json,tempfile
-        s=importlib.util.spec_from_file_location('numeric_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(s);s.loader.exec_module(cli)
-        with tempfile.TemporaryDirectory() as folder:
-            out=Path(folder)/'accuracy.json'
-            with contextlib.redirect_stdout(io.StringIO()),patch.object(cli,'native_hash',side_effect=AssertionError('No native battle')):
-                cli.main(['numeric-audit','--samples','0','--out',str(out)])
-            self.assertTrue(json.loads(out.read_text())['accuracy_verified'])
-            with self.assertRaises(ValueError):cli.main(['numeric-audit','--samples','0','--out',str(out)])
 if __name__=='__main__':unittest.main()

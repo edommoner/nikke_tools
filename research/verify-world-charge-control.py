@@ -57,31 +57,3 @@ def prepare():
  return rows,programs,bad
 
 def sha(b):return hashlib.sha256(b).hexdigest()
-def main():
- ap=argparse.ArgumentParser();ap.add_argument('--backend',choices=('metal','cuda'),default='metal');ap.add_argument('--cpu-only',action='store_true');ap.add_argument('--replay',type=Path);a=ap.parse_args();rows,programs,bad=prepare();observed=[inspect_native(c) for c in rows]
- if a.cpu_only:print('Manual control native',len(rows),'reject',len(bad),'GPU0');return
- packed=array.array('I',[len(rows)+len(bad)])
- for w,_,_ in programs:packed.extend(w)
- for _,w in bad:packed.extend(w)
- if sys.byteorder!='little':packed.byteswap()
- data=packed.tobytes();ow=OUTPUT*4
- if a.replay:
-  folder=a.replay;assert (folder/'input.bin').read_bytes()==data;raw=(folder/'readback.bin').read_bytes();e=json.loads((folder/'evidence.json').read_text());assert e['source_sha256']==source_hashes(SOURCE)
- else:
-  folder=ROOT/'research/portable-build'/('world-charge-control-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'));folder.mkdir();(folder/'input.bin').write_bytes(data)
-  try:raw,e=execute(SOURCE,'portableEvents',data,INPUT,OUTPUT,a.backend)
-  except Exception as error:(folder/'failure.json').write_text(json.dumps(dict(error=repr(error),source_sha256=source_hashes(SOURCE)),indent=2)+'\n');raise
-  (folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(e,indent=2)+'\n')
- checked=[]
- for i,(c,(_,m,b),(native,expected_trace)) in enumerate(zip(rows,programs,observed)):
-  block=array.array('I');block.frombytes(raw[i*ow:(i+1)*ow])
-  if sys.byteorder!='little':block.byteswap()
-  try:
-   actual=decoded(block,m,c,b);trace=team.skill_trace(block,m);changed=[k for k in native if k!='scope' and actual[k]!=native[k]]
-   if trace!=expected_trace:changed.append('skill_trace')
-  except Exception as error:actual=dict(error=repr(error));changed=['decode'];trace=[]
-  checked.append(dict(name=c['name'],passed=block[0]==0 and not changed,status=block[0],changed=changed,actual=actual,native=native,skill_trace=trace,native_skill_trace=expected_trace))
- rejected=[dict(name=name,status=int.from_bytes(raw[(len(rows)+i)*ow:(len(rows)+i)*ow+4],'little'),passed=int.from_bytes(raw[(len(rows)+i)*ow:(len(rows)+i)*ow+4],'little')==64) for i,(name,_) in enumerate(bad)]
- report=dict(passed=all(c['passed'] for c in checked+rejected),cases=checked,rejected_cases=rejected,captured=str(folder),evidence=e,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),unchanged_gpu_retries=0,normal_ui='CPU',canonical_world_admission=False,full_character_verified=0,full_goal_complete=False)
- (ROOT/f'research/portable-world-charge-control-{a.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[(c['name'],c.get('changed'),c['status']) for c in checked+rejected if not c['passed']];print('Manual charge controls',len(rows),'native',len(bad),'reject',a.backend)
-if __name__=='__main__':main()

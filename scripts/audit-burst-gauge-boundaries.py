@@ -23,16 +23,3 @@ def observe(owner):
   if source.startswith('charge_pct:'):events.append({'event':'instant_charge','source':source,'time':t,'phase':p,'charging':charging,'before':before,'after':self.state.get('burst_gauge'),'added':result})
   return result
  with patch.object(BurstController,'__init__',construct),patch.object(BuffManager,'notify',event),patch.object(BuffManager,'add_burst_gauge',charge):yield events
-
-def main():
- cases=[];owner=base.c.NAMES[1]
- for mode in ('fixed','accumulate'):
-  for timing in ('battle_start','burst_enter:1','full_burst_start','full_burst_end'):
-   effects={owner:[base.c.E('boundary gauge charge','instant','burst_charge_pct',150,event=timing)]}
-   with base.c.p.custom_effects(effects),base.configured(mode),observe(owner) as events:result=base.c.a.evaluate(base.c.body_for(base.c.NAMES,30,True))
-   charges=[e for e in events if e['event']=='instant_charge'];cases.append({'mode':mode,'timing':timing,'authored_effects':effects,'events':events,'cpu_total':result['total_damage'],'burst_timeline':result['burst_timeline']})
-   print(json.dumps({'mode':mode,'timing':timing,'charge_samples':charges[:2]},ensure_ascii=True),flush=True)
- files=['research/upstream/nikke-calc-master/calculator/timeline.py','research/upstream/nikke-calc-master/calculator/buff_manager.py']
- report={'generated_at':datetime.now(timezone.utc).isoformat(),'cpu_reference_only':True,'cpu_trace_used_as_gpu_input':False,'cases':cases,'source_sha256':{f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in files}}
- (ROOT/'research/detail-burst-gauge-boundary-references.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-if __name__=='__main__':main()

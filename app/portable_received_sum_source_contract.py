@@ -1,4 +1,5 @@
 """Exact inverse for the common received-damage compensation state; no normalizer changes."""
+from portable_cpu_only_source_contract import reviewed_bytes as cpu_only_bytes, reviewed_text as cpu_only_text
 import hashlib,json
 from pathlib import Path
 LEDGER_SHA256='076dbcec909e3497a4b996a0410f5554188f367c371f7974d71107ad474ef7cc'
@@ -13,7 +14,7 @@ def project_sources(root):
         from portable_weighted_incoming_source_contract import project_sources as weighted
         result=weighted(root)
     for name,row in data['files'].items():
-        current=result[name].encode() if name in result else (root/name).read_bytes()
+        current=result[name].encode() if name in result else cpu_only_bytes(root,name,(root/name).read_bytes())
         if current!=row['after'].encode() or hashlib.sha256(current).hexdigest()!=row['after_sha256']:raise ValueError('Unreviewed received sum source: '+name)
         if hashlib.sha256(row['before'].encode()).hexdigest()!=row['before_sha256']:raise ValueError('Received sum preimage differs')
         result[name]=row['before']

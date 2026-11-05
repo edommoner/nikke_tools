@@ -6,6 +6,8 @@ def ledger(root):
     return json.loads((Path(root)/'tests/fixtures/portable-dispatch-frame-source-delta.json').read_text())
 
 def project_sources(root,sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     from portable_effect_target_count_source_contract import project_sources as target_count
     root=Path(root)
     try:out=target_count(root,sources)

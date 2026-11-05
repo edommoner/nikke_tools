@@ -39,6 +39,8 @@ class MovementWireTests(unittest.TestCase):
         from portable_enemy_movement_source_contract import project_sources
         data=json.loads((ROOT/'tests/fixtures/portable-enemy-movement-source-delta.json').read_text());out=project_sources(ROOT)
         for name,row in data['files'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(hashlib.sha256(out[name].encode()).hexdigest(),row['before_sha256'])
             with self.subTest(name=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// changed'})
     def test_movement_output_requires_all_state_frames_segments_and_padding(self):

@@ -11,7 +11,7 @@ class DeferredVerification(unittest.TestCase):
     bodies=fixtures.ProductBatchProtocol.bodies
 
     def test_deferred_skips_cpu_for_each_shared_backend_and_keeps_payload(self):
-        for backend,requested in [('metal','metal_detail'),('cuda','cuda_shared_detail'),('native','native_detail')]:
+        for backend,requested in [('native','native_detail')]:
             with self.subTest(backend=backend),tempfile.TemporaryDirectory() as folder,self.harness(folder,backend=backend) as (_,events):
                 rows=product.evaluate_many(self.bodies(3,requested),verification='deferred')
                 self.assertFalse(any(isinstance(e,tuple) for e in events))
@@ -49,7 +49,9 @@ class DeferredVerification(unittest.TestCase):
 
     def test_deferred_transport_errors_still_run_authoritative_cpu(self):
         with tempfile.TemporaryDirectory() as folder,self.harness(folder,fail=True) as (_,events):
-            result=product.evaluate_many(self.bodies(1),verification='deferred')[0]['result']
+            body=self.bodies(1)[0]
+            marker=product.evaluate_many([body],verification='deferred')[0]['result']['cpu_fallback_pending']
+            result=product.cpu_fallback_portable_detail([dict(body=body,capture_id=marker['capture_id'])])[0]
             self.assertEqual(result['compute']['backend'],'cpu');self.assertIn(('cpu',0),events)
             self.assertNotIn('cpu_verification',result['compute'])
 

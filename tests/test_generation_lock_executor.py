@@ -33,10 +33,14 @@ class LockExecutorTests(unittest.TestCase):
   data=json.loads((ROOT/'tests/fixtures/portable-generation-lock-source-delta.json').read_text())
   projected=project_sources(ROOT)
   for name,row in data['sources'].items():
+   from portable_removed_sources import REMOVED_SOURCES
+   if name in REMOVED_SOURCES:continue
    self.assertEqual(projected[name],row['baseline'])
    with self.subTest(name=name),self.assertRaisesRegex(AssertionError,'Unreviewed'):
     project_sources(ROOT,{name:row['current']+'\n// changed'})
   for name in data['added_sources']:
+   from portable_removed_sources import REMOVED_SOURCES
+   if name in REMOVED_SOURCES:continue
    with self.subTest(name=name),self.assertRaisesRegex(AssertionError,'Unreviewed'):
     project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// changed'})
  def test_cpu_oracles_do_not_build_or_execute_gpu(self):

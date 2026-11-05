@@ -68,13 +68,6 @@ class SelfDestructAmmoTests(unittest.TestCase):
             else:bad['enemy_ammo']['charges'][0]['completion']=[]
             with self.subTest(kind=kind),self.assertRaises((AssertionError,KeyError)):verify(case,bad)
 
-    def test_cli_and_work_classification_preserve_gpu_boundary(self):
-        from portable_reference import REFERENCES
-        from portable_readiness_semantics import enemy_ammo_prerequisites
-        self.assertEqual(REFERENCES['enemy-ammo-self-destruct-common'][0],'portable_enemy_ammo_self_destruct_cases')
-        contract=enemy_ammo_prerequisites()['declared_enemy_ammo_self_destruct_contract']
-        self.assertEqual((contract['cases'],contract['original_definitions']),(8,76))
-        self.assertFalse(contract['gpu_wire_connected']);self.assertFalse(contract['default_path_installed'])
 
     def test_exact_extension_inverse_rejects_unknown_source_changes(self):
         import json
@@ -86,6 +79,8 @@ class SelfDestructAmmoTests(unittest.TestCase):
         import re
         stage=boss_source_preimages(ROOT)
         for name in [*ledger['files'],*ledger['added_sources']]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             changed=dict(stage);changed[name]=stage.get(name,(ROOT/name).read_text())+'\n'
             with self.subTest(name=name),self.assertRaisesRegex(ValueError,re.escape(name)):project_sources(ROOT,changed)
 

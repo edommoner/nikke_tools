@@ -34,6 +34,8 @@ class ScratchLayoutTests(unittest.TestCase):
         for name,old,new in [('gpu/skill_part_receipt.slang','781328','781320'),
                              ('gpu/world_interrupt_runtime.slang','785424','785416'),
                              ('gpu/native_query_diagnostic.slang','&& defined(PORTABLE_HEAL_SHARE_DIAGNOSTIC)','&& 0')]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             text=(ROOT/name).read_text();self.assertIn(old,text)
             with self.assertRaises(ValueError):audit_sources(ROOT,L,sources={name:text.replace(old,new,1)})
 
@@ -54,6 +56,8 @@ class ScratchLayoutTests(unittest.TestCase):
         from portable_interrupt_aim_source_contract import project_sources as project_interrupt
         projected,_=project_interrupt(ROOT)
         for name,row in ledger(ROOT)['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             text=projected.get(name,(ROOT/name).read_text())
             for c in row['changes']:
                 self.assertEqual(text.count(c['current']),1)

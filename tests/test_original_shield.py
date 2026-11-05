@@ -8,7 +8,7 @@ class OriginalShieldTests(unittest.TestCase):
     def test_original_definitions_and_real_literal_incoming_hits(self):
         from calculator import timeline
         from portable_coordinate_kind_admission import KindAdmission
-        from portable_parent_oracles import provider
+        from native_comparison_provider import provider
         with patch.object(timeline,'simulate',side_effect=AssertionError('No CPU schedule in GPU input')):rows,_=a.prepare()
         self.assertEqual(len(rows),9);old=KindAdmission(ROOT,'gpu/world_coordinate_original_reload_entry.slang');new=KindAdmission(ROOT,a.SOURCE)
         self.assertEqual([len(d[0]['effects']) for _,_,d in rows],[73]*3+[72]*3+[74]*3)

@@ -15,6 +15,8 @@ class InterruptAimGpuTests(unittest.TestCase):
         m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
         entries,_=m.prepare();self.assertEqual(len(entries),24)
         for name,words,domain in entries:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertIsNotNone(domain)
             self.assertTrue(all(int(b.kind) in (0,1,5,6) for b in domain[2]))
 
@@ -24,6 +26,8 @@ class InterruptAimGpuTests(unittest.TestCase):
         projected,_=project_factors(ROOT)
         project_sources(ROOT,projected,factors_projected=True) # The unmutated layer must pass first.
         for name,row in ledger(ROOT)['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             text=projected.get(name,(ROOT/name).read_text())
             for change in row['changes']:
                 self.assertEqual(text.count(change['current']),1,'Fault must actually mutate the intended layer')
@@ -34,6 +38,8 @@ class InterruptAimGpuTests(unittest.TestCase):
         for name,old,new in [('gpu/world_interrupt_runtime.slang','f64Add(actorNumber(at),amount)','f64Add(actorNumber(at),ONE)'),
                              ('gpu/world_actor_pools.slang','kind==1 || kind==6','kind==1 || kind==2'),
                              ('gpu/counter_landing_runtime.slang','if(commands[actorBinding(s,slot)]==6) return;','if(false) return;')]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             text=projected.get(name,(ROOT/name).read_text());self.assertEqual(text.count(old),1)
             with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,dict(projected,**{name:text.replace(old,new,1)}),factors_projected=True)
 

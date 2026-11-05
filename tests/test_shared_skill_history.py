@@ -64,6 +64,8 @@ class SharedSkillHistory(unittest.TestCase):
         historical=project_sources(ROOT,projected);project_backend_source(ROOT)
         for name,row in data['sources'].items():self.assertEqual(historical[name],row['baseline'])
         for name in [*data['added_sources'],'gpu/world_skill_runtime.slang']:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.subTest(name=name),self.assertRaises((AssertionError,ValueError)):
                 project_sources(ROOT,current_sources(ROOT,{name:(ROOT/name).read_text()+'\n'}))
         with self.assertRaises(ValueError):project_backend_source(ROOT,(ROOT/'app/portable_backend.py').read_text()+'\n')
@@ -78,14 +80,6 @@ class SharedSkillHistory(unittest.TestCase):
             with self.subTest(source=source,iw=iw,ow=ow),self.assertRaises(ValueError):validate_composed_stride(source,iw,ow)
         self.assertNotIn('WORLD_SKILL_TRACE_CAPACITY',(ROOT/'gpu/world_coordinate_typed_owner_entry.slang').read_text())
 
-    def test_sealed_cohort_and_cached_cuda_use_identical_calculation_and_cases(self):
-        import nikke_gpu as cli
-        base=cli.SUITES['original-catalogue-initial'];cached=cli.SUITES['original-catalogue-initial-cache-only']
-        for key in ('source','script','golden','frozen_cases','input_words','output_words','native','inputs'):self.assertEqual(base[key],cached[key])
-        self.assertEqual(base['source'],history.SOURCE);self.assertEqual(len(base['frozen_cases']),4)
-        self.assertFalse(base['development_only']);self.assertTrue(cached['require_paired_generation'])
-        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
-        self.assertTrue(cli.SUITES['original-catalogue']['development_only'])
 
     def test_direct_and_already_projected_transport_use_the_same_exact_inverse(self):
         from portable_coordinate_resident_arc_source_contract import ledger,project_backend_source

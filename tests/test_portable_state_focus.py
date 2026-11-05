@@ -36,8 +36,12 @@ class StateFocusTests(unittest.TestCase):
         self.assertLessEqual(L['FOCUS_STATE_BASE']+L['FOCUS_STATE_WORDS'],786416)
         self.assertEqual(entries[46][1][L['WORLD_ACTOR_POOL_DEF_BASE']+12+11],1)
         for name,words,domain in entries[30:54]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertIn(words[L['WORLD_META_BASE']+4],(MAGIC,MAGIC|1))
         for name,words,domain in entries[54:]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertIsNone(domain);adapter().validate_rejection([64],name)
 
     def test_aim_observation_does_not_add_live_queries_or_ticks(self):
@@ -61,10 +65,11 @@ class StateFocusTests(unittest.TestCase):
             else:bad['focus_aim'][0 if key=='first' else -1]['aims'][1]=''
             with self.assertRaises(AssertionError):verify_aims(c,bad)
 
-    def test_default_native_gap_remains_but_private_physical_host_is_connected(self):
+    def test_native_physical_host_and_shared_wire_are_connected(self):
         case=original_fixtures()[0]
-        with self.assertRaisesRegex(ValueError,'Unknown world actor'):
-            plain_observe(case)
+        native,trace=plain_observe(case)
+        observed,recorded=observe(case);observed.pop('focus_aim')
+        self.assertEqual((observed,recorded),(native,trace))
         words,metadata,bindings=adapter().suite.compile_case(case)
         self.assertTrue(words);self.assertTrue(any(int(b.kind)==6 for b in bindings))
 
@@ -75,6 +80,8 @@ class StateFocusTests(unittest.TestCase):
         data=ledger(ROOT);self.assertEqual(set(verify(ROOT)['reviewed_state_focus_sources']),set(data['sources']))
         projected,_=project_native(ROOT)
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             source=projected.get(name,(ROOT/name).read_text())
             for change in row['changes']:
                 with self.subTest(name=name),self.assertRaises(AssertionError):

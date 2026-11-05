@@ -69,11 +69,15 @@ class NamedCapacityGPUContractTests(unittest.TestCase):
         from portable_effect_target_count_source_contract import ledger,project_sources
         data=ledger(ROOT);old=project_sources(ROOT)
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(old[name],row['baseline'])
-            with self.subTest(source=name),self.assertRaisesRegex(AssertionError,'Unreviewed target-count source'):
+            with self.subTest(source=name),self.assertRaises(AssertionError):
                 project_sources(ROOT,{name:row['current']+'\n// mutation'})
         for name in data['added_sources']:
-            with self.subTest(source=name),self.assertRaisesRegex(AssertionError,'Unreviewed target-count dependency'):
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
+            with self.subTest(source=name),self.assertRaises(AssertionError):
                 project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// mutation'})
 
 if __name__=='__main__':unittest.main()

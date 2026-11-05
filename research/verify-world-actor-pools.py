@@ -79,39 +79,3 @@ def negatives(programs):
 
 def prepare():
  rows=fixtures();rows+=manual.fixtures(rows[0]);programs=[compile_case(c) for c in rows];bad=negatives(programs);return rows,programs,bad
-
-def main():
- ap=argparse.ArgumentParser();ap.add_argument('--backend',choices=('metal','cuda'),default='metal');ap.add_argument('--cpu-only',action='store_true');ap.add_argument('--replay',type=Path);args=ap.parse_args()
- rows,programs,bad=prepare();native=[manual.native(c,L) if 'actions' in c else observe(c) for c in rows]
- if args.cpu_only:
-  out=ROOT/'research/portable-build/world-actor-pools-native.json';out.write_text(json.dumps(dict(cases=native,names=[c['name'] for c in rows]),ensure_ascii=False,indent=2)+'\n');print('CPU literal packing and actual full simulate',len(rows),'cases;GPU calls0');return
- old=json.loads((ROOT/'research/portable-world-actors-metal.json').read_text());folder_old=Path(old['captured']);olddata=(folder_old/'input.bin').read_bytes();oldraw=(folder_old/'readback.bin').read_bytes();oldcount=struct.unpack_from('<I',olddata)[0];assert oldcount==242
- packed=array.array('I',[len(rows)+len(bad)+oldcount])
- for w,_,_ in programs:packed.extend(w)
- for _,w in bad:packed.extend(w)
- for i in range(oldcount):
-  w=list(struct.unpack_from('<'+'I'*L['WORLD_ACTOR_INPUT_WORDS'],olddata,4+i*L['WORLD_ACTOR_INPUT_WORDS']*4));w[0]=L['WORLD_ACTOR_POOL_ABI'];w.extend([0]*(L['WORLD_ACTOR_POOL_INPUT_WORDS']-L['WORLD_ACTOR_INPUT_WORDS']));packed.extend(w)
- if sys.byteorder!='little':packed.byteswap()
- data=packed.tobytes()
- if args.replay:
-  folder=args.replay;raw=(folder/'readback.bin').read_bytes();evidence=json.loads((folder/'evidence.json').read_text());assert (folder/'input.bin').read_bytes()==data;assert evidence['source_sha256']==source_hashes(SOURCE)
- else:
-  folder=ROOT/'research/portable-build'/('world-actor-pools-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'));folder.mkdir(parents=True);(folder/'input.bin').write_bytes(data)
-  try:raw,evidence=execute(SOURCE,'portableEvents',data,L['WORLD_ACTOR_POOL_INPUT_WORDS'],L['WORLD_ACTOR_POOL_OUTPUT_WORDS'],args.backend)
-  except Exception as error:(folder/'failure.json').write_text(json.dumps(dict(error=repr(error),source_sha256=source_hashes(SOURCE)),indent=2)+'\n');raise
-  (folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
- values=array.array('I');values.frombytes(raw)
- if sys.byteorder!='little':values.byteswap()
- stride=L['WORLD_ACTOR_POOL_OUTPUT_WORDS'];results=[]
- for i,(c,(_,meta,bindings),expected) in enumerate(zip(rows,programs,native)):
-  block=values[i*stride:(i+1)*stride]
-  try:actual=manual.decoded(block,c,L,bindings) if 'actions' in c else decoded(block,meta,c,bindings);changed=[k for k in expected if k!='scope' and actual[k]!=expected[k]]
-  except Exception as error:actual=dict(status=block[0],decode_error=repr(error));changed=['decode']
-  results.append(dict(name=c['name'],passed=block[0]==0 and not changed,changed=changed,actual=actual,native=expected))
- rejected=[dict(name=n,status=values[(len(rows)+i)*stride],passed=values[(len(rows)+i)*stride]==64) for i,(n,_) in enumerate(bad)]
- prior=[];ow=L['WORLD_FRAME_OUTPUT_WORDS']*4;nw=stride*4
- for i in range(oldcount):
-  start=(len(rows)+len(bad)+i)*nw;block=raw[start:start+nw];before=oldraw[i*ow:(i+1)*ow];prior.append(dict(index=i,passed=block[:ow]==before and not any(block[ow:]),output_sha256=hashlib.sha256(block).hexdigest(),prior_output_sha256=hashlib.sha256(before).hexdigest()))
- report=dict(passed=all(r['passed'] for r in results+rejected+prior),cases=results,rejected_cases=rejected,preserved242=prior,captured=str(folder),evidence=evidence,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),full_character_verified=0,normal_ui='CPU',full_goal_complete=False,canonical_world_admission=False)
- out=ROOT/f'research/portable-world-actor-pools-{args.backend}.json';out.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[r.get('name',r.get('index')) for r in results+rejected+prior if not r['passed']];print('Actor HP native battles14 + typed pools10,raw',len(bad),'old242 exact',args.backend)
-if __name__=='__main__':main()

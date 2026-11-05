@@ -52,6 +52,8 @@ class OwnerInputTests(unittest.TestCase):
         from portable_coordinate_typed_aim_specs import check_layout
         data=ledger(ROOT);old=project_sources(ROOT)
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             if name.endswith('.slang'):
                 self.assertEqual(old[name],row['baseline'])
                 with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n// unreviewed\n'})

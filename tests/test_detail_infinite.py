@@ -12,11 +12,5 @@ class InfiniteAmmoTests(unittest.TestCase):
   self.assertEqual(p['effects'][0][2],59)
   p=compile_effects(chars,[(v.E('placeholder','buff','atk_pct',1,event='non_full_charge_fire_count:{0}'),v.NAMES[0])])
   self.assertEqual(p['effects'][0][151],2)
- def test_magazines_reload_cancellation_and_complete_squads(self):
-  d=v.c.Cuda()
-  try:cases=v.verify(d,'native')
-  finally:d.close()
-  self.assertTrue(cases)
-  self.assertTrue(all(x['passed'] for x in cases),[x for x in cases if not x['passed']])
 
 if __name__=='__main__':unittest.main()

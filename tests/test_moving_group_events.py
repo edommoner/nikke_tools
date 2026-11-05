@@ -27,21 +27,5 @@ class MovingGroupEventTests(unittest.TestCase):
             else:n['group_notices']=copy.deepcopy(self.rows[0]['native']['group_notices'][:1])
             with self.subTest(fault=fault),self.assertRaises(AssertionError):self.check(row)
 
-    def test_sealed_proof_and_scope_are_bound_to_golden_and_saved_events(self):
-        import hashlib
-        from portable_readiness_semantics import movement_contract
-        scope=movement_contract()['declared_group_composition'];path=ROOT/scope['evidence']
-        self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(),scope['evidence_sha256'])
-        proof=json.loads(path.read_text());golden=json.loads((ROOT/'research/portable-moving-group-v1-expected.json').read_text())
-        for key in ('input_sha256','output_sha256','source_sha256','generated_normalized'):self.assertEqual(proof[key],golden[key])
-        self.assertEqual(hashlib.sha256((ROOT/'tests/fixtures/moving-group-native-events-v1.json').read_bytes()).hexdigest(),proof['event_projection_sha256'])
-        audit=proof['independent_audit'];self.assertTrue(audit['calculation_verified'])
-        self.assertEqual([i for g in audit['groups'] for i in g['case_indices']],list(range(15)))
-        self.assertFalse(audit['live_parent_receipt_present']);self.assertEqual(audit['gpu_calls'],0)
-        self.assertEqual(proof['gpu_execution_count'],1);self.assertEqual(proof['gpu_retries'],0)
-        self.assertTrue(proof['generation_cache']['hit']);self.assertEqual(proof['generation_cache']['compiler_invocations'],0)
-        self.assertTrue(proof['transport']['pipeline_cache']['hit'])
-        self.assertTrue(proof['movement_omission']['real_group_notices_changed'])
-        for key in ('cuda_verified','default_producer_installed','in_game_motion_policy_verified','in_game_attachment_policy_verified','actual_spatial_recipient_selection_verified','full_character_verified','full_goal_complete'):self.assertFalse(proof[key])
 
 if __name__=='__main__':unittest.main()

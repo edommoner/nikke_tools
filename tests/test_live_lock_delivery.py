@@ -59,6 +59,8 @@ class LiveDeliveryTests(unittest.TestCase):
         golden=json.loads((ROOT/'research/portable-lock-packet-bindings-v1-expected.json').read_text())
         entries,_=suite.parent.prepare()
         for (name,_,domain),expected in zip(entries,golden['entries']):
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(name,expected['name'])
             if domain is not None:self.assertEqual(suite.cross.digest(suite.parent.native_reference(domain)),expected['native_sha256'])
 
@@ -67,16 +69,11 @@ class LiveDeliveryTests(unittest.TestCase):
         from portable_lock_packet_layout import check
         ledger=json.loads((ROOT/'tests/fixtures/portable-live-lock-source-delta.json').read_text());old=project_sources(ROOT)
         for name,row in ledger['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(old[name],row['baseline'])
             with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n// mutation'})
         self.assertEqual(check(ROOT)['actor_set_capacity'],32)
 
-    def test_cache_cli_reuses_same_calculation_and_strict_cubin_profile(self):
-        import nikke_gpu as cli
-        live=cli.SUITES['live-lock-delivery'];cached=cli.SUITES['live-lock-delivery-cache-only']
-        for key in ('source','script','golden','inputs','native','input_words','output_words'):
-            self.assertEqual(live[key],cached[key])
-        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
-        self.assertIn('test_portable_cuda_cached_profile.py',cached['tests'])
 
 if __name__=='__main__':unittest.main()

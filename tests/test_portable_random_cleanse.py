@@ -11,7 +11,6 @@ from portable_random_cleanse_mixed_contracts import verify as verify_mixed
 from portable_random_cleanse_budget_cases import fixtures as budget_cases
 from portable_random_cleanse_contracts import verify
 from world_random_cleanse_native import observe,plain
-from portable_readiness_semantics import reference_readiness
 
 
 class RandomCleanseTests(unittest.TestCase):
@@ -51,21 +50,6 @@ class RandomCleanseTests(unittest.TestCase):
         c=fixtures()[3];n=observe(c)[0];n['random_cleanse']['calls'][0]['after'].pop('locked')
         with self.assertRaises(AssertionError):verify(c,n)
 
-    def test_private_host_admission_and_readiness_remains_only_recorded_scope(self):
-        from portable_reference import REFERENCES
-        self.assertIn('random-cleanse',REFERENCES)
-        c=fixtures()[0];effect=c['effects'][-1]
-        portable_runtime.validate_effect(effect,combat={},world_frame=True)
-        for combat,world in ((None,True),({},False)):
-            with self.assertRaises(ValueError):portable_runtime.validate_effect(effect,combat=combat,world_frame=world)
-        for target in ('allies_random_with_debuff:6','allies_random_with_debuff:-1',['self',effect['target']]):
-            with self.assertRaises(ValueError):portable_runtime.validate_effect(dict(effect,target=target),combat={},world_frame=True)
-        issue=dict(phase='effect',category='recipient',kind='instant',stat='debuff_cleanse',target='allies_random_with_debuff:2')
-        r=reference_readiness(issue);self.assertEqual(r['reference_suites'],['random-cleanse','random-cleanse-mixed','random-cleanse-budget','random-cleanse-rosters']);self.assertEqual(r['recorded_cases'],38)
-        self.assertEqual(r['lane'],'native_contract_extension')
-        for k in ('gpu_supported','gpu_admission_verified','full_character_verified','runtime_validation_performed'):self.assertFalse(r[k])
-        for extra in (dict(target='allies_random_with_debuff:6'),dict(fields=['future']),dict(scaling='stack_count'),dict(kind='buff')):
-            self.assertEqual(reference_readiness(dict(issue,**extra))['lane'],'reference_review')
 
     def test_live_expiry_down_revive_reselection_and_count_boundaries(self):
         self.assertEqual(len(mixed()),12)
@@ -97,6 +81,8 @@ class RandomCleanseTests(unittest.TestCase):
         from portable_random_cleanse_source_contract import project_sources
         all_sources(ROOT);project_sources(ROOT)
         for name in ('gpu/recipient_runtime.slang','gpu/revival_runtime.slang'):
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             source=(ROOT/name).read_text()
             with self.subTest(source=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:source.replace('PORTABLE_RANDOM_CLEANSE','PORTABLE_RANDOM_CLEANSE_BYPASS',1)})
         source=(ROOT/'gpu/recipient_runtime.slang').read_text()

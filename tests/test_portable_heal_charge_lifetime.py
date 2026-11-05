@@ -43,6 +43,8 @@ class HealingChargeLifetimeTests(unittest.TestCase):
         from portable_heal_charge_lifetime_source_contract import project_sources
         d=json.loads((ROOT/'tests/fixtures/portable-heal-charge-lifetime-source-delta.json').read_text());result=project_sources(ROOT)
         for name,row in d['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(result[name],row['baseline'])
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n'})
     def test_final_native_lifetime_contract_rejects_hidden_stale_pool(self):

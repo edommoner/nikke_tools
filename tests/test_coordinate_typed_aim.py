@@ -44,13 +44,5 @@ class TypedAimTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'docs/CONTROL'):observe(case)
         case=fixtures()[0];case['typed_bindings'][0]['label']='core'
         with self.assertRaisesRegex(ValueError,'cannot alias'):observe(case)
-    def test_reference_metadata_retains_logical_gap_and_gpu_rejection(self):
-        from portable_readiness_semantics import reference_readiness
-        for stat in ('projectile_dmg_pct','shield_dmg_pct'):
-            result=reference_readiness(dict(phase='effect',kind='buff',stat=stat,target='self'))
-            self.assertEqual(result['lane'],'reference_model_gap');self.assertFalse(result['gpu_supported'])
-            proof=result['typed_coordinate_aim_reference'];self.assertEqual((proof['cases'],proof['positive_contract_cases'],proof['logical_recipient_gap_cases']),(7,6,1))
-            for flag in ('gpu_wire_connected','metal_verified','cuda_device_verified','canonical_consumer_verified','in_game_rules_verified','full_character_verified'):
-                self.assertFalse(proof[flag])
 
 if __name__=='__main__':unittest.main()

@@ -45,6 +45,8 @@ class SkillTests(unittest.TestCase):
         old=json.loads((ROOT/'research/portable-destructible-attack-short-expected.json').read_text());rows,data=a.attack.prepare()
         self.assertEqual(hashlib.sha256(data).hexdigest(),old['input_sha256'])
         for (name,_,c),saved in zip(rows,old['entries']):
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(name,saved['name']);self.assertEqual(a.attack.cross.digest(a.attack.native_reference(c) if c is not None else dict(status=64)),saved['native_sha256'])
     def test_saved_gpu_checks_scalar_context_and_landing_results(self):
         from portable_backend import source_hashes

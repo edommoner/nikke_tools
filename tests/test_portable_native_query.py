@@ -19,6 +19,8 @@ class NativeQueryTests(unittest.TestCase):
         entries,_=module.prepare()
         self.assertEqual((len(entries),sum(domain is not None for _,_,domain in entries)),(19,11))
         for name,_,domain in entries[11:]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertIsNone(domain);module.validate_rejection([64],name)
             with self.assertRaises(AssertionError):module.validate_rejection([0],name)
         tags=[w[L['RECIPIENT_META_BASE']+5] for _,w,_ in entries[:11]]
@@ -34,6 +36,8 @@ class NativeQueryTests(unittest.TestCase):
         project_sources(ROOT)
         projected,_=project_history(ROOT)
         for name,row in ledger(ROOT)['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             source=projected.get(name,(ROOT/name).read_text())
             for change in row['changes']:
                 self.assertEqual(source.count(change['current']),1)

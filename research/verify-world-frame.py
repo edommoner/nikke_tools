@@ -47,38 +47,3 @@ def compile_case(case):
  assert len(words)==L['WORLD_FRAME_INPUT_WORDS']
  return words,meta
 from portable_world_result import read_result,order_squad_logs
-
-def main():
- p=argparse.ArgumentParser();p.add_argument('--backend',choices=['metal','cuda'],default='metal');p.add_argument('--replay',type=Path);args=p.parse_args()
- cases=fixtures();compiled=[compile_case(c) for c in cases];packed=array.array('I',[len(cases)])
- for words,_ in compiled:packed.extend(words)
- if sys.byteorder!='little':packed.byteswap()
- data=packed.tobytes()
- if args.replay:
-  folder=args.replay.resolve();prep=json.loads((folder/'candidate-preparation.json').read_text());evidence=json.loads((folder/'evidence.json').read_text());raw=(folder/'readback.bin').read_bytes();assert data==(folder/'input.bin').read_bytes();assert evidence['source_sha256']==source_hashes(prep['source']) and hashlib.sha256(raw).hexdigest()==evidence['output_sha256'] and evidence['backend']==args.backend
- else:
-  spec=importlib.util.spec_from_file_location('world_frame_prepare',ROOT/'research/prepare-world-frame-candidate.py');module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);prep=module.prepare();folder=Path(prep['created']);(folder/'input.bin').write_bytes(data)
-  try:raw,evidence=execute(prep['source'],'portableEvents',data,L['WORLD_FRAME_INPUT_WORDS'],L['WORLD_FRAME_OUTPUT_WORDS'],args.backend)
-  except Exception as error:
-   (folder/'execution-failure.json').write_text(json.dumps(dict(passed=False,error=repr(error),prepared=prep),indent=2)+'\n');raise
-  (folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
- values=array.array('I');values.frombytes(raw)
- if sys.byteorder!='little':values.byteswap()
- rows=[]
- for i,(case,(_,meta)) in enumerate(zip(cases,compiled)):
-  actual=None;native=None
-  try:
-   actual=read_result(values[i*L['WORLD_FRAME_OUTPUT_WORDS']:(i+1)*L['WORLD_FRAME_OUTPUT_WORDS']],meta,case);assert actual['status']==0,actual['status'];native=observe(case)
-   for key in ('damage','allies','covers','shots','ammo','hits','boss_log','rng','graph_states','graph_history'):assert actual[key]==native[key],key
-   if case['name']=='lethal-before-own-zero-shot':assert actual['shots'][0]==0 and actual['allies'][0]['down']
-   if case['name']=='expiry-cancels-pending':assert len(actual['hits'])==5
-   if case['name']=='automatic-reload-cover':assert any(h['cover']>0 for h in actual['hits'])
-   if case['name']=='rank-before-exact-expiry-boundary':assert actual['hits'][0]['owner']==0 and actual['hits'][0]['time']<.2
-   if case['name']=='received-hit-buff-next-attacker-order':assert next(h for h in actual['hits'] if h['pattern']=='b' and h['owner']==1)['damage']==85
-  except Exception as error:rows.append(dict(name=case['name'],passed=False,error=repr(error),actual=actual,native=native))
-  else:rows.append(dict(name=case['name'],passed=True,actual=actual,native=native))
- report=dict(source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),source_sha256_local={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in ('research/prepare-world-frame-candidate.py','research/verify-world-frame.py','research/world_frame_native.py','gpu/world_frame_addresses.slang','gpu/world_frame_runtime.slang','tests/test_portable_world_frame_input.py')},passed=all(r['passed'] for r in rows),cases=rows,captured=str(folder),prepared=prep,gpu_execution_reused=args.replay is not None,cpu_attack_schedule_used_as_gpu_input=False,canonical_world_admission=False,windows_used=False,efficiency_started=False,normal_ui='CPU',full_character_verified=0,full_goal_complete=False,scope='Canonical shared frame->graph->native-order victim/protection/split/HP coupling versus complete native simulate;direct attack/idle/groggy and closed pattern notices only.No overlays/debuff/actor/control/revive admission yet.',**evidence)
- (ROOT/f'research/portable-world-frame-{args.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
- assert report['passed'],[(r['name'],r.get('error')) for r in rows if not r['passed']]
- print(len(rows),'GPU-scheduled frame/attack cases match full native simulate',args.backend)
-if __name__=='__main__':main()

@@ -56,6 +56,8 @@ class AimedAreaTests(unittest.TestCase):
     def test_exact_delta_rejects_landing_order_exclusion_and_resampling_faults(self):
         project_sources(ROOT)
         for name,row in ledger(ROOT)['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             text=(ROOT/name).read_text()
             for change in row['changes']:
                 with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:text.replace(change['current'],change['baseline'],1)})

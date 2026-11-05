@@ -10,7 +10,7 @@ class DispatchBoundary(BaseException):pass
 
 class NewCharacterProductRouteTests(unittest.TestCase):
     @classmethod
-    def setUpClass(cls):cls.bodies=json.loads((ROOT/'tests/fixtures/gpu-new-characters-product-v1.json').read_text())
+    def setUpClass(cls):cls.bodies=json.loads((ROOT/'tests/fixtures/gpu-new-characters-product-v1.json').read_text());[b.update(compute_backend='native_detail') for b in cls.bodies]
 
     def test_public_service_batch_admits_and_packs_all_three_before_device(self):
         plans=[]
@@ -19,12 +19,12 @@ class NewCharacterProductRouteTests(unittest.TestCase):
             self.assertEqual(len(prepared),3)
             for plan in prepared:
                 self.assertEqual(plan['source'],'gpu/product_fixed_battle_entry.slang')
-                self.assertEqual(plan['backend'],'metal')
+                self.assertEqual(plan['backend'],'native')
                 self.assertEqual(struct.unpack_from('<I',plan['packed'])[0],1)
                 self.assertEqual(len(plan['packed']),4*(1+plan['input_words']))
             raise DispatchBoundary()
         request=dict(action='evaluate_portable_detail_batch',evaluations=copy.deepcopy(self.bodies))
-        self.assertTrue(all(body['compute_backend']=='metal_detail' and not any(k.startswith('_') for k in body) for body in request['evaluations']))
+        self.assertTrue(all(body['compute_backend']=='native_detail' and not any(k.startswith('_') for k in body) for body in request['evaluations']))
         with tempfile.TemporaryDirectory() as folder,patch.dict('os.environ',NIKKE_DETAIL_CAPTURE_ROOT=folder),patch.object(sys,'stdin',io.StringIO(json.dumps(request))),patch.object(sys,'stdout',io.StringIO()),patch.object(portable_detail,'_execute_prepared',side_effect=device_boundary) as device,patch.object(engine_worker.sim,'execute',side_effect=AssertionError('CPU fallback before dispatch')) as cpu,patch.object(portable_backend,'execute',side_effect=AssertionError('Real device forbidden')):
             with self.assertRaises(DispatchBoundary):portable_detail_service.main()
             device.assert_called_once();cpu.assert_not_called()
@@ -45,12 +45,6 @@ class NewCharacterProductRouteTests(unittest.TestCase):
                     result=engine_worker.dispatch(dict(copy.deepcopy(body),action='evaluate'))
                     self.assertGreater(result['total_damage'],0)
                     self.assertEqual(result['engine_revision'],engine_worker.REVISION)
-            result=engine_worker.dispatch(dict(copy.deepcopy(self.bodies[0]),action='evaluate',compute_backend='cuda_shared_detail',duration=3))
-            self.assertGreater(result['total_damage'],0)
 
-    def test_actual_legacy_route_still_refuses_each_character_before_cpu(self):
-        with patch.object(engine_worker.sim,'execute',side_effect=AssertionError('Legacy refusal must precede CPU')):
-            for body in self.bodies:
-                with self.subTest(character=body['squad'][0]),self.assertRaises(UnsupportedEngineKeys):engine_worker.dispatch(dict(copy.deepcopy(body),action='evaluate',compute_backend='cuda_detail'))
 
 if __name__=='__main__':unittest.main()

@@ -49,19 +49,5 @@ class CoverModifiers(unittest.TestCase):
         for r in self.saved['cases']:
             verify(r['case'],r['native'])
 
-    def test_same_shader_and_previous_full_cohort_are_retained(self):
-        golden=json.loads((ROOT/'research/portable-cover-defense-battle-v1-expected.json').read_text())
-        self.assertEqual(self.adapter.SOURCE,'gpu/world_cover_defense_entry.slang')
-        from portable_received_sum_source_contract import historical_hashes
-        self.assertEqual(historical_hashes(ROOT,self.adapter.SOURCE),golden['source_sha256'])
-        previous,_=self.adapter.base.prepare()
-        import array
-        raw=array.array('I',[len(previous)])
-        for _,words,_ in previous:raw.extend(words)
-        if sys.byteorder!='little':raw.byteswap()
-        self.assertEqual(hashlib.sha256(raw.tobytes()).hexdigest(),golden['input_sha256'])
-        import nikke_gpu
-        self.assertFalse(nikke_gpu.SUITES['cover-defense-modifiers']['development_only'])
-        self.assertEqual(nikke_gpu.SUITES['cover-defense-modifiers']['inputs'],13)
 
 if __name__=='__main__':unittest.main()

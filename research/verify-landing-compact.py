@@ -42,32 +42,3 @@ def canonicalize(raw,count):
   assert not any(wide[wide_queue+size:a+98304])
  if sys.byteorder!='little':compact.byteswap()
  return compact.tobytes()
-
-def main():
- backend='cuda' if '--backend' in sys.argv and sys.argv[sys.argv.index('--backend')+1]=='cuda' else 'metal'
- production_only='--production-only' in sys.argv
- if production_only:sys.argv.remove('--production-only')
- report=dict(passed=False,codec=codec_boundaries(backend));path=ROOT/f'research/portable-landing-compact-{backend}.json';path.write_text(json.dumps(report,indent=2)+'\n')
- sp=importlib.util.spec_from_file_location('vcompact',ROOT/'scripts/verify-portable-combat.py');v=importlib.util.module_from_spec(sp);sp.loader.exec_module(v)
- def compare(source,entry,packed,input_words,output_words,backend):
-  compact,evidence=execute(source,entry,packed,input_words,output_words,backend)
-  wide,control=execute('gpu/benchmark_landing_wide.slang',entry,packed,input_words,98304,backend)
-  count=struct.unpack_from('<I',packed)[0];normalized=canonicalize(wide,count)
-  assert compact==normalized,'Wide and compact physics or scratch records differ'
-  report.update(passed=True,batched_inputs=count,canonical_output_sha256=hashlib.sha256(normalized).hexdigest(),compact=evidence,wide=control,comparison='Every output word, including all 2048 historical receipt slots; only lossless record representation and zero alignment padding normalized',input_words=input_words,output_words=output_words,wide_output_words=98304,bytes_saved_per_program=(98304-output_words)*4,timing_measured=False)
-  path.write_text(json.dumps(report,indent=2)+'\n')
-  return compact,evidence
- if production_only:
-  v.main();report.update(passed=True,production_only=True,production_report=f'portable-combat-{backend}.json',wide_control_run=False,timing_measured=False);path.write_text(json.dumps(report,indent=2)+'\n');return
- runtime.execute=compare
- v.main()
- batch=dict(report);(ROOT/f'research/portable-landing-compact-batch-{backend}.json').write_text(json.dumps(batch,indent=2)+'\n')
- # Probe the live queue decoder, which whole-timeline fixtures flush at the end.
- case=copy.deepcopy(v.fixtures()[-20]);case['script']=[[0,24,0,0,0,-1,0,0],[0,2,0,0,-1,0,0,0]]
- result=runtime.run_programs([v.compile_case(case)],backend=backend)['results'][0]
- queue=result['landing_queue'];assert len(queue['entries'])==2 and queue['enqueued']==2 and queue['landed']==0
- assert result['queries'][0]['damage'][0]==1000 and result['queries'][0]['allies'][0]['hp']==150
- for i,r in enumerate(queue['entries']):assert r['hit']==i+1 and r['hits']==2 and r['amount']==1000 and r['time']==0
- report.update(passed=True,live_queue_decoder_verified=True,live_queue=queue,batch_comparison_report=f'portable-landing-compact-batch-{backend}.json',total_comparison_inputs=batch['batched_inputs']+1)
- path.write_text(json.dumps(report,indent=2)+'\n');print('Compact receipt boundaries and all-word equivalence passed',flush=True)
-if __name__=='__main__':main()

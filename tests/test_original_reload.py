@@ -8,7 +8,7 @@ class OriginalReloadTests(unittest.TestCase):
     def test_complete_definitions_and_literal_public_control_policy(self):
         from calculator import timeline
         from portable_coordinate_kind_admission import KindAdmission
-        from portable_parent_oracles import provider
+        from native_comparison_provider import provider
         with patch.object(timeline,'simulate',side_effect=AssertionError('No CPU schedules in GPU input')):rows,_=a.prepare()
         self.assertEqual(len(rows),4);old=KindAdmission(ROOT,'gpu/world_coordinate_original_slot_entry.slang');current=KindAdmission(ROOT,a.SOURCE)
         self.assertEqual([len(d[0]['effects']) for _,_,d in rows],[81,81,80,78])

@@ -247,7 +247,7 @@ def demo(expanded=False):
 
 
 def detail_demo():
-    """Fictional owned roster for exercising the normal detailed GPU screen."""
+    """Fictional owned roster for exercising the normal detailed calculation screen."""
     names = ['모더니아', '루주', '마스트 : 로망틱 메이드', '도라', '맥스웰']
     cubes = [n for n, data in spec.CUBES.items() if data['stat'] in ('accuracy_pct', 'charge_speed_pct', 'reload_speed_pct', 'max_ammo_pct')]
     chars = {n: {k: copy.deepcopy(v) for k, v in spec.DEFAULT_CHAR.items() if k in spec.GROWTH_KEYS} for n in names}
@@ -259,7 +259,7 @@ def detail_demo():
     chars['루주']['equip_skills'].update(max_ammo_pct=[11.12, 11.12, 12.34], charge_speed_pct=[4.3, 4.3, 6.2])
     result = import_data({'chars': chars, '_account': {'console': spec.DEFAULT_CHAR['console']}, '_meta': {'is_demo': True}})
     result['squad'] = names
-    result['warnings'].append('GPU詳細確認用の架空育成です。マクスウェルの有限弾数チャージ武器変更、モダニアの連射武器変更、マストのスタック、装備・キューブを含みます。')
+    result['warnings'].append('詳細計算確認用の架空育成です。マクスウェルの有限弾数チャージ武器変更、モダニアの連射武器変更、マストのスタック、装備・キューブを含みます。')
     return result
 
 
@@ -267,8 +267,8 @@ def evaluate(body):
     verify_engine_runtime(ENGINE, REVISION)
     from product_reference_models import normalize as reference_models,execution as reference_execution,warning as reference_warning
     declared_models=reference_models(body.get('reference_models'))
-    if declared_models and (body.get('_compile_gpu_detail') or body.get('_compile_gpu')):
-        raise ValueError('Declared reference consumer has no legacy GPU producer; CPU execution is required')
+    if declared_models and (body.get('_compile_detail')):
+        raise ValueError('Declared reference consumer has no compiled shared producer; CPU execution is required')
     profile = copy.deepcopy(body['profile'])
     squad = body['squad']
     if not isinstance(squad, list) or len(squad) != 5 or len(set(squad)) != 5:
@@ -361,12 +361,11 @@ def evaluate(body):
         for char in run.squad:
             if char['name'] in no_cube:
                 char['cube'] = {'name': '__none__', 'level': 1}
-        if body.get('_compile_gpu_detail') or not body.get('_compile_gpu') and body.get('compute_backend', 'cpu') != 'cpu':
+        if body.get('_compile_detail') or body.get('compute_backend','cpu') != 'cpu':
             from engine_gpu_admission import require_supported
             manager = BuffManager(run.squad)
             require_supported((effect for effect, owner in manager._effects),
-                              (char.get('cube', {}).get('name') for char in run.squad),
-                              legacy=bool(body.get('_compile_gpu_detail') or body.get('_compile_gpu') or body.get('compute_backend') == 'cuda_detail'))
+                              (char.get('cube', {}).get('name') for char in run.squad))
         if body.get('_portable_static_inputs'):
             from portable_roster_input import prepare_static_inputs
             static=prepare_static_inputs(run, changed)
@@ -375,12 +374,9 @@ def evaluate(body):
         if body.get('_audit_portable'):
             from portable_catalog import audit_prepared
             return audit_prepared(run, changed, body)
-        if body.get('_compile_gpu_detail'):
+        if body.get('_compile_detail'):
             from detail_gpu import compile_full
             return compile_full(run, changed, body, policy, requested_policy)
-        if body.get('_compile_gpu'):
-            from gpu_combat import compile_run
-            return compile_run(run, changed, body)
         if coordinate_model is not None:
             run.expected=False
             run.config['rng_mode']='random'
@@ -456,18 +452,12 @@ def candidate_scores(body):
 def dispatch(body):
     verify_engine_runtime(ENGINE, REVISION)
     action = body.get('action')
-    if action == 'gpu_probe':
-        from gpu_selector import probe
-        return probe()
     if action == 'evaluate_portable_events':
         from portable_runtime import evaluate as evaluate_events
         return evaluate_events(body)
-    if action == 'select':
-        from gpu_selector import select_teams
-        return select_teams(body)
     if action == 'candidates': return candidate_scores(body)
     if action == 'catalog': return catalog()
-    if action == 'demo': return detail_demo() if body.get('gpu_detail') else demo(body.get('expanded', False))
+    if action == 'demo': return detail_demo() if body.get('detail') else demo(body.get('expanded', False))
     if action == 'import': return import_data(body['data'])
     if action == 'evaluate': return evaluate(body)
     raise ValueError('Unknown action')
@@ -480,9 +470,3 @@ if __name__ == '__main__':
     except (Exception, SystemExit) as exc:
         print(json.dumps({'error': str(exc)}, ensure_ascii=True))
         sys.exit(1)
-
-
-
-
-
-

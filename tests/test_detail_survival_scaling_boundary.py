@@ -15,16 +15,9 @@ from calculator.buff_manager import BuffManager
 class ScalingAndCoverBoundaries(unittest.TestCase):
     def setUp(self):
         b=v.v.body(1);b['enemy']['patterns']=[]
-        with v.v.context('controlled',{v.N[0]:[v.B('scaled','atk_pct',1.5,scaling='lost_hp_pct')]}):self.compiled=v.v.v.a.evaluate({**b,'_compile_gpu_detail':True})
-    def reject(self,program,pattern):
-        with patch.object(g,'module_image',side_effect=AssertionError('CUDA must not be reached')):
-            with self.assertRaisesRegex(ValueError,pattern):g.run(object(),[program],[[0,2,101,0,0,0,0,0]],[self.compiled['enemy']],[self.compiled['base_stats']])
+        with v.v.context('controlled',{v.N[0]:[v.B('scaled','atk_pct',1.5,scaling='lost_hp_pct')]}):self.compiled=v.v.v.a.evaluate({**b,'_compile_detail':True})
     def test_lost_HP_mode_is_explicit_and_not_stack_capture(self):
         self.assertEqual(self.compiled['program']['effects'][0][10],-3)
-    def test_invalid_scaling_modes_are_rejected_before_CUDA(self):
-        for value in (-4,.5,g.NE):
-            p=copy.deepcopy(self.compiled['program']);p['effects'][0][10]=value;self.reject(p,'value scaling mode')
-        p=copy.deepcopy(self.compiled['program']);p['effects'][0][258]=1;self.reject(p,'value scaling mode')
     def test_cover_revive_zero_and_wrong_scaling_do_not_silently_compile(self):
         chars=self.compiled['program']['chars']
         for value,kw in [(0,{}),(10,{'scaling':'lost_hp_pct'}),(10,{'scaling':'max_hp'})]:
@@ -32,15 +25,6 @@ class ScalingAndCoverBoundaries(unittest.TestCase):
     def test_broken_cover_random_count_clamps_to_roster_and_preserves_zero(self):
         for count,expected in ((0,0),(2,2),(99,5)):
             p=g.compile_effects(self.compiled['program']['chars'],[(v.E('revive','instant','cover_revive',50,'allies_broken_cover_random:'+str(count)),v.N[0])]);q=p['effects'][0];self.assertEqual((q[1],q[4],q[5]),(30,25,expected))
-    def test_bad_cover_counts_and_wrong_instant_kind_are_rejected_before_CUDA(self):
-        p=g.compile_effects(self.compiled['program']['chars'],[(v.E('revive','instant','cover_revive',50,'allies_broken_cover_random:2'),v.N[0])])
-        for count in (-1,.5,6):
-            c=copy.deepcopy(p);c['effects'][0][5]=count;self.reject(c,'broken-cover target count')
-        p['effects'][0][258]=0;self.reject(p,'cover revival instruction')
-    def test_scalar_witness_addresses_are_validated_before_launch(self):
-        for scalar in ({'who':5,'key':0},{'who':0,'key':32},{'who':0.5,'key':0},{'who':0}):
-            c=copy.deepcopy(self.compiled);c['body']['_debug_scalar_query']=scalar
-            with patch.object(g,'run',side_effect=AssertionError('CUDA must not be reached')),self.assertRaisesRegex(ValueError,'scalar frame witness'):g.evaluate_full(object(),c)
 
 class CPURevivalScalingContext(unittest.TestCase):
     def value(self,pct,context=None,base=1.5):

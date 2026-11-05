@@ -11,7 +11,7 @@ for name,b,extra in list(v.fixtures())+list(v.real_fixtures()):
         out=original(self,who,amount,t);heals.append(dict(time=t,recipient=who,amount=amount,actual=out));return out
     try:
         with v.v.s.v.context(name,extra),patch.object(v.BuffManager,'heal_decoy',heal):
-            compiled=v.v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True});cpu=v.v.s.v.v.a.evaluate(b)
+            compiled=v.v.s.v.v.a.evaluate({**b,'_compile_detail':True});cpu=v.v.s.v.v.a.evaluate(b)
         row=dict(name=name,compiled=True,cpu_usable=True,total=cpu['total_damage'],heals=len(heals),positive_heals=sum(h['actual']>0 for h in heals))
     except Exception as exc:row=dict(name=name,compiled=False,cpu_usable=False,error=repr(exc))
     rows.append(row);print(json.dumps(row,ensure_ascii=True),flush=True)

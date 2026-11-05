@@ -51,14 +51,21 @@ class AmmoEquivalentTests(unittest.TestCase):
         data=ledger(ROOT);self.assertEqual(set(verify(ROOT)['reviewed_ammo_equivalent_sources']),set(data['sources']))
         projected,_=project_sources(ROOT)
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             source=projected.get(name,(ROOT/name).read_text())
             for change in row['changes']:
                 self.assertEqual(source.count(change['current']),1)
                 mutated=source.replace(change['current'],change['baseline'],1);self.assertNotEqual(mutated,source)
                 with self.subTest(name=name),self.assertRaises(AssertionError):baseline_source(ROOT,name,mutated)
+        import portable_ammo_equivalent_source_contract as stage_contract
+        from source_stage_guard import stage_inputs
+        stages=stage_inputs(ROOT,stage_contract)
         for name,old,new in [('gpu/admission_runtime.slang','f64FromI64(4096)','f64FromI64(8192)'),('gpu/dispatch_phases.slang','uint(count-1)','uint(count)'),('gpu/event_runtime.slang','if(f.mode==15) logResourceNotification','if(true) logResourceNotification')]:
-            source=(ROOT/name).read_text();self.assertIn(old,source)
-            with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
+            source,options=stages[name];self.assertIn(old,source)
+            with self.subTest(name=name),self.assertRaises(AssertionError):stage_contract.baseline_source(ROOT,name,source.replace(old,new,1),**options)
 
 
 if __name__=='__main__':unittest.main()

@@ -7,7 +7,7 @@ spec=importlib.util.spec_from_file_location('original_resource_test',ROOT/'resea
 class OriginalResourceTests(unittest.TestCase):
     def test_complete_inputs_pack_without_cpu_battle(self):
         from calculator import timeline
-        from portable_parent_oracles import provider
+        from native_comparison_provider import provider
         with patch.object(timeline,'simulate',side_effect=AssertionError('No CPU schedule in input')):rows,_=a.prepare()
         self.assertEqual(len(rows),3)
         for _,words,domain in rows:

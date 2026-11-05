@@ -16,8 +16,12 @@ def baseline_source(root,name,source,*,named_projected=False):
     assert hashlib.sha256(source.encode()).hexdigest()==row['baseline_sha256'],'Random-cleanse historical source changed: '+name
     return source,True
 def project_sources(root,sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     from portable_named_enemy_source_contract import project_sources as project_named
     root=Path(root);sources,_=project_named(root,sources);data=ledger(root)
-    for name,digest in data['added_sources'].items():assert hashlib.sha256(sources.get(name,(root/name).read_text()).encode()).hexdigest()==digest,'Unreviewed random-cleanse helper: '+name
-    for name in data['sources']:sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()),named_projected=True)
+    for name,digest in data['added_sources'].items():
+        assert hashlib.sha256(sources.get(name,(root/name).read_text()).encode()).hexdigest()==digest,'Unreviewed random-cleanse helper: '+name
+    for name in data['sources']:
+        sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()),named_projected=True)
     return sources,list(data['sources'])

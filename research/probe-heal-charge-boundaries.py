@@ -7,7 +7,7 @@ sp=importlib.util.spec_from_file_location('charge_definitions',ROOT/'research/he
 class Boundaries(unittest.TestCase):
     def setUp(self):
         name,b,x=next(d.fixtures());b['enemy']['patterns']=[]
-        with v.s.v.context(name,x):self.compiled=v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True})
+        with v.s.v.context(name,x):self.compiled=v.s.v.v.a.evaluate({**b,'_compile_detail':True})
     def reject(self,program,pattern,script=None):
         with patch.object(g,'module_image',side_effect=AssertionError('CUDA must not be reached')),self.assertRaisesRegex(ValueError,pattern):g.run(object(),[program],script or [[0,2,101,0,0,0,0,0]],[self.compiled['enemy']],[self.compiled['base_stats']])
     def test_distinct_opcodes_and_named_reference(self):
@@ -36,7 +36,7 @@ class Boundaries(unittest.TestCase):
         for e in [v.E('bad','instant','heal_overcharge_store_atk_pct',20),v.E('bad','instant','accumulate_max_scale_pct',20),v.B('bad','heal_overcharge_discharge',1,target_effect='pool')]:
             with self.assertRaises(g.UnsupportedDetail):g.compile_effects(self.compiled['program']['chars'],[(e,v.N[0])])
     def test_capacity_reference_flags(self):
-        with v.s.v.context('charge-boundary',{v.N[0]:[v.B('bonus','accumulate_max_scale_pct',20,target_effect='pool')]}):compiled=v.s.v.v.a.evaluate({**self.compiled['body'],'_compile_gpu_detail':True})
+        with v.s.v.context('charge-boundary',{v.N[0]:[v.B('bonus','accumulate_max_scale_pct',20,target_effect='pool')]}):compiled=v.s.v.v.a.evaluate({**self.compiled['body'],'_compile_detail':True})
         index=next(i for i,r in enumerate(compiled['program']['effects']) if r[1]==0 and r[2]==77)
         for field,value in [(212,.5),(36,-1),(36,g.NE)]:
             p=copy.deepcopy(compiled['program']);p['effects'][index][field]=value;self.reject(p,'healing capacity reference')

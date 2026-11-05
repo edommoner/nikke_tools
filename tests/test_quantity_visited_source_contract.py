@@ -16,7 +16,11 @@ class QuantityVisitedSourceContractTests(unittest.TestCase):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name)
         for name in (SOURCE,HELPER,LEDGER):
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             path=self.root/name;path.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,path)
+        from portable_kernel_speed_source_contract import reviewed_bytes
+        (self.root/SOURCE).write_bytes(reviewed_bytes(ROOT,SOURCE,(ROOT/SOURCE).read_bytes()))
         self.hashes={n:hashlib.sha256((self.root/n).read_bytes()).hexdigest() for n in (SOURCE,HELPER)}
         self.hashes['gpu/unrelated.slang']='f'*64
 
@@ -28,12 +32,16 @@ class QuantityVisitedSourceContractTests(unittest.TestCase):
 
     def test_changed_raw_source_or_helper_is_rejected(self):
         for name in (SOURCE,HELPER):
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             path=self.root/name;raw=path.read_bytes();path.write_bytes(raw+b'\n')
             with self.subTest(name=name),self.assertRaises(ValueError):historical_hashes(self.root,self.hashes)
             path.write_bytes(raw)
 
     def test_incorrect_hashes_and_missing_helper_are_rejected(self):
         for name in (SOURCE,HELPER):
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             wrong=dict(self.hashes);wrong[name]='0'*64
             with self.subTest(name=name),self.assertRaises(ValueError):historical_hashes(self.root,wrong)
         absent=dict(self.hashes);del absent[HELPER]

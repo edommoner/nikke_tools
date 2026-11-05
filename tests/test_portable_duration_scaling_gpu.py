@@ -30,6 +30,8 @@ class DurationScalingGPUTests(unittest.TestCase):
     def test_reviewed_helper_and_expiry_order_reject_mutations(self):
         project_sources(ROOT)
         for name,old,new in [('gpu/duration_scaling_runtime.slang','f64Mul(base,present?count:uint64_t(0))','f64Mul(base,ONE)'),('gpu/dispatch_phases.slang','definitionExpiry(s,sourceRow,f.time)','definitionExpiry(s,row,f.time ^ F64_SIGN)'),('gpu/event_runtime.slang','passiveDefinitionExpiry(s,j,when)','definition_duration(s.inputBase,j)')]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             text=(ROOT/name).read_text();self.assertEqual(text.count(old),1)
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:text.replace(old,new,1)})
     def test_diagnostic_decode_accepts_array_and_list_without_masking_fields(self):

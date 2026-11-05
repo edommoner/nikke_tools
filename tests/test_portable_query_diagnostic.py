@@ -29,6 +29,8 @@ class QueryDiagnosticTests(unittest.TestCase):
         from portable_scratch_layout_source_contract import project_sources as project_layout
         projected,_=project_layout(ROOT)
         for name,row in ledger(ROOT)['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             text=projected.get(name,(ROOT/name).read_text())
             for c in row['changes']:
                 with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,{**projected,name:text.replace(c['current'],c['baseline'],1)},layout_projected=True)

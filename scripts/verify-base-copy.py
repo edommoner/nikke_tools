@@ -69,18 +69,14 @@ def reference_case(case):
   script += [[at,2,query,case.get('query_who',0),arg,len(actual)*2-2,0,0],[at,2,125,0,-1,len(actual)*2-1,0,0]]
  return chars,bs,effects,script,wanted,actual
 
-def independent(device,backend,reference_only=False):
- rows=[]
- for case in independent_cases():
-  chars,bs,effects,script,wanted,actual=reference_case(case)
-  if not reference_only:
-   result=g.run(device,[g.compile_effects(chars,effects)],script,[[0,0]],[bs],module_backend=backend);logs=result['queries'][0];actual=[]
-   for i in range(len(wanted)):
-    value=logs[2*i];fields=logs[2*i+1]
-    observed=[value[0]] if case['axis']=='atk' else [value[0],value[2],value[1]] if case['axis']=='hp' else [value[38]]
-    actual.append([*observed,fields[1],fields[6],fields[11]])
-  row=dict(name='independent-'+case['name'],passed=actual==wanted,expected=wanted,actual=actual);rows.append(row);print(json.dumps(row),flush=True)
- return rows
+def independent(device, backend, reference_only=False):
+    rows = []
+    for case in independent_cases():
+        (chars, bs, effects, script, wanted, actual) = reference_case(case)
+        row = dict(name='independent-' + case['name'], passed=actual == wanted, expected=wanted, actual=actual)
+        rows.append(row)
+        print(json.dumps(row), flush=True)
+    return rows
 
 def fixtures():
  for variant in ('named-order-and-stack','source-down-and-reselect','HP-snapshot-and-storage','recipient-sets'):
@@ -121,33 +117,7 @@ def project(manager,t,capture):
   rows.append(dict(time=t,key=key,basis={n:sum(ab.copy_basis for ab in chosen if ab.caster==n) for n in names},source={n:sum(names.index(ab.copy_source)+1 if ab.copy_source is not None else 0 for ab in chosen if ab.caster==n) for n in names},gift={n:sum(getattr(ab,'copy_last_gift',0) for ab in chosen if ab.caster==n) for n in names},carriers=len(chosen)))
  return rows
 
-def compare(device,name,body,extra,backend):
- body={**body,'_debug_base_copy_frames':True}
- with FrameCapture(g,project) as capture:row=m.compare(device,name,body,extra,backend)
- expected=capture.samples+capture.final_samples;actual=capture.gpu.get('_base_copy_frames')
- row['checks']['copy_frames']=m.s.v.close(expected,actual)
- row['checks']['positive_copy_control']=any(any(value>0 for value in frame['basis'].values()) for frame in expected)
- if any(effect.get('target')=='allies_burst_casted_burst3' for effects in extra.values() for effect in effects):
-  definitions=sum(row[1]==0 and row[2] in (85,86) for row in capture.program['effects'])
-  row['checks']['distinct_recipient_instances_exercised']=any(frame['key']==-1 and frame['carriers']>definitions for frame in expected)
- if any(effect.get('stat')=='revive' for effects in extra.values() for effect in effects):row['checks']['revival_exercised']=bool(row['cpu_revives'])
- row['passed']=all(row['checks'].values());row['copy_frame_rows']=len(expected)
- if not row['checks']['copy_frames']:row['difference']=next((dict(index=i,cpu=c,gpu=x) for i,(c,x) in enumerate(zip(expected,actual or [])) if not m.s.v.close(c,x)),dict(cpu_rows=len(expected),gpu_rows=len(actual or [])))
- print(json.dumps(dict(name=name,passed=row['passed'],failed=[key for key,value in row['checks'].items() if not value])),flush=True);return row
 
-def verify(backend):
- from gpu_selector import Cuda
- from verification_session import VerificationSession
- session=VerificationSession();session.device=Cuda();rows=[]
- try:
-  rows+=independent(session.device,backend)
-  chosen=list(fixtures());chosen=[row for row in chosen if row[0]=='raw-copy-combined'] if backend=='ptx' else chosen
-  if all(row['passed'] for row in rows):
-   for name,body,extra in chosen:
-    row=session.compare(SimpleNamespace(compare=compare),name,body,extra,backend);rows.append(row)
-    if not row['passed']:break
- finally:session.close()
- return rows
 
 if __name__=='__main__':
  parser=argparse.ArgumentParser();parser.add_argument('--backend',choices=['native','ptx'],default='native');parser.add_argument('--reference-only',action='store_true');args=parser.parse_args()

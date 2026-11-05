@@ -28,10 +28,15 @@ class ShieldGPUTests(unittest.TestCase):
         data=json.loads((ROOT/'tests/fixtures/portable-destructible-shield-source-delta.json').read_text());self.assertEqual(len(data['sources']),1)
         project_sources(ROOT)
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n'})
         entry=(ROOT/'gpu/destructible_shield_battle_entry.slang').read_text()
-        self.assertIn('#include "destructible_frame_runtime.slang"',entry)
-        self.assertIn('#include "destructible_modifier_runtime.slang"',entry)
+        self.assertEqual(entry.count('#include "destructible_shield_frame_hooks.slang"'),1)
+        self.assertEqual(entry.count('#include "destructible_shield_frame_impl.slang"'),1)
+        implementation=(ROOT/'gpu/destructible_shield_frame_impl.slang').read_text()
+        self.assertEqual(implementation.count('#include "destructible_frame_runtime.slang"'),1)
+        self.assertEqual(implementation.count('#include "destructible_modifier_runtime.slang"'),1)
         self.assertNotIn('advanceDestructibleSkillFrame(',entry)
 
     def test_actual_metal_shield_blocks_detect_owner_source_scalar_and_receipt_corruption(self):

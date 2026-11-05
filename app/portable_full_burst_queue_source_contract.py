@@ -2,6 +2,8 @@
 import hashlib,json
 from pathlib import Path
 def project_sources(root,sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     from portable_full_burst_capacity_source_contract import project_sources as project_capacity
     root=Path(root);sources=project_capacity(root,sources);data=json.loads((root/'tests/fixtures/portable-full-burst-queue-source-delta.json').read_text())
     for name,row in data['sources'].items():

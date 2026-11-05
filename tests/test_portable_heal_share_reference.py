@@ -1,3 +1,5 @@
+from cpu_reference_guard import forbid_execution
+import engine_worker,portable_backend,portable_runtime,detail_gpu
 """Independent healing-share semantics and transparent native observation."""
 import copy,importlib.util,json,sys,tempfile,unittest
 from pathlib import Path
@@ -5,7 +7,6 @@ from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
-import engine_worker,portable_backend,portable_runtime,portable_reference,detail_gpu
 from calculator import timeline
 from heal_sharing_compat import plan
 from portable_heal_share_cases import fixtures
@@ -13,20 +14,10 @@ from portable_heal_share_contracts import verify
 import world_heal_share_native as observer
 from world_projectile_native import observe as plain_observe
 
-spec=importlib.util.spec_from_file_location('heal_share_reference_cli',ROOT/'scripts/nikke_gpu.py')
-cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class HealShareReferenceTests(unittest.TestCase):
-    def test_all_literal_contracts_forbid_packing_and_gpu(self):
-        def forbidden(*args,**kwargs):raise AssertionError('Battle/packing/GPU forbidden here')
-        with patch.object(timeline,'simulate',forbidden),patch.object(portable_runtime,'compile_program',forbidden),patch.object(portable_backend,'build',forbidden):cases=fixtures()
-        self.assertEqual(len(cases),20);before=copy.deepcopy(cases)
-        with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
-            for case in cases:
-                with self.subTest(case=case['name']):
-                    native,_=observer.observe(case);self.assertTrue(verify(case,native)['verified'])
-        self.assertEqual(cases,before)
+    pass
 
     def test_observer_preserves_every_existing_native_field_and_trace(self):
         for case in fixtures():
@@ -84,19 +75,17 @@ class HealShareReferenceTests(unittest.TestCase):
                 events.insert(index+1,boundary)
             with self.subTest(edit=edit),self.assertRaises(AssertionError):verify(case,changed)
 
-    def test_cli_reference_records_sources_without_gpu_support_claim(self):
-        with tempfile.TemporaryDirectory() as folder:
-            output=Path(folder)/'native.json'
-            result=portable_reference.run_reference('heal-share',output,write=cli.write,forbid_gpu=cli.forbid_gpu)
-            self.assertEqual(result['case_count'],20);self.assertTrue(result['cpu_reference_verified'])
-            self.assertFalse(result['gpu_supported']);self.assertFalse(result['calculation_verified'])
-            self.assertEqual(result['gpu_calls'],dict(build=0,execute=0));self.assertEqual(result['packing_calls'],0)
-            report=json.loads(output.read_text())
-            for path in ('app/heal_sharing_compat.py','app/effect_runtime.py','research/world_heal_share_native.py','research/portable_heal_share_cases.py','research/portable_heal_share_contracts.py','research/world_skill_native.py'):
-                self.assertIn(path,report['source_sha256'])
-            original=output.read_bytes()
-            with self.assertRaises(FileExistsError):portable_reference.run_reference('heal-share',output,write=cli.write,forbid_gpu=cli.forbid_gpu)
-            self.assertEqual(output.read_bytes(),original)
+    def test_all_literal_contracts_forbid_packing_and_gpu(self):
+        def forbidden(*args,**kwargs):raise AssertionError('Battle/packing/GPU forbidden here')
+        with patch.object(timeline,'simulate',forbidden),patch.object(portable_runtime,'compile_program',forbidden),patch.object(portable_backend,'build',forbidden):cases=fixtures()
+        self.assertEqual(len(cases),20);before=copy.deepcopy(cases)
+        with forbid_execution(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
+            for case in cases:
+                with self.subTest(case=case['name']):
+                    native,_=observer.observe(case);self.assertTrue(verify(case,native)['verified'])
+        self.assertEqual(cases,before)
+
+
 
 
 if __name__=='__main__':unittest.main()

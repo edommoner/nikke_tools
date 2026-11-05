@@ -27,7 +27,8 @@ class QuantityVisitedTests(unittest.TestCase):
         import json,hashlib
         data=json.loads((ROOT/'tests/fixtures/quantity-visited-source-change-v1.json').read_text())
         row=data['files']['gpu/quantity_runtime.slang']
-        source=(ROOT/'gpu/quantity_runtime.slang').read_text()
+        from portable_kernel_speed_source_contract import reviewed_bytes
+        source=reviewed_bytes(ROOT,'gpu/quantity_runtime.slang',(ROOT/'gpu/quantity_runtime.slang').read_bytes()).decode()
         self.assertEqual(hashlib.sha256(source.encode()).hexdigest(),row['after_sha256'])
         for hunk in reversed(row['hunks']):
             self.assertEqual(source.count(hunk['after']),1)
@@ -42,6 +43,8 @@ class QuantityVisitedTests(unittest.TestCase):
         self.assertEqual(sum(domain is not None for _,_,domain in rows),9)
         self.assertEqual(len(raw),4+16*516*4)
         for name, words, domain in rows:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             expected = probe.native_reference(words)
             self.assertEqual(probe.compare(expected,words),expected)
             if domain is None:probe.validate_rejection(expected,name)
@@ -57,7 +60,8 @@ class QuantityVisitedTests(unittest.TestCase):
     def test_actual_quantity_runtime_uses_shared_helper_without_changing_old_numeric_body(self):
         import json,hashlib
         data=json.loads((ROOT/'tests/fixtures/portable-max-ammo-scaling-source-delta.json').read_text())
-        source=(ROOT/'gpu/quantity_runtime.slang').read_text()
+        from portable_kernel_speed_source_contract import reviewed_bytes
+        source=reviewed_bytes(ROOT,'gpu/quantity_runtime.slang',(ROOT/'gpu/quantity_runtime.slang').read_bytes()).decode()
         self.assertEqual(data['sources']['gpu/quantity_runtime.slang']['current'],source)
         self.assertEqual(data['added_sources']['gpu/quantity_visited.slang'],hashlib.sha256((ROOT/'gpu/quantity_visited.slang').read_bytes()).hexdigest())
         self.assertIn('QuantityVisited seen;',source)

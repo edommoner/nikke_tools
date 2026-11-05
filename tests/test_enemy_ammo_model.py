@@ -100,9 +100,6 @@ class EnemyAmmoTests(unittest.TestCase):
             else:bad['enemy_ammo']['charges'][0]['targets'][0]['change']=0
             with self.subTest(mutation=mutation),self.assertRaises(AssertionError):verify(case,bad)
 
-    def test_common_cli_registration_keeps_gpu_admission_separate(self):
-        from portable_reference import REFERENCES
-        self.assertEqual(REFERENCES['enemy-ammo-common'],('portable_enemy_ammo_cases','world_enemy_ammo_native','portable_enemy_ammo_contracts'))
 
 
 if __name__=='__main__':unittest.main()

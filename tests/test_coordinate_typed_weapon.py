@@ -40,17 +40,5 @@ class CoordinateTypedWeaponTests(unittest.TestCase):
         for corrupt in (amount,handle,rng,order):
             with self.subTest(corrupt=corrupt.__name__),self.assertRaises(AssertionError):
                 changed=copy.deepcopy(native);corrupt(changed);verify(case,changed)
-    def test_cpu_contract_does_not_promote_missing_gameplay_or_gpu_support(self):
-        from portable_readiness_semantics import reference_readiness
-        for stat in ('projectile_dmg_pct','shield_dmg_pct'):
-            result=reference_readiness(dict(phase='effect',kind='buff',stat=stat,target='self'))
-            self.assertEqual(result['lane'],'reference_model_gap');self.assertFalse(result['gpu_supported'])
-            row=result['typed_coordinate_weapon_reference'];self.assertTrue(row['cpu_contract_verified'])
-            for flag in ('metal_verified','cuda_device_verified','automatic_typed_weapon_aim_verified','canonical_consumer_verified','in_game_rules_verified','full_character_verified'):
-                self.assertFalse(row[flag])
-            gpu=result['typed_coordinate_weapon_validation'];self.assertEqual((gpu['inputs'],gpu['native_cases']),(46,29))
-            self.assertTrue(gpu['metal_verified']);self.assertTrue(gpu['all_physical_receipts_hashed'])
-            for flag in ('cuda_device_verified','automatic_typed_weapon_aim_verified','canonical_consumer_verified','in_game_rules_verified','full_character_verified'):
-                self.assertFalse(gpu[flag])
 
 if __name__=='__main__':unittest.main()

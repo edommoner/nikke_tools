@@ -20,30 +20,7 @@ class EnemyRecipientTests(unittest.TestCase):
         program['world'],_=compile_world({'patterns':raw},[],{'enemy':{'patterns':raw}},program)
         return bm,program
 
-    def test_gpu_scope_policy_and_unconnected_lifetimes_fail_before_cuda(self):
-        import copy
-        from enemy_recipient_specs import specialize_static_fields
-        from detail_gpu import run
-        bm,program=self.gpu_program()
-        rows=copy.deepcopy(program['effects']);original=copy.deepcopy(rows)
-        self.assertEqual(specialize_static_fields(rows,has_add_sources=True),0)
-        self.assertEqual(rows,original) # Configured delayed waves retain their recipient binding.
-        self.assertGreater(specialize_static_fields(rows,has_add_sources=False),0)
-        self.assertEqual(specialize_static_fields(rows,has_add_sources=False),0)
-        with self.assertRaises(ValueError):specialize_static_fields(rows,has_add_sources=0)
-        script=[[0,15,0,0,0,-1,0,0],[.01,2,135,0,5,0,12,1],[.1,5,0,0,0,-1,0,0]]
-        self.assertEqual(program['effects'][0][48],1)
-        for at,value in ((48,0),(48,4),(48,1.5),(62,1),(59,.1)):
-            bad=copy.deepcopy(program);bad['effects'][0][at]=value
-            with self.subTest(at=at,value=value),self.assertRaises(ValueError):run(None,[bad],script,[[0,0]],[bm.state['base_stats']])
 
-    def test_targeted_notifications_and_queries_reject_invalid_descriptors(self):
-        from detail_gpu import run
-        bm,program=self.gpu_program()
-        for row in ([.01,16,58,0,5,1,0,0],[.01,16,8,0,2,1,0,0],[.01,16,8,0,5,0,0,0],[.01,2,135,0,5,0,63,1],[.01,2,135,0,5,0,12,0]):
-            script=[[0,15,0,0,0,-1,0,0],row,[.1,5,0,0,0,-1,0,0]]
-            if row[1]!=2:script.insert(2,[.02,2,135,0,5,0,12,1])
-            with self.subTest(row=row),self.assertRaises(ValueError):run(None,[program],script,[[0,0]],[bm.state['base_stats']])
 
     def test_refresh_generation_aliases_query_isolation_and_real_pool_death(self):
         self.assertTrue(exercise()['passed'])

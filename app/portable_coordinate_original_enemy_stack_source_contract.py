@@ -2,6 +2,8 @@
 import hashlib,json
 from pathlib import Path
 def project_sources(root,sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     root=Path(root);out=dict(sources or {});data=json.loads((root/'tests/fixtures/portable-coordinate-original-enemy-stack-source-delta.json').read_text())
     from portable_weighted_incoming_source_contract import reference_engine_preimages
     preimages=reference_engine_preimages(root)

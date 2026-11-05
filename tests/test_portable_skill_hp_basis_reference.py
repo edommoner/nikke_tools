@@ -1,4 +1,5 @@
 """HP attack basis is first specified against native execution, without GPU packing."""
+from cpu_reference_guard import forbid_execution
 import copy
 import importlib.util
 import sys
@@ -17,38 +18,10 @@ from portable_skill_hp_basis_contracts import verify
 import world_skill_hp_basis_native as observer
 from world_parts_skill_native import observe as plain_observe
 
-spec = importlib.util.spec_from_file_location('hp_basis_reference_cli', ROOT / 'scripts/nikke_gpu.py')
-cli = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(cli)
 
 
 class SkillHPBasisReferenceTests(unittest.TestCase):
-    def test_conditional_protection_repairs_change_subsequent_absorption(self):
-        from portable_skill_hp_basis_protection_cases import fixtures as repairs
-        with cli.forbid_gpu(), patch.object(portable_runtime,'compile_program',side_effect=AssertionError('packing forbidden')):
-            for case in repairs():
-                with self.subTest(case=case['name']):
-                    native,_=observer.observe(case);self.assertTrue(verify(case,native)['verified'])
-                    changed=copy.deepcopy(native);changed['hits'][1][case['contract']['protection_absorption']['kind']]=100
-                    with self.assertRaises(AssertionError):verify(case,changed)
-    def test_literal_contracts_without_packing_or_gpu(self):
-        def forbidden(*args, **kwargs):
-            raise AssertionError('GPU/packing forbidden in native contracts')
-        with patch.object(timeline, 'simulate', forbidden):
-            cases = fixtures()
-        self.assertEqual(len(cases), 28)
-        before = copy.deepcopy(cases)
-        gaps = []
-        with cli.forbid_gpu(), patch.object(portable_runtime, 'compile_program', forbidden), patch.object(detail_gpu, 'compile_effects', forbidden), patch.object(detail_gpu, 'compile_full', forbidden):
-            for case in cases:
-                with self.subTest(case=case['name']):
-                    native, _ = observer.observe(case)
-                    result = verify(case, native)
-                    self.assertTrue(result['verified'])
-                    if result['reference_model_gap']:
-                        gaps.append(case['name'])
-        self.assertEqual(gaps, ['skill-hp-basis-add-deferred', 'skill-hp-basis-replace-deferred'])
-        self.assertEqual(cases, before)
+    pass
 
     def test_observer_preserves_all_existing_fields_and_trace(self):
         for case in fixtures():
@@ -112,6 +85,35 @@ class SkillHPBasisReferenceTests(unittest.TestCase):
             self.assertIs(sys.getprofile(), prior)
         finally:
             sys.setprofile(previous)
+
+    def test_conditional_protection_repairs_change_subsequent_absorption(self):
+        from portable_skill_hp_basis_protection_cases import fixtures as repairs
+        with forbid_execution(), patch.object(portable_runtime,'compile_program',side_effect=AssertionError('packing forbidden')):
+            for case in repairs():
+                with self.subTest(case=case['name']):
+                    native,_=observer.observe(case);self.assertTrue(verify(case,native)['verified'])
+                    changed=copy.deepcopy(native);changed['hits'][1][case['contract']['protection_absorption']['kind']]=100
+                    with self.assertRaises(AssertionError):verify(case,changed)
+
+    def test_literal_contracts_without_packing_or_gpu(self):
+        def forbidden(*args, **kwargs):
+            raise AssertionError('GPU/packing forbidden in native contracts')
+        with patch.object(timeline, 'simulate', forbidden):
+            cases = fixtures()
+        self.assertEqual(len(cases), 28)
+        before = copy.deepcopy(cases)
+        gaps = []
+        with forbid_execution(), patch.object(portable_runtime, 'compile_program', forbidden), patch.object(detail_gpu, 'compile_effects', forbidden), patch.object(detail_gpu, 'compile_full', forbidden):
+            for case in cases:
+                with self.subTest(case=case['name']):
+                    native, _ = observer.observe(case)
+                    result = verify(case, native)
+                    self.assertTrue(result['verified'])
+                    if result['reference_model_gap']:
+                        gaps.append(case['name'])
+        self.assertEqual(gaps, ['skill-hp-basis-add-deferred', 'skill-hp-basis-replace-deferred'])
+        self.assertEqual(cases, before)
+
 
 
 if __name__ == '__main__':

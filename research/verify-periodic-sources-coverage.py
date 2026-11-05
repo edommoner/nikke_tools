@@ -8,7 +8,7 @@ before={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest(
 report=coverage();stages=[]
 for stage in range(4):
     body=body_for(['아인','리타','크라운','앨리스','모더니아'],8,True);body['profile']['chars']['아인']['favorite_stage']=stage
-    compiled=a.evaluate({**body,'_compile_gpu_detail':True});assert compiled['program']['periodic_source_estimated'];stages.append(stage)
+    compiled=a.evaluate({**body,'_compile_detail':True});assert compiled['program']['periodic_source_estimated'];stages.append(stage)
 old=json.loads((ROOT/'research/ports/v54-target-counters-verified/research/target-counters-coverage.json').read_text(encoding='utf-8'))
 supported=lambda value:{r['character'] for r in value['results'] if r['supported']}
 assert supported(old)<=supported(report) and supported(report)-supported(old)=={'아인'}

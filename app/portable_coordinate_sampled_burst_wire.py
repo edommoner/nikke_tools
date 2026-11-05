@@ -19,5 +19,4 @@ def check_schema(root=None):
     assert (ENTRIES,HITS,BASE,WORDS,OUTPUT_WORDS)==(512,256,1507328,262144,1769472)
     assert (root/'gpu/coordinate_sampled_burst_layout.slang').read_text()==schema()
     assert 'static const uint P_OUTPUT_WORDS = 1769472U;' in (root/'gpu/portable_schema.slang').read_text()
-    assert 'outputWords == 1769472' in (root/'scripts/run-metal-probe.swift').read_text()
     return dict(input_words=INPUT_WORDS,output_words=OUTPUT_WORDS,retained_prefix_words=PREFIX,pending_entries=ENTRIES,hits_per_entry=HITS,additional_output_words=WORDS,additional_runtime_bytes=0)

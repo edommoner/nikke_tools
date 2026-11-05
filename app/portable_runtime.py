@@ -11,7 +11,7 @@ import sys
 import re
 import struct
 
-from portable_backend import execute,execute_batches
+from portable_backend import execute
 from portable_enemy_specs import damage_plan,enemy_buff_plan
 from portable_recipient_specs import admitted as recipient_admitted, pack as pack_recipients
 from portable_damage_specs import BUFFS,DAMAGE_FAMILIES
@@ -910,7 +910,7 @@ def pack_programs(programs):
     return words.tobytes()
 
 
-def dispatch_programs(programs, *, backend='metal', batch_size=None):
+def dispatch_programs(programs, *, backend='native', batch_size=None):
     """Keep independent programs ordered while bounding each GPU allocation."""
     size=L['BATCH'] if batch_size is None else batch_size
     if type(size) is not int or not 1<=size<=L['BATCH']:raise ValueError('Invalid portable dispatch batch size')
@@ -918,26 +918,26 @@ def dispatch_programs(programs, *, backend='metal', batch_size=None):
     if len(programs)<=size:
         return execute('gpu/event_runtime.slang','portableEvents',pack_programs(programs),L['INPUT_WORDS'],L['OUTPUT_WORDS'],backend)
     batches=[pack_programs(programs[i:i+size]) for i in range(0,len(programs),size)]
-    replies=execute_batches('gpu/event_runtime.slang','portableEvents',batches,L['INPUT_WORDS'],L['OUTPUT_WORDS'],backend)
+    replies=[execute('gpu/event_runtime.slang','portableEvents',packed,L['INPUT_WORDS'],L['OUTPUT_WORDS'],backend) for packed in batches]
     if len(replies)!=len(batches):raise RuntimeError('Incomplete portable dispatch sequence')
     reference=replies[0][1]
     for (raw,evidence),packed in zip(replies,batches):
         count,=struct.unpack_from('<I',packed)
-        if len(raw)!=count*L['OUTPUT_WORDS']*4 or not evidence['gpu_execution_verified'] or evidence['backend']!=backend:raise RuntimeError('Invalid portable dispatch evidence')
+        if len(raw)!=count*L['OUTPUT_WORDS']*4 or not evidence['native_execution_verified'] or evidence['backend']!=backend:raise RuntimeError('Invalid portable dispatch evidence')
         for field in ('source_sha256','generated_sha256'):
             if evidence[field]!=reference[field]:raise RuntimeError('GPU source changed between dispatches')
     raw=b''.join(x[0] for x in replies)
     digest=hashlib.sha256(struct.pack('<I',len(programs)))
     for packed in batches:digest.update(memoryview(packed)[4:])
-    transport=dict(reference['transport'],cases=len(programs),session_dispatches=len(batches),pipeline_instances=1,buffer_allocations=2,input_bytes=sum(len(p) for p in batches),output_bytes=len(raw))
+    transport=dict(reference['transport'],cases=len(programs),session_dispatches=len(batches),host_processes=len(batches),input_bytes=sum(len(p) for p in batches),output_bytes=len(raw))
     transport.pop('session_dispatch_index',None)
-    for field in ('gpu_seconds','host_dispatch_seconds'):
+    for field in ('host_seconds',):
         if field in transport:transport[field]=sum(e['transport'][field] for _,e in replies)
     evidence=dict(reference,transport=transport,input_sha256=digest.hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),dispatches=[e for _,e in replies],logical_input_hash='uint32 total count followed by all ordered program words; per-dispatch headers excluded')
     return raw,evidence
 
 
-def run_programs(programs, *, backend='metal', batch_size=None):
+def run_programs(programs, *, backend='native', batch_size=None):
     raw,evidence=dispatch_programs(programs,backend=backend,batch_size=batch_size)
     output=array.array('I');output.frombytes(raw)
     if len(output)!=len(programs)*L['OUTPUT_WORDS']:raise RuntimeError('Invalid GPU output stride')
@@ -953,7 +953,7 @@ def evaluate(body):
     """Application worker entry; callers supply definitions and external events."""
     compiled=compile_program(body['chars'],[(item['effect'],item['owner']) for item in body['effects']],
                              body['script'],body['base_atk'],combat=body.get('combat'),**body.get('environment',{}))
-    result=run_programs([compiled],backend=body.get('backend','metal'))
+    result=run_programs([compiled],backend=body.get('backend','native'))
     from staged_dot_specs import RAMP_FIELDS,MODEL_WARNING
     if any(RAMP_FIELDS.intersection(item['effect']) for item in body['effects']):result.setdefault('app_warnings',[]).append(MODEL_WARNING)
     if any(spec and spec['legacy'] for spec in compiled[1]['source_definitions']):

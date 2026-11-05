@@ -1,4 +1,5 @@
 """CPU prerequisite coverage without treating packing or no-op output as GPU proof."""
+from cpu_reference_guard import forbid_execution
 import copy,importlib.util,json,subprocess,sys,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -9,17 +10,10 @@ from calculator.buff_manager import BuffManager
 from portable_state_predicate_cases import fixtures
 from portable_state_predicate_contracts import verify
 from world_state_predicate_native import observe,plain_observe
-s=importlib.util.spec_from_file_location('state_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(s);s.loader.exec_module(cli)
 
 
 class StatePredicateReferenceTests(unittest.TestCase):
-    def test_thirty_literal_contracts_without_packing_or_gpu(self):
-        with patch.object(timeline,'simulate',side_effect=AssertionError('No factory battle')):cases=fixtures()
-        self.assertEqual(len(cases),30);before=copy.deepcopy(cases)
-        with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',side_effect=AssertionError('No packing')),patch.object(detail_gpu,'compile_effects',side_effect=AssertionError('No compiler')):
-            for c in cases:
-                with self.subTest(case=c['name']):self.assertTrue(verify(c,observe(c)[0])['verified'])
-        self.assertEqual(cases,before)
+    pass
 
     def test_all_fields_trace_and_existing_query_counts_preserved(self):
         originals={name:getattr(BuffManager,name) for name in ['_condition_ok','_runtime_condition_ok','cover_alive']}
@@ -54,10 +48,15 @@ class StatePredicateReferenceTests(unittest.TestCase):
             bad=copy.deepcopy(effect);bad['trigger']['condition']=[effect['trigger']['condition'][0]+':unknown']
             with self.assertRaises(ValueError):portable_runtime.validate_effect(bad,combat={},world_frame=True)
 
-    def test_cli_is_explicitly_cpu_reference_only(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            out=Path(tmp)/'reference.json';r=subprocess.run([sys.executable,str(ROOT/'scripts/nikke_gpu.py'),'reference','--suite','state-predicates','--out',str(out)],cwd=ROOT,capture_output=True,text=True,timeout=30)
-            self.assertEqual(r.returncode,0,r.stderr);d=json.loads(out.read_text());self.assertEqual(d['case_count'],30);self.assertFalse(d['gpu_supported']);self.assertFalse(d['calculation_verified']);self.assertEqual(d['gpu_calls'],dict(build=0,execute=0));self.assertEqual(d['packing_calls'],0)
+    def test_thirty_literal_contracts_without_packing_or_gpu(self):
+        with patch.object(timeline,'simulate',side_effect=AssertionError('No factory battle')):cases=fixtures()
+        self.assertEqual(len(cases),30);before=copy.deepcopy(cases)
+        with forbid_execution(),patch.object(portable_runtime,'compile_program',side_effect=AssertionError('No packing')),patch.object(detail_gpu,'compile_effects',side_effect=AssertionError('No compiler')):
+            for c in cases:
+                with self.subTest(case=c['name']):self.assertTrue(verify(c,observe(c)[0])['verified'])
+        self.assertEqual(cases,before)
+
+
 
 
 if __name__=='__main__':unittest.main()

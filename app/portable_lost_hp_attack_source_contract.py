@@ -15,5 +15,6 @@ def baseline_source(root,name,source):
     return source,True
 def verify_sources(root,sources=None):
     root=Path(root);sources=sources or {}
-    for name in ledger(root)['sources']:baseline_source(root,name,sources.get(name,(root/name).read_text()))
+    for name in ledger(root)['sources']:
+        baseline_source(root,name,sources.get(name,(root/name).read_text()))
     return list(ledger(root)['sources'])

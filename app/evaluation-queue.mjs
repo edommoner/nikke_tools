@@ -4,7 +4,7 @@ import {withCpuProcess} from './cpu-process-pool.mjs';
 export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheable=()=>true}) {
   const cleanBody=body=>body&&typeof body==='object'?Object.fromEntries(Object.entries(body).filter(([k])=>k!=='verification'&&!k.startsWith('_'))):body;
   const validate=body=>{
-    if(!['cpu','cuda_detail','metal_detail','cuda_shared_detail','native_detail','browser_detail'].includes(body.compute_backend||'cpu'))throw Error('未対応の詳細計算方法です。');
+    if(!['cpu','native_detail','browser_detail'].includes(body.compute_backend||'cpu'))throw Error('未対応の詳細計算方法です。');
     if(body.verify_detail!==undefined&&typeof body.verify_detail!=='boolean')throw Error('CPU照合の指定が不正です。');
   };
   const save=(key,result,enabled)=>{
@@ -15,7 +15,7 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
   };
   async function cpuFallback(body,job,error){
     const result=await worker({...body,action:'evaluate'},job);
-    result.compute={requested:body.compute_backend,backend:'cpu',fallback_reason:'GPUを実行できなかったため、CPUで詳細計算しました。',error:error.message};
+    result.compute={requested:body.compute_backend,backend:'cpu',fallback_reason:'高速計算を実行できなかったため、CPUで詳細計算しました。',error:error.message};
     return result;
   }
   async function many(bodies,job,{hostThreads,deferFallbacks=false}={}){
@@ -40,23 +40,23 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
     // Each fresh worker owns a bounded batch; Python groups compatible wires
     // while keeping every original row and its CPU comparison independent.
     const shared=new Map();
-    for(const entry of entries.filter(e=>['metal_detail','cuda_shared_detail','native_detail','browser_detail'].includes(e.body.compute_backend))){
+    for(const entry of entries.filter(e=>['native_detail','browser_detail'].includes(e.body.compute_backend))){
       const backend=entry.body.compute_backend;
       if(!shared.has(backend))shared.set(backend,[]);
       shared.get(backend).push(entry);
     }
-    const batches=[entries.filter(e=>e.body.compute_backend==='cuda_detail')];
+    const batches=[];
     for(const [backend,group] of shared){const cap=['native_detail','browser_detail'].includes(backend)?32:8;for(let i=0;i<group.length;i+=cap)batches.push(group.slice(i,i+cap));}
     for(let i=batches.length-1;i>=0;i--)if(!batches[i].length)batches.splice(i,1);
-    for(const gpu of batches){
+    for(const batch of batches){
       let outputs;
       try{
-        const browser=gpu[0].body.compute_backend==='browser_detail';
-        const action=gpu[0].body.compute_backend==='cuda_detail'?'evaluate_detail_batch':'evaluate_portable_detail_batch';
-        const evaluations=gpu.map(e=>e.body);
+        const browser=batch[0].body.compute_backend==='browser_detail';
+        const action='evaluate_portable_detail_batch';
+        const evaluations=batch.map(e=>e.body);
         if(browser){
           outputs=await worker({action:'prepare_browser_wires',evaluations,...options},job);
-          if(!Array.isArray(outputs)||outputs.length!==gpu.length||outputs.some(r=>!r||!(r.wire||r.result||typeof r.error==='string')))throw Error('ブラウザの入力形式が不正です。');
+          if(!Array.isArray(outputs)||outputs.length!==batch.length||outputs.some(r=>!r||!(r.wire||r.result||typeof r.error==='string')))throw Error('ブラウザの入力形式が不正です。');
           if(job.status==='cancelled')throw Error('計算を終了しました。');
           const wires=outputs.flatMap((row,index)=>row.wire?[{index,wire:row.wire}]:[]);
           if(wires.length){
@@ -67,17 +67,17 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
             wires.forEach((row,i)=>outputs[row.index]=finished[i]);
           }
         }else outputs=await worker({action,evaluations,...options},job);
-        if(!Array.isArray(outputs)||outputs.length!==gpu.length||outputs.some(r=>!r||!(typeof r.error==='string'||r.result&&typeof r.result==='object')))throw Error('GPUの計算結果の形式が不正です。');
+        if(!Array.isArray(outputs)||outputs.length!==batch.length||outputs.some(r=>!r||!(typeof r.error==='string'||r.result&&typeof r.result==='object')))throw Error('高速計算結果の形式が不正です。');
       }catch(error){
         outputs=[];
-        for(const entry of gpu){
+        for(const entry of batch){
           try{
-            if(!error.gpuUnavailable||job?.status==='cancelled')throw error;
+            if(!error.backendUnavailable||job?.status==='cancelled')throw error;
             outputs.push({result:await cpuFallback(entry.body,job,error)});
           }catch(failure){outputs.push({error:failure.message});}
         }
       }
-      if(job?.status!=='cancelled')gpu.forEach((entry,i)=>{
+      if(job?.status!=='cancelled')batch.forEach((entry,i)=>{
         const row=outputs[i],marker=row.result?.cpu_fallback_pending;
         if(!marker){publish(entry,row);return;}
         if(!deferred||entry.body.compute_backend!=='native_detail'){
@@ -93,7 +93,7 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
         for(const index of entry.indices)rows[index]={completion:completion.then(row=>structuredClone(row))};
       });
     }
-    for(const entry of entries.filter(e=>!['cuda_detail','metal_detail','cuda_shared_detail','native_detail','browser_detail'].includes(e.body.compute_backend))){
+    for(const entry of entries.filter(e=>!['native_detail','browser_detail'].includes(e.body.compute_backend))){
       try{publish(entry,{result:await worker({...entry.body,action:'evaluate'},job)});}
       catch(error){publish(entry,{error:error.message});}
     }
@@ -129,7 +129,7 @@ export async function advanceCases(job,evaluator,{nativeBatchSize=16}={}){
       rows=pending.rows;delete job.pendingGpuResults;
     }else{
       const first=job.cases[job.index],backend=first.evaluation.compute_backend;
-      const cap=job.kind==='optimize'&&backend==='native_detail'?nativeBatchSize:['cuda_detail','native_detail','browser_detail'].includes(backend)?32:['metal_detail','cuda_shared_detail'].includes(backend)?8:1;
+      const cap=job.kind==='optimize'&&backend==='native_detail'?nativeBatchSize:['native_detail','browser_detail'].includes(backend)?32:1;
       let count=1;
       if(cap>1&&!evaluator.isCached(first.evaluation)){
         while(count<cap&&job.index+count<job.cases.length&&job.cases[job.index+count].evaluation.compute_backend===backend)count++;

@@ -14,7 +14,7 @@ class LifecycleTests(unittest.TestCase):
         spec=importlib.util.spec_from_file_location('lifecycle_test',ROOT/'research/verify-coordinate-original-lifecycle-short.py')
         adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
         from calculator import timeline
-        from portable_parent_oracles import provider
+        from native_comparison_provider import provider
         with patch.object(timeline,'simulate',side_effect=AssertionError('No CPU battle in input')):
             entries,_=adapter.prepare()
         self.assertEqual(len(entries),3)

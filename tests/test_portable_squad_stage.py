@@ -50,14 +50,19 @@ class SquadStageTests(unittest.TestCase):
 
     def test_source_delta_rejects_omission_wrong_order_stage_and_ownership(self):
         project_sources(ROOT)
+        import portable_squad_stage_source_contract as stage_contract
+        from source_stage_guard import stage_inputs
+        stages=stage_inputs(ROOT,stage_contract)
         for name,row in ledger(ROOT)['sources'].items():
-            text,_=partial_baseline(ROOT,name,(ROOT/name).read_text())
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
+            text,stage_options=stages[name]
             for change in row['changes']:
                 bad=text.replace(change['current'],change['baseline'],1);self.assertNotEqual(text,bad)
-                with self.assertRaises(AssertionError):stage_baseline(ROOT,name,bad,partial_projected=True)
-        name='gpu/combat_runtime.slang';text,_=partial_baseline(ROOT,name,(ROOT/name).read_text());bad=text.replace('dispatch(s,0,41,picked,int(stage)','dispatch(s,0,41,4,int(stage)')
+                with self.assertRaises(AssertionError):stage_baseline(ROOT,name,bad,**stage_options)
+        name='gpu/combat_runtime.slang';text,stage_options=stages[name];bad=text.replace('dispatch(s,0,41,picked,int(stage)','dispatch(s,0,41,4,int(stage)')
         self.assertNotEqual(text,bad)
-        with self.assertRaises(AssertionError):stage_baseline(ROOT,name,bad,partial_projected=True)
+        with self.assertRaises(AssertionError):stage_baseline(ROOT,name,bad,**stage_options)
 
     def test_full_real_roster_has_all81_definitions_without_battle_or_gpu(self):
         def forbidden(*a,**k):raise AssertionError('Static preparation executed a battle/GPU')

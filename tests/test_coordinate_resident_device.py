@@ -26,13 +26,5 @@ class ResidentDeviceTests(unittest.TestCase):
   for name in ('native_reference','compare','validate_rejection','native_comparison_adapter'):
    self.assertIs(getattr(a,name),getattr(a.parent,name))
   self.assertIs(a.NATIVE_COMPARISON_CONTEXT,a.parent.NATIVE_COMPARISON_CONTEXT)
- def test_registry_keeps_full_source_and_distinct_scoped_golden(self):
-  import nikke_gpu as cli
-  from portable_package_projection import SUPPORTED_SUITES
-  self.assertIn('coordinate-resident-device',SUPPORTED_SUITES)
-  full=cli.SUITES['coordinate-resident-arc'];short=cli.SUITES['coordinate-resident-device']
-  self.assertEqual((short['inputs'],short['native']),(4,4));self.assertEqual(short['source'],full['source'])
-  self.assertNotEqual(short['golden'],full['golden']);self.assertEqual(short['output_words'],full['output_words'])
-  self.assertEqual((full['inputs'],full['native']),(106,63))
 
 if __name__=='__main__':unittest.main()

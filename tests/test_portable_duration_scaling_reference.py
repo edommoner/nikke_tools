@@ -70,16 +70,5 @@ class DurationScalingReferenceTests(unittest.TestCase):
                 self.assertEqual([r['stat'] for r in data['checks']],['stealth','stun'])
                 for r in data['checks']:self.assertEqual(r['expires_at'],r['time']+1);self.assertEqual(r['reads'][0]['value'],1)
 
-    def test_reference_contract_does_not_open_portable_fields(self):
-        from portable_runtime import validate_effect,UnsupportedPortable
-        from portable_readiness_semantics import reference_readiness
-        for stat in ('stealth','stun'):
-            e=synthetic_fixtures()[0]['effects'][-1];e.update(stat=stat)
-            with self.assertRaises(UnsupportedPortable):validate_effect(e,combat={},world_frame=False)
-            validate_effect(e,combat={},world_frame=True)
-            r=reference_readiness(dict(phase='effect',category='fields',kind='buff',stat=stat,target='self',fields=['duration_scaling','duration_scaling_ref']))
-            self.assertEqual(r['reference_suites'],['duration-scaling','duration-scaling-mixed']);self.assertEqual(r['recorded_cases'],40)
-            self.assertEqual(r['scoped_metal_validation']['expiry_checks'],160);self.assertTrue(r['scoped_metal_validation']['independently_audited'])
-            for key in ('gpu_supported','gpu_admission_verified','full_character_verified','runtime_validation_performed'):self.assertIs(r[key],False)
 
 if __name__=='__main__':unittest.main()

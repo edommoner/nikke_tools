@@ -51,6 +51,8 @@ class PelletShotTests(unittest.TestCase):
         data=ledger(ROOT);self.assertEqual(set(verify(ROOT)['reviewed_pellet_shot_sources']),set(data['sources'])|set(data['new_sources']))
         projected,_=project_ammo(ROOT)
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             current=(ROOT/name).read_text()
             with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:current+'\n// unreviewed\n'})
             source=projected.get(name,current)

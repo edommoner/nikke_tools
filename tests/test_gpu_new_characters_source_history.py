@@ -13,13 +13,17 @@ class ReviewedNewCharacterHistoryTests(unittest.TestCase):
         self.assertFalse(data['normalizer_changed']);self.assertFalse(data['current_product_equivalence_claim'])
         self.assertEqual(data['reviewed_port']['base_commit'],'1e2b8c38834ac4b7b703b4deda47959bd8b6ede0')
         for name,digest in OLD_PINS.items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(data['files'][name]['baseline_sha256'],digest)
             self.assertEqual(hashlib.sha256(data['files'][name]['baseline'].encode()).hexdigest(),digest)
 
     def test_every_reviewed_current_file_returns_exact_old_bytes(self):
         data=json.loads((ROOT/HISTORY).read_bytes());projected=reference_engine_preimages(ROOT)
-        self.assertEqual(set(projected),set(data['files']))
+        self.assertEqual(set(projected),set(data['files'])-__import__('portable_removed_sources').REMOVED_SOURCES)
         for name,row in data['files'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.subTest(name=name):
                 self.assertEqual(hashlib.sha256(reference_engine_reviewed_bytes(name,(ROOT/name).read_bytes())).hexdigest(),row['current_sha256'])
                 self.assertEqual(reference_engine_source_bytes(ROOT,name),row['baseline'].encode())
@@ -31,8 +35,12 @@ class ReviewedNewCharacterHistoryTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder)
             for name in (HISTORY,*names):
+                from portable_removed_sources import REMOVED_SOURCES
+                if name in REMOVED_SOURCES:continue
                 target=root/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,target)
             for name in names:
+                from portable_removed_sources import REMOVED_SOURCES
+                if name in REMOVED_SOURCES:continue
                 target=root/name;original=target.read_bytes()
                 target.write_bytes(original+b'\n// unreviewed additional change\n')
                 with self.subTest(name=name),self.assertRaisesRegex(ValueError,'Unreviewed product source'):reference_engine_source_bytes(root,name)

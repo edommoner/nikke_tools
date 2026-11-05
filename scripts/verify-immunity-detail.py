@@ -10,7 +10,6 @@ r=importlib.util.module_from_spec(spec);spec.loader.exec_module(r)
 c=r.v.c;E=c.E;NAMES=c.NAMES
 import detail_gpu
 from calculator.buff_manager import BuffManager
-from gpu_selector import Cuda
 
 def scenarios():
     owner=NAMES[0]
@@ -62,48 +61,7 @@ def observed():
         return result
     with patch.object(BuffManager,'_harmful_blocked',check),patch.object(BuffManager,'_activate',application),c.observe() as (_,manager,_):yield events,manager
 
-def compare(device,label,effects,seconds,subject,seed,mode,backend,cpu_only=False):
-    body=body_for(subject,seconds);body.update(seed=seed,burst_gauge_mode=mode)
-    context=r.injected_effects(effects) if subject else c.p.custom_effects(effects)
-    with context:
-        compiled=c.a.evaluate({**body,'_compile_gpu_detail':True})
-        keys=[name for name in compiled['program']['states']]
-        if not cpu_only:
-            old_run=detail_gpu.run;captured={}
-            def run(device,programs,script,*args,**kwargs):
-                script=copy.deepcopy(script);offset=sum(row[1]==2 for row in script)
-                for i,name in enumerate(keys):script.append([seconds,2,112,0,compiled['program']['states'][name],offset+i,0,0])
-                result=old_run(device,programs,script,*args,**kwargs);captured['pools']=dict(zip(keys,result['queries'][0][offset:]));return result
-            with patch.object(detail_gpu,'run',run):gpu=detail_gpu.evaluate_full(device,compiled,module_backend=backend)
-        with observed() as (events,manager):cpu=c.a.evaluate(body)
-        rng=list(random.getstate()[1]);bm=manager['bm']
-    names=body['squad']+['__enemy__']
-    pools={key:[bm._immune_used.get((who,key),0) for who in names] for key in keys}
-    if cpu_only:return dict(name=label,cpu_total=cpu['total_damage'],events=events,used=pools)
-    checks={key:cpu[key]==gpu[key] for key in ('total_damage','members','base_stats','burst_timeline','burst_gauge_mode','seed')}
-    checks['final_random_state']=rng==gpu['_random_state']
-    errors=[]
-    for key,expected in pools.items():
-        if list(captured['pools'][key][:6])!=expected:errors.append([key,captured['pools'][key][:6],expected])
-    checks['per_name_per_recipient_used']=not errors
-    if subject:
-        checks['positive_immunity_exercised']=events['blocked']>0
-        checks['negative_immunity_exercised']=events['allowed']>0
-        if subject=='에이드':checks['real_attack_count_recharge_exercised']=any(t>0 for caster,name,t in events['recharges'] if caster==subject)
-    return dict(name=label,seed=seed,mode=mode,backend=backend,passed=all(checks.values()),checks=checks,
-                errors=errors,cpu_total=cpu['total_damage'],gpu_total=gpu['total_damage'],observed=events,
-                all_real_skills_retained=bool(subject))
 
-def verify(device,backend,quick=False,cpu_only=False):
-    rows=[]
-    for label,effects,seconds,subject in scenarios():
-        if quick and subject:continue
-        for seed in ((0,12345) if subject and not cpu_only else (0,)):
-            for mode in (('fixed',) if quick or cpu_only else ('fixed','accumulate')):
-                try:row=compare(device,label,effects,seconds,subject,seed,mode,backend,cpu_only)
-                except Exception as error:row=dict(name=label,backend=backend,seed=seed,mode=mode,passed=False,error=str(error))
-                rows.append(row);print(json.dumps(row,ensure_ascii=True),flush=True)
-    return rows
 
 def cpu_assertions(rows):
     by={row['name']:row for row in rows}
@@ -125,19 +83,3 @@ def cpu_assertions(rows):
     assert by['enemy-target-count-refresh']['used']['pool']==[0,0,0,0,0,1]
     for label in ['enemy-target-general-immunity','enemy-target-named-immunity']:
         assert by[label]['events']['blocked']>0 and by[label]['events']['allowed']==0,label
-
-if __name__=='__main__':
-    import argparse
-    p=argparse.ArgumentParser();p.add_argument('--backend',choices=['native','ptx','both'],default='both');p.add_argument('--quick',action='store_true');p.add_argument('--cpu-only',action='store_true');p.add_argument('--output',default='research/detail-immunity-verification.json');args=p.parse_args()
-    d=None if args.cpu_only else Cuda()
-    try:rows=sum((verify(d,b,args.quick,args.cpu_only) for b in (('cpu',) if args.cpu_only else ('native','ptx') if args.backend=='both' else (args.backend,))),[])
-    finally:
-        if d:d.close()
-    if args.cpu_only and not args.quick:cpu_assertions(rows)
-    files=['scripts/verify-immunity-detail.py','app/detail_gpu.py','app/detail_effects.cu','app/engine_worker.py','research/upstream/nikke-calc-master/calculator/buff_manager.py']
-    if not args.cpu_only:files+=['app/detail_effects.ptx','app/detail_effects-build.json','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json']
-    report=dict(generated_at=datetime.now(timezone.utc).isoformat(),passed=all(row.get('passed',args.cpu_only) for row in rows),cpu_reference_only=args.cpu_only,
-        cpu_trace_used_as_gpu_input=False,cases=rows,scope='Debuff immunity in complete five-member battles, including raw real skills plus authored harmful inputs; not full incoming boss attacks.',
-        source_sha256={f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in files})
-    (ROOT/args.output).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    raise SystemExit(0 if report['passed'] else 1)

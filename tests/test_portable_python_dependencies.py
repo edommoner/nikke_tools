@@ -35,14 +35,5 @@ class DependencyTests(unittest.TestCase):
         for text in ['gmpy2>=2.2.1','gmpy2 @ https://example.invalid/wheel','gmpy2==2.2.1\ngmpy2==2.2.1','']:
             (self.root/deps.REQUIREMENTS_FILE).write_text(text)
             with self.assertRaises(ValueError):deps.check(self.root,self.patterns)
-    def test_run_preflight_stops_before_cpu_worker_when_missing(self):
-        sys.path.insert(0,str(ROOT/'scripts'));import nikke_gpu as cli
-        (self.root/'tests').mkdir();(self.root/'tests'/self.patterns[0]).write_text('')
-        capture=self.root/'capture';capture.mkdir()
-        manifest=dict(suite='probe',files=[dict(path=deps.REQUIREMENTS_FILE)])
-        with patch.object(cli,'ROOT',self.root),patch.object(cli,'SUITES',dict(probe=dict(tests=self.patterns))),patch.object(deps.importlib.metadata,'version',side_effect=importlib.metadata.PackageNotFoundError),patch.object(cli.subprocess,'run',side_effect=AssertionError('Worker must not start')):
-            with self.assertRaisesRegex(ValueError,'Validation Python dependencies unavailable'):cli.cpu_test_groups(manifest,capture)
-        report=json.loads((capture/'python-dependencies.json').read_text())
-        self.assertFalse(report['passed']);self.assertEqual(report['gpu_calls'],0);self.assertFalse((capture/'cpu-tests.json').exists())
 
 if __name__=='__main__':unittest.main()

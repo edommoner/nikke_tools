@@ -8,7 +8,7 @@ class OriginalSourceTests(unittest.TestCase):
     def test_complete_original_inputs_and_early_kind_rejection(self):
         from calculator import timeline
         from portable_coordinate_kind_admission import KindAdmission
-        from portable_parent_oracles import provider
+        from native_comparison_provider import provider
         with patch.object(timeline,'simulate',side_effect=AssertionError('No CPU schedule in input')):rows,_=a.prepare()
         self.assertEqual(len(rows),5);old=KindAdmission(ROOT,'gpu/world_coordinate_original_cleanse_entry.slang');current=KindAdmission(ROOT,a.SOURCE)
         for _,words,domain in rows:

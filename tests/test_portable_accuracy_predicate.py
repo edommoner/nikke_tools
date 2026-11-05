@@ -18,6 +18,8 @@ class AccuracyPredicateTests(unittest.TestCase):
         at=L['CONDITION_BASE']+2*L['CONDITION_WORDS']
         self.assertEqual(entries[1][1][at:at+2],[8,21])
         for name,words,domain in entries[-6:]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertIsNone(domain);module.validate_rejection([64],name)
             with self.assertRaises(AssertionError):module.validate_rejection([0],name)
         self.assertEqual(len(data),4+sum(len(row[1])*4 for row in entries))
@@ -31,12 +33,17 @@ class AccuracyPredicateTests(unittest.TestCase):
 
     def test_only_reviewed_gpu_admission_delta_is_projected(self):
         data=ledger(ROOT);self.assertEqual(set(verify(ROOT)['reviewed_accuracy_predicate_sources']),set(data['sources']))
+        import portable_accuracy_predicate_source_contract as stage_contract
+        from source_stage_guard import stage_inputs
+        stages=stage_inputs(ROOT,stage_contract)
         for name,row in data['sources'].items():
-            source=(ROOT/name).read_text()
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
+            source,stage_options=stages[name]
             for change in row['changes']:
                 modified=source.replace(change['current'],change['baseline'],1)
                 self.assertNotEqual(modified,source)
-                with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:modified})
+                with self.subTest(name=name),self.assertRaises(AssertionError):stage_contract.baseline_source(ROOT,name,modified,**stage_options)
         name='gpu/definition_runtime.slang';source=(ROOT/name).read_text()
         for old,new in [('stat==21','stat==22'),('f64Finite(threshold)','true')]:
             with self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})

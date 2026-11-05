@@ -35,7 +35,8 @@ class HealingTests(unittest.TestCase):
         from portable_coordinate_healing_source_contract import project_sources
         from portable_backend import validate_composed_stride
         golden=json.loads((ROOT/'research/portable-coordinate-auto-reload-short-expected.json').read_text())
-        for name,text in project_sources(ROOT).items():self.assertEqual(hashlib.sha256(text.encode()).hexdigest(),golden['source_sha256'][name])
+        from portable_coordinate_group_source_contract import historical_source_hashes
+        self.assertEqual(historical_source_hashes(ROOT,a.parent.SOURCE,project_sources(ROOT)),golden['source_sha256'])
         validate_composed_stride(a.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS)
         with self.assertRaises(ValueError):validate_composed_stride(a.SOURCE,a.INPUT_WORDS-1,a.OUTPUT_WORDS)
         path='gpu/coordinate_sampling_runtime.slang'

@@ -53,10 +53,4 @@ class FullBurstLandingReferenceTests(unittest.TestCase):
             portable_runtime.validate_effect(e,combat=c['combat'],world_frame=True)
             with self.assertRaises(ValueError):portable_runtime.validate_effect(e,combat=c['combat'],world_frame=False)
             with self.assertRaises(ValueError):portable_runtime.validate_effect(e,combat=None,world_frame=True)
-    def test_native_source_routing_preserves_unproven_fields(self):
-        from portable_readiness_semantics import reference_readiness
-        for stat in ('sequential_damage:6','sequential_damage:13'):
-            issue=dict(phase='effect',category='fields',kind='damage',stat=stat,target='enemies_random',fields=['land_in_full_burst'])
-            r=reference_readiness(issue);self.assertEqual(r['lane'],'native_contract_extension');self.assertEqual(r['recorded_cases'],15);self.assertFalse(r['gpu_supported']);self.assertFalse(r['runtime_validation_performed'])
-            self.assertEqual(reference_readiness(dict(issue,fields=['land_in_full_burst','unknown']))['lane'],'reference_review')
 if __name__=='__main__':unittest.main()

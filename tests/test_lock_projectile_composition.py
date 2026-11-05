@@ -72,6 +72,8 @@ class CompositionTests(unittest.TestCase):
         from portable_lock_typed_source_contract import project_sources
         ledger=json.loads((ROOT/'tests/fixtures/portable-lock-typed-source-delta.json').read_text());old=project_sources(ROOT)
         for name,row in ledger['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(old[name],row['baseline'])
             with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n// mutation'})
 

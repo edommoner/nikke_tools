@@ -43,34 +43,3 @@ def fixtures(owner,scenario):
             changed['trigger']['timing']=['on_attack'];rows.insert(2,changed)
         elif scenario=='base-enter-mode':rows[0]['trigger']['timing']=['on_attack']
     return rows
-
-
-def main():
-    rows=[]
-    for owner,name in enumerate(NAMES):
-        metadata=dict(timeline._NIKKE[name],weapon_type='AR',is_charge=False,input_type='DOWN',
-            burst_energy=2,burst_energy_raw=.25,fire_rate=1,fire_rate_max=1,
-            damage_coeff=100,max_ammo=100,burst_stage='0')
-        for scenario,expected in [('initial',6.75),('named-activation',6),('named-removal',6.75),('mode-skill',21),
-                                  ('mode-remove',21),('mode-limit',12),('mode-switch',21),('base-enter-mode',12)]:
-            effects=fixtures(owner,scenario)
-            def register(bm):
-                bm._effects=[(copy.deepcopy(e),name) for e in effects]
-                bm._build_notify_index()
-            with patch.dict(timeline._NIKKE,{name:metadata}),patch.dict(buff_manager._NIKKE,{name:metadata}),patch.object(buff_manager.BuffManager,'_register_all',register):
-                result=timeline.simulate([dict(name=name,skill_levels={'1':10,'2':10,'3':10})],
-                    config=dict(duration=0,rng_mode='expected',burst_gauge_mode='accumulate'),
-                    enemy=dict(core_px=0,code=None,**{'def':0}),verbose=True)
-            log=[vars(e) for e in result.log.gauge_log]
-            skill=[e for e in log if e['source']=='skill:packet']
-            assert len(skill)==1 and skill[0]['amount']==expected,(name,scenario,expected,log)
-            rows.append(dict(owner=owner,scenario=scenario,expected_skill_gain=expected,actual_skill_gain=skill[0]['amount'],gauge_log=log))
-    paths=['research/characterize-burst-charge-skills.py','research/upstream/nikke-calc-master/calculator/timeline.py','research/upstream/nikke-calc-master/calculator/buff_manager.py']
-    report=dict(passed=True,cpu_only=True,cases=rows,
-        scope='40 original simulate/skill-handler cases, duration0, authored metadata/effects. Not GPU certification or a complete battle.',
-        source_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})
-    (ROOT/'research/portable-burst-charge-skills-native.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
-    print(len(rows),'original native skill-handler cases passed')
-
-
-if __name__=='__main__':main()

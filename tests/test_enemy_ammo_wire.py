@@ -49,6 +49,8 @@ class EnemyAmmoWireTests(unittest.TestCase):
         ledger=json.loads((ROOT/'tests/fixtures/portable-enemy-ammo-source-delta.json').read_text());old=project_sources(ROOT)
         for name,row in ledger['files'].items():self.assertEqual(old[name],row['before'])
         for name in [*ledger['files'],*ledger['added_sources']]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.subTest(path=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
         from portable_logical_geometry_source_contract import project_sources as logical
         self.assertIn('gpu/ammo_instant_runtime.slang',logical(ROOT))
@@ -87,26 +89,6 @@ class EnemyAmmoWireTests(unittest.TestCase):
             with self.subTest(corrupt_word=at),self.assertRaises(AssertionError):
                 broken=block.copy();broken[at]=99;compare_resources(broken,domain,native)
 
-    def test_historical_metal_evidence_retains_exact_reviewed_source_inverse(self):
-        from portable_readiness_semantics import enemy_ammo_prerequisites
-        from portable_backend import source_hashes
-        r=enemy_ammo_prerequisites()['declared_enemy_ammo_validation'];raw=(ROOT/r['evidence']).read_bytes();proof=json.loads(raw)
-        self.assertEqual(hashlib.sha256(raw).hexdigest(),r['evidence_sha256'])
-        golden=json.loads((ROOT/'research/portable-enemy-ammo-v1-expected.json').read_text())
-        # Final-shot hooks changed the shared source closure after this proof.
-        # Preserve the historical golden; only the reviewed exact inverse may
-        # establish retention, without claiming a current-source recertification.
-        from portable_add_self_destruct_source_contract import project_sources as before_self
-        previous=before_self(ROOT)
-        actual=source_hashes(r['source'])
-        from portable_weighted_incoming_source_contract import projected_hashes
-        from portable_quantity_visited_source_contract import historical_hashes
-        projected=historical_hashes(ROOT,projected_hashes(ROOT,r['source'],previous))
-        self.assertNotEqual(actual,golden['source_sha256'])
-        self.assertEqual(projected,golden['source_sha256'])
-        self.assertEqual(proof['output_sha256'],golden['output_sha256']);self.assertTrue(proof['calculation_verified'])
-        self.assertEqual((proof['input_count'],proof['native_cases'],proof['gpu_calls']),(20,6,0))
-        self.assertFalse(r['cuda_verified']);self.assertFalse(r['default_producer_installed'])
 
 
 if __name__=='__main__':unittest.main()

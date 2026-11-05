@@ -58,14 +58,6 @@ class CoverWire(unittest.TestCase):
             block[h+offset]^=1
             with self.subTest(offset=offset),self.assertRaises(AssertionError):self.adapter.compare_receipts(block,domain,n)
             block[h+offset]^=1
-    def test_registered_profile_keeps_same_inputs_and_bounded_cached_cuda_route(self):
-        import nikke_gpu
-        config=nikke_gpu.SUITES['cover-defense-battle']
-        self.assertFalse(config['development_only']);self.assertEqual(config['native'],6);self.assertEqual(config['inputs'],13)
-        self.assertEqual((config['input_words'],config['output_words']),(wire.INPUT,wire.OUTPUT))
-        cached=nikke_gpu.SUITES['cover-defense-battle-cache-only']
-        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1');self.assertTrue(cached['require_paired_generation'])
-        for key in ('source','script','golden','inputs','native','input_words','output_words'):self.assertEqual(cached[key],config[key])
 
     def test_exact_source_inverse_keeps_earlier_guards(self):
         import hashlib,json
@@ -73,7 +65,9 @@ class CoverWire(unittest.TestCase):
         path=ROOT/'tests/fixtures/portable-cover-defense-source-delta.json'
         self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(),LEDGER_SHA256)
         ledger=json.loads(path.read_text());result=project_sources(ROOT)
-        for name,row in ledger['files'].items():self.assertEqual(hashlib.sha256(result[name].encode()).hexdigest(),row['before_sha256'])
+        for name,row in ledger['files'].items():
+            if name in __import__('portable_removed_sources').REMOVED_SOURCES:continue
+            self.assertEqual(hashlib.sha256(result[name].encode()).hexdigest(),row['before_sha256'])
         from portable_recipient_order_source_contract import project_sources as prior,BEFORE_BACKEND_SHA256
         self.assertEqual(hashlib.sha256(prior(ROOT)['app/portable_backend.py'].encode()).hexdigest(),BEFORE_BACKEND_SHA256)
 

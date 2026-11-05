@@ -10,8 +10,3 @@ class BurstStageTests(unittest.TestCase):
   rows=compile_effects(chars,[(e,v.NAMES[0]) for e in effects])['effects']
   self.assertEqual([r[1] for r in rows],[25,4,4]);self.assertEqual(rows[1][252],4);self.assertEqual(rows[2][253],2)
   with self.assertRaises(UnsupportedDetail):compile_effects(chars,[(v.E('invalid','buff','burst_stage_override:9',0),v.NAMES[0])])
- def test_native_complete_battles(self):
-  d=v.c.Cuda()
-  try:cases=v.verify(d,'native')
-  finally:d.close()
-  self.assertTrue(cases);self.assertTrue(all(r['passed'] for r in cases),[r for r in cases if not r['passed']])

@@ -11,7 +11,7 @@ def rename(v):
  if isinstance(v,list):return [rename(x) for x in v]
  return mapping.get(v,v) if isinstance(v,str) else v
 body=rename(read('research/detail-random-api-fixture.json'));body['shooting_policy']='character'
-compiled=a.evaluate({**body,'_compile_gpu_detail':True});write('research/detail-squad-api-fixture.json',body)
+compiled=a.evaluate({**body,'_compile_detail':True});write('research/detail-squad-api-fixture.json',body)
 ui=rename(read('research/detail-random-ui-fixture.json'));ui['snapshot']['snapshot_id']='synthetic-squad-v21';ui.setdefault('settings',{})['shooting-policy']='character';write('research/detail-squad-ui-fixture.json',ui)
 n=read('research/detail-expansion-next.json');n['generated_at']=datetime.now(timezone.utc).isoformat();n['objective_complete']=False
 n['current_work']=dict(feature='v21 immutable squad affiliation predicate',abi='detail_random_v20',abi_unchanged=True,compiler_change_only=True,

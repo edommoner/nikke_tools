@@ -24,6 +24,8 @@ def baseline_source(root,name,source,*,history_projected=False):
 
 
 def project_sources(root, sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     from portable_ordered_history_source_contract import project_sources as project_history
     root=Path(root);sources,_=project_history(root,sources);data=ledger(root)
     for name in data['sources']:

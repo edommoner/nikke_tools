@@ -58,13 +58,6 @@ class DamageAccumReferenceTests(unittest.TestCase):
         self.assertTrue(n['named_state']['enemy_memberships']);self.assertNotIn('pool',[p['name'] for p in n['named_state']['allied_carriers']])
         c=next(c for c in self.cases if c['contract']['kind']=='pool-target-does-not-filter-damage');n=self.answers[self.cases.index(c)][0]
         self.assertIn('pool',[p['name'] for p in n['named_state']['allied_carriers']])
-    def test_readiness_keeps_scoped_metal_evidence_separate_from_full_support(self):
-        from portable_readiness_semantics import reference_readiness
-        for kind,stat in [('buff','dmg_accum_dealt_atk_pct'),('buff','dmg_accum_received_atk_pct'),('buff','dmg_accum_rate_pct'),('damage','accum_split_damage')]:
-            issue=dict(phase='effect',kind=kind,stat=stat,target='target',scaling=None);r=reference_readiness(issue)
-            self.assertEqual(r['lane'],'native_contract_extension');self.assertEqual(r['recorded_cases'],52);self.assertFalse(r['gpu_supported']);self.assertFalse(r['gpu_admission_verified']);self.assertFalse(r['in_game_rules_verified'])
-            self.assertEqual(r['scoped_metal_validation']['inputs'],460);self.assertTrue(r['scoped_metal_validation']['independently_audited']);self.assertEqual(r['followup_metal_validation']['inputs'],4)
-            self.assertEqual(reference_readiness(dict(issue,fields=['weapon_type']))['lane'],'reference_review')
     def test_installed_native_activation_uses_shared_lifecycle(self):
         from effect_runtime import CATALOG
         self.assertIs(CATALOG.handlers['damage_accumulation'].activate,damage_accum_runtime.activate)
@@ -74,5 +67,6 @@ class DamageAccumReferenceTests(unittest.TestCase):
         from portable_damage_accum_source_contract import project_sources
         import hashlib
         projected=project_sources(ROOT)
-        self.assertEqual({name:hashlib.sha256(projected.get(name,(ROOT/name).read_text()).encode()).hexdigest() for name in golden['source_sha256']},golden['source_sha256'])
+        from portable_coordinate_group_source_contract import historical_source_hashes
+        self.assertEqual(historical_source_hashes(ROOT,'gpu/world_heal_charge_entry.slang',projected,legacy_full_burst=True),golden['source_sha256'])
 if __name__=='__main__':unittest.main()

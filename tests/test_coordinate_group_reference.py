@@ -46,13 +46,6 @@ class CoordinateGroupReferenceTests(unittest.TestCase):
         for kwargs in [dict(routing='all-logical-enemies',coordinate_packets=True),dict(routing='native',coordinate_packets=1)]:
             with self.assertRaises(ValueError):
                 with battle_attack_groups(**kwargs):pass
-    def test_frontier_distinguishes_reference_adapter_from_gpu_group_connection(self):
-        from portable_coordinate_frontier import verify as frontier
-        row=next(r for r in frontier(ROOT)['dependencies'] if r['id']=='coordinate-shot-groups')
-        self.assertEqual(row['classification'],'gpu_port_gap')
-        self.assertTrue(row['native_coordinate_packet_adapter_available'])
-        self.assertTrue(row['physical_gpu_group_receipts_connected'])
-        self.assertTrue(row['default_plain_packet_policy_preserved'])
     def test_group_scope_restores_native_callbacks_even_after_error(self):
         from calculator import timeline
         before=timeline.CharState._fire

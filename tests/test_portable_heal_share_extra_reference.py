@@ -1,4 +1,5 @@
 """Lazy membership and binary64 operation order before GPU heal sharing."""
+from cpu_reference_guard import forbid_execution
 import copy,importlib.util,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -9,18 +10,10 @@ from portable_heal_share_extra_cases import fixtures
 from portable_heal_share_contracts import verify
 from world_heal_share_native import observe
 from world_projectile_native import observe as plain_observe
-spec=importlib.util.spec_from_file_location('heal_extra_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class HealShareExtraReferenceTests(unittest.TestCase):
-    def test_eight_literal_contracts_forbid_packing_and_gpu(self):
-        def forbidden(*a,**kw):raise AssertionError('Battle/packing forbidden')
-        with patch.object(timeline,'simulate',forbidden):cases=fixtures()
-        self.assertEqual(len(cases),8);before=copy.deepcopy(cases)
-        with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
-            for case in cases:
-                with self.subTest(case=case['name']):self.assertTrue(verify(case,observe(case)[0])['verified'])
-        self.assertEqual(cases,before)
+    pass
 
     def test_all_existing_native_state_and_trace_remain_identical(self):
         for case in fixtures():
@@ -44,6 +37,16 @@ class HealShareExtraReferenceTests(unittest.TestCase):
             plan=next(r for r in changed['heal_share_events'] if r['kind']=='plan')
             plan['weights']=plan['weights'][1:]
             with self.subTest(case=case['name']),self.assertRaises(AssertionError):verify(case,changed)
+
+    def test_eight_literal_contracts_forbid_packing_and_gpu(self):
+        def forbidden(*a,**kw):raise AssertionError('Battle/packing forbidden')
+        with patch.object(timeline,'simulate',forbidden):cases=fixtures()
+        self.assertEqual(len(cases),8);before=copy.deepcopy(cases)
+        with forbid_execution(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
+            for case in cases:
+                with self.subTest(case=case['name']):self.assertTrue(verify(case,observe(case)[0])['verified'])
+        self.assertEqual(cases,before)
+
 
 
 if __name__=='__main__':unittest.main()

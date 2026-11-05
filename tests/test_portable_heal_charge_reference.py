@@ -52,9 +52,4 @@ class HealChargeReferenceTests(unittest.TestCase):
         for e in effects.values():
             portable_runtime.validate_effect(e,combat=self.cases[0]['combat'],world_frame=True)
             with self.assertRaises(ValueError):portable_runtime.validate_effect(e,combat=self.cases[0]['combat'],world_frame=False)
-    def test_readiness_declares_model_and_keeps_runtime_unverified(self):
-        from portable_readiness_semantics import reference_readiness
-        for kind,stat,target in [('buff','heal_overcharge_store_atk_pct','self'),('buff','accumulate_max_scale_pct','self'),('instant','heal_overcharge_discharge','all_allies')]:
-            r=reference_readiness(dict(phase='effect',kind=kind,stat=stat,target=target));self.assertEqual(r['recorded_cases'],41);self.assertTrue(r['declared_model']);self.assertFalse(r['in_game_rules_verified']);self.assertFalse(r['gpu_supported'])
-        self.assertEqual(reference_readiness(dict(phase='effect',kind='buff',stat='accumulate_max_scale_pct',target='boss'))['lane'],'reference_review')
 if __name__=='__main__':unittest.main()

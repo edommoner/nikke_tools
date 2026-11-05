@@ -36,12 +36,16 @@ class ModeCapacityTests(unittest.TestCase):
     def test_source_guards_reject_capacity_math_cache_bypass_and_zero_exit_faults(self):
         result=verify(ROOT);self.assertEqual(set(result['reviewed_mode_capacity_sources']),{'gpu/reference_runtime.slang','gpu/ammo_instant_runtime.slang','gpu/weapon_runtime.slang','gpu/weapon_frame_phases.slang'})
         for name,old,new in [('gpu/reference_runtime.slang','return uint(count)*base','return uint(count)+base'),('gpu/reference_runtime.slang','if (!present) value=ONE','if (!present) value=0'),('gpu/ammo_instant_runtime.slang','referencedModeCapacity(s,who,uint(mode),when)','fullCapacity(s,who,commands[at+1],true,when)'),('gpu/weapon_runtime.slang','s.modeCapacityEpoch[who]=0;w.capacity','s.modeCapacityEpoch[who]=s.modeEpoch[who];w.capacity'),('gpu/weapon_frame_phases.slang','w.shotLimit == 0','w.capacity == 0')]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             text=(ROOT/name).read_text();self.assertIn(old,text);changed=text.replace(old,new,1)
             with self.subTest(name=name,old=old),self.assertRaises(AssertionError):baseline_source(ROOT,name,changed)
             with self.subTest(whole_contract=name,old=old),self.assertRaises(AssertionError):verify(ROOT,sources={name:changed})
     def test_raw_rejections_are_single_word_changes(self):
         entries,_=self.adapter().prepare();seed=entries[0][1]
         for name,words,domain in entries[-6:]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertTrue(name.startswith('reject/'));self.assertIsNone(domain);self.assertEqual(sum(a!=b for a,b in zip(seed,words)),1)
 
 if __name__=='__main__':unittest.main()

@@ -43,6 +43,8 @@ class NamedRangeWire(unittest.TestCase):
         from portable_add_attack_battle_source_contract import project_sources as newer_sources
         newer=newer_sources(ROOT)
         for name,row in ledger['files'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(old[name],row['before'])
             altered=dict(newer);altered[name]=newer.get(name,(ROOT/name).read_text())+'\n'
             # Other files are already at the caller's exact historical stage;

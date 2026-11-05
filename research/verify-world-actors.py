@@ -78,28 +78,3 @@ def negatives(programs):
  for name,at,value in [('query-generation-zero',query+5,0),('query-invalid-kind',query+3,6),('query-identity-overflow',query+4,0x10000000),('query-invalid-root',query+6,2),('query-output-overflow',query+7,L['COMMANDS'])]:
   words=list(seed);words[at]=value;rows.append((name,words))
  return rows
-
-def main():
- p=argparse.ArgumentParser();p.add_argument('--backend',choices=('metal','cuda'),default='metal');args=p.parse_args();fixtures=cases();programs=[compile_case(c) for c in fixtures];bad=negatives(programs);old=json.loads((ROOT/'research/portable-world-charge-hold-expected.json').read_text());old_report=json.loads((ROOT/'research/portable-world-overlay-charge-hold-metal.json').read_text());olddata=(Path(old_report['captured'])/'input.bin').read_bytes();oldiw=L['WORLD_OVERLAY_INPUT_WORDS']*4;oldrows=old['comparison']['cases'];assert len(oldrows)==208
- packed=array.array('I',[len(programs)+len(bad)+208])
- for words,_ in programs:packed.extend(words)
- for _,words in bad:packed.extend(words)
- for i,c in enumerate(oldrows):
-  raw=olddata[4+i*oldiw:4+(i+1)*oldiw];assert hashlib.sha256(raw).hexdigest()==c['input_sha256'];words=list(struct.unpack('<'+'I'*L['WORLD_OVERLAY_INPUT_WORDS'],raw));assert words[0]==L['WORLD_OVERLAY_ABI'];words[0]=L['WORLD_ACTOR_ABI'];words.extend([0]*(L['WORLD_ACTOR_INPUT_WORDS']-L['WORLD_OVERLAY_INPUT_WORDS']));packed.extend(words)
- if sys.byteorder!='little':packed.byteswap()
- data=packed.tobytes();folder=ROOT/'research/portable-build'/('world-actors-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'));folder.mkdir(parents=True);(folder/'input.bin').write_bytes(data)
- try:raw,evidence=execute(SOURCE,'portableEvents',data,L['WORLD_ACTOR_INPUT_WORDS'],L['WORLD_FRAME_OUTPUT_WORDS'],args.backend)
- except Exception as error:(folder/'failure.json').write_text(json.dumps(dict(error=repr(error),source_sha256=source_hashes(SOURCE)),indent=2)+'\n');raise
- (folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
- values=array.array('I');values.frombytes(raw)
- if sys.byteorder!='little':values.byteswap()
- results=[]
- for i,c in enumerate(fixtures):
-  block=values[i*L['WORLD_FRAME_OUTPUT_WORDS']:(i+1)*L['WORLD_FRAME_OUTPUT_WORDS']];count=len(programs[i][1]);base=L['WORLD_ACTOR_STATE_BASE'];query=L['WORLD_ACTOR_QUERY_BASE'];actual=dict(count=block[base],queries=[list(block[query+j*8:query+(j+1)*8]) for j in range(len(c['queries']))],registry=[list(block[base+8+j*8:base+8+(j+1)*8]) for j in range(count)]);expected=native(c);results.append(dict(name=c['name'],passed=block[0]==0 and actual==expected,status=block[0],actual=actual,native=expected))
- rejected=[dict(name=name,status=values[(len(programs)+i)*L['WORLD_FRAME_OUTPUT_WORDS']],passed=values[(len(programs)+i)*L['WORLD_FRAME_OUTPUT_WORDS']]==64) for i,(name,_) in enumerate(bad)]
- prior=[];ow=L['WORLD_FRAME_OUTPUT_WORDS']*4
- for i,c in enumerate(oldrows):
-  at=(len(programs)+len(bad)+i)*ow;h=hashlib.sha256(raw[at:at+ow]).hexdigest();prior.append(dict(name=c['name'],passed=h==c['output_sha256'],output_sha256=h,expected_sha256=c['output_sha256']))
- report=dict(passed=all(x['passed'] for x in results+rejected+prior),cases=results,rejected_cases=rejected,preserved208=prior,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),captured=str(folder),evidence=evidence,scope='128 typed registry identities/parent roots/generations driven by common GPU world frame versus actual native BossScript and ActorRegistry;not full battle/HP/landing certification',actor_hp_landing_connected=False,actor_enemy_count_policy_connected=False,full_character_verified=0,normal_ui='CPU',full_goal_complete=False)
- (ROOT/f'research/portable-world-actors-{args.backend}.json').write_text(json.dumps(report,indent=2)+'\n');assert report['passed'],[x['name'] for x in results+rejected+prior if not x['passed']];print('Actor lifecycle',len(results),'native,raw',len(rejected),'old208 full outputs preserved',args.backend)
-if __name__=='__main__':main()

@@ -40,6 +40,8 @@ class VitalTests(unittest.TestCase):
         from portable_coordinate_manual_source_contract import project_sources as manual_sources,project_backend_source as manual_backend
         project_sources(ROOT,manual_sources(ROOT));project_backend_source(ROOT,manual_backend(ROOT))
         for name in ('gpu/coordinate_sampling_runtime.slang','gpu/world_coordinate_sampling_vital_entry.slang'):
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// changed\n'})
         with self.assertRaises(ValueError):project_backend_source(ROOT,(ROOT/'app/portable_backend.py').read_text()+'\n')
 if __name__=='__main__':unittest.main()

@@ -45,6 +45,8 @@ class BodyAccumTests(unittest.TestCase):
         from portable_destructible_accum_source_contract import project_sources
         f=json.loads((ROOT/'tests/fixtures/portable-destructible-accum-source-delta.json').read_text());project_sources(ROOT)
         for name,row in f['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n'})
     @historical_reference
     def test_saved_quantity_credit_and_pool_corruptions_are_detected(self):

@@ -14,9 +14,12 @@ def baseline_source(root,name,source):
     assert hashlib.sha256(source.encode()).hexdigest()==row['baseline_sha256'],'Manual-swap historical source changed: '+name
     return source,True
 def project_sources(root,sources=None,*,undying_projected=False):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     root=Path(root);sources=dict(sources or {});data=ledger(root)
     if not undying_projected:
         from portable_undying_predicate_source_contract import project_sources as project_undying
         sources,_=project_undying(root,sources)
-    for name in data['sources']:sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()))
+    for name in data['sources']:
+        sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()))
     return sources,list(data['sources'])

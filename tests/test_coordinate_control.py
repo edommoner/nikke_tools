@@ -23,19 +23,12 @@ class ControlTests(unittest.TestCase):
         from portable_coordinate_control_source_contract import project_sources
         self.assertIn('gpu/coordinate_aim_runtime.slang',project_sources(ROOT))
         for name in ['gpu/coordinate_aim_runtime.slang','gpu/world_coordinate_control_entry.slang']:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed\n'})
     def test_composed_entry_keeps_the_complete_aim_wire(self):
         import portable_backend
         portable_backend.validate_composed_stride(a.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS)
         with self.assertRaises(ValueError):portable_backend.validate_composed_stride(a.SOURCE,a.INPUT_WORDS-1,a.OUTPUT_WORDS)
-    def test_group_frontier_reports_real_conflicts_without_enabling_or_shrinking(self):
-        from portable_coordinate_group_frontier import verify
-        with patch.object(timeline,'simulate',side_effect=AssertionError('Static only')):result=verify(ROOT)
-        self.assertFalse(result['current']['address_plan_verified'])
-        self.assertTrue(result['proposal']['address_plan_verified'])
-        self.assertTrue(result['proposed_addresses_implemented'])
-        self.assertTrue(result['physical_group_receipts_connected'])
-        self.assertTrue(result['add_sharing_connected'])
-        self.assertEqual(result['gpu_calls'],0)
 
 if __name__=='__main__':unittest.main()

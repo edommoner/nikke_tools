@@ -1,4 +1,5 @@
 """Native live scalar/attack sampling contracts with no packing or GPU."""
+from cpu_reference_guard import forbid_execution
 import copy,importlib.util,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -8,24 +9,8 @@ from portable_lost_hp_attack_cases import fixtures
 from portable_lost_hp_attack_contracts import verify
 import world_lost_hp_attack_native as observer
 from world_parts_skill_native import observe as plain_observe
-s=importlib.util.spec_from_file_location('lost_hp_reference_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(s);s.loader.exec_module(cli)
 
 class LostHPAttackReferenceTests(unittest.TestCase):
-    def test_down_and_passive_or_preserved_revival_body_contracts(self):
-        from portable_lost_hp_attack_revival_cases import fixtures as revival
-        with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',side_effect=AssertionError('packing forbidden')):
-            for case in revival():
-                native,_=observer.observe(case)
-                with self.subTest(case=case['name']):
-                    self.assertTrue(verify(case,native)['verified']);native['allies'][0]['down']=not native['allies'][0]['down']
-                    with self.assertRaises(AssertionError):verify(case,native)
-    def test_all_literal_contracts_without_packing_or_gpu(self):
-        cases=fixtures();self.assertEqual(len(cases),21);before=copy.deepcopy(cases)
-        def forbidden(*a,**kw):raise AssertionError('packing/GPU forbidden')
-        with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
-            for case in cases:
-                with self.subTest(case=case['name']):self.assertTrue(verify(case,observer.observe(case)[0])['verified'])
-        self.assertEqual(cases,before)
     def test_preserves_all_native_fields_and_trace(self):
         for case in fixtures():
             with self.subTest(case=case['name']):
@@ -61,5 +46,23 @@ class LostHPAttackReferenceTests(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError,'injected failure'):observer.observe(fixtures()[0])
             self.assertIs(sys.getprofile(),prior)
         finally:sys.setprofile(previous)
+
+    def test_down_and_passive_or_preserved_revival_body_contracts(self):
+        from portable_lost_hp_attack_revival_cases import fixtures as revival
+        with forbid_execution(),patch.object(portable_runtime,'compile_program',side_effect=AssertionError('packing forbidden')):
+            for case in revival():
+                native,_=observer.observe(case)
+                with self.subTest(case=case['name']):
+                    self.assertTrue(verify(case,native)['verified']);native['allies'][0]['down']=not native['allies'][0]['down']
+                    with self.assertRaises(AssertionError):verify(case,native)
+
+    def test_all_literal_contracts_without_packing_or_gpu(self):
+        cases=fixtures();self.assertEqual(len(cases),21);before=copy.deepcopy(cases)
+        def forbidden(*a,**kw):raise AssertionError('packing/GPU forbidden')
+        with forbid_execution(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
+            for case in cases:
+                with self.subTest(case=case['name']):self.assertTrue(verify(case,observer.observe(case)[0])['verified'])
+        self.assertEqual(cases,before)
+
 
 if __name__=='__main__':unittest.main()

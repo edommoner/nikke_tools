@@ -40,6 +40,8 @@ class ModifierGPUTests(unittest.TestCase):
         fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-modifier-raw.json').read_text());verify_retained_sources(ROOT,'gpu/destructible_modifier_probe.slang',fixture['source_sha256'])
         rows,_=a.prepare()
         for record,(name,words,domain) in zip(fixture['records'],rows):
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(record['name'],name);self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256'])
             block=array.array('I',[0])*fixture['output_words']
             for at,value in record['nonzero']:block[at]=value

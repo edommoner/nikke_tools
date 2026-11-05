@@ -33,7 +33,7 @@ class CpuFallback(unittest.TestCase):
             self.assertEqual(*results)
 
     def test_pending_only_for_deferred_native(self):
-        for requested,backend in [('native_detail','native'),('metal_detail','metal'),('cuda_shared_detail','cuda')]:
+        for requested,backend in [('native_detail','native'),('native_detail','metal'),('native_detail','cuda')]:
             for verification in ('full','deferred'):
                 with self.subTest(requested=requested,verification=verification),tempfile.TemporaryDirectory() as folder,self.harness(folder,backend=backend,fail=True) as (_,events):
                     result=product.evaluate_many(self.bodies(1,requested),verification=verification)[0]['result']

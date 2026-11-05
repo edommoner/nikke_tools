@@ -38,17 +38,6 @@ class PortableBattleAttackGroupTests(unittest.TestCase):
         self.assertEqual(len(entries),53)
         self.assertEqual([(n,w) for n,w,_ in old],[(n,w) for n,w,_ in entries[:32]])
         self.assertEqual(entries[-1][1][104401],3)
-    def test_suite_includes_native_audit_document(self):
-        import importlib.util
-        spec=importlib.util.spec_from_file_location('group_cli_config',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
-        self.assertIn('research/upstream/nikke-calc-master/docs/IMPL-STATUS.md',cli.SUITES['attack-group-battle']['upstream_documents'])
-        from portable_battle_attack_group_input import OUTPUT_WORDS
-        self.assertEqual(cli.SUITES['attack-group-battle']['output_words'],OUTPUT_WORDS)
-    def test_cli_rejects_wrong_output_allocation_before_prepare(self):
-        import importlib.util
-        spec=importlib.util.spec_from_file_location('group_cli_dimension_guard',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
-        with patch.dict(cli.SUITES['attack-group-battle'],output_words=786432):
-            with self.assertRaisesRegex(ValueError,'transport allocation'):cli.open_suite(dict(suite='attack-group-battle'))
     def test_native_field_snapshot_survives_boss_finalization(self):
         import importlib.util
         from world_battle_attack_group_native import observe
@@ -61,6 +50,8 @@ class PortableBattleAttackGroupTests(unittest.TestCase):
         projected=project_sources(ROOT)
         self.assertNotIn('deliverAttackGroupShot',projected['gpu/combat_runtime.slang'])
         for name in ('gpu/world_skill_runtime.slang','gpu/event_runtime.slang','gpu/combat_runtime.slang'):
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             changed=(ROOT/name).read_text()+'\n// unreviewed delta\n'
             with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:changed})
     def test_schema_is_generated_and_storage_is_bounded(self):

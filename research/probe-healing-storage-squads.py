@@ -32,39 +32,3 @@ def fixtures():
             b['enemy']['parts']=[dict(name='storage-trigger-part'+str(i),hp=5,reach=(i%5)+1) for i in range(6)]
             x={'리타':[E('authored part-destruction stimulus','damage','damage',100,'all_enemies',event='every:0.5s',max_trigger=1,hits_parts=True)]}
         yield 'raw-storage-'+subject+('-favorite3' if favorite else ''),b,x
-def main():
-    for name,b,x in fixtures():
-        heals=[];spends=[];subject_cast=[0]
-        def observe_notify(self,event,t,caster,*args,**kwargs):
-            subject=event=='burst_cast' and caster==b['squad'][0]
-            if subject:subject_cast[0]+=1
-            try:return original_notify(self,event,t,caster,*args,**kwargs)
-            finally:
-                if subject:subject_cast[0]-=1
-        def observe_heal(self,who,amount,t):
-            result=original_heal(self,who,amount,t);heals.append(dict(time=t,recipient=who,amount=amount,reserve=sum(getattr(a,'heal_store_current',{}).get(who,0) for a in self._active),during_subject_burst=bool(subject_cast[0])));return result
-        def observe_absorb(self,who,amount,t):
-            result=absorb(self,who,amount,t);spends.append(dict(time=t,recipient=who,amount=amount,used=amount-result));return result
-        try:
-            with v.s.v.context(name,x),patch.object(BM,'apply_storage_body_heal',observe_heal),patch.object(BM,'absorb_heal_storage',observe_absorb),patch.object(BM,'notify',observe_notify):
-                compiled=v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True});cpu=v.s.v.v.a.evaluate(b)
-            positive=any(h['reserve']>0 for h in heals);used=any(h['used']>0 for h in spends)
-            expected_empty=name in ('storage-empty','raw-storage-센티')
-            checks=dict(compile=True,positive_buffer=not positive if expected_empty else positive)
-            storage_rows=sum(q[1]==0 and q[2]==74 for q in compiled['program']['effects'])
-            if name.startswith('raw-storage-센티'):checks['favorite_gates_storage_definition']=bool(storage_rows)==name.endswith('-favorite3')
-            if name=='raw-storage-마르차나':
-                checks['same_cast_S2_heal_fills_storage']=any(h['during_subject_burst'] and h['reserve']>0 for h in heals)
-                store=[i for i,q in enumerate(compiled['program']['effects']) if q[0]==0 and q[1]==0 and q[2]==74];healing=[i for i,q in enumerate(compiled['program']['effects']) if q[0]==0 and q[1]==6]
-                checks['GPU_definitions_put_storage_before_S2_heal']=bool(store and healing and min(store)<min(healing))
-            if name=='storage-damage':checks['damage_spends_reserve']=used
-            if name=='storage-drain':checks['drain_preserves_body_before_reserve_exhaustion']=used
-            if name=='storage-shield-before-storage':checks['shield_blocks_before_reserve']=not used
-            rows.append(dict(name=name,passed=all(checks.values()),checks=checks,total=cpu['total_damage'],heals=heals,spends=spends,raw_skills_retained=name.startswith('raw-'),authored_part_stimulus='소라' in name,effect_rows=len(compiled['program']['effects']),storage_rows=storage_rows))
-        except Exception as e:rows.append(dict(name=name,passed=False,error=repr(e)))
-        print(json.dumps({k:y for k,y in rows[-1].items() if k not in ('heals','spends')},ensure_ascii=True),flush=True)
-    files=['research/probe-healing-storage-squads.py','scripts/staged-healing-storage-runtime.py','research/staging/v40/app/healing_storage_compat.py','research/staging/v40/app/detail_gpu.py','app/engine_worker.py','app/engine_compat.py','app/outgoing_healing_compat.py','scripts/verify-survival-scaling.py','research/upstream/nikke-calc-master/calculator/buff_manager.py','research/upstream/nikke-calc-master/calculator/timeline.py']
-    r=dict(passed=all(x['passed'] for x in rows),gpu_verified=False,objective_complete=False,cpu_model_extended=True,in_game_rules_verified=False,cases=rows,source_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files})
-    (ROOT/'research/detail-healing-storage-cpu-squads.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if r['passed'] else 1)
-
-if __name__=='__main__':main()

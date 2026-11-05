@@ -70,28 +70,6 @@ class CoverDefenseNumeric(unittest.TestCase):
             bad=list(block);bad[at]^=1
             with self.assertRaises(AssertionError):m.compare(bad,(case,))
 
-    def test_sealed_scalar_proof_and_standalone_cached_profile_are_bound(self):
-        import nikke_gpu as cli
-        from portable_backend import source_hashes
-        config=cli.SUITES['cover-defense-numeric'];cached=cli.SUITES['cover-defense-numeric-cache-only']
-        self.assertFalse(config['development_only']);self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
-        self.assertFalse(cached.get('require_paired_generation',False))
-        for key in ('source','script','golden','inputs','native','input_words','output_words'):self.assertEqual(config[key],cached[key])
-        golden=json.loads((ROOT/config['golden']).read_text());_,data=m.prepare()
-        self.assertEqual(golden['input_sha256'],hashlib.sha256(data).hexdigest())
-        self.assertEqual(golden['source_sha256'],source_hashes(m.SOURCE))
-        receipt=json.loads((ROOT/'tests/fixtures/cover-defense-numeric-independent-v1.json').read_text())
-        proof=json.loads((ROOT/'tests/fixtures/cover-defense-numeric-metal-v1.json').read_text())
-        self.assertEqual((receipt['input_count'],receipt['native_cases'],receipt['gpu_calls']),(572,562,0));self.assertFalse(receipt['live_parent_receipt_present'])
-        for key in ('input_sha256','output_sha256'):
-            self.assertEqual(receipt[key],golden[key]);self.assertEqual(proof[key],golden[key])
 
-    def test_numeric_evidence_does_not_remove_the_original_model_gap(self):
-        from portable_readiness_semantics import reference_readiness
-        result=reference_readiness(dict(phase='effect',kind='buff',stat='cover_def_pct',target='allies_top_atk:3'))
-        self.assertEqual(result['lane'],'reference_model_gap');self.assertFalse(result['gpu_supported'])
-        numeric=result['declared_cover_defense_numeric'];self.assertTrue(numeric['metal_verified'])
-        self.assertEqual(numeric['evidence_sha256'],hashlib.sha256((ROOT/numeric['evidence']).read_bytes()).hexdigest())
-        for key in ('cuda_verified','cover_layer_connected','original_full_battle_verified','in_game_level_curve_verified'):self.assertFalse(numeric[key])
 
 if __name__=='__main__':unittest.main()

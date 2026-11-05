@@ -53,10 +53,5 @@ class FateTests(unittest.TestCase):
         self.assertFalse(result[0]['actor_effects_allowed'])
         with self.assertRaisesRegex(AssertionError,'registration'):fates.native_fates(c,t,[dict(e[0],source_row=1)])
 
-    def test_resident_cache_entry_reuses_same_calculation_and_requires_both_hits(self):
-        import nikke_gpu as cli
-        normal=cli.SUITES['lock-projectile-composition'];cached=cli.SUITES['lock-projectile-cache-only']
-        for key in ('script','golden','source','input_words','output_words','inputs','native'):self.assertEqual(normal[key],cached[key])
-        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1');self.assertIs(cached['require_paired_generation'],True)
 
 if __name__=='__main__':unittest.main()

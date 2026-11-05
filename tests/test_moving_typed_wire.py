@@ -46,25 +46,12 @@ class MovingTypedWireTests(unittest.TestCase):
         from portable_moving_typed_source_contract import project_sources
         ledger=json.loads((ROOT/'tests/fixtures/portable-moving-typed-source-delta.json').read_text());out=project_sources(ROOT)
         for name,row in ledger['files'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(hashlib.sha256(out[name].encode()).hexdigest(),row['before_sha256'])
             with self.subTest(file=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
         from portable_enemy_movement_source_contract import project_sources as historical
         self.assertIn('gpu/logical_actor_geometry_runtime.slang',historical(ROOT))
-    def test_metal_receipt_and_independent_groups_do_not_admit_cuda_or_game_policy(self):
-        import hashlib,json
-        from portable_readiness_semantics import movement_contract
-        scope=movement_contract()['declared_typed_composition'];raw=(ROOT/scope['evidence']).read_bytes();proof=json.loads(raw)
-        self.assertEqual(hashlib.sha256(raw).hexdigest(),scope['evidence_sha256'])
-        golden=json.loads((ROOT/'research/portable-moving-typed-v1-expected.json').read_text())
-        for key in ('input_sha256','output_sha256','source_sha256','generated_normalized'):self.assertEqual(proof[key],golden[key])
-        audit=proof['independent_audit'];self.assertTrue(audit['calculation_verified']);self.assertFalse(audit['live_parent_receipt_present'])
-        self.assertEqual([i for g in audit['groups'] for i in g['case_indices']],list(range(18)))
-        self.assertTrue(all(g['elapsed_seconds']<=180 for g in audit['groups']))
-        self.assertEqual(audit['gpu_calls'],0);self.assertEqual(proof['gpu_execution_count'],1);self.assertEqual(proof['gpu_retries'],0)
-        self.assertEqual((proof['inputs'],proof['native_cases'],proof['rejected_cases']),(18,6,12))
-        self.assertTrue(proof['shared_clock_actor_registry_carriers_and_canonical_pellet'])
-        self.assertFalse(proof['typed_shape_query_diagnostics_gpu_serialized'])
-        for key in ('cuda_verified','default_producer_installed','in_game_attachment_policy_verified','full_character_verified','full_goal_complete'):self.assertFalse(proof[key])
     def test_old_physical_dependency_guard_checks_exact_projected_bytes(self):
         import hashlib
         import portable_coordinate_typed_aim_source_contract as aims

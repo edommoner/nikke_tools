@@ -2037,20 +2037,6 @@ class ProductReferenceModels(unittest.TestCase):
                         with self.assertRaisesRegex(UnsupportedPortable,'explicit.*enemy_ammo'):
                             product.compile_product(incoming)
 
-    def test_missing_sources_reject_before_shared_dispatch_and_legacy_stays_closed(self):
-        from portable_product_programs import body_for_program
-        import portable_detail as product
-        body=body_for_program(ROOT,'accumulate')
-        body['reference_models']={'enemy_healing':[dict(node='heal',targets=['__enemy__:wave#1'],amount=10)]}
-        with patch.object(sim,'execute',side_effect=AssertionError('Static preparation must not simulate')):
-            prepared,_=product.prepare(body)
-        self.assertEqual(prepared['reference_models'],body['reference_models'])
-        with patch.object(product,'execute',side_effect=AssertionError('No unconnected model may reach GPU')) as gpu:
-            with self.assertRaisesRegex(ValueError,'Healing source must'):product.compile_product(prepared)
-        gpu.assert_not_called()
-        for flag in ('_compile_gpu','_compile_gpu_detail'):
-            with self.subTest(flag=flag),self.assertRaisesRegex(ValueError,'no legacy GPU producer'):
-                engine_worker.evaluate(dict(body,**{flag:True}))
 
     def test_invalid_or_unknown_models_fail_before_simulation(self):
         from portable_product_programs import body_for_program

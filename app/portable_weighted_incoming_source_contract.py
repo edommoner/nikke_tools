@@ -1,4 +1,6 @@
 """Exact historical source inverse, not generated-code normalization or a seal."""
+from portable_cpu_only_source_contract import reviewed_bytes as cpu_only_bytes, reviewed_text as cpu_only_text
+from portable_removed_sources import REMOVED_SOURCES
 import functools,hashlib,json,re
 from pathlib import Path
 LEDGER_SHA256='93afb12ae4b67224a4cfe099ccf64bead769c52229d85ddfe0b45bfbc282f2f6'
@@ -46,6 +48,7 @@ def reference_engine_preimages(root):
     data=_reference_history(raw)
     out={}
     for name,row in data['files'].items():
+        if name in REMOVED_SOURCES:continue
         path=Path(root)/name
         if not path.is_file():continue
         text=reference_engine_reviewed_bytes(name,path.read_bytes()).decode('utf-8')
@@ -73,7 +76,8 @@ def boss_source_preimages(root):
     from portable_optimizer_six_source_contract import preimages as six_preimages
     preimages=six_preimages(root);preimages.update(reference_engine_preimages(root));projected=dict(preimages);older=None
     for name,row in data['files'].items():
-        text=preimages.get(name,(root/name).read_bytes().decode('utf-8'));digest=hashlib.sha256(text.encode()).hexdigest()
+        if name in REMOVED_SOURCES:continue
+        text=preimages.get(name,cpu_only_bytes(root,name,(root/name).read_bytes()).decode('utf-8'));digest=hashlib.sha256(text.encode()).hexdigest()
         if digest==row['before_sha256']:projected[name]=text;continue
         if digest!=row['after_sha256']:
             # The existing inverse can already have restored an exact older
@@ -126,11 +130,13 @@ def product_sources(root,*,_preimages=None):
         raise ValueError('Product source history scope changed')
     projected={};preimages=boss_source_preimages(root) if _preimages is None else _preimages
     for name,digest in data['added_sources'].items():
-        raw=(root/name).read_bytes();text=_product_part_preimage(name,preimages.get(name,raw.decode()))
+        if name in REMOVED_SOURCES:continue
+        raw=cpu_only_bytes(root,name,(root/name).read_bytes());text=_product_part_preimage(name,preimages.get(name,raw.decode()))
         if hashlib.sha256(text.encode()).hexdigest()!=digest:raise ValueError('Unreviewed product dependency: '+name)
         if text.encode()!=raw or name=='gpu/product_group_target_battle_entry.slang':projected[name]=text
     for name,row in data['files'].items():
-        text=_product_part_preimage(name,preimages.get(name,(root/name).read_text()));digest=hashlib.sha256(text.encode()).hexdigest()
+        if name in REMOVED_SOURCES:continue
+        text=_product_part_preimage(name,preimages.get(name,cpu_only_text(root,name,(root/name).read_text())));digest=hashlib.sha256(text.encode()).hexdigest()
         # Exact reviewed charge corrections and GPU observation hooks only.
         # Recover the prior source before the unchanged historical ledger.
         if name=='gpu/world_charge_control_runtime.slang' and digest=='7ac4a981dcefff85b44293b8ba05a8058778c92972cc64a437f643b04f4bcaf8':
@@ -174,7 +180,8 @@ def project_sources(root):
     from portable_revival_union_source_contract import preimages as revival_union_preimages
     projected.update(revival_union_preimages(root))
     for name,digest in data['added_sources'].items():
-        raw=projected[name].encode() if name in projected else (root/name).read_bytes()
+        if name in REMOVED_SOURCES:continue
+        raw=projected[name].encode() if name in projected else cpu_only_bytes(root,name,(root/name).read_bytes())
         if hashlib.sha256(raw).hexdigest()!=digest:raise ValueError('Unreviewed weighted dependency: '+name)
     projected.update(product_sources(root,_preimages=projected))
     parts=root/'gpu/counter_landing_runtime.slang'
@@ -195,7 +202,8 @@ def project_sources(root):
             projected['gpu/attack_group_runtime.slang']=text
         elif digest!='0ea6d9b8bd82f063553762609836bd536c025590455ae7191be3440bb4dcf070':raise ValueError('Unreviewed product source: gpu/attack_group_runtime.slang')
     for name,row in data['files'].items():
-        text=projected.get(name,(root/name).read_text())
+        if name in REMOVED_SOURCES:continue
+        text=projected.get(name,cpu_only_text(root,name,(root/name).read_text()))
         if hashlib.sha256(text.encode()).hexdigest()!=row['after_sha256']:raise ValueError('Unreviewed weighted source: '+name)
         for hunk in reversed(row['hunks']):
             if text.count(hunk['after'])!=1:raise ValueError('Ambiguous weighted source inverse: '+name)
@@ -219,7 +227,7 @@ def reference_engine_source_bytes(root,name):
     # Invoke the hash-bound history reader before using any stored bytes.
     reference_engine_preimages(root)
     row=json.loads(raw)['files'][name]
-    current=reference_engine_reviewed_bytes(name,(Path(root)/name).read_bytes())
+    current=reference_engine_reviewed_bytes(name,cpu_only_bytes(root,name,(Path(root)/name).read_bytes()))
     if hashlib.sha256(current).hexdigest()!=row['current_sha256']:raise ValueError('Unreviewed product source: '+name)
     baseline=row['baseline'].encode()
     if hashlib.sha256(baseline).hexdigest()!=row['baseline_sha256']:raise ValueError('Historical product source changed: '+name)

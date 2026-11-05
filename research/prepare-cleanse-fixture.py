@@ -11,7 +11,7 @@ body=read('research/detail-burst-stage-api-fixture.json');old=body['squad'][0];w
 body['squad'][0]=who;body['profile']['chars'][who]=body['profile']['chars'].pop(old)
 for k in ['patches','stat_deltas']:
  if old in body.get(k,{}):body[k][who]=body[k].pop(old)
-compiled=a.evaluate({**body,'_compile_gpu_detail':True});write('research/detail-cleanse-api-fixture.json',body)
+compiled=a.evaluate({**body,'_compile_detail':True});write('research/detail-cleanse-api-fixture.json',body)
 def rename(v):
  if isinstance(v,dict):return {(who if k==old else k):rename(x) for k,x in v.items()}
  if isinstance(v,list):return [rename(x) for x in v]

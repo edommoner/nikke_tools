@@ -60,23 +60,12 @@ def validate_gpu_fields(rows,has_adds):
         if scoped and has_adds and row[1]==18 and row[215]>=0 and field_instruction(rows[int(row[215])]):raise ValueError('Enemy-field initialization requires a recipient lifecycle binding')
 
 
-def render_cuda():
-    lines=['// Generated from enemy_recipient_specs.py; do not hand-edit.']
-    lines += [f'#define ENEMY_SELECT_{name} {int(value)}' for name,value in EnemySelector.__members__.items()]
-    lines += ['__device__ TargetRef logical_enemy_ref(TargetRef a){return a.kind==1?TargetRef{0,0,1}:a;}',
-              '__device__ int enemy_wire(TargetRef a){a=logical_enemy_ref(a);return a.kind+8*a.identity;}',
-              '__device__ int same_enemy_ref(TargetRef a,TargetRef b){a=logical_enemy_ref(a);b=logical_enemy_ref(b);return enemy_wire(a)==enemy_wire(b)&&a.generation==b.generation;}']
-    return '\n'.join(lines)+'\n'
 
 
 BEGIN='// BEGIN GENERATED ENEMY RECIPIENTS\n'
 END='// END GENERATED ENEMY RECIPIENTS\n'
 
 
-def gpu_source_matches():
-    from pathlib import Path
-    source=Path(__file__).with_name('detail_effects.cu').read_text(encoding='utf-8')
-    return source.count(BEGIN)==source.count(END)==1 and source.split(BEGIN)[1].split(END)[0]==render_cuda()
 
 
 def logical_enemy(actor):

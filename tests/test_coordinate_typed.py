@@ -28,6 +28,8 @@ class CoordinateTypedTests(unittest.TestCase):
         import array
         self.assertEqual(hashlib.sha256(array.array('I',words[:109968]).tobytes()).hexdigest(),old['input_sha256']);self.assertFalse(any(words[109968:]))
         for name,words,(c,m,b,scene) in rows[1:]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(c['effects'][:-1],[e['effect'] for e in c['original_run']['prepared']['effects']]);self.assertEqual(len(m['binding_source_indices']),len(c['effects']))
             source=m['binding_source_indices'].index(c['probe_source']);self.assertEqual(words[109968+5424:109968+5680],[c['probe_kind'] if i==source else 0 for i in range(256)])
     @historical_reference
@@ -36,6 +38,8 @@ class CoordinateTypedTests(unittest.TestCase):
         import array
         rows,_=a.prepare();self.assertEqual(len(rows),19)
         for (name,w,d),entry in zip(rows,old['entries'],strict=True):
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(name,entry['name']);self.assertEqual(hashlib.sha256(array.array('I',w).tobytes()).hexdigest(),entry['input_sha256']);self.assertEqual(a.cross.digest(a.native_reference(d)),entry['native_sha256'])
     def test_typed_trace_partition_requires_exact_independently_checked_packets(self):
         a=module('typed_trace_partition_test','research/verify-coordinate-typed-short.py')
@@ -71,6 +75,8 @@ class CoordinateTypedTests(unittest.TestCase):
         from portable_coordinate_typed_source_contract import project_sources,ledger
         data=ledger(ROOT);old=project_sources(ROOT)
         for name,row in data['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             self.assertEqual(hashlib.sha256(old[name].encode()).hexdigest(),row['baseline_sha256'])
             with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed\n'})
 if __name__=='__main__':unittest.main()

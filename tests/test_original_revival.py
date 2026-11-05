@@ -8,7 +8,7 @@ spec=importlib.util.spec_from_file_location('original_revival_tests',ROOT/'resea
 class OriginalRevivalTests(unittest.TestCase):
     def test_complete_original_inputs_pack_without_battle(self):
         from calculator import timeline
-        from portable_parent_oracles import provider
+        from native_comparison_provider import provider
         with patch.object(timeline,'simulate',side_effect=AssertionError('No battle schedule in input')):
             entries,_=adapter.prepare()
         self.assertEqual(len(entries),3)

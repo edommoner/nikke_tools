@@ -1,4 +1,5 @@
 """Per-shot native contracts must pass before any shared GPU admission."""
+from cpu_reference_guard import forbid_execution
 import copy,importlib.util,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -7,17 +8,10 @@ import engine_worker,portable_runtime,detail_gpu
 from portable_pellet_shot_cases import fixtures
 from portable_pellet_shot_contracts import verify
 import world_pellet_shot_native as observer
-spec=importlib.util.spec_from_file_location('pellet_shot_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class PelletShotReferenceTests(unittest.TestCase):
-    def test_twenty_one_literal_contracts_without_packing_or_gpu(self):
-        cases=fixtures();before=copy.deepcopy(cases);self.assertEqual(len(cases),21)
-        def forbidden(*a,**kw):raise AssertionError('packing/GPU forbidden')
-        with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
-            for case in cases:
-                with self.subTest(case=case['name']):self.assertTrue(verify(case,observer.observe(case)[0])['verified'])
-        self.assertEqual(cases,before)
+    pass
 
     def test_observer_preserves_every_native_field_and_trace(self):
         for case in fixtures():
@@ -63,10 +57,6 @@ class PelletShotReferenceTests(unittest.TestCase):
             self.assertIs(sys.getprofile(),prior)
         finally:sys.setprofile(previous)
 
-    def test_native_stage_stays_separate_from_gpu_evidence(self):
-        from portable_reference import REFERENCES
-        self.assertEqual(REFERENCES['pellet-shot'],('portable_pellet_shot_cases','world_pellet_shot_native','portable_pellet_shot_contracts'))
-        self.assertEqual(cli.SUITES['pellet-shot']['native'],21)
 
     def test_observation_adds_no_buff_queries(self):
         code=observer.BuffManager.get_buffs.__code__;previous=sys.getprofile()
@@ -82,6 +72,15 @@ class PelletShotReferenceTests(unittest.TestCase):
         for case in fixtures():
             with self.subTest(case=case['name']):
                 self.assertEqual(count_queries(lambda:observer.projectile_observe(case)),count_queries(lambda:observer.observe(case)))
+
+    def test_twenty_one_literal_contracts_without_packing_or_gpu(self):
+        cases=fixtures();before=copy.deepcopy(cases);self.assertEqual(len(cases),21)
+        def forbidden(*a,**kw):raise AssertionError('packing/GPU forbidden')
+        with forbid_execution(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
+            for case in cases:
+                with self.subTest(case=case['name']):self.assertTrue(verify(case,observer.observe(case)[0])['verified'])
+        self.assertEqual(cases,before)
+
 
 
 if __name__=='__main__':unittest.main()

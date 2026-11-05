@@ -6,7 +6,7 @@ rows=[]
 for name,b,x in d.fixtures():
     try:
         with d.v.s.v.context(name,x):
-            c=d.v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True});cpu=d.v.s.v.v.a.evaluate(b)
+            c=d.v.s.v.v.a.evaluate({**b,'_compile_detail':True});cpu=d.v.s.v.v.a.evaluate(b)
         rows.append(dict(name=name,passed=True,total=cpu['total_damage'],effects=len(c['program']['effects'])))
     except Exception as e:rows.append(dict(name=name,passed=False,error=repr(e)))
     print(json.dumps(rows[-1],ensure_ascii=True),flush=True)

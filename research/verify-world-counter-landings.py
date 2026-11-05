@@ -44,34 +44,3 @@ def prepare():
  case=copy.deepcopy(rows[0]);case['effects'][3]['trigger']['condition']=['target_state:marker'];bad.append(('typed-child-context-not-yet-admitted',compile_case(case)[0]))
  case=copy.deepcopy(rows[0]);case['effects'].append(dict(name='unported-damage-child',source='스킬1',type='damage',stat='bonus_damage',fixed_value=100,target='boss',trigger=dict(timing=['event:target_counter_complete:marker'],condition=[])));case['owners'].append(0);bad.append(('typed-damage-child-not-yet-admitted',compile_case(case)[0]))
  return rows,programs,bad
-def main():
- ap=argparse.ArgumentParser();ap.add_argument('--backend',choices=('metal','cuda'),default='metal');ap.add_argument('--cpu-only',action='store_true');ap.add_argument('--replay',type=Path);a=ap.parse_args();rows,programs,bad=prepare();native=[expected_native(c) for c in rows]
- if a.cpu_only:print('Full physical native',len(rows),'raw',len(bad),'GPU0');return
- old=json.loads((ROOT/'research/portable-world-target-counter-metal.json').read_text());oldpath=Path(old['captured']);oldin=(oldpath/'input.bin').read_bytes();oldout=(oldpath/'readback.bin').read_bytes();oldn=int.from_bytes(oldin[:4],'little');assert oldn==622;iw=97464*4;ow=524288*4
- packed=array.array('I',[len(rows)+len(bad)+oldn])
- for w,_,_ in programs:packed.extend(w)
- for _,w in bad:packed.extend(w)
- for i in range(oldn):
-  w=list(struct.unpack_from('<'+'I'*97464,oldin,4+i*iw));w[0]=L['COUNTER_LANDING_ABI'];packed.extend(w)
- if sys.byteorder!='little':packed.byteswap()
- data=packed.tobytes()
- if a.replay:
-  folder=a.replay;assert (folder/'input.bin').read_bytes()==data;raw=(folder/'readback.bin').read_bytes();evidence=json.loads((folder/'evidence.json').read_text());assert evidence['source_sha256']==source_hashes(SOURCE)
- else:
-  folder=ROOT/'research/portable-build'/('world-counter-landing-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'));folder.mkdir();(folder/'input.bin').write_bytes(data)
-  try:raw,evidence=execute(SOURCE,'portableEvents',data,97464,524288,a.backend)
-  except Exception as error:(folder/'failure.json').write_text(json.dumps(dict(error=repr(error),source_sha256=source_hashes(SOURCE)),indent=2)+'\n');raise
-  (folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
- values=array.array('I');values.frombytes(raw)
- if sys.byteorder!='little':values.byteswap()
- checked=[]
- for i,(case,(_,meta,bindings),expected) in enumerate(zip(rows,programs,native)):
-  block=values[i*524288:(i+1)*524288]
-  try:actual=decoded(block,meta,case,bindings);changed=[k for k in expected if k!='scope' and actual[k]!=expected[k]]
-  except Exception as error:actual=dict(error=repr(error));changed=['decode']
-  checked.append(dict(name=case['name'],passed=block[0]==0 and not changed,status=block[0],changed=changed,actual=actual,native=expected))
- rejected=[dict(name=name,status=values[(len(rows)+j)*524288],passed=values[(len(rows)+j)*524288]==64) for j,(name,_) in enumerate(bad)];offset=len(rows)+len(bad)
- preserved=[dict(index=i,passed=raw[(offset+i)*ow:(offset+i+1)*ow]==oldout[i*ow:(i+1)*ow]) for i in range(oldn)]
- report=dict(passed=all(r['passed'] for r in checked+rejected+preserved),cases=checked,rejected_cases=rejected,preserved622=preserved,captured=str(folder),evidence=evidence,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),cpu_state_used_as_input=False,typed_target_child_conditions=False,typed_damage_children=False,normal_ui='CPU',canonical_world_admission=False,full_character_verified=0,full_goal_complete=False)
- (ROOT/f'research/portable-world-counter-landing-{a.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[r.get('name',r.get('index')) for r in checked+rejected+preserved if not r['passed']];print('Full physical native',len(rows),'raw',len(bad),'old622 all words exact',a.backend)
-if __name__=='__main__':main()

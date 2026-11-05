@@ -3,8 +3,6 @@ import copy,hashlib,importlib.util,json,math,sys
 from pathlib import Path
 from datetime import datetime,timezone
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
-from gpu_selector import Cuda
-from detail_gpu import run
 from detail_coverage import body_for
 s=importlib.util.spec_from_file_location('stack_instance_oracle',ROOT/'scripts/verify-instances-detail.py');base=importlib.util.module_from_spec(s);s.loader.exec_module(base)
 E=base.E;NAMES=base.NAMES;oracle=base.oracle;periodic=base.periodic
@@ -76,33 +74,3 @@ def full_scenarios():
  yield 'full-init-has-no-health-shield-or-named-posts',{n[0]:[E('state','buff','max_hp_pct',50,'all_allies',event='on_attack',max_trigger=0,duration=30,max_stack=4),E('init','instant','buff_stack_init',3,event='burst_cast',target_effect='state'),E('name witness','buff','atk_pct',70,'all_allies',event='event:state')],n[1]:[E('shield','buff','shield_from_max_hp_pct',10,'all_allies',event='on_attack',max_trigger=0,duration=30,max_stack=4),E('init shield','instant','buff_stack_init',3,event='burst_cast',target_effect='shield'),E('shield witness','buff','atk_pct',70,event='passive',condition=['during_shield'])]},8
  yield 'full-beneficial-generic-add-with-shared-target-skip',{n[0]:[src],n[1]:[E('all raise','buff','buff_max_stack_add',2,'all_allies',event='every:0.4s'),E('partial raise','buff','buff_max_stack_add',2,event='every:0.3s')],n[2]:[E('immune','buff','stack_change_immune',0,duration=2)]},8
  yield 'full-stack-init-does-not-create-bullet-counters',{n[0]:[E('state','buff','atk_pct',10,'all_allies',event='on_attack',max_trigger=0,duration=30,duration_bullets=1,max_stack=4),E('init','instant','buff_stack_init',3,target_effect='state')]},8
-
-def verify(device,backend='auto',include_real=True):
- cases=[]
- for name,p,script,checks in primitives():
-  bs={n:{'atk':100000+i*10000,'hp':1000000,'def':1000} for i,n in enumerate(NAMES)};cpu,total=oracle.oracle(p,script,[31784,50],bs);gpu=run(device,[p],script,[[31784,50]],[bs],module_backend=backend);errors=[]
-  for i,(x,y,expected) in enumerate(zip(cpu,gpu['queries'][0],checks)):
-   for key,value in [(0,expected[2]),(37,expected[3])]:
-    if x[key]!=value or y[key]!=value:errors.append([i,'expected',key,value,x[key],y[key]])
-   for key in list(range(32))+[36,37]:
-    if not math.isclose(x[key],y[key],rel_tol=1e-12,abs_tol=1e-8):errors.append([i,key,x[key],y[key]])
-  c={'name':name,'passed':not errors and total==gpu['totals'][0],'errors':errors,'backend':backend};cases.append(c);print(json.dumps(c),flush=True)
- for name,effects,seconds in full_scenarios():
-  with periodic.custom_effects(effects):c=periodic.full.compare(device,name,body_for(periodic.NAMES,seconds,True),module_backend=backend)
-  c['backend']=backend;cases.append(c);print(json.dumps({'name':name,'passed':c['passed'],'cpu':c['cpu_total'],'gpu':c['gpu_total']}),flush=True)
- if include_real:
-  old=json.loads((ROOT/'research/detail-coverage-instances.json').read_text(encoding='utf-8'));now=json.loads((ROOT/'research/detail-coverage-stackops.json').read_text(encoding='utf-8'));was={r['character'] for r in old['results'] if r['supported']}
-  for entry in now['results']:
-   name=entry['character']
-   if not entry['supported'] or name in was:continue
-   names=[name]+[n for n in NAMES if n!=name][:4]
-   c=periodic.full.compare(device,'real-'+name,body_for(names,60,True),module_backend=backend);c['backend']=backend;cases.append(c);print(json.dumps({'name':name,'passed':c['passed'],'cpu':c['cpu_total'],'gpu':c['gpu_total']},ensure_ascii=True),flush=True)
- return cases
-
-if __name__=='__main__':
- d=Cuda()
- try:cases=verify(d,'native')+verify(d,'ptx')
- finally:d.close()
- files=['app/detail_gpu.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-build.json','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json','scripts/verify-stackops-detail.py']
- report={'generated_at':datetime.now(timezone.utc).isoformat(),'passed':all(c['passed'] for c in cases),'cpu_trace_used_as_gpu_input':False,'scope':'authored stack operations, independent full squads, and newly accepted real characters in fixed static-boss squads; not all characters or combinations','cases':cases,'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files}}
- (ROOT/'research/detail-stackops-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if report['passed'] else 1)

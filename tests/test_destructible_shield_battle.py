@@ -47,10 +47,5 @@ class ShieldBattleTests(unittest.TestCase):
         self.assertEqual(before,(timeline.BuffManager,timeline.calc_damage,timeline.simulate,timeline.HitEvent,buff_manager.BuffManager.register_damage_handler,dict(buff_manager._STAT_TO_BUFF)))
         verify(fixtures()[0],observe(fixtures()[0])[0])
 
-    def test_common_reference_cli_retains_model_gap(self):
-        from portable_reference import REFERENCES
-        self.assertEqual(REFERENCES['destructible-shield-battle'][0],'destructible_shield_battle_cases')
-        answer=verify(fixtures()[0],observe(fixtures()[0])[0])
-        self.assertFalse(answer['gpu_connected']);self.assertFalse(answer['in_game_rules_verified'])
 
 if __name__=='__main__':unittest.main()

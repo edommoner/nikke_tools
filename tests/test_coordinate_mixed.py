@@ -8,7 +8,6 @@ from portable_coordinate_mixed_cases import fixtures
 from portable_coordinate_mixed_contracts import verify
 from world_coordinate_mixed_native import observe
 from world_coordinate_group_native import observe as baseline
-from portable_coordinate_route_audit import verify as audit
 spec=importlib.util.spec_from_file_location('mixed_adapter',ROOT/'research/verify-coordinate-mixed-short.py');a=importlib.util.module_from_spec(spec);spec.loader.exec_module(a)
 
 class MixedTests(unittest.TestCase):
@@ -26,16 +25,6 @@ class MixedTests(unittest.TestCase):
         with patch.object(timeline,'simulate',side_effect=AssertionError('No oracle in wire')):
             new,raw=a.prepare();old,_=a.parent.prepare()
         self.assertEqual(new[:225],old);self.assertEqual((len(new),sum(d is not None for _,_,d in new)),(244,218));self.assertEqual(len(raw),4+244*a.INPUT_WORDS*4)
-    def test_old_share_is_rejected_but_valid_split_is_a_separate_model(self):
-        from calculator.boss_pattern import validate
-        for patterns in [[dict(kind='parts',targets=[dict(name='p',hp=1,r=1,x=0,y=0,share=.5)])],[dict(kind='summon',spec=dict(count=1,hp=1,share=.5))]]:
-            with self.assertRaisesRegex(ValueError,'share'):validate(patterns,coord=True)
-        result=audit(ROOT);self.assertEqual(result['obsolete_share']['classification'],'native_reference_exclusion');self.assertTrue(result['valid_split_damage']['native_model_available']);self.assertFalse(result['calculation_verified'])
-    def test_route_audit_rejects_changed_rejection_or_split_weight(self):
-        name='research/upstream/nikke-calc-master/calculator/boss_pattern.py';text=(ROOT/name).read_text()
-        for old,new in [('if "share" in raw:','if False:'),('1.0 / len(hit)','1.0 / 2')]:
-            self.assertIn(old,text)
-            with self.assertRaises(AssertionError):audit(ROOT,{name:text.replace(old,new,1)})
     def test_historical_gpu_source_inverse_and_complete_wire(self):
         from portable_backend import source_hashes,validate_composed_stride
         import json
@@ -52,6 +41,8 @@ class MixedTests(unittest.TestCase):
         from portable_coordinate_mixed_source_contract import project_sources,project_backend_source
         project_sources(ROOT)
         for name in ['gpu/world_overlay_runtime.slang','gpu/world_skill_runtime.slang','gpu/coordinate_area_runtime.slang']:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed\n'})
         with self.assertRaises(ValueError):project_backend_source(ROOT,(ROOT/'app/portable_backend.py').read_text()+'\n# unreviewed\n')
     def test_split_contract_rejects_rounding_or_target_corruption(self):

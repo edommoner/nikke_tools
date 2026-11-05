@@ -39,6 +39,8 @@ class PhysicalTests(unittest.TestCase):
         projected=project_sources(ROOT)
         for name,row in data['sources'].items():self.assertEqual(projected[name],row['baseline'])
         for name in [*data['sources'],*data['added_sources']]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.subTest(name=name),self.assertRaises(AssertionError):
                 project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed edit\n'})
 

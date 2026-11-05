@@ -21,8 +21,8 @@ def check_schema(root):
     locks(root)
     from portable_product_typed import check_schema as physical
     physical(root)
-    from portable_wire_layout import check_metal
-    check_metal(root,OUTPUT)
+    from portable_wire_layout import check_output_words
+    check_output_words(OUTPUT)
     if not LOCK_PREFIX<BASE_OUTPUT==COVER_OUT<OUTPUT or (INPUT,OUTPUT)!=(128124,2995048):
         raise ValueError('Typed lock cover must follow every existing lock/movement/continuation bank')
     if not 153568+32*544==WEAPON_START<HEAD+WORDS==WEAPON_SCRATCH<WEAPON_END<262144:

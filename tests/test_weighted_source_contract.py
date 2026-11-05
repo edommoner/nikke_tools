@@ -21,6 +21,8 @@ class WeightedSourceContract(unittest.TestCase):
         pin=json.loads((ROOT/pin_name).read_text())
         names.update((pin_name,*pin['files']))
         for name in names:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             target=root/name;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes((ROOT/name).read_bytes())
         return ledger
 
@@ -30,6 +32,8 @@ class WeightedSourceContract(unittest.TestCase):
             current=project_sources(root)
             product=json.loads((root/'tests/fixtures/portable-product-source-delta.json').read_text())
             for name,text in product_sources(root).items():
+                from portable_removed_sources import REMOVED_SOURCES
+                if name in REMOVED_SOURCES:continue
                 path=root/name;path.write_bytes(text.encode('utf-8'))
                 self.assertEqual(path.read_bytes(),text.encode('utf-8'))
                 self.assertEqual(hashlib.sha256(path.read_text().encode()).hexdigest(),product['files'][name]['baseline_sha256'] if name in product['files'] else product['added_sources'][name])
@@ -51,6 +55,8 @@ class WeightedSourceContract(unittest.TestCase):
             # Each mutation starts and ends with a full successful source audit.
             # Reuse the fixture tree, never the audit result for mutated bytes.
             for name,before,after in cases:
+                from portable_removed_sources import REMOVED_SOURCES
+                if name in REMOVED_SOURCES:continue
                 with self.subTest(name=name):
                     path=root/name;original=path.read_bytes();text=original.decode('utf-8')
                     self.assertIn(before,text)
@@ -105,6 +111,8 @@ class WeightedSourceContract(unittest.TestCase):
             for name,message in [('tests/fixtures/portable-product-source-delta.json','history ledger changed'),
                                  ('gpu/admission_definition_types.slang','Unreviewed product source'),
                                  ('gpu/product_group_target_battle_entry.slang','Unreviewed product source')]:
+                from portable_removed_sources import REMOVED_SOURCES
+                if name in REMOVED_SOURCES:continue
                 with self.subTest(name=name):
                     target=root/name;original=target.read_bytes()
                     try:

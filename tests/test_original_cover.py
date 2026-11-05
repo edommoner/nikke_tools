@@ -8,7 +8,7 @@ class OriginalCoverTests(unittest.TestCase):
     def test_original_definitions_and_real_reload_cover_attacks(self):
         from calculator import timeline
         from portable_coordinate_kind_admission import KindAdmission
-        from portable_parent_oracles import provider
+        from native_comparison_provider import provider
         with patch.object(timeline,'simulate',side_effect=AssertionError('No CPU schedule in GPU input')):rows,_=a.prepare()
         self.assertEqual(len(rows),6);old=KindAdmission(ROOT,'gpu/world_coordinate_original_shield_entry.slang');new=KindAdmission(ROOT,a.SOURCE)
         self.assertEqual([len(d[0]['effects']) for _,_,d in rows],[70]*3+[68]*3)

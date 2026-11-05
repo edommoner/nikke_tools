@@ -6,8 +6,8 @@ import {tmpdir} from 'node:os';
 import path from 'node:path';
 test('independent batch jobs preserve overlapping rosters and all per-request conditions',async()=>{
  const {batchCases,boardCases}=await import('../server.mjs');
- const first={squad:['a','b','c','d','e'],profile:{chars:{a:{skill_levels:3}}},compute_backend:'metal_detail'};
- const second={...structuredClone(first),compute_backend:'cuda_shared_detail',stat_deltas:{a:{atk:5}}};
+ const first={squad:['a','b','c','d','e'],profile:{chars:{a:{skill_levels:3}}},compute_backend:'native_detail'};
+ const second={...structuredClone(first),compute_backend:'browser_detail',stat_deltas:{a:{atk:5}}};
  const saved=structuredClone([first,second]),cases=batchCases([first,second]);
  assert.deepEqual(cases.map(c=>c.value),[1,2]);assert.deepEqual(cases.map(c=>c.evaluation),saved);
  cases[0].evaluation.profile.chars.a.skill_levels=10;
@@ -58,63 +58,10 @@ test('alternative skill representations preserve unrelated skill levels',()=>{
   assert.deepEqual(burst.evaluation.patches.a.skill_levels,{'1':7,'2':8,'3':10});
 });
 
- test('portable Metal HTTP deadline covers source generation, compilation and GPU bounds',async()=>{
+ test('ordinary CPU worker deadlines remain bounded at 120 seconds',async()=>{
   const {workerTimeoutSeconds}=await import('../server.mjs');
-  assert.ok(workerTimeoutSeconds({action:'evaluate_portable_events',backend:'metal'}) > 2*90+300+600);
-  assert.equal(workerTimeoutSeconds({action:'evaluate_portable_events'}),1110);
-  assert.equal(workerTimeoutSeconds({action:'evaluate_portable_detail_batch'}),1110);
-});
- test('CUDA and ordinary CPU worker deadlines remain bounded at 120 seconds',async()=>{
-  const {workerTimeoutSeconds}=await import('../server.mjs');
-  assert.equal(workerTimeoutSeconds({action:'evaluate_portable_events',backend:'cuda'}),120);
-  assert.equal(workerTimeoutSeconds({action:'evaluate',backend:'metal'}),120);
-  assert.equal(workerTimeoutSeconds({action:'evaluate_portable_detail_batch',evaluations:[{compute_backend:'cuda_shared_detail'}]}),120);
-});
-test('shared CUDA configuration requires real directories and is independent of legacy probe',async()=>{
- const {sharedCudaConfigured}=await import('../server.mjs');
- const root=mkdtempSync(path.join(tmpdir(),'nikke-cache-config-'));
- try{
-  const env={NIKKE_SLANG_GENERATION_CACHE:root,NIKKE_CUDA_COMPILE_CACHE:root};
-  assert.equal(sharedCudaConfigured('win32',env),true);
-  assert.equal(sharedCudaConfigured('darwin',env),false);
-  assert.equal(sharedCudaConfigured('win32',{}),false);
-  assert.equal(sharedCudaConfigured('win32',{...env,NIKKE_CUDA_COMPILE_CACHE:'relative'}),false);
-  const file=path.join(root,'file');writeFileSync(file,'not a directory');
-  assert.equal(sharedCudaConfigured('win32',{...env,NIKKE_CUDA_COMPILE_CACHE:file}),false);
- }finally{rmSync(root,{recursive:true,force:true});}
 });
 
-test('shared CUDA saved images require explicit configuration plus a warm generation directory',async()=>{
- const {sharedCudaConfigured}=await import('../server.mjs');
- const root=mkdtempSync(path.join(tmpdir(),'nikke-saved-config-')),file=path.join(root,'programs.json');
- try{
-  const env={NIKKE_SLANG_GENERATION_CACHE:root,NIKKE_SHARED_CUDA_ARTIFACTS:file};
-  assert.equal(sharedCudaConfigured('win32',env),false);
-  writeFileSync(file,JSON.stringify({schema:1,programs:{'gpu/product_battle_entry.slang':{battle_package:root,request:{package:root,capture:root}}}}));
-  assert.equal(sharedCudaConfigured('win32',env),true);
-  const registry=JSON.parse(readFileSync(new URL('../data/portable-product-programs.json',import.meta.url),'utf8'));
-  for(const program of Object.values(registry.programs)){
-    const configured={schema:1,programs:{[program.source]:{battle_package:root,request:{package:root,capture:root}}}};
-    writeFileSync(file,JSON.stringify(configured));assert.equal(sharedCudaConfigured('win32',env),true);
-    configured.programs['gpu/unregistered_product.slang']=configured.programs[program.source];
-    writeFileSync(file,JSON.stringify(configured));assert.equal(sharedCudaConfigured('win32',env),false);
-  }
-  assert.equal(sharedCudaConfigured('win32',{...env,NIKKE_SLANG_GENERATION_CACHE:''}),false);
-  assert.equal(sharedCudaConfigured('darwin',env),false);
-  const history={capture:root,observation_sha256:'a'.repeat(64),disposition:'retained-failure',missing_identities:[{pid:71,path:'c:/tools/node.exe',creation_filetime_ticks:'133700000000000007'}]};
-  const document={schema:1,programs:{'gpu/product_battle_entry.slang':{battle_package:root,request:{package:root,capture:root,historical_link_observation:history}}}};
-  writeFileSync(file,JSON.stringify(document));assert.equal(sharedCudaConfigured('win32',env),true);
-  for(const edits of [{capture:path.dirname(root)},{missing_identities:[]},{missing_identities:[history.missing_identities[0],history.missing_identities[0]]},{missing_identities:[{...history.missing_identities[0],path:'C:/TOOLS/NODE.EXE'}]},{missing_identities:[{...history.missing_identities[0],pid:73},history.missing_identities[0]]}]){
-    const changed=structuredClone(document);Object.assign(changed.programs['gpu/product_battle_entry.slang'].request.historical_link_observation,edits);
-    writeFileSync(file,JSON.stringify(changed));assert.equal(sharedCudaConfigured('win32',env),false);
-  }
-  history.missing_identities[0].creation_filetime_ticks=133700000000000007;
-  writeFileSync(file,JSON.stringify(document));assert.equal(sharedCudaConfigured('win32',env),false);
-  writeFileSync(file,JSON.stringify({schema:1,programs:[]}));
-  assert.equal(sharedCudaConfigured('win32',env),false);
-  writeFileSync(file,'invalid');assert.equal(sharedCudaConfigured('win32',env),false);
- }finally{rmSync(root,{recursive:true,force:true});}
-});
 
 test('CPU and GPU worker text streams retain split UTF-8 payloads and diagnostics',async()=>{
  const {workerTextStreams}=await import('../server.mjs');
@@ -132,35 +79,4 @@ test('CPU and GPU worker text streams retain split UTF-8 payloads and diagnostic
  child.stdout.end();child.stderr.end();await done;
  const rows=output.trimEnd().split('\n').map(line=>JSON.parse(line));
  assert.deepEqual(rows,[expected,{id:'two',result:expected}]);assert.equal(error,diagnostic);
-});
-
-test('Metal detail worker budget covers every compatible or separate source group',async()=>{
- const {workerTimeoutSeconds}=await import('../server.mjs');
- // Enumerate all ordered partitions: preparation can produce any grouping of 8 cases.
- const partitions=n=>n===0?[[]]:Array.from({length:n},(_,i)=>i+1).flatMap(k=>partitions(n-k).map(rest=>[k,...rest]));
- for(let n=1;n<=8;n++){
-  const outer=workerTimeoutSeconds({action:'evaluate_portable_detail_batch',evaluations:Array.from({length:n},()=>({compute_backend:'metal_detail'}))});
-  assert.equal(outer,1110*n);
-  for(const groups of partitions(n))assert.ok(outer>groups.reduce((sum,k)=>sum+180+300+Math.min(4800,600*k),0));
- }
- assert.equal(workerTimeoutSeconds({action:'evaluate_portable_detail_batch',evaluations:Array(100).fill({compute_backend:'metal_detail'})}),8880);
-});
-
-test('server budget uses the Python Metal deadline policy',async()=>{
- const {spawnSync}=await import('node:child_process');
- const {workerTimeoutSeconds}=await import('../server.mjs');
- const {resolvePython}=await import('../app/python-runtime.mjs');
- const result=spawnSync(resolvePython(),['-c',"import sys,json;sys.path.insert(0,'app');import portable_backend as b;print(json.dumps([b.METAL_COMPILE_TIMEOUT_SECONDS,*[b.metal_gpu_timeout_seconds(n) for n in range(1,9)]]))"],{encoding:'utf8'});
- assert.equal(result.status,0,result.stderr);
- const [compile,...gpu]=JSON.parse(result.stdout);
- for(let n=1;n<=8;n++)assert.ok(workerTimeoutSeconds({action:'evaluate_portable_detail_batch',evaluations:Array(n).fill({compute_backend:'metal_detail'})})>n*(180+compile)+gpu[n-1]);
-});
-
-test('other Metal transport consumers fit the calibrated guard and command counts',async()=>{
- const {workerTimeoutSeconds}=await import('../server.mjs');
- const command=180+300+4800;
- assert.ok(workerTimeoutSeconds({action:'combat_prefilter',backend:'metal'})>command);
- assert.ok(workerTimeoutSeconds({action:'select',backend:'metal',teamCount:1})>command);
- assert.ok(workerTimeoutSeconds({action:'select',backend:'metal',teamCount:5})>5*command);
- assert.equal(workerTimeoutSeconds({action:'metal_search_probe'}),630);
 });

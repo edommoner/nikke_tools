@@ -14,7 +14,7 @@ for character,effects in raw.items():
     b=v.s.v.body(30,True,names)
     for stage in range(4):
         b['profile']['chars'][character]['favorite_stage']=stage
-        try:v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True});r=dict(character=character,favorite_stage=stage,compiled=True)
+        try:v.s.v.v.a.evaluate({**b,'_compile_detail':True});r=dict(character=character,favorite_stage=stage,compiled=True)
         except Exception as exc:r=dict(character=character,favorite_stage=stage,compiled=False,issues=getattr(exc,'issues',str(exc)))
         rows.append(r);print(json.dumps(r,ensure_ascii=True),flush=True)
     if character=='A2':print(json.dumps(dict(character=character,all_actual_definitions=effects),ensure_ascii=True),flush=True)

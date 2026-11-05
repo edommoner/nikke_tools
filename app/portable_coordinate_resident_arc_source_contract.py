@@ -1,4 +1,6 @@
 """Exact reviewed resident arc storage inverse, never a GPU normalizer."""
+from portable_cpu_only_source_contract import reviewed_bytes as cpu_only_bytes, reviewed_text as cpu_only_text
+from portable_removed_sources import REMOVED_SOURCES
 import hashlib,json
 from pathlib import Path
 
@@ -8,15 +10,21 @@ def checked(current,row,*,error_type=AssertionError):
     if hashlib.sha256(row['baseline'].encode()).hexdigest()!=row['baseline_sha256']:raise error_type('Resident arc baseline changed')
     return row['baseline']
 def project_sources(root,sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     from portable_dispatch_frame_source_contract import project_sources as frames
     root=Path(root);out=frames(root,sources);data=ledger(root)
     for name,digest in data['added_sources'].items():
-        if hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()!=digest:raise AssertionError('Unreviewed resident arc dependency: '+name)
+        if name in REMOVED_SOURCES:continue
+        if hashlib.sha256(out.get(name,cpu_only_text(root,name,(root/name).read_text())).encode()).hexdigest()!=digest:raise AssertionError('Unreviewed resident arc dependency: '+name)
     for name,row in data['sources'].items():
-        if name!='app/portable_backend.py':out[name]=checked(out.get(name,(root/name).read_text()),row)
+        if name in REMOVED_SOURCES:continue
+        if name!='app/portable_backend.py':out[name]=checked(out.get(name,cpu_only_text(root,name,(root/name).read_text())),row)
     return out
 def project_backend_source(root,source=None):
-    root=Path(root);name='app/portable_backend.py';source=(root/name).read_text() if source is None else source
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if source is not None:source=cpu_boundary_text(root,'app/portable_backend.py',source)
+    root=Path(root);name='app/portable_backend.py';source=cpu_only_text(root,name,(root/name).read_text()) if source is None else source
     row=ledger(root)['sources'][name]
     # Outer exact inverses may already have restored this layer's complete
     # input. Do not apply newer physical/logical inverses a second time.

@@ -3,8 +3,6 @@ import copy,hashlib,importlib.util,json,math,sys
 from pathlib import Path
 from datetime import datetime,timezone
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
-from detail_gpu import run
-from gpu_selector import Cuda
 from detail_coverage import body_for
 spec=importlib.util.spec_from_file_location('instance_chains',ROOT/'scripts/verify-chains-detail.py');chain=importlib.util.module_from_spec(spec);spec.loader.exec_module(chain)
 E=chain.E;NAMES=chain.NAMES;oracle=chain.oracle;periodic=chain.periodic
@@ -53,36 +51,3 @@ def full_scenarios():
  src['trigger']['timing'].append('event:state_end:state')
  yield 'full-nested-partial-removal-reapplication',{n[0]:[src,nested],n[1]:[remove]},8
  yield 'full-quantized-ammo-and-charge-speed-overlap',{n[2]:[E('state','buff','max_ammo_pct',32.12,'all_allies',event='full_charge_fire',duration=2.5,max_stack=4),E('charge state','buff','charge_speed_pct',20.3,'all_allies',event='full_charge_fire',duration=2.5,max_stack=4)],n[0]:[E('ammo scope','instant','remove_named_buff',0,n[2],event='every:0.35s',target_effect='state',remove_scope='target'),E('charge scope','instant','remove_named_buff',0,n[2],event='every:0.4s',target_effect='charge state',remove_scope='target')]},16
-
-def verify(device,backend='auto'):
- cases=[]
- for name,p,script,checks in primitives():
-  bs={n:{'atk':100000+i*10000,'hp':1000000,'def':1000} for i,n in enumerate(NAMES)}
-  cpu,totals=oracle.oracle(p,script,[31784,50],bs);gpu=run(device,[p],script,[[31784,50]],[bs],module_backend=backend);errors=[]
-  for i,(x,y,check) in enumerate(zip(cpu,gpu['queries'][0],checks)):
-   for key,expected in [(0,check[2]),(37,check[3])]:
-    if x[key]!=expected or y[key]!=expected:errors.append([i,key,expected,x[key],y[key]])
-   for k in list(range(32))+[36,37]:
-    if not math.isclose(x[k],y[k],rel_tol=1e-12,abs_tol=1e-8):errors.append([i,k,x[k],y[k]])
-  case={'name':name,'passed':not errors and totals==gpu['totals'][0],'errors':errors,'backend':backend};cases.append(case);print(json.dumps(case),flush=True)
- for name,effects,seconds in full_scenarios():
-  from calculator.buff_manager import BuffManager
-  from unittest.mock import patch
-  from collections import Counter
-  activate=BuffManager._activate;peak=[0]
-  def witnessed(manager,*args,**kw):
-   result=activate(manager,*args,**kw)
-   peak[0]=max(peak[0],max(Counter(id(ab.effect) for ab in manager._active).values(),default=0))
-   return result
-  with periodic.custom_effects(effects),patch.object(BuffManager,'_activate',witnessed):case=periodic.full.compare(device,name,body_for(periodic.NAMES,seconds,True),module_backend=backend)
-  case['cpu_peak_instances_of_one_effect']=peak[0];case['passed'] &= peak[0]>1
-  case['backend']=backend;cases.append(case);print(json.dumps({'name':name,'passed':case['passed'],'cpu':case['cpu_total'],'gpu':case['gpu_total']},ensure_ascii=True),flush=True)
- return cases
-
-if __name__=='__main__':
- d=Cuda()
- try:cases=verify(d,'native')+verify(d,'ptx')
- finally:d.close()
- files=['app/detail_gpu.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-build.json','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json','scripts/verify-instances-detail.py']
- r={'generated_at':datetime.now(timezone.utc).isoformat(),'passed':all(c['passed'] for c in cases),'cpu_trace_used_as_gpu_input':False,'cases':cases,'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files}}
- (ROOT/'research/detail-instances-verification.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if r['passed'] else 1)

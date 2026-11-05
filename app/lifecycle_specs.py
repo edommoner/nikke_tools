@@ -72,60 +72,6 @@ def ordered_specs(specs=SPECS):
         found[spec.key]=spec;ordered.append(spec)
     return tuple(ordered)
 
-def render_cuda():
-    """Only registered state hooks; numerical rules stay in their own handlers."""
-    specs=ordered_specs()
-    lines=['// Generated from lifecycle_specs.py; do not hand-edit.']
-    initial_hp=[code for spec in specs for code in spec.initial_hp_stats]
-    initial_hp_match='||'.join(f'q[2]=={code}' for code in initial_hp) or '0'
-    lines += [f'__device__ int lifecycle_init_hp(const double* q){{return q[1]==0&&({initial_hp_match});}}']
-    lines += ['__device__ int lifecycle_instance(const double* e,State* s,int r,int uid){',
-              ' if(r<0)return -1;const double* q=effect(e,s,r);']
-    for spec in specs:
-        if spec.current_instance and not spec.any_instance:
-            codes=((spec.activation_stat,) if spec.activation_stat is not None else ())+spec.additional_stats
-            match='||'.join(f'q[2]=={code}' for code in codes)
-            lines.append(f' if(q[1]==0&&({match}))return s->alive[r]&&s->entry_seq[r]==uid?r:-1;')
-    lines += [' return first_instance(e,s,s->definition[r]);','}']
-    lines += [f'__device__ void {s.gpu_prepare}(const double*,const double*,int,State*,int,int);' for s in specs if s.gpu_prepare]
-    lines += ['__device__ void lifecycle_prepare(const double* c,const double* e,int ne,State* s,int r,int full){',
-              ' const double* q=effect(e,s,r);']
-    for spec in specs:
-        if spec.gpu_prepare:
-            codes=((spec.activation_stat,) if spec.activation_stat is not None else ())+spec.additional_stats
-            match='||'.join(f'q[2]=={code}' for code in codes)
-            lines.append(f' if(q[1]==0&&({match})){spec.gpu_prepare}(c,e,ne,s,r,full);')
-    lines += ['}']
-    lines += [f'__device__ void {s.gpu_activate}(const double*,const double*,int,State*,int,int);' for s in specs if s.gpu_activate]
-    lines += ['__device__ int lifecycle_activate(const double* c,const double* e,int ne,State* s,int r,int full,const double* q,int uid,int lazy,int mask,int* emitted,Order* targets,int* stop){',
-              ' *emitted=-1;*stop=0;']
-    for spec in specs:
-        if not spec.gpu_activate:continue
-        guard='&&!lazy&&mask' if spec.needs_resolved_targets else ''
-        codes=((spec.activation_stat,) if spec.activation_stat is not None else ())+spec.additional_stats
-        match='||'.join(f'q[2]=={code}' for code in codes)
-        if len(codes)>1:match='('+match+')'
-        call=f' if(q[1]==0&&{match}{guard}){{r=lifecycle_instance(e,s,r,uid);'
-        if spec.applied_event is None:
-            call+=f'if(r>=0){spec.gpu_activate}(c,e,ne,s,r,full);'
-        else:
-            call+=f'*stop=1;if(r>=0){{{spec.gpu_activate}(c,e,ne,s,r,full);*emitted={spec.applied_event};*targets=unique_order(s->target_order[r]);}}'
-        lines.append(call+'}')
-    lines+=[' return r;','}', '__device__ void lifecycle_retire(const double* e,State* s,int j){']
-    lines += [f' {spec.gpu_retire}(e,s,j);' for spec in specs if spec.gpu_retire]
-    lines+=['}', '__device__ void lifecycle_before_body_heal(const double* c,const double* e,int ne,State* s,int who,double amount,int full){']
-    lines += [f' {spec.gpu_before_heal}(c,e,ne,s,who,amount,full);' for spec in specs if spec.gpu_before_heal]
-    return '\n'.join(lines+['}'])+'\n'
 
 BEGIN='// BEGIN GENERATED LIFECYCLE\n'
 END='// END GENERATED LIFECYCLE\n'
-
-@lru_cache(maxsize=2)
-def _source_matches(path,stamp,size):
-    source=Path(path).read_text(encoding='utf-8')
-    if source.count(BEGIN)!=1 or source.count(END)!=1:return False
-    return source.split(BEGIN,1)[1].split(END,1)[0]==render_cuda()
-
-def gpu_source_matches():
-    source=Path(__file__).with_name('detail_effects.cu');stat=source.stat()
-    return _source_matches(str(source),stat.st_mtime_ns,stat.st_size)

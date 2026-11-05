@@ -110,6 +110,7 @@ def capture_interrupt_landings(*, capacity=65536):
     from calculator.boss_pattern import BossScript
     from calculator.buff_manager import BuffManager
     native_hit, native_landing = BossScript.hit_target, BuffManager.publish_landing
+    native_target_landing = BuffManager.publish_target_landing
     receipts, pending, registries = [], {}, {}
 
     def hit(boss, event, when):
@@ -144,9 +145,13 @@ def capture_interrupt_landings(*, capacity=65536):
             raise ValueError('Private interrupt publication requires its native landing receipt')
         receipts.append(row[2])
 
+    def target_landing(manager,event,when,boss,kind):
+        if kind=='interrupt':return landing(manager,event,when,boss)
+        return native_target_landing(manager,event,when,boss,kind)
+
     _active = True
     try:
-        with patch.object(BossScript, 'hit_target', hit), patch.object(BuffManager, 'publish_landing', landing):
+        with patch.object(BossScript, 'hit_target', hit), patch.object(BuffManager, 'publish_landing', landing), patch.object(BuffManager,'publish_target_landing',target_landing):
             yield receipts
             if pending:
                 raise ValueError('Unpublished private interrupt landing receipts')

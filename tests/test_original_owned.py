@@ -3,13 +3,12 @@ import importlib.util,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
-import nikke_gpu
 s=importlib.util.spec_from_file_location('original_owned_test',ROOT/'research/verify-coordinate-original-owned-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
 class OriginalOwnedTests(unittest.TestCase):
     def test_complete_original_definitions_and_public_policies_without_simulation(self):
         from calculator import timeline
         from portable_coordinate_kind_admission import KindAdmission
-        from portable_parent_oracles import provider
+        from native_comparison_provider import provider
         with patch.object(timeline,'simulate',side_effect=AssertionError('No native firing schedule in packing')):rows,_=a.prepare()
         self.assertEqual(len(rows),5)
         for i,(_,words,domain) in enumerate(rows):

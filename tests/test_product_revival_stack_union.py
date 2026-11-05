@@ -44,7 +44,7 @@ class ProductRevivalStackUnionTests(unittest.TestCase):
     def setUpClass(cls):
         demo=engine_worker.demo(True)
         cls.body=dict(profile=demo['profile'],patches={},stat_deltas={},squad=SQUAD,
-            compute_backend='metal_detail',verify_detail=True,duration=180,level=400,
+            compute_backend='native_detail',verify_detail=True,duration=180,level=400,
             burst_policy='rules',shooting_policy='auto',burst_gauge_mode='fixed',seed=0,
             weapon_mode_swap=False,enemy={'def':31784,'code':'풍압','core_px':0,'distance':30,'parts':[],'patterns':[]})
         prepared,_=product.prepare(cls.body)
@@ -82,11 +82,15 @@ class RevivalUnionSourceHistoryTests(unittest.TestCase):
         from portable_revival_union_source_contract import preimages
         ledger=ROOT/'tests/fixtures/portable-revival-stack-union-source-delta.json'
         data=json.loads(ledger.read_text());old=preimages(ROOT)
-        for name,row in data['files'].items():self.assertEqual(hashlib.sha256(old[name].encode()).hexdigest(),row['before_sha256'])
+        for name,row in ((n,r) for n,r in data['files'].items() if n not in __import__('portable_removed_sources').REMOVED_SOURCES):self.assertEqual(hashlib.sha256(old[name].encode()).hexdigest(),row['before_sha256'])
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);(root/'tests/fixtures').mkdir(parents=True)
             target=root/'tests/fixtures'/ledger.name;target.write_bytes(ledger.read_bytes())
+            for fixture in (ROOT/'tests/fixtures').glob('*source-delta.json'):
+                (root/'tests/fixtures'/fixture.name).write_bytes(fixture.read_bytes())
             for name in data['files']:
+                from portable_removed_sources import REMOVED_SOURCES
+                if name in REMOVED_SOURCES:continue
                 path=root/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes((ROOT/name).read_bytes())
             self.assertEqual(preimages(root),old)
             path=root/'gpu/stack_runtime.slang';path.write_text(path.read_text()+'\n')

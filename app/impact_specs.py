@@ -134,19 +134,7 @@ def decode_command(row, names):
                   (code // 4) % 4, row[6], row[7], code // 16)
 
 
-def render_cuda():
-    lines = ['// Generated from impact_specs.py; do not hand-edit.']
-    for prefix, cls in [('ACTOR', ActorKind), ('HIT', HitFamily), ('OUTCOME', HitOutcome)]:
-        lines += [f'#define {prefix}_{name} {int(value)}' for name, value in cls.__members__.items()]
-    lines.append('struct Impact { int attacker,kind,identity,generation,family,outcome,attack_id; double damage,credit; };')
-    return '\n'.join(lines) + '\n'
 
 
 BEGIN = '// BEGIN GENERATED IMPACT\n'
 END = '// END GENERATED IMPACT\n'
-
-
-def gpu_source_matches():
-    from pathlib import Path
-    text=Path(__file__).with_name('detail_effects.cu').read_text(encoding='utf-8')
-    return text.count(BEGIN)==1 and text.count(END)==1 and text.split(BEGIN)[1].split(END)[0]==render_cuda()

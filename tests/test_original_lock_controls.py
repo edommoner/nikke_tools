@@ -7,12 +7,6 @@ s=importlib.util.spec_from_file_location('original_controls_test_suite',ROOT/'re
 from portable_declared_manual_sequences import apply
 from portable_heavyarms_original_composition import prepare_case
 class OriginalControls(unittest.TestCase):
-    def test_common_cli_cache_alias_preserves_calculation_and_requires_both_caches(self):
-        import nikke_gpu as cli
-        normal=cli.SUITES['original-lock-controls'];cached=cli.SUITES['original-lock-controls-cache-only']
-        for key in ('script','source','golden','inputs','native','input_words','output_words','support_files'):self.assertEqual(normal[key],cached[key])
-        self.assertFalse(normal['development_only']);self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1');self.assertIs(cached['require_paired_generation'],True)
-        self.assertIn('research/portable-original-lock-composition-v1-expected.json',normal['support_files'])
     def test_literal_overlay_preserves_input_and_refuses_replacement_and_bad_times(self):
         chars=[dict(name='a',control=dict(click=[])),dict(name='b',control={})];old=copy.deepcopy(chars)
         rows=[dict(action='cover',t=.35,duration=.25)]

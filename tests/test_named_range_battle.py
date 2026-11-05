@@ -39,11 +39,4 @@ class NamedRangeBattleTests(unittest.TestCase):
             bad=copy.deepcopy(c['named_range_rules']);bad[0][key]=value
             with self.subTest(key=key),self.assertRaises(ValueError):normalize(bad,c['logical_geometry'])
         with self.assertRaises(ValueError):normalize(c['named_range_rules']*2,c['logical_geometry'])
-    def test_reference_registration_does_not_imply_gpu_admission(self):
-        from portable_reference import REFERENCES
-        from portable_readiness_semantics import reference_readiness
-        self.assertIn('named-range-battle-common',REFERENCES)
-        r=reference_readiness(dict(phase='effect',kind='buff',stat='effect_range_pct',target='self'))
-        self.assertEqual(r['lane'],'reference_model_gap');self.assertFalse(r['gpu_supported'])
-        self.assertFalse(r['declared_named_range_battle_contract']['gpu_wire_connected'])
 if __name__=='__main__':unittest.main()

@@ -36,6 +36,8 @@ class BodyLifestealTests(unittest.TestCase):
         from portable_destructible_lifesteal_source_contract import project_sources
         f=json.loads((ROOT/'tests/fixtures/portable-destructible-lifesteal-source-delta.json').read_text());self.assertEqual(len(f['sources']),3);project_sources(ROOT)
         for name,row in f['sources'].items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n'})
     def test_native_observer_restores_profile_and_scopes_after_failure(self):
         from calculator import timeline,buff_manager

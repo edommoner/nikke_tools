@@ -56,24 +56,8 @@ class ParentFixedTests(unittest.TestCase):
         from portable_full_burst_landing_source_contract import project_sources
         project_sources(ROOT)
         for name,old,new in [('gpu/parent_fixed_runtime.slang','raw,1,status','raw,0,status'),('gpu/event_runtime.slang','event==12','event==8'),('gpu/weapon_frame_phases.slang','f64FromI64(w.pellets)','f64FromI64(count)')]:
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             s=(ROOT/name).read_text();self.assertIn(old,s)
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:s.replace(old,new)})
-    def test_frozen_package_declares_its_required_upstream_audit_document(self):
-        s=importlib.util.spec_from_file_location('parent_cli_documents',ROOT/'scripts/nikke_gpu.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
-        self.assertEqual(m.SUITES['parent-fixed-retention']['upstream_documents'],['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'])
-        for name in m.SUITES['parent-fixed-retention']['upstream_documents']:self.assertTrue((ROOT/name).is_file())
-    def test_readiness_separates_scoped_parent_proof_and_ammo_native_only(self):
-        from portable_readiness_semantics import reference_readiness
-        r=reference_readiness(dict(phase='effect',kind='damage',category='effect',stat='dealt_fixed_damage',target='target_body'))
-        self.assertEqual(r['recorded_cases'],23);self.assertEqual(r['scoped_metal_validation']['inputs'],321);self.assertFalse(r['gpu_supported'])
-        r=reference_readiness(dict(phase='effect',kind='buff',category='fields',stat='charge_dmg_pct',target='self',scaling='max_ammo_count',fields=['scaling']))
-        self.assertEqual(r['native_consumer'],'confirmed_source');self.assertEqual(r['recorded_cases'],22);self.assertFalse(r['runtime_validation_performed'])
-        for operator in (None,[],False):
-            r=reference_readiness(dict(phase='effect',kind='damage',category='trigger',stat='unknown',operator=operator));self.assertEqual(r['lane'],'reference_review')
-    def test_missing_model_audit_is_not_an_inert_effect_admission(self):
-        from portable_missing_consumer_audit import verify as audit
-        from portable_readiness_semantics import reference_readiness
-        self.assertTrue(audit(ROOT)['passed'])
-        issue=dict(phase='effect',category='trigger',kind='damage',stat='bonus_damage',operator=dict(domain='timing',descriptor='multi_hit:2'))
-        r=reference_readiness(issue);self.assertEqual(r['native_consumer'],'listener_without_battle_producer');self.assertFalse(r['gpu_supported'])
 if __name__=='__main__':unittest.main()

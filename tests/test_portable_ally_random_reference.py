@@ -1,4 +1,5 @@
 """Literal friendly PRNG contracts and untouched native sampling behavior."""
+from cpu_reference_guard import forbid_execution
 import copy,importlib.util,random,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -9,17 +10,10 @@ from calculator.buff_manager import BuffManager
 from portable_ally_random_reference_cases import fixtures
 from portable_ally_random_reference_contracts import verify
 from world_ally_random_reference_native import observe,plain_observe
-s=importlib.util.spec_from_file_location('ally_reference_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(s);s.loader.exec_module(cli)
 
 
 class AllyRandomReferenceTests(unittest.TestCase):
-    def test_eighteen_literal_cases_without_packing_or_gpu(self):
-        with patch.object(timeline,'simulate',side_effect=AssertionError('No factory battle')):cases=fixtures()
-        self.assertEqual(len(cases),18);before=copy.deepcopy(cases)
-        with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',side_effect=AssertionError('No packing')),patch.object(detail_gpu,'compile_effects',side_effect=AssertionError('No compiler')):
-            for c in cases:
-                with self.subTest(case=c['name']):self.assertTrue(verify(c,observe(c)[0])['verified'])
-        self.assertEqual(cases,before)
+    pass
 
     def test_all_native_fields_trace_rng_state_and_call_counts_preserved(self):
         original=random.sample;resolver=BuffManager._resolve_target_raw
@@ -59,6 +53,15 @@ class AllyRandomReferenceTests(unittest.TestCase):
         effect=fixtures()[0]['effects'][-1]
         for target in ['allies_random_with_debuff:1','allies_random:6','allies_random:-1','allies_broken_cover_random:-1']:
             with self.subTest(target=target),self.assertRaises(ValueError):portable_runtime.validate_effect(dict(effect,target=target),combat={},world_frame=True)
+
+    def test_eighteen_literal_cases_without_packing_or_gpu(self):
+        with patch.object(timeline,'simulate',side_effect=AssertionError('No factory battle')):cases=fixtures()
+        self.assertEqual(len(cases),18);before=copy.deepcopy(cases)
+        with forbid_execution(),patch.object(portable_runtime,'compile_program',side_effect=AssertionError('No packing')),patch.object(detail_gpu,'compile_effects',side_effect=AssertionError('No compiler')):
+            for c in cases:
+                with self.subTest(case=c['name']):self.assertTrue(verify(c,observe(c)[0])['verified'])
+        self.assertEqual(cases,before)
+
 
 
 if __name__=='__main__':unittest.main()

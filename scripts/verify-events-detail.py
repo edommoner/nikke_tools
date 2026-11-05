@@ -1,11 +1,10 @@
+from detail_gpu import EVENT
 """Per-timing descriptors and high event IDs against independent CPU execution."""
 import copy,hashlib,importlib.util,json,math,sys
 from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
-from detail_gpu import run,EVENT
 from detail_coverage import a,body_for
-from gpu_selector import Cuda
 
 def load(name,file):
  spec=importlib.util.spec_from_file_location(name,ROOT/'scripts'/file);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
@@ -54,34 +53,3 @@ def synthetic_squads():
  yield 'full-overlapping-gauge-boundaries',{n[0]:[E('fuel','instant','gauge_charge',6,event='every:1s',gauge_id='fuel',gauge_max=60),e]},8
  e=E('shotgun mixed','buff','atk_pct',10,condition=['self_state:gate'],max_stack=20);e['trigger']['timing']=['pellet_hit_in_shot:5','pellet_hit_in_shot:3']
  yield 'full-shotgun-threshold-order',{'메어리':[E('gate','buff','crit_dmg',0),e,E('close gate','instant','remove_named_buff',0,event='stack_reach:shotgun mixed:1',target_effect='gate'),E('gate end witness','buff','atk_dmg_pct',20,event='event:state_end:gate')]},8
-
-def verify(device,backend='auto',include_real=True):
- cases=[]
- for name,p,script,expected in primitives():
-  bs={n:{'atk':100000+i*10000,'def':1000,'hp':1000000} for i,n in enumerate(NAMES)}
-  cpu,totals=oracle.oracle(p,script,[31784,50],bs);gpu=run(device,[p],script,[[31784,50]],[bs],module_backend=backend);errors=[]
-  for i,(x,y) in enumerate(zip(cpu,gpu['queries'][0])):
-   if x[0]!=expected[i] or y[0]!=expected[i]:errors.append([i,expected[i],x[0],y[0]])
-   for k in (0,6,28,37):
-    if not math.isclose(x[k],y[k],rel_tol=1e-12,abs_tol=1e-8):errors.append([i,k,x[k],y[k]])
-  case={'name':name,'passed':not errors,'errors':errors,'backend':gpu['module_backend']};cases.append(case);print(json.dumps(case),flush=True)
- for name,es,seconds in synthetic_squads():
-  with periodic.custom_effects(es):case=periodic.full.compare(device,name,body_for(NAMES[:-1]+['메어리'] if name=='full-shotgun-threshold-order' else NAMES,seconds,True),module_backend=backend)
-  case['backend']=backend;cases.append(case);print(json.dumps({'name':name,'passed':case['passed'],'cpu':case['cpu_total'],'gpu':case['gpu_total']}),flush=True)
- old=json.loads((ROOT/'research/detail-coverage-named.json').read_text(encoding='utf-8'));new=json.loads((ROOT/'research/detail-coverage-events.json').read_text(encoding='utf-8'));was={r['character'] for r in old['results'] if r['supported']}
- for record in (new['results'] if include_real else []):
-  name=record['character']
-  if record['supported'] and name not in was:
-   squad=[name]+[n for n in ['모더니아','루주','마스트 : 로망틱 메이드','도라','얀'] if n!=name][:4]
-   try:case=periodic.full.compare(device,'real-'+name,body_for(squad,60,True),module_backend=backend)
-   except (Exception,SystemExit) as error:case={'name':name,'passed':False,'error':str(error)}
-   case['backend']=backend;cases.append(case);print(json.dumps({'name':name,'passed':case['passed'],**({'error':case['error']} if 'error' in case else {'cpu':case['cpu_total'],'gpu':case['gpu_total']})},ensure_ascii=True),flush=True)
- return cases
-
-if __name__=='__main__':
- d=Cuda()
- try:cases=verify(d,'native')+verify(d,'ptx')
- finally:d.close()
- sources=['app/detail_gpu.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json','app/engine_worker.py','scripts/verify-events-detail.py']
- r={'generated_at':datetime.now(timezone.utc).isoformat(),'passed':all(c['passed'] for c in cases),'cpu_trace_used_as_gpu_input':False,'scope':'authored notification stimuli, static autonomous squads; incoming damage, down state and boss patterns are not simulated by these high event stimuli','cases':cases,'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sources}}
- (ROOT/'research/detail-events-verification.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if r['passed'] else 1)

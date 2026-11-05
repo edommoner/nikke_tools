@@ -23,6 +23,8 @@ def baseline_source(root, name, source, *, interrupt_projected=False):
 
 
 def project_sources(root, sources=None):
+    from portable_cpu_only_source_contract import reviewed_text as cpu_boundary_text
+    if sources is not None:sources={name:cpu_boundary_text(root,name,text) for name,text in sources.items()}
     from portable_interrupt_aim_source_contract import project_sources as project_interrupt
     root = Path(root); sources, _ = project_interrupt(root, sources)
     for name in ledger(root)['sources']:

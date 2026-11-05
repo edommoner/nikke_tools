@@ -14,10 +14,3 @@ class SquadConditionTests(unittest.TestCase):
    effect=v.r.E('squad predicate','buff','atk_pct',30,condition=['squad_ally_exists'])
    row=compile_effects(chars,[(effect,ref['caster'])])['effects'][0]
    self.assertEqual(row[15:18],[25,0,int(ref['expected'])],ref)
-
- def test_positive_and_negative_whole_squads_match_independent_cpu(self):
-  device=v.Cuda()
-  try:rows=v.verify(device,'native',quick=True)
-  finally:device.close()
-  self.assertEqual(len(rows),32)
-  self.assertTrue(all(r['passed'] for r in rows),[r for r in rows if not r['passed']])

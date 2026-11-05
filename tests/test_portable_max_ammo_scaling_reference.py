@@ -64,10 +64,5 @@ class MaxAmmoScalingReferenceTests(unittest.TestCase):
             portable_runtime.validate_effect(eff,combat=c['combat'],world_frame=True)
             with self.assertRaises(ValueError):portable_runtime.validate_effect(eff,combat=None,world_frame=True)
             with self.assertRaises(ValueError):portable_runtime.validate_effect(eff,combat=c['combat'],world_frame=False)
-    def test_readiness_is_native_evidence_not_gpu_certification(self):
-        from portable_readiness_semantics import reference_readiness
-        issue=dict(phase='effect',kind='buff',stat='charge_dmg_pct',scaling='max_ammo_count',fields=['scaling'],target='self')
-        r=reference_readiness(issue);self.assertEqual(r['recorded_cases'],22);self.assertEqual(r['contract_coverage'],'recorded_subset');self.assertFalse(r['gpu_supported'])
-        self.assertEqual(reference_readiness(dict(issue,target='boss'))['lane'],'reference_review')
 
 if __name__=='__main__':unittest.main()

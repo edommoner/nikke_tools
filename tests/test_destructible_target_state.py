@@ -39,7 +39,9 @@ class StateTests(unittest.TestCase):
  def test_existing_battle_sources_and_numeric_core_remain_identical(self):
   from portable_backend import source_hashes
   golden=json.loads((ROOT/'research/portable-world-projectile-chain-short-expected.json').read_text())
-  self.assertEqual(source_hashes('gpu/world_projectile_chain_entry.slang'),golden['source_sha256'])
+  from portable_coordinate_group_source_contract import historical_source_hashes
+  from portable_destructible_frame_source_contract import project_sources
+  self.assertEqual(historical_source_hashes(ROOT,'gpu/world_projectile_chain_entry.slang',project_sources(ROOT),legacy_full_burst=True),golden['source_sha256'])
  def test_saved_GPU_states_reject_identity_quantity_and_selection_corruption(self):
   from portable_backend import source_hashes
   fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-target-core-raw.json').read_text());self.assertEqual(fixture['source_sha256'],source_hashes('gpu/destructible_target_probe.slang'))

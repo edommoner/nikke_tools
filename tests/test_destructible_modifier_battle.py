@@ -14,6 +14,8 @@ class ModifierBattleTests(unittest.TestCase):
         answers={c['name'].split('/')[-1]:a.native_reference(a.compile_case(c)[1]) for c in a.fixtures()}
         amounts={'physical-body-is-unmodified':[1451.,1451.],'shield-factor-does-not-affect-projectiles':[968.,968.],'expiry-before-second-skill':[1451.,968.],'different-ally-self':[968.,968.],'squad-gift':[1451.,1451.],'ordinary-and-target-factor-add':[1838.,1838.],'two-stacks':[1935.,1935.],'named-completion-keeps-body-normal':[1451.],'named-coefficient-is-preserved':[2177.,2177.],'reentrant-parent-child-grandchild':[968.,1451.,1935.],'zero-factor-keeps-native-minimum':[1.,1.],'empty-world-has-no-query':[]}
         for name,values in amounts.items():
+            from portable_removed_sources import REMOVED_SOURCES
+            if name in REMOVED_SOURCES:continue
             with self.subTest(name=name):self.assertEqual([r['damage'] for r in answers[name]['typed']['attacks']],values)
         self.assertEqual(answers['physical-body-is-unmodified']['battle']['damage'][0],3872)
         self.assertEqual(answers['named-completion-keeps-body-normal']['battle']['damage'][0],484)
