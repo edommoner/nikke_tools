@@ -1240,8 +1240,15 @@ class ProductReferenceModels(unittest.TestCase):
         words[1+E['INPUT_WORDS']+E['BASE']+1]=1
         with self.assertRaisesRegex(ValueError,'version and output stride'):
             validate_product_ammo_versions(source,words.tobytes(),E['INPUT_WORDS'],LONG_PLAIN_OUTPUT_WORDS,2)
-        for other in ('gpu/world_enemy_ammo_entry.slang','gpu/product_ammo_fixed_group_battle_entry.slang','gpu/product_ammo_fixed_target_battle_entry.slang'):
-            with self.assertRaises(ValueError):validate_composed_stride(other,E['INPUT_WORDS'],LONG_PLAIN_OUTPUT_WORDS)
+        with self.assertRaises(ValueError):
+            validate_composed_stride('gpu/world_enemy_ammo_entry.slang',E['INPUT_WORDS'],LONG_PLAIN_OUTPUT_WORDS)
+        for other in ('gpu/product_ammo_fixed_group_battle_entry.slang','gpu/product_ammo_fixed_target_battle_entry.slang'):
+            validate_composed_stride(other,E['INPUT_WORDS'],LONG_PLAIN_OUTPUT_WORDS)
+            words[1+E['INPUT_WORDS']+E['BASE']+1]=2
+            validate_product_ammo_versions(other,words.tobytes(),E['INPUT_WORDS'],LONG_PLAIN_OUTPUT_WORDS,2)
+            words[1+E['INPUT_WORDS']+E['BASE']+1]=1
+            with self.assertRaisesRegex(ValueError,'version and output stride'):
+                validate_product_ammo_versions(other,words.tobytes(),E['INPUT_WORDS'],LONG_PLAIN_OUTPUT_WORDS,2)
 
     def test_long_plain_ammo_resource_tail_has_explicit_version_and_complete_decoder(self):
         from portable_original_identity_inventory import selected_profile_bodies

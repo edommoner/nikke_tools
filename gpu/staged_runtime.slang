@@ -51,9 +51,9 @@ bool initializeStaged(inout Runtime s)
         uint at=stagedDefinition(s,row), flag=commands[at];
         if (flag==0) { for (uint i=1;i<8;i++) if(commands[at+i]!=0) return false;continue; }
         Definition d=readDefinition(s.inputBase,row);uint code=commands[at+1],parent=commands[at+7];uint64_t gap=loadNumber(at+2),post=loadNumber(at+4);
-        if(flag!=1 || d.kind!=3 || d.damageFlags!=H_DOT || (d.periodicFlags&3)!=3 || !f64Finite(d.interval) || !f64Less(0,d.interval) || referenceScaleMode(s,row)!=0 || parent==0 || parent>s.count || parent==row+1 || commands[at+6]>65) return false;
+        if(flag!=1 || d.kind!=3 || (d.damageFlags&~524288U)!=H_DOT || (d.periodicFlags&3)!=3 || !f64Finite(d.interval) || !f64Less(0,d.interval) || referenceScaleMode(s,row)!=0 || parent==0 || parent>s.count || parent==row+1 || commands[at+6]>65) return false;
         Definition p=readDefinition(s.inputBase,parent-1);
-        if(p.kind!=3 || !f64Zero(p.interval) || p.owner!=d.owner || (p.damageFlags & ~(H_BURST|H_ARMOR|H_SEQUENTIAL|H_SPLIT|H_AOE_BURST|H_SINGLE_BURST))!=0) return false;
+        if(p.kind!=3 || !f64Zero(p.interval) || p.owner!=d.owner || (p.damageFlags & ~(H_BURST|H_ARMOR|H_SEQUENTIAL|H_SPLIT|H_AOE_BURST|H_SINGLE_BURST|524288U))!=0) return false;
         if(code>64 && (code<256 || code-256>=s.resourceCount)) return false;
         if(!f64Finite(gap) || f64Less(gap,uint64_t(0x3eb0c6f7)<<32|0xa0b5ed8d) || f64Less(f64FromI64(60),gap) || !f64Finite(post) || f64Less(post,0) || f64Less(f64FromI64(3600),post)) return false;
         if(!f64Finite(d.duration) || (d.maxStack!=0xffffffff && (d.maxStack==0 || d.maxStack>64)) || !(f64Equal(d.duration,ONE|F64_SIGN) || f64Less(0,d.duration) && !f64Less(f64FromI64(86400),d.duration))) return false;

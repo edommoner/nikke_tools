@@ -28,6 +28,8 @@ def compile_product(prepared,producer):
     prefixes={'gpu/product_battle_entry.slang':(104400,786432),'gpu/product_fixed_battle_entry.slang':(104400,786432),
         'gpu/product_group_battle_entry.slang':(104408,1048576),'gpu/product_fixed_group_battle_entry.slang':(104408,1048576),
         'gpu/product_coordinate_battle_entry.slang':(115680,2032000),'gpu/product_coordinate_fixed_battle_entry.slang':(115680,2032000)}
+    prefixes.update({'gpu/product_target_battle_entry.slang':(110112,1048576),
+        'gpu/product_fixed_target_battle_entry.slang':(110112,1048576)})
     if source not in prefixes or (iw,ow)!=prefixes[source]:
         raise UnsupportedPortable('Weighted product composition requires a checked plain, actual-shot group or coordinate battle entry')
     indices=[i for i,r in enumerate(prepared['effects']) if r['effect'].get('stat')=='received_dmg_split']
@@ -47,7 +49,7 @@ def compile_product(prepared,producer):
         source_name=next(prepared['effects'][i]['effect']['name'] for i in indices if prepared['effects'][i]['effect']['target']=='all_allies'),
         cover_name=next(prepared['effects'][i]['effect']['name'] for i in indices if prepared['effects'][i]['effect']['target']=='self_cover'),
         cpu_state_or_schedule_supplied=False)
-    return ('gpu/product_'+('coordinate_weighted_' if coordinate else 'weighted_')+('fixed_' if 'fixed_' in source else '')+('group_' if 'group_' in source else '')+'battle_entry.slang',INPUT,OUTPUT,
+    return ('gpu/product_'+('coordinate_weighted_' if coordinate else 'weighted_')+('fixed_' if 'fixed_' in source else '')+('group_' if 'group_' in source else 'target_' if 'target_' in source else '')+'battle_entry.slang',INPUT,OUTPUT,
         list(words)+[0]*(W['BASE']-len(words))+bank,meta)
 
 def read_result(block,metadata,names,duration):

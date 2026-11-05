@@ -349,7 +349,8 @@ def decode_payload(body, prepared, run, metadata, block):
             models.append(model)
     if metadata.get('product_weighted_incoming'):
         from portable_product_weighted import read_result
-        model=read_result(block,metadata,names,run.config['duration'])
+        from portable_weighted_battle_wire import OUTPUT as WO
+        model=read_result(block[:WO] if metadata.get('product_ammo_weighted') else block,metadata,names,run.config['duration'])
         if model is not None:
             models.append(model)
     if metadata.get('product_cover_defense'):

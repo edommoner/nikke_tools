@@ -34,6 +34,14 @@ def compile_product(prepared,producer):
     healing=healing_required(prepared)
     check_schema();inner=dict(prepared,_product_ammo_compiled=True,_product_healing_compiled=True);inner.pop('reference_models',None)
     with compiler_policy(),healing_policy():source,iw,ow,words,meta=producer(inner)
+    weighted=source in ('gpu/product_weighted_battle_entry.slang','gpu/product_weighted_fixed_battle_entry.slang')
+    if weighted:
+        from portable_weighted_battle_wire import INPUT as WI,OUTPUT as WO,LAYOUT as W
+        if (iw,ow)!=(WI,WO) or not meta['product_weighted_incoming']['unspecified_quantities'] or healing or self_destruct or prepared.get('_product_cover_compiled'):
+            raise UnsupportedPortable('Ammo/weighted composition requires the checked unspecified weighted prefix')
+        if any(words[104400:W['BASE']]):raise ValueError('Unowned weighted/ammo prefix is nonzero')
+        weighted_bank=list(words[W['BASE']:]);words=list(words[:104400])
+        source=source.replace('product_weighted_','product_',1);iw,ow=104400,786432
     grouped=source in ('gpu/product_group_battle_entry.slang','gpu/product_fixed_group_battle_entry.slang','gpu/product_add_group_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang','gpu/product_group_target_battle_entry.slang','gpu/product_fixed_group_target_battle_entry.slang','gpu/product_add_group_target_battle_entry.slang','gpu/product_add_fixed_group_target_battle_entry.slang')
     plain_prefixes={'gpu/product_battle_entry.slang':(104400,786432),'gpu/product_fixed_battle_entry.slang':(104400,786432),
         'gpu/product_group_battle_entry.slang':(104408,1048576),'gpu/product_fixed_group_battle_entry.slang':(104408,1048576),
@@ -74,8 +82,9 @@ def compile_product(prepared,producer):
     fixed='fixed_' in source
     targeted=source in ('gpu/product_target_battle_entry.slang','gpu/product_fixed_target_battle_entry.slang','gpu/product_add_target_battle_entry.slang','gpu/product_add_fixed_target_battle_entry.slang')
     stem=('fixed_' if fixed else '')+('group_' if grouped else 'target_' if targeted else '')
-    # Version 2 owns a longer resource-only tail. Combined layouts retain v1.
-    long_plain=prepared['policies']['config']['duration']>30. and not grouped and not targeted and not healing and not self_destruct and not prepared.get('_product_cover_compiled')
+    # Versions 2/3 own a resource-only tail, including target/group prefixes.
+    # Healing, retirement and cover retain their existing v1 output owners.
+    long_plain=not weighted and prepared['policies']['config']['duration']>30. and not healing and not self_destruct and not prepared.get('_product_cover_compiled')
     if long_plain:bank[1]=2
     output_words=LONG_PLAIN_OUTPUT_WORDS if long_plain else E['OUTPUT_WORDS']
     if long_plain:
@@ -84,6 +93,14 @@ def compile_product(prepared,producer):
         if output_words==SUPPLY_OUTPUT_WORDS:bank[1]=3
         meta['product_enemy_ammo']['notification_supply_bound']=bound
     meta['product_enemy_ammo']['output_words']=output_words
+    if weighted:
+        from portable_weighted_battle_wire import AMMO_INPUT,AMMO_BASE
+        if len(words)+len(bank)!=AMMO_BASE or len(weighted_bank)!=16:raise ValueError('Ammo/weighted banks overlap')
+        from portable_product_resource_budget import SUPPLY_OUTPUT_WORDS
+        meta['product_ammo_weighted']=True
+        meta['product_enemy_ammo']['output_words']=SUPPLY_OUTPUT_WORDS
+        bank[1]=3
+        return ('gpu/product_ammo_weighted_'+('fixed_' if fixed else '')+'battle_entry.slang',AMMO_INPUT,SUPPLY_OUTPUT_WORDS,words+bank+weighted_bank,meta)
     return ('gpu/product_ammo_'+stem+'battle_entry.slang',E['INPUT_WORDS'],output_words,words+bank,meta)
 
 def read_result(block,meta):
@@ -112,7 +129,12 @@ def read_result(block,meta):
             after=H['OUTPUT_BASE']+H['RECEIPT_BASE']+H['RECEIPTS']*H['RECEIPT_WORDS']
         if any(block[after:]):raise UnsupportedPortable('Unowned enemy magazine combined output is nonzero')
     start=E['OUTPUT_BASE']+E['RESOURCE_BASE']+max(0,count-128)*8
-    if any(block[start:end]):raise UnsupportedPortable('Unused enemy magazine resource history is nonzero')
+    if meta.get('product_ammo_weighted'):
+        from portable_weighted_battle_wire import LAYOUT as W
+        if start>=W['OUTPUT_BASE']:start+=W['OUTPUT']-W['OUTPUT_BASE']
+        nonzero=any(block[start:min(end,W['OUTPUT_BASE'])]) or any(block[max(start,W['OUTPUT']):end])
+    else:nonzero=any(block[start:end])
+    if nonzero:raise UnsupportedPortable('Unused enemy magazine resource history is nonzero')
     if not info['declarations']:
         if any(data[k] for k in ('generations','final','attempts','reloads')) or any(r['targets'] for r in data['charges']):
             raise UnsupportedPortable('Undeclared magazine state appeared in a stationary product world')

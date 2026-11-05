@@ -8,10 +8,17 @@ MAGIC=0x57425431
 SOURCE='gpu/world_weighted_incoming_entry.slang'
 LAYOUT=dict(BASE=115680,WORDS=16,INPUT=115696,OUTPUT_BASE=2032000,OUTPUT=2048912,HEADER=16,DEPTH=32,SCRATCH=16,SCRATCH_WORDS=8,SNAPSHOTS=272,SNAPSHOT_WORDS=48,CAPACITY=128,RECEIPTS=6416,RECEIPT_WORDS=32)
 INPUT=LAYOUT['INPUT'];OUTPUT=LAYOUT['OUTPUT']
-def shader_schema():return '// Generated from portable_weighted_battle_wire; ownership and bounds only.\n'+''.join(f'static const uint WGT_{k}={v}U;\n' for k,v in dict(MAGIC=MAGIC,BODY_ROW=10,COVER_ROW=11,**LAYOUT).items())
+AMMO_INPUT=117648
+AMMO_BASE=117632
+
+def shader_schema():return '// Generated from portable_weighted_battle_wire; ownership and bounds only.\n'+''.join((f'#ifdef PORTABLE_PRODUCT_AMMO_WEIGHTED\nstatic const uint WGT_{k}={AMMO_BASE if k=="BASE" else AMMO_INPUT}U;\n#else\nstatic const uint WGT_{k}={v}U;\n#endif\n' if k in ('BASE','INPUT') else f'static const uint WGT_{k}={v}U;\n') for k,v in dict(MAGIC=MAGIC,BODY_ROW=10,COVER_ROW=11,**LAYOUT).items())
 def check_schema(root=None):
     root=Path(root or Path(__file__).resolve().parents[1])
     if (root/'gpu/weighted_incoming_layout.slang').read_text()!=shader_schema():raise ValueError('Weighted incoming layout drift')
+    from portable_enemy_ammo_wire import LAYOUT as E
+    from portable_product_resource_budget import SUPPLY_OUTPUT_WORDS
+    if AMMO_BASE!=E['INPUT_WORDS'] or AMMO_INPUT!=AMMO_BASE+LAYOUT['WORDS'] or LAYOUT['OUTPUT_BASE']!=E['OUTPUT_WORDS'] or (OUTPUT-LAYOUT['OUTPUT_BASE'])%8 or OUTPUT>SUPPLY_OUTPUT_WORDS:
+        raise ValueError('Ammo/weighted banks overlap or resource continuation is unaligned')
     from portable_dispatch_frames import CAPACITY
     if LAYOUT['DEPTH']!=CAPACITY or LAYOUT['OUTPUT_BASE']+LAYOUT['RECEIPTS']+128*32>OUTPUT:raise ValueError('Weighted bank bounds/depth drift')
 def pack(spec,names,source_rows=None):

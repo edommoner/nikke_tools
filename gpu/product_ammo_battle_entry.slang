@@ -12,16 +12,21 @@
 #include "world_add_attack_battle_layout.slang"
 #include "enemy_ammo_layout.slang"
 #define WORLD_ENEMY_AMMO_RESOURCE_KIND(s,row,d,legacy) (d.kind==11 && worldSkillsEnabled(s) && resourceDefinition(s,row).op==3 && (resourceDefinition(s,row).flags&2)!=0 ? false : (legacy))
-// Version 2 is confined to the plain product resource-only tail.
-#if !defined(PORTABLE_PRODUCT_AMMO_TARGET) && !defined(PORTABLE_PRODUCT_AMMO_GROUP) && !defined(PORTABLE_PRODUCT_COVER_AMMO)
+// Versions 2/3 extend only the resource tail; target/group use the same banks.
+#if !defined(PORTABLE_PRODUCT_COVER_AMMO)
 #define EAM_VERSION_VALID(s,version) ((version)==1 || (((version)==2 || (version)==3) && !productEnemyAmmoHasSelfDestruct(s) && !ENEMY_HEALING_ENABLED(s)))
 #define PRODUCT_AMMO_OUTPUT_WORDS(input) (commands[(input)+EAM_BASE+1]==3 ? 10422672U : commands[(input)+EAM_BASE+1]==2 ? 2064786U : EAM_OUTPUT_WORDS)
 #else
 #define PRODUCT_AMMO_OUTPUT_WORDS(input) EAM_OUTPUT_WORDS
 #endif
-#define RESOURCE_TRACE_CAPACITY ((productEnemyAmmoHasSelfDestruct(s)||ENEMY_HEALING_ENABLED(s)) ? EAM_RESOURCE_CAPACITY : (128U+(PRODUCT_AMMO_OUTPUT_WORDS(s.inputBase)-EAM_OUTPUT_BASE-EAM_RESOURCE_BASE)/8U))
 #define RESOURCE_TRACE_ENABLED(s) true
+#ifdef PORTABLE_PRODUCT_AMMO_WEIGHTED
+#define RESOURCE_TRACE_CAPACITY (128U+(PRODUCT_AMMO_OUTPUT_WORDS(s.inputBase)-EAM_OUTPUT_BASE-EAM_RESOURCE_BASE-(WGT_OUTPUT-WGT_OUTPUT_BASE))/8U)
+#define RESOURCE_TRACE_AT(output,index) ((index)<128U ? (output)+P_RESOURCE_TRACE_BASE+(index)*8U : (output)+EAM_OUTPUT_BASE+EAM_RESOURCE_BASE+((index)-128U)*8U+((EAM_OUTPUT_BASE+EAM_RESOURCE_BASE+((index)-128U)*8U)>=WGT_OUTPUT_BASE ? (WGT_OUTPUT-WGT_OUTPUT_BASE) : 0U))
+#else
+#define RESOURCE_TRACE_CAPACITY ((productEnemyAmmoHasSelfDestruct(s)||ENEMY_HEALING_ENABLED(s)) ? EAM_RESOURCE_CAPACITY : (128U+(PRODUCT_AMMO_OUTPUT_WORDS(s.inputBase)-EAM_OUTPUT_BASE-EAM_RESOURCE_BASE)/8U))
 #define RESOURCE_TRACE_AT(output,index) ((index)<128U ? (output)+P_RESOURCE_TRACE_BASE+(index)*8U : (output)+EAM_OUTPUT_BASE+EAM_RESOURCE_BASE+((index)-128U)*8U)
+#endif
 #define portableEvents unusedProductAmmoBaseEntry
 #ifdef PORTABLE_PRODUCT_AMMO_TARGET
 #include "product_target_battle_entry.slang"

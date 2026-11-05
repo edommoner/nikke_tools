@@ -33,6 +33,8 @@ def compile_product(prepared,producer):
     from portable_product_fixed import lower as lower_fixed,attach as attach_fixed
     inner,fixed_values=lower_fixed(inner)
     with compiler_policy():source,iw,ow,words,meta=producer(inner)
+    ordinary_lock=source.startswith("gpu/product_ordinary_lock_")
+    if ordinary_lock:source=source.replace("product_ordinary_lock_","product_",1)
     prefixes={
         '':(104400,786432), 'group':(104408,1048576),
         'target':(110112,1048576), 'group-target':(104672,1048576),
@@ -137,7 +139,7 @@ def compile_product(prepared,producer):
         if len(words)!=LOCK_INPUT:raise ValueError('Complete Lock On prefix required before cover bank')
         return ('gpu/product_lock_cover_'+('fixed_' if fixed_values is not None else '')+'battle_entry.slang',LOCK_INPUT+C['WORDS'],OUTPUT,list(words)+bank,meta)
     stem=('fixed_' if fixed_values is not None else '')+(kind.replace('-','_')+'_' if kind else '')
-    return ('gpu/product_cover_'+stem+'battle_entry.slang',INPUT,OUTPUT,
+    return ('gpu/product_'+('ordinary_lock_' if ordinary_lock else '')+'cover_'+stem+'battle_entry.slang',INPUT,OUTPUT,
         list(words)+[0]*(C['BASE']-len(words))+bank,meta)
 
 def read_result(block,metadata,names,duration,*,out=C['OUTPUT_BASE'],output=OUTPUT):

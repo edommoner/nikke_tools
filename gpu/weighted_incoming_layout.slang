@@ -2,9 +2,17 @@
 static const uint WGT_MAGIC=1463964721U;
 static const uint WGT_BODY_ROW=10U;
 static const uint WGT_COVER_ROW=11U;
+#ifdef PORTABLE_PRODUCT_AMMO_WEIGHTED
+static const uint WGT_BASE=117632U;
+#else
 static const uint WGT_BASE=115680U;
+#endif
 static const uint WGT_WORDS=16U;
+#ifdef PORTABLE_PRODUCT_AMMO_WEIGHTED
+static const uint WGT_INPUT=117648U;
+#else
 static const uint WGT_INPUT=115696U;
+#endif
 static const uint WGT_OUTPUT_BASE=2032000U;
 static const uint WGT_OUTPUT=2048912U;
 static const uint WGT_HEADER=16U;

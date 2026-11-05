@@ -41,6 +41,16 @@ def build(source,entry,*,target=None):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source in ('gpu/product_weighted_target_battle_entry.slang','gpu/product_weighted_fixed_target_battle_entry.slang'):
+        return validate_composed_stride('gpu/product_weighted_battle_entry.slang',input_words,output_words)
+    if source in ('gpu/product_ammo_weighted_battle_entry.slang','gpu/product_ammo_weighted_fixed_battle_entry.slang'):
+        from portable_weighted_battle_wire import AMMO_INPUT,check_schema
+        from portable_product_resource_budget import SUPPLY_OUTPUT_WORDS
+        check_schema(ROOT)
+        if (input_words,output_words)!=(AMMO_INPUT,SUPPLY_OUTPUT_WORDS):raise ValueError('Ammo/weighted requires complete disjoint banks')
+        return
+    from portable_product_s2_entries import ALIASES
+    if source in ALIASES:return validate_composed_stride(ALIASES[source],input_words,output_words)
     if source in ('gpu/product_named_carriers_group_battle_entry.slang','gpu/product_named_carriers_fixed_group_battle_entry.slang'):
         return validate_composed_stride(source.replace('product_named_carriers_','product_',1),input_words,output_words)
     if source in ('gpu/product_ordinary_lock_battle_entry.slang','gpu/product_ordinary_lock_fixed_battle_entry.slang'):
@@ -177,7 +187,7 @@ def validate_composed_stride(source,input_words,output_words):
         from portable_product_ammo import LONG_PLAIN_OUTPUT_WORDS
         from portable_product_resource_budget import SUPPLY_OUTPUT_WORDS
         allowed={LAYOUT['OUTPUT_WORDS']}
-        if source in ('gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang'):allowed.update((LONG_PLAIN_OUTPUT_WORDS,SUPPLY_OUTPUT_WORDS))
+        if source.startswith('gpu/product_ammo_'):allowed.update((LONG_PLAIN_OUTPUT_WORDS,SUPPLY_OUTPUT_WORDS))
         if input_words!=LAYOUT['INPUT_WORDS'] or output_words not in allowed:raise ValueError('Enemy ammo requires complete actor and resource banks')
         return
     if source=='gpu/world_add_self_destruct_entry.slang':
@@ -327,7 +337,14 @@ def validate_composed_stride(source,input_words,output_words):
 
 def validate_product_ammo_versions(source,packed,input_words,output_words,count):
     """A physical dispatch has one explicitly owned resource output stride."""
-    if source not in ('gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang'):return
+    from portable_product_s2_entries import ALIASES
+    source=ALIASES.get(source,source)
+    if source in ('gpu/product_ammo_weighted_battle_entry.slang','gpu/product_ammo_weighted_fixed_battle_entry.slang'):
+        from portable_enemy_ammo_wire import LAYOUT as E
+        for i in range(count):
+            if struct.unpack_from('<I',packed,4*(1+i*input_words+E['BASE']+1))[0]!=3:raise ValueError('Ammo/weighted requires its v3 resource tail')
+        return
+    if source not in tuple('gpu/product_ammo_'+stem+'battle_entry.slang' for stem in ('','fixed_','group_','fixed_group_','target_','fixed_target_')):return
     from portable_enemy_ammo_wire import LAYOUT as E
     from portable_product_ammo import LONG_PLAIN_OUTPUT_WORDS
     from portable_product_resource_budget import SUPPLY_OUTPUT_WORDS

@@ -39,7 +39,9 @@ def compile_product(prepared):
             coefficient(e,names[row['owner']]);e['target']='boss';projectiles.append(i)
     if not markers:raise ValueError('Original ordinary Lock On marker required')
     source,iw,ow,words,meta=producer(lowered)
-    if source not in SOURCES or (iw,ow)!=(104400,786432):
+    from portable_product_s2_entries import ORDINARY,checked_wrapper
+    sources={**SOURCES,**ORDINARY}
+    if source not in sources or not checked_wrapper(source,iw,ow):
         raise UnsupportedPortable('Ordinary lock markers require their checked BODY/ADD product composition')
     if set(meta['binding_source_indices'])!=set(range(len(prepared['effects']))):
         raise UnsupportedPortable('Complete ordinary original definitions required')
@@ -49,7 +51,7 @@ def compile_product(prepared):
             raise ValueError('Ordinary enemy marker must retain generic enemy-state ownership')
     for i in projectiles:
         row=meta['binding_source_indices'].index(i);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
-        if words[at+F['KIND']]!=3 or words[at+F['DAMAGE_FLAGS']] not in (0,524288):
+        if words[at+F['KIND']]!=3 or words[at+F['DAMAGE_FLAGS']] & ~(524288|131072):
             raise UnsupportedPortable('Plain upstream projectile early-return row required')
         words[at+F['DAMAGE_FLAGS']] |= PROJECTILE_RETURN
     affected=markers+inert+projectiles
@@ -57,4 +59,4 @@ def compile_product(prepared):
         original_definitions={i:copy.deepcopy(prepared['effects'][i]) for i in affected},
         declared_lock_model_inferred=False,cpu_state_or_schedule_supplied=False,
         selection='upstream-aimed-live-ADD-then-spawn-order; BODY fallback')
-    return SOURCES[source],iw,ow,words,meta
+    return sources[source],iw,ow,words,meta
