@@ -43,6 +43,14 @@ def _selector(target, skills, stat):
             return 'B', {'kind': 'trait', 'value': TIER_B_TRAITS[stat], 'excl_self': excl}
         return 'C', {'kind': 'all', 'excl_self': excl}
     if target.startswith('allies_'):
+        if stat in TIER_B_TRAITS:
+            # Recipients are picked at runtime (top ATK, lowest DEF, right neighbour...), but
+            # the stat still only helps characters with the trait: keep it as tier B and
+            # remember the runtime rule so the UI can say the target is conditional.
+            selector = {'kind': 'trait', 'value': TIER_B_TRAITS[stat], 'rule': rule}
+            if excl:
+                selector['excl_self'] = True
+            return 'B', selector
         selector = {'kind': 'dynamic', 'rule': rule}
         if excl:
             selector['excl_self'] = True

@@ -50,6 +50,13 @@ class SynergyProfileTests(unittest.TestCase):
             {'kind': 'dynamic', 'rule': 'allies_random_excl_self', 'excl_self': True}])
         self.assertTrue(all(e['tier'] == 'C' for e in p['provides']))
 
+    def test_dynamic_targets_with_tier_b_stats_keep_the_trait(self):
+        p = build_profiles({'x': [effect('allies_below_def', stat='projectile_explosion_dmg_pct'),
+                                  effect('allies_top_atk_excl:1', stat='charge_dmg_pct')]}, {})['x']['provides']
+        self.assertEqual([(e['tier'], e['selector']) for e in p], [
+            ('B', {'kind': 'trait', 'value': 'explosion', 'rule': 'allies_below_def'}),
+            ('B', {'kind': 'trait', 'value': 'charge', 'rule': 'allies_top_atk_excl'})])
+
     def test_deduplication_and_conditions(self):
         trigger = {'condition': ['squad_ally_exists', 'has_burst1_ally', 'no_burst1_ally',
                                 'has_defender_ally', 'no_defender_ally', 'prob:20'],
