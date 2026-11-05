@@ -20,6 +20,10 @@ void initializeRuntime(inout Runtime s)
     s.bulletHead = 0;
     s.bulletTail = 0;
     s.bulletCount = 0;
+    s.passiveCount = 0;
+    s.periodicCount = 0;
+    s.damageTimerCount = 0;
+    s.otherTimerCount = 0;
     s.carrierCount = 0;
     s.removalCount = 0;
     s.lazyPendingCount = 0;
@@ -133,8 +137,16 @@ void initializeRuntime(inout Runtime s)
         s.recipientBullets[index] = 0;
         s.recipientStacks[index] = 0;
     }
+    [loop] for (uint index = 0; index < (P_CARRIERS+31)/32; index++)
+    {
+        s.stageCarrierMask[index] = 0;
+    }
     [loop] for (uint index = 0; index < P_DEFINITIONS; index++)
     {
+        s.passiveRows[index] = 0;
+        s.periodicRows[index] = 0;
+        s.damageTimerRows[index] = 0;
+        s.otherTimerRows[index] = 0;
         s.multiCarrier[index] = 0;
         s.cacheNewest[index] = 0;
         s.cacheSeen[index] = 0;

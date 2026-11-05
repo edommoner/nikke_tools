@@ -11,6 +11,9 @@ class WeightedSourceContract(unittest.TestCase):
         boss_name='tests/fixtures/portable-product-boss-debuff-source-delta.json'
         boss=json.loads((ROOT/boss_name).read_bytes())
         names={'gpu/attack_group_runtime.slang','gpu/counter_landing_runtime.slang',*ledger['files'],*ledger['added_sources'],*product['files'],*product['added_sources'],*boss['files'],boss_name,'tests/fixtures/portable-weighted-incoming-source-delta.json','tests/fixtures/portable-product-source-delta.json'}
+        speed_name='tests/fixtures/portable-kernel-speed-source-delta.json'
+        speed=json.loads((ROOT/speed_name).read_text())
+        names.update((speed_name,*speed['files']))
         six_name='tests/fixtures/portable-optimizer-six-source-delta.json'
         six=json.loads((ROOT/six_name).read_text())
         names.update((six_name,*six['files']))

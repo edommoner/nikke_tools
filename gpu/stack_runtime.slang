@@ -119,7 +119,7 @@ uint initializeStack(inout Runtime s,uint row,uint target,uint64_t when)
         if(slot==s.carrierCount) { if(slot==P_CARRIERS) { s.error=64;return P_CARRIERS; } s.carrierCount++; }
         s.multiCarrier[definition]=1;
     }
-    resetBulletCarrier(s,slot);discardLazy(s,slot);s.carrierDefinition[slot]=definition;
+    resetBulletCarrier(s,slot);discardLazy(s,slot);assignCarrierDefinition(s,slot,definition);
     s.activeRecipients[slot]=0;storeCarrierOrder(s,slot,0);s.hpSnapshot[slot]=0;
     s.activated[slot]=when;uint64_t duration=stackLiteralDuration(s,definition);
     s.end[slot]=duration==F64_INF ? F64_INF : f64Add(when,duration);

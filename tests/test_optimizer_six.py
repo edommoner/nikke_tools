@@ -66,7 +66,8 @@ class OptimizerSixTests(unittest.TestCase):
 
     def test_exact_source_history_inverse_and_fail_closed_mutation(self):
         data=ledger(ROOT);old=preimages(ROOT)
-        for name,text in old.items():
+        for name in data['files']:
+            text=old[name]
             self.assertEqual(hashlib.sha256(text.encode()).hexdigest(),data['files'][name]['before_sha256'])
             with self.assertRaisesRegex(ValueError,'Unreviewed Unit 6'):historical_bytes(ROOT,name,(ROOT/name).read_bytes()+b' ')
         for name,digest in data['added_sources'].items():self.assertEqual(hashlib.sha256((ROOT/name).read_bytes()).hexdigest(),digest)

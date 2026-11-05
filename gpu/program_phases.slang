@@ -22,7 +22,19 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
     s.coverSync = commands[input+7];
     if (s.coverSync > 1) { results[output] = 64; return; }
     s.carrierCount = s.count;
-    for (uint row = 0; row < s.count; row++) s.carrierDefinition[row] = row;
+    for (uint row = 0; row < s.count; row++)
+    {
+        assignCarrierDefinition(s,row,row);
+        if ((definition_flags(input,row) & 1) != 0) s.passiveRows[s.passiveCount++] = row;
+        if (!f64Zero(definition_period(input,row))) s.periodicRows[s.periodicCount++] = row;
+        // registerTimer requires a nonzero interval; periodic aliases also
+        // validate as damage clocks with a nonzero interval.
+        if (!f64Zero(definition_interval(input,row)))
+        {
+            if (definition_kind(input,row) == 3) s.damageTimerRows[s.damageTimerCount++] = row;
+            else s.otherTimerRows[s.otherTimerCount++] = row;
+        }
+    }
     for (uint i = 0; i < 5; i++)
     {
         s.baseAttack[i] = loadNumber(input+8+2*i);

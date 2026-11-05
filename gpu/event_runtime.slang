@@ -105,6 +105,10 @@ struct Runtime
     uint resourceCount, resourceAmmoObserved, resourceTraceCount, resourceTraceTotal, resourceOutput;
     uint bulletHead, bulletTail, bulletCount, bulletLinked[P_CARRIERS], bulletPrev[P_CARRIERS], bulletNext[P_CARRIERS], bulletInitialized[P_CARRIERS];
     int bulletLeft[P_CARRIERS]; uint recipientBullets[P_CARRIERS*5], recipientStacks[P_CARRIERS*5];
+    // Immutable scan indices; carrier stage membership follows slot reassignment.
+    uint stageCarrierMask[(P_CARRIERS+31)/32];
+    uint passiveCount, periodicCount, damageTimerCount, otherTimerCount;
+    uint passiveRows[P_DEFINITIONS], periodicRows[P_DEFINITIONS], damageTimerRows[P_DEFINITIONS], otherTimerRows[P_DEFINITIONS];
     uint carrierCount, carrierDefinition[P_CARRIERS], multiCarrier[P_DEFINITIONS], removalCount;
     uint lazyPending[P_CARRIERS], lazyLink[P_CARRIERS], lazyPendingCount, lazyMappedPendingCount, lazyEnabled;
     uint cacheCount, cacheCursor, cacheEvaluations, cacheReuses;
@@ -1100,42 +1104,45 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
         for (uint j = 0; j < s.carrierCount; j++)
             if (s.entryOrder[j] > previous && s.entryOrder[j] < next) { next = s.entryOrder[j]; selected = j; }
         if (selected == s.carrierCount) break;
-        previous = next; Definition d = residentDefinition(s,selected);
+        previous = next;
 #else
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
-        uint selected = s.orderedRows[pass]; Definition d = residentDefinition(s,selected);
+        uint selected = s.orderedRows[pass];
 #endif
-        if((s.quantityMask & 256)!=0 && d.stat==S_atk_caster_based_pct) continue;
-        if(d.stat==S_stun) continue; // Presence must not consume a pending rank as a numeric buff.
-        if (d.alliedFlags != 0 || d.kind != 0 || (d.stat >= 64 && d.stat != S_atk_copy) || d.stat == S_infinite_ammo || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
+        uint source = s.carrierDefinition[selected], stat = definition_stat(s.inputBase,source);
+        if (definition_kind(s.inputBase,source) != 0 || (stat >= 64 && stat != S_atk_copy) || stat == S_infinite_ammo) continue;
+        Definition d = residentDefinition(s,selected);
+        if((s.quantityMask & 256)!=0 && stat==S_atk_caster_based_pct) continue;
+        if(stat==S_stun) continue; // Presence must not consume a pending rank as a numeric buff.
+        if (d.alliedFlags != 0 || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
             !WORLD_ENEMY_ATTACK_DAMAGE_MEMBER(s,selected,who,when,queryRecipient(s,selected,who,when))) continue;
         // Native boolean flags ignore their numeric value and stack scaling.
         // Reuse their existing slots in the64-value vector, with no new query.
-        if(d.stat==S_pierce_enabled || d.stat==S_armor_break_enabled)
-        { values[d.stat]=ONE;continue; }
-        uint64_t value = d.stat == S_atk_caster_based_pct ? scalarValue(s,selected,who) : recipientValue(s,selected,who);
+        if(stat==S_pierce_enabled || stat==S_armor_break_enabled)
+        { values[stat]=ONE;continue; }
+        uint64_t value = stat == S_atk_caster_based_pct ? scalarValue(s,selected,who) : recipientValue(s,selected,who);
 #ifdef PORTABLE_MAX_AMMO_SCALING
         if((d.flags&4096U)!=0) value=f64Mul(value,f64FromI64(scaledBuffCapacity(s,who,when)));
 #endif
-        if (d.stat == S_crit_rate || d.stat == S_normal_atk_crit_rate)
+        if (stat == S_crit_rate || stat == S_normal_atk_crit_rate)
         {
             value = f64Div(value,HUNDRED); addSum(rate,value);
-            if (d.stat == S_crit_rate) addSum(skillRate,value);
+            if (stat == S_crit_rate) addSum(skillRate,value);
         }
-        else if (d.stat == S_crit_dmg || d.stat == S_normal_atk_crit_dmg)
-        { addSum(critical,value); if (d.stat == S_crit_dmg) addSum(skillCritical,value); }
-        else if (d.stat == S_atk_copy) values[S_atk_flat] = f64Add(values[S_atk_flat],baseCopyContribution(s,selected,who));
-        else if (d.stat == S_atk_caster_based_pct) values[S_atk_flat] = f64Add(values[S_atk_flat],f64Mul(s.baseAttack[d.owner],f64Div(value,HUNDRED)));
-        else if(d.stat==S_burst_charge_speed_pct)
+        else if (stat == S_crit_dmg || stat == S_normal_atk_crit_dmg)
+        { addSum(critical,value); if (stat == S_crit_dmg) addSum(skillCritical,value); }
+        else if (stat == S_atk_copy) values[S_atk_flat] = f64Add(values[S_atk_flat],baseCopyContribution(s,selected,who));
+        else if (stat == S_atk_caster_based_pct) values[S_atk_flat] = f64Add(values[S_atk_flat],f64Mul(s.baseAttack[d.owner],f64Div(value,HUNDRED)));
+        else if(stat==S_burst_charge_speed_pct)
         {
             uint at=s.inputBase+P_BURST_REFERENCE_BASE+8+d.owner*4;
             uint64_t reference=loadNumber(at);
             if((s.normalLandedMask & (1U<<d.owner))==0)
                 reference=(commands[s.inputBase+P_BURST_REFERENCE_BASE+1] & (1U<<d.owner))!=0 ? loadNumber(at+2) : f64Div(reference,f64FromI64(2));
-            values[d.stat]=f64Add(values[d.stat],f64Div(f64Mul(reference,value),HUNDRED));
+            values[stat]=f64Add(values[stat],f64Div(f64Mul(reference,value),HUNDRED));
         }
-        else values[d.stat] = f64Add(values[d.stat],value);
+        else values[stat] = f64Add(values[stat],value);
     }
     if((s.quantityMask & 256)!=0 && !nativeNumericDiagnostic(s)) collectHPAttack(s,who,when,values[S_atk_flat]);
     if ((s.quantityMask & 1) != 0) values[S_max_ammo_pct] = quantityTotals(s,who,S_max_ammo_pct,when,0,ONE).percent;
@@ -1781,8 +1788,10 @@ void timerPass(inout Runtime s, uint64_t when, bool damagePass, uint output)
 {
     uint rows[P_DEFINITIONS], epochs[P_DEFINITIONS], count = 0;
     // Snapshot registration order AND epoch before any child is run.
-    for (uint j = 0; j < s.count; j++) if (s.timerActive[j] != 0 && (definition_kind(s.inputBase,j) == 3) == damagePass)
+    for (uint index = 0; index < (damagePass ? s.damageTimerCount : s.otherTimerCount); index++)
     {
+        uint j = damagePass ? s.damageTimerRows[index] : s.otherTimerRows[index];
+        if (s.timerActive[j] == 0) continue;
         uint at = count++;
         while (at > 0 && s.timerOrder[j] < s.timerOrder[rows[at-1]])
         { rows[at] = rows[at-1]; epochs[at] = epochs[at-1]; at--; }
@@ -1900,8 +1909,10 @@ void tick(inout Runtime s, uint64_t when, uint output)
     if (s.combat != 0) for (uint who = 0; who < 5 && s.error == 0; who++)
         if (s.modeIndex[who] >= 0 && !f64Less(when,s.modeEnd[who]))
         { uint name = definition_name(s.inputBase,s.modeIndex[who]); clearMode(s,who,when); dispatch(s,0,29,who,int(name),when,output); }
-    for (uint j = 0; j < s.count && s.error == 0; j++)
-        if ((s.downMask & (1U << definition_owner(s.inputBase,j))) == 0 && (definition_flags(s.inputBase,j) & 1) != 0 && activationConditions(s,j,when))
+    for (uint index = 0; index < s.passiveCount && s.error == 0; index++)
+    {
+        uint j = s.passiveRows[index];
+        if ((s.downMask & (1U << definition_owner(s.inputBase,j))) == 0 && activationConditions(s,j,when))
         {
             uint resident = s.carrierCount;
             for (uint pass = 0; pass < s.orderedCount; pass++)
@@ -1909,8 +1920,11 @@ void tick(inout Runtime s, uint64_t when, uint output)
             if (resident == s.carrierCount) dispatch(s,1,28,definition_owner(s.inputBase,j),int(j),when,output);
             else s.end[resident] = larger(s.end[resident],passiveDefinitionExpiry(s,j,when));
         }
-    for (uint j = 0; j < s.count && s.error == 0; j++)
-        if (!f64Zero(definition_period(s.inputBase,j))) for (uint slot = 0; slot < definition_triggerCount(s.inputBase,j) && s.error == 0; slot++)
+    }
+    for (uint index = 0; index < s.periodicCount && s.error == 0; index++)
+    {
+        uint j = s.periodicRows[index];
+        for (uint slot = 0; slot < definition_triggerCount(s.inputBase,j) && s.error == 0; slot++)
         {
             uint at = s.inputBase+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8;
             if (commands[at] != 6) continue;
@@ -1921,6 +1935,7 @@ void tick(inout Runtime s, uint64_t when, uint output)
             if (f64Less(next,when) || f64Equal(when,next))
             { dispatch(s,0,6,definition_owner(s.inputBase,j),int(j),when,output); s.periodDue[j] = f64Add(next,interval); }
         }
+    }
     timerPass(s,when,false,output); syncHealth(s,when); syncCovers(s,when);
     if (s.hpWatchCount != 0) dispatch(s,7,0,0,0,when,output);
 }

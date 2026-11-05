@@ -83,6 +83,7 @@ class CpuFallback(unittest.TestCase):
             changed=(json.dumps(data,indent=2)+'\n').encode()
             with tempfile.TemporaryDirectory() as tmp:
                 target=Path(tmp)/'tests/fixtures';target.mkdir(parents=True);(target/ledger).write_bytes(changed)
+                (target/'portable-kernel-speed-source-delta.json').write_bytes((root/'tests/fixtures/portable-kernel-speed-source-delta.json').read_bytes())
                 digest=h.LEDGER_SHA256 if fault=='digest' else hashlib.sha256(changed).hexdigest()
                 if fault=='digest':(target/ledger).write_bytes(changed+b'\n')
                 with patch.object(h,'LEDGER_SHA256',digest),self.assertRaisesRegex(ValueError,message):h.fallback_preimage(tmp,name,raw)

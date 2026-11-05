@@ -31,11 +31,13 @@ uint chargeFlags(inout Runtime s, uint who, uint64_t when)
     uint flags = 0;
     for (uint i = 0; i < s.orderedCount; i++)
     {
-        uint row = s.orderedRows[i]; Definition d = residentDefinition(s,row);
-        if ((d.quantityFlags & 24) == 0 && !(d.kind == 0 && d.stat == S_charge_time_fixed)) continue;
+        uint row = s.orderedRows[i], source = s.carrierDefinition[row];
+        uint quantityFlags = definition_quantityFlags(s.inputBase,source);
+        bool fixedCharge = definition_kind(s.inputBase,source) == 0 && definition_stat(s.inputBase,source) == S_charge_time_fixed;
+        if ((quantityFlags & 24) == 0 && !fixedCharge) continue;
         if (!queryRecipient(s,row,who,when)) continue;
-        flags |= d.quantityFlags & 24;
-        if (d.kind == 0 && d.stat == S_charge_time_fixed) flags |= 4;
+        flags |= quantityFlags & 24;
+        if (fixedCharge) flags |= 4;
     }
     return flags;
 }
@@ -58,18 +60,20 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
     uint initializedGroups = s.count;
 #endif
     seen.initialize(initializedGroups);
-    for (uint i = 0; i < initializedGroups; i++) { values[i] = 0; flags[i] = 0; }
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
-        uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
-        if (d.kind != 0 || (d.stat != key && !(key == S_charge_speed_pct && d.stat == S_charge_speed_caster_based_pct)) || !queryRecipient(s,row,who,when)) continue;
+        uint row = s.orderedRows[pass], source = s.carrierDefinition[row];
+        uint stat = definition_stat(s.inputBase,source);
+        if (definition_kind(s.inputBase,source) != 0 || (stat != key && !(key == S_charge_speed_pct && stat == S_charge_speed_caster_based_pct))) continue;
+        Definition d = residentDefinition(s,row);
+        if (!queryRecipient(s,row,who,when)) continue;
         // Missing caster metadata is an absent component, not a zero-valued
         // component that may change the first-seen group order.
         if (d.stat == S_charge_speed_caster_based_pct && f64Zero(s.rawCharge[d.owner])) continue;
         uint group = d.group;
 #ifdef PORTABLE_QUANTITY_SCAN_REFERENCE
         if (!seen.insert(group)) continue;
-        order[count++] = group;
+        order[count++] = group; values[group] = 0; flags[group] = 0;
         // Benchmark control: rediscover each group's resident members.
         for (uint member = 0; member < s.orderedCount; member++)
         {
@@ -80,7 +84,7 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
             values[group] = f64Add(values[group],recipientValue(s,other,who)); flags[group] |= candidate.exclusive | (candidate.quantityFlags & 32);
         }
 #else
-        if (seen.insert(group)) { order[count++] = group; }
+        if (seen.insert(group)) { order[count++] = group; values[group] = 0; flags[group] = 0; }
         values[group] = f64Add(values[group],recipientValue(s,row,who)); flags[group] |= d.exclusive | (d.quantityFlags & 32);
 #endif
     }
@@ -114,8 +118,10 @@ uint64_t liveQuantity(inout Runtime s, uint who, uint key, uint64_t when)
     uint64_t result = 0;
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
-        uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
-        if (d.kind == 0 && d.stat == key && queryRecipient(s,row,who,when)) result = f64Add(result,d.queryResolve != 0 && d.alliedFlags == 0 ? recipientValue(s,row,who) : scalarValue(s,row,who));
+        uint row = s.orderedRows[pass], source = s.carrierDefinition[row];
+        if (definition_kind(s.inputBase,source) != 0 || definition_stat(s.inputBase,source) != key) continue;
+        Definition d = residentDefinition(s,row);
+        if (queryRecipient(s,row,who,when)) result = f64Add(result,d.queryResolve != 0 && d.alliedFlags == 0 ? recipientValue(s,row,who) : scalarValue(s,row,who));
     }
     return result;
 }

@@ -186,3 +186,13 @@ bool validUndyingPredicate(uint input,uint row,uint at,uint combat)
     { uint eventAt=input+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8;if(commands[eventAt]==0 && commands[eventAt+6]!=0) return false; }
     return true;
 }
+
+// All carrier-definition writes in execution use this helper, including reuse.
+[ForceInline]
+void assignCarrierDefinition(inout Runtime s,uint slot,uint definition)
+{
+    s.carrierDefinition[slot] = definition;
+    uint word = slot >> 5, bit = 1U << (slot & 31);
+    s.stageCarrierMask[word] = (s.stageCarrierMask[word] & ~bit) |
+        (definition_stageOverride(s.inputBase,definition) != 0 ? bit : 0);
+}

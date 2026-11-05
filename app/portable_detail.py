@@ -776,7 +776,7 @@ def evaluate_many(bodies, *, verification='full'):
         from portable_native import HOST_THREADS
         from portable_throughput import split_threads
         native=[g for g in groups.values() if g[0][2]['backend']=='native' and not g[0][2]['policy'] and not g[0][2]['explicit_image']]
-        budgets=split_threads([len(g) for g in native],HOST_THREADS.get() or os.cpu_count() or 1)
+        budgets=([min(len(g),HOST_THREADS.get()) for g in native] if verification=='deferred' and HOST_THREADS.get() is not None else split_threads([len(g) for g in native],HOST_THREADS.get() or os.cpu_count() or 1))
         def dispatch(group,budget):
             token=HOST_THREADS.set(budget)
             try:return _execute_prepared([p for _,_,p in group])

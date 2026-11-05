@@ -116,9 +116,9 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
   return {one,many,verify,isCached:body=>cache.has(keyOf(cleanBody(body)))&&cache.get(keyOf(cleanBody(body)))?.compute?.cpu_verification?.status!=='pending'};
 }
 
-export function nativeBatchWorkers(cpus=os.cpus().length){return Math.max(1,Math.min(4,Math.floor(cpus/3)));}
+export function nativeBatchWorkers(cpus=os.cpus().length){return Math.max(1,cpus);}
 
-export async function advanceCases(job,evaluator,{nativeBatchSize=32}={}){
+export async function advanceCases(job,evaluator,{nativeBatchSize=16}={}){
   if(![16,32].includes(nativeBatchSize))throw Error('Invalid native candidate batch size');
   while(job.index<job.cases.length&&job.status==='running'){
     let items,rows,continuation;
@@ -147,12 +147,12 @@ export async function advanceCases(job,evaluator,{nativeBatchSize=32}={}){
         for(let i=0;i<items.length;i+=cap)batches.push(items.slice(i,i+cap));
         // All in-flight batches settle before pause; Promise.all preserves order.
         // Contain failures until siblings have settled, including cancellation.
-        const settled=await Promise.allSettled(batches.map((batch,i)=>evaluator.many(batch.map(item=>item.evaluation),job,{deferFallbacks:true,hostThreads:Math.floor(cpus/batches.length)+(i<cpus%batches.length?1:0)})));
+        const settled=await Promise.allSettled(batches.map(batch=>evaluator.many(batch.map(item=>item.evaluation),job,{deferFallbacks:true,hostThreads:Math.min(batch.length,cpus)})));
         const failure=settled.find(row=>row.status==='rejected');
         if(failure){await Promise.all(settled.filter(row=>row.status==='fulfilled').flatMap(row=>row.value).map(row=>row?.completion||row));if(job.status==='cancelled')break;throw failure.reason;}
         rows=settled.flatMap(row=>row.value);
         // Native workers are free now; pending CPU rows must not stall the next
-        // native wave. Keep the existing wave width and host-thread shares.
+        // native wave. Keep the existing wave width and per-host thread bounds.
         const startIndex=job.index;
         if(rows.some(row=>row?.completion))continuation=(async()=>{
           while(!job.pauseRequested&&job.status==='running'){
@@ -163,7 +163,7 @@ export async function advanceCases(job,evaluator,{nativeBatchSize=32}={}){
             const extra=job.cases.slice(offset,offset+next),groups=[];
             const extraInputs=JSON.stringify(extra.map(item=>item.evaluation));
             for(let i=0;i<extra.length;i+=cap)groups.push(extra.slice(i,i+cap));
-            const more=await Promise.allSettled(groups.map((batch,i)=>evaluator.many(batch.map(item=>item.evaluation),job,{deferFallbacks:true,hostThreads:Math.floor(cpus/groups.length)+(i<cpus%groups.length?1:0)})));
+            const more=await Promise.allSettled(groups.map(batch=>evaluator.many(batch.map(item=>item.evaluation),job,{deferFallbacks:true,hostThreads:Math.min(batch.length,cpus)})));
             const failure=more.find(row=>row.status==='rejected');
             if(failure){await Promise.all([...rows,...more.filter(row=>row.status==='fulfilled').flatMap(row=>row.value)].map(row=>row?.completion||row));if(job.status==='cancelled')break;throw failure.reason;}
             if(JSON.stringify(extra.map(item=>item.evaluation))!==extraInputs)throw Error('計算中に候補が変更されました。');

@@ -252,3 +252,7 @@ AUDIT_FILES['test_original_enemy_stack.py']=tuple(AUDIT_FILES.get('test_original
 for _test in (*_REFERENCE_HISTORY_TESTS,'test_portable_native.py','test_portable_metal_deadlines.py','test_optimizer_six.py'):
     AUDIT_FILES[_test]=tuple(AUDIT_FILES.get(_test,()))+('tests/fixtures/portable-optimizer-six-source-delta.json',)
 AUDIT_FILES['test_optimizer_six.py']+=('tests/fixtures/optimizer-six-v1.json',)
+
+# Unit 7 exact inverse, composed before all older source layers.
+for _test in (*_REFERENCE_HISTORY_TESTS,'test_portable_native.py','test_portable_metal_deadlines.py','test_optimizer_six.py','test_kernel_speed_history.py','test_optimizer_throughput.py','test_optimizer_fallback.py','test_optimizer_verification.py','test_portable_wasm.py'):
+    AUDIT_FILES[_test]=tuple(AUDIT_FILES.get(_test,()))+('tests/fixtures/portable-kernel-speed-source-delta.json',)

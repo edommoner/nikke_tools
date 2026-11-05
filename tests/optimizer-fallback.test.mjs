@@ -22,7 +22,7 @@ test('fallbacks start before later native waves and complete out of order with o
    return request.evaluations.map(b=>b.id===0||b.id===33?pending(b.id):{result:cpu(b.id)});
   }});
   const p=advanceCases(j,e);await tick();
-  assert.deepEqual(native,[0,32,64]);assert.equal(waits.size,2);assert.equal(j.index,0);
+  assert.deepEqual(native,[0,16,32,48,64]);assert.equal(waits.size,2);assert.equal(j.index,0);
   assert.equal(cache.has(JSON.stringify(body(0))),false);
   waits.get(33).resolve();await tick();assert.equal(j.index,0);
   waits.get(0).resolve();await p;
@@ -85,7 +85,7 @@ test('unscoped marker fails without CPU launch or caching',async()=>{
 });
 
 test('contiguous completed prefix publishes while following native batches are still running',async()=>{
- const original=os.cpus;os.cpus=()=>Array(3).fill({});
+ const original=os.cpus;os.cpus=()=>Array(1).fill({});
  try{
   const j=job(65),fallback=deferred(),native=deferred();let calls=0;
   const e=createEvaluator({keyOf:JSON.stringify,worker:async request=>{
@@ -94,9 +94,9 @@ test('contiguous completed prefix publishes while following native batches are s
    return request.evaluations.map(b=>b.id===1?pending(1):{result:cpu(b.id)});
   }});
   const p=advanceCases(j,e);await tick();assert.equal(calls,2);assert.equal(j.index,1);
-  fallback.resolve();await tick();assert.equal(j.index,32);
+  fallback.resolve();await tick();assert.equal(j.index,16);
   j.pauseRequested=true;native.resolve();await p;
-  assert.equal(calls,2);assert.equal(j.index,33);assert.equal(j.pendingGpuResults.rows.length,31);
-  j.status='running';j.pauseRequested=false;await advanceCases(j,e);assert.equal(j.index,65);assert.equal(calls,3);
+  assert.equal(calls,2);assert.equal(j.index,17);assert.equal(j.pendingGpuResults.rows.length,15);
+  j.status='running';j.pauseRequested=false;await advanceCases(j,e);assert.equal(j.index,65);assert.equal(calls,5);
  }finally{os.cpus=original;}
 });

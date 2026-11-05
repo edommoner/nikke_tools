@@ -90,6 +90,21 @@ class GroupScheduling(unittest.TestCase):
             else:self.assertEqual(row['result'],dict(id=i,outcome='ok'))
         self.assertIsNone(HOST_THREADS.get())
 
+    def test_optimize_groups_each_receive_full_bounded_host_budget(self):
+        seen=[]
+        def evaluation(body,**kw):
+            outcome=yield dict(source=str(body['group']),input_words=1,output_words=1,backend='native',policy={},explicit_image=False,folder=Path('/tmp')/str(body['id']))
+            return dict(id=body['id'])
+        def execute(plans):
+            seen.append((len(plans),HOST_THREADS.get()));return ['ok']*len(plans)
+        token=HOST_THREADS.set(6)
+        try:
+            with patch.object(detail,'_evaluation',side_effect=evaluation),patch.object(detail,'_execute_prepared',side_effect=execute):
+                rows=detail.evaluate_many([dict(id=i,group=i%2,compute_backend='native_detail') for i in range(16)],verification='deferred')
+            self.assertEqual(sorted(seen),[(8,6),(8,6)]);self.assertEqual([r['result']['id'] for r in rows],list(range(16)))
+            self.assertEqual(HOST_THREADS.get(),6)
+        finally:HOST_THREADS.reset(token)
+
 class ThroughputHistory(unittest.TestCase):
     def test_exact_inverse_and_mutations(self):
         import portable_optimizer_throughput_source_contract as h

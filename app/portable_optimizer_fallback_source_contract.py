@@ -8,6 +8,8 @@ AFTER_SHA256={'app/portable_detail.py': '2f5ac5374a8bc98d1db641ba3b8669649761720
 
 
 def fallback_preimage(root,name,raw):
+    from portable_kernel_speed_source_contract import reviewed_bytes as speed_reviewed_bytes
+    raw=speed_reviewed_bytes(root,name,raw)
     ledger=(Path(root)/'tests/fixtures/portable-optimizer-fallback-source-delta.json').read_bytes()
     if hashlib.sha256(ledger).hexdigest()!=LEDGER_SHA256:raise ValueError('Optimizer fallback source ledger changed')
     data=json.loads(ledger)
@@ -27,5 +29,7 @@ def fallback_preimage(root,name,raw):
 
 
 def reviewed_bytes(root,name,raw):
+    from portable_kernel_speed_source_contract import reviewed_bytes as speed_reviewed_bytes
+    raw=speed_reviewed_bytes(root,name,raw)
     if name in AFTER_SHA256 and hashlib.sha256(raw).hexdigest()==AFTER_SHA256[name]:return fallback_preimage(root,name,raw)
     return raw

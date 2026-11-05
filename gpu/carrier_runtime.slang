@@ -49,9 +49,9 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
     if (s.alive[definition] == 0 && s.lazyPending[definition] == 0) return definition;
     for (uint slot = s.count; slot < s.carrierCount; slot++)
         if (s.alive[slot] == 0 && s.lazyPending[slot] == 0)
-        { resetBulletCarrier(s,slot); discardLazy(s,slot); s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot; }
+        { resetBulletCarrier(s,slot); discardLazy(s,slot); assignCarrierDefinition(s,slot,definition); s.multiCarrier[definition] = 1; return slot; }
     if (s.carrierCount == P_CARRIERS) { s.error = 64; return definition; }
-    uint slot = carrierCountBeforeAllocate(s); s.carrierCount = slot+1; s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot;
+    uint slot = carrierCountBeforeAllocate(s); s.carrierCount = slot+1; assignCarrierDefinition(s,slot,definition); s.multiCarrier[definition] = 1; return slot;
 }
 
 // One GPU-owned LIFO reservation pool for end/stack notices. Compact metadata

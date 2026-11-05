@@ -196,9 +196,18 @@ void enterStage(inout Runtime s, uint stage, uint64_t when, uint output)
 uint effectiveStage(inout Runtime s, uint who, uint64_t when, out uint candidate)
 {
     uint stage = s.stage[who], order = 0;bool overridden=false;
-    for (uint row = 0; row < s.carrierCount; row++)
-        if (residentDefinition(s,row).owner == who && residentDefinition(s,row).stageOverride != 0 && s.alive[row] != 0 && f64Less(when,s.end[row]) && basicConditions(s,row,when,true) && s.entryOrder[row] >= order)
-        { order = s.entryOrder[row]; stage = residentDefinition(s,row).stageOverride;overridden=true; }
+    for (uint word = 0; word < (s.carrierCount+31)/32; word++)
+    {
+        uint bits = s.stageCarrierMask[word];
+        while (bits != 0)
+        {
+            uint bit = firstbitlow(bits), row = word*32+bit; bits &= bits-1;
+            Definition d = residentDefinition(s,row);
+            uint overrideStage = d.stageOverride;
+            if (d.owner == who && s.alive[row] != 0 && f64Less(when,s.end[row]) && basicConditions(s,row,when,true) && s.entryOrder[row] >= order)
+            { order = s.entryOrder[row]; stage = overrideStage; overridden = true; }
+        }
+    }
     uint automaticStage=commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3]>>8&3U;
     candidate=!overridden && stage==4 && automaticStage!=0 ? automaticStage : stage;
     return stage;

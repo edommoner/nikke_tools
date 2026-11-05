@@ -141,16 +141,20 @@ void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient
     if ((flags & H_EXPLOSION) != 0) f5 = f64Add(f5,f64Div(b[S_projectile_explosion_dmg_pct],HUNDRED));
     if ((flags & H_ATTACHMENT) != 0) f5 = f64Add(f5,f64Div(b[S_projectile_attachment_dmg_pct],HUNDRED));
     if ((flags & H_SEQUENTIAL) != 0) f5 = f64Add(f5,f64Div(b[S_sequential_dmg_pct],HUNDRED));
-    interceptFactor=f64Add(f5,f64Div(b[S_intercept_dmg_pct],HUNDRED));
-    factors[8] = f64Add(f5,f64Div(b[S_part_dmg_pct],HUNDRED));
-    if ((flags & H_PART) != 0) f5 = f64Add(f5,f64Div(b[S_part_dmg_pct],HUNDRED));
-    if ((flags & H_INTERCEPT) != 0) f5 = f64Add(f5,f64Div(b[S_intercept_dmg_pct],HUNDRED));
+    // b and HUNDRED are unchanged for the rest of this function. Reuse
+    // exact operand pairs, retaining the original order of rounded additions.
+    uint64_t interceptPercent = f64Div(b[S_intercept_dmg_pct],HUNDRED);
+    uint64_t partPercent = f64Div(b[S_part_dmg_pct],HUNDRED);
+    interceptFactor=f64Add(f5,interceptPercent);
+    factors[8] = f64Add(f5,partPercent);
+    if ((flags & H_PART) != 0) f5 = factors[8];
+    if ((flags & H_INTERCEPT) != 0) f5 = f64Add(f5,interceptPercent);
     // Native _stage_pellet direct targets have no core and one target factor.
     // Piercing/explosive shots need distinct body and target packets instead.
     if((flags&(H_PIERCE|H_EXPLOSION))==0)
     {
-        if(aimedKind==1 && (flags&H_PART)==0) f5=f64Add(f5,f64Div(b[S_part_dmg_pct],HUNDRED));
-        if(aimedKind==6 && (flags&H_INTERCEPT)==0) f5=f64Add(f5,f64Div(b[S_intercept_dmg_pct],HUNDRED));
+        if(aimedKind==1 && (flags&H_PART)==0) f5=f64Add(f5,partPercent);
+        if(aimedKind==6 && (flags&H_INTERCEPT)==0) f5=f64Add(f5,interceptPercent);
     }
     uint64_t f6 = f64Add(ONE,f64Div(b[S_received_dmg_pct],HUNDRED));
     if ((flags & H_SPLIT) != 0) f6 = f64Add(f6,f64Div(b[S_split_dmg_pct],HUNDRED));
