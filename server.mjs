@@ -73,11 +73,11 @@ export function sharedCudaConfigured(platform=process.platform,env=process.env) 
   return directory(env.NIKKE_CUDA_COMPILE_CACHE);
 }
 export function workerTimeoutSeconds(body) {
-  if(body.action==='verify_portable_detail')return 120;
+  if(['verify_portable_detail','cpu_fallback_portable_detail'].includes(body.action))return 120;
   if(body.action==='evaluate_portable_detail_batch'&&body.evaluations?.[0]?.compute_backend==='cuda_shared_detail')return 120;
   // Each detail case may have its own kernel: 2*90s generation + 300s
   // compilation + 600s GPU + 30s overhead. Compatible cases share this budget.
-  if(['evaluate_portable_detail_batch','prepare_browser_wires','finish_browser','verify_portable_detail'].includes(body.action))return 1110*Math.min(8,Math.max(1,body.evaluations?.length||1));
+  if(['evaluate_portable_detail_batch','prepare_browser_wires','finish_browser','verify_portable_detail','cpu_fallback_portable_detail'].includes(body.action))return 1110*Math.min(8,Math.max(1,body.evaluations?.length||1));
   // Search uses the same transport, capped at 4800s per command.
   // Selection expands once per team (one or five); prefilter dispatches once.
   if(body.backend==='metal'&&['combat_prefilter','select'].includes(body.action))return 5310*(body.action==='select'&&body.teamCount!==1?5:1);
@@ -89,7 +89,7 @@ function worker(body, job) {
   if(body.backend==='metal'&&['combat_prefilter','select'].includes(body.action)||body.action==='metal_search_probe')return metalSearchWorker(body,job);
   if(body.action==='gpu_probe'||body.action==='evaluate_detail'||body.action==='evaluate_detail_batch'||body.action==='combat_prefilter'||body.action==='select'&&body.backend==='cuda')return gpuWorker(body,job);
   return new Promise((resolve,reject) => {
-    const script=['evaluate_portable_detail_batch','prepare_browser_wires','finish_browser','verify_portable_detail'].includes(body.action)?'app/portable_detail_service.py':'app/engine_worker.py';
+    const script=['evaluate_portable_detail_batch','prepare_browser_wires','finish_browser','verify_portable_detail','cpu_fallback_portable_detail'].includes(body.action)?'app/portable_detail_service.py':'app/engine_worker.py';
     const nativeGroup=body.action==='evaluate_portable_detail_batch'&&body.evaluations?.[0]?.compute_backend==='native_detail'&&process.platform!=='win32';
     const child = workerTextStreams(spawn(python, [path.join(root,script)], {cwd:root, detached:nativeGroup, windowsHide:true, env:{...process.env,PYTHONIOENCODING:'utf-8',PYTHONUTF8:'1'}}));
     ownNativeProcessGroup(child,nativeGroup);

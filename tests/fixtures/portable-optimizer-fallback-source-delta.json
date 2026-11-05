@@ -1,0 +1,31 @@
+{
+  "schema": "optimizer-fallback-source-history-v1",
+  "normalizer_changed": false,
+  "current_gpu_equivalence_claim": false,
+  "files": {
+    "app/portable_detail.py": {
+      "before_sha256": "abd7414865de63ffb0c7a32db1193cfddc27456c187296f12bfdba86295d9841",
+      "after_sha256": "2f5ac5374a8bc98d1db641ba3b8669649761720bf4e10ba27f86de40b48c102c",
+      "hunks": [
+        {
+          "start": 36761,
+          "end": 37156,
+          "before": "",
+          "after": "not None:\n        if requested == 'native_detail' and verification == 'deferred':\n            marker=dict(stage=stage,reason=unsupported['reason'],unsupported=[unsupported],capture_id=folder.name)\n            record['cpu_fallback_pending']=marker\n            save();return dict(cpu_fallback_pending=marker)\n        return _cpu_fallback(body,folder,record,started=started)\n\n    if unsupported is "
+        },
+        {
+          "start": 38357,
+          "end": 38357,
+          "before": "if unsupported is not None:\n        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='\u5171\u901aGPU\u306e\u672a\u5bfe\u5fdc\u6761\u4ef6\u307e\u305f\u306f\u5b9f\u884c\u30a8\u30e9\u30fc\u306e\u305f\u3081\u3001CPU\u3067\u8a08\u7b97\u3057\u307e\u3057\u305f\u3002',unsupported=[unsupported],fallback_stage=stage,gpu_execution_verified=record['gpu_execution_verified'],**historical_status)\n        return cpu\n    ",
+          "after": ""
+        },
+        {
+          "start": 39319,
+          "end": 41958,
+          "before": "",
+          "after": "s\n\n\ndef _cpu_fallback(body,folder,record,*,started=None):\n    \"\"\"Authoritative fallback construction shared by inline and fresh services.\"\"\"\n    if started is None:started=time.perf_counter()\n    try:\n        cpu=engine_worker.evaluate(body)\n    except Exception as error:\n        record['elapsed_seconds']=time.perf_counter()-started\n        record['cpu_error']=dict(error=str(error),error_type=type(error).__name__,stage='cpu',traceback=traceback.format_exc())\n        try:(folder/'result.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\n        except Exception as logging_error:error.add_note('CPU failure record could not be saved: '+type(logging_error).__name__)\n        raise\n    (folder/'cpu-payload.json').write_text(json.dumps(cpu,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\n    historical_status={k:v for k,v in record.items() if k=='saved_cubin_admission' or k.startswith('historical_link_')}\n    cpu['compute']=dict(requested=record['requested'],backend='cpu',capture_id=folder.name,\n        fallback_reason='\u5171\u901aGPU\u306e\u672a\u5bfe\u5fdc\u6761\u4ef6\u307e\u305f\u306f\u5b9f\u884c\u30a8\u30e9\u30fc\u306e\u305f\u3081\u3001CPU\u3067\u8a08\u7b97\u3057\u307e\u3057\u305f\u3002',unsupported=record['unsupported'],\n        fallback_stage=record['stage'],gpu_execution_verified=record['gpu_execution_verified'],**historical_status)\n    return cpu\n\n\ndef cpu_fallback_portable_detail(rows):\n    \"\"\"Stateless CPU fallback, bound to the failed native request capture.\"\"\"\n    if not isinstance(rows,list) or not 1<=len(rows)<=8:raise ValueError('Expected 1..8 fallback rows')\n    results=[]\n    for row in rows:\n        body=copy.deepcopy({k:v for k,v in row['body'].items() if not k.startswith('_') and k!='verification'})\n        capture_id=row['capture_id']\n        if not isinstance(capture_id,str) or len(capture_id)!=32 or any(c not in '0123456789abcdef' for c in capture_id):\n            raise ValueError('Invalid capture id')\n        folder=Path(os.environ.get('NIKKE_DETAIL_CAPTURE_ROOT',ROOT/'research/portable-build/product-detail'))/capture_id\n        record=json.loads((folder/'result.json').read_text(encoding='utf-8'))\n        digest=hashlib.sha256(json.dumps(body,ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()\n        if record.get('request_sha256')!=digest or record.get('capture_id')!=capture_id:\n            raise ValueError('Fallback request does not match capture')\n        if record.get('requested')!='native_detail' or record.get('verification')!='deferred' or not record.get('cpu_fallback_pending'):\n            raise ValueError('Capture is not a pending native fallback')\n        results.append(_cpu_fallback(body,folder,record))\n    return result"
+        }
+      ]
+    }
+  }
+}

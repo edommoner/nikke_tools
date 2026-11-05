@@ -1,4 +1,5 @@
 import os from 'node:os';
+import {withCpuProcess} from './cpu-process-pool.mjs';
 // Shared cache and ordered batch boundary for both direct and job evaluations.
 export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheable=()=>true}) {
   const cleanBody=body=>body&&typeof body==='object'?Object.fromEntries(Object.entries(body).filter(([k])=>k!=='verification'&&!k.startsWith('_'))):body;
@@ -17,7 +18,7 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
     result.compute={requested:body.compute_backend,backend:'cpu',fallback_reason:'GPUを実行できなかったため、CPUで詳細計算しました。',error:error.message};
     return result;
   }
-  async function many(bodies,job,{hostThreads}={}){
+  async function many(bodies,job,{hostThreads,deferFallbacks=false}={}){
     if(bodies.length>32)throw Error('一度に計算できる候補は32件です。');
     bodies=bodies.map(cleanBody);
     const deferred=job?.kind==='optimize';
@@ -76,17 +77,32 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
           }catch(failure){outputs.push({error:failure.message});}
         }
       }
-      if(job?.status!=='cancelled')gpu.forEach((entry,i)=>publish(entry,outputs[i]));
+      if(job?.status!=='cancelled')gpu.forEach((entry,i)=>{
+        const row=outputs[i],marker=row.result?.cpu_fallback_pending;
+        if(!marker){publish(entry,row);return;}
+        if(!deferred||entry.body.compute_backend!=='native_detail'){
+          publish(entry,{error:'Unexpected CPU fallback marker'});return;
+        }
+        // No pending marker enters the cache. Start the fresh child immediately.
+        const completion=withCpuProcess(job,()=>worker({action:'cpu_fallback_portable_detail',evaluations:[{body:entry.body,capture_id:marker.capture_id}]},job))
+          .then(results=>{
+            if(job?.status==='cancelled')return {error:'計算を終了しました。'};
+            if(!Array.isArray(results)||results.length!==1||results[0]?.compute?.backend!=='cpu')throw Error('CPU fallback result is invalid');
+            return {result:save(entry.key,results[0],entry.cacheable)};
+          }).catch(error=>({error:error.message}));
+        for(const index of entry.indices)rows[index]={completion:completion.then(row=>structuredClone(row))};
+      });
     }
     for(const entry of entries.filter(e=>!['cuda_detail','metal_detail','cuda_shared_detail','native_detail','browser_detail'].includes(e.body.compute_backend))){
       try{publish(entry,{result:await worker({...entry.body,action:'evaluate'},job)});}
       catch(error){publish(entry,{error:error.message});}
     }
-    return rows;
+    return deferFallbacks?rows:Promise.all(rows.map(row=>row?.completion||row));
   }
   async function one(body,job){const [row]=await many([body],job);if(row.error)throw Error(row.error);return row.result;}
   async function verify(rows,job){
-    const checks=await worker({action:'verify_portable_detail',evaluations:rows.map(({body,result})=>({body:cleanBody(body),capture_id:result.compute.capture_id}))},job);
+    const checks=await withCpuProcess(job,()=>worker({action:'verify_portable_detail',evaluations:rows.map(({body,result})=>({body:cleanBody(body),capture_id:result.compute.capture_id}))},job));
+    if(job?.status==='cancelled')return;
     if(!Array.isArray(checks)||checks.length!==rows.length||checks.some(c=>typeof c?.matched!=='boolean'||!Array.isArray(c.differing_fields)||!c.cpu_result))throw Error('CPU照合の結果形式が不正です。');
     if(job?.status==='cancelled')return;
     checks.forEach((check,i)=>{
@@ -105,7 +121,7 @@ export function nativeBatchWorkers(cpus=os.cpus().length){return Math.max(1,Math
 export async function advanceCases(job,evaluator,{nativeBatchSize=32}={}){
   if(![16,32].includes(nativeBatchSize))throw Error('Invalid native candidate batch size');
   while(job.index<job.cases.length&&job.status==='running'){
-    let items,rows;
+    let items,rows,continuation;
     if(job.pendingGpuResults){
       const pending=job.pendingGpuResults;
       items=job.cases.slice(job.index,job.index+pending.rows.length);
@@ -131,16 +147,44 @@ export async function advanceCases(job,evaluator,{nativeBatchSize=32}={}){
         for(let i=0;i<items.length;i+=cap)batches.push(items.slice(i,i+cap));
         // All in-flight batches settle before pause; Promise.all preserves order.
         // Contain failures until siblings have settled, including cancellation.
-        const settled=await Promise.allSettled(batches.map((batch,i)=>evaluator.many(batch.map(item=>item.evaluation),job,{hostThreads:Math.floor(cpus/batches.length)+(i<cpus%batches.length?1:0)})));
+        const settled=await Promise.allSettled(batches.map((batch,i)=>evaluator.many(batch.map(item=>item.evaluation),job,{deferFallbacks:true,hostThreads:Math.floor(cpus/batches.length)+(i<cpus%batches.length?1:0)})));
         const failure=settled.find(row=>row.status==='rejected');
-        if(failure){if(job.status==='cancelled')break;throw failure.reason;}
+        if(failure){await Promise.all(settled.filter(row=>row.status==='fulfilled').flatMap(row=>row.value).map(row=>row?.completion||row));if(job.status==='cancelled')break;throw failure.reason;}
         rows=settled.flatMap(row=>row.value);
+        // Native workers are free now; pending CPU rows must not stall the next
+        // native wave. Keep the existing wave width and host-thread shares.
+        const startIndex=job.index;
+        if(rows.some(row=>row?.completion))continuation=(async()=>{
+          while(!job.pauseRequested&&job.status==='running'){
+            const offset=startIndex+items.length;
+            let next=0;
+            while(next<cap*workers&&offset+next<job.cases.length&&job.cases[offset+next].evaluation.compute_backend===backend)next++;
+            if(!next)break;
+            const extra=job.cases.slice(offset,offset+next),groups=[];
+            const extraInputs=JSON.stringify(extra.map(item=>item.evaluation));
+            for(let i=0;i<extra.length;i+=cap)groups.push(extra.slice(i,i+cap));
+            const more=await Promise.allSettled(groups.map((batch,i)=>evaluator.many(batch.map(item=>item.evaluation),job,{deferFallbacks:true,hostThreads:Math.floor(cpus/groups.length)+(i<cpus%groups.length?1:0)})));
+            const failure=more.find(row=>row.status==='rejected');
+            if(failure){await Promise.all([...rows,...more.filter(row=>row.status==='fulfilled').flatMap(row=>row.value)].map(row=>row?.completion||row));if(job.status==='cancelled')break;throw failure.reason;}
+            if(JSON.stringify(extra.map(item=>item.evaluation))!==extraInputs)throw Error('計算中に候補が変更されました。');
+            items.push(...extra);rows.push(...more.flatMap(row=>row.value));
+          }
+        })().then(()=>null,error=>error);
+
       }else rows=await evaluator.many(items.map(item=>item.evaluation),job);
       if(JSON.stringify(items.map(item=>item.evaluation))!==inputs)throw Error('計算中に候補が変更されました。');
     }
-    if(job.status==='cancelled'){delete job.pendingGpuResults;break;}
-    for(let i=0;i<items.length;i++){
-      const item=items[i],row=rows[i];
+    async function drain(){
+      const failure=await continuation;continuation=null;
+      rows=await Promise.all(rows.map(row=>row?.completion||row));
+      if(failure&&job.status!=='cancelled')throw failure;
+    }
+    if(job.status==='cancelled'){await drain();delete job.pendingGpuResults;break;}
+    for(let i=0;i<items.length||continuation;i++){
+      if(i>=items.length){await drain();if(i>=items.length)break;}
+
+      const item=items[i],row=await (rows[i]?.completion||rows[i]);
+      if(job.status==='cancelled'){await drain();delete job.pendingGpuResults;break;}
       if(row.error){
         if(!['optimize','batch'].includes(job.kind))throw Error(row.error);
         job.results.push({value:item.value,error:row.error});
@@ -150,6 +194,8 @@ export async function advanceCases(job,evaluator,{nativeBatchSize=32}={}){
       }
       job.index++;job.updatedAt=Date.now();
       if(job.pauseRequested){
+        await drain();
+        if(job.status==='cancelled'){delete job.pendingGpuResults;break;}
         if(i+1<items.length)job.pendingGpuResults={index:job.index,inputs:JSON.stringify(items.slice(i+1).map(item=>item.evaluation)),rows:rows.slice(i+1)};
         job.status='paused';break;
       }

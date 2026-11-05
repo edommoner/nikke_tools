@@ -105,7 +105,9 @@ class ThroughputHistory(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             p=Path(tmp)/'tests/fixtures';p.mkdir(parents=True)
             (p/'portable-optimizer-throughput-source-delta.json').write_bytes((ROOT/'tests/fixtures/portable-optimizer-throughput-source-delta.json').read_bytes()+b'\n')
-            with self.assertRaisesRegex(ValueError,'ledger changed'):h.throughput_preimage(tmp,'app/portable_detail.py',(ROOT/'app/portable_detail.py').read_bytes())
+            from portable_optimizer_fallback_source_contract import fallback_preimage
+            raw=fallback_preimage(ROOT,'app/portable_detail.py',(ROOT/'app/portable_detail.py').read_bytes())
+            with self.assertRaisesRegex(ValueError,'ledger changed'):h.throughput_preimage(tmp,'app/portable_detail.py',raw)
 
 
 class ServiceBudget(unittest.TestCase):

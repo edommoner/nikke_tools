@@ -555,6 +555,13 @@ def _evaluation(body, *, verification='full'):
         record.update(backend='cpu',error=str(error),error_type=type(error).__name__,stage=stage,
             traceback=traceback.format_exc(),unsupported=[unsupported]);save()
 
+    if unsupported is not None:
+        if requested == 'native_detail' and verification == 'deferred':
+            marker=dict(stage=stage,reason=unsupported['reason'],unsupported=[unsupported],capture_id=folder.name)
+            record['cpu_fallback_pending']=marker
+            save();return dict(cpu_fallback_pending=marker)
+        return _cpu_fallback(body,folder,record,started=started)
+
     if unsupported is None and verification == 'deferred':
         payload['compute'].update(cpu_verification=dict(status='pending'),scope='shared kernel; CPU payload verification pending')
         (folder/'gpu-payload.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -573,9 +580,6 @@ def _evaluation(body, *, verification='full'):
         except Exception as logging_error:error.add_note('CPU failure record could not be saved: '+type(logging_error).__name__)
         raise
     (folder/'cpu-payload.json').write_text(json.dumps(cpu,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    if unsupported is not None:
-        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=[unsupported],fallback_stage=stage,gpu_execution_verified=record['gpu_execution_verified'],**historical_status)
-        return cpu
     differences = payload_differences(payload,cpu)
     record.update(cpu_verification=dict(matched=not differences,differing_fields=differences),elapsed_seconds=time.perf_counter()-started)
     (folder/'gpu-payload.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -591,6 +595,45 @@ def payload_differences(payload,cpu):
     differences = [key for key in payload.keys() | cpu.keys() if key != 'compute' and
         (key not in payload or key not in cpu or payload[key] != cpu[key])]
     return differences
+
+
+def _cpu_fallback(body,folder,record,*,started=None):
+    """Authoritative fallback construction shared by inline and fresh services."""
+    if started is None:started=time.perf_counter()
+    try:
+        cpu=engine_worker.evaluate(body)
+    except Exception as error:
+        record['elapsed_seconds']=time.perf_counter()-started
+        record['cpu_error']=dict(error=str(error),error_type=type(error).__name__,stage='cpu',traceback=traceback.format_exc())
+        try:(folder/'result.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        except Exception as logging_error:error.add_note('CPU failure record could not be saved: '+type(logging_error).__name__)
+        raise
+    (folder/'cpu-payload.json').write_text(json.dumps(cpu,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    historical_status={k:v for k,v in record.items() if k=='saved_cubin_admission' or k.startswith('historical_link_')}
+    cpu['compute']=dict(requested=record['requested'],backend='cpu',capture_id=folder.name,
+        fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=record['unsupported'],
+        fallback_stage=record['stage'],gpu_execution_verified=record['gpu_execution_verified'],**historical_status)
+    return cpu
+
+
+def cpu_fallback_portable_detail(rows):
+    """Stateless CPU fallback, bound to the failed native request capture."""
+    if not isinstance(rows,list) or not 1<=len(rows)<=8:raise ValueError('Expected 1..8 fallback rows')
+    results=[]
+    for row in rows:
+        body=copy.deepcopy({k:v for k,v in row['body'].items() if not k.startswith('_') and k!='verification'})
+        capture_id=row['capture_id']
+        if not isinstance(capture_id,str) or len(capture_id)!=32 or any(c not in '0123456789abcdef' for c in capture_id):
+            raise ValueError('Invalid capture id')
+        folder=Path(os.environ.get('NIKKE_DETAIL_CAPTURE_ROOT',ROOT/'research/portable-build/product-detail'))/capture_id
+        record=json.loads((folder/'result.json').read_text(encoding='utf-8'))
+        digest=hashlib.sha256(json.dumps(body,ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
+        if record.get('request_sha256')!=digest or record.get('capture_id')!=capture_id:
+            raise ValueError('Fallback request does not match capture')
+        if record.get('requested')!='native_detail' or record.get('verification')!='deferred' or not record.get('cpu_fallback_pending'):
+            raise ValueError('Capture is not a pending native fallback')
+        results.append(_cpu_fallback(body,folder,record))
+    return results
 
 
 def verify_portable_detail(bodies_with_capture_ids):

@@ -8,6 +8,8 @@ AFTER_SHA256={'app/portable_detail.py': 'abd7414865de63ffb0c7a32db1193cfddc27456
 
 
 def throughput_preimage(root,name,raw):
+    from portable_optimizer_fallback_source_contract import reviewed_bytes as fallback_bytes
+    raw=fallback_bytes(root,name,raw)
     ledger=(Path(root)/'tests/fixtures/portable-optimizer-throughput-source-delta.json').read_bytes()
     if hashlib.sha256(ledger).hexdigest()!=LEDGER_SHA256:raise ValueError('Optimizer throughput source ledger changed')
     data=json.loads(ledger)
@@ -27,5 +29,7 @@ def throughput_preimage(root,name,raw):
 
 
 def reviewed_bytes(root,name,raw):
+    from portable_optimizer_fallback_source_contract import reviewed_bytes as fallback_bytes
+    raw=fallback_bytes(root,name,raw)
     if name in AFTER_SHA256 and hashlib.sha256(raw).hexdigest()==AFTER_SHA256[name]:return throughput_preimage(root,name,raw)
     return raw
