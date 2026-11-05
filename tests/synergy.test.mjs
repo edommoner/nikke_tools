@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {selectorMatches, conditionEffect, synergyRelations, rankSynergyCandidates} from '../web/synergy-model.mjs';
+import {selectorMatches, conditionEffect, synergyRelations, rankSynergyCandidates, teamSynergy} from '../web/synergy-model.mjs';
 
 const character = (name, extra = {}) => ({name, element: '전격', weapon: 'SG', class: '방어형',
   squad: 'squad', burst: '3', synergy: {traits: ['pierce'], provides: [], conditions: []}, ...extra});
@@ -103,4 +103,54 @@ test('ranking uses tier weights after basis count and ignores broken conditions 
   const second = character('second', {weapon:'AR'});
   const broad = candidate('broad',[provides('C',{kind:'all'})]);
   assert.deepEqual(rankSynergyCandidates([basis,second],[a,broad],{tiers:['A','C'],weights:{A:100,C:1}}).map(e=>e.character.name),['broad','a']);
+});
+
+test('team links group ordered pairs with best tier and preserve both directions', () => {
+  const a = character('a'), b = character('b'), c = character('c');
+  a.synergy.provides = [provides('B'), provides('A'), provides('B')];
+  b.synergy.provides = [provides('B', {kind:'name', value:'a'})];
+  const result = teamSynergy([a,b,c]);
+  assert.deepEqual(result.links.map(({from,to,tier}) => [from.name,to.name,tier]),
+    [['a','b','A'],['a','c','A'],['b','a','B']]);
+  assert.deepEqual(result.links[0].relations, a.synergy.provides);
+  assert.ok(result.links.every(link => link.from !== link.to));
+  assert.deepEqual(result.unmatched, []);
+});
+
+test('team unmatched excludes self even without excl_self and ignores dynamic selectors', () => {
+  const a = character('a'), b = character('b', {weapon:'AR'});
+  const self = provides('A', {kind:'name',value:'a'}), sg = provides('B');
+  a.synergy.provides = [self,sg,provides('C',{kind:'dynamic'}),provides('A',{kind:'dynamic'})];
+  const result = teamSynergy([a,b]);
+  assert.deepEqual(result.links, []);
+  assert.deepEqual(result.unmatched, [{owner:a,entry:self},{owner:a,entry:sg}]);
+  assert.deepEqual(result.global, []);
+  assert.deepEqual(teamSynergy([a]).unmatched, result.unmatched);
+  assert.deepEqual(teamSynergy([a,{...a}]).links, []);
+});
+
+test('team conditions aggregate other members as satisfied, broken or unmet', () => {
+  const a = character('a'), b = character('b', {class:'지원형'}), c = character('c');
+  a.synergy.conditions = [condition(),condition(true),{kind:'has_burst',value:'1'},
+    {kind:'has_burst',value:'1',negate:true}];
+  const before = structuredClone([a,b,c]);
+  const result = teamSynergy([a,b,c]);
+  assert.deepEqual(result.conditions.map(({effect}) => effect), ['satisfied','broken','unmet']);
+  assert.deepEqual(teamSynergy([a,b]).conditions.map(({effect}) => effect), ['unmet','unmet']);
+  assert.deepEqual(teamSynergy([a]).conditions.map(({effect}) => effect), ['unmet','unmet']);
+  assert.deepEqual([a,b,c],before);
+  a.synergy.conditions = [{kind:'has_burst',value:'1'}];
+  assert.equal(teamSynergy([a,character('all',{burst:'A'})]).conditions[0].effect,'satisfied');
+});
+
+test('team global groups only tier C all entries per owner and tolerates missing data', () => {
+  const a = character('a'), b = character('b');
+  const entries = [provides('C',{kind:'all'}),provides('C',{kind:'all',excl_self:true})];
+  a.synergy.provides = [...entries,provides('C',{kind:'weapon',value:'SG'}),provides('C',{kind:'dynamic'})];
+  b.synergy.provides = [provides('C',{kind:'all'})];
+  const result = teamSynergy([a,b]);
+  assert.deepEqual(result.global,[{owner:a,entries},{owner:b,entries:b.synergy.provides}]);
+  assert.deepEqual(result.links,[]);
+  assert.deepEqual(result.unmatched,[]);
+  assert.deepEqual(teamSynergy([character('none',{synergy:null})]),teamSynergy([]));
 });

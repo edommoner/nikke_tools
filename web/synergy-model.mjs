@@ -34,6 +34,31 @@ export function conditionEffect(condition, owner, others) {
   return matches ? (condition.negate ? 'broken' : 'satisfied') : null;
 }
 
+export function teamSynergy(members) {
+  const links = [], conditions = [], unmatched = [], global = [];
+  for (const owner of members) {
+    const others = members.filter(member => !sameCharacter(owner, member));
+    const entries = owner.synergy?.provides ?? [];
+    for (const to of others) {
+      const relations = entries.filter(entry => ['A', 'B'].includes(entry.tier) &&
+        entry.selector.kind !== 'dynamic' && selectorMatches(entry.selector, owner, to));
+      if (relations.length) links.push({from: owner, to,
+        tier: relations.some(entry => entry.tier === 'A') ? 'A' : 'B', relations});
+    }
+    for (const entry of entries) {
+      if (['A', 'B'].includes(entry.tier) && entry.selector.kind !== 'dynamic' &&
+          !others.some(to => selectorMatches(entry.selector, owner, to))) unmatched.push({owner, entry});
+    }
+    for (const condition of owner.synergy?.conditions ?? []) {
+      const effect = conditionEffect(condition, owner, others);
+      if (effect || !condition.negate) conditions.push({owner, condition, effect: effect ?? 'unmet'});
+    }
+    const wholeTeam = entries.filter(entry => entry.tier === 'C' && entry.selector.kind === 'all');
+    if (wholeTeam.length) global.push({owner, entries: wholeTeam});
+  }
+  return {links, conditions, unmatched, global};
+}
+
 export function synergyRelations(basis, candidate, {tiers = ['A', 'B']} = {}) {
   if (basis.some(member => sameCharacter(member, candidate))) return [];
   const relations = [];

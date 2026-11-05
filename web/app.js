@@ -3,7 +3,7 @@ import {normalizeParts,reachLabels} from '/parts-model.mjs';
 import {enemyScope,groupPresets} from '/enemy-model.mjs';
 import {manufacturerLabels,manufacturerIconUrl,elementIconUrl,burstIconUrl,matchesRosterFilters,elementLabels,rosterValue,sortRoster,visibleTeams,presetFields,validPreset,overloadFields,formatOverload,parseOverload} from '/roster-model.mjs';
 import {emptyTeams,placeCharacter,restoreTeams,completeTeams} from '/board-model.mjs';
-import {rankSynergyCandidates} from '/synergy-model.mjs';
+import {rankSynergyCandidates,teamSynergy} from '/synergy-model.mjs';
 import {selectorLabel,conditionLabel,statLabel,sourceLabel} from '/synergy-labels.mjs';
 const $=id=>document.getElementById(id),clone=v=>structuredClone(v);
 const state={catalog:null,snapshot:null,profile:null,patches:{},deltas:{},teams:emptyTeams(),activeTeam:0,activeSlot:0,raidCount:5,excluded:new Set(),excludeMode:false,rosterFilters:{manufacturer:new Set(),element:new Set(),burst:new Set(),weapon:new Set()},synergyBasis:emptyTeams().map(()=>new Set()),synergyOn:false,synergyTiers:new Set(['A','B']),synergyMatches:new Map(),singleMode:false,sortDirection:'desc',customPresets:[],enemyContexts:{},enemyParts:[],enemyPatterns:[],scores:{},comparison:null,reference:null,job:null,lastRequest:null,busy:false};
@@ -52,18 +52,107 @@ function initRosterFilters(){
   $('roster-filters').onclick=event=>{const button=event.target.closest('button');if(!button)return;if(button.hasAttribute('data-synergy-toggle')){state.synergyOn=!state.synergyOn;syncSynergyFilters();renderRoster();return;}if(button.dataset.synergyTier){const tier=button.dataset.synergyTier;if(state.synergyTiers.has(tier)){if(state.synergyTiers.size===1)return;state.synergyTiers.delete(tier);}else state.synergyTiers.add(tier);syncSynergyFilters();renderRoster();return;}const category=button.dataset.clearFilter||button.dataset.filterCategory,selected=state.rosterFilters[category];if(!selected)return;if(button.dataset.clearFilter)selected.clear();else{const value=button.dataset.filterValue;if(selected.has(value))selected.delete(value);else selected.add(value);}syncRosterFilters();renderRoster();};
   document.querySelector('.roster-panel').addEventListener('error',event=>{if(event.target.matches('img.roster-icon'))event.target.hidden=true;},true);
 }
+const teamSynergyModeKey='nikke-tools-team-synergy-mode-v1';
+let teamSynergyMode='lines',synergyFrame=0;
+try{const saved=localStorage.getItem(teamSynergyModeKey);if(['lines','dots','list','off'].includes(saved))teamSynergyMode=saved;}catch{}
+const boardSynergies=new Map();
+const effectStatus=effect=>({satisfied:'成立',broken:'衝突',unmet:'対象なし'}[effect]);
+const providesDetail=entry=>`${selectorLabel(entry.selector,label)} / ${statLabel(entry.stat)} / ${sourceLabel(entry.source)}`;
+function teamSynergyItems(data,details=false){
+  const unmatched=new Map();
+  for(const {owner,entry} of data.unmatched){
+    const selector=JSON.stringify(Object.fromEntries(Object.entries(entry.selector).sort(([a],[b])=>a.localeCompare(b))));
+    const key=JSON.stringify([owner.name,selector]);
+    if(!unmatched.has(key))unmatched.set(key,{owner,selector:entry.selector,entries:[]});
+    unmatched.get(key).entries.push(entry);
+  }
+  return [
+    ...data.links.map(link=>({text:`${label(link.from.name)} → ${label(link.to.name)}（${link.tier}）`,detail:link.relations.map(providesDetail).join('、')})),
+    ...data.conditions.map(({owner,condition,effect})=>({text:`${label(owner.name)}：${conditionLabel(condition)} … ${effectStatus(effect)}`,detail:sourceLabel(condition.source),className:effect==='broken'?'synergy-conflict':effect==='unmet'?'synergy-unmatched':''})),
+    ...[...unmatched.values()].map(({owner,selector,entries})=>({text:`${label(owner.name)}：${selectorLabel(selector,label)}を強化 … 対象なし`,detail:[...new Set(entries.map(providesDetail))].join('、'),className:'synergy-unmatched'})),
+    ...data.global.map(({owner,entries})=>({text:`${label(owner.name)}：味方全体`,detail:entries.map(providesDetail).join('、')})),
+  ].map(item=>details?`<li class="${item.className??''}"><strong>${e(item.text)}</strong><span>${e(item.detail)}</span></li>`:`<span class="team-synergy-chip ${item.className??''}" title="${e(item.detail)}">${e(item.text)}</span>`).join('');
+}
+function boardSlotSynergy(name,slot,data,squad){
+  if(teamSynergyMode==='off')return '';
+  const global=data.global.some(item=>item.owner.name===name),unmatched=data.unmatched.some(item=>item.owner.name===name)||data.conditions.some(item=>item.owner.name===name&&item.effect==='unmet'),broken=data.conditions.some(item=>item.owner.name===name&&item.effect==='broken');
+  const dots=teamSynergyMode==='dots'?`<span class="team-synergy-dots"><span class="synergy-dot own synergy-color-${slot}" title="${e(label(name))}の色" aria-label="${e(label(name))}の色"></span>${data.links.filter(link=>link.to.name===name).map(link=>`<span class="synergy-dot synergy-color-${squad.indexOf(link.from.name)} tier-${link.tier}" title="${e(label(link.from.name))} → ${e(label(name))}（${link.tier}）" aria-label="${e(label(link.from.name))}からの強化 ${link.tier}"></span>`).join('')}</span>`:'';
+  return `<span class="slot-synergy-marks">${global?'<span class="synergy-global">全体</span>':''}${unmatched?'<span class="synergy-unmatched" title="対象のいない効果あり">対象なし</span>':''}${broken?'<span class="synergy-conflict" title="衝突する条件あり">⚠ 衝突</span>':''}</span>${dots}`;
+}
+function burstCompleteness(squad){
+  if(!squad.some(Boolean))return '';
+  return `<span class="burst-completeness" aria-label="バースト段階">${['1','2','3'].map((stage,i)=>{const present=squad.some(name=>name&&[stage,'A'].includes(meta(name).burst));return `<span class="${present?'present':''}" aria-label="バースト${stage} ${present?'あり':'なし'}">${['Ⅰ','Ⅱ','Ⅲ'][i]}</span>`;}).join('')}</span>`;
+}
+function openTeamSynergy(team){
+  const data=teamSynergy(state.teams[team].filter(Boolean).map(meta));
+  $('synergy-title').textContent=`部隊${team+1}のシナジー`;
+  const items=teamSynergyItems(data,true);
+  $('synergy-reasons').innerHTML=items?`<ul>${items}</ul>`:'<p>部隊内のシナジーはありません。</p>';
+  openDialog('synergy-dialog');
+}
+function highlightTeamSynergy(){
+  for(const row of $('team-board').querySelectorAll('.team-row')){
+    const focus=document.activeElement?.closest('.slot.filled'),hover=row.querySelector('.slot.filled:hover'),slot=(focus&&row.contains(focus)?focus:null)||hover;
+    const name=slot?.dataset.name,data=boardSynergies.get(Number(row.dataset.team)),partners=new Set();
+    for(const link of data?.links??[]){if(link.from.name===name)partners.add(link.to.name);if(link.to.name===name)partners.add(link.from.name);}
+    for(const member of row.querySelectorAll('.slot')){
+      member.classList.toggle('synergy-hovered',teamSynergyMode!=='off'&&member===slot);
+      member.classList.toggle('synergy-partner',teamSynergyMode!=='off'&&partners.has(member.dataset.name));
+      member.classList.toggle('synergy-dimmed',teamSynergyMode!=='off'&&!!name&&member!==slot&&!partners.has(member.dataset.name));
+    }
+    for(const path of row.querySelectorAll('.team-synergy-link'))path.classList.toggle('synergy-dimmed',!!name&&path.dataset.from!==name&&path.dataset.to!==name);
+  }
+}
+function scheduleSynergyLines(){cancelAnimationFrame(synergyFrame);synergyFrame=requestAnimationFrame(drawSynergyLines);}
+function drawSynergyLines(){
+  if(teamSynergyMode!=='lines')return;
+  for(const row of $('team-board').querySelectorAll('.team-row')){
+    const svg=row.querySelector('.team-synergy-lines'),slots=row.querySelector('.team-slots'),rect=slots.getBoundingClientRect(),t=Number(row.dataset.team);
+    if(!svg||!rect.width||!rect.height)continue;
+    svg.setAttribute('viewBox',`0 0 ${rect.width} ${rect.height}`);
+    svg.innerHTML=`<defs>${['A','B'].map(tier=>`<marker id="synergy-arrow-${t}-${tier}" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="${tier==='A'?'#77e3df':'#ffc77e'}"/></marker>`).join('')}</defs>`;
+    const links=boardSynergies.get(t)?.links??[],squad=state.teams[t];
+    const slotRect=name=>slots.querySelector(`[data-slot="${squad.indexOf(name)}"]`).getBoundingClientRect();
+    // Separate ports for every endpoint on each side, including incoming and outgoing links.
+    const endpoint=(link,name)=>{
+      const upper=squad.indexOf(link.from.name)<squad.indexOf(link.to.name);
+      const touching=links.filter(other=>(squad.indexOf(other.from.name)<squad.indexOf(other.to.name))===upper&&(other.from.name===name||other.to.name===name));
+      const box=slotRect(name),port=(touching.indexOf(link)+1)/(touching.length+1);
+      return box.left-rect.left+box.width*(.2+.6*port);
+    };
+    for(const link of links){
+      const from=slotRect(link.from.name),to=slotRect(link.to.name),upper=squad.indexOf(link.from.name)<squad.indexOf(link.to.name);
+      const x1=endpoint(link,link.from.name),x2=endpoint(link,link.to.name);
+      const lane=Number.parseFloat(getComputedStyle(slots).paddingTop);
+      const y=upper?from.top-rect.top-5:from.bottom-rect.top+5;
+      const distance=Math.abs(squad.indexOf(link.from.name)-squad.indexOf(link.to.name));
+      const height=Math.min(lane-9,4+distance*4),curve=y+(upper?-height:height);
+      const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+      path.setAttribute('d',`M ${x1} ${y} C ${x1} ${curve}, ${x2} ${curve}, ${x2} ${y}`);
+      path.setAttribute('class',`team-synergy-link tier-${link.tier}`);path.setAttribute('marker-end',`url(#synergy-arrow-${t}-${link.tier})`);path.dataset.from=link.from.name;path.dataset.to=link.to.name;svg.append(path);
+    }
+  }
+  highlightTeamSynergy();
+}
+$('team-synergy-modes').onclick=event=>{const button=event.target.closest('[data-team-synergy-mode]');if(!button)return;teamSynergyMode=button.dataset.teamSynergyMode;try{localStorage.setItem(teamSynergyModeKey,teamSynergyMode);}catch{}renderBoard();};
+for(const type of ['pointerover','pointerout','focusin','focusout'])$('team-board').addEventListener(type,()=>requestAnimationFrame(highlightTeamSynergy));
+window.addEventListener('resize',scheduleSynergyLines);
+if(typeof ResizeObserver!=='undefined')new ResizeObserver(scheduleSynergyLines).observe($('team-board'));
 function renderBoard(){
   state.teams.forEach((members,t)=>{for(const name of state.synergyBasis[t])if(!members.includes(name))state.synergyBasis[t].delete(name);});
   document.querySelector('.raid-switch').hidden=state.singleMode;
   const mast='마스트 : 로망틱 메이드',present=state.teams[state.activeTeam]?.includes(mast),mastOption=$('burst-policy').querySelector('option[value="mast3"]');mastOption.disabled=!present;$('burst-policy-note').textContent=!present?'選択中の部隊にマスト：ロマンチックメイドがいないため、マスト専用運用は選択できません。保存済み設定で指定された場合は、全員オート扱いとなり結果に警告を表示します。':'マスト専用の3の倍数優先を選択できます。他の部隊にマストがいない場合は、その部隊は全員オート扱いです。';
   $('board-operation-help').textContent=`ドラッグで移動・入れ替えできます。射撃：${$('shooting-policy').value==='character'?'キャラ別の既定操作':'完全オート'}${$('weapon-mode-swap').value==='reload'?' / モード用リロードあり':''} / バースト：${policyLabel($('burst-policy').value)} / ゲージ：${$('burst-gauge-mode').value==='accumulate'?'実蓄積':'固定周期'}`;const count=teamCount();$('board-title').textContent=state.singleMode?'1部隊のダメージ計算':state.raidCount===5?'ソロレイドの5部隊':'ユニオンレイドの編成';$('open-optimizer').textContent=count===5?'✦ おすすめ5部隊を探す':'✦ この1部隊のおすすめを探す';$('optimizer-title').textContent=count===5?'おすすめ5部隊を探す':'1部隊のおすすめを探す';$('single-controls').hidden=!state.singleMode;$('single-team').value=String(state.activeTeam);$('single-team').disabled=state.busy;$('calculate-all').textContent=state.singleMode?'この部隊を計算する':'編成済みの部隊をまとめて計算';$('single-result').hidden=!state.singleMode;if(state.singleMode){const current=state.comparison;const matching=current&&current.teamIndex===state.activeTeam&&state.profile&&key(current.evaluation)===key(evaluation(state.activeTeam,false));$('single-result').innerHTML=matching?'<h2>この部隊の計算結果</h2>'+$('results').innerHTML:'<h2>この部隊の計算結果</h2><p class="subtle">5人を編成して「この部隊を計算する」を押してください。育成・戦闘条件を変更した場合は再計算が必要です。</p>';}
+  boardSynergies.clear();
+  for(const button of $('team-synergy-modes').querySelectorAll('button'))button.setAttribute('aria-pressed',String(button.dataset.teamSynergyMode===teamSynergyMode));
   const rows=[];let total=0,calculated=0;
   for(const t of visibleTeams(state.singleMode,state.activeTeam,state.raidCount)){
     const squad=state.teams[t],active=t===state.activeTeam,score=state.profile&&state.scores[t]?.key===key(evaluation(t,false))?state.scores[t]:null;
+    const synergy=teamSynergy(squad.filter(Boolean).map(meta));boardSynergies.set(t,synergy);
     if(score){total+=score.result.total_damage;calculated++;}
-    rows.push(`<article class="team-row ${active?'active':''}" data-team="${t}"><div class="team-number"><button class="team-select" data-select-team="${t}" aria-label="部隊${t+1}を選択" aria-pressed="${active}"><span>部隊</span><strong>${String(t+1).padStart(2,'0')}</strong></button></div><div class="team-slots">`+squad.map((name,s)=>name?`<div class="slot filled ${state.synergyBasis[t].has(name)?'synergy-basis':''} ${active&&s===state.activeSlot?'selected':''}" data-team="${t}" data-slot="${s}" draggable="true" data-name="${e(name)}"><button class="slot-main" data-select-slot="${t},${s}" aria-label="部隊${t+1} ${s+1}枠目 ${e(label(name))}">${portrait(name)}${burst(name)}<span class="slot-name">${e(label(name))}</span></button><button class="basis-button" data-basis="${t},${s}" aria-pressed="${state.synergyBasis[t].has(name)}" aria-label="${e(label(name))}をシナジーの基準にする">◎ 基準</button><button class="gear-button" data-edit="${e(name)}" aria-label="${e(label(name))}の育成を変更" title="育成を変更">⚙</button><button class="remove-button" data-remove="${t},${s}" aria-label="${e(label(name))}を部隊から外す">×</button><div class="slot-footer"><span>${e(meta(name).weapon)}</span><span>${Object.values(skillDict(growth(name).skill_levels)).join('/')}</span>${changed(name)?'<span class="modified-dot" title="育成変更あり">変更</span>':''}</div></div>`:`<button class="slot empty ${active&&s===state.activeSlot?'selected':''}" data-team="${t}" data-slot="${s}" data-select-slot="${t},${s}" aria-label="部隊${t+1} ${s+1}枠目 キャラを選ぶ"><span class="slot-plus">＋</span><span>${active&&s===state.activeSlot?'キャラを選択中':'キャラを追加'}</span></button>`).join('')+`</div><div class="team-actions"><span class="damage-label">DMG</span><strong class="team-damage">${score?fmt(score.result.total_damage):'—'}</strong><span class="team-state">${score?'計算済み':state.scores[t]?'変更あり・再計算':'未計算'}</span><button class="button blue small" data-calculate="${t}" ${state.busy?'disabled':''}>この部隊を計算</button><div class="team-tools"><button data-target="${t}">目標探索</button><button data-clear="${t}">空にする</button></div></div></article>`);
+    rows.push(`<article class="team-row synergy-mode-${teamSynergyMode} ${active?'active':''}" data-team="${t}"><div class="team-number"><button class="team-select" data-select-team="${t}" aria-label="部隊${t+1}を選択" aria-pressed="${active}"><span>部隊</span><strong>${String(t+1).padStart(2,'0')}</strong></button></div><div class="team-slots">${teamSynergyMode==='lines'?'<svg class="team-synergy-lines" aria-hidden="true"></svg>':''}`+squad.map((name,s)=>name?`<div class="slot filled ${state.synergyBasis[t].has(name)?'synergy-basis':''} ${active&&s===state.activeSlot?'selected':''}" data-team="${t}" data-slot="${s}" draggable="true" data-name="${e(name)}"><button class="slot-main" data-select-slot="${t},${s}" aria-label="部隊${t+1} ${s+1}枠目 ${e(label(name))}">${portrait(name)}${burst(name)}<span class="slot-name">${e(label(name))}</span></button><button class="basis-button" data-basis="${t},${s}" aria-pressed="${state.synergyBasis[t].has(name)}" aria-label="${e(label(name))}をシナジーの基準にする">◎ 基準</button><button class="gear-button" data-edit="${e(name)}" aria-label="${e(label(name))}の育成を変更" title="育成を変更">⚙</button><button class="remove-button" data-remove="${t},${s}" aria-label="${e(label(name))}を部隊から外す">×</button>${boardSlotSynergy(name,s,synergy,squad)}<div class="slot-footer"><span>${e(meta(name).weapon)}</span><span>${Object.values(skillDict(growth(name).skill_levels)).join('/')}</span>${changed(name)?'<span class="modified-dot" title="育成変更あり">変更</span>':''}</div></div>`:`<button class="slot empty ${active&&s===state.activeSlot?'selected':''}" data-team="${t}" data-slot="${s}" data-select-slot="${t},${s}" aria-label="部隊${t+1} ${s+1}枠目 キャラを選ぶ"><span class="slot-plus">＋</span><span>${active&&s===state.activeSlot?'キャラを選択中':'キャラを追加'}</span></button>`).join('')+`</div><div class="team-actions">${burstCompleteness(squad)}<span class="damage-label">DMG</span><strong class="team-damage">${score?fmt(score.result.total_damage):'—'}</strong><span class="team-state">${score?'計算済み':state.scores[t]?'変更あり・再計算':'未計算'}</span><button class="button blue small" data-calculate="${t}" ${state.busy?'disabled':''}>この部隊を計算</button><div class="team-tools"><button data-team-synergy="${t}">シナジー</button><button data-target="${t}">目標探索</button><button data-clear="${t}">空にする</button></div></div>${teamSynergyMode==='list'?`<div class="team-synergy-list">${teamSynergyItems(synergy)||'<span class="subtle">部隊内のシナジーはありません</span>'}</div>`:''}</article>`);
   }
-  $('team-board').innerHTML=rows.join('');$('total-damage').textContent=calculated?fmt(total):'—';$('total-caption').textContent=calculated?`${calculated} / ${count}部隊の合計`:'まだ計算していません';
+  $('team-board').innerHTML=rows.join('');scheduleSynergyLines();requestAnimationFrame(highlightTeamSynergy);$('total-damage').textContent=calculated?fmt(total):'—';$('total-caption').textContent=calculated?`${calculated} / ${count}部隊の合計`:'まだ計算していません';
   const selected=state.teams[state.activeTeam]?.[state.activeSlot];$('roster-help').textContent=state.excludeMode?'キャラをクリックすると、探索から除外・解除できます。':`選択中：部隊${state.activeTeam+1} / ${state.activeSlot+1}枠目${selected?'（'+label(selected)+'を入れ替え）':''}`;$('roster-help').classList.toggle('excluding',state.excludeMode);$('exclude-mode').classList.toggle('active',state.excludeMode);$('exclude-mode').setAttribute('aria-pressed',String(state.excludeMode));$('exclude-mode').textContent=state.excludeMode?'除外の選択を終える':'探索から除外するキャラを選択';$('excluded-count').textContent=`探索から除外：${state.excluded.size}人`;$('optimizer-excluded').textContent=`除外：${state.excluded.size}人`;
 }
 function normalized(text){return String(text).normalize('NFKC').toLowerCase().replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-96));}
@@ -131,7 +220,7 @@ async function start(request){notice();setBusy(true);try{state.lastRequest=clone
 function calculateTeam(team){selectSlot(team,state.teams[team].indexOf('')>=0?state.teams[team].indexOf(''):0);const request={kind:'compare',teamIndex:team,evaluation:evaluation(team)};if(!state.singleMode)setView('results');return start(request);}
 function openTarget(team=state.activeTeam){state.activeTeam=team;renderBoard();renderRoster();renderCharacterMenus();renderReference();openDialog('target-dialog');}
 function adoptRecommendation(){requireEditable();const rec=state.job?.recommendation;if(!rec)throw Error('推薦結果がありません。');const request=state.lastRequest;if(request.kind!=='optimize')throw Error('おすすめ探索をもう一度開いてください。');const ev=request.evaluation;state.singleMode=Number.isInteger(request.singleTeamIndex);state.raidCount=request.boardRaidCount||request.teamCount;for(const b of document.querySelectorAll('[data-raid]'))b.classList.toggle('active',Number(b.dataset.raid)===state.raidCount);if(state.singleMode)state.activeTeam=request.singleTeamIndex;state.profile=clone(ev.profile);state.patches=clone(ev.patches);state.deltas=clone(ev.stat_deltas||{});const adoptIndex=state.singleMode?state.activeTeam:0;if(state.singleMode){const picked=new Set(rec.teams[0].squad);state.teams=state.teams.map((row,index)=>index===adoptIndex?[...rec.teams[0].squad]:row.map(n=>picked.has(n)?'':n));}else{state.teams=emptyTeams();for(let i=0;i<rec.teams.length;i++)state.teams[i]=[...rec.teams[i].squad];state.activeTeam=0;}state.activeSlot=0;$('duration').value=ev.duration;$('level').value=ev.level;$('enemy-def').value=ev.enemy.def;$('enemy-code').value=ev.enemy.code;$('core').value=ev.enemy.core_px;$('distance').value=ev.enemy.distance;$('burst-policy').value=ev.burst_policy||'auto';state.scores={};for(let i=0;i<rec.teams.length;i++){const team=rec.teams[i],result=state.job.results.find(r=>r.result&&JSON.stringify(r.result.members.map(m=>m.name))===JSON.stringify(team.squad))?.result;if(result)state.scores[state.singleMode?adoptIndex:i]={key:key(evaluation(state.singleMode?adoptIndex:i)),result};}if(request.teamCount===1&&state.raidCount===1&&!state.singleMode)for(const n of rec.teams[0].squad)state.excluded.add(n);$('optimizer-dialog').close();setView(state.singleMode?'single':'formation');renderAll();notice(rec.teams.length===1?(state.singleMode?'推薦編成をこの部隊に入れました。他の部隊と重複するキャラは移動しました。':'推薦編成を入れ、使用済みとして探索から除外しました。'):'推薦された5部隊を編成に入れました。探索したときの育成・戦闘条件も反映しています。');}
-$('team-board').onclick=guarded(async event=>{const target=event.target.closest('button');if(!target)return;if(target.dataset.basis){const[t,s]=target.dataset.basis.split(',').map(Number),name=state.teams[t][s],selected=state.synergyBasis[t];if(selected.has(name))selected.delete(name);else selected.add(name);renderBoard();renderRoster();return;}if(target.dataset.edit)return openEditor(target.dataset.edit);if(target.dataset.selectTeam!==undefined)return selectSlot(Number(target.dataset.selectTeam),0);if(target.dataset.selectSlot){const[t,s]=target.dataset.selectSlot.split(',').map(Number);return selectSlot(t,s);}if(target.dataset.remove){requireEditable();const[t,s]=target.dataset.remove.split(',').map(Number);state.teams[t][s]='';return renderAll();}if(target.dataset.clear!==undefined){requireEditable();state.teams[Number(target.dataset.clear)].fill('');return renderAll();}if(target.dataset.calculate!==undefined)return calculateTeam(Number(target.dataset.calculate));if(target.dataset.target!==undefined)return openTarget(Number(target.dataset.target));});
+$('team-board').onclick=guarded(async event=>{const target=event.target.closest('button');if(!target)return;if(target.dataset.teamSynergy!==undefined)return openTeamSynergy(Number(target.dataset.teamSynergy));if(target.dataset.basis){const[t,s]=target.dataset.basis.split(',').map(Number),name=state.teams[t][s],selected=state.synergyBasis[t];if(selected.has(name))selected.delete(name);else selected.add(name);renderBoard();renderRoster();return;}if(target.dataset.edit)return openEditor(target.dataset.edit);if(target.dataset.selectTeam!==undefined)return selectSlot(Number(target.dataset.selectTeam),0);if(target.dataset.selectSlot){const[t,s]=target.dataset.selectSlot.split(',').map(Number);return selectSlot(t,s);}if(target.dataset.remove){requireEditable();const[t,s]=target.dataset.remove.split(',').map(Number);state.teams[t][s]='';return renderAll();}if(target.dataset.clear!==undefined){requireEditable();state.teams[Number(target.dataset.clear)].fill('');return renderAll();}if(target.dataset.calculate!==undefined)return calculateTeam(Number(target.dataset.calculate));if(target.dataset.target!==undefined)return openTarget(Number(target.dataset.target));});
 for(const container of [$('team-board'),$('roster-grid')])container.addEventListener('dragstart',event=>{const item=event.target.closest('[data-name],[data-character]');if(!item||state.busy)return event.preventDefault();event.dataTransfer.setData('application/x-nikke-character',item.dataset.name||item.dataset.character);event.dataTransfer.effectAllowed='move';});
 $('team-board').ondragover=event=>{if(event.target.closest('[data-slot]')&&!state.busy)event.preventDefault();};
 $('team-board').ondrop=guarded(event=>{event.preventDefault();const slot=event.target.closest('[data-slot]'),name=event.dataTransfer.getData('application/x-nikke-character');if(!slot||!state.profile?.chars[name])return;requireEditable();state.teams=placeCharacter(state.teams,Number(slot.dataset.team),Number(slot.dataset.slot),name);selectSlot(Number(slot.dataset.team),Number(slot.dataset.slot));renderAll();});
