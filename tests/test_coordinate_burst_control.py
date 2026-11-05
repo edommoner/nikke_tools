@@ -25,8 +25,6 @@ class BurstControlTests(unittest.TestCase):
         self.assertIn(4,self.ticks('A-stage')[0]['stages'])
         self.assertGreater(max(t['cycles'] for t in self.ticks('explicit-expired')),0)
         for name in ('reduce-cooldown-wait','reduce-delay-wait','reload-into-next-fb','full-end-stage-override'):
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             self.assertGreater(max(t['cycles'] for t in self.ticks(name)),0)
         log=self.native['cover-down-all']['battle']['boss_log']
         events=[x['event'] for x in log if x['pattern']=='all-covers' and x['event'] in ('cover_break','down')]
@@ -48,15 +46,16 @@ class BurstControlTests(unittest.TestCase):
         for key,value in [('burst_delay',{'unknown':1}),('burst_sequence',[{}]*17),('burst_pattern',{a.roster_names(old)[0]:[513]})]:
             c=copy.deepcopy(self.cases[0]);c['burst_config']={key:value}
             with self.assertRaises(ValueError):a.compile_case(c)
-    def test_passive_observer_and_exact_historic_source_projection(self):
-        from portable_coordinate_squad_source_contract import project_sources,project_backend_source
-        project_sources(ROOT);project_backend_source(ROOT)
-        with self.assertRaises(AssertionError):project_sources(ROOT,{'gpu/combat_runtime.slang':(ROOT/'gpu/combat_runtime.slang').read_text()+'\n'})
-        previous=sys.getprofile();bad=copy.deepcopy(self.cases[0]);bad['burst_config']={'burst_delay':{'unknown':1}}
-        with self.assertRaises(ValueError):observe(bad)
-        self.assertIs(sys.getprofile(),previous)
+    def test_passive_observer_restores_hooks_and_preserves_ticks(self):
+        previous = sys.getprofile()
+        bad = copy.deepcopy(self.cases[0])
+        bad['burst_config'] = {'burst_delay': {'unknown': 1}}
+        with self.assertRaises(ValueError):
+            observe(bad)
+        self.assertIs(sys.getprofile(), previous)
         for n in self.native.values():
-            self.assertTrue(n['burst_controls']['ticks']);self.assertTrue(all(len(t['words'])==25 for t in n['burst_controls']['ticks']))
+            self.assertTrue(n['burst_controls']['ticks'])
+            self.assertTrue(all((len(t['words']) == 25 for t in n['burst_controls']['ticks'])))
     def test_log_ordinals_preserve_cover_down_interleaving_and_reject_missing_deaths(self):
         s=importlib.util.spec_from_file_location('burst_log_decode',ROOT/'research/verify-world-frame.py');decoder=importlib.util.module_from_spec(s);s.loader.exec_module(decoder)
         cover=lambda i:dict(time=1.,pattern='attack',event='cover_break',outcome='',after_downs=i)

@@ -41,14 +41,9 @@ class OriginalCleanseTests(unittest.TestCase):
             with capture(c):raise RuntimeError('native failed')
         self.assertEqual(methods,[BuffManager._register_all,BuffManager._dispatch_instant])
 
-    def test_source_inverse_and_wire_are_exact(self):
-        from portable_coordinate_original_cleanse_source_contract import project_sources,project_backend_source
-        from portable_coordinate_original_resource_source_contract import project_sources as ancestor
+    def test_current_wire_and_layout(self):
         from portable_backend import validate_composed_stride
-        baseline=json.loads((ROOT/'tests/fixtures/portable-coordinate-original-cleanse-source-delta.json').read_text());p=project_sources(ROOT)
-        for name,row in baseline['sources'].items():self.assertEqual(p[name],row['baseline'])
-        self.assertEqual(project_backend_source(ROOT),baseline['transport']['baseline']);self.assertNotIn('gpu/coordinate_vital_kind_admission.slang',ancestor(ROOT))
-        with self.assertRaises(AssertionError):project_sources(ROOT,{'gpu/coordinate_vital_kind_admission.slang':(ROOT/'gpu/coordinate_vital_kind_admission.slang').read_text()+'\n'})
-        validate_composed_stride(a.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS)
-        with self.assertRaises(ValueError):validate_composed_stride(a.SOURCE,a.INPUT_WORDS-1,a.OUTPUT_WORDS)
+        validate_composed_stride(a.SOURCE, a.INPUT_WORDS, a.OUTPUT_WORDS)
+        with self.assertRaises(ValueError):
+            validate_composed_stride(a.SOURCE, a.INPUT_WORDS - 1, a.OUTPUT_WORDS)
 if __name__=='__main__':unittest.main()

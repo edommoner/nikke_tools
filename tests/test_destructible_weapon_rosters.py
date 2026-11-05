@@ -61,27 +61,29 @@ class WeaponRosterSavedTests(unittest.TestCase):
  def test_previous141_native_and_input_fingerprints_still_exact(self):
   rows,_=a.prior.prepare();g=json.loads((ROOT/'research/portable-destructible-weapon-shield-short-expected.json').read_text())
   for (name,w,domain),expected in zip(rows,g['entries'],strict=True):
-   from portable_removed_sources import REMOVED_SOURCES
-   if name in REMOVED_SOURCES:continue
    with self.subTest(name=name):
     self.assertEqual(name,expected['name']);self.assertEqual(hashlib.sha256(array.array('I',w).tobytes()).hexdigest(),expected['input_sha256'])
     self.assertEqual(a.cross.digest(dict(status=64) if domain is None else a.prior.native_reference(domain)),expected['native_sha256'])
  @historical_reference
  def test_actual_original_roster_readback_rejects_hp_ammo_and_typed_corruption(self):
-  from portable_backend import source_hashes
-  f=json.loads((ROOT/'tests/fixtures/portable-destructible-weapon-rosters-raw.json').read_text());rows,_=a.prepare()
-  from portable_destructible_roster_skill_source_contract import verify_retained_sources
-  verify_retained_sources(ROOT,'gpu/destructible_weapon_shield_entry.slang',f['source_sha256'])
-  self.assertEqual(f['source_sha256'],json.loads((ROOT/'research/portable-destructible-weapon-shield-short-expected.json').read_text())['source_sha256'])
-  for record in f['records']:
-   name,w,domain=rows[record['index']];self.assertEqual(name,record['name']);self.assertEqual(hashlib.sha256(array.array('I',w).tobytes()).hexdigest(),record['input_sha256'])
-   block=array.array('I',[0])*f['output_words']
-   for at,value in record['nonzero']:block[at]=value
-   self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),record['output_sha256']);a.compare(block,domain)
-   # Final battle prefix and typed receipt/time must both be audited.
-   offsets=(0,L['HEALTH_QUERY_BASE'],L['COMBAT_QUERY_BASE'],L['DAMAGE_ACCOUNTING_QUERY_BASE']+20,787460,790004,790008,790020,790022)
-   for at in offsets:
-    bad=array.array('I',block);bad[at]^=1
-    with self.subTest(name=name,offset=at),self.assertRaises(AssertionError):a.compare(bad,domain)
+     from portable_backend import source_hashes
+     f = json.loads((ROOT / 'tests/fixtures/portable-destructible-weapon-rosters-raw.json').read_text())
+     (rows, _) = a.prepare()
+     self.assertEqual(f['source_sha256'], json.loads((ROOT / 'research/portable-destructible-weapon-shield-short-expected.json').read_text())['source_sha256'])
+     for record in f['records']:
+         (name, w, domain) = rows[record['index']]
+         self.assertEqual(name, record['name'])
+         self.assertEqual(hashlib.sha256(array.array('I', w).tobytes()).hexdigest(), record['input_sha256'])
+         block = array.array('I', [0]) * f['output_words']
+         for (at, value) in record['nonzero']:
+             block[at] = value
+         self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(), record['output_sha256'])
+         a.compare(block, domain)
+         offsets = (0, L['HEALTH_QUERY_BASE'], L['COMBAT_QUERY_BASE'], L['DAMAGE_ACCOUNTING_QUERY_BASE'] + 20, 787460, 790004, 790008, 790020, 790022)
+         for at in offsets:
+             bad = array.array('I', block)
+             bad[at] ^= 1
+             with self.subTest(name=name, offset=at), self.assertRaises(AssertionError):
+                 a.compare(bad, domain)
 
 if __name__=='__main__':unittest.main()

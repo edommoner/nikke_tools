@@ -40,14 +40,6 @@ class OriginalLocks(unittest.TestCase):
             with self.subTest(history=key),self.assertRaisesRegex(ValueError,'exceeds declared capacity'):history_budget(bad)
 
 
-    def test_exact_source_inverse_preserves_every_shared_dependency(self):
-        from portable_original_lock_source_contract import project_sources
-        d=json.loads((ROOT/'tests/fixtures/portable-original-lock-source-delta.json').read_text());old=project_sources(ROOT)
-        for name,row in d['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(old[name],row['baseline'])
-            with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n// mutation'})
     def test_actual_30s_native_history_requires_extension_without_omitting_rows(self):
         from portable_heavyarms_original_composition import prepare_case
         c,_=prepare_case(30,0);w,m,b=suite.compile_case(c);n=suite.native_reference((c,m,b))

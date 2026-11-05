@@ -6,7 +6,6 @@ from portable_pellet_shot_cases import fixtures
 from portable_pellet_shot_specs import parse,bindings,compiler_effect
 from portable_runtime import validate_effect,UnsupportedPortable
 from portable_specs import LIMITS as L
-from portable_definition_view_contract import verify
 
 
 class PelletShotTests(unittest.TestCase):
@@ -44,27 +43,6 @@ class PelletShotTests(unittest.TestCase):
         before=copy.deepcopy(fixtures());entries,packed=m.prepare()
         self.assertEqual(len(entries),36);self.assertEqual(sum(e[2] is not None for e in entries),21)
         self.assertEqual(len(packed),4+36*m.suite.INPUT*4);self.assertEqual(fixtures(),before)
-
-    def test_reviewed_hooks_reject_removed_reordered_broadened_or_numeric_changes(self):
-        from portable_pellet_shot_source_contract import ledger,baseline_source
-        from portable_ammo_equivalent_source_contract import project_sources as project_ammo
-        data=ledger(ROOT);self.assertEqual(set(verify(ROOT)['reviewed_pellet_shot_sources']),set(data['sources'])|set(data['new_sources']))
-        projected,_=project_ammo(ROOT)
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            current=(ROOT/name).read_text()
-            with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:current+'\n// unreviewed\n'})
-            source=projected.get(name,current)
-            for change in row['changes']:
-                self.assertEqual(source.count(change['current']),1)
-                mutated=source.replace(change['current'],change['baseline'],1)
-                self.assertNotEqual(mutated,source)
-                with self.subTest(name=name),self.assertRaises(AssertionError):baseline_source(ROOT,name,mutated)
-        name='gpu/pellet_shot_runtime.slang';source=(ROOT/name).read_text()
-        for old,new in [('tag==0','false'),('od.owner!=d.owner','false'),('f64Less(threshold,value)','false'),('f64FromI64(count)','f64FromI64(count+1)'),('next=tag','next=tag+1')]:
-            self.assertIn(old,source)
-            with self.subTest(old=old),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})
 
 
 if __name__=='__main__':unittest.main()

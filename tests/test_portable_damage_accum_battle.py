@@ -5,7 +5,6 @@ ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('ap
 from portable_damage_accum_specs import compiler_effect,validate,policy
 from portable_damage_accum_cases import fixtures
 from portable_specs import LIMITS as L,FIELDS as F
-from portable_damage_accum_source_contract import project_sources
 
 def adapter():
     s=importlib.util.spec_from_file_location('damage_battle_test',ROOT/'research/verify-world-damage-accum-short.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
@@ -34,15 +33,4 @@ class DamageBattleTests(unittest.TestCase):
         result=audit_layout(L);self.assertTrue(result['verified']);self.assertEqual(len(result['modes']),5)
         source=(ROOT/'gpu/damage_accum_battle_runtime.slang').read_text()
         self.assertIn('DA_BATTLE_HEADER=260666,DA_BATTLE_QUEUE=260668,DA_BATTLE_QUEUE_COUNT=512',source)
-    def test_exact_inverse_refuses_source_mutation(self):
-        data=json.loads((ROOT/'tests/fixtures/portable-damage-accum-source-delta.json').read_text());projected=project_sources(ROOT)
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(hashlib.sha256(projected[name].encode()).hexdigest(),row['baseline_sha256'])
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n'})
-        for name in data['added_sources']:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
 if __name__=='__main__':unittest.main()

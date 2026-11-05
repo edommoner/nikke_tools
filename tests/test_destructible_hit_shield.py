@@ -17,8 +17,6 @@ class HitShieldTests(unittest.TestCase):
   rows,_=a.prepare();old=json.loads((ROOT/'research/portable-destructible-shield-battle-short-expected.json').read_text())
   self.assertEqual(len(old['entries']),88)
   for (name,w,c),r in zip(rows[:88],old['entries'],strict=True):
-   from portable_removed_sources import REMOVED_SOURCES
-   if name in REMOVED_SOURCES:continue
    with self.subTest(name=name):
     self.assertEqual(name,r['name']);self.assertEqual(hashlib.sha256(array.array('I',w).tobytes()).hexdigest(),r['input_sha256'])
     self.assertEqual(a.cross.digest(dict(status=64) if c is None else a.native_reference(c)),r['native_sha256'])
@@ -35,32 +33,30 @@ class HitShieldTests(unittest.TestCase):
     with typed_battle(a.fixtures()[0]['typed_bindings'],modifier_model=True,**kw):pass
   with self.assertRaisesRegex(ValueError,'boolean'):select(None,BOSS,hit_shields=1)
 
- def test_exact_source_inverse_rejects_unreviewed_changes(self):
-  from portable_destructible_hit_shield_source_contract import project_sources
-  d=json.loads((ROOT/'tests/fixtures/portable-destructible-hit-shield-source-delta.json').read_text());project_sources(ROOT)
-  for name,row in d['sources'].items():
-   from portable_removed_sources import REMOVED_SOURCES
-   if name in REMOVED_SOURCES:continue
-   with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n'})
 
  def test_actual_metal_credit_owner_generation_and_counter_receipts(self):
-  from portable_backend import source_hashes
-  f=json.loads((ROOT/'tests/fixtures/portable-destructible-hit-shield-raw.json').read_text());rows,_=a.prepare()
-  from portable_destructible_weapon_source_contract import verify_retained_sources
-  verify_retained_sources(ROOT,'gpu/destructible_shield_battle_entry.slang',f['source_sha256'])
-  for record in f['records']:
-   name,words,domain=rows[record['index']];self.assertEqual(name,record['name'])
-   self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256'])
-   block=array.array('I',[0])*f['output_words']
-   for at,value in record['nonzero']:block[at]=value
-   self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),record['output_sha256'])
-   if domain is None:
-    a.validate_rejection(block,name);block[0]=0
-    with self.assertRaises(AssertionError):a.validate_rejection(block,name)
-    continue
-   a.compare(block,domain)
-   for at in (0,787458,787460,787466,790001,790006,790020,790022):
-    changed=array.array('I',block);changed[at]^=1
-    with self.subTest(name=name,offset=at),self.assertRaises(AssertionError):a.compare(changed,domain)
+     from portable_backend import source_hashes
+     f = json.loads((ROOT / 'tests/fixtures/portable-destructible-hit-shield-raw.json').read_text())
+     (rows, _) = a.prepare()
+     for record in f['records']:
+         (name, words, domain) = rows[record['index']]
+         self.assertEqual(name, record['name'])
+         self.assertEqual(hashlib.sha256(array.array('I', words).tobytes()).hexdigest(), record['input_sha256'])
+         block = array.array('I', [0]) * f['output_words']
+         for (at, value) in record['nonzero']:
+             block[at] = value
+         self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(), record['output_sha256'])
+         if domain is None:
+             a.validate_rejection(block, name)
+             block[0] = 0
+             with self.assertRaises(AssertionError):
+                 a.validate_rejection(block, name)
+             continue
+         a.compare(block, domain)
+         for at in (0, 787458, 787460, 787466, 790001, 790006, 790020, 790022):
+             changed = array.array('I', block)
+             changed[at] ^= 1
+             with self.subTest(name=name, offset=at), self.assertRaises(AssertionError):
+                 a.compare(changed, domain)
 
 if __name__=='__main__':unittest.main()

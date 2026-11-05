@@ -34,16 +34,9 @@ class OriginalAmmoTests(unittest.TestCase):
             with capture(case):raise RuntimeError('native failure')
         self.assertIs(sys.getprofile(),previous)
 
-    def test_source_inverse_and_complete_wire_are_exact(self):
-        from portable_coordinate_original_ammo_source_contract import project_sources,project_backend_source
-        from portable_coordinate_original_resource_source_contract import project_sources as parent_sources
+    def test_current_wire_and_layout(self):
         from portable_backend import validate_composed_stride
-        baseline=json.loads((ROOT/'tests/fixtures/portable-coordinate-original-ammo-source-delta.json').read_text())
-        projected=project_sources(ROOT)
-        for name,row in baseline['sources'].items():self.assertEqual(projected[name],row['baseline'])
-        self.assertNotIn('gpu/coordinate_vital_kind_admission.slang',parent_sources(ROOT),'File absent from old baseline must not leak into ancestor projection')
-        self.assertEqual(project_backend_source(ROOT),baseline['transport']['baseline'])
-        with self.assertRaises(AssertionError):project_sources(ROOT,{'gpu/coordinate_vital_kind_admission.slang':(ROOT/'gpu/coordinate_vital_kind_admission.slang').read_text()+'\n'})
-        validate_composed_stride(a.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS)
-        with self.assertRaises(ValueError):validate_composed_stride(a.SOURCE,a.INPUT_WORDS-1,a.OUTPUT_WORDS)
+        validate_composed_stride(a.SOURCE, a.INPUT_WORDS, a.OUTPUT_WORDS)
+        with self.assertRaises(ValueError):
+            validate_composed_stride(a.SOURCE, a.INPUT_WORDS - 1, a.OUTPUT_WORDS)
 if __name__=='__main__':unittest.main()

@@ -18,13 +18,11 @@ class SquadLiteralTests(unittest.TestCase):
         with patch.object(timeline,'simulate',side_effect=AssertionError('No battle in packing')):
             rows=normalize(seq,names);wire=pack(seq,names)
         self.assertEqual([r['kind'] for r in rows],[1,2,2]);self.assertEqual(len(wire),INPUT_WORDS);self.assertEqual(len(empty()),INPUT_WORDS)
-    def test_strict_wire_and_historical_projection(self):
+    def test_current_wire_and_layout(self):
         from portable_backend import validate_composed_stride
-        validate_composed_stride('gpu/world_coordinate_squad_entry.slang',109792,1769856)
-        with self.assertRaises(ValueError):validate_composed_stride('gpu/world_coordinate_squad_entry.slang',109656,1769856)
-        from portable_coordinate_policy_source_contract import project_sources,project_backend_source
-        self.assertIn('gpu/world_charge_control_runtime.slang',project_sources(ROOT))
-        self.assertIn('MAX_OUTPUT_WORDS=1769472',project_backend_source(ROOT))
+        validate_composed_stride('gpu/world_coordinate_squad_entry.slang', 109792, 1769856)
+        with self.assertRaises(ValueError):
+            validate_composed_stride('gpu/world_coordinate_squad_entry.slang', 109656, 1769856)
     def test_policy_composition_uses_shared_state_validator_without_legacy_repacking(self):
         import importlib.util,array
         spec=importlib.util.spec_from_file_location('squad_comparison_test',ROOT/'research/verify-coordinate-squad-short.py');a=importlib.util.module_from_spec(spec);spec.loader.exec_module(a)

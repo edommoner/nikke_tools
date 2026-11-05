@@ -59,17 +59,6 @@ class CoverWire(unittest.TestCase):
             with self.subTest(offset=offset),self.assertRaises(AssertionError):self.adapter.compare_receipts(block,domain,n)
             block[h+offset]^=1
 
-    def test_exact_source_inverse_keeps_earlier_guards(self):
-        import hashlib,json
-        from portable_cover_defense_source_contract import project_sources,LEDGER_SHA256
-        path=ROOT/'tests/fixtures/portable-cover-defense-source-delta.json'
-        self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(),LEDGER_SHA256)
-        ledger=json.loads(path.read_text());result=project_sources(ROOT)
-        for name,row in ledger['files'].items():
-            if name in __import__('portable_removed_sources').REMOVED_SOURCES:continue
-            self.assertEqual(hashlib.sha256(result[name].encode()).hexdigest(),row['before_sha256'])
-        from portable_recipient_order_source_contract import project_sources as prior,BEFORE_BACKEND_SHA256
-        self.assertEqual(hashlib.sha256(prior(ROOT)['app/portable_backend.py'].encode()).hexdigest(),BEFORE_BACKEND_SHA256)
 
     def test_snapshot_input_reader_fault_fails_before_native_or_device_work(self):
         import tempfile

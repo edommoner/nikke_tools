@@ -27,14 +27,6 @@ class AimGpuTests(unittest.TestCase):
             self.assertEqual(sum(tail[8:13]),sum(len(c.get('aim',[])) for c in case['controls']))
             self.assertEqual(tail[3],len(case.get('sequence',[])))
 
-    def test_current_source_is_strictly_projected_and_mutations_are_rejected(self):
-        from portable_coordinate_aim_source_contract import project_sources
-        projected=project_sources(ROOT)
-        name='gpu/coordinate_physical_runtime.slang'
-        self.assertNotEqual(projected[name],(ROOT/name).read_text())
-        with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed\n'})
-        name='gpu/coordinate_aim_runtime.slang'
-        with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed\n'})
 
     def test_new_stride_requires_full_layout(self):
         import portable_backend

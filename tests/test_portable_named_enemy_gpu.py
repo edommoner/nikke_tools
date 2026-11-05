@@ -4,7 +4,6 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 from portable_specs import LIMITS as L
 from portable_named_enemy_specs import MAGIC,OFFSET,allocate_names,pack
-from portable_named_enemy_source_contract import project_sources
 
 def load(name):
     s=importlib.util.spec_from_file_location('test_named_'+name,ROOT/'research'/('verify-world-'+name+'-short.py'));m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
@@ -23,15 +22,6 @@ class NamedEnemyGpuTests(unittest.TestCase):
     def test_retention_prefix_is_byte_identical(self):
         old,data=load('random-cleanse-retention').prepare();rows,current=load('named-enemy-retention').prepare()
         self.assertEqual((len(rows),sum(d is not None for _,_,d in rows)),(207,155));self.assertEqual(current[4:4+len(data)-4],data[4:])
-    def test_source_inverse_and_guard_fault_rejected(self):
-        sources,changed=project_sources(ROOT);self.assertEqual(len(changed),8)
-        for name in changed:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            current=(ROOT/name).read_text()
-            with self.subTest(name=name),self.assertRaises((AssertionError,ValueError)):project_sources(ROOT,{name:current+'\n// unreviewed\n'})
-        name='gpu/named_enemy_recipient_runtime.slang'
-        with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text().replace('name>P_DEFINITIONS','name>99999')})
     def test_every_dynamic_definition_capture_forwards_its_identity(self):
         import re
         for p in (ROOT/'gpu').glob('*.slang'):

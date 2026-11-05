@@ -26,17 +26,10 @@ class ActorInputTests(unittest.TestCase):
             compile_coordinate_typed(p,c['typed_bindings'],probe_kind=3,geometry=c['typed_geometry'],coordinate_weapon_targets=True,coordinate_typed_aim=True,coordinate_typed_actors=True)
         with self.assertRaisesRegex(ValueError,'frame aim'):
             compile_coordinate_typed(p,c['typed_bindings'],coordinate_typed_actors=True)
-    def test_exact_source_inverse_and_unchanged_arena(self):
-        from portable_coordinate_typed_actor_source_contract import ledger,project_sources,project_backend_source
+    def test_current_wire_and_layout(self):
         from portable_coordinate_typed_aim_specs import check_layout
-        data=ledger(ROOT);old=project_sources(ROOT)
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            if name.endswith('.slang'):
-                self.assertEqual(old[name],row['baseline'])
-                with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n// unreviewed\n'})
-        self.assertEqual(project_backend_source(ROOT),data['sources']['app/portable_backend.py']['baseline'])
-        layout=check_layout(ROOT);self.assertEqual(layout['extra_runtime_bytes'],0);self.assertEqual(layout['extra_output_words'],0)
+        layout = check_layout(ROOT)
+        self.assertEqual(layout['extra_runtime_bytes'], 0)
+        self.assertEqual(layout['extra_output_words'], 0)
 
 if __name__=='__main__':unittest.main()

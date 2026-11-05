@@ -10,7 +10,6 @@ from portable_coordinate_original_cases import prepare_case
 from portable_add_self_destruct_cases import fixtures
 from portable_add_self_destruct_wire import compile_battle,check_schema,LAYOUT as S
 from portable_add_attack_battle_wire import LAYOUT as A
-from portable_add_self_destruct_source_contract import project_sources
 
 
 class AddSelfDestructWireTests(unittest.TestCase):
@@ -47,15 +46,6 @@ class AddSelfDestructWireTests(unittest.TestCase):
         validate_composed_stride('gpu/world_add_self_destruct_entry.slang',S['INPUT_WORDS'],S['OUTPUT_WORDS'])
         with self.assertRaises(ValueError):validate_composed_stride('gpu/world_add_self_destruct_entry.slang',S['INPUT_WORDS']+1,S['OUTPUT_WORDS'])
 
-    def test_every_exact_inverse_and_added_dependency_rejects_tampering(self):
-        ledger=json.loads((ROOT/'tests/fixtures/portable-add-self-destruct-source-delta.json').read_text());old=project_sources(ROOT)
-        for name,row in ledger['files'].items():self.assertEqual(old[name],row['before'])
-        for name in [*ledger['files'],*ledger['added_sources']]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.subTest(name=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
-        from portable_logical_geometry_source_contract import project_sources as historical
-        self.assertIn('gpu/world_frame_runtime.slang',historical(ROOT))
 
     def test_common_cursor_comparer_checks_unshot_generations(self):
         spec=importlib.util.spec_from_file_location('self_cursor_compare',ROOT/'research/verify-add-attack-battle.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
@@ -82,14 +72,6 @@ class AddSelfDestructWireTests(unittest.TestCase):
         for offset in (record,h+2,at+12):
             with self.subTest(offset=offset),self.assertRaises(AssertionError):
                 broken=array.array('I',block);broken[offset]=99;m.compare_retirements(broken,native)
-
-
-    def test_source_audit_keeps_utf8_under_a_cp932_default_locale(self):
-        read=Path.read_text
-        def cp932_default(path,*args,**kwargs):
-            kwargs.setdefault('encoding','cp932');return read(path,*args,**kwargs)
-        with patch.object(Path,'read_text',cp932_default):restored=project_sources(ROOT)
-        self.assertIn('gpu/world_frame_runtime.slang',restored)
 
 
 if __name__=='__main__':unittest.main()

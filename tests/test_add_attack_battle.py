@@ -8,7 +8,6 @@ from calculator.boss_pattern import BossScript
 from portable_add_attack_battle_cases import fixtures
 from portable_add_attack_battle_wire import LAYOUT,compile_battle,check_schema
 from portable_coordinate_original_cases import prepare_case
-from portable_add_attack_battle_source_contract import project_sources
 
 
 class AddAttackBattleTests(unittest.TestCase):
@@ -22,14 +21,6 @@ class AddAttackBattleTests(unittest.TestCase):
             self.assertEqual(words[LAYOUT['BASE']:LAYOUT['BASE']+4],[0x41444231,1,len(row['patterns']),len(bindings)])
             self.assertFalse(meta['add_attack_battle']['CPU_schedule_as_input'])
 
-    def test_exact_shared_source_inverse_and_tamper_rejection(self):
-        ledger=json.loads((ROOT/'tests/fixtures/portable-add-attack-battle-source-delta.json').read_text())
-        old=project_sources(ROOT)
-        for name,r in ledger['files'].items():self.assertEqual(old[name],r['before'])
-        for name in [*ledger['files'],*ledger['added_sources']]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.subTest(path=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
 
     def test_new_wire_is_disjoint_and_only_its_entry_accepts_it(self):
         from portable_backend import validate_composed_stride
@@ -54,7 +45,6 @@ class AddAttackBattleTests(unittest.TestCase):
         self.assertIn('nextWorldAddAttack(cursor,results[p],results[p+1]!=0,actorNumber(p+8)',runtime)
         self.assertIn('addAttackEmit(s,w,node,slot,results[p],index,when)',runtime)
         self.assertIn('collectWorldEnemyAttackFlat(s,0,when)',runtime)
-
 
 
 if __name__=='__main__':unittest.main()

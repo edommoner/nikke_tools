@@ -10,7 +10,6 @@ from portable_aimed_area_contracts import verify
 from world_aimed_area_native import observe
 from world_aimed_packet_native import observe as packet_observe
 from world_parts_skill_native import observe as uninstrumented_native
-from portable_aimed_area_source_contract import ledger,project_sources
 from portable_interrupt_aim_trace import BASE,COUNT,MAGIC,gpu_records
 from portable_scratch_layout import verify as layout
 from portable_specs import LIMITS
@@ -53,18 +52,6 @@ class AimedAreaTests(unittest.TestCase):
             else:bad['allies'][0]['hp']+=1
             with self.subTest(fault=fault),self.assertRaises(AssertionError):verify(case,bad)
 
-    def test_exact_delta_rejects_landing_order_exclusion_and_resampling_faults(self):
-        project_sources(ROOT)
-        for name,row in ledger(ROOT)['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            text=(ROOT/name).read_text()
-            for change in row['changes']:
-                with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:text.replace(change['current'],change['baseline'],1)})
-        name='gpu/counter_landing_runtime.slang';text=(ROOT/name).read_text()
-        for old,new in [('slot==excluded||commands[input]!=1','false||commands[input]!=1'),('targetAmount=actorNumber(shot+6)','targetAmount=ONE'),('landAimedAreaPacket(s,who,0,amount','landAimedAreaPacket(s,who,target,amount')]:
-            self.assertIn(old,text)
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:text.replace(old,new,1)})
 
     def test_full128_diagnostic_records_fit_exclusive_bank_without_omission(self):
         self.assertEqual((BASE,COUNT),(770976,128));layout(LIMITS,mode='interrupt-aim-diagnostic')

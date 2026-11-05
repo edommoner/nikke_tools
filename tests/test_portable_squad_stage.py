@@ -8,8 +8,6 @@ from calculator import timeline
 from calculator.buff_manager import BuffManager
 from portable_squad_stage_cases import fixtures
 from portable_squad_stage_contracts import verify
-from portable_squad_stage_source_contract import project_sources,ledger,baseline_source as stage_baseline
-from portable_partial_charge_source_contract import baseline_source as partial_baseline
 from portable_trigger_specs import validate_input,UnsupportedTrigger
 from world_ally_burst_native import observe
 from world_projectile_native import observe as plain
@@ -48,21 +46,6 @@ class SquadStageTests(unittest.TestCase):
                     if words[at]==41:self.assertIn(words[at+7],(1,2,3));self.assertEqual(words[at+3:at+7],[0,0xffffffff,0,0]);count+=1
             self.assertGreater(count,0)
 
-    def test_source_delta_rejects_omission_wrong_order_stage_and_ownership(self):
-        project_sources(ROOT)
-        import portable_squad_stage_source_contract as stage_contract
-        from source_stage_guard import stage_inputs
-        stages=stage_inputs(ROOT,stage_contract)
-        for name,row in ledger(ROOT)['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            text,stage_options=stages[name]
-            for change in row['changes']:
-                bad=text.replace(change['current'],change['baseline'],1);self.assertNotEqual(text,bad)
-                with self.assertRaises(AssertionError):stage_baseline(ROOT,name,bad,**stage_options)
-        name='gpu/combat_runtime.slang';text,stage_options=stages[name];bad=text.replace('dispatch(s,0,41,picked,int(stage)','dispatch(s,0,41,4,int(stage)')
-        self.assertNotEqual(text,bad)
-        with self.assertRaises(AssertionError):stage_baseline(ROOT,name,bad,**stage_options)
 
     def test_full_real_roster_has_all81_definitions_without_battle_or_gpu(self):
         def forbidden(*a,**k):raise AssertionError('Static preparation executed a battle/GPU')

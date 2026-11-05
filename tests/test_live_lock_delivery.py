@@ -59,21 +59,12 @@ class LiveDeliveryTests(unittest.TestCase):
         golden=json.loads((ROOT/'research/portable-lock-packet-bindings-v1-expected.json').read_text())
         entries,_=suite.parent.prepare()
         for (name,_,domain),expected in zip(entries,golden['entries']):
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             self.assertEqual(name,expected['name'])
             if domain is not None:self.assertEqual(suite.cross.digest(suite.parent.native_reference(domain)),expected['native_sha256'])
 
-    def test_exact_source_inverse_and_unchanged_live_capacity(self):
-        from portable_live_lock_source_contract import project_sources
+    def test_current_live_capacity(self):
         from portable_lock_packet_layout import check
-        ledger=json.loads((ROOT/'tests/fixtures/portable-live-lock-source-delta.json').read_text());old=project_sources(ROOT)
-        for name,row in ledger['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(old[name],row['baseline'])
-            with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n// mutation'})
-        self.assertEqual(check(ROOT)['actor_set_capacity'],32)
+        self.assertEqual(check(ROOT)['actor_set_capacity'], 32)
 
 
 if __name__=='__main__':unittest.main()

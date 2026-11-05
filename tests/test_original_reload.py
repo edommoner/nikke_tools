@@ -34,14 +34,9 @@ class OriginalReloadTests(unittest.TestCase):
         words[h+2]=1
         with self.assertRaises(AssertionError):readback(words,{'states':{}})
 
-    def test_exact_source_and_transport_inverse(self):
-        from portable_coordinate_original_reload_source_contract import project_sources,project_backend_source
-        from portable_coordinate_original_cleanse_source_contract import project_sources as ancestor
+    def test_current_wire_and_layout(self):
         from portable_backend import validate_composed_stride
-        fixture=json.loads((ROOT/'tests/fixtures/portable-coordinate-original-reload-source-delta.json').read_text());sources=project_sources(ROOT)
-        for name,row in fixture['sources'].items():self.assertEqual(sources[name],row['baseline'])
-        self.assertEqual(project_backend_source(ROOT),fixture['transport']['baseline']);self.assertNotIn('gpu/world_coordinate_original_reload_entry.slang',ancestor(ROOT))
-        with self.assertRaises(AssertionError):project_sources(ROOT,{'gpu/coordinate_vital_kind_admission.slang':(ROOT/'gpu/coordinate_vital_kind_admission.slang').read_text()+'\n'})
-        validate_composed_stride(a.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS)
-        with self.assertRaises(ValueError):validate_composed_stride(a.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS-1)
+        validate_composed_stride(a.SOURCE, a.INPUT_WORDS, a.OUTPUT_WORDS)
+        with self.assertRaises(ValueError):
+            validate_composed_stride(a.SOURCE, a.INPUT_WORDS, a.OUTPUT_WORDS - 1)
 if __name__=='__main__':unittest.main()

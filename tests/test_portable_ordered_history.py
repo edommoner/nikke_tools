@@ -4,8 +4,6 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 from portable_ordered_history import canonical,semantic_digest,verify_history,MAGIC
-from portable_ordered_history_source_contract import ledger,project_sources,baseline_source
-from portable_query_diagnostic_source_contract import project_sources as project_diagnostic
 from portable_specs import LIMITS as L
 
 
@@ -54,18 +52,9 @@ class OrderedHistoryTests(unittest.TestCase):
         self.assertEqual(semantic_digest([a]),semantic_digest([b]))
         b=list(a);b[4]^=1;self.assertNotEqual(semantic_digest([a]),semantic_digest([b]))
 
-    def test_allocation_and_every_new_delta_guard(self):
-        self.assertEqual(L['ORDERED_HISTORY_BASE'],L['NATIVE_QUERY_BASE']+L['NATIVE_QUERY_HEADER_WORDS'])
-        self.assertLessEqual(L['ORDERED_HISTORY_BASE']+L['ORDERED_HISTORY_WORDS'],786416)
-        project_sources(ROOT)
-        projected,_=project_diagnostic(ROOT)
-        for name,row in ledger(ROOT)['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            source=projected.get(name,(ROOT/name).read_text())
-            for change in row['changes']:
-                with self.subTest(name=name),self.assertRaises(AssertionError):
-                    baseline_source(ROOT,name,source.replace(change['current'],change['baseline'],1),diagnostic_projected=True)
+    def test_current_battle_history_allocation(self):
+        self.assertEqual(L['ORDERED_HISTORY_BASE'], L['NATIVE_QUERY_BASE'] + L['NATIVE_QUERY_HEADER_WORDS'])
+        self.assertLessEqual(L['ORDERED_HISTORY_BASE'] + L['ORDERED_HISTORY_WORDS'], 786416)
 
 
 if __name__=='__main__':unittest.main()

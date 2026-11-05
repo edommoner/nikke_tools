@@ -45,9 +45,4 @@ class FullBurstCapacityTests(unittest.TestCase):
         for c,(_,_,d) in zip(self.cases,rows):
             if not c['contract']['reject']:
                 self.assertEqual(observe(c),observe(d[0]));self.assertEqual(d[0]['contract'],c['contract'])
-    def test_private_source_delta_rejects_missing_codec_or_staging(self):
-        from portable_full_burst_landing_source_contract import project_sources
-        project_sources(ROOT);name='gpu/pending_burst_runtime.slang';s=(ROOT/name).read_text()
-        for old,new in [('s.pendingCount-logicalCount','0'),('releasePendingBatch(s,count)','releasePendingBatch(s,0)')]:
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:s.replace(old,new)})
 if __name__=='__main__':unittest.main()

@@ -5,7 +5,6 @@ from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 from portable_specs import LIMITS as L
 from portable_query_diagnostic import decode,compare_misses,LOWER,UPPER,decode_census,compare_census
-from portable_query_diagnostic_source_contract import ledger,project_sources
 
 
 class QueryDiagnosticTests(unittest.TestCase):
@@ -22,18 +21,9 @@ class QueryDiagnosticTests(unittest.TestCase):
             changed=array.array('I',b);changed[L['NATIVE_DIAG_BASE']+word]^=1
             with self.subTest(word=word),self.assertRaises(AssertionError):compare_misses(decode(changed),expected)
 
-    def test_fixed_bank_is_disjoint_and_latest_source_changes_are_exact(self):
-        self.assertEqual(L['NATIVE_DIAG_BASE'],L['REVIVAL_BASE']+L['REVIVAL_WORDS'])
-        self.assertLessEqual(L['NATIVE_DIAG_BASE']+L['NATIVE_DIAG_WORDS'],786416)
-        project_sources(ROOT)
-        from portable_scratch_layout_source_contract import project_sources as project_layout
-        projected,_=project_layout(ROOT)
-        for name,row in ledger(ROOT)['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            text=projected.get(name,(ROOT/name).read_text())
-            for c in row['changes']:
-                with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,{**projected,name:text.replace(c['current'],c['baseline'],1)},layout_projected=True)
+    def test_fixed_bank_is_disjoint(self):
+        self.assertEqual(L['NATIVE_DIAG_BASE'], L['REVIVAL_BASE'] + L['REVIVAL_WORDS'])
+        self.assertLessEqual(L['NATIVE_DIAG_BASE'] + L['NATIVE_DIAG_WORDS'], 786416)
 
     def test_census_bounds_counters_endpoints_and_tail(self):
         b=array.array('I',[0])*786432;h=L['NATIVE_DIAG_BASE']

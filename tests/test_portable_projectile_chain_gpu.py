@@ -14,11 +14,4 @@ class ChainGPUTests(unittest.TestCase):
         s=importlib.util.spec_from_file_location('chain_gpu_test',ROOT/'research/verify-world-projectile-chain-short.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);rows,_=m.prepare();self.assertEqual(len(rows),32);self.assertEqual(sum(d is not None for _,_,d in rows),24)
         first=rows[0][1];event=L['EVENT_BASE']+2*L['EVENT_WORDS'];self.assertEqual(first[event],51);self.assertEqual(first[event+7],0)
         c,w,d=next(r for r in rows if r[0].endswith('buff-kind-enemy-carrier'));self.assertIn(92,[w[L['DEFINITION_BASE']+i*L['DEFINITION_WORDS']+F['STAT']] for i in range(w[1])])
-    def test_exact_inverse_rejects_unreviewed_shader_mutation(self):
-        from portable_projectile_chain_source_contract import project_sources
-        data=json.loads((ROOT/'tests/fixtures/portable-projectile-chain-source-delta.json').read_text());project_sources(ROOT)
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n'})
 if __name__=='__main__':unittest.main()

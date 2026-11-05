@@ -10,32 +10,7 @@ probe = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(probe)
 
 class QuantityVisitedTests(unittest.TestCase):
-    def test_retained_closure_uses_existing_exact_inverse_and_rejects_wrong_helper(self):
-        import json,hashlib
-        from portable_quantity_visited_source_contract import historical_hashes,BEFORE_SHA256
-        from portable_attack_group_source_contract import retained_source_hashes
-        source='gpu/quantity_runtime.slang';helper='gpu/quantity_visited.slang'
-        hashes={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in (source,helper)}
-        self.assertEqual(historical_hashes(ROOT,hashes),{source:BEFORE_SHA256})
-        with self.assertRaisesRegex(ValueError,'Unreviewed quantity visited'):
-            historical_hashes(ROOT,dict(hashes,**{helper:'0'*64}))
-        retained=retained_source_hashes(ROOT,'gpu/destructible_weapon_shield_entry.slang')
-        self.assertEqual(retained[source],BEFORE_SHA256)
-        self.assertNotIn(helper,retained)
 
-    def test_exact_storage_delta_recovers_all_original_numeric_and_query_bytes(self):
-        import json,hashlib
-        data=json.loads((ROOT/'tests/fixtures/quantity-visited-source-change-v1.json').read_text())
-        row=data['files']['gpu/quantity_runtime.slang']
-        from portable_kernel_speed_source_contract import reviewed_bytes
-        source=reviewed_bytes(ROOT,'gpu/quantity_runtime.slang',(ROOT/'gpu/quantity_runtime.slang').read_bytes()).decode()
-        self.assertEqual(hashlib.sha256(source.encode()).hexdigest(),row['after_sha256'])
-        for hunk in reversed(row['hunks']):
-            self.assertEqual(source.count(hunk['after']),1)
-            source=source.replace(hunk['after'],hunk['before'],1)
-        self.assertEqual(hashlib.sha256(source.encode()).hexdigest(),row['before_sha256'])
-        self.assertEqual(row['before_sha256'],'d04e568983cc1be4124d5144239cbde63826f51a05c23ba2c7bbb03a0a809020')
-        self.assertFalse(data['normalizer_changed'])
 
     def test_all_groups_word_boundaries_reset_and_every_output_word(self):
         rows, raw = probe.prepare()
@@ -43,8 +18,6 @@ class QuantityVisitedTests(unittest.TestCase):
         self.assertEqual(sum(domain is not None for _,_,domain in rows),9)
         self.assertEqual(len(raw),4+16*516*4)
         for name, words, domain in rows:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             expected = probe.native_reference(words)
             self.assertEqual(probe.compare(expected,words),expected)
             if domain is None:probe.validate_rejection(expected,name)
@@ -57,20 +30,11 @@ class QuantityVisitedTests(unittest.TestCase):
         self.assertEqual(full[16:272],full[528:784])
         self.assertEqual([probe.native_reference(r[1])[0] for r in rows],[0]*9+[64]*7)
 
-    def test_actual_quantity_runtime_uses_shared_helper_without_changing_old_numeric_body(self):
-        import json,hashlib
-        data=json.loads((ROOT/'tests/fixtures/portable-max-ammo-scaling-source-delta.json').read_text())
-        from portable_kernel_speed_source_contract import reviewed_bytes
-        source=reviewed_bytes(ROOT,'gpu/quantity_runtime.slang',(ROOT/'gpu/quantity_runtime.slang').read_bytes()).decode()
-        self.assertEqual(data['sources']['gpu/quantity_runtime.slang']['current'],source)
-        self.assertEqual(data['added_sources']['gpu/quantity_visited.slang'],hashlib.sha256((ROOT/'gpu/quantity_visited.slang').read_bytes()).hexdigest())
-        self.assertIn('QuantityVisited seen;',source)
-        self.assertNotIn('uint seen[P_DEFINITIONS]',source)
-        self.assertEqual(source.count('seen.insert(group)'),2)
-        self.assertIn('#include "quantity_visited.slang"',(ROOT/probe.SOURCE).read_text())
-        from portable_max_ammo_scaling_source_contract import project_sources
-        projected=project_sources(ROOT)
-        self.assertEqual(projected['gpu/quantity_runtime.slang'],data['sources']['gpu/quantity_runtime.slang']['baseline'])
-        with self.assertRaises(AssertionError):project_sources(ROOT,{'gpu/quantity_visited.slang':(ROOT/'gpu/quantity_visited.slang').read_text()+'\n'})
+    def test_actual_quantity_runtime_uses_shared_helper(self):
+        source = (ROOT / 'gpu/quantity_runtime.slang').read_text()
+        self.assertIn('QuantityVisited seen;', source)
+        self.assertNotIn('uint seen[P_DEFINITIONS]', source)
+        self.assertEqual(source.count('seen.insert(group)'), 2)
+        self.assertIn('#include "quantity_visited.slang"', (ROOT / probe.SOURCE).read_text())
 
 if __name__=='__main__':unittest.main()

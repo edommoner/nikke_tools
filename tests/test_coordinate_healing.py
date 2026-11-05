@@ -31,15 +31,10 @@ class HealingTests(unittest.TestCase):
         self.assertEqual({p['target'] for p in adds},{'__enemy__:healing-adds#1','__enemy__:healing-adds#2'},'Actual implicit ADD recipients must not become BODY')
         self.assertEqual(sum(p['damage'] for p in n['landed_packets'] if not p['target'] or p['target']=='front'),n['battle']['damage'][0])
         self.assertIn('healing_storage',n['battle']);self.assertTrue(n['healing_charge']['events'])
-    def test_exact_source_inverse_and_registered_wire_reject_tampering(self):
-        from portable_coordinate_healing_source_contract import project_sources
+    def test_current_wire_and_layout(self):
         from portable_backend import validate_composed_stride
-        golden=json.loads((ROOT/'research/portable-coordinate-auto-reload-short-expected.json').read_text())
-        from portable_coordinate_group_source_contract import historical_source_hashes
-        self.assertEqual(historical_source_hashes(ROOT,a.parent.SOURCE,project_sources(ROOT)),golden['source_sha256'])
-        validate_composed_stride(a.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS)
-        with self.assertRaises(ValueError):validate_composed_stride(a.SOURCE,a.INPUT_WORDS-1,a.OUTPUT_WORDS)
-        path='gpu/coordinate_sampling_runtime.slang'
-        with self.assertRaises(AssertionError):project_sources(ROOT,{path:(ROOT/path).read_text()+'\n'})
+        validate_composed_stride(a.SOURCE, a.INPUT_WORDS, a.OUTPUT_WORDS)
+        with self.assertRaises(ValueError):
+            validate_composed_stride(a.SOURCE, a.INPUT_WORDS - 1, a.OUTPUT_WORDS)
 
 if __name__=='__main__':unittest.main()

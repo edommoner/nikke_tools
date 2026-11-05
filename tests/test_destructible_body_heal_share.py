@@ -36,24 +36,35 @@ class BodyHealShareTests(unittest.TestCase):
     def test_saved_all_recipient_healing_and_wrong_attribution_rejected(self):
         from portable_backend import source_hashes
         from portable_specs import LIMITS as L
-        f=json.loads((ROOT/'tests/fixtures/portable-destructible-body-heal-share-raw.json').read_text());rows,_=a.prepare()
-        from portable_attack_group_source_contract import retained_source_hashes
-        self.assertEqual(f['source_sha256'],retained_source_hashes(ROOT,'gpu/destructible_roster_accum_entry.slang'));checked=0
+        f = json.loads((ROOT / 'tests/fixtures/portable-destructible-body-heal-share-raw.json').read_text())
+        (rows, _) = a.prepare()
+        checked = 0
         for r in f['records']:
-            name,w,domain=rows[r['index']];self.assertEqual(name,r['name']);self.assertEqual(hashlib.sha256(array.array('I',w).tobytes()).hexdigest(),r['input_sha256'])
-            block=array.array('I',[0])*f['output_words']
-            for at,value in r['nonzero']:block[at]=value
-            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),r['output_sha256'])
-            n=a.native_reference(domain);a.shared_compare(block,domain,copy.deepcopy(n))
-            faults=[base+who*10+9 for base in (L['HEALTH_STATE_BASE'],L['HEALTH_QUERY_BASE']) for who in range(5)]
-            faults.extend((L['HEALTH_STATE_BASE']+21,L['HEALTH_QUERY_BASE']+31))
+            (name, w, domain) = rows[r['index']]
+            self.assertEqual(name, r['name'])
+            self.assertEqual(hashlib.sha256(array.array('I', w).tobytes()).hexdigest(), r['input_sha256'])
+            block = array.array('I', [0]) * f['output_words']
+            for (at, value) in r['nonzero']:
+                block[at] = value
+            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(), r['output_sha256'])
+            n = a.native_reference(domain)
+            a.shared_compare(block, domain, copy.deepcopy(n))
+            faults = [base + who * 10 + 9 for base in (L['HEALTH_STATE_BASE'], L['HEALTH_QUERY_BASE']) for who in range(5)]
+            faults.extend((L['HEALTH_STATE_BASE'] + 21, L['HEALTH_QUERY_BASE'] + 31))
             for offset in faults:
-                bad=array.array('I',block);bad[offset]^=0x40000000
-                with self.subTest(name=name,offset=offset),self.assertRaises(AssertionError):a.shared_compare(bad,domain,copy.deepcopy(n))
-                checked+=1
-            bad=copy.deepcopy(n);bad['healing_recipients']=bad['healing']
-            with self.assertRaises(AssertionError):a.shared_compare(block,domain,bad)
-            c,m,p,w=domain;c=copy.deepcopy(c);c.pop('body_heal_sharing_v1')
-            with self.assertRaisesRegex(AssertionError,'recipient receipts'):a.shared_compare(block,(c,m,p,w),copy.deepcopy(n))
-        self.assertEqual(checked,24)
+                bad = array.array('I', block)
+                bad[offset] ^= 1073741824
+                with self.subTest(name=name, offset=offset), self.assertRaises(AssertionError):
+                    a.shared_compare(bad, domain, copy.deepcopy(n))
+                checked += 1
+            bad = copy.deepcopy(n)
+            bad['healing_recipients'] = bad['healing']
+            with self.assertRaises(AssertionError):
+                a.shared_compare(block, domain, bad)
+            (c, m, p, w) = domain
+            c = copy.deepcopy(c)
+            c.pop('body_heal_sharing_v1')
+            with self.assertRaisesRegex(AssertionError, 'recipient receipts'):
+                a.shared_compare(block, (c, m, p, w), copy.deepcopy(n))
+        self.assertEqual(checked, 24)
 if __name__=='__main__':unittest.main()

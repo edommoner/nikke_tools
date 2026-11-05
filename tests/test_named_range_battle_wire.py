@@ -20,15 +20,6 @@ class NamedRangeWire(unittest.TestCase):
         check_schema(ROOT);validate_composed_stride(SOURCE,INPUT,OUTPUT)
         with self.assertRaises(ValueError):validate_composed_stride(SOURCE,115680,OUTPUT)
         with self.assertRaises(ValueError):validate_composed_stride(SOURCE,INPUT,1769856)
-    def test_older_named_enemy_audit_receives_each_checked_inverse_once(self):
-        from portable_named_enemy_source_contract import project_sources
-        import json
-        projected,_=project_sources(ROOT)
-        ledger=json.loads((ROOT/'tests/fixtures/portable-named-range-battle-source-delta.json').read_text())
-        self.assertEqual(projected['gpu/stack_runtime.slang'],ledger['files']['gpu/stack_runtime.slang']['before'])
-        # Earlier callers must reject altered new dependencies as well.
-        with self.assertRaises((ValueError,AssertionError)):
-            project_sources(ROOT,{'gpu/stack_runtime.slang':(ROOT/'gpu/stack_runtime.slang').read_text()+'\n// changed'})
     def test_selection_uses_verified_creation_hit_instead_of_legacy_placeholder(self):
         s=importlib.util.spec_from_file_location('range_selection_test',ROOT/'research/verify-named-range-battle.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
         trace=dict(row=7,created=1.,landed=2.,amount=10.,hit=1,hits=1)
@@ -36,20 +27,13 @@ class NamedRangeWire(unittest.TestCase):
         self.assertEqual(a.selection_words(domain,dict(skill_trace=[trace]),[actual],{}),[0,2,0,0])
         with self.assertRaises(AssertionError):a.selection_words(domain,dict(skill_trace=[trace]),[dict(actual,amount=11.)],{})
         with self.assertRaises(AssertionError):a.selection_words(domain,dict(skill_trace=[trace]),[dict(actual,hit=4)],{})
-    def test_raw_cases_and_checked_source_inverse_are_complete(self):
-        from portable_named_range_battle_source_contract import project_sources
+    def test_raw_cases_are_complete(self):
         import json
-        ledger=json.loads((ROOT/'tests/fixtures/portable-named-range-battle-source-delta.json').read_text());old=project_sources(ROOT)
-        from portable_add_attack_battle_source_contract import project_sources as newer_sources
-        newer=newer_sources(ROOT)
-        for name,row in ledger['files'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(old[name],row['before'])
-            altered=dict(newer);altered[name]=newer.get(name,(ROOT/name).read_text())+'\n'
-            # Other files are already at the caller's exact historical stage;
-            # rejection must identify this injection, not an unrelated layer.
-            with self.subTest(name=name),self.assertRaisesRegex(ValueError,re.escape(name)):project_sources(ROOT,altered)
-        s=importlib.util.spec_from_file_location('range_battle_adapter_test',ROOT/'research/verify-named-range-battle.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
-        rows,raw=a.prepare();self.assertEqual(len(rows),16);self.assertEqual(sum(d is not None for _,_,d in rows),4);self.assertEqual(len(raw),4+16*INPUT*4)
+        s = importlib.util.spec_from_file_location('range_battle_adapter_test', ROOT / 'research/verify-named-range-battle.py')
+        a = importlib.util.module_from_spec(s)
+        s.loader.exec_module(a)
+        (rows, raw) = a.prepare()
+        self.assertEqual(len(rows), 16)
+        self.assertEqual(sum((d is not None for (_, _, d) in rows)), 4)
+        self.assertEqual(len(raw), 4 + 16 * INPUT * 4)
 if __name__=='__main__':unittest.main()

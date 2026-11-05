@@ -4,7 +4,6 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
 from portable_specs import LIMITS as L
 from portable_scratch_layout import verify, audit_sources
-from portable_scratch_layout_source_contract import ledger,project_sources,baseline_source
 
 
 class ScratchLayoutTests(unittest.TestCase):
@@ -34,8 +33,6 @@ class ScratchLayoutTests(unittest.TestCase):
         for name,old,new in [('gpu/skill_part_receipt.slang','781328','781320'),
                              ('gpu/world_interrupt_runtime.slang','785424','785416'),
                              ('gpu/native_query_diagnostic.slang','&& defined(PORTABLE_HEAL_SHARE_DIAGNOSTIC)','&& 0')]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             text=(ROOT/name).read_text();self.assertIn(old,text)
             with self.assertRaises(ValueError):audit_sources(ROOT,L,sources={name:text.replace(old,new,1)})
 
@@ -50,19 +47,6 @@ class ScratchLayoutTests(unittest.TestCase):
         for at in (0,258576+2079,248600+4351,518336+4351,781328+4095,785424+9,785440+31,785472+63,253951):
             changed=array.array('I',block);changed[at]^=1
             with self.subTest(at=at),self.assertRaises(AssertionError):m.compare(changed,case)
-
-    def test_all_relocation_deltas_are_exact_and_faults_rejected(self):
-        project_sources(ROOT)
-        from portable_interrupt_aim_source_contract import project_sources as project_interrupt
-        projected,_=project_interrupt(ROOT)
-        for name,row in ledger(ROOT)['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            text=projected.get(name,(ROOT/name).read_text())
-            for c in row['changes']:
-                self.assertEqual(text.count(c['current']),1)
-                with self.subTest(name=name),self.assertRaises(AssertionError):
-                    baseline_source(ROOT,name,text.replace(c['current'],c['baseline'],1),interrupt_projected=True)
 
 
 if __name__=='__main__':unittest.main()

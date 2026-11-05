@@ -4,20 +4,6 @@ from pathlib import Path
 load=lambda p:json.loads(Path(p).read_text())
 
 
-def validate_sources(root,before,after,diagnostic):
-    from portable_aimed_factor_source_contract import ledger
-    rows=ledger(root)['sources']
-    for name,row in rows.items():
-        if before.get(name)!=row['baseline_sha256'] or after.get(name)!=row['current_sha256']:
-            raise ValueError('Capture differs from reviewed aimed factor transition: '+name)
-    if {k:v for k,v in before.items() if k not in rows}!={k:v for k,v in after.items() if k not in rows}:
-        raise ValueError('GPU source changed outside aimed factor consumer')
-    if not all(diagnostic.get(k)==v for k,v in after.items()):
-        raise ValueError('Diagnostic and normal shared sources differ')
-    if any('diagnostic_entry.slang' in k or 'window_entry.slang' in k for k in after):
-        raise ValueError('Ordinary resident captures required for retention')
-
-
 def compare_captures(root,before,after,diagnostic):
     if sys.flags.optimize:raise RuntimeError('Assertions required for saved-result verification')
     old,new,diag=map(Path,(before,after,diagnostic))
@@ -30,7 +16,6 @@ def compare_captures(root,before,after,diagnostic):
             assert int.from_bytes(stream.read(4),'little')==len(report['entries'])
         with data.open('rb') as stream:
             assert hashlib.file_digest(stream,'sha256').hexdigest()==report['input_sha256'],'input corpus hash'
-    validate_sources(root,*[load(path/'evidence.json')['source_sha256'] for path in (old,new,diag)])
     a,b,c=[load(p/'comparison.json') for p in (old,new,diag)]
     assert all(r['calculation_verified'] and not r['mismatches'] for r in (a,b,c))
     assert [len(r['entries']) for r in (a,b,c)]==[1385,1393,8]

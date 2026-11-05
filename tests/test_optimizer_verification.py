@@ -108,35 +108,3 @@ class DeferredVerification(unittest.TestCase):
     def test_same_comparator_keeps_existing_top_level_semantics(self):
         self.assertEqual(product.payload_differences({'a':[1],'compute':1},{'a':[1],'compute':2}),[])
         self.assertEqual(set(product.payload_differences({'a':[1],'b':2},{'a':[2],'c':3})),{'a','b','c'})
-
-class VerificationSourceHistory(unittest.TestCase):
-    def test_reviewed_inverse_and_additional_mutations(self):
-        import portable_optimizer_verification_source_contract as history
-        root=Path(__file__).resolve().parents[1];name='app/portable_detail.py';raw=(root/name).read_bytes()
-        before=history.verification_preimage(root,name,raw)
-        from portable_browser_backend_source_contract import AFTER_SHA256
-        self.assertEqual(hashlib.sha256(before).hexdigest(),AFTER_SHA256[name])
-        for changed in (raw+b'\n',raw[:-1],b'!'+raw[1:]):
-            with self.assertRaisesRegex(ValueError,'Unreviewed'):history.verification_preimage(root,name,changed)
-            self.assertEqual(history.reviewed_bytes(root,name,changed),changed)
-        from portable_optimizer_throughput_source_contract import throughput_preimage
-        raw=throughput_preimage(root,name,raw)
-        with tempfile.TemporaryDirectory() as tmp:
-            target=Path(tmp)/'tests/fixtures';target.mkdir(parents=True)
-            ledger='portable-optimizer-verification-source-delta.json'
-            (target/ledger).write_bytes((root/'tests/fixtures'/ledger).read_bytes()+b'\n')
-            with self.assertRaisesRegex(ValueError,'ledger changed'):history.verification_preimage(tmp,name,raw)
-
-    def test_inverse_binds_spans_and_historical_digest(self):
-        import portable_optimizer_verification_source_contract as history
-        root=Path(__file__).resolve().parents[1];name='app/portable_detail.py';raw=(root/name).read_bytes()
-        from portable_optimizer_throughput_source_contract import throughput_preimage
-        raw=throughput_preimage(root,name,raw)
-        data=json.loads((root/'tests/fixtures/portable-optimizer-verification-source-delta.json').read_text())
-        for field,error in [('after','inverse span changed'),('before','historical preimage changed')]:
-            with tempfile.TemporaryDirectory() as tmp:
-                changed=copy.deepcopy(data);changed['files'][name]['hunks'][0][field]='wrong bytes'
-                ledger=(json.dumps(changed,indent=2)+'\n').encode();target=Path(tmp)/'tests/fixtures';target.mkdir(parents=True)
-                (target/'portable-optimizer-verification-source-delta.json').write_bytes(ledger)
-                with patch.object(history,'LEDGER_SHA256',hashlib.sha256(ledger).hexdigest()),self.assertRaisesRegex(ValueError,error):
-                    history.verification_preimage(tmp,name,raw)

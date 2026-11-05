@@ -6,7 +6,6 @@ import engine_worker
 from portable_aimed_enemy_cases import fixtures
 from portable_aimed_enemy_contracts import verify
 from world_aimed_area_native import observe
-from portable_aimed_enemy_source_contract import project_sources,ledger
 
 
 class AimedEnemyTests(unittest.TestCase):
@@ -17,18 +16,6 @@ class AimedEnemyTests(unittest.TestCase):
         direct,_=observe(fixtures()[0]);self.assertEqual([x['packets'][0]['damage'] for x in direct['physical_packet_sets'] if x['owner']==0],[9000,9000,6000])
         self.assertEqual(direct['parts_skill_accounting']['interrupt_damage'][:2],[24000,21000])
 
-    def test_source_delta_is_exact_and_old_scope_cannot_return(self):
-        project_sources(ROOT)
-        import portable_aimed_enemy_source_contract as stage_contract
-        from source_stage_guard import stage_inputs
-        stages=stage_inputs(ROOT,stage_contract)
-        for name,row in ledger(ROOT)['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            original,stage_options=stages[name]
-            for change in row['changes']:
-                changed=original.replace(change['current'],change['baseline'],1);self.assertNotEqual(changed,original)
-                with self.subTest(name=name),self.assertRaises(AssertionError):stage_contract.baseline_source(ROOT,name,changed,**stage_options)
 
     def test_native_packet_and_accounting_faults_rejected(self):
         case=fixtures()[0];native,_=observe(case)

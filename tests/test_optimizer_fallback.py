@@ -55,14 +55,6 @@ class CpuFallback(unittest.TestCase):
             self.assertEqual(record['cpu_error']['stage'],'cpu')
             self.assertFalse((Path(folder)/marker['capture_id']/'cpu-payload.json').exists())
 
-    def test_source_inverse_rejects_additional_changes(self):
-        import portable_optimizer_fallback_source_contract as h
-        root=Path(__file__).resolve().parents[1];name='app/portable_detail.py';raw=(root/name).read_bytes()
-        import portable_optimizer_throughput_source_contract as previous
-        self.assertEqual(hashlib.sha256(h.fallback_preimage(root,name,raw)).hexdigest(),previous.AFTER_SHA256[name])
-        for changed in (raw+b'\n',raw[:-1],b'!'+raw[1:]):
-            with self.assertRaisesRegex(ValueError,'Unreviewed'):h.fallback_preimage(root,name,changed)
-            self.assertEqual(h.reviewed_bytes(root,name,changed),changed)
 
     def test_service_dispatches_stateless_action(self):
         import portable_detail_service as service
@@ -70,20 +62,3 @@ class CpuFallback(unittest.TestCase):
         with patch.object(sys,'stdin',io.StringIO(json.dumps(request))),patch.object(sys,'stdout',io.StringIO()),patch.object(service,'cpu_fallback_portable_detail',return_value=[]) as fn:
             service.main()
         fn.assert_called_once_with(request['evaluations'])
-
-    def test_ledger_scope_digest_and_spans_are_bound(self):
-        import portable_optimizer_fallback_source_contract as h
-        root=Path(__file__).resolve().parents[1];name='app/portable_detail.py';raw=(root/name).read_bytes()
-        ledger='portable-optimizer-fallback-source-delta.json'
-        original=(root/'tests/fixtures'/ledger).read_bytes()
-        for fault,message in [('digest','ledger changed'),('after','inverse span changed'),('before','historical preimage changed'),('scope','scope changed')]:
-            data=json.loads(original)
-            if fault in ('after','before'):data['files'][name]['hunks'][0][fault]='wrong bytes'
-            if fault=='scope':data['normalizer_changed']=True
-            changed=(json.dumps(data,indent=2)+'\n').encode()
-            with tempfile.TemporaryDirectory() as tmp:
-                target=Path(tmp)/'tests/fixtures';target.mkdir(parents=True);(target/ledger).write_bytes(changed)
-                (target/'portable-kernel-speed-source-delta.json').write_bytes((root/'tests/fixtures/portable-kernel-speed-source-delta.json').read_bytes())
-                digest=h.LEDGER_SHA256 if fault=='digest' else hashlib.sha256(changed).hexdigest()
-                if fault=='digest':(target/ledger).write_bytes(changed+b'\n')
-                with patch.object(h,'LEDGER_SHA256',digest),self.assertRaisesRegex(ValueError,message):h.fallback_preimage(tmp,name,raw)

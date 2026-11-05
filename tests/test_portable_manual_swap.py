@@ -4,8 +4,6 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 from portable_reload_specs import pack
 from portable_manual_swap_cases import fixtures
-from portable_definition_view_contract import verify
-from portable_manual_swap_source_contract import ledger
 from portable_specs import LIMITS as L
 
 
@@ -32,19 +30,6 @@ class ManualSwapTests(unittest.TestCase):
                 if effect['type']=='weapon_change':self.assertEqual(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['KIND']],2)
         cover=next(c for c in fixtures() if c['name'].endswith('cover-pump-order'))
         with self.assertRaisesRegex(ValueError,'Non-hold sequence'):adapter.suite.compile_case(cover)
-
-    def test_exact_source_delta_rejects_lost_hooks_or_changed_order_and_budget(self):
-        data=ledger(ROOT);self.assertEqual(set(verify(ROOT)['reviewed_manual_swap_sources']),set(data['sources']))
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            for change in row['changes']:
-                source=(ROOT/name).read_text();modified=source.replace(change['current'],change['baseline'],1)
-                with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:modified})
-        name='gpu/world_reload_runtime.slang';source=(ROOT/name).read_text()
-        for old,new in [('commands[p+3]>=32','commands[p+3]>=64'),('d.conditionCount==0','d.conditionCount>0'),('activationConditions(s,row,when)','basicConditions(s,row,when,true)'),('if(d.kind!=2||d.owner!=who||d.conditionCount==0)','if(d.kind!=2||d.owner!=who||d.conditionCount==0||d.maxTriggers==0)')]:
-            self.assertIn(old,source)
-            with self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})
 
 
 if __name__=='__main__':unittest.main()

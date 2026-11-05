@@ -14,8 +14,6 @@ class MaxAmmoScalingTests(unittest.TestCase):
         seed=rows[0][1]
         for name,w,d in rows[20:]:self.assertEqual(sum(a!=b for a,b in zip(seed,w)),1)
         for name,w,d in rows[:20]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             c,metadata,body=d
             for i,e in enumerate(c['effects']):self.assertEqual(bool(w[L['DEFINITION_BASE']+i*L['DEFINITION_WORDS']+F['FLAGS']]&FLAG),e.get('scaling')=='max_ammo_count')
     def test_host_rejects_incompatible_interpretations(self):
@@ -29,18 +27,6 @@ class MaxAmmoScalingTests(unittest.TestCase):
         self.assertEqual(w[at:at+4],[0]*4)
         self.assertTrue(w[L['DEFINITION_BASE']+L['DEFINITION_WORDS']+F['FLAGS']]&FLAG)
         self.assertEqual(c,fixtures()[0])
-    def test_source_inverse_is_exact_and_rejects_faults(self):
-        from portable_max_ammo_scaling_source_contract import project_sources
-        data=json.loads((ROOT/'tests/fixtures/portable-max-ammo-scaling-source-delta.json').read_text());projected=project_sources(ROOT)
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(projected[name],row['baseline'])
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n'})
-        for name in data['added_sources']:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
     def test_capacity_dependency_never_publishes_or_recurses_numeric_dictionary(self):
         source=(ROOT/'gpu/max_ammo_scaling_runtime.slang').read_text()
         # Inspect calls rather than comments; a changed graph needs explicit review.

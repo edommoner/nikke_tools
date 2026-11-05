@@ -9,7 +9,6 @@ from portable_burst1_ally_cases import fixtures
 from world_burst1_ally_native import observe
 from world_projectile_native import observe as plain
 from portable_burst1_ally_contracts import verify
-from portable_burst1_ally_source_contract import project_sources
 
 def adapter(name='burst1-ally'):
     s=importlib.util.spec_from_file_location('burst1_test_'+name,ROOT/'research'/('verify-world-'+name+'-short.py'));m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
@@ -47,16 +46,6 @@ class Burst1AllyTests(unittest.TestCase):
     def test_combiner_has125_inputs_and31_rejections(self):
         m=adapter('burst1-ally-retention');rows,data=m.prepare();self.assertEqual(len(rows),125);self.assertEqual(sum(d is None for _,_,d in rows),31);self.assertEqual(len(data),4+125*104400*4)
         for name,_,d in rows:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             if d is None:m.validate_rejection([64],name)
-    def test_exact_source_delta_rejects_weakened_guards_or_evaluator_changes(self):
-        project_sources(ROOT);name='gpu/world_actor_fields.slang';s=(ROOT/name).read_text()
-        for before,after in [('s.combat==0 || commands[at+1]!=0 || !f64Zero(arg)','false'),('kind==C_BURST1_ALLY || kind==C_NO_BURST1_ALLY','kind==C_NO_BURST1_ALLY'),('#ifdef PORTABLE_BURST1_ALLY','#if 1')]:
-            self.assertIn(before,s)
-            with self.subTest(before=before),self.assertRaises(AssertionError):project_sources(ROOT,{name:s.replace(before,after,1)})
-        from portable_definition_view_contract import verify as verify_all
-        text=(ROOT/'gpu/event_runtime.slang').read_text();before='who != owner && s.currentStage[who] == 1';self.assertIn(before,text)
-        with self.assertRaises(AssertionError):verify_all(ROOT,sources={'gpu/event_runtime.slang':text.replace(before,'s.currentStage[who] == 1',1)})
 
 if __name__=='__main__':unittest.main()

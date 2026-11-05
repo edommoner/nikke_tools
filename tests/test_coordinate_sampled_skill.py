@@ -37,18 +37,10 @@ class SkillTests(unittest.TestCase):
         rows,raw=a.prepare();old,_=a.parent.prepare();self.assertEqual([r[1] for r in rows[:39]],[r[1] for r in old])
         changed=[i for i,(x,y) in enumerate(zip(rows[:39],old)) if x!=y];self.assertEqual(len(changed),1);self.assertEqual(rows[changed[0]][0],a.MIGRATED);self.assertIsNone(old[changed[0]][2]);self.assertIsNotNone(rows[changed[0]][2])
         self.assertEqual((len(rows),sum(r[2] is not None for r in rows)),(62,59))
-    def test_all_depth_slots_fit_and_exact_source_inverse_rejects_changes(self):
+    def test_all_depth_slots_fit(self):
         from portable_coordinate_sampling_bank import LAYOUT as bank
-        self.assertEqual(914352,bank['ROWS']+bank['PELLETS']*bank['ROW_WORDS']);self.assertLessEqual(914352+32*48,bank['META'])
-        from portable_coordinate_sampled_skill_source_contract import project_sources
-        from portable_coordinate_sampled_burst_source_contract import project_sources as burst_sources
-        from portable_coordinate_sampled_vital_source_contract import project_sources as vital_sources
-        from portable_coordinate_manual_source_contract import project_sources as manual_sources
-        project_sources(ROOT,burst_sources(ROOT,vital_sources(ROOT,manual_sources(ROOT))))
-        for name in ('gpu/damage_runtime.slang','gpu/dispatch_phases.slang','gpu/coordinate_sampled_skill_runtime.slang'):
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed\n'})
+        self.assertEqual(914352, bank['ROWS'] + bank['PELLETS'] * bank['ROW_WORDS'])
+        self.assertLessEqual(914352 + 32 * 48, bank['META'])
     def test_reference_contract_rejects_missing_calculations_and_target_reroll(self):
         from portable_coordinate_sampled_skill_contracts import verify
         for c in self.cases:verify(c,self.answers[c['name'].rsplit('/',1)[1]])

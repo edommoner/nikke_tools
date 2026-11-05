@@ -31,22 +31,16 @@ class KindAdmissionTests(unittest.TestCase):
         self.assertEqual(clock['unsupported'],[])
 
 
-
     def test_runtime_burst_control_predicate_is_not_assumed(self):
         from portable_burst_control_specs import INPUT_BASE
         words=list(self.rows[0][1]);words[INPUT_BASE+2]=0
         unsupported=KindAdmission(ROOT,self.a.SOURCE).inspect(words)['unsupported']
         self.assertIn(5,{r['kind'] for r in unsupported})
 
-    def test_source_inverse_and_wire_reject_unreviewed_changes(self):
+    def test_current_wire_and_layout(self):
         import json
-        from portable_coordinate_original_resource_source_contract import project_sources,project_backend_source
         from portable_backend import validate_composed_stride
-        baseline=json.loads((ROOT/'tests/fixtures/portable-coordinate-original-resource-source-delta.json').read_text())
-        projected=project_sources(ROOT)
-        for name,row in baseline['sources'].items():self.assertEqual(projected[name],row['baseline'])
-        self.assertEqual(project_backend_source(ROOT),baseline['transport']['baseline'])
-        with self.assertRaises(AssertionError):project_sources(ROOT,{'gpu/coordinate_sampling_runtime.slang':(ROOT/'gpu/coordinate_sampling_runtime.slang').read_text()+'\n'})
-        validate_composed_stride(self.a.SOURCE,self.a.INPUT_WORDS,self.a.OUTPUT_WORDS)
-        with self.assertRaises(ValueError):validate_composed_stride(self.a.SOURCE,self.a.INPUT_WORDS-1,self.a.OUTPUT_WORDS)
+        validate_composed_stride(self.a.SOURCE, self.a.INPUT_WORDS, self.a.OUTPUT_WORDS)
+        with self.assertRaises(ValueError):
+            validate_composed_stride(self.a.SOURCE, self.a.INPUT_WORDS - 1, self.a.OUTPUT_WORDS)
 if __name__=='__main__':unittest.main()

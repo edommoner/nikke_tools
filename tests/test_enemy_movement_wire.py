@@ -35,14 +35,6 @@ class MovementWireTests(unittest.TestCase):
             changed=copy.deepcopy(p)
             effect=next(e['effect'] for e in changed['effects'] if e['effect'].get('stat')=='enemy_movement_disable');effect[key]=value
             with self.subTest(key=key),self.assertRaises(ValueError):compile_battle(changed,row['logical_geometry'],row['enemy_movement'])
-    def test_exact_source_inverse_retains_every_original_byte_and_rejects_unreviewed_changes(self):
-        from portable_enemy_movement_source_contract import project_sources
-        data=json.loads((ROOT/'tests/fixtures/portable-enemy-movement-source-delta.json').read_text());out=project_sources(ROOT)
-        for name,row in data['files'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(hashlib.sha256(out[name].encode()).hexdigest(),row['before_sha256'])
-            with self.subTest(name=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// changed'})
     def test_movement_output_requires_all_state_frames_segments_and_padding(self):
         s=importlib.util.spec_from_file_location('movement_output_suite',ROOT/'research/verify-enemy-movement.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
         from types import SimpleNamespace

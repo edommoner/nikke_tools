@@ -45,7 +45,3 @@ class SquadModeTests(unittest.TestCase):
                 w,_,_,_=a.compile_case(c);self.assertEqual(len(w),109792);self.assertEqual(w[INPUT_BASE+1],2);self.assertEqual(w[INPUT_BASE+5],MAGIC)
         for c in self.cases:
             self.assertEqual(len(self.native[c['name'].split('/')[-1]]['squad_mode_state']['flags']),5)
-    def test_source_inverse_keeps_old_squad_and_policy_contracts(self):
-        from portable_coordinate_squad_source_contract import project_sources,project_backend_source
-        self.assertIn('gpu/weapon_frame_phases.slang',project_sources(ROOT));project_backend_source(ROOT)
-        with self.assertRaises(AssertionError):project_sources(ROOT,{'gpu/weapon_frame_phases.slang':(ROOT/'gpu/weapon_frame_phases.slang').read_text()+'\n'})

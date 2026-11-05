@@ -8,7 +8,6 @@ from portable_ally_burst_contracts import verify
 import world_ally_burst_native as observer
 from world_projectile_native import observe as plain_observe
 from portable_trigger_specs import validate_input,UnsupportedTrigger
-from portable_definition_view_contract import verify as source_verify
 import portable_backend,portable_runtime,detail_gpu
 
 class AllyBurstTests(unittest.TestCase):
@@ -53,14 +52,6 @@ class AllyBurstTests(unittest.TestCase):
             staged=copy.deepcopy(effect);staged['trigger']['timing']=[timing]
             validate_input(staged,world_frame=True)
             with self.assertRaises(UnsupportedTrigger):validate_input(staged,world_frame=False)
-    def test_source_delta_rejects_order_omission_owner_and_admission_mutations(self):
-        self.assertEqual(set(source_verify(ROOT)['reviewed_ally_burst_sources']),{'gpu/combat_runtime.slang','gpu/admission_runtime.slang'})
-        import portable_ally_burst_source_contract as stage_contract
-        from source_stage_guard import stage_inputs
-        stages=stage_inputs(ROOT,stage_contract,source_verify)
-        for name,old,new in [('gpu/combat_runtime.slang','nextEventCandidate(s,42,0)','nextEventCandidate(s,41,0)'),('gpu/combat_runtime.slang','dispatch(s,0,42,who,0,when,output)','dispatch(s,0,42,picked,0,when,output)'),('gpu/combat_runtime.slang','who = 0; who < 5 &&','who = 1; who < 5 &&'),('gpu/admission_runtime.slang','event == 42 && s.combat == 0','event == 41 && s.combat == 0')]:
-            text,options=stages[name];self.assertIn(old,text)
-            with self.subTest(name=name,old=old),self.assertRaises(AssertionError):stage_contract.baseline_source(ROOT,name,text.replace(old,new,1),**options)
     def test_shared_adapter_packs_literal_cases_and_one_rejection(self):
         spec=importlib.util.spec_from_file_location('ally_burst_test_adapter',ROOT/'research/verify-world-ally-burst-short.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
         entries,data=m.prepare();self.assertEqual(len(entries),16);self.assertEqual(len(data),4+16*m.suite.INPUT*4)

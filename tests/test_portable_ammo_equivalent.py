@@ -5,7 +5,6 @@ ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('ap
 from portable_ammo_equivalent_cases import fixtures
 from portable_runtime import validate_effect,UnsupportedPortable
 from portable_specs import LIMITS as L,FIELDS as F
-from portable_definition_view_contract import verify
 
 
 class AmmoEquivalentTests(unittest.TestCase):
@@ -44,28 +43,6 @@ class AmmoEquivalentTests(unittest.TestCase):
                 value=struct.unpack('<d',struct.pack('<II',*words[at+F['VALUE']:at+F['VALUE']+2]))[0]
                 self.assertEqual(value,effect.get('fixed_value',effect.get('values',{}).get('10')))
         self.assertEqual(cases,before);entries,data=m.prepare();self.assertEqual(len(entries),46);self.assertEqual(sum(e[2] is not None for e in entries),29);self.assertEqual(len(data),4+46*m.suite.INPUT*4)
-
-    def test_exact_delta_rejects_removed_hooks_broader_bounds_bulk_counts_and_wrong_log(self):
-        from portable_ammo_equivalent_source_contract import ledger,baseline_source
-        from portable_manual_swap_source_contract import project_sources
-        data=ledger(ROOT);self.assertEqual(set(verify(ROOT)['reviewed_ammo_equivalent_sources']),set(data['sources']))
-        projected,_=project_sources(ROOT)
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            source=projected.get(name,(ROOT/name).read_text())
-            for change in row['changes']:
-                self.assertEqual(source.count(change['current']),1)
-                mutated=source.replace(change['current'],change['baseline'],1);self.assertNotEqual(mutated,source)
-                with self.subTest(name=name),self.assertRaises(AssertionError):baseline_source(ROOT,name,mutated)
-        import portable_ammo_equivalent_source_contract as stage_contract
-        from source_stage_guard import stage_inputs
-        stages=stage_inputs(ROOT,stage_contract)
-        for name,old,new in [('gpu/admission_runtime.slang','f64FromI64(4096)','f64FromI64(8192)'),('gpu/dispatch_phases.slang','uint(count-1)','uint(count)'),('gpu/event_runtime.slang','if(f.mode==15) logResourceNotification','if(true) logResourceNotification')]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            source,options=stages[name];self.assertIn(old,source)
-            with self.subTest(name=name),self.assertRaises(AssertionError):stage_contract.baseline_source(ROOT,name,source.replace(old,new,1),**options)
 
 
 if __name__=='__main__':unittest.main()

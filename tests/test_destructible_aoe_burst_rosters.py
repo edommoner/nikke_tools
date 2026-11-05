@@ -10,7 +10,6 @@ adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
 from historical_engine_reference import historical_reference
 
 class AoEBurstRosterTests(unittest.TestCase):
-    pass
 
     def test_all_native_aoe_hp_credit_slot_order_and_body_fallback_contracts(self):
         positive=0
@@ -33,29 +32,30 @@ class AoEBurstRosterTests(unittest.TestCase):
     @historical_reference
     def test_saved_trina_hp_and_hit_outputs_detect_factor_flag_and_receipt_corruption(self):
         from portable_backend import source_hashes
-        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-aoe-burst-rosters-raw.json').read_text());rows,_=adapter.prepare()
-        from portable_destructible_lifesteal_source_contract import verify_retained_sources
-        verify_retained_sources(ROOT,'gpu/destructible_roster_skill_entry.slang',fixture['source_sha256'])
-        checked=0
+        fixture = json.loads((ROOT / 'tests/fixtures/portable-destructible-aoe-burst-rosters-raw.json').read_text())
+        (rows, _) = adapter.prepare()
+        checked = 0
         for record in fixture['records']:
-            name,words,domain=rows[record['index']];self.assertEqual(name,record['name'])
-            self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256'])
-            block=array.array('I',[0])*fixture['output_words']
-            for at,value in record['nonzero']:block[at]=value
-            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),record['output_sha256'])
-            # Mutations change only saved GPU output, never its CPU input.
-            # Calculate this independent oracle once, then check every altered
-            # block against a fresh copy. Retain all cases and fault probes.
-            native=adapter.native_reference(domain);before=copy.deepcopy(native)
-            adapter.shared_compare(block,domain,copy.deepcopy(native))
-            packet=790000+record['aoe_packet']*1040
-            self.assertEqual(block[packet+14],4097)
-            for offset in (0,adapter.L['HEALTH_QUERY_BASE'],packet+8,packet+11,packet+13,packet+14,packet+15,packet+16):
-                bad=array.array('I',block);bad[offset]^=1
-                with self.subTest(name=name,offset=offset),self.assertRaises(AssertionError):adapter.shared_compare(bad,domain,copy.deepcopy(native))
-                checked+=1
-            self.assertEqual(native,before)
-        self.assertEqual(checked,16)
+            (name, words, domain) = rows[record['index']]
+            self.assertEqual(name, record['name'])
+            self.assertEqual(hashlib.sha256(array.array('I', words).tobytes()).hexdigest(), record['input_sha256'])
+            block = array.array('I', [0]) * fixture['output_words']
+            for (at, value) in record['nonzero']:
+                block[at] = value
+            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(), record['output_sha256'])
+            native = adapter.native_reference(domain)
+            before = copy.deepcopy(native)
+            adapter.shared_compare(block, domain, copy.deepcopy(native))
+            packet = 790000 + record['aoe_packet'] * 1040
+            self.assertEqual(block[packet + 14], 4097)
+            for offset in (0, adapter.L['HEALTH_QUERY_BASE'], packet + 8, packet + 11, packet + 13, packet + 14, packet + 15, packet + 16):
+                bad = array.array('I', block)
+                bad[offset] ^= 1
+                with self.subTest(name=name, offset=offset), self.assertRaises(AssertionError):
+                    adapter.shared_compare(bad, domain, copy.deepcopy(native))
+                checked += 1
+            self.assertEqual(native, before)
+        self.assertEqual(checked, 16)
 
 
 if __name__=='__main__':unittest.main()

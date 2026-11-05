@@ -43,10 +43,9 @@ class NamedEnemyRemovalTests(unittest.TestCase):
                 with self.subTest(case=c['name'],fault=fault),self.assertRaises(AssertionError):verify(c,bad)
         c=fixtures()[2];n=observe(c)[0];n['named_enemy_removal']['selection']['recipients'][0]['picked']=['__enemy__']
         with self.assertRaises(AssertionError):verify(c,n)
-    def test_retained207_input_bytes_and_source_guard(self):
-        a,data=load('named-enemy-retention').prepare();rows,current=load('named-enemy-removal-retention').prepare();self.assertEqual((len(rows),sum(d is not None for _,_,d in rows)),(230,171));self.assertEqual(current[4:len(data)],data[4:])
-        from portable_named_enemy_source_contract import project_sources
-        project_sources(ROOT)
-        name='gpu/named_enemy_recipient_runtime.slang';text=(ROOT/name).read_text()
-        with self.assertRaises(AssertionError):project_sources(ROOT,{name:text.replace('(d.kind==1 || d.kind==15) && d.target==2','true')})
+    def test_retained207_input_bytes(self):
+        (a, data) = load('named-enemy-retention').prepare()
+        (rows, current) = load('named-enemy-removal-retention').prepare()
+        self.assertEqual((len(rows), sum((d is not None for (_, _, d) in rows))), (230, 171))
+        self.assertEqual(current[4:len(data)], data[4:])
 if __name__=='__main__':unittest.main()

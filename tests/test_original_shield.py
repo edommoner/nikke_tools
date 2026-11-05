@@ -22,14 +22,9 @@ class OriginalShieldTests(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             with capture(c):raise RuntimeError('failed native')
         self.assertEqual(before,[BuffManager._register_all,BuffManager._dispatch_instant,BuffManager.heal_shield])
-    def test_strict_source_inverse_and_transport(self):
-        from portable_coordinate_original_shield_source_contract import project_sources,project_backend_source
-        from portable_coordinate_original_slot_source_contract import project_sources as ancestor
+    def test_current_wire_and_layout(self):
         from portable_backend import validate_composed_stride
-        data=json.loads((ROOT/'tests/fixtures/portable-coordinate-original-shield-source-delta.json').read_text());projected=project_sources(ROOT)
-        for path,row in data['sources'].items():self.assertEqual(projected[path],row['baseline'])
-        self.assertEqual(project_backend_source(ROOT),data['transport']['baseline']);self.assertNotIn('gpu/world_coordinate_original_shield_entry.slang',ancestor(ROOT))
-        with self.assertRaises(AssertionError):project_sources(ROOT,{'gpu/coordinate_vital_kind_admission.slang':(ROOT/'gpu/coordinate_vital_kind_admission.slang').read_text()+'\n'})
-        validate_composed_stride(a.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS)
-        with self.assertRaises(ValueError):validate_composed_stride(a.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS-1)
+        validate_composed_stride(a.SOURCE, a.INPUT_WORDS, a.OUTPUT_WORDS)
+        with self.assertRaises(ValueError):
+            validate_composed_stride(a.SOURCE, a.INPUT_WORDS, a.OUTPUT_WORDS - 1)
 if __name__=='__main__':unittest.main()

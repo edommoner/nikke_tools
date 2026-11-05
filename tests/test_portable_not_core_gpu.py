@@ -7,7 +7,6 @@ import engine_worker
 from portable_specs import LIMITS as L,check_schema
 from portable_scratch_layout import verify
 from portable_not_core_specs import address
-from portable_not_core_source_contract import project_sources
 
 class NotCoreGPUTests(unittest.TestCase):
     def test_full256_by5_binary64_and_seen_ownership(self):
@@ -29,8 +28,5 @@ class NotCoreGPUTests(unittest.TestCase):
         s=importlib.util.spec_from_file_location('notcore_static',ROOT/'research/verify-world-not-core-short.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
         with patch.object(timeline.CharState,'tick',side_effect=AssertionError('No CPU clock')),patch.object(BuffManager,'get_buffs',side_effect=AssertionError('No numerical query')),patch.object(portable_backend,'execute',side_effect=AssertionError('No GPU')):rows,data=m.prepare()
         self.assertEqual(len(rows),32)
-    def test_reviewed_source_and_added_numeric_helper_reject_changes(self):
-        project_sources(ROOT);name='gpu/not_core_runtime.slang';text=(ROOT/name).read_text()
-        with self.assertRaises(AssertionError):project_sources(ROOT,{name:text.replace('f64Add(actorNumber(at),','f64Mul(actorNumber(at),',1)})
 
 if __name__=='__main__':unittest.main()

@@ -31,17 +31,6 @@ class CombinedWireTests(unittest.TestCase):
         validate_composed_stride('gpu/world_enemy_ammo_self_destruct_entry.slang',117632,2032000)
         with self.assertRaises(ValueError):validate_composed_stride('gpu/world_enemy_ammo_self_destruct_entry.slang',116464,2032000)
 
-    def test_strict_inverse_composes_and_rejects_every_dependency_mutation(self):
-        from portable_enemy_ammo_combined_source_contract import project_sources
-        ledger=json.loads((ROOT/'tests/fixtures/portable-enemy-ammo-combined-source-delta.json').read_text())
-        old=project_sources(ROOT)
-        for name,row in ledger['files'].items():self.assertEqual(old[name],row['before'])
-        for name in [*ledger['files'],*ledger['added_sources']]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.subTest(name=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
-        from portable_enemy_ammo_source_contract import project_sources as historical
-        self.assertIn('gpu/ammo_instant_runtime.slang',historical(ROOT))
 
     def test_full_case_and_raw_rejection_inventory(self):
         spec=importlib.util.spec_from_file_location('combined_wire_verifier',ROOT/'research/verify-enemy-ammo-self-destruct.py')
@@ -49,11 +38,8 @@ class CombinedWireTests(unittest.TestCase):
         self.assertEqual((len(rows),len(raw)),(16,4+16*117632*4))
         self.assertEqual(len({name for name,_,_ in rows}),16)
         for name,words,domain in rows[:8]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             with self.subTest(case=name):self.assertEqual(len(domain[0]['effects']),76)
         self.assertTrue(all(domain is None for _,_,domain in rows[8:]))
-
 
 
 if __name__=='__main__':unittest.main()

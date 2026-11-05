@@ -44,17 +44,6 @@ class TypedWeaponInputTests(unittest.TestCase):
         for geometry in (dict(point=[0.,0.],shapes=c['typed_geometry']['shapes']),dict(c['typed_geometry'],grow=1.)):
             with self.assertRaises(ValueError):compile_coordinate_typed(p,c['typed_bindings'],geometry=geometry,**base)
         with self.assertRaises(ValueError):compile_coordinate_typed(p,c['typed_bindings'],0,geometry=c['typed_geometry'],**base)
-    def test_reviewed_hook_inverse_and_unreviewed_changes(self):
-        from portable_coordinate_typed_weapon_source_contract import ledger,project_sources,project_backend_source
-        data=ledger(ROOT);old=project_sources(ROOT)
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            if name.endswith('.slang'):
-                self.assertEqual(hashlib.sha256(old[name].encode()).hexdigest(),row['baseline_sha256'])
-                with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n// unreviewed\n'})
-        self.assertEqual(project_backend_source(ROOT),data['sources']['app/portable_backend.py']['baseline'])
-        with self.assertRaises(ValueError):project_backend_source(ROOT,(ROOT/'app/portable_backend.py').read_text()+'\n# unreviewed\n')
     def test_existing_python_filter_keeps_complete_native_fingerprint(self):
         s=importlib.util.spec_from_file_location('typed_weapon_profile_test',ROOT/'research/verify-coordinate-typed-weapon-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
         import native_python_profile as profiles

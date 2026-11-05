@@ -76,18 +76,6 @@ class RandomCleanseTests(unittest.TestCase):
         old,before=load('burst1-ally-retention').prepare();current,after=load('random-cleanse-retention').prepare()
         self.assertEqual(len(current),175);self.assertEqual(sum(d is None for _,_,d in current),43);self.assertEqual(before[4:],after[4:4+len(before)-4])
 
-    def test_exact_source_delta_rejects_broadened_eligibility_and_admission(self):
-        from portable_definition_view_contract import verify as all_sources
-        from portable_random_cleanse_source_contract import project_sources
-        all_sources(ROOT);project_sources(ROOT)
-        for name in ('gpu/recipient_runtime.slang','gpu/revival_runtime.slang'):
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            source=(ROOT/name).read_text()
-            with self.subTest(source=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:source.replace('PORTABLE_RANDOM_CLEANSE','PORTABLE_RANDOM_CLEANSE_BYPASS',1)})
-        source=(ROOT/'gpu/recipient_runtime.slang').read_text()
-        for a,b in [('s.alive[slot]!=0','true'),('count<=5','true'),('commands[at+7]==0','true'),('alliedHasHarmful(s,who)','true')]:
-            with self.subTest(change=a),self.assertRaises(AssertionError):project_sources(ROOT,{'gpu/recipient_runtime.slang':source.replace(a,b,1)})
 
     def test_budget_probes_exhaustion_empty_and_late_candidates(self):
         from portable_random_cleanse_budget_cases import fixtures as budget

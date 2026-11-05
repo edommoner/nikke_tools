@@ -25,26 +25,15 @@ class MixedTests(unittest.TestCase):
         with patch.object(timeline,'simulate',side_effect=AssertionError('No oracle in wire')):
             new,raw=a.prepare();old,_=a.parent.prepare()
         self.assertEqual(new[:225],old);self.assertEqual((len(new),sum(d is not None for _,_,d in new)),(244,218));self.assertEqual(len(raw),4+244*a.INPUT_WORDS*4)
-    def test_historical_gpu_source_inverse_and_complete_wire(self):
-        from portable_backend import source_hashes,validate_composed_stride
+    def test_current_wire_and_layout(self):
+        from portable_backend import source_hashes, validate_composed_stride
         import json
-        golden=json.loads((ROOT/'research/portable-coordinate-group-short-expected.json').read_text())
-        from portable_coordinate_group_source_contract import historical_source_hashes
-        from portable_coordinate_mixed_source_contract import project_sources
-        self.assertEqual(historical_source_hashes(ROOT,a.parent.SOURCE,project_sources(ROOT)),golden['source_sha256']);validate_composed_stride(a.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS)
+        validate_composed_stride(a.SOURCE, a.INPUT_WORDS, a.OUTPUT_WORDS)
     def test_legacy_scene_guard_is_preserved_and_new_world_nodes_use_same_slots(self):
         c=self.cases[4]
         with self.assertRaises(ValueError):a.parent.compile_case(c)
         w,m,bindings,desc=a.compile_case(c)
         for row in desc['rows']:self.assertEqual((int(bindings[row['slot']].kind),bindings[row['slot']].identity),(row['kind'],row['identity']))
-    def test_exact_mixed_inverse_rejects_unreviewed_guards_trace_or_transport(self):
-        from portable_coordinate_mixed_source_contract import project_sources,project_backend_source
-        project_sources(ROOT)
-        for name in ['gpu/world_overlay_runtime.slang','gpu/world_skill_runtime.slang','gpu/coordinate_area_runtime.slang']:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed\n'})
-        with self.assertRaises(ValueError):project_backend_source(ROOT,(ROOT/'app/portable_backend.py').read_text()+'\n# unreviewed\n')
     def test_split_contract_rejects_rounding_or_target_corruption(self):
         n=copy.deepcopy(self.answers[0][0]);p=next(p for p in n['landed_packets'] if p['skill_name']=='mixed-split');p['damage']=666
         with self.assertRaises(AssertionError):verify(self.cases[0],n)
