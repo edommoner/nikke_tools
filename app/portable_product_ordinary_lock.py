@@ -49,9 +49,9 @@ def compile_product(prepared):
             raise ValueError('Ordinary enemy marker must retain generic enemy-state ownership')
     for i in projectiles:
         row=meta['binding_source_indices'].index(i);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
-        if words[at+F['KIND']]!=3 or words[at+F['DAMAGE_FLAGS']]!=0:
+        if words[at+F['KIND']]!=3 or words[at+F['DAMAGE_FLAGS']] not in (0,524288):
             raise UnsupportedPortable('Plain upstream projectile early-return row required')
-        words[at+F['DAMAGE_FLAGS']]=PROJECTILE_RETURN
+        words[at+F['DAMAGE_FLAGS']] |= PROJECTILE_RETURN
     affected=markers+inert+projectiles
     meta['product_ordinary_lock']=dict(marker_indices=markers,inert_named_indices=inert,projectile_return_indices=projectiles,
         original_definitions={i:copy.deepcopy(prepared['effects'][i]) for i in affected},

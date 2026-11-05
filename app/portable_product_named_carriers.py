@@ -25,7 +25,11 @@ def compile_product(prepared,producer):
         domains[index]=STATS[stat];inner['effects'][index]['effect']['stat']=''
     if not domains:raise ValueError('Original named modifier definitions required')
     source,iw,ow,words,meta=producer(inner)
-    if (iw,ow)!=(104400,786432) or source not in ('gpu/product_battle_entry.slang','gpu/product_fixed_battle_entry.slang'):
+    sources={'gpu/product_battle_entry.slang':(104400,786432),
+        'gpu/product_fixed_battle_entry.slang':(104400,786432),
+        'gpu/product_group_battle_entry.slang':(104408,1048576),
+        'gpu/product_fixed_group_battle_entry.slang':(104408,1048576)}
+    if sources.get(source)!=(iw,ow):
         raise UnsupportedPortable('Named modifier carriers require their checked ordinary BODY product entry')
     if set(meta['binding_source_indices'])!=set(range(len(prepared['effects']))):raise ValueError('Complete original definition coverage required')
     for index,stat in domains.items():
@@ -38,5 +42,6 @@ def compile_product(prepared,producer):
         words[at+F['FLAGS']] &= ~2048 # Marker-only lazy revival flag, retain every other lifetime flag.
     meta['product_named_carriers']=dict(source_indices=list(domains),definitions=[copy.deepcopy(prepared['effects'][i]) for i in domains],
         no_matching_definition_names=all(prepared['effects'][i]['effect']['target_effect'] not in names for i in domains),all_original_effects_preserved=True,cpu_state_or_schedule_supplied=False)
-    fixed=source=='gpu/product_fixed_battle_entry.slang'
-    return 'gpu/product_named_carriers_'+('fixed_' if fixed else '')+'battle_entry.slang',iw,ow,words,meta
+    fixed='fixed_' in source
+    grouped='group_' in source
+    return 'gpu/product_named_carriers_'+('fixed_' if fixed else '')+('group_' if grouped else '')+'battle_entry.slang',iw,ow,words,meta

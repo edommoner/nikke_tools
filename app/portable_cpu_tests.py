@@ -247,3 +247,8 @@ AUDIT_FILES['test_gpu_new_characters_product_route.py']=('tests/fixtures/gpu-new
 
 AUDIT_FILES['test_gpu_new_characters_v3.py']=('tests/fixtures/gpu-mihara-stack-product-v3.json',)
 AUDIT_FILES['test_original_enemy_stack.py']=tuple(AUDIT_FILES.get('test_original_enemy_stack.py',()))+('tests/fixtures/reference-engine-burst-source-history-v1.json',)
+
+# Unit 6 is an additional exact inverse; all older ledgers stay immutable.
+for _test in (*_REFERENCE_HISTORY_TESTS,'test_portable_native.py','test_portable_metal_deadlines.py','test_optimizer_six.py'):
+    AUDIT_FILES[_test]=tuple(AUDIT_FILES.get(_test,()))+('tests/fixtures/portable-optimizer-six-source-delta.json',)
+AUDIT_FILES['test_optimizer_six.py']+=('tests/fixtures/optimizer-six-v1.json',)

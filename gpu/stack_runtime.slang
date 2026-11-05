@@ -174,6 +174,11 @@ bool validStackDefinitions(inout Runtime s)
             // symbol, flags and route are checked by initializeActorState.
             if(field>=24 && field<28) continue;
 #endif
+#ifdef PORTABLE_FULL_BURST_LANDING
+            // MODE17..19 is the full-burst landing union, checked by
+            // fullBurstPendingInvalid; it is not stack-reserved padding.
+            if(d.kind==3 && d.damagePending==2 && field>=17 && field<20) continue;
+#endif
             if(!(skillHPBasisMode(s,row)!=0&&field>=20&&field<24) && !(triggerReducer(s,row)&&field<P_TRIGGER_REDUCTION_END) && !(namedSkillInterval(s,row)&&field<P_SKILL_INTERVAL_END) && !(baseCopyDefinition(s,row)&&field<P_BASE_COPY_END) && commands[meta+field]!=0) return false;
         }
         if(d.kind==18)

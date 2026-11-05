@@ -107,7 +107,8 @@ class NativeSourceHistoryTests(unittest.TestCase):
             with self.subTest(name=name):
                 raw=(ROOT/name).read_bytes()
                 from portable_browser_backend_source_contract import reviewed_bytes as browser_reviewed_bytes
-                reviewed=browser_reviewed_bytes(ROOT,name,raw)
+                from portable_optimizer_six_source_contract import reviewed_bytes as six_reviewed_bytes
+                reviewed=browser_reviewed_bytes(ROOT,name,six_reviewed_bytes(ROOT,name,raw))
                 self.assertEqual(hashlib.sha256(reviewed).hexdigest(),row['after_sha256'])
                 previous=native_preimage(ROOT,name,raw)
                 self.assertEqual(hashlib.sha256(previous).hexdigest(),row['before_sha256'])
@@ -162,11 +163,11 @@ class NativeSourceHistoryTests(unittest.TestCase):
             root=Path(folder);path=root/'tests/fixtures';path.mkdir(parents=True)
             (path/'portable-native-backend-source-delta.json').write_bytes((ROOT/'tests/fixtures/portable-native-backend-source-delta.json').read_bytes()+b'\n')
             with self.assertRaisesRegex(ValueError,'Native backend source ledger changed'):
-                native_preimage(root,'app/portable_backend.py',(ROOT/'app/portable_backend.py').read_bytes())
+                native_preimage(root,'app/portable_backend.py',__import__('portable_optimizer_six_source_contract').reviewed_bytes(ROOT,'app/portable_backend.py',(ROOT/'app/portable_backend.py').read_bytes()))
 
     def test_inverse_checks_span_and_reconstructed_digest(self):
         import portable_native_backend_source_contract as history
-        name='app/portable_backend.py';raw=(ROOT/name).read_bytes()
+        name='app/portable_backend.py';raw=__import__('portable_optimizer_six_source_contract').reviewed_bytes(ROOT,name,(ROOT/name).read_bytes())
         data=json.loads((ROOT/'tests/fixtures/portable-native-backend-source-delta.json').read_text())
         for key,value,error in [('after','wrong span','inverse span changed'),('before','wrong previous bytes','historical preimage changed')]:
             with self.subTest(key=key),tempfile.TemporaryDirectory() as folder:

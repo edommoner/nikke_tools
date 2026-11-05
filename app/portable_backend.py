@@ -101,6 +101,8 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source in ('gpu/product_named_carriers_group_battle_entry.slang','gpu/product_named_carriers_fixed_group_battle_entry.slang'):
+        return validate_composed_stride(source.replace('product_named_carriers_','product_',1),input_words,output_words)
     if source in ('gpu/product_ordinary_lock_battle_entry.slang','gpu/product_ordinary_lock_fixed_battle_entry.slang'):
         return validate_composed_stride(source.replace('product_ordinary_lock_','product_',1),input_words,output_words)
     if source in ('gpu/product_movement_range_cover_battle_entry.slang','gpu/product_movement_range_cover_fixed_battle_entry.slang'):

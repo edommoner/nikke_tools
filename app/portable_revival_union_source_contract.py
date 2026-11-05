@@ -12,7 +12,8 @@ def preimages(root):
     for name,row in rows.items():
         path=root/name
         if not path.is_file():continue
-        text=path.read_text();digest=hashlib.sha256(text.encode()).hexdigest()
+        from portable_optimizer_six_source_contract import reviewed_bytes
+        text=reviewed_bytes(root,name,path.read_bytes()).decode();digest=hashlib.sha256(text.encode()).hexdigest()
         if digest==row['before_sha256']:out[name]=text;continue
         if digest!=row['after_sha256']:raise ValueError('Unreviewed revival union source: '+name)
         boundary=len(text)

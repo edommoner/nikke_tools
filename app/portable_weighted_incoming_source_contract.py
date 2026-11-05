@@ -70,7 +70,8 @@ def boss_source_preimages(root):
     data=json.loads(raw)
     if data.get('schema')!='product-boss-debuff-source-history-v1' or data.get('baseline_commit')!='88cda975122d394f6409c7cec68b21efbdde12ab' or data.get('normalizer_changed') is not False or data.get('current_product_equivalence_claim') is not False:
         raise ValueError('Boss product source history scope changed')
-    preimages=reference_engine_preimages(root);projected=dict(preimages);older=None
+    from portable_optimizer_six_source_contract import preimages as six_preimages
+    preimages=six_preimages(root);preimages.update(reference_engine_preimages(root));projected=dict(preimages);older=None
     for name,row in data['files'].items():
         text=preimages.get(name,(root/name).read_bytes().decode('utf-8'));digest=hashlib.sha256(text.encode()).hexdigest()
         if digest==row['before_sha256']:projected[name]=text;continue

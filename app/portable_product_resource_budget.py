@@ -51,6 +51,9 @@ def output_words(prepared,ordinary_output):
     from portable_enemy_ammo_wire import LAYOUT as E
     bound=notification_bound(prepared)
     capacity=lambda words:128+(words-E['OUTPUT_BASE']-E['RESOURCE_BASE'])//8
-    if bound is not None and capacity(ordinary_output)<bound<=capacity(SUPPLY_OUTPUT_WORDS):
+    # Unknown mixed producers still use a bounded, fully owned v3 tail.
+    # This raises capacity only; overflow continues to fail closed.
+    mixed_ammo = bound is None and any(r['effect'].get('stat')=='gauge_consume_as_ammo' for r in prepared['effects'])
+    if mixed_ammo or bound is not None and capacity(ordinary_output)<bound<=capacity(SUPPLY_OUTPUT_WORDS):
         return SUPPLY_OUTPUT_WORDS,bound
     return ordinary_output,bound
