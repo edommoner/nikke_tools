@@ -1,0 +1,476 @@
+{
+  "schema": "normal-standard-batch-v2-status",
+  "transport_commit": "2791df4f42e809e262bdee081511095b53cf2736",
+  "owner": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+  "source_commit": "a4663e4716f46ba88460531ebfbc017375f242ae",
+  "path_base": "Documents/Codex",
+  "source_capture": "normal-resident-fixed-v2/jit-link-v2/proof",
+  "artifact": {
+    "bytes": 5348880,
+    "sha256": "8ad4f6c07f40ee9b1218f08c7c1e95d646824c236d2c6c33573d1d6dcd5356b6"
+  },
+  "request_document": {
+    "bytes": 34835,
+    "sha256": "11ee5f0efe9ce29e472a2d202416f984d84c567a7f8b7e9848643b5bef98c828"
+  },
+  "requested_order": [
+    "Rapi0",
+    "Anis:Star0",
+    "Poli3",
+    "D0"
+  ],
+  "requested": 4,
+  "executed": 3,
+  "passed": 2,
+  "stopped_at_index": 3,
+  "stopped_reason": "Poli3 full M5 readback SHA mismatch; input/current fresh CPU full payload matched",
+  "cause": "unknown",
+  "remaining_not_executed": 1,
+  "runs": [
+    {
+      "index": 1,
+      "label": "Rapi0",
+      "favorite_stage": 0,
+      "request_body": {
+        "bytes": 8131,
+        "sha256": "42ed5eb18d810b249ecf75f3ebf6399825662dc3379e7dc7e962b384d67bd28f"
+      },
+      "evaluation_unchanged": true,
+      "duration_seconds": 30,
+      "executed": true,
+      "terminal": true,
+      "passed": true,
+      "state": "passed",
+      "device": "NVIDIA GeForce RTX 3070 Ti",
+      "backend": "cuda_shared_detail",
+      "capture_id": "2eba25a34ef146c5bd583033a93ed93e",
+      "capture": "normal-resident-fixed-v2/http-cuda-normal-standard-batch-v2-01/detail-captures/2eba25a34ef146c5bd583033a93ed93e",
+      "gpu_execution_verified": true,
+      "saved_cubin_admission": "verified",
+      "input": {
+        "bytes": 417604,
+        "sha256": "e72e4a091a27240aca6c632c9f972a0482a18a9859443a08324e6eef5fe81a80"
+      },
+      "readback": {
+        "bytes": 3145728,
+        "sha256": "a4241d79966de29c66145d782d7deeeeffbda26a5c8ab5e8eb4c6c10667db63c"
+      },
+      "expected_m5_output_sha256": "a4241d79966de29c66145d782d7deeeeffbda26a5c8ab5e8eb4c6c10667db63c",
+      "m5_input_matched": true,
+      "m5_full_readback_matched": true,
+      "damage": 84503500,
+      "expected_m5_damage": 84503500,
+      "m5_damage_matched": true,
+      "fresh_cpu_full_payload_matched": true,
+      "differing_fields": [],
+      "http_seconds": 17.10047150030732,
+      "job_seconds": 22.46579899964854,
+      "job_peak_bytes": 1449611264,
+      "job_limit_bytes": 2147483648,
+      "timeout": false,
+      "missing": 0,
+      "job_empty": true,
+      "owned_server_stopped": true,
+      "observation_error": null,
+      "cleanup_error": null,
+      "helper_exit_code": 0,
+      "formal_exception": null,
+      "service": "unverified",
+      "service_preservation_verified": false,
+      "memory_observation_complete": false,
+      "memory_unknown": "Child Job limit query null; reason not recorded; original false/unknown retained",
+      "launch_memory": [
+        {
+          "position": "before",
+          "own_private_bytes": 385712128,
+          "parent_private_bytes": 27885568,
+          "job_limit_bytes": null,
+          "job_available": true,
+          "job_reason": "unknown",
+          "device_free_bytes": 7441743872,
+          "query_return_code": 0
+        },
+        {
+          "position": "after",
+          "own_private_bytes": 1394311168,
+          "parent_private_bytes": 27885568,
+          "job_limit_bytes": null,
+          "job_available": true,
+          "job_reason": "unknown",
+          "device_free_bytes": 6535774208,
+          "query_return_code": 0
+        }
+      ],
+      "native": {
+        "cuInit": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuCtxCreate_v2": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuLaunchKernel": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuCtxSynchronize": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuMemcpyDtoH_v2": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuCtxDestroy_v2": {
+          "calls": 1,
+          "return_code": 0
+        }
+      },
+      "phases": {
+        "product_cubin_owner": {
+          "elapsed_seconds": 4.2691359
+        },
+        "product_cubin_admission": {
+          "elapsed_seconds": 5.1338694002479315,
+          "package_gate": {
+            "final_full_checks": 1,
+            "initial_full_checks": 1,
+            "reused_payload_checks": 4,
+            "scope": "Same CPU admission only; final full read precedes GPU"
+          }
+        },
+        "slang_build": {
+          "elapsed_seconds": 1.4092693
+        },
+        "cuda_linked_artifact": {
+          "elapsed_seconds": 0.0284267
+        }
+      },
+      "actual_calls": {
+        "http_post": 1,
+        "kernel": 1,
+        "sync": 1,
+        "readback": 1,
+        "memory_queries": 8,
+        "slang_generation": 0,
+        "nvrtc": 0,
+        "ptxas": 0,
+        "link": 0,
+        "retry": 0
+      },
+      "mismatch_cause": null
+    },
+    {
+      "index": 2,
+      "label": "Anis:Star0",
+      "favorite_stage": 0,
+      "request_body": {
+        "bytes": 8161,
+        "sha256": "2265ac45a373a0b249e234c92dfe8616ae6216fe38a0a490ac90d46054ee5de2"
+      },
+      "evaluation_unchanged": true,
+      "duration_seconds": 30,
+      "executed": true,
+      "terminal": true,
+      "passed": true,
+      "state": "passed",
+      "device": "NVIDIA GeForce RTX 3070 Ti",
+      "backend": "cuda_shared_detail",
+      "capture_id": "baeebc824d904903b803b81828549690",
+      "capture": "normal-resident-fixed-v2/http-cuda-normal-standard-batch-v2-02/detail-captures/baeebc824d904903b803b81828549690",
+      "gpu_execution_verified": true,
+      "saved_cubin_admission": "verified",
+      "input": {
+        "bytes": 417604,
+        "sha256": "e754bdc5822a64035d0e7aeee3cfcd8fcf5f2a16730a28e8b3ebef0aa7a8d949"
+      },
+      "readback": {
+        "bytes": 3145728,
+        "sha256": "f9f11696d64656f275de08f2baf81b7d4787745e6202327e552d66db8007b825"
+      },
+      "expected_m5_output_sha256": "f9f11696d64656f275de08f2baf81b7d4787745e6202327e552d66db8007b825",
+      "m5_input_matched": true,
+      "m5_full_readback_matched": true,
+      "damage": 125865566,
+      "expected_m5_damage": 125865566,
+      "m5_damage_matched": true,
+      "fresh_cpu_full_payload_matched": true,
+      "differing_fields": [],
+      "http_seconds": 20.366463500075042,
+      "job_seconds": 26.195609600283206,
+      "job_peak_bytes": 1450496000,
+      "job_limit_bytes": 2147483648,
+      "timeout": false,
+      "missing": 0,
+      "job_empty": true,
+      "owned_server_stopped": true,
+      "observation_error": null,
+      "cleanup_error": null,
+      "helper_exit_code": 0,
+      "formal_exception": null,
+      "service": "unverified",
+      "service_preservation_verified": false,
+      "memory_observation_complete": false,
+      "memory_unknown": "Child Job limit query null; reason not recorded; original false/unknown retained",
+      "launch_memory": [
+        {
+          "position": "before",
+          "own_private_bytes": 385249280,
+          "parent_private_bytes": 32026624,
+          "job_limit_bytes": null,
+          "job_available": true,
+          "job_reason": "unknown",
+          "device_free_bytes": 7441743872,
+          "query_return_code": 0
+        },
+        {
+          "position": "after",
+          "own_private_bytes": 1393852416,
+          "parent_private_bytes": 32026624,
+          "job_limit_bytes": null,
+          "job_available": true,
+          "job_reason": "unknown",
+          "device_free_bytes": 6535774208,
+          "query_return_code": 0
+        }
+      ],
+      "native": {
+        "cuInit": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuCtxCreate_v2": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuLaunchKernel": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuCtxSynchronize": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuMemcpyDtoH_v2": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuCtxDestroy_v2": {
+          "calls": 1,
+          "return_code": 0
+        }
+      },
+      "phases": {
+        "product_cubin_owner": {
+          "elapsed_seconds": 4.6602866
+        },
+        "product_cubin_admission": {
+          "elapsed_seconds": 5.814923299942166,
+          "package_gate": {
+            "final_full_checks": 1,
+            "initial_full_checks": 1,
+            "reused_payload_checks": 4,
+            "scope": "Same CPU admission only; final full read precedes GPU"
+          }
+        },
+        "slang_build": {
+          "elapsed_seconds": 1.5489487
+        },
+        "cuda_linked_artifact": {
+          "elapsed_seconds": 0.0287304
+        }
+      },
+      "actual_calls": {
+        "http_post": 1,
+        "kernel": 1,
+        "sync": 1,
+        "readback": 1,
+        "memory_queries": 8,
+        "slang_generation": 0,
+        "nvrtc": 0,
+        "ptxas": 0,
+        "link": 0,
+        "retry": 0
+      },
+      "mismatch_cause": null
+    },
+    {
+      "index": 3,
+      "label": "Poli3",
+      "favorite_stage": 3,
+      "request_body": {
+        "bytes": 8141,
+        "sha256": "23c452aace3753ff440a0e25845197fcd030aa1dd2c4316f25aade135514b7de"
+      },
+      "evaluation_unchanged": true,
+      "duration_seconds": 30,
+      "executed": true,
+      "terminal": true,
+      "passed": false,
+      "state": "stopped_m5_full_readback_sha_mismatch",
+      "device": "NVIDIA GeForce RTX 3070 Ti",
+      "backend": "cuda_shared_detail",
+      "capture_id": "ddb247de48024e31b24f465ab4c1da85",
+      "capture": "normal-resident-fixed-v2/http-cuda-normal-standard-batch-v2-03/detail-captures/ddb247de48024e31b24f465ab4c1da85",
+      "gpu_execution_verified": true,
+      "saved_cubin_admission": "verified",
+      "input": {
+        "bytes": 417604,
+        "sha256": "774447605c6480cb355fed607bc94b01290e993c9139f621c0235154b3b21a0e"
+      },
+      "readback": {
+        "bytes": 3145728,
+        "sha256": "f0bd1d498d02416f91a44d8baf3cf907f4fa62380754b6ce4250011a5d13f231"
+      },
+      "expected_m5_output_sha256": "657ef8fb9ec63494bd16648f45f43a287cf0b04819448744f72e7675ae278050",
+      "m5_input_matched": true,
+      "m5_full_readback_matched": false,
+      "damage": 127814213,
+      "expected_m5_damage": 127814213,
+      "m5_damage_matched": true,
+      "fresh_cpu_full_payload_matched": true,
+      "differing_fields": [],
+      "http_seconds": 18.56677390029654,
+      "job_seconds": 23.84737529978156,
+      "job_peak_bytes": 1449455616,
+      "job_limit_bytes": 2147483648,
+      "timeout": false,
+      "missing": 0,
+      "job_empty": true,
+      "owned_server_stopped": true,
+      "observation_error": null,
+      "cleanup_error": null,
+      "helper_exit_code": 1,
+      "formal_exception": null,
+      "service": "unverified",
+      "service_preservation_verified": false,
+      "memory_observation_complete": false,
+      "memory_unknown": "Child Job limit query null; reason not recorded; original false/unknown retained",
+      "launch_memory": [
+        {
+          "position": "before",
+          "own_private_bytes": 384606208,
+          "parent_private_bytes": 28303360,
+          "job_limit_bytes": null,
+          "job_available": true,
+          "job_reason": "unknown",
+          "device_free_bytes": 7441743872,
+          "query_return_code": 0
+        },
+        {
+          "position": "after",
+          "own_private_bytes": 1393205248,
+          "parent_private_bytes": 28303360,
+          "job_limit_bytes": null,
+          "job_available": true,
+          "job_reason": "unknown",
+          "device_free_bytes": 6535774208,
+          "query_return_code": 0
+        }
+      ],
+      "native": {
+        "cuInit": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuCtxCreate_v2": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuLaunchKernel": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuCtxSynchronize": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuMemcpyDtoH_v2": {
+          "calls": 1,
+          "return_code": 0
+        },
+        "cuCtxDestroy_v2": {
+          "calls": 1,
+          "return_code": 0
+        }
+      },
+      "phases": {
+        "product_cubin_owner": {
+          "elapsed_seconds": 5.2166091
+        },
+        "product_cubin_admission": {
+          "elapsed_seconds": 5.7774771000258625,
+          "package_gate": {
+            "final_full_checks": 1,
+            "initial_full_checks": 1,
+            "reused_payload_checks": 4,
+            "scope": "Same CPU admission only; final full read precedes GPU"
+          }
+        },
+        "slang_build": {
+          "elapsed_seconds": 1.5086007
+        },
+        "cuda_linked_artifact": {
+          "elapsed_seconds": 0.0288859
+        }
+      },
+      "actual_calls": {
+        "http_post": 1,
+        "kernel": 1,
+        "sync": 1,
+        "readback": 1,
+        "memory_queries": 8,
+        "slang_generation": 0,
+        "nvrtc": 0,
+        "ptxas": 0,
+        "link": 0,
+        "retry": 0
+      },
+      "mismatch_cause": "unknown"
+    },
+    {
+      "index": 4,
+      "label": "D0",
+      "favorite_stage": 0,
+      "request_body": {
+        "bytes": 8121,
+        "sha256": "26114ae6aaee56c22506a2d5d43b221130bc9ce91d1758b6bdbdbd7cc7101aba"
+      },
+      "evaluation_unchanged": true,
+      "duration_seconds": 30,
+      "executed": false,
+      "terminal": false,
+      "state": "not_started",
+      "reason": "Stopped after Poli3 full readback SHA mismatch",
+      "actual_calls": {
+        "http_post": 0,
+        "kernel": 0,
+        "sync": 0,
+        "readback": 0
+      }
+    }
+  ],
+  "actual_calls": {
+    "http_post": 3,
+    "kernel": 3,
+    "sync": 3,
+    "readback": 3,
+    "memory_queries": 24,
+    "slang_generation": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "retry": 0
+  },
+  "concurrency": 1,
+  "whole_environment_preservation_verified": false,
+  "source_artifact_preservation_verified": false,
+  "original_records_unchanged": true,
+  "original_records_checked": 1152,
+  "old_miranda_reexecuted": false,
+  "cover_group_reexecuted": false,
+  "range_reexecuted": false,
+  "original_failures_claims_preservationfalse_retained": true,
+  "raw_buffers_shared": false
+}

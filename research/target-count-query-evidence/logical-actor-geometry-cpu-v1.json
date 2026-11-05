@@ -1,0 +1,365 @@
+{
+  "schema": "logical-actor-geometry-cpu-v1",
+  "source_commit": "27466a62cd9a8e177cfc8e0ea689d298fa037c3f",
+  "package_id": "0175fe9936ba32f4f1e7d5b1fe545fcb75d23d1e2e2202dee026d6e8a8bb30c9",
+  "reference_report_sha256": "eb1ce012bba18009c9c936ba0d7b181fd30c969a0b135f042871f59f4bdb2877",
+  "reference_report_bytes": 5351260,
+  "reference_elapsed_seconds": 2.339057083998341,
+  "cpu_reference_verified": true,
+  "historical_native_equivalence": false,
+  "gpu_wire_connected": false,
+  "calculation_verified": false,
+  "gpu_supported": false,
+  "cases": [
+    {
+      "name": "logical-actor-geometry/Belorta/four-live",
+      "input_sha256": "9151cc71f302cd162ba9a823dac8ccbe2f40a2f592a6378770ea3c7cc1e79c6c",
+      "native_sha256": "1419afc8f476952f846749137f7b3575655af60980a8d2e5a4716ed4889a75f9",
+      "trace_sha256": "139348c8b9098d57855ad6e3dbb0aa57e3050ce5bc74792be7da5143f4acd992",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definition_count": 68,
+        "actual_groups": 1,
+        "four_enemy_notifications": 1,
+        "actual_child_landings": 4,
+        "original_full_roster_preserved": true,
+        "logical_ADD_geometry_connected": true,
+        "part_is_not_an_enemy": true,
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "in_game_rules_verified": false,
+        "historical_canonical_equivalence": false
+      },
+      "sampled_points": 174,
+      "physical_draws": 349,
+      "physical_rng_words": 624,
+      "enemy_fields": [
+        {
+          "name": "그리디",
+          "stat": "def_pct",
+          "recipients": [
+            "__enemy__"
+          ],
+          "bound_actors": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "그리디",
+          "stat": "def_pct",
+          "recipients": [
+            "__enemy__:logical-wave#3"
+          ],
+          "bound_actors": [
+            [
+              5,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "그리디",
+          "stat": "def_pct",
+          "recipients": [
+            "__enemy__:logical-wave#2"
+          ],
+          "bound_actors": [
+            [
+              5,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "그리디",
+          "stat": "def_pct",
+          "recipients": [
+            "__enemy__:logical-wave#1"
+          ],
+          "bound_actors": [
+            [
+              5,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "logical-actor-geometry/Belorta/three-enemies",
+      "input_sha256": "c07d528cf59cfc3c02edfb902a0f7c36e388c018350f12a6bcb2b69eefba4dbf",
+      "native_sha256": "dda1f7571ac70b81d145e019c4378a9a3eed10bf71c7a6a10886922d78aa4f14",
+      "trace_sha256": "4390b3d647760c7499517377273e5465a86e20fbedaef81e6b1dd049f077e1dc",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definition_count": 68,
+        "actual_groups": 1,
+        "four_enemy_notifications": 0,
+        "actual_child_landings": 0,
+        "original_full_roster_preserved": true,
+        "logical_ADD_geometry_connected": true,
+        "part_is_not_an_enemy": true,
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "in_game_rules_verified": false,
+        "historical_canonical_equivalence": false
+      },
+      "sampled_points": 174,
+      "physical_draws": 348,
+      "physical_rng_words": 624,
+      "enemy_fields": []
+    },
+    {
+      "name": "logical-actor-geometry/Belorta/one-outside",
+      "input_sha256": "817d1c72c19d08f49e06e9cf95a9f9c8f85e9d102df715017fe9c850ef0bfc7a",
+      "native_sha256": "2a5d670ce2afc6b84c66f31fd194935ba1dfc2734686fec4efa95031e3af67ee",
+      "trace_sha256": "4390b3d647760c7499517377273e5465a86e20fbedaef81e6b1dd049f077e1dc",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definition_count": 68,
+        "actual_groups": 1,
+        "four_enemy_notifications": 0,
+        "actual_child_landings": 0,
+        "original_full_roster_preserved": true,
+        "logical_ADD_geometry_connected": true,
+        "part_is_not_an_enemy": true,
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "in_game_rules_verified": false,
+        "historical_canonical_equivalence": false
+      },
+      "sampled_points": 174,
+      "physical_draws": 348,
+      "physical_rng_words": 624,
+      "enemy_fields": []
+    },
+    {
+      "name": "logical-actor-geometry/Belorta/part-not-enemy",
+      "input_sha256": "c16beb7925723a423a664d861751e72a2401fdbd8d4abb685ec2da19cb76ce27",
+      "native_sha256": "e8ae43a67bcb7b9fd43e032ae15db3a8746f9d9fee5b18b2ea7a64acf0de8c35",
+      "trace_sha256": "4390b3d647760c7499517377273e5465a86e20fbedaef81e6b1dd049f077e1dc",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definition_count": 68,
+        "actual_groups": 1,
+        "four_enemy_notifications": 0,
+        "actual_child_landings": 0,
+        "original_full_roster_preserved": true,
+        "logical_ADD_geometry_connected": true,
+        "part_is_not_an_enemy": true,
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "in_game_rules_verified": false,
+        "historical_canonical_equivalence": false
+      },
+      "sampled_points": 174,
+      "physical_draws": 348,
+      "physical_rng_words": 624,
+      "enemy_fields": []
+    },
+    {
+      "name": "logical-actor-geometry/Belorta/retirement",
+      "input_sha256": "d2dde8f6732f417ac9186feb72bb0421628d1f7ffc7e3e03e3c04cd6ae0d2110",
+      "native_sha256": "478ff0517343df1f1277bddcfc05e5575c45068c5d47b552242566a13cc5ffe2",
+      "trace_sha256": "139348c8b9098d57855ad6e3dbb0aa57e3050ce5bc74792be7da5143f4acd992",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definition_count": 68,
+        "actual_groups": 1,
+        "four_enemy_notifications": 1,
+        "actual_child_landings": 1,
+        "original_full_roster_preserved": true,
+        "logical_ADD_geometry_connected": true,
+        "part_is_not_an_enemy": true,
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "in_game_rules_verified": false,
+        "historical_canonical_equivalence": false
+      },
+      "sampled_points": 174,
+      "physical_draws": 349,
+      "physical_rng_words": 624,
+      "enemy_fields": [
+        {
+          "name": "그리디",
+          "stat": "def_pct",
+          "recipients": [
+            "__enemy__"
+          ],
+          "bound_actors": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "logical-actor-geometry/Belorta/four-live-long",
+      "input_sha256": "0187257798ecf1159497f1f8f6ff8153ffe141f3651ac966bb50b04775d250d7",
+      "native_sha256": "3d0f2f50c6fe9e21e61ec926bf3e8e94b66d61d5cdc98b170a1a9ea4a587cdbf",
+      "trace_sha256": "ef9ca26842c765210786a0354fcccbd39fada9e2ad5e32d31c9ecd73b901bbd1",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definition_count": 68,
+        "actual_groups": 15,
+        "four_enemy_notifications": 15,
+        "actual_child_landings": 60,
+        "original_full_roster_preserved": true,
+        "logical_ADD_geometry_connected": true,
+        "part_is_not_an_enemy": true,
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "in_game_rules_verified": false,
+        "historical_canonical_equivalence": false
+      },
+      "sampled_points": 1531,
+      "physical_draws": 3084,
+      "physical_rng_words": 624,
+      "enemy_fields": [
+        {
+          "name": "그리디",
+          "stat": "def_pct",
+          "recipients": [
+            "__enemy__"
+          ],
+          "bound_actors": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "그리디",
+          "stat": "def_pct",
+          "recipients": [
+            "__enemy__:logical-wave#3"
+          ],
+          "bound_actors": [
+            [
+              5,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "그리디",
+          "stat": "def_pct",
+          "recipients": [
+            "__enemy__:logical-wave#2"
+          ],
+          "bound_actors": [
+            [
+              5,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "그리디",
+          "stat": "def_pct",
+          "recipients": [
+            "__enemy__:logical-wave#1"
+          ],
+          "bound_actors": [
+            [
+              5,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "payload": {
+    "changed": [
+      "app/portable_missing_consumer_audit.py",
+      "app/portable_readiness_semantics.py",
+      "app/portable_reference.py",
+      "scripts/nikke_gpu.py",
+      "tests/test_battle_attack_group_runtime.py"
+    ],
+    "added": [
+      "app/coordinate_logical_actor_geometry.py",
+      "research/portable_logical_geometry_cases.py",
+      "research/portable_logical_geometry_contracts.py",
+      "research/world_logical_geometry_native.py",
+      "tests/test_logical_actor_geometry.py"
+    ],
+    "removed": [],
+    "all_other_existing_payload_bytes_identical": true,
+    "all_existing_cli_function_class_asts_identical": true,
+    "existing_gpu_goldens_inputs_native_and_output_expectations_identical": true,
+    "protected_four_files_byte_identical": true
+  },
+  "generation": {
+    "scope": "Previous sealed incoming GPU entry only; not the new logical geometry model",
+    "cache_hit": true,
+    "compiler_invocations": 0,
+    "gpu_calls": 0,
+    "cache_key": "561b999065f2a5660da4fe6c09047543fb3568d0731af45f8b5f787d99cd3fdb",
+    "generated_normalized": {
+      "cuda": "1919893a9b5bd492b8a456dc7699eb0ee9d97d21a852c84eb04644d454454d9e",
+      "metal": "6117e656780854798267945640225b4a796ba4c051e605eabc02b985d0f92982"
+    }
+  },
+  "preexisting_audit_guard": {
+    "schema": "logical-geometry-preexisting-audit-guard-v1",
+    "old_head": "0f827c66deef9a624e40a28c597fa9bce6a6c8e2",
+    "unchanged_HEAD_source_sha256": {
+      "app/portable_missing_consumer_audit.py": "8232a3e68f963b0dce322a54356aa10ef61b1b085a9c05fdd64bb4840a4c1ca5",
+      "app/battle_attack_group_runtime.py": "46d2054fe68efc2d03692dfdbac97da57c37cf3d405e55bbdec008954cb34aa4"
+    },
+    "stale_expected_signature": [
+      "routing",
+      "coordinate_packets"
+    ],
+    "actual_HEAD_signature": [
+      "routing",
+      "coordinate_packets",
+      "coordinate_typed_packets"
+    ],
+    "independent_old_packet_test": "Missing pinned IMPL-STATUS.md prevents old packet full audit; not a successful baseline test",
+    "scope": "The failing signature check compares exact unchanged HEAD sources, so the two-versus-three keyword mismatch predates this change",
+    "gpu_calls": 0
+  },
+  "known_preparation_failures": [
+    "v1 scalar request received coordinate PART fields; corrected by existing original-identity/declared-world boundary",
+    "v2 required PART in BODY/ADD group receipt stream; corrected to require full SimResult PART landing plus <=3 logical enemies",
+    "retirement first test used at-start1HP ADDs killed by other original shooters; keep all original weapons and use literal1.51s spawn"
+  ],
+  "tests": {
+    "logical_geometry": 10,
+    "legacy_battle_group": 9,
+    "group_runtime": 9,
+    "reference_rewrite": 3,
+    "mixed_groups": 2,
+    "readiness_semantics": 22,
+    "failures": 0
+  },
+  "gpu_runs": 0,
+  "windows_new_runs": 0,
+  "full_character_verified": 0,
+  "public_gpu_admission": false,
+  "full_goal_complete": false
+}

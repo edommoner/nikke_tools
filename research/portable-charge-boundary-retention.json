@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "package_id": "680069b3df349688656ed146d836d86c2ed6b839b2247ba977f4e7add5321587",
+  "inputs": 327,
+  "all_input_words_equal": true,
+  "all_output_words_equal": true,
+  "generated_cuda_only_change": "__noinline__ on rawEffectiveCharge_0",
+  "generated_cuda_before_sha256": "fa20c765213972087f7b532932425fa972979eb8db1ae2000376796e4b78aa64",
+  "generated_cuda_after_sha256": "fbe747724131a20e6a904e1484519fb4bd16c52f264e532dd6225978bdae1fc9",
+  "gpu_calls": 0,
+  "original_captures_modified": false,
+  "normalizer_changed": false
+}

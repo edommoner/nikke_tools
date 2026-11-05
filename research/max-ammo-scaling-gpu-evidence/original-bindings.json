@@ -1,0 +1,148 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "cases": [
+    {
+      "name": "max-ammo-scaling-real/Emilia/3s",
+      "prepared_effects": 73,
+      "bound_effects": 73,
+      "original_scaled_effects": [
+        {
+          "effect": {
+            "source": "스킬1",
+            "type": "buff",
+            "name": "미정령의 축복 2",
+            "trigger": {
+              "timing": [
+                "full_charge_fire"
+              ],
+              "condition": []
+            },
+            "target": "self",
+            "stat": "charge_dmg_pct",
+            "polarity": "beneficial",
+            "max_stack": 1,
+            "values": {
+              "1": 1.39,
+              "2": 1.46,
+              "3": 1.53,
+              "4": 1.6,
+              "5": 1.67,
+              "6": 1.74,
+              "7": 1.81,
+              "8": 1.88,
+              "9": 1.95,
+              "10": 2.01
+            },
+            "scaling": "max_ammo_count",
+            "duration_bullets": 1,
+            "note": "원문 「최종 최대 장탄 수 1발 당 차지 대미지 N% ▲」 — 실효값 = values × 수령자(자신)의 실효 최대 장탄(오버로드·큐브·소장품·스킬 버프 반영). `full_charge_fire`는 `_BULLET_BOUND_TIMINGS`가 아니라 부여한 그 발은 받지 못하고 다음 발이 받는다(베스티 : 택티컬 업 `미사일 가이드` 선례)."
+          },
+          "owner": "에밀리아"
+        }
+      ],
+      "original_parent_effects": [
+        {
+          "effect": {
+            "source": "스킬2",
+            "type": "damage",
+            "name": "대정령의 철퇴",
+            "trigger": {
+              "timing": [
+                "full_charge_hit"
+              ],
+              "condition": []
+            },
+            "target": "target_body",
+            "stat": "dealt_fixed_damage",
+            "values": {
+              "1": 41.32,
+              "2": 43.28,
+              "3": 45.25,
+              "4": 47.21,
+              "5": 49.18,
+              "6": 51.14,
+              "7": 53.1,
+              "8": 55.07,
+              "9": 57.03,
+              "10": 58.99
+            },
+            "note": "원문 「자신이 가한 피해량의 N% 만큼 본체에 고정 대미지」 — 트리거한 풀차지 명중 한 발이 실제로 준 대미지 × N%를 그대로 넣는다(DealForm을 다시 타지 않는다). 「본체에」라 대상은 `target_body`(라플라스 `히어로 봄버` 계통의 `대상 본체에게`와 같은 키)."
+          },
+          "owner": "에밀리아"
+        }
+      ]
+    },
+    {
+      "name": "max-ammo-scaling-real/Emilia/30s",
+      "prepared_effects": 73,
+      "bound_effects": 73,
+      "original_scaled_effects": [
+        {
+          "effect": {
+            "source": "스킬1",
+            "type": "buff",
+            "name": "미정령의 축복 2",
+            "trigger": {
+              "timing": [
+                "full_charge_fire"
+              ],
+              "condition": []
+            },
+            "target": "self",
+            "stat": "charge_dmg_pct",
+            "polarity": "beneficial",
+            "max_stack": 1,
+            "values": {
+              "1": 1.39,
+              "2": 1.46,
+              "3": 1.53,
+              "4": 1.6,
+              "5": 1.67,
+              "6": 1.74,
+              "7": 1.81,
+              "8": 1.88,
+              "9": 1.95,
+              "10": 2.01
+            },
+            "scaling": "max_ammo_count",
+            "duration_bullets": 1,
+            "note": "원문 「최종 최대 장탄 수 1발 당 차지 대미지 N% ▲」 — 실효값 = values × 수령자(자신)의 실효 최대 장탄(오버로드·큐브·소장품·스킬 버프 반영). `full_charge_fire`는 `_BULLET_BOUND_TIMINGS`가 아니라 부여한 그 발은 받지 못하고 다음 발이 받는다(베스티 : 택티컬 업 `미사일 가이드` 선례)."
+          },
+          "owner": "에밀리아"
+        }
+      ],
+      "original_parent_effects": [
+        {
+          "effect": {
+            "source": "스킬2",
+            "type": "damage",
+            "name": "대정령의 철퇴",
+            "trigger": {
+              "timing": [
+                "full_charge_hit"
+              ],
+              "condition": []
+            },
+            "target": "target_body",
+            "stat": "dealt_fixed_damage",
+            "values": {
+              "1": 41.32,
+              "2": 43.28,
+              "3": 45.25,
+              "4": 47.21,
+              "5": 49.18,
+              "6": 51.14,
+              "7": 53.1,
+              "8": 55.07,
+              "9": 57.03,
+              "10": 58.99
+            },
+            "note": "원문 「자신이 가한 피해량의 N% 만큼 본체에 고정 대미지」 — 트리거한 풀차지 명중 한 발이 실제로 준 대미지 × N%를 그대로 넣는다(DealForm을 다시 타지 않는다). 「본체에」라 대상은 `target_body`(라플라스 `히어로 봄버` 계통의 `대상 본체에게`와 같은 키)."
+          },
+          "owner": "에밀리아"
+        }
+      ]
+    }
+  ]
+}

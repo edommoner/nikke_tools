@@ -1,0 +1,97 @@
+{
+  "schema": "shared-cuda-product-route-v1",
+  "metal_profiles_verified": 255,
+  "cuda_product_profiles_verified": 0,
+  "previous_calculation_report": "product-profile-progress-v5.json",
+  "shared_function_sha256": {
+    "compile_product": "4dcfdc1a64187fc5763f4012af4caa77148c9edd3904c1010fcb128c816f2d6b",
+    "prepare": "1d07bea12d27b2e8dd8083b0d6ff2ae5347bc5ccc2441d4b2a61edc8d6499c08",
+    "decode_payload": "4bcf5c05f3425e4b0a4b29af8e91cf617c5831f0ae6b630d614b53874191c734"
+  },
+  "all_three_shader_closures_unchanged": true,
+  "fresh_metal_api_result": {
+    "requested": "metal_detail",
+    "backend": "metal_detail",
+    "capture_id": "b1ce637da51d42c582362d5ba4169634",
+    "device": "Apple M5",
+    "elapsed_ms": 2751.65074999677,
+    "gpu_execution_verified": true,
+    "input_sha256": "c951c5eade68f0dc5e43752fb842728a083e6bef669ceb2d636e2d975afdefde",
+    "output_sha256": "c2a75213829becc1d9447699fbde64d6b7a5db2b8eaf0eb236c825d08f6c94a6",
+    "source": "gpu/product_battle_entry.slang",
+    "scope": "shared autonomous battle; CPU verified for this request",
+    "gpu_seconds": 1.7503414166276343,
+    "cpu_verification": {
+      "matched": true,
+      "differing_fields": []
+    }
+  },
+  "cuda_request_on_mac": {
+    "requested": "cuda_shared_detail",
+    "backend": "cpu",
+    "capture_id": "04b574d28dab43f4be45c5946f8f4097",
+    "fallback_reason": "共通GPUの未対応条件または実行エラーのため、CPUで計算しました。",
+    "unsupported": [
+      {
+        "reason": "共通CUDA詳細はWindowsで利用できます。"
+      }
+    ],
+    "gpu_execution_verified": false
+  },
+  "request_capture_binding": [
+    {
+      "requested": "metal_detail",
+      "capture": "b1ce637da51d42c582362d5ba4169634",
+      "request_sha256": "c70025eb5afff388d4c79c6dc55a623f1055ff69024d627afdad0efbb3dc39cb",
+      "record_sha256": "eb20a7d823bdb54d3e9ac5f9851a166839a77f7c94a7a2cd878f308e80ffddea",
+      "gpu_execution_verified": true
+    },
+    {
+      "requested": "cuda_shared_detail",
+      "capture": "04b574d28dab43f4be45c5946f8f4097",
+      "request_sha256": "741099615da5ee1c03f64446d0e699cc72812bfc7de073e2c9432585164b6ebb",
+      "record_sha256": "0a12e6efb7c96bdb7e8379c1cd27abc276341da5b9bd2b7832049ac1b2736150",
+      "gpu_execution_verified": false
+    }
+  ],
+  "metadata_guard_accepts_saved_metal_captures": 549,
+  "tests": {
+    "product": 14,
+    "queue_and_server": 16,
+    "required_generation_cache": 13,
+    "compile_cache": 12,
+    "total": 55,
+    "cuda_success_uses_mock_transport": true
+  },
+  "cold_product_compilation_allowed": false,
+  "required_cuda_artifact": "cubin",
+  "required_ptxas_level": 1,
+  "requires_paired_generation_hit": true,
+  "requires_cuda_compile_cache_hit": true,
+  "windows_gpu_checks_pending": true,
+  "full_goal_complete": false,
+  "metadata_guard_scope": "Transport schema only, including preserved failed battle admissions; not additional calculation/profile verification.",
+  "review": {
+    "claude_completed": true,
+    "scope": "diff-only; raw output retained locally",
+    "implemented": [
+      "Real backend required-cache miss integration tests prove no generator/compiler DLL/driver calls",
+      "Missing or malformed execution metadata becomes an honest CPU fallback",
+      "Cache configuration requires directories and does not depend on legacy CUDA probe",
+      "Shared CUDA UI routing and status audited"
+    ],
+    "pending": [
+      "Windows actual CUDA product execution",
+      "Measured Windows preparation/GPU/CPU total latency within the120-second worker deadline"
+    ]
+  },
+  "host_source_sha256": {
+    "app/portable_detail.py": "291975d2bac5079f38e603b6a5ac57eb131daec18fcf11a1f4ee9c03325f9807",
+    "app/portable_detail_service.py": "6ed17c96e297725fc738709de8a2175e3e5962b4dbef4d4609fa1fe789e816da",
+    "app/evaluation-queue.mjs": "572f01a33a66c31a5613f2f7add51e797a4daa7a56dad65f5900c2f08146745d",
+    "server.mjs": "bd77c5f200fb18f985fa2f4f68453485b8000b2491e9ce6d80bd6b9a0d5cc0e5",
+    "web/app.js": "de84d3612b731b3d383bfd08faeab2d1367da60703791c3cc5d26e13b15cf1ca",
+    "web/index.html": "f8fcb92eac412bbde8c7db8ff12cf87b2c10d44a8fe86cbfd782c343f7d30847"
+  },
+  "final_api_proof": "shared-cuda-product-v2-20261030"
+}

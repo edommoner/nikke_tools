@@ -1,0 +1,13 @@
+{
+  "passed": false,
+  "scope": "Related-suite tests were incorrectly selected inside a compiler-only packet that does not declare their golden dependencies",
+  "reason": "Two required old golden files absent from compiler-only payload",
+  "failed_group": "test_coordinate_typed.py",
+  "receipt": {
+    "bytes": 416,
+    "sha256": "1d0867b9c29417e1682d0ac1d6c96c7a33d8a54ec0dcaa2d852d960d2b22db01"
+  },
+  "corrective_action": "Use declared control groups and the self-contained new HP tests; reuse the separately sealed Metal103 related120 receipt, do not claim a fresh related120 pass",
+  "gpu_calls": 0,
+  "raw_or_claim_modified": false
+}

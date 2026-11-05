@@ -6,19 +6,7 @@ from test_target_counter_runtime import manager,NAMES
 
 
 class TargetContextTests(unittest.TestCase):
-    def test_unclassified_counter_context_is_rejected_before_gpu_execution(self):
-        from detail_coverage import a
-        from detail_gpu import compile_effects,run,UnsupportedDetail
-        from target_counter_cases import marker
-        import copy
-        effect=dict(name='target observer',source='스킬1',type='buff',stat='atk_pct',fixed_value=1,target='self',duration=1,trigger=dict(timing=['event:target_counter_complete:marker'],condition=['target_is_add']))
-        bm=manager([marker(),effect]);chars=[dict(name=n,skill_level=10,_weapon=a.META[n]) for n in NAMES]
-        valid=compile_effects(chars,bm._effects)
-        for kind in (2,3,4):
-            bad=copy.deepcopy(valid);bad['effects'][0][296]=kind
-            with self.subTest(kind=kind),self.assertRaisesRegex(ValueError,'explicit actor policy'):run(None,[bad],[[0,2,0,0,0,0,0,0]],[[0,0]],[bm.state['base_stats']])
-        bad_effects=copy.deepcopy(bm._effects);bad_effects[0][0]['target_counter']['actor']['kind']='projectile'
-        with self.assertRaisesRegex(UnsupportedDetail,'explicit actor policy'):compile_effects(chars,bad_effects)
+    pass
 
     def test_nested_targets_restore_and_unrelated_events_use_current_aim(self):
         bm=manager([]);seen=[];old=ActorHandle(5,7,3);new=ActorHandle(5,7,4)

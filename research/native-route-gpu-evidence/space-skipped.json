@@ -1,0 +1,7 @@
+{
+  "capture": "/tmp/nikke-cli-saved-metal-audit",
+  "reason": "Historical capture has no artifacts.json; sparsify stopped before mutation",
+  "raw_changed": false,
+  "raw_deleted": false,
+  "gpu_calls": 0
+}

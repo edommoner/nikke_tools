@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/run-gpu-packet.py", line 240, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/run-gpu-packet.py", line 233, in main
+    if args._child:child(args.capture.resolve());return
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/run-gpu-packet.py", line 162, in child
+    journal.invoke('packet_cpu_tests',run_tests,cli,plan);return
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/research/portable_phase_audit.py", line 26, in invoke
+    result = function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/run-gpu-packet.py", line 52, in run_tests
+    with cli.forbid_gpu():rows=cli.cpu_test_groups(manifest,proof)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1992, in cpu_test_groups
+    raise ValueError('CPU tests failed: '+failed)
+ValueError: CPU tests failed: test_portable_generation_cache.py

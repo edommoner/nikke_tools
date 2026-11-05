@@ -1,0 +1,112 @@
+[
+  {
+    "pattern": "test_coordinate_packets.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.9445934579707682,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 28120
+  },
+  {
+    "pattern": "test_coordinate_skill_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.2348895829636604,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 28120
+  },
+  {
+    "pattern": "test_impact_runtime.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.003752624965272844,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 28120
+  },
+  {
+    "pattern": "test_coordinate_world_pool.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.42728058295324445,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 28120
+  },
+  {
+    "pattern": "test_portable_coordinate_scene.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.013789291959255934,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 28120
+  },
+  {
+    "pattern": "test_coordinate_dot.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.8420916250906885,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 28120
+  },
+  {
+    "pattern": "test_coordinate_math.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.09151200007181615,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 28120
+  },
+  {
+    "pattern": "test_coordinate_area.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.249850874999538,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 28120
+  },
+  {
+    "pattern": "test_coordinate_pending.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.614036999992095,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 28120
+  },
+  {
+    "pattern": "test_coordinate_full_burst.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.753036833018996,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 28120
+  },
+  {
+    "pattern": "test_coordinate_generation.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.389863125048578,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 28120
+  }
+]

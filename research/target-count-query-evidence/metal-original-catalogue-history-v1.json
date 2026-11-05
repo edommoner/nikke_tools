@@ -1,0 +1,137 @@
+{
+  "schema": "metal-original-catalogue-history-v1",
+  "source_commit": "d90c5f9a067f3b3bcbc9a19ab26354be76438844",
+  "package_id": "3edf081951a824542e8771835e1dc75ab62c85c6a2878e3a0976cd55714f57bb",
+  "source": "gpu/world_coordinate_typed_history_entry.slang",
+  "input_count": 4,
+  "native_cases": 4,
+  "rejected_cases": 0,
+  "calculation_verified": true,
+  "independently_sealed": true,
+  "independent_receipt_sha256": "f0fe7c89ece9f9199fb53cac70e2434a0ca226e3c89ad79851d90af729a9fae4",
+  "independent_gpu_calls": 0,
+  "independent_native_cases": 4,
+  "independent_elapsed_seconds": 89.35076245799428,
+  "independent_live_parent_reuse": false,
+  "unit_groups": 14,
+  "unit_tests": 136,
+  "cpu_native_seconds": 77.54314575000899,
+  "actual_device": "Apple M5",
+  "gpu_seconds": 4.746005250010057,
+  "pipeline_compile_seconds": 62.160171031951904,
+  "gpu_executions": 1,
+  "gpu_retries": 0,
+  "input_words": 115680,
+  "output_words": 2032000,
+  "resident_runtime_stride": 138952,
+  "resident_reflection_identical_previous": true,
+  "skill_history_capacity": 2048,
+  "skill_history_retained_prefix": 128,
+  "continuation_base": 1773424,
+  "continuation_end": 1865584,
+  "continuation_words": 92160,
+  "complete_skill_history_counts": [
+    2,
+    32,
+    1618,
+    17
+  ],
+  "every_semantic_row_compared": true,
+  "all_actual_creation_receipts_checked": true,
+  "all_unused_history_words_checked": true,
+  "comparison": "Existing strict48-word decoder in128-row pages; full comparison before checked legacy prefix projection",
+  "case_names": [
+    "original-catalogue/projectile/앨리스/favorite-0/30s",
+    "original-catalogue/hp-shield/모더니아/favorite-0/3s",
+    "original-catalogue/hp-shield/모더니아/favorite-0/30s",
+    "original-catalogue/hp-shield/프리바티 : 언카인드 메이드/favorite-0/30s"
+  ],
+  "old4_inputs_and_native_hashes_retained": true,
+  "old3_successful_output_retention": {
+    "schema": "original-catalogue-three-success-retention-v1",
+    "previous_capture_calculation_verified": false,
+    "previous_failed_case_retained_as_failure": true,
+    "scope": "All three previously successful case blocks; not the failed Modernia30 block",
+    "case_words": 2032000,
+    "rows": [
+      {
+        "name": "original-catalogue/projectile/앨리스/favorite-0/30s",
+        "bytes": 8128000,
+        "sha256": "6eb0401c20c9ba59ede2475d16d04d013aaa52ef387be38441eaef67e85d91bd",
+        "all_bytes_identical": true
+      },
+      {
+        "name": "original-catalogue/hp-shield/모더니아/favorite-0/3s",
+        "bytes": 8128000,
+        "sha256": "6cbec02a1eef6b5a5ea9b691895dd4eb62bd2340a4ff613ae6cdeaf75baf8b95",
+        "all_bytes_identical": true
+      },
+      {
+        "name": "original-catalogue/hp-shield/프리바티 : 언카인드 메이드/favorite-0/30s",
+        "bytes": 8128000,
+        "sha256": "fcf23221b219987cc8f0ee4782e15f4b0464aabf6d2b89d2982f09cc10e44ca6",
+        "all_bytes_identical": true
+      }
+    ],
+    "retained_bytes": 24384000,
+    "gpu_calls": 0,
+    "reference_comparison_sha256": "2588843132d48dad9fbc280e7540a35ffb410f27a987384214eafd6f972930d3",
+    "candidate_comparison_sha256": "858e93cb41f1acb2f8779e04b923e1e1f5cdaf36cd52b182e87a470c615ea7f5"
+  },
+  "old_failed_modernia_capture_preserved": true,
+  "new_golden_sha256": "fc7961dd0a646b4117ea0ae606858520741cd72d97a97e2e279fc3fc3aeb1ebb",
+  "input_sha256": "93d717329053c407e6263506a59af66f374341863324aedf7e16fb885b16dd0e",
+  "output_sha256": "1d63519d655ce89ce5301bdc77da4400255c98564398736dd28ad6a0b0af2d22",
+  "generated_normalized": {
+    "cuda": "1919893a9b5bd492b8a456dc7699eb0ee9d97d21a852c84eb04644d454454d9e",
+    "metal": "6117e656780854798267945640225b4a796ba4c051e605eabc02b985d0f92982"
+  },
+  "generated_raw": {
+    "cuda": "b8b699a090d005643896a58c238a3b8e67fe7c9f4a2720026ea68c755a6782b8",
+    "metal": "6117e656780854798267945640225b4a796ba4c051e605eabc02b985d0f92982"
+  },
+  "required_generation_cache_hit": true,
+  "run_slang_compiler_invocations": 0,
+  "generation_only_compiler_invocations": 2,
+  "generation_only_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 4,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 4
+  },
+  "boundary_unit_counts": [
+    0,
+    127,
+    128,
+    129,
+    1618,
+    2048
+  ],
+  "overflow_unit_count": 2049,
+  "actual_gpu_capacity_boundary_stress_performed": false,
+  "cuda_cache_profile": "compile-cache-only-v1",
+  "cuda_cache_profile_same_source_inputs_golden": true,
+  "cuda_cache_hit_verified": false,
+  "cuda_calculation_verified": false,
+  "windows_new_run_requests": 0,
+  "canonical_cpu_files_changed": false,
+  "normalizer_changed": false,
+  "damage_clock_effect_definitions_changed": false,
+  "full_character_certification_added": 0,
+  "full_goal_complete": false,
+  "public_gpu_admission_added": false,
+  "private_capture_anchors": {
+    "comparison.json": "858e93cb41f1acb2f8779e04b923e1e1f5cdaf36cd52b182e87a470c615ea7f5",
+    "cpu.json": "e61baac5b32dc90ba2b246b26bb1b75ba8df89e5fb5054fbf57f5d19d882f905",
+    "result.json": "0fa7ea290b38d06449b1e5f7c2586f9fef14386a8e45cc4e25503ff0986440f1",
+    "evidence.json": "4803f48ae83d1d2b27bc30ea6a934ec647700fe077db7ccdaae045fcdf71bda1",
+    "readback.bin": "1d63519d655ce89ce5301bdc77da4400255c98564398736dd28ad6a0b0af2d22"
+  },
+  "final_shared_skill_history_unit_tests": 7,
+  "controller_unit_tests": 49,
+  "cuda_cached_profile_unit_tests": 9
+}

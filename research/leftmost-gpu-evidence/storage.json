@@ -1,0 +1,7 @@
+{
+  "required_bytes": 263686276,
+  "reserve_bytes": 15032385536,
+  "free_bytes": 18210820096,
+  "passed": true,
+  "scope": "74 packed inputs and raw outputs; no deletion or compression assumption"
+}

@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "golden_unchanged_during_comparator_correction": true,
+  "retained_native_fingerprints": 10,
+  "prepared_inputs_repacked": 10,
+  "native_domains_recomputed": 0,
+  "gpu_calls": 0,
+  "final_gpu_source_and_input_match": true,
+  "final_reference_and_comparator_files_match": true,
+  "checked_files": [
+    "app/portable_coordinate_roster_input.py",
+    "app/portable_world_roster_input.py",
+    "research/portable_coordinate_original_cases.py",
+    "research/verify-coordinate-original-short.py",
+    "research/world_frame_native.py",
+    "research/world_original_removal_native.py",
+    "research/world_coordinate_sampled_vital_native.py",
+    "research/world_coordinate_sampled_burst_native.py",
+    "app/portable_coordinate_projectile_history.py",
+    "research/verify-coordinate-sampled-parent-short.py"
+  ]
+}

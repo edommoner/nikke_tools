@@ -1,0 +1,242 @@
+{
+  "schema": "metal-original-lock-controls-v3",
+  "passed": true,
+  "source_commit": "1754ba711687b687a4eef3d1a5c2d2ca3ec4e5a8",
+  "package_id": "2b01f589a8eaf4b43d2628b5f6ca21aa927149f661e94b60276b73106d57a99d",
+  "archive_sha256": "b0b5d03dd86b07a82b9741140b23903ffa8477e2a88ac589e30b3379fd2777ec",
+  "inputs": 17,
+  "native_cases": 9,
+  "rejected_cases": 8,
+  "device": "Apple M5",
+  "actual_metal_gpu_verified": true,
+  "independently_sealed": true,
+  "independent_audit_receipt_sha256": "f9340c860d65ddf3a01339fa2cd52bcec5118f9e858450271edf5b0b0dad051a",
+  "independent_audit": {
+    "package_id": "2b01f589a8eaf4b43d2628b5f6ca21aa927149f661e94b60276b73106d57a99d",
+    "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/original-lock-controls-v3-metal",
+    "child_pid": 46298,
+    "input_count": 17,
+    "native_cases": 9,
+    "live_parent_receipt_present": false,
+    "elapsed_seconds": 94.63552654199884,
+    "gpu_calls": 0,
+    "calculation_verified": true,
+    "input_sha256": "56d60315940d53afc2950eb5b8c8d01cb45e7b092f21c1b67aabcdf9e496f60d",
+    "output_sha256": "39bab7fdd4cbd7641a81ddd2412f4b3d3caad17d2af1d87cedceb5dcf58b8d7e",
+    "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+    "schema": "independent-metal-audit-v1"
+  },
+  "original_source_definitions": 25,
+  "complete_roster_definitions": 91,
+  "declared_manual_operation_cases": 4,
+  "original_controls_preserved_in_ordinary_cases": true,
+  "cover_operations_applied_after_original_identity_check": true,
+  "original_effects_growth_weapon_config_unchanged": true,
+  "burst_saturation": {
+    "distinct_targets": 15,
+    "uses": 2,
+    "subsequent_base_targets": 5
+  },
+  "gpu_source_closure_changed": false,
+  "generated_raw_retention": {
+    "generated.cu": {
+      "identical": true,
+      "sha256": "fef281b5ca17413a202209687fef1a2ecec3c95111c680349811f3d420af0f2f"
+    },
+    "generated.metal": {
+      "identical": true,
+      "sha256": "243476610d2ddadb446138dd092d6e42f53f9e4ae13b25e776e70331aed39cc3"
+    }
+  },
+  "generated_normalized": {
+    "cuda": "619ee416e1c36e536bf5fbffee11bef60e2dbd19cb78640799499fab38e53d00",
+    "metal": "243476610d2ddadb446138dd092d6e42f53f9e4ae13b25e776e70331aed39cc3"
+  },
+  "input_sha256": "56d60315940d53afc2950eb5b8c8d01cb45e7b092f21c1b67aabcdf9e496f60d",
+  "output_sha256": "39bab7fdd4cbd7641a81ddd2412f4b3d3caad17d2af1d87cedceb5dcf58b8d7e",
+  "entries": [
+    {
+      "name": "original-heavyarms/3s/0adds",
+      "input_sha256": "3c501203d3c722803fc11e88042b6dfd2b5b6da7c50d38f61507cdb138d67799",
+      "output_sha256": "a7aaacc932cc49fd534207ef349abe367af5091cc1a97c95639ded950f11c665",
+      "native_sha256": "57859dccc730e049e2b7cac30ef0b920bdead662ae6db0718261c11a383ba293"
+    },
+    {
+      "name": "original-heavyarms/3s/3adds",
+      "input_sha256": "2821a360feb55814d8d9746d557e6cab4e37e15d094abf0806b10b6cc9f8c3f1",
+      "output_sha256": "afee1cac55793ceecd0d3b74643a688320dc54b5907605c58200289d3b921be2",
+      "native_sha256": "0f883c4ef7780938a1330b6677f3674bc3adfeb43098fa651800425046e6c6c4"
+    },
+    {
+      "name": "original-heavyarms/30s/0adds",
+      "input_sha256": "d3807a1b57c3c2678cb0ac964be568a2f3d3d8f28640df8a4114215bce2227a7",
+      "output_sha256": "b2ea114b1c9a24e56ee77ed4823ece7a5b85d2636b8640c72d5d9394f17f4d1d",
+      "native_sha256": "844c2519593578ddfd546b976c3082b6116e4762aaa88216eedc5e82f5066fdb"
+    },
+    {
+      "name": "original-heavyarms/30s/3adds",
+      "input_sha256": "1f2c32393689c7798be40e21ba53dc79f3cb6b607e105ad3cb12444de99b7faf",
+      "output_sha256": "90dda4b5d4d102fb2dfe95bebbcbe53b0411c4e82a49f0149bfdddfeddbd8ffb",
+      "native_sha256": "2e607ff04e3c85c53ceec9519b5101d8e975aea98be74e7ad34f8304e210b496"
+    },
+    {
+      "name": "original-heavyarms/3s/0adds/cover-0-0.35",
+      "input_sha256": "3eba4babf7fb5bc0eaa3670eb599cfe046de648053dd98afc77fc07e854f705c",
+      "output_sha256": "ab34afd36152b471d1e7d850d2ee30f6f758479cdb21216f42d71a84cd6ee35c",
+      "native_sha256": "5b9f07994c4ce82ff8d0717c6d4803228448196abc9755727e8c3adcd3c60ed7"
+    },
+    {
+      "name": "original-heavyarms/3s/3adds/cover-0-0.35",
+      "input_sha256": "950e9237f50dcc46806ccdc7fb9debc88e5a6ad6d893d06f9217bb650284ea80",
+      "output_sha256": "7e9a90a72a60928afbbe9aba2d025c34b3eae629a424c36bcf73836c580b5e45",
+      "native_sha256": "bdae46956c5bc796d4ca129dc5add2c63bc15332b19fa58cb53bbd5bca55a7a0"
+    },
+    {
+      "name": "original-heavyarms/3s/3adds/cover-0-0.0",
+      "input_sha256": "1e80410576cf4e93fb9a1fefc926e9f6f8c1cb260ce6f1fded6b5f72522998ee",
+      "output_sha256": "b06b62a6f447e57fdff3e2715ac5cdb057bd775afeb7679c7c6c8db2498f47d5",
+      "native_sha256": "3a5e63bec262419815bdfe6a74c5aea9caf7321f6b220dcb5697e4e85a815a2d"
+    },
+    {
+      "name": "original-heavyarms/3s/3adds/cover-1-0.35",
+      "input_sha256": "1f53b5dacd1eeb28935ce876826d71615515ecee7576d9422ea7517d465d09a1",
+      "output_sha256": "4e47ed292ec8bf6b9b98ddaba5ef156e3370b64809d509021e9672ba9421aea1",
+      "native_sha256": "146cbdb29a657d6654cf2cb09c56c035d64c3f6d926aadaca298acd1e2171cda"
+    },
+    {
+      "name": "original-heavyarms/30s/16adds",
+      "input_sha256": "3150e26b3644b4018e7bc87d7ecb430b1e883e99f78a6ebd6114baeb2b20fdce",
+      "output_sha256": "65346b0430d858bc17c010f71dd4f0d3f7a6670c1f50075c3d74563ea46f38bf",
+      "native_sha256": "7b86fdf1a26860e98091ae7ff77a1ca68af680696ccaac2bb0f6ac1cac28463e"
+    },
+    {
+      "name": "reject/original-lock/typed-magic",
+      "input_sha256": "7ebbe19a7dbba2a065832310c7541187235503bc02feec5bb92a3dfe59b31814",
+      "output_sha256": "f662d0217b76f08d8bc5adfb038d6540e90e25392e801f565ef6067e5be4b205",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/original-lock/trace-required",
+      "input_sha256": "d2a233da70b00447da6d409fbef9ae97e7e7f2e1a1cdc819d26d50e1d0c441f9",
+      "output_sha256": "61af6a07d9566661c2999aa56214ed9906e0469a76fed577a29bd9172ac59c40",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/original-lock/not-enemy",
+      "input_sha256": "dd313a40e0f115a44a7fd7374f3bdcd70c832edb5b120f5ba6aab43baf576c7b",
+      "output_sha256": "2a0e9852347adf55e6f8886f3dd090622fd361a3b8653a4dd20408df3c5792a5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/original-lock/wrong-charge-condition",
+      "input_sha256": "5f4c5f85dbb356507241d7f31310a97c278b607e6ea7bc2b6185300fbdcc3590",
+      "output_sha256": "d88793e6f043c2a6a7bd17dd9f7f1d0dba7c7215e0de2d52c1ccbb300b1a0029",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/original-controls/version",
+      "input_sha256": "2d910753639263b1c46a2969d8c805a9db4018e6f166bfc96b13668c49ff9784",
+      "output_sha256": "f5c04e17b25594d6a820a0f84576468cf8844023180edde880bac3f3227e1150",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/original-controls/action",
+      "input_sha256": "d45a5ee1aa0500b9f4c90c08ca3a0a4493a395ce2db1b4380c9c12e2de730355",
+      "output_sha256": "1bbc9a76582d7b52caa3a6d349d41f5321b301ce2112039bffa0e6f1d0e04f43",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/original-controls/reserved",
+      "input_sha256": "61f3cc836e9f45f051cb2e5117574115afc91365a3e5ba107af7c305bbf00341",
+      "output_sha256": "1bbc9a76582d7b52caa3a6d349d41f5321b301ce2112039bffa0e6f1d0e04f43",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/original-controls/capacity",
+      "input_sha256": "935f248ca3ddc60b18b857e740d657e863da703244a5d1804c54a1398c27e053",
+      "output_sha256": "1bbc9a76582d7b52caa3a6d349d41f5321b301ce2112039bffa0e6f1d0e04f43",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "transport": {
+    "backend": "metal",
+    "cases": 17,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 2.5923500833305297,
+    "input_bytes": 7448452,
+    "library_compile_seconds": 0.0040760040283203125,
+    "output_bytes": 89128960,
+    "pipeline_cache": {
+      "archive_bytes": 6634000,
+      "archive_compile_seconds": 0,
+      "archive_sha256": "d7828f8b25e7f7b0aed4a83e06b8f63a09e6f982beb1a3357097dc3015ccb817",
+      "enabled": true,
+      "hit": true,
+      "identity": {
+        "consumer_sha256": "80ad3f35e458e2f3a3f48a3997243e0906ac0719a04c352c4e901aeb753e268f",
+        "device": "Apple M5",
+        "entry": "portableEvents",
+        "math_mode": "safe",
+        "os_build": "Version 27.0.1 (Build 26A434)",
+        "registry_id": "4294968346",
+        "resident_stride": "140008",
+        "schema": "1",
+        "source_sha256": "243476610d2ddadb446138dd092d6e42f53f9e4ae13b25e776e70331aed39cc3",
+        "threads_per_threadgroup": "1"
+      },
+      "key": "a552698b9b6a7084f26f6589ec48f994165dfb57756c71ef0df97fddddc19ce2",
+      "native_archive_miss_rejected": true,
+      "required": true,
+      "schema": 1
+    },
+    "pipeline_compile_seconds": 0.0022699832916259766,
+    "pipeline_lock_wait_seconds": 1.9073486328125e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "pipeline_os_build": "Version 27.0.1 (Build 26A434)",
+    "registry_id": "4294968346",
+    "runtime_buffer_bytes": 2380136,
+    "runtime_element_capacity": 17,
+    "runtime_physical_stride_verified": true,
+    "runtime_stride_bytes": 140008,
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "resident_stride": 140008,
+  "cpu_unit_groups": 10,
+  "cpu_unit_tests": 76,
+  "cpu_unit_seconds": 108.88335533300415,
+  "cpu_preflight_seconds": 90.96395541699894,
+  "retention_report": "original-lock-controls-cli-retention-v1.json",
+  "retained_cases": 8,
+  "retained_output_bytes": 41943040,
+  "final_unit_optimization": {
+    "unchanged_test_cases": 4,
+    "removed_duplicate_fixture_generation_only": true,
+    "authoritative_count_gate_retained_in_shared_cli": true,
+    "old_unit_group_seconds": 85.91041483399749,
+    "new_unit_group_seconds": 38.153,
+    "receipt_sha256": "548c36880ca4c8cfa388534064d2160d7be191796843af517ec07d439b25fff1"
+  },
+  "gpu_executions_this_milestone": 1,
+  "gpu_retries": 0,
+  "windows_execution_requests": 0,
+  "cuda_hardware_verified": false,
+  "all_conditional_branches_verified": false,
+  "spatial_selection_verified": false,
+  "game_verified": false,
+  "public_gpu_admitted": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "earlier_preflight_failure": {
+    "version": 2,
+    "reason": "Required prior input-comparison golden omitted from payload",
+    "gpu_calls": 0,
+    "claim_consumed": false,
+    "fixed_by": "support_files plus AUDIT_FILES dependency gate;16 controller tests passed"
+  },
+  "unused_package_v1_gpu_calls": 0
+}

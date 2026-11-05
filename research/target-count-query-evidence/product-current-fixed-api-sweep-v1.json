@@ -1,0 +1,228 @@
+{
+  "source_commit": "4e8613257b766bd934e68dfe25c89749906cc683",
+  "scope": "Current ordinary HTTP /api/jobs product route, fixed burst mode, 30-second default-growth/no-cube original catalogue rosters; base and favorite profiles. Complete product fields excluding execution metadata, including evaluator/warnings/control/base stats/burst timeline. Does not establish every setting/scene/skill activation or game-verified semantics.",
+  "profiles_planned": 266,
+  "profiles_completed": 266,
+  "metal_cpu_matched_profiles": 255,
+  "cpu_fallback_profiles": 11,
+  "additional_compositions": 0,
+  "api_errors": 0,
+  "numeric_mismatches": 0,
+  "api_cache_hits": 0,
+  "unique_captures": 266,
+  "shader_counts": {
+    "gpu/product_fixed_battle_entry.slang": 245,
+    "gpu/product_fixed_group_battle_entry.slang": 2,
+    "gpu/product_fixed_target_battle_entry.slang": 8
+  },
+  "source_files_frozen_through_sweep_and_audit": true,
+  "source_snapshot_sha256": "55d2e51ca64353af24ec28d266b19cf9906bb98fd14c23128f2e33dae236f2a2",
+  "requests_sha256": "baa3556d17754dfe599aa0fe04d6f70f5b68deaab84f54c1ea0d386ae0aa10c8",
+  "saved_audit_sha256": "69bca48d528e421a1fbe76fc09b37283336d8aa160a556e201251f7d2df11264",
+  "saved_audit_driver_sha256": "05c1876f4829c935263b0add2a5399026ba181b479c52b21ad2200b088efc34b",
+  "all_positive_static_inputs_rebuilt_exactly_without_cpu_battle": true,
+  "all_positive_raw_hashes_verified": true,
+  "all_positive_raw_reprojections_match_saved_gpu_cpu_api": true,
+  "reprojection_native_battle_calls": 0,
+  "reprojection_gpu_calls": 0,
+  "fallbacks": [
+    {
+      "index": 67,
+      "profile": "앤 : 미라클 페어리",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "앤 : 미라클 페어리",
+          "effect": "요정의 장난 2",
+          "stat": "heal_received_pct",
+          "target": "all_enemies",
+          "reason": "Unported buff recipient selector"
+        }
+      ],
+      "gpu_execution_verified": false
+    },
+    {
+      "index": 88,
+      "profile": "유니",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "유니",
+          "effect": "BDG 2",
+          "stat": "enemy_movement_disable",
+          "target": "enemies_in_range",
+          "reason": "Unported buff stat"
+        }
+      ],
+      "gpu_execution_verified": false
+    },
+    {
+      "index": 111,
+      "profile": "얀",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "얀",
+          "effect": "일확천금 2",
+          "stat": "force_move",
+          "target": "enemies_in_range",
+          "reason": "Unported buff stat"
+        }
+      ],
+      "gpu_execution_verified": false
+    },
+    {
+      "index": 159,
+      "profile": "솔져 O.W.",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "솔져 O.W.",
+          "effect": "오울 윈드",
+          "stat": "cover_def_pct",
+          "target": "allies_top_atk:3",
+          "reason": "Unported buff stat"
+        }
+      ],
+      "gpu_execution_verified": false
+    },
+    {
+      "index": 168,
+      "profile": "벨벳",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "벨벳",
+          "effect": "탄환 가져오기 2",
+          "stat": "ammo_charge_pct",
+          "target": "all_enemies",
+          "reason": "Unported health recipient selector"
+        }
+      ],
+      "gpu_execution_verified": false
+    },
+    {
+      "index": 210,
+      "profile": "스노우 화이트 : 헤비암즈",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "스노우 화이트 : 헤비암즈",
+          "effect": "록 온",
+          "stat": "lock_on",
+          "target": "enemies_nearest:1",
+          "reason": "Unported buff stat"
+        }
+      ],
+      "gpu_execution_verified": false
+    },
+    {
+      "index": 221,
+      "profile": "베이",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "베이",
+          "effect": "유 캔 두잇",
+          "stat": "received_dmg_split",
+          "target": "all_allies",
+          "reason": "Unported buff stat"
+        }
+      ],
+      "gpu_execution_verified": false
+    },
+    {
+      "index": 222,
+      "profile": "베이",
+      "favorite_stage": 1,
+      "unsupported": [
+        {
+          "character": "베이",
+          "effect": "치얼업 투게더",
+          "stat": "received_dmg_split",
+          "target": "self_cover",
+          "reason": "Unported buff stat"
+        }
+      ],
+      "gpu_execution_verified": false
+    },
+    {
+      "index": 223,
+      "profile": "베이",
+      "favorite_stage": 2,
+      "unsupported": [
+        {
+          "character": "베이",
+          "effect": "유 캔 두잇",
+          "stat": "received_dmg_split",
+          "target": "all_allies",
+          "reason": "Unported buff stat"
+        }
+      ],
+      "gpu_execution_verified": false
+    },
+    {
+      "index": 224,
+      "profile": "베이",
+      "favorite_stage": 3,
+      "unsupported": [
+        {
+          "character": "베이",
+          "effect": "유 캔 두잇",
+          "stat": "received_dmg_split",
+          "target": "all_allies",
+          "reason": "Unported buff stat"
+        }
+      ],
+      "gpu_execution_verified": false
+    },
+    {
+      "index": 251,
+      "profile": "레이 (가칭)",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "레이 (가칭)",
+          "effect": "섬멸 지원 4",
+          "stat": "effect_target_count_add",
+          "target": "allies_with_buff:섬멸 태세",
+          "reason": "Unported buff stat"
+        }
+      ],
+      "gpu_execution_verified": false
+    }
+  ],
+  "profile_elapsed_seconds": {
+    "sum": 1227.7053396618576,
+    "median": 3.881808853999246,
+    "max": 21.67004470899701
+  },
+  "metal_gpu_seconds": {
+    "sum": 671.5546816252754,
+    "median": 1.9657686249702238,
+    "max": 17.792190833366476
+  },
+  "driver_exit_code": 0,
+  "server_stopped_pid": 11671,
+  "server_port": 4360,
+  "storage_check": {
+    "passed": true,
+    "required_bytes": 2000000000,
+    "reserve_bytes": 1073741824,
+    "free_bytes": 70451200000,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "scope": "Free-space budget only; no archive integrity or cleanup"
+  },
+  "gpu_source_changed": false,
+  "numerical_expectations_changed": false,
+  "coverage": {
+    "metal_current_fixed_profiles": 255,
+    "metal_historical_additional_compositions": 1,
+    "cuda_current_profiles": 0,
+    "cuda_historical_profiles": 1,
+    "cuda_historical_duration_seconds": 1,
+    "cuda_fixed_profiles": 0,
+    "full_goal_complete": false
+  }
+}

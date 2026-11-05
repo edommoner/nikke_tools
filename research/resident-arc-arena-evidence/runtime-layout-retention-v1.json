@@ -1,0 +1,13 @@
+{
+  "schema": "resident-arc-layout-retention-v1",
+  "prior_evidence_path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/owner-hp-death-gpu-20261027/metal-v1/evidence.json",
+  "prior_evidence_sha256": "bc36dc68a8d96e5325fedec9597205932742a0a77558a9a31e4c0e8c8e4f0ed5",
+  "runtime_layout_equal": true,
+  "runtime_stride": 138952,
+  "old_output_words": 2032000,
+  "new_output_words": 2064786,
+  "extra_runtime_bytes": 0,
+  "extra_tail_words": 32786,
+  "gpu_calls": 0,
+  "scope": "Paired CUDA/Metal Slang reflection is exact to saved prior resident Runtime layout; no compiled CUDA resources or execution inferred."
+}

@@ -1,0 +1,144 @@
+{
+  "passed": true,
+  "complete": true,
+  "gates": [
+    {
+      "name": "status-native",
+      "exit_code": 0,
+      "elapsed_seconds": 0.723484041984193,
+      "log": "/tmp/nikke-v56-gate-status-native.log"
+    },
+    {
+      "name": "stack-foundation",
+      "exit_code": 0,
+      "elapsed_seconds": 4.480602249968797,
+      "log": "/tmp/nikke-v56-gate-stack-foundation.log"
+    },
+    {
+      "name": "staged-native",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7126630420098081,
+      "log": "/tmp/nikke-v56-gate-staged-native.log"
+    },
+    {
+      "name": "source-native",
+      "exit_code": 0,
+      "elapsed_seconds": 0.03296324994880706,
+      "log": "/tmp/nikke-v56-gate-source-native.log"
+    },
+    {
+      "name": "native-mode-spec",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7455014999723062,
+      "log": "/tmp/nikke-v56-gate-native-mode-spec.log"
+    },
+    {
+      "name": "native-mode-input",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7479167920537293,
+      "log": "/tmp/nikke-v56-gate-native-mode-input.log"
+    },
+    {
+      "name": "reference-rewrite",
+      "exit_code": 0,
+      "elapsed_seconds": 0.029471791931428015,
+      "log": "/tmp/nikke-v56-gate-reference-rewrite.log"
+    },
+    {
+      "name": "duration-native",
+      "exit_code": 0,
+      "elapsed_seconds": 2.2939504170790315,
+      "log": "/tmp/nikke-v56-gate-duration-native.log"
+    },
+    {
+      "name": "definition-input",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9858741249190643,
+      "log": "/tmp/nikke-v56-gate-definition-input.log"
+    },
+    {
+      "name": "definition-scalar",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0015247910050675,
+      "log": "/tmp/nikke-v56-gate-definition-scalar.log"
+    },
+    {
+      "name": "definition-out",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0014600829454139,
+      "log": "/tmp/nikke-v56-gate-definition-out.log"
+    },
+    {
+      "name": "removal-queue",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8374940420035273,
+      "log": "/tmp/nikke-v56-gate-removal-queue.log"
+    },
+    {
+      "name": "numeric",
+      "exit_code": 0,
+      "elapsed_seconds": 0.6795712090097368,
+      "log": "/tmp/nikke-v56-gate-numeric.log"
+    },
+    {
+      "name": "probe",
+      "exit_code": 0,
+      "elapsed_seconds": 0.3261644159210846,
+      "log": "/tmp/nikke-v56-gate-probe.log"
+    },
+    {
+      "name": "events",
+      "exit_code": 0,
+      "elapsed_seconds": 3.451763082994148,
+      "log": "/tmp/nikke-v56-gate-events.log"
+    },
+    {
+      "name": "roster",
+      "exit_code": 0,
+      "elapsed_seconds": 459.3386803329922,
+      "log": "/tmp/nikke-v56-gate-roster.log"
+    },
+    {
+      "name": "catalog-weapons",
+      "exit_code": 0,
+      "elapsed_seconds": 3.3335671249078587,
+      "log": "/tmp/nikke-v56-gate-catalog-weapons.log"
+    },
+    {
+      "name": "equipment",
+      "exit_code": 0,
+      "elapsed_seconds": 4.118568041012622,
+      "log": "/tmp/nikke-v56-gate-equipment.log"
+    },
+    {
+      "name": "real-battle",
+      "exit_code": 0,
+      "elapsed_seconds": 22.215635207947344,
+      "log": "/tmp/nikke-v56-gate-real-battle.log"
+    },
+    {
+      "name": "api",
+      "exit_code": 0,
+      "elapsed_seconds": 284.49467912502587,
+      "log": "/tmp/nikke-v56-gate-api.log"
+    },
+    {
+      "name": "pipeline-lock",
+      "exit_code": 0,
+      "elapsed_seconds": 1.3302355419145897,
+      "log": "/tmp/nikke-v56-gate-pipeline-lock.log"
+    },
+    {
+      "name": "catalog-audit",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0071512080030516,
+      "log": "/tmp/nikke-v56-gate-catalog-audit.log"
+    },
+    {
+      "name": "unit",
+      "exit_code": 0,
+      "elapsed_seconds": 5.067363459034823,
+      "log": "/tmp/nikke-v56-gate-unit.log"
+    }
+  ]
+}

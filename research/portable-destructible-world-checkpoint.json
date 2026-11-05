@@ -1,0 +1,26 @@
+{
+  "scope": "existing BossScript graph clock plus declared typed target lifecycle; not battle admission",
+  "package_id": "6033d41f373a3a45b0dd4ee2101e0c892a32ea516c61ec2c9d2637581001d81a",
+  "capture": "/tmp/nikke-dw-metal33-v1",
+  "native_clock_cases": 21,
+  "raw_rejections": 12,
+  "metal_verified": true,
+  "independent_seal": true,
+  "gpu_runs": 1,
+  "gpu_seconds": 0.01280987507198006,
+  "cpu_tests_at_capture": 16,
+  "final_cpu_tests": 17,
+  "source_battle_unchanged": true,
+  "cuda_generated": true,
+  "cuda_device_verified": false,
+  "windows_additional_runs": 0,
+  "missing_processes_cause": "unknown; user reports no app/terminal/reconnect/reboot operation and possible game/video use, which does not establish causation",
+  "remaining": [
+    "battle action producer and target dispatch",
+    "owned break event dispatch",
+    "shield interception and modifiers",
+    "all_projectiles admission",
+    "full-character certification"
+  ],
+  "full_goal_complete": false
+}

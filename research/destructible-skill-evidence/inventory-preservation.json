@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "all266_profiles_identical": true,
+  "all_issue_records_identical": true,
+  "classification_identical": true,
+  "all_priority_fields_and_ranking_identical_except_added_scoped_metadata": true,
+  "metadata_priority_indices": [
+    16
+  ],
+  "packed_profiles": 245,
+  "packed_base": 185,
+  "unresolved": 20,
+  "full_goal_complete": false
+}

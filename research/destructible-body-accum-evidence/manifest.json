@@ -1,0 +1,296 @@
+{
+  "schema": 1,
+  "raw_binary_included": false,
+  "files": [
+    {
+      "path": "controller/artifacts.json",
+      "bytes": 14243,
+      "sha256": "64e787f151b0f7fdbff887dc6eb01a0822ff689400cb0e00f391c0932f4e0319"
+    },
+    {
+      "path": "controller/cpu-batch.json",
+      "bytes": 1758,
+      "sha256": "70fd0ce5d6231fcb2209d817ee7cc1a21e11be12b2e0b09f1ef32f841c4f1bc0"
+    },
+    {
+      "path": "controller/cpu-tests.json",
+      "bytes": 8076,
+      "sha256": "8aa01ae5c2f091e8cb125474d42c671b743452a4e561352c87a2aca3f12b1e72"
+    },
+    {
+      "path": "controller/cpu.json",
+      "bytes": 109,
+      "sha256": "bc45e3d39298f7219da3140078d6f10d93262192126d145de384a7dcb2799e8e"
+    },
+    {
+      "path": "controller/preparation.jsonl",
+      "bytes": 319,
+      "sha256": "74737a1b90f0de0a8d9404fbbb777d1bce869ffbe2a1ebb821cba6864c72594b"
+    },
+    {
+      "path": "controller/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "controller/run.json",
+      "bytes": 237,
+      "sha256": "2215c304f11ecf00e9e9eeeaba433a192c7c63970a7a90ab358b8d6c61ddb61e"
+    },
+    {
+      "path": "cpu-stopped-v3/artifacts.json",
+      "bytes": 1317,
+      "sha256": "067cc0a23e297592a8b8b47e28fffe142cc63aaf10a51c35288c3abdca244e48"
+    },
+    {
+      "path": "cpu-stopped-v3/cpu-batch.json",
+      "bytes": 341,
+      "sha256": "ad507bc493b0602128f524ee0669b252a7a7f9e45f6b31bd8fc6f9f468c48c21"
+    },
+    {
+      "path": "cpu-stopped-v3/failure.json",
+      "bytes": 280,
+      "sha256": "a402b5723dcd39a0734395133628dc3e6caa74f418b67a5e596ff557262bfcfe"
+    },
+    {
+      "path": "cpu-stopped-v3/preparation.jsonl",
+      "bytes": 317,
+      "sha256": "de230bac5d7fc4b67120871584503e8f5edb678c1127ede46325e50b88f9164a"
+    },
+    {
+      "path": "cpu-stopped-v3/run.json",
+      "bytes": 192,
+      "sha256": "80051c9fda0674994d0d8b4d111ea8f30596ff8f7cabd67ebe6f1c2c0fe74cde"
+    },
+    {
+      "path": "final-cpu/cpu-batch.json",
+      "bytes": 634,
+      "sha256": "e1a127e73ab08916594d8c7389ccbf46ee23646ff7f20c8ee6ea1fd21469ff10"
+    },
+    {
+      "path": "final-cpu/cpu-tests.json",
+      "bytes": 1753,
+      "sha256": "cec2313482de846f2ab1e02ae11d2d07ec9546e1953afa9e07d80d1772e2a4b2"
+    },
+    {
+      "path": "final-cpu/cpu.json",
+      "bytes": 247,
+      "sha256": "c23a58fcd1ebdc815334d205030dacf44e1591fe84d410989fccee0f640cb296"
+    },
+    {
+      "path": "final-cpu/preparation.jsonl",
+      "bytes": 319,
+      "sha256": "8e544c6f5d2dcd7375221d8fd820d04b1283ce61eb336beb220b312ee19c9b7a"
+    },
+    {
+      "path": "final-cpu/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "final-cpu/run.json",
+      "bytes": 237,
+      "sha256": "ca1d477dd5d66a6a25299e280bc10b5efecbe9fdd56d2adf02b860f5c26598af"
+    },
+    {
+      "path": "final-payload-verified.json",
+      "bytes": 223,
+      "sha256": "587f1543561f5df6774cf9871d04838e680a1de11af922619e8af77e60787e2f"
+    },
+    {
+      "path": "metal18/artifacts.json",
+      "bytes": 4039,
+      "sha256": "88aef2ff8b71b4b5baa405839ba26175c7d80b1fb50ab1f1232f7cb106069d94"
+    },
+    {
+      "path": "metal18/audit-phases.jsonl",
+      "bytes": 313,
+      "sha256": "6defc411564a048754ed398efdebc776264a759eaf1b9f80fba3ebb21196badd"
+    },
+    {
+      "path": "metal18/comparison.json",
+      "bytes": 6769,
+      "sha256": "720f63925b58b54952cd9fb564dc11927fc0673050096e46be9563628d1dc92e"
+    },
+    {
+      "path": "metal18/cpu-batch.json",
+      "bytes": 339,
+      "sha256": "0544802c5e21c9ccef04507a57d12be0c0112516adbab99b4fe8601fdf8d8606"
+    },
+    {
+      "path": "metal18/cpu-tests.json",
+      "bytes": 218,
+      "sha256": "7d0c1e76f5be470e29fe16f8b1d5465337f09bc0bff6a94a77fa5df8e9b068dd"
+    },
+    {
+      "path": "metal18/cpu.json",
+      "bytes": 544,
+      "sha256": "e90a7b976d6db2dcf8e4683e4190ab24d28a40c635678c178e01ac25d1a35c9f"
+    },
+    {
+      "path": "metal18/evidence.json",
+      "bytes": 53288,
+      "sha256": "f844d00b076c3d71f45094bfac562aba3ff8d5235b54258448d615836993ef72"
+    },
+    {
+      "path": "metal18/execution.json",
+      "bytes": 4145,
+      "sha256": "5c16fc6c70e4e7a9a10b08ce56120cf088a2d99a5e0f7932df941d23991361a6"
+    },
+    {
+      "path": "metal18/phases.jsonl",
+      "bytes": 37743,
+      "sha256": "cc432e10a8a51448782f0095855e3f23da1e871966244ed1e74ed883c8ca0b68"
+    },
+    {
+      "path": "metal18/preparation.jsonl",
+      "bytes": 953,
+      "sha256": "a4a3bed927de58f5b07bad3837a2f014c3180347bbf4b25ff839798d57f878b8"
+    },
+    {
+      "path": "metal18/result.json",
+      "bytes": 3977,
+      "sha256": "5d0c1b7a590c2c128e4e2ae759c4c6d7bf045245b71e093fc7f293eb7dbaa292"
+    },
+    {
+      "path": "metal18/run.json",
+      "bytes": 267,
+      "sha256": "f332450dd0164948d02e3a758c671d3b702b2613c5f090f0ed0cc1f2e24cf691"
+    },
+    {
+      "path": "metal18/runtime.json",
+      "bytes": 1013,
+      "sha256": "d6ea849f5909f8619b8e0f7eb886c7bb4bff8ab46bed54b5a95a736f4ae9279f"
+    },
+    {
+      "path": "metal18/storage-before-gpu.json",
+      "bytes": 249,
+      "sha256": "a70254505498bb2a69876b756581f2e75e447f04cdc88aada837ce72c8745946"
+    },
+    {
+      "path": "metal18/storage.json",
+      "bytes": 250,
+      "sha256": "accc713915f85c1af01dc0a81335c545f8b88bcdb765857354ba77477a5974ae"
+    },
+    {
+      "path": "metal49/artifacts.json",
+      "bytes": 6535,
+      "sha256": "05aa01abe58ab81baa9bc7f777051dc98672a38099b5470b334805817fc724cb"
+    },
+    {
+      "path": "metal49/audit-phases.jsonl",
+      "bytes": 312,
+      "sha256": "1516b9eb92d0ebc709d4b7e551472869f11973418f34b0459048fc154f486669"
+    },
+    {
+      "path": "metal49/comparison.json",
+      "bytes": 17416,
+      "sha256": "af2c1e2dc20c7d70405dcb4e5228727ec050dc2bbd90b115542bbec9a7a617aa"
+    },
+    {
+      "path": "metal49/cpu-batch.json",
+      "bytes": 634,
+      "sha256": "fb8087011770b3fe9844358e9003a2c03d79820f55b9076dc599fd1ac566669c"
+    },
+    {
+      "path": "metal49/cpu-tests.json",
+      "bytes": 1752,
+      "sha256": "8d8003af7c7baefd86d41317cb7590b16b4a7e7f2adc8d09cb03aa2fee04d14f"
+    },
+    {
+      "path": "metal49/cpu.json",
+      "bytes": 544,
+      "sha256": "8b106ffbd4e60c8ac47dfb8132e36980d1cc16735e6d9d2969abb8b4b19f37dd"
+    },
+    {
+      "path": "metal49/evidence.json",
+      "bytes": 53298,
+      "sha256": "f6c9f3e05c020cfb79fe6fb715227c546696e352edfb8af8fd8158c936cfc108"
+    },
+    {
+      "path": "metal49/execution.json",
+      "bytes": 4143,
+      "sha256": "3b438fa7ff412d6ea472b86ba7d3566b795b4f23e4f9bb337a84e73d9ea223b1"
+    },
+    {
+      "path": "metal49/phases.jsonl",
+      "bytes": 37740,
+      "sha256": "2d31418bd8f1f22e6c75568f455b1d6a83a419099c45a7b1bf4859cd8a430fb8"
+    },
+    {
+      "path": "metal49/preparation.jsonl",
+      "bytes": 953,
+      "sha256": "e5dc40701c9decb8d5b05962cbd4957d8cebb7c77977417a4be9eadfd3120543"
+    },
+    {
+      "path": "metal49/result.json",
+      "bytes": 3974,
+      "sha256": "b3435c0ce0e64db7921733346dad1d1ed295813674bb9483d6db2c063b50aa12"
+    },
+    {
+      "path": "metal49/run.json",
+      "bytes": 267,
+      "sha256": "078f0397a831587a669c16012f0a5e6efad9f2ea972c37bef10bf7777a6b4cae"
+    },
+    {
+      "path": "metal49/runtime.json",
+      "bytes": 1013,
+      "sha256": "d6ea849f5909f8619b8e0f7eb886c7bb4bff8ab46bed54b5a95a736f4ae9279f"
+    },
+    {
+      "path": "metal49/storage-before-gpu.json",
+      "bytes": 252,
+      "sha256": "740be0d0b3469fd0226690659e1439958b15915b56cb41f528089f3bc0199d63"
+    },
+    {
+      "path": "metal49/storage.json",
+      "bytes": 253,
+      "sha256": "d0f3b552747527920b1eeb952f9e62d2a73edd76ad590c05d08dc081b6c2ee09"
+    },
+    {
+      "path": "nikke-accum-space-focus-v3.json",
+      "bytes": 625,
+      "sha256": "bc48b032bc45dfdde93788fa0097eca8f42f88ed52a162d24070b9395cd154f9"
+    },
+    {
+      "path": "nikke-accum-space-focus-v4.json",
+      "bytes": 625,
+      "sha256": "3a6adb4b68bd3c43be97c76c00032e5f0f02388546a807399d89828fd11780aa"
+    },
+    {
+      "path": "nikke-accum-space-lifesteal31.json",
+      "bytes": 628,
+      "sha256": "8de2c954efebbd70522cf654e966d05e4802594130aee00f50727b23a449284a"
+    },
+    {
+      "path": "nikke-accum-space-retention95.json",
+      "bytes": 639,
+      "sha256": "49a35fa60df151137a9fd4376d2849f2bf79fbd6f4a182ccfa87b7412ee39c12"
+    },
+    {
+      "path": "nikke-body-accum-observer-identity-v1.json",
+      "bytes": 3232,
+      "sha256": "1a1a142696902baed957c7787d44d8571c390d16dc5314b10e85d4fe6492753a"
+    },
+    {
+      "path": "nikke-body-accum-old31-generated-retained-v1.json",
+      "bytes": 711,
+      "sha256": "5fd4c4e98eb1bcf7b3ad7df620cb236f5133f2716085edf8f504629c3d7828a1"
+    },
+    {
+      "path": "nikke-body-accum-optimized-audit-v1.json",
+      "bytes": 1946,
+      "sha256": "665de00ee8cbd900cab80c4ca41b935724ec1d5d1639831623829e7a41128c7a"
+    },
+    {
+      "path": "nikke-body-accum-real-feature-observation-v1.json",
+      "bytes": 2607,
+      "sha256": "adc89c241f8adbc8f8862e3cd99cb3890050ec1acef131b08e11589b00a50384"
+    },
+    {
+      "path": "nikke-body-accum-retained31-v1.json",
+      "bytes": 1534,
+      "sha256": "1da0f05564661eda86dfd7c9b2bf9410851e8b5fc80bd46b8077d42e02a539b5"
+    }
+  ]
+}

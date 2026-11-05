@@ -1,0 +1,180 @@
+{
+  "schema": "resident-current-native-witness-v1",
+  "package_id": "9c2b84fdc18507ba3b7ba5d478215433a48aa6b5b2149da4325a98aa104a1da6",
+  "source_package_id": "b873a58c48c76438c23c2b8fc7119d601793f702d8668a435ab74eefb437abcc",
+  "input_count": 106,
+  "native_cases": 63,
+  "rejection_cases": 43,
+  "independent_groups": 14,
+  "group_cases": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    [
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    [
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    [
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47
+    ],
+    [
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55
+    ],
+    [
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    [
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71
+    ],
+    [
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79
+    ],
+    [
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87
+    ],
+    [
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95
+    ],
+    [
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103
+    ],
+    [
+      104,
+      105
+    ]
+  ],
+  "group_seconds": [
+    33.47429020900745,
+    43.835557375015924,
+    12.153018459008308,
+    22.529885625001043,
+    18.2740102079988,
+    45.39571420798893,
+    40.09008366698981,
+    57.36412099999143,
+    51.538074540992966,
+    5.491333332989598,
+    90.32219224999426,
+    37.756612416997086,
+    59.995528208004544,
+    27.358173999993596
+  ],
+  "live_parent_receipt_present": false,
+  "input_sha256": "7892c2b3f5800c602d96a92192b89094d746f1674aaa18fcac2436677c11923d",
+  "raw_output_sha256": "0a737874d7e32912167b90e2f48a0ebf8176d79861cd6b5843fc09204ed9f829",
+  "logical_output_sha256": "4ecc755e4f17e2eaaa9c9eb013bbcaa2fb27422893982f910894287df96ced09",
+  "generated_normalized": {
+    "cuda": "3e0f71ed4271c9b266d840e3323e43bdee82fa1fcc04d68031aaa65a40b7afc9",
+    "metal": "4204e0548891f480cec9da5d491397c99ff76aaa1f02f4180e263366b5421283"
+  },
+  "witness_origin": "retained Metal capture",
+  "original_cuda_capture_observed": false,
+  "witness_calculation_verified": true,
+  "conditional_cuda_native_equivalence_verified": true,
+  "pending_original_cuda_envelope_audit": true,
+  "calculation_verified": false,
+  "gpu_calls": 0,
+  "elapsed_seconds": 549.8146879579872,
+  "full_report_sha256": "040673e705e0a16e55677eafe8758c94e8a0cbefc16426b9077c13a8c82f7f87",
+  "full_goal_complete": false,
+  "public_gpu_admitted": false
+}

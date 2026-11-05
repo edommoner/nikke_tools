@@ -1,0 +1,202 @@
+[
+  {
+    "pattern": "test_portable_compile_cli.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.60606350004673,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_compile_cache.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.8269911003299057,
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_generation_cache.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.6659593996591866,
+    "tests": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_offline_assembly.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.145316599868238,
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_phase_codegen.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.31482800003141165,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_compiler_diagnostic.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.2018456999212503,
+    "tests": 16,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_ptx_stats.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.12194739980623126,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_ptx_callgraph.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.6764878001995385,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_ptx_partition.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.45468199998140335,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_partition_object.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.662804199848324,
+    "tests": 16,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_module_object.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.3329989002086222,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_device_linker.py",
+    "exit_code": 0,
+    "elapsed_seconds": 5.617948200087994,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_native_process.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.3237381000071764,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_job_limits.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.01143199997022748,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_native_output_probe.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.039716700091958046,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_jit_link.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.030644499696791172,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_jit_link_capture.py",
+    "exit_code": 0,
+    "elapsed_seconds": 5.239459099713713,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_linked_artifact.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.5660953000187874,
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_compiler_certificate.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.312483999878168,
+    "tests": 24,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  },
+  {
+    "pattern": "test_portable_seal.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.0655435998924077,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 127652
+  }
+]

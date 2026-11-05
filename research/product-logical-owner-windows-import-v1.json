@@ -1,0 +1,31 @@
+{
+  "schema": "product-logical-owner-windows-import-v1",
+  "report_commit": "db62c5f1dccc4c028e097ec119206ef4870e0d26",
+  "fixed_source": "23f633327d14dde2673d8e1139431329807734d9",
+  "frozen_owner": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+  "small_json_files_imported": 8,
+  "total_small_json_bytes": 47396,
+  "file_manifest_sha_verified": true,
+  "mac_original_words_and_single_transport_and_all_readback_sha_verified": true,
+  "windows_local_raw_read_on_mac": false,
+  "raw_transport": "Windows kept full raw;Mac imported exact peer hashes and compared its own full raw",
+  "ordinary_api_cuda_profiles_verified": 1,
+  "scope": "One frozen explicit logical-owner typed squad8s;not current typed incoming/cover source or all profiles",
+  "counts": {
+    "http_posts": 1,
+    "gpu_kernel_calls": 1,
+    "readback_files": 1,
+    "slang_compiler_calls": 0,
+    "nvrtc_calls": 0,
+    "ptxas_calls": 0,
+    "nvjitlink_calls": 0,
+    "retries": 0
+  },
+  "job_peak_bytes": 2145529856,
+  "job_limit_bytes": 2147483648,
+  "headroom_bytes": 1953792,
+  "monitored_process_preservation": true,
+  "whole_environment_preservation": false,
+  "additional_gpu_or_battle_calls": 0,
+  "old_sha_scope_stop_retained": true
+}

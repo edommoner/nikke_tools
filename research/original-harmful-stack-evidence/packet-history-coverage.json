@@ -1,0 +1,22 @@
+{
+  "cases": [
+    {
+      "case_index": 0,
+      "records": 315,
+      "raw_records": 315,
+      "raw_records_not_retained": 0,
+      "all_words_including_clocks_hashed": true,
+      "sha256": "1057d9882e13909f9b5c9e2a12d74d0a3104c2d73fc77367d14969df436a6cde"
+    },
+    {
+      "case_index": 1,
+      "records": 5031,
+      "raw_records": 4096,
+      "raw_records_not_retained": 935,
+      "all_words_including_clocks_hashed": true,
+      "sha256": "50df604b5464eacc063d804478b20cfc122488b892bdc23eec9133a3c27a654c"
+    }
+  ],
+  "stream_limit": 1048576,
+  "scope": "All ordered words verified by the common comparator; raw tail is represented by SHA rather than recoverable raw records"
+}

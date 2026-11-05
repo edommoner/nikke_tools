@@ -1,0 +1,75 @@
+{
+  "input_sha256": "3cfe7c048e6d3014f8a488e1916a686873e498d9c4f004a9a532136b86ddfe4d",
+  "output_sha256": "b63824b1cc05434f9a0120a062f5e5d302eaf8e85e79395e9783adbda4bc22d2",
+  "source_sha256": {
+    "gpu/heal_share_plan_probe.slang": "e1831196ea4ea105cc8234cae3f71db98cddd8fe46a9d102b3a5aa7154536769",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/heal_share_plan.slang": "0042ea4d64f9a22533b82e2206b90fa0eaba5bd90719002beb5f5cb5f03237a5"
+  },
+  "entries": [
+    {
+      "name": "heal-plan-fallback",
+      "input_sha256": "9af996cdecc96b90e5888617dc6230dd1286b7505d796d05d2ce70cf33a11ba2",
+      "output_sha256": "67fc10c297fa4593008953a42ca91d23d492d6b28a1f401fb0764f1e3f69d5d8",
+      "native_sha256": "00301d3325df7d2d8a42a1fdff7ff279a9337879c49f79818e9d4f3f8505b72e"
+    },
+    {
+      "name": "heal-plan-all",
+      "input_sha256": "6b2ba79af3f4d9b3f2b4bc24e9f74c5b31c9978e6e9ce2f7b3b0d6fc755c45a4",
+      "output_sha256": "2a3e454c6274a436e6dd62f3bbaf70f9ca0dd9bd8348f234245762247d6e7118",
+      "native_sha256": "6e58a067be82fe3508cb6741eb05f16b6c94a80a4bffbe7de18ff63825e8ff2a"
+    },
+    {
+      "name": "heal-plan-chain",
+      "input_sha256": "78d23a18e252f722c27c7354cfef76ebf5be7a84a11d22d9e04b75b1e1ac8456",
+      "output_sha256": "6881cdb557cbee43ad4e17d09d348749ab4b3cc32aaf2361cdb81754583517a4",
+      "native_sha256": "4b8340da50360bc217efc0ae7a8643fb4db99805641fb22c76d6dcabaa296afc"
+    },
+    {
+      "name": "heal-plan-disconnected",
+      "input_sha256": "66b56bcaee204a99b16a69c39f06b7994260d9f2ca9f290cab7c1f1d2db527c7",
+      "output_sha256": "434088f4439dcf6c5f9aed369639081be11895fcd6585b0d3f2db4accde8a42a",
+      "native_sha256": "ad3a03ba8ff953e250bca13b7d882705fd157681b672d8648660dd76779ead1e"
+    },
+    {
+      "name": "heal-plan-distinct-carriers",
+      "input_sha256": "694e77950cc3691e847e204ef9aecff98c5e9f592b2adbf8e0eb6e2241573405",
+      "output_sha256": "9ca2c8ffdda9baee08d72cd894edc35f2ad567d38e76875d110dd5f4aa20f83a",
+      "native_sha256": "4491ae6fa381ba61c659edbff9031f0f3ea2f5449c8e7aaa84252c33248174dc"
+    },
+    {
+      "name": "heal-plan-multiply-before-divide",
+      "input_sha256": "e0eab8c837796d3012bacca43a35a1dae777506562932ab575c50253b9468305",
+      "output_sha256": "1234b78fc538f4003b288b93334ce0a4806a1ad23a15624ee53d7fbc14eabb53",
+      "native_sha256": "051ae042b55b62b546668d90a4f5dfcf4df6a4053f1c767f94890620939b4234"
+    },
+    {
+      "name": "heal-plan-single-direct",
+      "input_sha256": "1c04676cefca17b6072266d6672b6bf7ab797b5542fd71754528c348cb96c1cb",
+      "output_sha256": "005a036f57e9a60b195c8b87a4a389496a09747bffc3ad449be33130c75c083e",
+      "native_sha256": "96059983700e27e8db79b14b3d14ef825ab9892cccba27b9ebe6208dbc85fdfe"
+    },
+    {
+      "name": "heal-plan-capacity512",
+      "input_sha256": "3ce8bc77aaac409c6e27802a71a04f79261fe84a21f63a917bbd92cfbea19afd",
+      "output_sha256": "8a303d16ce0158608e7eb6137041676c2eb15a96e5e9644518e86fb01cec8315",
+      "native_sha256": "42c2486850b26a4975bc0f57e210694388e2fdb8390e587be8afdef5c0d9a1f7"
+    },
+    {
+      "name": "heal-plan-reject-mask",
+      "input_sha256": "35779afb671e1672273f39129f203d166e70cdcbc0bda02a9f03e27ad0429027",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "heal-plan-reject-capacity",
+      "input_sha256": "fd9838487569eee82a55a582ed32a14901c9bef51a98501c521e9716f3561213",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "generated_normalized": {
+    "cuda": "ddcc520cb0a5c399b2775128d4871ae8c30589e04148f46e19739a3554a58da0",
+    "metal": "6b68971a0558d078efc8c400ff3afb3b19acd1576d0e1a1b1c4a704cfd6b89ec"
+  }
+}

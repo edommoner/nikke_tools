@@ -1,0 +1,123 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "destructible-skill/original-level1",
+      "input_sha256": "7f505749447bd44dd6b76d60e23ea2b8b6b6156783a412b68cfe3cb2fef661f9",
+      "output_sha256": "48c0291db2c43a8555c8bc91d39dba71bb645b7e808fd36d06662d9c3b3ecf01",
+      "native_sha256": "6f059fa5166b9b01b64fd2e651341281f52f80c4af359c8b6a38442a88d7cf0a"
+    },
+    {
+      "name": "destructible-skill/original-level10",
+      "input_sha256": "ebe827aa955237b58dbe9e47c2d122460e8f67ee08343e2103e384fe6318b997",
+      "output_sha256": "b903c5d4302d5085f61b250c0ead564ed32d48e3d354771dc6f0e86a06ad5781",
+      "native_sha256": "03854584df8b69a71d942a5af0ef2828ba6c0b3ed50c4c34394a4b0c92c10b73"
+    },
+    {
+      "name": "destructible-skill/original-full-burst",
+      "input_sha256": "b0313ebea32cfef0c5ff53e43e70e8c24d5e4cc80070bf047d2cade420874aab",
+      "output_sha256": "112cb568a06a8dc5809e254b06301024aa3dae4a79e6a407351f0d2a5b4e7df5",
+      "native_sha256": "4ea2ea897427d5126d39794351a464ffa01fa3b8295928c2adb05e7434f98f54"
+    },
+    {
+      "name": "destructible-skill/explicit-defense100",
+      "input_sha256": "0a85c82640e3dda1c286d0e2061df253e657a5392bf29bba4156173ac82704f2",
+      "output_sha256": "9f95543d53495661a9d8f4f4ebf9ea119be413a3f34f66ffe85ab477889547be",
+      "native_sha256": "183ebc12854b09a31f7a85208447ad23551d1c53f126bedadc376319d1d43afc"
+    },
+    {
+      "name": "destructible-skill/live-attack-buff",
+      "input_sha256": "03e8e5613c6898a36d726109c2a9d22c7fcf32b95421727b0197fa37afb2d7a6",
+      "output_sha256": "1a3ba0e1226b4c40f7e6f0f899a5edbafaa41c8e5e3ca2ce9ab00147705e21e9",
+      "native_sha256": "13669508f16ff79a0ee2f38e5a07832df35f734e64d4c64525df8fd4b8e57d9a"
+    },
+    {
+      "name": "destructible-skill/live-damage-and-critical-buffs",
+      "input_sha256": "f175f19d689861d87b8f7cebc3cc1916ee0c7802050953b1946bb9121b72179e",
+      "output_sha256": "8938b7cfa86371db24849a1afa1d019a96332145bd164d460273fd945fbeb80a",
+      "native_sha256": "577a0de93ba4df43b68fb9b9fe12ca2b5b257377308de162f97eba8881a04c86"
+    },
+    {
+      "name": "destructible-skill/expired-buff",
+      "input_sha256": "b9177c648f4a342afe5f76701476de85327c36b8c248ecdc3f60581cca4bdfca",
+      "output_sha256": "991cc3e62f26dbce1ce2b31ebe2197f0d05ded3aa01c3e4f3541f0c82103f657",
+      "native_sha256": "81028b0d39a6a9830bd976f86c01d5066046dbe45d190690e93ad18de46fc23b"
+    },
+    {
+      "name": "destructible-skill/empty-selection",
+      "input_sha256": "adf9c5b7f7d5f3ac7acb13150762996668ba8ab783b73e26fc3bb2ee8fffe292",
+      "output_sha256": "0be90a418d4f5c1031206ab0c4fc35b0193b446597f5add9730e772ceea1e129",
+      "native_sha256": "825e989ad4f0036a097e216a3cd494b309fe0652b9222ee4735bd35a7655eabc"
+    },
+    {
+      "name": "destructible-skill/zero-coefficient",
+      "input_sha256": "68263070f1ba5be06f6a4c9558713ae55baba6138bc2ed0ef36e4f235250b544",
+      "output_sha256": "9f9b6123f17c61f54febb303c83d539aec80d81cba28a4c37b6c9652ece1b555",
+      "native_sha256": "e629adcb8c4e761fa5d1a8a8db647c57fe6fd7cec8d0e8eb189acefc5b2c5423"
+    },
+    {
+      "name": "destructible-skill/one-ulp-coefficient",
+      "input_sha256": "d367b8a68008fc1e12c5dbd361b750ef7a79f64fcfccc82d9c2990c3ce72e3e8",
+      "output_sha256": "26308ce939fdebd5be99d2c90c8f0aff8c28f98e7f106719d49fd44286e74ed4",
+      "native_sha256": "6605979cd1bca2648dfef0834c36b269a57b42058b66353392fdb958d87337fe"
+    },
+    {
+      "name": "reject/destructible-skill/row",
+      "input_sha256": "3394f73481ee5bb602c77f0e1f3f81ca38f30b0ffe74a89870df3e56bf357378",
+      "output_sha256": "1ca97b042d7bff3f99d491b206047218d960d06625d74698de55fc5ae7e684dc",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-skill/attack-id",
+      "input_sha256": "134d48af68b9b90ab450470b3b532619d44e1eac31d747c67c6e75379a6e4e9c",
+      "output_sha256": "1ca97b042d7bff3f99d491b206047218d960d06625d74698de55fc5ae7e684dc",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-skill/full-burst",
+      "input_sha256": "7bc65f09c252e2cf045f043ddf4112357c6687c9b43bafe74621712c82530d01",
+      "output_sha256": "1ca97b042d7bff3f99d491b206047218d960d06625d74698de55fc5ae7e684dc",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-skill/magic",
+      "input_sha256": "628f46698afc7879f7a87d52634e11b89aa1d13a157202d684e418bde7ac8e88",
+      "output_sha256": "1ca97b042d7bff3f99d491b206047218d960d06625d74698de55fc5ae7e684dc",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-skill/reserved",
+      "input_sha256": "8071ddffb5afd1c54bf7cd709f4fbf419fdacb5a0c69b5d0a7ebfe0fcf414339",
+      "output_sha256": "1ca97b042d7bff3f99d491b206047218d960d06625d74698de55fc5ae7e684dc",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-skill/counter-as-skill",
+      "input_sha256": "d6c364ae9a5d956044353541fcc96da88cb423238fe7aa47319666d7eaaa4d94",
+      "output_sha256": "1ca97b042d7bff3f99d491b206047218d960d06625d74698de55fc5ae7e684dc",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-skill/unreached-native-clock",
+      "input_sha256": "6952ee07708d2b10107fd5ca698c54816716c374945eb7ad7143e6cb9349d092",
+      "output_sha256": "96558e627b8e86cda54678c52ac1019614c0bc4bac0fc37f00e0ee902a6e5cfa",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-skill/literal-sentinel-route",
+      "input_sha256": "9c6705014a1c080eb7d394010a23713cac2d6724cbce16b0a4836c0131c551eb",
+      "output_sha256": "f90801f0653dab0b579726f3369092cc2d6d408034ae0dfec18d80c23c8a4ecf",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 18,
+  "native_oracles": 10,
+  "input_sha256": "0fb0f15cca0337e53e2a4fffd6508085868b652bbecbbce08bb0f11cb060a57a",
+  "output_sha256": "42e6519928550fdaab4cc30f69cbc40b6277db260ae45a48fe44b228caa25148",
+  "generated_normalized": {
+    "cuda": "82ee923ecdec3f339f18d4797a44a6f061461f085ab7d14b854b341ff8d55b13",
+    "metal": "7723c68455f8b6ccd7b9f7a71568cb82d4af9817727421e3ee158568849065c4"
+  },
+  "audit_gpu_calls": 0
+}

@@ -1,0 +1,199 @@
+{
+  "passed": false,
+  "gpu_calls": 0,
+  "scope": "Saved raw inspection after adding the existing storage decoder; not a seal",
+  "cases": [
+    {
+      "name": "not-core-zero-core",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-guaranteed-core",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-fractional-core",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-small-core",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-last-owner",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-pellets3",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-muzzles2",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-scatter15-muzzles2",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-attack-context-absent",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-battle-context-absent",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-last-bullet-context-absent",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-first-condition-false",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-last-condition-false",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-duplicate-condition",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-duplicate-descriptor",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-probability-first-zero",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-probability-last-zero",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-independent-probability",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-every-second-hit",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-activation-budget",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-frozen-before-accuracy-callback",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-full-charge",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-partial-charge",
+      "status": 0,
+      "passed": false,
+      "reason": "AssertionError(('not-core-partial-charge', ['damage', 'fractional_hits', 'fractional_accumulators', 'actor_pools', 'team_hits', 'team_counts', 'team_accumulators', 'projectile_shots']))"
+    },
+    {
+      "name": "not-core-passive-context",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-nested-notify-restores-parent",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-real/\uae38\ub85c\ud2f4 : \uc708\ud130 \uc2ac\ub808\uc774\uc5b4/3s",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "not-core-real/\uae38\ub85c\ud2f4 : \uc708\ud130 \uc2ac\ub808\uc774\uc5b4/30s",
+      "status": 0,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "reject/not-core-name",
+      "status": 64,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "reject/not-core-argument",
+      "status": 64,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "reject/not-core-nan",
+      "status": 64,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "reject/not-core-no-world",
+      "status": 64,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "reject/not-core-no-combat",
+      "status": 64,
+      "passed": true,
+      "reason": null
+    }
+  ]
+}

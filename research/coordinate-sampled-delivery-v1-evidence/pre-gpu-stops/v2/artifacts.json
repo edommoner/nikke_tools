@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "cpu-batch.json",
+      "bytes": 816,
+      "sha256": "07ed5d8e86788f12e455e037314011da16eaeb2b7be4eaa8f42532f97e8b5e46"
+    },
+    {
+      "path": "cpu-batch.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "cpu-batch.stdout.log",
+      "bytes": 60,
+      "sha256": "ab52b2b7e3589faa6122679a90fb4f5cc1875c7e55749623b0915a770780e452"
+    },
+    {
+      "path": "cpu-tests.json",
+      "bytes": 2818,
+      "sha256": "810ea4eadbd8bc921fdffd9c52fab8dd4d4ec3a02a181c63d41485bf6ede9159"
+    },
+    {
+      "path": "failure.json",
+      "bytes": 92,
+      "sha256": "341e2a5b4c49360c7c7e83ec643a67ecfba5fc9bbe569f64b490ba0a559ccf11"
+    },
+    {
+      "path": "generation-preflight.json",
+      "bytes": 38731,
+      "sha256": "fc7b3af1e40fd013c0508940ae79cfd4f78291aa96cca16cd70ed8a776d56c9c"
+    },
+    {
+      "path": "preparation.jsonl",
+      "bytes": 321,
+      "sha256": "fab1b3aedcf990f0762320fd7d700cd400addbfd6358dab3e0e28746f1e01330"
+    },
+    {
+      "path": "run.json",
+      "bytes": 222,
+      "sha256": "9c871e7f9885fefb036b6e5f34c7c8bc75d679970e0d0ffc22896fca7a3c7466"
+    },
+    {
+      "path": "storage.json",
+      "bytes": 254,
+      "sha256": "d9bfd45ebf34998da11c9885754458ecd11fc75bbacf24fb976188bf59b2f024"
+    },
+    {
+      "path": "test_coordinate_group_gpu.py.stderr.log",
+      "bytes": 104,
+      "sha256": "bd1540fed00585503af96773cc010df0a8aedeb6a2d0485f5056e43be67ee212"
+    },
+    {
+      "path": "test_coordinate_group_gpu.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_group_reference.py.stderr.log",
+      "bytes": 106,
+      "sha256": "095bfbc8b532e95d001a1586c39be275a786cf0b4bf68a357da9bce993f8b3cf"
+    },
+    {
+      "path": "test_coordinate_group_reference.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_mixed.py.stderr.log",
+      "bytes": 1514,
+      "sha256": "9a5d7015f05272543fd0e73fd530c4c197f7277126705612547af13343349326"
+    },
+    {
+      "path": "test_coordinate_mixed.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_physical_frontier.py.stderr.log",
+      "bytes": 103,
+      "sha256": "0a7a6e1bfc62b4dcb8f21e44b5ca9626a36f5113587234926732017f8cfe9b0c"
+    },
+    {
+      "path": "test_coordinate_physical_frontier.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_sample_v1.py.stderr.log",
+      "bytes": 106,
+      "sha256": "507f371f8e037ea497fc2c22cdb5e657197d994648cfcdfa64c7990d1c62d241"
+    },
+    {
+      "path": "test_coordinate_sample_v1.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_sampled_burst.py.stderr.log",
+      "bytes": 111,
+      "sha256": "15e3b3417f5df2252b4c7ce5ad53cf74185470e61cd465d291973488fde32244"
+    },
+    {
+      "path": "test_coordinate_sampled_burst.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_sampled_delivery.py.stderr.log",
+      "bytes": 107,
+      "sha256": "8600281b06996121b7513450a58200b88a373c03a45cd2ceb24fc6b35d02ebb1"
+    },
+    {
+      "path": "test_coordinate_sampled_delivery.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_sampled_parent.py.stderr.log",
+      "bytes": 104,
+      "sha256": "0a6e4a7a4f47d397df64a0d5cf1abd3c1984db583665d4b80159af889f6c8a73"
+    },
+    {
+      "path": "test_coordinate_sampled_parent.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_sampled_skill.py.stderr.log",
+      "bytes": 107,
+      "sha256": "8633dc6a5b011ef53f478250af4ffa71d27393d1be726624ec35b73ddc474565"
+    },
+    {
+      "path": "test_coordinate_sampled_skill.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_sampled_vital.py.stderr.log",
+      "bytes": 107,
+      "sha256": "e95ddb90c83f311e6eb2e391f8512c3d4432dd18abcbabb20d167942e09f6e8a"
+    },
+    {
+      "path": "test_coordinate_sampled_vital.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_sampling_bank.py.stderr.log",
+      "bytes": 104,
+      "sha256": "4c3262c4ece33de04113549078e304f2ff2d679a3288431f46777325fe16a0e1"
+    },
+    {
+      "path": "test_coordinate_sampling_bank.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_sampling_reference.py.stderr.log",
+      "bytes": 102,
+      "sha256": "3a1904f81986496829b65f7099da2f89fd68d6ca6fcbd9dfb4d742e42004c703"
+    },
+    {
+      "path": "test_coordinate_sampling_reference.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_packet_integer_ratio.py.stderr.log",
+      "bytes": 103,
+      "sha256": "173723c51405459d7776f373751eefb956edf91c4da71db14fd901bfc7e979b3"
+    },
+    {
+      "path": "test_packet_integer_ratio.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}

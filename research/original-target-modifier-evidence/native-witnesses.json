@@ -1,0 +1,2189 @@
+{
+  "schema": 1,
+  "scope": "Original definitions plus explicit declared typed attack; CPU witness only",
+  "gpu_calls": 0,
+  "rows": [
+    {
+      "name": "original-modifier-probe/사쿠라/3s",
+      "original_definitions": 72,
+      "probe_owner": "사쿠라",
+      "probe_kind": 2,
+      "samples": [
+        {
+          "modifier": 7.74,
+          "factor5": 1.0774,
+          "damage": 200644,
+          "shield_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 72,
+          "name": "declared-projectile-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 200644.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 200644.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/사쿠라/12s",
+      "original_definitions": 72,
+      "probe_owner": "사쿠라",
+      "probe_kind": 2,
+      "samples": [
+        {
+          "modifier": 7.74,
+          "factor5": 1.0774,
+          "damage": 200644,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 7.74,
+          "factor5": 1.0774,
+          "damage": 436159,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 7.74,
+          "factor5": 1.0774,
+          "damage": 436159,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 7.74,
+          "factor5": 1.0774,
+          "damage": 436159,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 7.74,
+          "factor5": 1.0774,
+          "damage": 463856,
+          "shield_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 72,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 72,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 72,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 72,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 72,
+          "name": "declared-projectile-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 200644.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 200644.0
+            }
+          ]
+        },
+        {
+          "attack_id": 2,
+          "owner": 0,
+          "time": 4.016666666666658,
+          "damage": 436159.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 436159.0
+            }
+          ]
+        },
+        {
+          "attack_id": 3,
+          "owner": 0,
+          "time": 6.016666666666651,
+          "damage": 436159.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 436159.0
+            }
+          ]
+        },
+        {
+          "attack_id": 4,
+          "owner": 0,
+          "time": 8.016666666666644,
+          "damage": 436159.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 436159.0
+            }
+          ]
+        },
+        {
+          "attack_id": 5,
+          "owner": 0,
+          "time": 10.000000000000076,
+          "damage": 463856.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 463856.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/앵커/3s",
+      "original_definitions": 70,
+      "probe_owner": "앵커",
+      "probe_kind": 2,
+      "samples": [
+        {
+          "modifier": 25.6,
+          "factor5": 1.256,
+          "damage": 75955,
+          "shield_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-projectile-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 75955.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 75955.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/앵커/12s",
+      "original_definitions": 70,
+      "probe_owner": "앵커",
+      "probe_kind": 2,
+      "samples": [
+        {
+          "modifier": 25.6,
+          "factor5": 1.256,
+          "damage": 75955,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 25.6,
+          "factor5": 1.256,
+          "damage": 139170,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 25.6,
+          "factor5": 1.256,
+          "damage": 139170,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 25.6,
+          "factor5": 1.256,
+          "damage": 139170,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 25.6,
+          "factor5": 1.256,
+          "damage": 151196,
+          "shield_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-projectile-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 75955.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 75955.0
+            }
+          ]
+        },
+        {
+          "attack_id": 2,
+          "owner": 0,
+          "time": 4.016666666666658,
+          "damage": 139170.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 139170.0
+            }
+          ]
+        },
+        {
+          "attack_id": 3,
+          "owner": 0,
+          "time": 6.016666666666651,
+          "damage": 139170.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 139170.0
+            }
+          ]
+        },
+        {
+          "attack_id": 4,
+          "owner": 0,
+          "time": 8.016666666666644,
+          "damage": 139170.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 139170.0
+            }
+          ]
+        },
+        {
+          "attack_id": 5,
+          "owner": 0,
+          "time": 10.000000000000076,
+          "damage": 151196.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 151196.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/일레그/3s",
+      "original_definitions": 70,
+      "probe_owner": "일레그",
+      "probe_kind": 2,
+      "samples": [
+        {
+          "modifier": 59.66,
+          "factor5": 1.5966,
+          "damage": 285550,
+          "shield_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-projectile-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 285550.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 285550.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/일레그/12s",
+      "original_definitions": 70,
+      "probe_owner": "일레그",
+      "probe_kind": 2,
+      "samples": [
+        {
+          "modifier": 59.66,
+          "factor5": 1.5966,
+          "damage": 285550,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 59.66,
+          "factor5": 1.5966,
+          "damage": 318610,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 59.66,
+          "factor5": 1.5966,
+          "damage": 318610,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 59.66,
+          "factor5": 1.5966,
+          "damage": 318610,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 59.66,
+          "factor5": 1.5966,
+          "damage": 318610,
+          "shield_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-projectile-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 285550.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 285550.0
+            }
+          ]
+        },
+        {
+          "attack_id": 2,
+          "owner": 0,
+          "time": 4.016666666666658,
+          "damage": 318610.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 318610.0
+            }
+          ]
+        },
+        {
+          "attack_id": 3,
+          "owner": 0,
+          "time": 6.016666666666651,
+          "damage": 318610.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 318610.0
+            }
+          ]
+        },
+        {
+          "attack_id": 4,
+          "owner": 0,
+          "time": 8.016666666666644,
+          "damage": 318610.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 318610.0
+            }
+          ]
+        },
+        {
+          "attack_id": 5,
+          "owner": 0,
+          "time": 10.000000000000076,
+          "damage": 318610.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 318610.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/클레이/3s",
+      "original_definitions": 69,
+      "probe_owner": "클레이",
+      "probe_kind": 2,
+      "samples": [
+        {
+          "modifier": 0.0,
+          "factor5": 1.0,
+          "damage": 93771,
+          "shield_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 69,
+          "name": "declared-projectile-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 93771.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 93771.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/클레이/12s",
+      "original_definitions": 69,
+      "probe_owner": "클레이",
+      "probe_kind": 2,
+      "samples": [
+        {
+          "modifier": 0.0,
+          "factor5": 1.0,
+          "damage": 93771,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 0.0,
+          "factor5": 1.0,
+          "damage": 160447,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 45.05,
+          "factor5": 1.4505,
+          "damage": 278779,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 45.05,
+          "factor5": 1.4505,
+          "damage": 278779,
+          "shield_modifier": 0.0
+        },
+        {
+          "modifier": 45.05,
+          "factor5": 1.4505,
+          "damage": 278779,
+          "shield_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 69,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 69,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 69,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 69,
+          "name": "declared-projectile-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 69,
+          "name": "declared-projectile-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 93771.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 93771.0
+            }
+          ]
+        },
+        {
+          "attack_id": 2,
+          "owner": 0,
+          "time": 4.016666666666658,
+          "damage": 160447.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 160447.0
+            }
+          ]
+        },
+        {
+          "attack_id": 3,
+          "owner": 0,
+          "time": 6.016666666666651,
+          "damage": 278779.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 278779.0
+            }
+          ]
+        },
+        {
+          "attack_id": 4,
+          "owner": 0,
+          "time": 8.016666666666644,
+          "damage": 278779.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 278779.0
+            }
+          ]
+        },
+        {
+          "attack_id": 5,
+          "owner": 0,
+          "time": 10.000000000000076,
+          "damage": 278779.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 278779.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/앵커/3s/other-caster",
+      "original_definitions": 70,
+      "probe_owner": "도라",
+      "probe_kind": 2,
+      "samples": [
+        {
+          "modifier": 0.0,
+          "factor5": 1.0,
+          "damage": 93771,
+          "shield_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-projectile-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 1,
+          "time": 2.0166666666666644,
+          "damage": 93771.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 93771.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/Rei/shield-not-projectile",
+      "original_definitions": 73,
+      "probe_owner": "레이",
+      "probe_kind": 2,
+      "samples": [
+        {
+          "modifier": 0.0,
+          "factor5": 1.0,
+          "damage": 239108,
+          "shield_modifier": 700.5
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 73,
+          "name": "declared-projectile-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 239108.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                2,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 239108.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/HP/아스카/3s",
+      "original_definitions": 74,
+      "probe_owner": "아스카",
+      "probe_kind": 3,
+      "samples": [
+        {
+          "modifier": 601.01,
+          "factor5": 7.0100999999999996,
+          "damage": 1676174,
+          "shield_modifier": 601.01,
+          "projectile_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 74,
+          "name": "declared-hp-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 1676174.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1676174.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/HP/아스카/12s",
+      "original_definitions": 74,
+      "probe_owner": "아스카",
+      "probe_kind": 3,
+      "samples": [
+        {
+          "modifier": 601.01,
+          "factor5": 7.0100999999999996,
+          "damage": 1676174,
+          "shield_modifier": 601.01,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 601.01,
+          "factor5": 8.5105,
+          "damage": 5544351,
+          "shield_modifier": 601.01,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 601.01,
+          "factor5": 8.5105,
+          "damage": 8137469,
+          "shield_modifier": 601.01,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 601.01,
+          "factor5": 8.5105,
+          "damage": 8137469,
+          "shield_modifier": 601.01,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 601.01,
+          "factor5": 8.5105,
+          "damage": 8423637,
+          "shield_modifier": 601.01,
+          "projectile_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 74,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 74,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 74,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 74,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 74,
+          "name": "declared-hp-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 1676174.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1676174.0
+            }
+          ]
+        },
+        {
+          "attack_id": 2,
+          "owner": 0,
+          "time": 4.016666666666658,
+          "damage": 5544351.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 5544351.0
+            }
+          ]
+        },
+        {
+          "attack_id": 3,
+          "owner": 0,
+          "time": 6.016666666666651,
+          "damage": 8137469.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 8137469.0
+            }
+          ]
+        },
+        {
+          "attack_id": 4,
+          "owner": 0,
+          "time": 8.016666666666644,
+          "damage": 8137469.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 8137469.0
+            }
+          ]
+        },
+        {
+          "attack_id": 5,
+          "owner": 0,
+          "time": 10.000000000000076,
+          "damage": 8423637.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 8423637.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/HP/레이/3s",
+      "original_definitions": 73,
+      "probe_owner": "레이",
+      "probe_kind": 3,
+      "samples": [
+        {
+          "modifier": 700.5,
+          "factor5": 8.004999999999999,
+          "damage": 1914063,
+          "shield_modifier": 700.5,
+          "projectile_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 73,
+          "name": "declared-hp-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 1914063.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1914063.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/HP/레이/12s",
+      "original_definitions": 73,
+      "probe_owner": "레이",
+      "probe_kind": 3,
+      "samples": [
+        {
+          "modifier": 700.5,
+          "factor5": 8.004999999999999,
+          "damage": 1914063,
+          "shield_modifier": 700.5,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 700.5,
+          "factor5": 8.004999999999999,
+          "damage": 2939971,
+          "shield_modifier": 700.5,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 700.5,
+          "factor5": 8.485199999999999,
+          "damage": 6545714,
+          "shield_modifier": 700.5,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 700.5,
+          "factor5": 8.485199999999999,
+          "damage": 6545714,
+          "shield_modifier": 700.5,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 700.5,
+          "factor5": 8.485199999999999,
+          "damage": 6874461,
+          "shield_modifier": 700.5,
+          "projectile_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 73,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 73,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 73,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 73,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 73,
+          "name": "declared-hp-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 1914063.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1914063.0
+            }
+          ]
+        },
+        {
+          "attack_id": 2,
+          "owner": 0,
+          "time": 4.016666666666658,
+          "damage": 2939971.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 2939971.0
+            }
+          ]
+        },
+        {
+          "attack_id": 3,
+          "owner": 0,
+          "time": 6.016666666666651,
+          "damage": 6545714.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 6545714.0
+            }
+          ]
+        },
+        {
+          "attack_id": 4,
+          "owner": 0,
+          "time": 8.016666666666644,
+          "damage": 6545714.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 6545714.0
+            }
+          ]
+        },
+        {
+          "attack_id": 5,
+          "owner": 0,
+          "time": 10.000000000000076,
+          "damage": 6874461.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 6874461.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/HP/마리/3s",
+      "original_definitions": 70,
+      "probe_owner": "마리",
+      "probe_kind": 3,
+      "samples": [
+        {
+          "modifier": 100.09,
+          "factor5": 2.0009,
+          "damage": 187627,
+          "shield_modifier": 100.09,
+          "projectile_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-hp-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 187627.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 187627.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/HP/마리/12s",
+      "original_definitions": 70,
+      "probe_owner": "마리",
+      "probe_kind": 3,
+      "samples": [
+        {
+          "modifier": 100.09,
+          "factor5": 2.0009,
+          "damage": 187627,
+          "shield_modifier": 100.09,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 100.09,
+          "factor5": 2.4108,
+          "damage": 386806,
+          "shield_modifier": 100.09,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 100.09,
+          "factor5": 2.4108,
+          "damage": 386806,
+          "shield_modifier": 100.09,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 100.09,
+          "factor5": 2.4108,
+          "damage": 386806,
+          "shield_modifier": 100.09,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 100.09,
+          "factor5": 2.4108,
+          "damage": 621568,
+          "shield_modifier": 100.09,
+          "projectile_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 70,
+          "name": "declared-hp-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 187627.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 187627.0
+            }
+          ]
+        },
+        {
+          "attack_id": 2,
+          "owner": 0,
+          "time": 4.016666666666658,
+          "damage": 386806.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 386806.0
+            }
+          ]
+        },
+        {
+          "attack_id": 3,
+          "owner": 0,
+          "time": 6.016666666666651,
+          "damage": 386806.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 386806.0
+            }
+          ]
+        },
+        {
+          "attack_id": 4,
+          "owner": 0,
+          "time": 8.016666666666644,
+          "damage": 386806.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 386806.0
+            }
+          ]
+        },
+        {
+          "attack_id": 5,
+          "owner": 0,
+          "time": 10.000000000000076,
+          "damage": 621568.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 621568.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/HP/미사토/3s",
+      "original_definitions": 71,
+      "probe_owner": "미사토",
+      "probe_kind": 3,
+      "samples": [
+        {
+          "modifier": 0.0,
+          "factor5": 1.0,
+          "damage": 83290,
+          "shield_modifier": 0.0,
+          "projectile_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 83290.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 83290.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/HP/미사토/30s",
+      "original_definitions": 71,
+      "probe_owner": "미사토",
+      "probe_kind": 3,
+      "samples": [
+        {
+          "modifier": 0.0,
+          "factor5": 1.0,
+          "damage": 83290,
+          "shield_modifier": 0.0,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 150.0,
+          "factor5": 2.5,
+          "damage": 373963,
+          "shield_modifier": 150.0,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 150.0,
+          "factor5": 2.5,
+          "damage": 373963,
+          "shield_modifier": 150.0,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 150.0,
+          "factor5": 2.5,
+          "damage": 373963,
+          "shield_modifier": 150.0,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 150.0,
+          "factor5": 2.5,
+          "damage": 403673,
+          "shield_modifier": 150.0,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 150.0,
+          "factor5": 2.5,
+          "damage": 403673,
+          "shield_modifier": 150.0,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 150.0,
+          "factor5": 2.5,
+          "damage": 247052,
+          "shield_modifier": 150.0,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 150.0,
+          "factor5": 2.5,
+          "damage": 208226,
+          "shield_modifier": 150.0,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 150.0,
+          "factor5": 2.5,
+          "damage": 208226,
+          "shield_modifier": 150.0,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 150.0,
+          "factor5": 2.5,
+          "damage": 247052,
+          "shield_modifier": 150.0,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 150.0,
+          "factor5": 2.5,
+          "damage": 247052,
+          "shield_modifier": 150.0,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 150.0,
+          "factor5": 2.5,
+          "damage": 247052,
+          "shield_modifier": 150.0,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 150.0,
+          "factor5": 2.5,
+          "damage": 208226,
+          "shield_modifier": 150.0,
+          "projectile_modifier": 0.0
+        },
+        {
+          "modifier": 150.0,
+          "factor5": 2.5,
+          "damage": 208226,
+          "shield_modifier": 150.0,
+          "projectile_modifier": 0.0
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        },
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 71,
+          "name": "declared-hp-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 83290.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 83290.0
+            }
+          ]
+        },
+        {
+          "attack_id": 2,
+          "owner": 0,
+          "time": 4.016666666666658,
+          "damage": 373963.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 373963.0
+            }
+          ]
+        },
+        {
+          "attack_id": 3,
+          "owner": 0,
+          "time": 6.016666666666651,
+          "damage": 373963.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 373963.0
+            }
+          ]
+        },
+        {
+          "attack_id": 4,
+          "owner": 0,
+          "time": 8.016666666666644,
+          "damage": 373963.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 373963.0
+            }
+          ]
+        },
+        {
+          "attack_id": 5,
+          "owner": 0,
+          "time": 10.000000000000076,
+          "damage": 403673.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 403673.0
+            }
+          ]
+        },
+        {
+          "attack_id": 6,
+          "owner": 0,
+          "time": 12.000000000000176,
+          "damage": 403673.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 403673.0
+            }
+          ]
+        },
+        {
+          "attack_id": 7,
+          "owner": 0,
+          "time": 14.000000000000275,
+          "damage": 247052.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 247052.0
+            }
+          ]
+        },
+        {
+          "attack_id": 8,
+          "owner": 0,
+          "time": 16.000000000000373,
+          "damage": 208226.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 208226.0
+            }
+          ]
+        },
+        {
+          "attack_id": 9,
+          "owner": 0,
+          "time": 18.00000000000026,
+          "damage": 208226.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 208226.0
+            }
+          ]
+        },
+        {
+          "attack_id": 10,
+          "owner": 0,
+          "time": 20.000000000000146,
+          "damage": 247052.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 247052.0
+            }
+          ]
+        },
+        {
+          "attack_id": 11,
+          "owner": 0,
+          "time": 22.000000000000032,
+          "damage": 247052.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 247052.0
+            }
+          ]
+        },
+        {
+          "attack_id": 12,
+          "owner": 0,
+          "time": 24.016666666666584,
+          "damage": 247052.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 247052.0
+            }
+          ]
+        },
+        {
+          "attack_id": 13,
+          "owner": 0,
+          "time": 26.01666666666647,
+          "damage": 208226.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 208226.0
+            }
+          ]
+        },
+        {
+          "attack_id": 14,
+          "owner": 0,
+          "time": 28.016666666666357,
+          "damage": 208226.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 208226.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original-modifier-probe/HP/사쿠라/3s",
+      "original_definitions": 72,
+      "probe_owner": "사쿠라",
+      "probe_kind": 3,
+      "samples": [
+        {
+          "modifier": 0.0,
+          "factor5": 1.0,
+          "damage": 186229,
+          "shield_modifier": 0.0,
+          "projectile_modifier": 7.74
+        }
+      ],
+      "packets": [
+        {
+          "coefficient": 100.0,
+          "mode_skill": false,
+          "source": 72,
+          "name": "declared-hp-modifier-probe"
+        }
+      ],
+      "attacks": [
+        {
+          "attack_id": 1,
+          "owner": 0,
+          "time": 2.0166666666666644,
+          "damage": 186229.0,
+          "completed": true,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 186229.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

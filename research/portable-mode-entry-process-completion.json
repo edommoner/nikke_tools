@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checked_at": "2026-10-20T11:33:05.981748+00:00",
+  "source_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
+  "mac_verification_or_benchmark_processes": [],
+  "windows_verification_remaining": 0,
+  "windows_publication_turn": "01a15904-3363-7811-a825-ddabece757e6",
+  "windows_publication_terminal": true,
+  "benchmark_terminal": true,
+  "gpu_retry_for_transfer": false,
+  "full_goal_complete": false
+}

@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "changed_artifact": "generated.cu",
+  "corrupt_generation_rejected": true,
+  "exit_code": 1,
+  "last_error": "ValueError: Slang generation receipt artifact mismatch",
+  "compiler_calls": 0,
+  "gpu_calls": 0,
+  "calculation_verified": false
+}

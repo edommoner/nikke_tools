@@ -1,0 +1,18 @@
+{
+  "source_commit": "176868f85d32cae61cb10853ed040c09d77e1333",
+  "captured": "/Users/edo/.codex/worktrees/world-overlays/nikke_tools/research/portable-build/world-overlay-body-20261020T184817389906Z",
+  "passed": false,
+  "failed": [
+    {
+      "name": "charge-hold-unobserved",
+      "changed": [
+        "gauge"
+      ],
+      "actual_gauge": 4.5,
+      "native_gauge": 1.5
+    }
+  ],
+  "cause": "Unobserved fixture copied camera charge gauge_mult300;native camera=[] uses100. Fix only authored gauge multiplier;native complete reference remains identical.",
+  "shader_unchanged": true,
+  "unchanged_gpu_retry": false
+}

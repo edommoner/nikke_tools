@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "all266_profile_records_preserved": true,
+  "packed_input_hashes_preserved": 231,
+  "rejected_profiles_preserved": 35,
+  "priority_codes_preserved": 54,
+  "changed_routing": [
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "buff",
+        "stat": "atk_caster_based_pct",
+        "target": "all_allies",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "non_full_charge_fire_count:3"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"non_full_charge_fire_count:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_caster_based_pct\", \"target\": \"all_allies\"}",
+        "diagnostic_source": "structured_reason",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: non_full_charge_fire_count:3"
+      },
+      "before": "reference_review",
+      "after": "native_contract_extension"
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "buff",
+        "stat": "def_caster_based_pct",
+        "target": "allies_without_buff:든든한 요리",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "non_full_charge_fire_count:3"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"non_full_charge_fire_count:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"def_caster_based_pct\", \"target\": \"allies_without_buff:든든한 요리\"}",
+        "diagnostic_source": "structured_reason",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: non_full_charge_fire_count:3"
+      },
+      "before": "reference_review",
+      "after": "native_contract_extension"
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "instant",
+        "stat": "debuff_cleanse",
+        "target": "allies_without_buff:든든한 요리",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "non_full_charge_fire_count:3"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"non_full_charge_fire_count:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"debuff_cleanse\", \"target\": \"allies_without_buff:든든한 요리\"}",
+        "diagnostic_source": "structured_reason",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: non_full_charge_fire_count:3"
+      },
+      "before": "reference_review",
+      "after": "native_contract_extension"
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "instant",
+        "stat": "remove_named_buff",
+        "target": "all_allies",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "non_full_charge_fire_count:3"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"non_full_charge_fire_count:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"remove_named_buff\", \"target\": \"all_allies\"}",
+        "diagnostic_source": "structured_reason",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: non_full_charge_fire_count:3"
+      },
+      "before": "reference_review",
+      "after": "native_contract_extension"
+    }
+  ],
+  "unchanged_gpu_sources": 122,
+  "scope": "Static classification and GPU source identity only; prior Metal proof is retained, no new partial-charge GPU support"
+}

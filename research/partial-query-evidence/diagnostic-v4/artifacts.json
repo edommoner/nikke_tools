@@ -1,0 +1,192 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "audit-phases.jsonl",
+      "bytes": 279,
+      "sha256": "2df8d4a31e6d0e64a108fff3b118024e95925c5b767c7442c993a701da233d71"
+    },
+    {
+      "path": "comparison.json",
+      "bytes": 1389,
+      "sha256": "b1f7bdc98718366d29a736d6c944fa548c38358218c22b7d6ba7861e2ff4c350"
+    },
+    {
+      "path": "cpu-batch.json",
+      "bytes": 673,
+      "sha256": "86fdf07f28fc3e2fa8a65796f0c4efac1cc3ac75a4900b8b561c7b1b0c083f44"
+    },
+    {
+      "path": "cpu-batch.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "cpu-batch.stdout.log",
+      "bytes": 58,
+      "sha256": "dac3f7ad6395ac9d1e046246cb7d3b8f40cbec9c3b9c00440bd0d8016be7cf0c"
+    },
+    {
+      "path": "cpu-tests.json",
+      "bytes": 1970,
+      "sha256": "c36e0d2ea752789c1c34dbbf26daede2fd83a640cb3c301a0d824447d8cfb8ca"
+    },
+    {
+      "path": "cpu.json",
+      "bytes": 246,
+      "sha256": "004d52ca4ef5faaf6425750eed56cf549ba3d649ea840adbe405dd48b06988e8"
+    },
+    {
+      "path": "evidence.json",
+      "bytes": 49288,
+      "sha256": "946c334b12769ea2400a74ac2213e1625b51bbe2bc7433129bef19aeeb36c199"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 1031,
+      "sha256": "455cea6ebc23569647f924f7d262ca1aa1fbc9761321003ff1016682d627f3d8"
+    },
+    {
+      "path": "generated.cu.reflection.json",
+      "bytes": 415556,
+      "sha256": "e8ba84d9985924cb994674784ec6d10760400a18f1996cf53109e6b68de7cf60"
+    },
+    {
+      "path": "generated.metal.reflection.json",
+      "bytes": 415093,
+      "sha256": "24267df732b4fda279ba3a76f2c088a448156df36fbe3809a6c5d2cefd8f12b0"
+    },
+    {
+      "path": "generation-cache.json",
+      "bytes": 26766,
+      "sha256": "37caab5a8990b783c0579c05da5f31fd23ac3c2d1dca03c2d8d80ea0d93d168b"
+    },
+    {
+      "path": "phases.jsonl",
+      "bytes": 27981,
+      "sha256": "5bbd6d58e5138c766218b82d551f81fd350cf4e71d735fdad639253b7eba6d5c"
+    },
+    {
+      "path": "result.json",
+      "bytes": 863,
+      "sha256": "4a14aa2cea4ec9225e6a3f28ed05d8dd5534a5b19e0003bd663d4433bf25836f"
+    },
+    {
+      "path": "run.json",
+      "bytes": 232,
+      "sha256": "e96f9690003174d1a8f345c11311d1faa350e9e771fb2a305cb129b5894a0e58"
+    },
+    {
+      "path": "runtime.json",
+      "bytes": 909,
+      "sha256": "ab70cf361de4e38f0ca5d9d45b6630ab7f46058b976976dbe124546a434971d6"
+    },
+    {
+      "path": "start.json",
+      "bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_charge_control.py.stderr.log",
+      "bytes": 127,
+      "sha256": "4fb79dda37c277980fc89080c13aaf6f721b8e3b33a54c7d962d12a5730f817a"
+    },
+    {
+      "path": "test_portable_charge_control.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_definition_view.py.stderr.log",
+      "bytes": 107,
+      "sha256": "cd27ad1812e047f8a44bb28b1a739018c5278da33620da26a8856cff869fd46e"
+    },
+    {
+      "path": "test_portable_definition_view.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_nonfull_charge_reference.py.stderr.log",
+      "bytes": 102,
+      "sha256": "de85ff721b784e612de0710fe28e1f687af276d7fb4eca08ca1fde9b4f423bd2"
+    },
+    {
+      "path": "test_portable_nonfull_charge_reference.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_nonfull_charge_routing.py.stderr.log",
+      "bytes": 100,
+      "sha256": "a6707d4eff38012da33ddc34bc6dc076a3b17151cfc9aef223c8790cbe64c3da"
+    },
+    {
+      "path": "test_portable_nonfull_charge_routing.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_partial_charge.py.stderr.log",
+      "bytes": 104,
+      "sha256": "e758bfaceb7d6351d725ead26713ddcdf831b3aa5b985e28bb1a5320ddba068c"
+    },
+    {
+      "path": "test_portable_partial_charge.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_partial_query.py.stderr.log",
+      "bytes": 101,
+      "sha256": "ff56afdf6b8927bf7940460c28ba58f2af329f69eab1748238ce0ffdd67be837"
+    },
+    {
+      "path": "test_portable_partial_query.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_query_diagnostic.py.stderr.log",
+      "bytes": 102,
+      "sha256": "0172b913bb04c60e06b0b7a80e223a2bbe71499bd86405c2a58af2957ac700e9"
+    },
+    {
+      "path": "test_portable_query_diagnostic.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_squad_stage.py.stderr.log",
+      "bytes": 104,
+      "sha256": "c5d6252db0f4f50ccbfd9431813fb354b23d43e6d0ec9561111737198286925c"
+    },
+    {
+      "path": "test_portable_squad_stage.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_world_roster_input.py.stderr.log",
+      "bytes": 105,
+      "sha256": "ce69735256fab343275d66ef27a1ad2e128e53761ea1486f4d1f98f1a777d42a"
+    },
+    {
+      "path": "test_portable_world_roster_input.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}

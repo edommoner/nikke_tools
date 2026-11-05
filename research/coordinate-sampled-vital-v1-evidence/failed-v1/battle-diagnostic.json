@@ -1,0 +1,127 @@
+{
+  "scope": "Diagnostic only: original binary64 battle fields; exact-total bank and full trace are not certified",
+  "calculation_verified": false,
+  "gpu_calls": 0,
+  "cases": [
+    {
+      "name": "coordinate-sampled-vital/mode-auto",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/mode-charge",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/mode-shotgun-muzzles",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/mode-charge-muzzles",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/mode-first-coefficient",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/mode-bullet-exhaustion",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/mode-expired-before-entry",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/mode-entry-reload",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/mode-delayed",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/mode-replacement",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/mode-toggle",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/mode-two-casters",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/heal-self",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/heal-allies",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/heal-zero",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/heal-overflow",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/heal-negative",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/heal-received-bonus",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/heal-caster-maxhp",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/heal-other-owner",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/heal-notification-child",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/lifesteal-packets",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/cover-repair",
+      "status": 0,
+      "battle_differences": {}
+    },
+    {
+      "name": "coordinate-sampled-vital/cover-broken-no-revive",
+      "status": 0,
+      "battle_differences": {}
+    }
+  ]
+}

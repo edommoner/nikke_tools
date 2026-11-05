@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "parts": 1,
+  "total_parts": 1,
+  "remote_turn_status": "completed",
+  "remote_turn": "01a15609-67c1-7b83-923f-51cbe86a08da",
+  "remote_cursor": "970a5509-5acf-4601-a9a1-4a5a35f6bdea:11",
+  "decoded_sha256": "61b8eca2a0abe89482d73ee9cd42c724ed564885f2b638c4a6c84d9b8f4e4fde",
+  "windows_execution_terminal": true,
+  "remaining_verification_processes": 0,
+  "baseline_transfer": "portable-status-initial-transfer-completed.json",
+  "snapshot_transfer": "portable-status-snapshot-transfer-completed.json",
+  "current_full_cuda_batch_executed": false
+}

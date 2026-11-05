@@ -1,0 +1,21 @@
+{
+  "kind": "oracle_correction",
+  "passed": true,
+  "old_operation": "sum(1<<actor for actor in target_chars)",
+  "new_operation": "sum(1<<actor for actor in set(target_chars))",
+  "observed_wrong_masks": [
+    {
+      "case": "split-duplicate-overlapping-lists",
+      "old_cpu_mask": 63,
+      "gpu_mask": 31
+    },
+    {
+      "case": "split-nested-target-order",
+      "old_cpu_mask": 13,
+      "gpu_mask": 7
+    }
+  ],
+  "native_target_list_untouched": true,
+  "full_order_and_duplicates_compared_separately": true,
+  "scope": "The decoder membership mask is a set. Native target_chars and its multiplicity remain unchanged; new GPU readback compares the full ordered list."
+}

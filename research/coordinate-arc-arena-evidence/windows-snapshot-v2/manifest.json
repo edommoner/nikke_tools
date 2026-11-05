@@ -1,0 +1,10 @@
+{
+  "schema": "snapshot-diagnostic-v2-manifest",
+  "files": [
+    {
+      "path": "summary.json",
+      "bytes": 9484,
+      "sha256": "bc7ef2e0d7692d07fd84444a719614f7af8602cce041c6852143aba3bf388b39"
+    }
+  ]
+}

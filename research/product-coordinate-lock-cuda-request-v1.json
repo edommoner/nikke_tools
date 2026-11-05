@@ -1,0 +1,63 @@
+{
+  "schema": "product-coordinate-lock-cuda-request-v1",
+  "transport_commit": "e53f5bf65aed40f749576dfc2a3fa1b80ded0b3a",
+  "code_review_commit": "30f58203bd6e51072973e9a984f55bafe8b096e8",
+  "owner": "8abb7645fcf14ca911a1ddfa5abf36c6a74f010f68f35531525c1c66e8deb0d4",
+  "snapshot_source_commit": "3d8913b6aa1d4ce531d79dfc28dfa47ccd6575bb",
+  "snapshot_working_tree_dirty": true,
+  "identity_rule": "Frozen owner and every manifest/payload byte hash; source_commit is the prior base plus explicitly dirty snapshot, not a claim that the old commit includes the new implementation",
+  "transport_manifest_sha256": "c0c7c4903bfd73048d888dbb93f2adf32368b730ae4a931b82e491c473c91fa3",
+  "payload_files": 13,
+  "total_bytes": 12224661,
+  "all_git_blobs_rehashed": true,
+  "managed_helper_request_selector_owner_ids_hashes_checked": true,
+  "mac_own_unit_tests": 169,
+  "windows_selected_tests": 11,
+  "windows_unselected_tests_not_run": 158,
+  "activity_expectations": {
+    "typed_attacks": 2,
+    "typed_receipts": 6,
+    "lock_pulses": 214,
+    "lock_shots": 29,
+    "complete_skill_rows": 219
+  },
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "minimum_available_ram_bytes": 4294967296,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "cases": [
+    {
+      "index": 0,
+      "member_index": 0,
+      "label": "product/coordinate-lock-accumulate-56s",
+      "variant": "long56-accumulate",
+      "expected_input_sha256": "edb52b56486b318c5c7393a6e5d2f2c592cc894d221f5462226d25c48ea96b92",
+      "expected_output_sha256": "33650b1e8b313f829a01873ff10371906c3279b790da35c73c8a90a8e5c79e79",
+      "definition_count": 91,
+      "all_original_definitions_preserved": true,
+      "saved_metal_capture": "product-coordinate-lock-v1-20261102/api-v1/captures/58051a2ab4da486d8868cd476fe2c8c6"
+    }
+  ],
+  "expected_readback_chunks": [
+    8388608,
+    1844224
+  ],
+  "max_posts": 1,
+  "max_gpu_dispatches": 1,
+  "old_healing_and_missing7_stops_not_reexecuted": true,
+  "windows_thread_id": "01a140bc-5f3b-7661-b720-50c945596eaa",
+  "windows_turn_id": "01a197f0-9b28-7b20-a773-b6538830fceb",
+  "dispatch_confirmed_active": true,
+  "cuda_execution_confirmed": false,
+  "normal_cuda_comparison_passed": false,
+  "new_standard_profiles": 0,
+  "full_goal_complete": false
+}

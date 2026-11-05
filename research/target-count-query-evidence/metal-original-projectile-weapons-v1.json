@@ -1,0 +1,129 @@
+{
+  "schema": "metal-original-projectile-weapons-v1",
+  "source_commit": "540142c442fca2af2267601237a25dbe6b89854c",
+  "package_id": "7fa831043032a627e70491b3c44eae2770e578d824e7ab126e4fbced42f8f389",
+  "input_count": 13,
+  "native_cases": 8,
+  "rejected_cases": 5,
+  "source": "gpu/world_coordinate_typed_owner_entry.slang",
+  "input_words": 115680,
+  "output_words": 2032000,
+  "runtime_stride_bytes": 138952,
+  "actual_metal_device": "Apple M5",
+  "gpu_execution_verified": true,
+  "calculation_verified": true,
+  "independently_sealed": true,
+  "independent_audit_sha256": "d1e0ab998e3a8277fe5b2885051fceeba48b9b7c28e933c575888beeff742d7a",
+  "independent_elapsed_seconds": 97.21475116700458,
+  "independent_gpu_calls": 0,
+  "input_sha256": "111d37a9ea848fd81d732f58f8f44fe66dfb3e76b93e605609ed1da7c8ac0af5",
+  "output_sha256": "a58e9b1aca26981295ab4ba20768e5632a384b95a780e11214ade70088903a4d",
+  "generated_normalized": {
+    "cuda": "dbc1c88211b5b74a3e7850f54dd6eafa0420fd3e9194dbbc1c3c19dd3635e260",
+    "metal": "8e66dd2a28f1794166794a29b64fb2c6efecefa853dee22ff21b86b35cdd09d4"
+  },
+  "unit_groups": 8,
+  "unit_tests": 58,
+  "unit_elapsed_seconds": 3.6602487900236156,
+  "cpu_native_preflight_seconds": 81.06148491700878,
+  "gpu_seconds": 3.0452439166692784,
+  "pipeline_compile_seconds": 62.10157799720764,
+  "pipeline_cache_hit": false,
+  "generation_only_compiler_invocations": 2,
+  "run_generation_cache_required": true,
+  "run_generation_cache_hit": true,
+  "run_generation_compiler_invocations": 0,
+  "pipeline_cache_after_run_file_snapshot": true,
+  "pipeline_cache_file_snapshot_is_actual_warm_run": false,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 8,
+    "fresh_native_cases": 0,
+    "rejection_cases": 5,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 8
+  },
+  "physical_receipts": [
+    {
+      "name": "original-projectile-weapons/Sakura/3s",
+      "physical_receipts": 105,
+      "retained": 105,
+      "physical_shots": 15
+    },
+    {
+      "name": "original-projectile-weapons/Sakura/30s",
+      "physical_receipts": 904,
+      "retained": 904,
+      "physical_shots": 139
+    },
+    {
+      "name": "original-projectile-weapons/Anchor/3s",
+      "physical_receipts": 105,
+      "retained": 105,
+      "physical_shots": 15
+    },
+    {
+      "name": "original-projectile-weapons/Anchor/30s",
+      "physical_receipts": 904,
+      "retained": 904,
+      "physical_shots": 139
+    },
+    {
+      "name": "original-projectile-weapons/Clay/3s",
+      "physical_receipts": 245,
+      "retained": 245,
+      "physical_shots": 155
+    },
+    {
+      "name": "original-projectile-weapons/Clay/12s",
+      "physical_receipts": 918,
+      "retained": 918,
+      "physical_shots": 594
+    },
+    {
+      "name": "original-projectile-weapons/Clay/30s",
+      "physical_receipts": 2186,
+      "retained": 2048,
+      "physical_shots": 1422
+    },
+    {
+      "name": "original-projectile-weapons/Sakura/no-projectiles",
+      "physical_receipts": 0,
+      "retained": 0,
+      "physical_shots": 15
+    }
+  ],
+  "physical_receipt_total": 5367,
+  "whole_stream_sha256_compared": true,
+  "retained_prefix_and_unused_tail_compared": true,
+  "original_profiles": [
+    "Sakura",
+    "Anchor",
+    "Clay"
+  ],
+  "explicit_added_damage_probe": false,
+  "original_effects_weapons_growth_config_preserved": true,
+  "declared_actor_ownership": "body-owned-current-fields-v1",
+  "automatic_aim": "typed-before-body-v1",
+  "unchanged_gpu_files_since_previous_checkpoint": 406,
+  "gpu_file_map_sha256": "0c75cd06a2919dcfd348e769cf1970993b31eab65256b35541bc32f150ff35af",
+  "gpu_source_unchanged_is_not_old_suite_recertification": true,
+  "gpu_executions": 1,
+  "gpu_retries": 0,
+  "windows_new_requests": 0,
+  "windows_existing_status": "host_unavailable_not_terminal_no_resend",
+  "cuda_verified": false,
+  "in_game_rules_verified": false,
+  "nearby_selection_verified": false,
+  "public_gpu_admission": false,
+  "full_character_certification": 0,
+  "full_goal_complete": false,
+  "remaining": [
+    "Elegg nearby target selection",
+    "canonical enemy typed world",
+    "other original profiles and conditional branches",
+    "current-source CUDA hardware validation",
+    "gameplay certification and public admission"
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "passed": true,
+  "complete": true,
+  "gates": [
+    {
+      "name": "burst-charge-skill-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7249380419962108,
+      "log": "/tmp/nikke-burst-charge-gate-burst-charge-skill-native.log"
+    },
+    {
+      "name": "burst-reference-catalog",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.697091625072062,
+      "log": "/tmp/nikke-burst-charge-gate-burst-reference-catalog.log"
+    },
+    {
+      "name": "burst-charge-firing-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7589737500529736,
+      "log": "/tmp/nikke-burst-charge-gate-burst-charge-firing-native.log"
+    },
+    {
+      "name": "burst-charge-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0704557499848306,
+      "log": "/tmp/nikke-burst-charge-gate-burst-charge-native.log"
+    },
+    {
+      "name": "health-runtime",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 2.4831913750385866,
+      "log": "/tmp/nikke-burst-charge-gate-health-runtime.log"
+    },
+    {
+      "name": "attack-flag-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 1.011911082896404,
+      "log": "/tmp/nikke-burst-charge-gate-attack-flag-native.log"
+    },
+    {
+      "name": "target-state-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9764079169835895,
+      "log": "/tmp/nikke-burst-charge-gate-target-state-native.log"
+    },
+    {
+      "name": "geometry-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9045255410019308,
+      "log": "/tmp/nikke-burst-charge-gate-geometry-native.log"
+    },
+    {
+      "name": "probability-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 1.7356172499712557,
+      "log": "/tmp/nikke-burst-charge-gate-probability-native.log"
+    },
+    {
+      "name": "element-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8212343750055879,
+      "log": "/tmp/nikke-burst-charge-gate-element-native.log"
+    },
+    {
+      "name": "core",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 16.035085666924715,
+      "log": "/tmp/nikke-burst-charge-gate-core.log"
+    },
+    {
+      "name": "enemy-code-real",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 71.05449045798741,
+      "log": "/tmp/nikke-burst-charge-gate-enemy-code-real.log"
+    },
+    {
+      "name": "enemy-code-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7420729589648545,
+      "log": "/tmp/nikke-burst-charge-gate-enemy-code-native.log"
+    },
+    {
+      "name": "named-state-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7769536250270903,
+      "log": "/tmp/nikke-burst-charge-gate-named-state-native.log"
+    },
+    {
+      "name": "instant-list-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.74442145798821,
+      "log": "/tmp/nikke-burst-charge-gate-instant-list-native.log"
+    },
+    {
+      "name": "split-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7414375420194119,
+      "log": "/tmp/nikke-burst-charge-gate-split-native.log"
+    },
+    {
+      "name": "protection-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.792619957937859,
+      "log": "/tmp/nikke-burst-charge-gate-protection-native.log"
+    },
+    {
+      "name": "status-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7544463339727372,
+      "log": "/tmp/nikke-burst-charge-gate-status-native.log"
+    },
+    {
+      "name": "stack-foundation",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 5.126178917009383,
+      "log": "/tmp/nikke-burst-charge-gate-stack-foundation.log"
+    },
+    {
+      "name": "staged-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7183215830009431,
+      "log": "/tmp/nikke-burst-charge-gate-staged-native.log"
+    },
+    {
+      "name": "source-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.0317540830001235,
+      "log": "/tmp/nikke-burst-charge-gate-source-native.log"
+    },
+    {
+      "name": "native-mode-spec",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7344194579636678,
+      "log": "/tmp/nikke-burst-charge-gate-native-mode-spec.log"
+    },
+    {
+      "name": "native-mode-input",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.742136458051391,
+      "log": "/tmp/nikke-burst-charge-gate-native-mode-input.log"
+    },
+    {
+      "name": "reference-rewrite",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.02871029090601951,
+      "log": "/tmp/nikke-burst-charge-gate-reference-rewrite.log"
+    },
+    {
+      "name": "duration-native",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 2.4871302080573514,
+      "log": "/tmp/nikke-burst-charge-gate-duration-native.log"
+    },
+    {
+      "name": "definition-input",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 1.1060728749725968,
+      "log": "/tmp/nikke-burst-charge-gate-definition-input.log"
+    },
+    {
+      "name": "definition-scalar",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0774182500317693,
+      "log": "/tmp/nikke-burst-charge-gate-definition-scalar.log"
+    },
+    {
+      "name": "definition-out",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 1.1294202499557287,
+      "log": "/tmp/nikke-burst-charge-gate-definition-out.log"
+    },
+    {
+      "name": "removal-queue",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9848061669617891,
+      "log": "/tmp/nikke-burst-charge-gate-removal-queue.log"
+    },
+    {
+      "name": "numeric",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7096782500157133,
+      "log": "/tmp/nikke-burst-charge-gate-numeric.log"
+    },
+    {
+      "name": "probe",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 0.3905835000332445,
+      "log": "/tmp/nikke-burst-charge-gate-probe.log"
+    },
+    {
+      "name": "events",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 3.891679291962646,
+      "log": "/tmp/nikke-burst-charge-gate-events.log"
+    },
+    {
+      "name": "roster",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 932.7420271659503,
+      "log": "/tmp/nikke-burst-charge-gate-roster.log"
+    },
+    {
+      "name": "catalog-weapons",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 3.6831582919694483,
+      "log": "/tmp/nikke-burst-charge-gate-catalog-weapons.log"
+    },
+    {
+      "name": "equipment",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 4.621675790986046,
+      "log": "/tmp/nikke-burst-charge-gate-equipment.log"
+    },
+    {
+      "name": "real-battle",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 22.427090334007517,
+      "log": "/tmp/nikke-burst-charge-gate-real-battle.log"
+    },
+    {
+      "name": "api",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 461.3777869580081,
+      "log": "/tmp/nikke-burst-charge-gate-api.log"
+    },
+    {
+      "name": "pipeline-lock",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 1.3543949580052868,
+      "log": "/tmp/nikke-burst-charge-gate-pipeline-lock.log"
+    },
+    {
+      "name": "catalog-audit",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 1.048626207979396,
+      "log": "/tmp/nikke-burst-charge-gate-catalog-audit.log"
+    },
+    {
+      "name": "unit",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 8.523815375054255,
+      "log": "/tmp/nikke-burst-charge-gate-unit.log"
+    },
+    {
+      "name": "favorite-audit",
+      "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+      "exit_code": 0,
+      "elapsed_seconds": 1.9544849169906229,
+      "log": "/tmp/nikke-burst-charge-gate-favorite-audit.log"
+    }
+  ],
+  "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e"
+}

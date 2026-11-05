@@ -1,0 +1,34 @@
+{
+  "retained95": {
+    "input.bin": {
+      "bytes": 39672000,
+      "sha256": "cfa1bbf62903ecfc61d672f0cb26c05c5fab4e0bf83f7a34eacf1dd43123cfdd",
+      "all_bytes_equal": true
+    },
+    "readback.bin": {
+      "bytes": 298844160,
+      "sha256": "4da53ff03892e23e4f383b4444e04b9341011e7f816b09175f43af6256a4a2fa",
+      "all_bytes_equal": true
+    }
+  },
+  "prior-synthetic8": {
+    "input.bin": {
+      "bytes": 3340800,
+      "sha256": "1811ad0de274a936b95d62a48f57da21e063dda8ce9904c56f9d38bda7c910a2",
+      "all_bytes_equal": true
+    },
+    "readback.bin": {
+      "bytes": 25165824,
+      "sha256": "9a993f2025f56b04478cb50c20062f8943143887a50d0cf206eb13bff651b591",
+      "all_bytes_equal": true
+    }
+  },
+  "all10_prior_input_and_native_fingerprints_equal": true,
+  "previous_real_failures_preserved": true,
+  "runtime_reflection_equal": true,
+  "runtime_stride": 138952,
+  "transport": {
+    "device": "Apple M5",
+    "gpu_seconds": 4.333225208334625
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "stage": "cpu-common-policy-contract",
+  "suite": "coordinate-typed-aim-common",
+  "package_id": "620ab20e7ea8bed1fe540013c3e17442d45c1ba03ef2aff716abc524837d68d7",
+  "cpu_contract_cases": 7,
+  "positive_contract_cases": 6,
+  "reference_model_gap_cases": 1,
+  "declared_policy": "typed-before-body-v1",
+  "gpu_wire_connected": false,
+  "metal_auto_aim_verified": false,
+  "cuda_auto_aim_verified": false,
+  "new_gpu_calls": 0,
+  "previous_metal46_retained": true,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "remaining": [
+    "shared 9-bit typed aim IDs and focus consumers",
+    "frame-frozen GPU typed candidates and manual aim wire",
+    "logical current-enemy recipient policy",
+    "fresh Metal comparison and independent native audit",
+    "current short CUDA proof when Windows available"
+  ],
+  "evidence": [
+    {
+      "path": "typed-aim-evidence/binding.json",
+      "bytes": 1426,
+      "sha256": "fa04496df106ef6de46c370a84bcd8ecf1d3d556a22b7a1c052d709003b8a85f"
+    },
+    {
+      "path": "typed-aim-evidence/binding.py",
+      "bytes": 2638,
+      "sha256": "5fa2a92a5d199a1f3954111755e099c34f0b240301469df8f74a3b5406321fe3"
+    },
+    {
+      "path": "typed-aim-evidence/control.json",
+      "bytes": 326,
+      "sha256": "39713e2db1912e874a9ba54ee326365c7cae2aaf03095dd47834600d3184a062"
+    },
+    {
+      "path": "typed-aim-evidence/previous46-cpu.json",
+      "bytes": 248,
+      "sha256": "7c4a6fea0882b8e11ed8ea39f150e8395c3add3ba846c98cc458ee047f069ff6"
+    },
+    {
+      "path": "typed-aim-evidence/previous46-related.json",
+      "bytes": 343,
+      "sha256": "acdac914d673514150baeb970da3ca6f8197a47f002e6719fa212f7d683e8dd6"
+    },
+    {
+      "path": "typed-aim-evidence/reference.json",
+      "bytes": 7210,
+      "sha256": "8f339eb16c2d46374b1681e57baa620c851909c63640bf24d0990dc8a275c4d3"
+    },
+    {
+      "path": "typed-aim-evidence/typed-aim-unit.log",
+      "bytes": 105,
+      "sha256": "b6038b60833457df1211c3c6fbaea16e563b7665f5dedc658e3e05c6f7852e11"
+    }
+  ]
+}

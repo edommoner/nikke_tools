@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "scope": "Common area matrix input and native policy; shared resident GPU executor",
+  "reference_kind": "deterministic-common-cpu",
+  "profile": "coordinate-area-matrix-common-v1",
+  "suite": "coordinate-matrix",
+  "input_count": 151,
+  "native_oracles": 136,
+  "rejections": 15,
+  "sealed": true,
+  "immutable_development_package_id": "c2d94d6edbae81103a7473564b3fe40e4991e671ebb280c79e4a4431c331101e",
+  "final_compact_package_id": "47c7f7cfdb8d6c6d1e1b341813348009270ba13e2e884358b58d79754673477a",
+  "final_full_package_id": "347d749049099890537d45f26ee1683b96cd764d00cf747c9da0724531736147",
+  "package_projection": {
+    "full_files": 3047,
+    "compact_files": 1738,
+    "all_retained_bytes_equal": true
+  },
+  "cpu": {
+    "tests": 78,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "control": {
+    "tests": 416,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "gpu_calls": 1,
+  "gpu_retries": 0,
+  "windows_requests": 0,
+  "current_cuda_calculation_verified": false,
+  "cuda_current_cache_hit_verified": false,
+  "shared_gpu_code_unchanged": true,
+  "generated_cuda_msl_and_both_reflections_bytes_retained": true,
+  "generation_cache_hit": true,
+  "compiler_invocations": 0,
+  "metal_pipeline_cache_hit": true,
+  "timing": {
+    "gpu_seconds": 3.7131387916160747,
+    "pipeline_seconds": 0.0026159286499023438,
+    "shared_execute_seconds": 7.53478675,
+    "performance_ratio_claim": false
+  },
+  "retention": {
+    "legacy133_input_count": 133,
+    "legacy133_full_raw_bytes_equal": 697303040,
+    "whole_prefix_compared": true,
+    "new_input_count": 151,
+    "old_native_fingerprint_relabelled": false
+  },
+  "historical_cpu_source_unchanged": true,
+  "protected_source_sha256": {
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "research/summarize-portable-cross-gpu.py": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a",
+    "app/portable_compile_cache.py": "d1dcc7cf1a5c7197b1dd63dd0d6bd1cc90192356eb42ad4a4e6b2f641c5cc505"
+  },
+  "storage": {
+    "raw_bytes": 791674880,
+    "raw_sha256": "ace1b1d00a890bdf04c1e449f2bafdc1b7819b6d782aec29a24f3ef16558ca12",
+    "raw_inode": 510079775,
+    "allocated_reclaimed": 563281920,
+    "raw_deleted": false,
+    "full_hash_verified": true
+  },
+  "initial_cpu_witness_failure_retained": true,
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "remaining_model_gaps": 20,
+  "public_gpu_admitted": false,
+  "ui_backend": "cpu",
+  "remaining": [
+    "manual coordinate aim and layer2 arbitration",
+    "sampling RNG",
+    "physical group and ADD sharing",
+    "attack/buff/move/shield coordinate scene compositions",
+    "all original definitions and public admission"
+  ]
+}

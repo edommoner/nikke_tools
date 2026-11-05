@@ -1,0 +1,4162 @@
+{
+  "name": "hit-reference-frequency-stress",
+  "effects": [
+    {
+      "name": "key0",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key0",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key1",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key1",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key2",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key2",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key3",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key3",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key4",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key4",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key5",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key5",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key6",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key6",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key7",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key7",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key8",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key8",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key9",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key9",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key10",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key10",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key11",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key11",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key12",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key12",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key13",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key13",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key14",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key14",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key15",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key15",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key16",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key16",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key17",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key17",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key18",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key18",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key19",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key19",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key20",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key20",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key21",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key21",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key22",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key22",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key23",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key23",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key24",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key24",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key25",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key25",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key26",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key26",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key27",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key27",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key28",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key28",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key29",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key29",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key30",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key30",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key31",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key31",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key32",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key32",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key33",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key33",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key34",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key34",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key35",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key35",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key36",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key36",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key37",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key37",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key38",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key38",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key39",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key39",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key40",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key40",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key41",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key41",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key42",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key42",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key43",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key43",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key44",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key44",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key45",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key45",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key46",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key46",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key47",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key47",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key48",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key48",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key49",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key49",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key50",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key50",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key51",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key51",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key52",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key52",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key53",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key53",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key54",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key54",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key55",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key55",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key56",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key56",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key57",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key57",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key58",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key58",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key59",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key59",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key60",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key60",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key61",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key61",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key62",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key62",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key63",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key63",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key64",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key64",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key65",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key65",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key66",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key66",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key67",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key67",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key68",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key68",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key69",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key69",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key70",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key70",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key71",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key71",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key72",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key72",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key73",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key73",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key74",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key74",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key75",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key75",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key76",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key76",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key77",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key77",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key78",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key78",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key79",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key79",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key80",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key80",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key81",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key81",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key82",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key82",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key83",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key83",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key84",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key84",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key85",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key85",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key86",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key86",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key87",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key87",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key88",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key88",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key89",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key89",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key90",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key90",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key91",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key91",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key92",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key92",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key93",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key93",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key94",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key94",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key95",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key95",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key96",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key96",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key97",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key97",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key98",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key98",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key99",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key99",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key100",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key100",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key101",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key101",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key102",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key102",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key103",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key103",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key104",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key104",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key105",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key105",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key106",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key106",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key107",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key107",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key108",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key108",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key109",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key109",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key110",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key110",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key111",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key111",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key112",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key112",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key113",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key113",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key114",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key114",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key115",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key115",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key116",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key116",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key117",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key117",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key118",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key118",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key119",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key119",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key120",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key120",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key121",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key121",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key122",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key122",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key123",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key123",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key124",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key124",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key125",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key125",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key126",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key126",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key127",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key127",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key128",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key128",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key129",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key129",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key130",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key130",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key131",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key131",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key132",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key132",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key133",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key133",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key134",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key134",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key135",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key135",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key136",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key136",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key137",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key137",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key138",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key138",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key139",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key139",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key140",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key140",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key141",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key141",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key142",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key142",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key143",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key143",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key144",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key144",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key145",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key145",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key146",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key146",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key147",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key147",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key148",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key148",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key149",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key149",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key150",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key150",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key151",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key151",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key152",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key152",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key153",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key153",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key154",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key154",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key155",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key155",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key156",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key156",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key157",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key157",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key158",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key158",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key159",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key159",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key160",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key160",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key161",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key161",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key162",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key162",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key163",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key163",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key164",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key164",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key165",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key165",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key166",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key166",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key167",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key167",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key168",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key168",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key169",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key169",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key170",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key170",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key171",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key171",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key172",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key172",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key173",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key173",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key174",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key174",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key175",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key175",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key176",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key176",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key177",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key177",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key178",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key178",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key179",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key179",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key180",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key180",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key181",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key181",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key182",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key182",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key183",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key183",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key184",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key184",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key185",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key185",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key186",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key186",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key187",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key187",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key188",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key188",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key189",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key189",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key190",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key190",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key191",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key191",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key192",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key192",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key193",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key193",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key194",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key194",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key195",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key195",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key196",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key196",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key197",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key197",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key198",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key198",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key199",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key199",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key200",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key200",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key201",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key201",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key202",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key202",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key203",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key203",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key204",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key204",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key205",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key205",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key206",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key206",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key207",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key207",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key208",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key208",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key209",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key209",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key210",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key210",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key211",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key211",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key212",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key212",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key213",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key213",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key214",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key214",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key215",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key215",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key216",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key216",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key217",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key217",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key218",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key218",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key219",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key219",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key220",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key220",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key221",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key221",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key222",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key222",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key223",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key223",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key224",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key224",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key225",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key225",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key226",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key226",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key227",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key227",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key228",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key228",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key229",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key229",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key230",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key230",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key231",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key231",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key232",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key232",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key233",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key233",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key234",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key234",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key235",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key235",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key236",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key236",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key237",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key237",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key238",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key238",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key239",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key239",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key240",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key240",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key241",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key241",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key242",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key242",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key243",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key243",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key244",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key244",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key245",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key245",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key246",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key246",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key247",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key247",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key248",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key248",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key249",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key249",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key250",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key250",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key251",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key251",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key252",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key252",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key253",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key253",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key254",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key254",
+      "fixed_value": 1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "projectile",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.001s"
+        ],
+        "condition": []
+      }
+    }
+  ],
+  "owners": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "combat": {
+    "weapons": [
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      }
+    ],
+    "targets": [
+      {
+        "hp": 1000000000.0
+      }
+    ],
+    "trace": "summary"
+  },
+  "script": [
+    [
+      60,
+      24,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      60,
+      28,
+      0,
+      0,
+      "key254",
+      0,
+      0,
+      0
+    ]
+  ],
+  "expected_queries": [
+    {
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "active_timer_mask": 1,
+      "timer_clock": 1
+    }
+  ]
+}

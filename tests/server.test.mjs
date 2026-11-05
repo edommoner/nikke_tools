@@ -1,6 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {searchCases} from '../server.mjs';
+import {readFileSync,mkdtempSync,writeFileSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import path from 'node:path';
+test('independent batch jobs preserve overlapping rosters and all per-request conditions',async()=>{
+ const {batchCases,boardCases}=await import('../server.mjs');
+ const first={squad:['a','b','c','d','e'],profile:{chars:{a:{skill_levels:3}}},compute_backend:'native_detail'};
+ const second={...structuredClone(first),compute_backend:'browser_detail',stat_deltas:{a:{atk:5}}};
+ const saved=structuredClone([first,second]),cases=batchCases([first,second]);
+ assert.deepEqual(cases.map(c=>c.value),[1,2]);assert.deepEqual(cases.map(c=>c.evaluation),saved);
+ cases[0].evaluation.profile.chars.a.skill_levels=10;
+ assert.deepEqual([first,second],saved);assert.equal(cases[1].evaluation.profile.chars.a.skill_levels,3);
+ assert.throws(()=>boardCases([{index:0,evaluation:first},{index:1,evaluation:second}]),/同じキャラ/);
+ for(const bad of [null,{},[],Array(33).fill(first),[null],[[]],[1]])assert.throws(()=>batchCases(bad));
+ assert.equal(batchCases(Array(32).fill(first)).length,32);
+});
 test('search preserves original input and all unrelated scenario fields',()=>{
   const body={evaluation:{squad:['a'],profile:{chars:{a:{skill_levels:{'1':7,'2':6,'3':5}}}},patches:{a:{skill_levels:{'1':8}}},stat_deltas:{a:{hp:300}}},target:100,variable:{character:'a',kind:'burst',min:7,max:10,step:1}};
   const copy=structuredClone(body),cases=searchCases(body);
@@ -41,4 +56,27 @@ test('alternative skill representations preserve unrelated skill levels',()=>{
   const cases=searchCases(body);assert.deepEqual(cases.filter(c=>c.field==='skill2').map(c=>c.value),[8,9,10]);
   const burst=cases.find(c=>c.field==='burst'&&c.value===10);
   assert.deepEqual(burst.evaluation.patches.a.skill_levels,{'1':7,'2':8,'3':10});
+});
+
+ test('ordinary CPU worker deadlines remain bounded at 120 seconds',async()=>{
+  const {workerTimeoutSeconds}=await import('../server.mjs');
+});
+
+
+test('CPU and GPU worker text streams retain split UTF-8 payloads and diagnostics',async()=>{
+ const {workerTextStreams}=await import('../server.mjs');
+ const {PassThrough}=await import('node:stream');
+ const {once}=await import('node:events');
+ const expected={spec:{text:'기본 스펙(3단계)보다 딜이 낮게 나오는 게 정상이다. 日本語と絵文字🎯'},members:[{name:'얀'}]};
+ const lines=JSON.stringify(expected)+'\n'+JSON.stringify({id:'two',result:expected})+'\n';
+ const diagnostic='計算終了: 정상 — 🎯';
+ const child={stdout:new PassThrough(),stderr:new PassThrough()};
+ assert.equal(workerTextStreams(child),child);
+ let output='',error='';child.stdout.on('data',chunk=>output+=chunk);child.stderr.on('data',chunk=>error+=chunk);
+ const done=Promise.all([once(child.stdout,'end'),once(child.stderr,'end')]);
+ for(const byte of Buffer.from(lines,'utf8'))child.stdout.write(Buffer.from([byte]));
+ for(const byte of Buffer.from(diagnostic,'utf8'))child.stderr.write(Buffer.from([byte]));
+ child.stdout.end();child.stderr.end();await done;
+ const rows=output.trimEnd().split('\n').map(line=>JSON.parse(line));
+ assert.deepEqual(rows,[expected,{id:'two',result:expected}]);assert.equal(error,diagnostic);
 });

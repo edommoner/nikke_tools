@@ -1,0 +1,100 @@
+{
+  "version": 120,
+  "source_commit": "3b0f227eb05818535ba19d7be5f142b25aabbb1c",
+  "package_id": "9c320dd0fd0be02c29669f1c55be5f4de8ba3256f8c4074b9609f8dce8bfe8ec",
+  "manifest_files": 1823,
+  "manifest_and_golden_verified": true,
+  "nvrtc": {
+    "wheel_version": "12.4.127",
+    "redownloads": 0,
+    "primary_sha256": "3aa3cd8aa10437e212760c0e1ed730807811ec3bc330216dbfde4b26211d2243",
+    "builtins_sha256": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43",
+    "both_files_reverified": true,
+    "primary_load_succeeded": true,
+    "builtins_load_succeeded": true,
+    "load_evidence": "Both journal entries completed entered -> loaded",
+    "create_program_return": 0
+  },
+  "cpu_tests": [
+    {
+      "suite": "windows_cleanup",
+      "count": 4,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "compile_cli",
+      "count": 8,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "cuda_artifact",
+      "count": 12,
+      "skip": 0,
+      "exit": 0
+    }
+  ],
+  "compile": {
+    "attempts": 1,
+    "retries": 0,
+    "budget_seconds": 60,
+    "elapsed_seconds": 42.401555499993265,
+    "timed_out": false,
+    "nvrtc_compile_calls": 1,
+    "nvrtc_compile_seconds": 30.859,
+    "nvrtc_return": 6,
+    "child_exit": 1,
+    "failure": "ptxas fatal: Memory allocation failure"
+  },
+  "artifact": {
+    "kind": "cubin",
+    "completed": false,
+    "bytes": 0,
+    "sha256": null
+  },
+  "cache": {
+    "hit": false,
+    "receipt": null,
+    "source_sha256": "6039f2265b247dd9105d25c4f8dd66d6a484e30f6b60a898cc80605588a24168",
+    "cache_check_executed": false
+  },
+  "job": {
+    "cap_bytes": 2147483648,
+    "peak_bytes": 2148052992,
+    "pre_single_verified": true,
+    "post_empty_verified": true,
+    "cleanup_error": null,
+    "inspection_error": null,
+    "observation_error": null,
+    "below_normal": true
+  },
+  "environment": {
+    "missing_count": 0,
+    "service_before": "unverified",
+    "service_after": "unverified",
+    "service_preservation_verified": false,
+    "original_head_status_preserved": true,
+    "parent_environment_preserved": true,
+    "compiler_selected_in_child_environment_only": true
+  },
+  "compiler_verified": false,
+  "containment_verified": true,
+  "preservation_verified": false,
+  "calculation_verified": false,
+  "audit_exit": 1,
+  "collect_exit": 0,
+  "driver_calls": 0,
+  "context_calls": 0,
+  "module_calls": 0,
+  "kernel_calls": 0,
+  "gpu_calls": 0,
+  "v119_original_failure_preserved": true,
+  "saved_report": {
+    "bytes": 4125,
+    "sha256": "564cb5937a3c9ba2711300b0537bc2cff424daf7ec9afdc0a712af3a5e8e3d89"
+  },
+  "github_push": false,
+  "evidence_scope": "Derived from Windows completed structured chat report; original artifacts remain on Windows and were not independently audited on Mac",
+  "windows_turn": "01a1600e-6eb4-7b70-9b45-76373e79ec4f"
+}

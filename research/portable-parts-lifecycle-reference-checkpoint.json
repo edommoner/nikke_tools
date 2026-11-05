@@ -1,0 +1,1122 @@
+{
+  "schema": 1,
+  "status": "native_snapshot_and_landing_contracts_only",
+  "package": {
+    "package_id": "9c4acec65a6d689b183693cf2b8a5208f2457b54518ee294970a3526b0934947",
+    "files": 2000,
+    "bytes": 5363566,
+    "archive_sha256": "8249f7e1de51f6eabb73350beb0d4fa6c364522c78dcf5488c57c45777b9af76",
+    "source_commit": "526d8421e173ab80bcde4d77114c0df56e1661be"
+  },
+  "tests": {
+    "passed": 25,
+    "gpu_calls": 0,
+    "windows_runs": 0,
+    "logs": [
+      {
+        "path": "/tmp/nikke-parts-lifecycle-v2-tests-0.log",
+        "tests": 13,
+        "seconds": 4.031,
+        "sha256": "c3f587b77d3b029705116a9a1d80a1cac6e0581b396f623e32d014b732ee4508",
+        "output": "test_interrupt_credit_is_rejected_when_lost (test_portable_parts_skill_extra_reference.PartsSkillExtraTests.test_interrupt_credit_is_rejected_when_lost) ... ok\ntest_no_native_state_or_trace_changes_from_observation (test_portable_parts_skill_extra_reference.PartsSkillExtraTests.test_no_native_state_or_trace_changes_from_observation) ... ok\ntest_nonsaturating_healing_detects_missing_and_duplicate_packets (test_portable_parts_skill_extra_reference.PartsSkillExtraTests.test_nonsaturating_healing_detects_missing_and_duplicate_packets) ... ok\ntest_pending_body_only_is_an_explicit_reference_gap (test_portable_parts_skill_extra_reference.PartsSkillExtraTests.test_pending_body_only_is_an_explicit_reference_gap) ... ok\ntest_ten_independent_contracts_forbid_gpu_and_packing (test_portable_parts_skill_extra_reference.PartsSkillExtraTests.test_ten_independent_contracts_forbid_gpu_and_packing) ... ok\ntest_literal_seven_contracts_do_not_pack_or_execute_gpu (test_portable_parts_skill_lifecycle_reference.PartsLifecycleReferenceTests.test_literal_seven_contracts_do_not_pack_or_execute_gpu) ... ok\ntest_observer_preserves_existing_state_trace_and_parent_hook (test_portable_parts_skill_lifecycle_reference.PartsLifecycleReferenceTests.test_observer_preserves_existing_state_trace_and_parent_hook) ... ok\ntest_recomputed_part_damage_rebound_generation_and_child_reorder_fail (test_portable_parts_skill_lifecycle_reference.PartsLifecycleReferenceTests.test_recomputed_part_damage_rebound_generation_and_child_reorder_fail) ... ok\ntest_fifteen_literal_contracts_forbid_packing_and_gpu (test_portable_parts_skill_reference.PartsSkillReferenceTests.test_fifteen_literal_contracts_forbid_packing_and_gpu) ... ok\ntest_interrupt_credit_reach_time_and_gauge_cannot_silently_change (test_portable_parts_skill_reference.PartsSkillReferenceTests.test_interrupt_credit_reach_time_and_gauge_cannot_silently_change) ... ok\ntest_lost_part_wrong_order_extra_notice_and_double_factor_fail (test_portable_parts_skill_reference.PartsSkillReferenceTests.test_lost_part_wrong_order_extra_notice_and_double_factor_fail) ... ok\ntest_observer_preserves_full_native_state_and_trace (test_portable_parts_skill_reference.PartsSkillReferenceTests.test_observer_preserves_full_native_state_and_trace) ... ok\ntest_profile_hook_restored_after_failure (test_portable_parts_skill_reference.PartsSkillReferenceTests.test_profile_hook_restored_after_failure) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 4.031s\n\nOK\n"
+      },
+      {
+        "path": "/tmp/nikke-parts-lifecycle-v2-tests-1.log",
+        "tests": 9,
+        "seconds": 0.918,
+        "sha256": "902a69eef8b00a9108b3064dbc79644a176a5f59e6d9f4ada36a7d62053eeeae",
+        "output": "test_declared_count_and_gaps_match_registered_literal_contracts (test_portable_readiness_semantics.PartsInventoryCountTests.test_declared_count_and_gaps_match_registered_literal_contracts) ... /private/tmp/nikke-parts-lifecycle-v2-package/research/upstream/nikke-calc-master/scraper/profile_fetch.py:187: ResourceWarning: unclosed file <_io.TextIOWrapper name='/private/tmp/nikke-parts-lifecycle-v2-package/research/upstream/nikke-calc-master/scraper/nikke_scraped.json' mode='r' encoding='utf-8'>\n  d = json.load(open(os.path.join(HERE, \"nikke_scraped.json\"), encoding=\"utf-8\"))\nResourceWarning: Enable tracemalloc to get the object allocation traceback\nok\ntest_annotation_does_not_admit_the_previously_rejected_effect (test_portable_readiness_semantics.ReadinessSemanticsTests.test_annotation_does_not_admit_the_previously_rejected_effect) ... ok\ntest_declared_model_is_a_subset_prerequisite_and_never_gpu_support (test_portable_readiness_semantics.ReadinessSemanticsTests.test_declared_model_is_a_subset_prerequisite_and_never_gpu_support) ... ok\ntest_every_priority_has_exactly_one_lane_and_original_grouping_is_unchanged (test_portable_readiness_semantics.ReadinessSemanticsTests.test_every_priority_has_exactly_one_lane_and_original_grouping_is_unchanged) ... ok\ntest_inert_model_gap_is_checked_against_current_canonical_classification (test_portable_readiness_semantics.ReadinessSemanticsTests.test_inert_model_gap_is_checked_against_current_canonical_classification) ... ok\ntest_parts_field_has_a_source_but_never_invented_runtime_coverage (test_portable_readiness_semantics.ReadinessSemanticsTests.test_parts_field_has_a_source_but_never_invented_runtime_coverage) ... ok\ntest_recorded_heal_contract_count_matches_the_registered_literal_suites (test_portable_readiness_semantics.ReadinessSemanticsTests.test_recorded_heal_contract_count_matches_the_registered_literal_suites) ... ok\ntest_unconfirmed_consumer_is_not_declared_absent (test_portable_readiness_semantics.ReadinessSemanticsTests.test_unconfirmed_consumer_is_not_declared_absent) ... ok\ntest_unknown_target_scaling_field_or_program_requires_more_native_contracts (test_portable_readiness_semantics.ReadinessSemanticsTests.test_unknown_target_scaling_field_or_program_requires_more_native_contracts) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.918s\n\nOK\n"
+      },
+      {
+        "path": "/tmp/nikke-parts-lifecycle-v2-tests-2.log",
+        "tests": 3,
+        "seconds": 3.243,
+        "sha256": "c65af4128ec465389a0240eb2f9f4549dde4c66ee5b398ff29da0da22fd3337e",
+        "output": "test_cli_rejects_optimized_python_and_preserves_failure (test_portable_reference_optimization.OptimizedReferenceTests.test_cli_rejects_optimized_python_and_preserves_failure) ... ok\ntest_cli_separates_positive_contracts_from_known_reference_model_gaps (test_portable_reference_optimization.OptimizedReferenceTests.test_cli_separates_positive_contracts_from_known_reference_model_gaps) ... ok\ntest_direct_parts_contract_still_rejects_bad_native_under_optimization (test_portable_reference_optimization.OptimizedReferenceTests.test_direct_parts_contract_still_rejects_bad_native_under_optimization) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 3.243s\n\nOK\n"
+      }
+    ]
+  },
+  "suites": [
+    {
+      "suite": "parts-skill",
+      "case_count": 15,
+      "positive_contract_cases": 15,
+      "reference_model_gap_cases": 0,
+      "passed": true,
+      "cpu_reference_verified": true,
+      "gpu_supported": false,
+      "gpu_calls": {
+        "build": 0,
+        "execute": 0
+      },
+      "packing_calls": 0,
+      "elapsed_seconds": 1.2373748749960214
+    },
+    {
+      "suite": "parts-skill-extended",
+      "case_count": 10,
+      "positive_contract_cases": 9,
+      "reference_model_gap_cases": 1,
+      "passed": true,
+      "cpu_reference_verified": true,
+      "gpu_supported": false,
+      "gpu_calls": {
+        "build": 0,
+        "execute": 0
+      },
+      "packing_calls": 0,
+      "elapsed_seconds": 1.3032237910665572
+    },
+    {
+      "suite": "parts-skill-lifecycle",
+      "case_count": 7,
+      "positive_contract_cases": 7,
+      "reference_model_gap_cases": 0,
+      "passed": true,
+      "cpu_reference_verified": true,
+      "gpu_supported": false,
+      "gpu_calls": {
+        "build": 0,
+        "execute": 0
+      },
+      "packing_calls": 0,
+      "elapsed_seconds": 1.0273141670040786
+    }
+  ],
+  "lifecycle_cases": [
+    {
+      "name": "parts-lifecycle-named-child-snapshots-both-hits",
+      "input_sha256": "e81a6534d64b79fd870afab7cd0d7a54326b3c0e54fe453ba14bfdf36c21fa01",
+      "native_sha256": "23c7e313f412166c1e8f576dd384a90d65272c4aee79fc55b5482d7356936a13",
+      "trace_sha256": "cef9ae62f576a74f4f847ab0090f85f86e048862b0c52868905b3f29346c9e94",
+      "contract": {
+        "verified": true,
+        "packets": 12,
+        "named_notifications": 4
+      }
+    },
+    {
+      "name": "parts-lifecycle-named-child-removes-basis-after-snapshot",
+      "input_sha256": "636f73e3d30a1fa9c868ac592a9b21683a5e0e99306e11a914346160d7c5e2f4",
+      "native_sha256": "558bb5f814ededeebe19d220b4241dc91231a93bd34d99fe65bc5abda07f4f5a",
+      "trace_sha256": "b213ce8c22937ae0278d3a46a4c9ebc93e1471f4cb43f5fc1c1e4ce83d9effc5",
+      "contract": {
+        "verified": true,
+        "packets": 6,
+        "named_notifications": 2
+      }
+    },
+    {
+      "name": "parts-lifecycle-expiry-before-second",
+      "input_sha256": "ada5820a221e256725a7926c90af8e194b9789c485728ab110395445e318298a",
+      "native_sha256": "07f03d4f320012b0590991fea578270055783e160e98d6d25e2962bc47c2a9fe",
+      "trace_sha256": "bb318c76d8cffcd0a0f018d65df338b8a1d1ec43261a226a4bc933ccc8b49678",
+      "contract": {
+        "verified": true,
+        "packets": 4,
+        "named_notifications": 2
+      }
+    },
+    {
+      "name": "parts-lifecycle-reopened-same-labels",
+      "input_sha256": "4b2d0cbc11d42cbdcceaef06b2aa06934f13b4209975f649e830f1c0e322a50b",
+      "native_sha256": "d814dd3e6cfa3c0ea73d8fdb42e97908c6ce6fd802b0eacabe510f5802f950d6",
+      "trace_sha256": "bb318c76d8cffcd0a0f018d65df338b8a1d1ec43261a226a4bc933ccc8b49678",
+      "contract": {
+        "verified": true,
+        "packets": 6,
+        "named_notifications": 2
+      }
+    },
+    {
+      "name": "parts-lifecycle-heal-child-does-not-resample-part-amount",
+      "input_sha256": "04e33500276875f41b55937c6afaf5f12dfdca78559704e58d769cabf19d0762",
+      "native_sha256": "a646e20b4346cad6a99aa6de6cc13bc8b7dd89bdda6e5272d79b2ba1501be2e5",
+      "trace_sha256": "5fb15dfd896f3bedaf49a2e31d55009f3a345f81950fabb2678cbc55dc3144c1",
+      "contract": {
+        "verified": true,
+        "packets": 3,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-lifecycle-destroy-group-before-child-healing",
+      "input_sha256": "e7f20c235c5438583025babb81d999acc15362e77ee7ce0e1426ae50ec853176",
+      "native_sha256": "7eb595aa33191bd195c79a6d5c54e7b8641a63ce84d91379def9784fcfdd5eca",
+      "trace_sha256": "16d5f6eb81963d03b50f5c80e1e8908278c204cd4259a891c3009e20377bfb01",
+      "contract": {
+        "verified": true,
+        "packets": 3,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-lifecycle-queued-second-after-group-destruction",
+      "input_sha256": "6c6947019419c727db6ad8f540cb0e68b5a2b47b98b097dec0e9e29080ec6dfa",
+      "native_sha256": "68c8647fc9331f16edec749433a5f9c946cc8eef82c5d286b457f27383b2b929",
+      "trace_sha256": "66eee8cd92ef80f48e92410c00b74e5539476bac79d68636b5fa2b2ab80cbe5d",
+      "contract": {
+        "verified": true,
+        "packets": 4,
+        "named_notifications": 2
+      }
+    }
+  ],
+  "observations": [
+    {
+      "name": "parts-lifecycle-named-child-snapshots-both-hits",
+      "damage": [
+        40000,
+        0,
+        0,
+        0,
+        0
+      ],
+      "lifecycle": [
+        {
+          "kind": "part-open",
+          "time": 0.0,
+          "pattern": "parts",
+          "ordinal": 1
+        },
+        {
+          "kind": "named-hit",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "named-hit",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 2000,
+          "part": "",
+          "target": "",
+          "extra": false,
+          "reach": 5,
+          "part_damage": 3000,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-capture",
+          "time": 0.0,
+          "parts": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "near",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "far",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 2000,
+          "part": "",
+          "target": "",
+          "extra": false,
+          "reach": 5,
+          "part_damage": 3000,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-capture",
+          "time": 0.0,
+          "parts": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "near",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "far",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "named-hit",
+          "owner": 0,
+          "time": 0.21666666666666665
+        },
+        {
+          "kind": "named-hit",
+          "owner": 0,
+          "time": 0.21666666666666665
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "damage": 2000,
+          "part": "",
+          "target": "",
+          "extra": false,
+          "reach": 5,
+          "part_damage": 5000,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-capture",
+          "time": 0.21666666666666665,
+          "parts": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "damage": 5000,
+          "part": "near",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "damage": 5000,
+          "part": "far",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "damage": 2000,
+          "part": "",
+          "target": "",
+          "extra": false,
+          "reach": 5,
+          "part_damage": 5000,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-capture",
+          "time": 0.21666666666666665,
+          "parts": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "damage": 5000,
+          "part": "near",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "damage": 5000,
+          "part": "far",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-close",
+          "time": 0.25,
+          "pattern": "parts",
+          "ordinal": 1,
+          "outcome": "end"
+        }
+      ]
+    },
+    {
+      "name": "parts-lifecycle-named-child-removes-basis-after-snapshot",
+      "damage": [
+        14000,
+        0,
+        0,
+        0,
+        0
+      ],
+      "lifecycle": [
+        {
+          "kind": "part-open",
+          "time": 0.0,
+          "pattern": "parts",
+          "ordinal": 1
+        },
+        {
+          "kind": "named-hit",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 2000,
+          "part": "",
+          "target": "",
+          "extra": false,
+          "reach": 5,
+          "part_damage": 3000,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-capture",
+          "time": 0.0,
+          "parts": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "near",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "far",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "named-hit",
+          "owner": 0,
+          "time": 0.21666666666666665
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "damage": 2000,
+          "part": "",
+          "target": "",
+          "extra": false,
+          "reach": 5,
+          "part_damage": 2000,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-capture",
+          "time": 0.21666666666666665,
+          "parts": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "damage": 2000,
+          "part": "near",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "damage": 2000,
+          "part": "far",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-close",
+          "time": 0.25,
+          "pattern": "parts",
+          "ordinal": 1,
+          "outcome": "end"
+        }
+      ]
+    },
+    {
+      "name": "parts-lifecycle-expiry-before-second",
+      "damage": [
+        10000,
+        0,
+        0,
+        0,
+        0
+      ],
+      "lifecycle": [
+        {
+          "kind": "part-open",
+          "time": 0.0,
+          "pattern": "parts",
+          "ordinal": 1
+        },
+        {
+          "kind": "named-hit",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 2000,
+          "part": "",
+          "target": "",
+          "extra": false,
+          "reach": 5,
+          "part_damage": 3000,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-capture",
+          "time": 0.0,
+          "parts": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "near",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "far",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-close",
+          "time": 0.09999999999999999,
+          "pattern": "parts",
+          "ordinal": 1,
+          "outcome": "expired"
+        },
+        {
+          "kind": "named-hit",
+          "owner": 0,
+          "time": 0.21666666666666665
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "damage": 2000,
+          "part": "",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        }
+      ]
+    },
+    {
+      "name": "parts-lifecycle-reopened-same-labels",
+      "damage": [
+        16000,
+        0,
+        0,
+        0,
+        0
+      ],
+      "lifecycle": [
+        {
+          "kind": "part-open",
+          "time": 0.0,
+          "pattern": "parts",
+          "ordinal": 1
+        },
+        {
+          "kind": "named-hit",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 2000,
+          "part": "",
+          "target": "",
+          "extra": false,
+          "reach": 5,
+          "part_damage": 3000,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-destroy",
+          "time": 0.0,
+          "pattern": "parts",
+          "ordinal": 1,
+          "part": "near"
+        },
+        {
+          "kind": "part-destroy",
+          "time": 0.0,
+          "pattern": "parts",
+          "ordinal": 1,
+          "part": "far"
+        },
+        {
+          "kind": "part-capture",
+          "time": 0.0,
+          "parts": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "near",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "far",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-close",
+          "time": 0.016666666666666666,
+          "pattern": "parts",
+          "ordinal": 1,
+          "outcome": "cleared"
+        },
+        {
+          "kind": "part-open",
+          "time": 0.016666666666666666,
+          "pattern": "parts",
+          "ordinal": 2
+        },
+        {
+          "kind": "named-hit",
+          "owner": 0,
+          "time": 0.21666666666666665
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "damage": 2000,
+          "part": "",
+          "target": "",
+          "extra": false,
+          "reach": 5,
+          "part_damage": 3000,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-destroy",
+          "time": 0.21666666666666665,
+          "pattern": "parts",
+          "ordinal": 2,
+          "part": "near"
+        },
+        {
+          "kind": "part-destroy",
+          "time": 0.21666666666666665,
+          "pattern": "parts",
+          "ordinal": 2,
+          "part": "far"
+        },
+        {
+          "kind": "part-capture",
+          "time": 0.21666666666666665,
+          "parts": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "damage": 3000,
+          "part": "near",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "damage": 3000,
+          "part": "far",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-close",
+          "time": 0.2333333333333333,
+          "pattern": "parts",
+          "ordinal": 2,
+          "outcome": "cleared"
+        }
+      ]
+    },
+    {
+      "name": "parts-lifecycle-heal-child-does-not-resample-part-amount",
+      "damage": [
+        8000,
+        0,
+        0,
+        0,
+        0
+      ],
+      "lifecycle": [
+        {
+          "kind": "part-open",
+          "time": 0.0,
+          "pattern": "parts",
+          "ordinal": 1
+        },
+        {
+          "kind": "named-hit",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 2000,
+          "part": "",
+          "target": "",
+          "extra": false,
+          "reach": 5,
+          "part_damage": 3000,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "heal-notify",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "part-capture",
+          "time": 0.0,
+          "parts": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "near",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "heal-notify",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "far",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "heal-notify",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "part-close",
+          "time": 0.25,
+          "pattern": "parts",
+          "ordinal": 1,
+          "outcome": "end"
+        }
+      ]
+    },
+    {
+      "name": "parts-lifecycle-destroy-group-before-child-healing",
+      "damage": [
+        8000,
+        0,
+        0,
+        0,
+        0
+      ],
+      "lifecycle": [
+        {
+          "kind": "part-open",
+          "time": 0.0,
+          "pattern": "parts",
+          "ordinal": 1
+        },
+        {
+          "kind": "named-hit",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 2000,
+          "part": "",
+          "target": "",
+          "extra": false,
+          "reach": 5,
+          "part_damage": 3000,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "heal-notify",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "part-destroy",
+          "time": 0.0,
+          "pattern": "parts",
+          "ordinal": 1,
+          "part": "near"
+        },
+        {
+          "kind": "part-destroy",
+          "time": 0.0,
+          "pattern": "parts",
+          "ordinal": 1,
+          "part": "far"
+        },
+        {
+          "kind": "part-capture",
+          "time": 0.0,
+          "parts": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "near",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "heal-notify",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "far",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "heal-notify",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "part-close",
+          "time": 0.25,
+          "pattern": "parts",
+          "ordinal": 1,
+          "outcome": "end"
+        }
+      ]
+    },
+    {
+      "name": "parts-lifecycle-queued-second-after-group-destruction",
+      "damage": [
+        10000,
+        0,
+        0,
+        0,
+        0
+      ],
+      "lifecycle": [
+        {
+          "kind": "part-open",
+          "time": 0.0,
+          "pattern": "parts",
+          "ordinal": 1
+        },
+        {
+          "kind": "named-hit",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "named-hit",
+          "owner": 0,
+          "time": 0.0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 2000,
+          "part": "",
+          "target": "",
+          "extra": false,
+          "reach": 5,
+          "part_damage": 3000,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-destroy",
+          "time": 0.0,
+          "pattern": "parts",
+          "ordinal": 1,
+          "part": "near"
+        },
+        {
+          "kind": "part-destroy",
+          "time": 0.0,
+          "pattern": "parts",
+          "ordinal": 1,
+          "part": "far"
+        },
+        {
+          "kind": "part-capture",
+          "time": 0.0,
+          "parts": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "near",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 3000,
+          "part": "far",
+          "target": "",
+          "extra": false,
+          "reach": 0,
+          "part_damage": 0,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "packet",
+          "owner": 0,
+          "time": 0.0,
+          "damage": 2000,
+          "part": "",
+          "target": "",
+          "extra": false,
+          "reach": 5,
+          "part_damage": 3000,
+          "interrupt_reach": 0,
+          "interrupt_damage": 0
+        },
+        {
+          "kind": "part-capture",
+          "time": 0.0,
+          "parts": []
+        },
+        {
+          "kind": "part-close",
+          "time": 0.25,
+          "pattern": "parts",
+          "ordinal": 1,
+          "outcome": "end"
+        }
+      ]
+    }
+  ],
+  "retention": {
+    "old25_input_native_trace_contract_fingerprints_equal": true,
+    "baseline": "research/portable-parts-skill-reference-checkpoint.json",
+    "gpu_source_closure_equal_existing849": true,
+    "gpu_dispatches": 0
+  },
+  "proof_scope": "Actual native create/notify/land ordering and parts open ordinal. Not a delayed projectile target binding proof or GPU implementation.",
+  "remaining": [
+    "Common captured-stats scalar damage helper and Frame snapshot connection",
+    "GPU packet lifetime/storage ownership including periodic snapshot coexistence",
+    "Late landing gate and reached live part selection with group damage before callbacks",
+    "Coordinate and interrupt adapters remain rejected",
+    "Full CUDA compiler/module/calculation and full-character certification"
+  ],
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "owner": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+  "stage": "jit-link-object",
+  "source_object": {
+    "sha256": "18240abc4fd5bd477fd8e0b47c92b7ae35b692c2eecd4052135840050c308fbe",
+    "bytes": 8047408,
+    "matches_previous_object": true
+  },
+  "cubin": {
+    "sha256": "479a2f7f470bd9a89988a97d97314de7d0878feaec1ad4704b006b74e3c65d6b",
+    "bytes": 7442960
+  },
+  "sdk_api_returns": [
+    {
+      "stage": "nvJitLinkVersion",
+      "return_code": 0,
+      "elapsed_seconds": 4e-06
+    },
+    {
+      "stage": "__nvJitLinkCreate_12_4",
+      "return_code": 0,
+      "elapsed_seconds": 0.0024698
+    },
+    {
+      "stage": "__nvJitLinkAddData_12_4",
+      "return_code": 0,
+      "elapsed_seconds": 0.0062778
+    },
+    {
+      "stage": "__nvJitLinkComplete_12_4",
+      "return_code": 0,
+      "elapsed_seconds": 0.0124049
+    },
+    {
+      "stage": "__nvJitLinkGetErrorLogSize_12_4",
+      "return_code": 0,
+      "elapsed_seconds": 6.6e-06
+    },
+    {
+      "stage": "__nvJitLinkGetInfoLogSize_12_4",
+      "return_code": 0,
+      "elapsed_seconds": 4.9e-06
+    },
+    {
+      "stage": "__nvJitLinkGetLinkedCubinSize_12_4",
+      "return_code": 0,
+      "elapsed_seconds": 1.22e-05
+    },
+    {
+      "stage": "__nvJitLinkGetLinkedCubin_12_4",
+      "return_code": 0,
+      "elapsed_seconds": 0.0005606
+    },
+    {
+      "stage": "__nvJitLinkDestroy_12_4",
+      "return_code": 0,
+      "elapsed_seconds": 0.0010534
+    }
+  ],
+  "link_elapsed_seconds": 0.2207455,
+  "execution": {
+    "outer": {
+      "passed": false,
+      "timed_out": false,
+      "elapsed_seconds": 47.88597929989919,
+      "final_child_exit_code": 2,
+      "below_normal_priority": true,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_peak_bytes": 241635328,
+      "job_limit_bytes": 2147483648,
+      "job_empty_after": true,
+      "monitoring": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      }
+    },
+    "inner": {
+      "passed": true,
+      "timed_out": false,
+      "elapsed_seconds": 18.963473899755627,
+      "final_child_exit_code": 0,
+      "below_normal_priority": true,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_peak_bytes": 139579392,
+      "job_limit_bytes": 2147483648,
+      "job_empty_after": true,
+      "monitoring": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      }
+    }
+  },
+  "judgments": {
+    "object_verified": true,
+    "link_verified": true,
+    "containment_verified": true,
+    "monitored_process_preservation_verified": true,
+    "whole_environment_preservation_verified": false,
+    "stage_verified": false,
+    "stage_complete": false,
+    "service_preservation": "unverified"
+  },
+  "ram_gate": {
+    "passed": true,
+    "gate": "Immediately before first API worker launch",
+    "observed_unix_ns": 1793586297411652400,
+    "observed_at_jst": "2026-11-02T11:24:57.411652+09:00",
+    "available_physical_bytes": 14023548928,
+    "required_available_bytes": 4294967296,
+    "ram_measurements_at_this_gate": 1,
+    "resampling_loop": false,
+    "sdk_calls": 0,
+    "gpu_calls": 0
+  },
+  "prior_claims_unchanged": {
+    "$VALIDATION_ROOT/packet/compile-claimed-cuda.json": true,
+    "$VALIDATION_ROOT/packet/module-object-claimed-cuda.json": true,
+    "$VALIDATION_ROOT/packet/packet-stage-claimed-compile-ptx-cuda.json": true,
+    "$VALIDATION_ROOT/packet/packet-stage-claimed-generation-cuda.json": true,
+    "$VALIDATION_ROOT/packet/packet-stage-claimed-module-object-cuda.json": true,
+    "$VALIDATION_ROOT/ptx-plan/command-claimed.json": true,
+    "$VALIDATION_ROOT/unpack/command-claimed.json": true
+  },
+  "object_status_unchanged": true,
+  "counts": {
+    "link_attempts": 1,
+    "ram_measurements": 1,
+    "generation": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "gpu_kernel_calls": 0,
+    "battle_api": 0,
+    "retries": 0
+  },
+  "capture": "$VALIDATION_ROOT/jit-link-object-v1"
+}

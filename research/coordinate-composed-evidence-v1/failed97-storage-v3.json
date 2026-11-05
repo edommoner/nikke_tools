@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-coordinate-composed97-metal-v3",
+  "raw_bytes": 508559360,
+  "raw_sha256": "752ab2b1317d185dd0221b7381853beeb083c4efedc55ff260a493c3bfe80e6c",
+  "evidence_sha256": "fef6dba70c92304c4aa41f1e11092832042845349b8480334447479f664c608a",
+  "raw_inode": 509779949,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 3191,
+  "zero_range_bytes": 493486080,
+  "allocated_before": 508559360,
+  "allocated_after": 15073280,
+  "allocated_reclaimed": 493486080,
+  "full_hash_verified": true
+}

@@ -1,0 +1,76 @@
+{
+  "schema": "named-target-count-physical-metal-proof-v1",
+  "suite": "named-target-count-shots",
+  "package_id": "6a7b2a2ed589baa3f1604fe504fc8234fa4f588b8a81aed48f6df2bd77c7d213",
+  "inputs": 9,
+  "native_cases": 5,
+  "rejected_cases": 4,
+  "original_modifier_definition_cases": 2,
+  "derived_timing_and_recipient_cases": 3,
+  "physical_shot_lifetime_verified": true,
+  "whole_authored_battle_and_skill_trace_compared": true,
+  "all_physical_shots_compared": true,
+  "source_modifier_bullet_duration": 2,
+  "trace_capacity": 100,
+  "trace_overflow_rejected": true,
+  "cpu_shot_schedule_or_query_values_supplied": false,
+  "metal_verified": true,
+  "independent_fresh_audit_verified": true,
+  "independent_fresh_audit_seconds": 1.8984388329990907,
+  "live_parent_receipt_present": false,
+  "device": "Apple M5",
+  "gpu_seconds": 0.04132587499771034,
+  "pipeline_cache_hit": true,
+  "pipeline_cache_required": true,
+  "input_sha256": "214dba6d66be0e04bf740796506c8eed5fb2180e713f354b9285de224a667878",
+  "output_sha256": "619aaf6c6f381f990fa264cf0a6b649620e65e826a1a91b7ab029a8f0d93bfe0",
+  "readback_bytes": 28311552,
+  "cuda_verified": false,
+  "spatial_selection_verified": false,
+  "original_full25_profile_verified": false,
+  "public_gpu_admitted": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "scope": "Original two-shot definition in authored physical fixtures, plus separate diagnostic timing/recipient variants; not a full Heavyarms profile proof",
+  "anchors": [
+    {
+      "file": "target-count-shots-v3-independent.json",
+      "bytes": 758,
+      "sha256": "9e703c1e1e78e2254c06198d263bdc7c2aefb639d72cf7e6b5ab47466b482456"
+    },
+    {
+      "file": "target-count-shots-v3-metal/result.json",
+      "bytes": 1419,
+      "sha256": "166d4af08c66ba6758cb3481c7c899f31b3eaeb1c75147a6ee83c3169a7a0370"
+    },
+    {
+      "file": "target-count-shots-v3-metal/evidence.json",
+      "bytes": 17337,
+      "sha256": "e1b46daf7e8c0e13da20b48c75bafc22bbbaedbf260a5d85922dd5d89e9f27bd"
+    },
+    {
+      "file": "target-count-shots-v3-metal/artifacts.json",
+      "bytes": 3870,
+      "sha256": "14e41a1fbf5796ce2d986d324c5cadfc0dc418d211bcdecffca07c4691f76d2a"
+    },
+    {
+      "file": "target-count-shots-v3-package/gpu-package.json",
+      "bytes": 648212,
+      "sha256": "05c895ad1c1e9577a9b7c389381f00fc616bf5dd46c6079a9e45c58f897739db"
+    }
+  ],
+  "failures_retained": {
+    "v1": "Optimized zero-active-buff call path omitted before/after lifetime trace rows. Comparison stayed strict.",
+    "v2": "Full trace succeeded except inconsistent literal charge delay0.2 vs native static0.215. No CPU expected values changed.",
+    "v3": "All nine inputs passed after static validation."
+  },
+  "physical_shot_counts": [
+    30,
+    52,
+    30,
+    30,
+    36
+  ],
+  "total_physical_shots_compared": 178,
+  "selected_tests": 8
+}

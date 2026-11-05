@@ -1,0 +1,6 @@
+{
+  "passed": false,
+  "gpu_execution_verified": false,
+  "stage": "pipeline_compile",
+  "error": "Traceback (most recent call last):\n  File \"/tmp/nikke-v33-focused.py\", line 7, in <module>\n    r=run_programs([v.compile_case(c) for c in cs],backend='metal');r.update(passed=False,case_names=[c['name'] for c in cs]);path.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\\n')\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/edo/Documents/ChatGPT/nikke_tools/app/portable_runtime.py\", line 411, in run_programs\n    raw,evidence=execute('gpu/event_runtime.slang','portableEvents',packed,L['INPUT_WORDS'],L['OUTPUT_WORDS'],backend)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/edo/Documents/ChatGPT/nikke_tools/app/portable_backend.py\", line 109, in execute\n    raise RuntimeError(process.stderr or process.stdout)\nRuntimeError: portable_stage=pipeline_lock\nportable_stage=library_compile\nportable_stage=pipeline_compile\nError Domain=AGXMetalG17G Code=3 \"Compute function exceeds available stack space\" UserInfo={NSLocalizedDescription=Compute function exceeds available stack space}\n\n"
+}

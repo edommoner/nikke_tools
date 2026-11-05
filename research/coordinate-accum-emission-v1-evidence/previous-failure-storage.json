@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-coordinate-quantity-metal-v1",
+  "raw_bytes": 152043520,
+  "raw_sha256": "9166a6f537fad73ea2263ae811e9ca3bf2b152bc7e08c1f7822c0d4f8ba6cab4",
+  "evidence_sha256": "33ea70f652fd4d6d7eb66c04d6c06360da797a562a98c40d8340387e63d75312",
+  "raw_inode": 509990785,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 900,
+  "zero_range_bytes": 147787776,
+  "allocated_before": 152043520,
+  "allocated_after": 4255744,
+  "allocated_reclaimed": 147787776,
+  "full_hash_verified": true
+}

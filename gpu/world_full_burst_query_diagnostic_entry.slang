@@ -1,0 +1,2 @@
+#define PORTABLE_FULL_BURST_QUERY_DIAGNOSTIC
+#include "world_full_burst_landing_entry.slang"

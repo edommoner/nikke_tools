@@ -1,0 +1,406 @@
+{
+  "scope": "Fixed burst and literal manual cover in the existing product executor",
+  "implementation_commit": "9cb703a14c770583e97177326cabaf99d81acae2",
+  "proof_root": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-fixed-cover-v1-20261101",
+  "gpu_logic_changes": "Enable existing PORTABLE_PRODUCT_FIXED_COORDINATE header in existing cover-fixed wrapper only; shared numerical/event bodies unchanged",
+  "models": "Independent cover DEF bases are explicit declarations, not game-verified quantities; no inferred constants",
+  "source_programs": [
+    "cover-fixed",
+    "default-cover-fixed"
+  ],
+  "golden": {
+    "path": "research/portable-product-programs-v17-expected.json",
+    "new_members": [
+      "cover-fixed"
+    ],
+    "reverified_members": [
+      "default-cover-fixed"
+    ],
+    "historical_members_unchanged": 15,
+    "default_native_sha256_unchanged": true,
+    "default_input_output_changes": "Canonical combined control header6 and initialized posture tail; native full result unchanged"
+  },
+  "metal": {
+    "ordinary_api_conditions": 5,
+    "rows": [
+      {
+        "name": "phases",
+        "capture_id": "18e826b75a5c405099246593f772051b",
+        "input_sha256": "9d6af68575be9a6ce331bb2c09ec1704b62435725aa14678dae4156efec5b83a",
+        "output_sha256": "32c008fe97e988c6169e4745f70167a1d4886ccf819b4616118e4678c2bc76ed",
+        "device": "Apple M5",
+        "full_cpu_match": true,
+        "total_damage": 92030156,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "솔져 O.W."
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "도라"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "드레이크"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 21.183,
+            "event": "stage:1 사용",
+            "character": "솔져 O.W."
+          },
+          {
+            "time": 21.283,
+            "event": "stage:2 사용",
+            "character": "도라"
+          }
+        ],
+        "cover_receipts": 15
+      },
+      {
+        "name": "pierce",
+        "capture_id": "3d586ab4d013474da2ecffb6357d957b",
+        "input_sha256": "37a42b87e7da210bfee448196b4049fd5c47eb5625ca781fb62c1cf9fb50b750",
+        "output_sha256": "2124f0835d415c4afd17dc02203336e4b03d4603fe29ed3df88c6a55000b9e88",
+        "device": "Apple M5",
+        "full_cpu_match": true,
+        "total_damage": 92030156,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "솔져 O.W."
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "도라"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "드레이크"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 21.183,
+            "event": "stage:1 사용",
+            "character": "솔져 O.W."
+          },
+          {
+            "time": 21.283,
+            "event": "stage:2 사용",
+            "character": "도라"
+          }
+        ],
+        "cover_receipts": 15
+      },
+      {
+        "name": "broken",
+        "capture_id": "ae1ae8168d3b44acb92fc1de85fdcefe",
+        "input_sha256": "de24175fa8f6020a3a9dfc63dd082fab56cce3b1e5279d0bf50478b8c2979579",
+        "output_sha256": "3b5ff4423d698ae0f1f6ed7fbb48674fc8c0d12cc2444867155092ab35803be4",
+        "device": "Apple M5",
+        "full_cpu_match": true,
+        "total_damage": 54397517,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "솔져 O.W."
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "도라"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "드레이크"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          }
+        ],
+        "cover_receipts": 5
+      },
+      {
+        "name": "shared-shield",
+        "capture_id": "81e7b7212d434f55baefa9436e816a02",
+        "input_sha256": "7aad0c295d7fb0b52eac351b394b33078118b396a66f1885afca9a659f509531",
+        "output_sha256": "c733476b48db54bbf0e172efdd9c461dde9ba3d8579f759b7994b0ebb3e2bb45",
+        "device": "Apple M5",
+        "full_cpu_match": true,
+        "total_damage": 82357253,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "솔져 O.W."
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "센티"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "드레이크"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 23,
+            "event": "stage:1 사용",
+            "character": "솔져 O.W."
+          },
+          {
+            "time": 23.1,
+            "event": "stage:2 사용",
+            "character": "센티"
+          }
+        ],
+        "cover_receipts": 16
+      },
+      {
+        "name": "default-no-incoming",
+        "capture_id": "7bfd11c91a084372ac7b733df35451ea",
+        "input_sha256": "d60bf71a008bd1601d8af5bc083f6ffcc61c3f8e537954dbcb04d5ea3282e85d",
+        "output_sha256": "ad5208a7613d552c13172bc1be00f7c02c981732afb7c24a0d93b6e2e1728fa4",
+        "device": "Apple M5",
+        "full_cpu_match": true,
+        "total_damage": 94312529,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "솔져 O.W."
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "도라"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "드레이크"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 21.183,
+            "event": "stage:1 사용",
+            "character": "솔져 O.W."
+          },
+          {
+            "time": 21.283,
+            "event": "stage:2 사용",
+            "character": "도라"
+          }
+        ],
+        "cover_receipts": 0
+      }
+    ],
+    "all_full_cpu_payload_match": true,
+    "saved_source_input_full_readback_response_audit": {
+      "passed": true,
+      "rows": [
+        {
+          "name": "phases",
+          "capture_id": "18e826b75a5c405099246593f772051b",
+          "source_input_raw_sha256_verified": true,
+          "all_cpu_gpu_api_fields_match": true,
+          "definitions": 69,
+          "source_indices_complete": true,
+          "gpu_calls": 0,
+          "native_calls": 0
+        },
+        {
+          "name": "pierce",
+          "capture_id": "3d586ab4d013474da2ecffb6357d957b",
+          "source_input_raw_sha256_verified": true,
+          "all_cpu_gpu_api_fields_match": true,
+          "definitions": 69,
+          "source_indices_complete": true,
+          "gpu_calls": 0,
+          "native_calls": 0
+        },
+        {
+          "name": "broken",
+          "capture_id": "ae1ae8168d3b44acb92fc1de85fdcefe",
+          "source_input_raw_sha256_verified": true,
+          "all_cpu_gpu_api_fields_match": true,
+          "definitions": 69,
+          "source_indices_complete": true,
+          "gpu_calls": 0,
+          "native_calls": 0
+        },
+        {
+          "name": "shared-shield",
+          "capture_id": "81e7b7212d434f55baefa9436e816a02",
+          "source_input_raw_sha256_verified": true,
+          "all_cpu_gpu_api_fields_match": true,
+          "definitions": 67,
+          "source_indices_complete": true,
+          "gpu_calls": 0,
+          "native_calls": 0
+        },
+        {
+          "name": "default-no-incoming",
+          "capture_id": "7bfd11c91a084372ac7b733df35451ea",
+          "source_input_raw_sha256_verified": true,
+          "all_cpu_gpu_api_fields_match": true,
+          "definitions": 69,
+          "source_indices_complete": true,
+          "gpu_calls": 0,
+          "native_calls": 0
+        }
+      ],
+      "gpu_calls": 0,
+      "native_calls": 0,
+      "source_owner": "e78c84bb41f86003f83b784a948019dcc0ec5868f1d667d0713989c4f31b53a2"
+    }
+  },
+  "tests": {
+    "regression_tests": 110,
+    "additional_malformed_header_test": 1,
+    "failures_preserved": "../proofs/product-fixed-cover-v1-20261101/initial-test-failure.json"
+  },
+  "cuda": {
+    "new_cover_source_verified": false,
+    "request_sent": false
+  },
+  "coverage": {
+    "last_standard_metal_profiles": 262,
+    "last_standard_total": 266,
+    "new_standard_profiles": 0,
+    "new_standard_cuda_profiles": 0,
+    "expanded_conditions_profile": "Soldier O.W.",
+    "all_characters_effects_complete": false
+  },
+  "remaining": [
+    "Model compositions and public coordinate sampling admission",
+    "Standard four profiles require explicit declarations",
+    "CUDA new fixed-cover source not compiled/verified"
+  ],
+  "cleanup": {
+    "dedicated_port": 4402,
+    "stopped": true,
+    "user_servers_untouched": true
+  },
+  "sealed_release": {
+    "manual": {
+      "package_id": "7b6579a2a4db6140779668923ced9559fc863710a9219081e454a82d1114e302",
+      "source_commit": "eabd96c6f2a6cca55471d7f3e24381cd6398dcfc",
+      "zip_sha256": "b5f5fc45b21c2bb1aad56c7772ea01fa6b591506389bdc819569b34fde90611a",
+      "zip_bytes": 11947276,
+      "unit_tests": 111,
+      "fresh_native_cases": 1,
+      "gpu_calls": 0,
+      "ptx_compile_plan_passed": true,
+      "cuda_requests": 0
+    },
+    "default": {
+      "package_id": "b8046f7bba1b7f5b5319d991639ed4605946d491e696e7be32bee6dc194de571",
+      "source_commit": "eabd96c6f2a6cca55471d7f3e24381cd6398dcfc",
+      "zip_sha256": "8e071680ac0f0b91f01a86f0ba1bd805d0c028dcd30abb684fdd01e972d4b0df",
+      "zip_bytes": 11947285,
+      "unit_tests": 111,
+      "fresh_native_cases": 1,
+      "gpu_calls": 0,
+      "ptx_compile_plan_passed": true,
+      "cuda_requests": 0
+    }
+  },
+  "ui": {
+    "verified_source_commit": "53369dc2e048104fb868b8de1331b3034d61ec46",
+    "package_id": "655c1ec643443944ba2f4c0c24c56c77c4a687c38bdef3e0379df0807573962e",
+    "ordinary_ui_actual_metal_conditions": 1,
+    "profile": "Soldier O.W. with original named roster and fictional expanded-demo growth",
+    "duration_seconds": 30,
+    "total_damage": 85703861,
+    "capture_id": "e41d6ac5d35f4c3daf696bda45d741c8",
+    "input_sha256": "f27f3801a0b7293ec722ce1e420767bb0db19785a8b4d4b1e481519d5219859e",
+    "output_sha256": "53f2a19550dce128ba5ed3ff90e6bdf19d97a661f638430cce0a522a49cec16d",
+    "all_original_definitions_retained": 98,
+    "cover_receipts": 5,
+    "cpu_full_payload_matched": true,
+    "saved_audit": {
+      "passed": true,
+      "capture_id": "e41d6ac5d35f4c3daf696bda45d741c8",
+      "input_sha256": "f27f3801a0b7293ec722ce1e420767bb0db19785a8b4d4b1e481519d5219859e",
+      "output_sha256": "53f2a19550dce128ba5ed3ff90e6bdf19d97a661f638430cce0a522a49cec16d",
+      "all_source_input_raw_and_payload_fields_verified": true,
+      "definitions": 98,
+      "bindings_complete": true,
+      "ui_compute_base_stats_and_displayed_total_verified": true,
+      "body_reconstructed_from_frozen_demo_and_visible_conditions": true,
+      "gpu_calls": 0,
+      "native_calls": 0
+    },
+    "validation": {
+      "unsupported_action_rejected_in_ui": true,
+      "timing_only_change_invalidates_old_score_in_ui": true,
+      "session_roundtrip": "Node tests only; no repeated browser file transfer",
+      "final_state_admission_guard": "One additional validation call before state mutation; actual setDeclaredScenario VM regression plus full55 Node tests; not part of earlier browser-tested packet",
+      "final_guard_is_only_app_js_delta": true,
+      "all_other_changed_ui_and_calculation_files_byte_identical": true
+    },
+    "screenshot": {
+      "path": "research/product-fixed-cover-ui-v1.png",
+      "sha256": "1a651ad50d8eeaaf3b9e176cc00dff61dc0d6ab771f95c906ebb868f504bc8cf"
+    },
+    "extra_gpu_native_calls_for_audit": 0,
+    "source_node_tests": 55,
+    "dedicated_server_stopped": true,
+    "test_tab_closed": true
+  }
+}

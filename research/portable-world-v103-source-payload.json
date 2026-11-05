@@ -1,0 +1,77 @@
+{
+  "source_commit": "767f4f4274b5840da44cc48687572580f030d07a",
+  "branch": "codex/cuda-world-v103-source",
+  "base": "51aa3399961c408889a599e1a265057469ff1bb6",
+  "file_count": 12,
+  "files": [
+    {
+      "path": "app/portable_specs.py",
+      "bytes": 21613,
+      "sha256": "f4f9c8cbfa211cb6c039784fca6ec1480626cb77c8db9d30f161804fbf039bc9"
+    },
+    {
+      "path": "app/portable_world_roster_input.py",
+      "bytes": 8862,
+      "sha256": "c5e284b08c257f3316ce16ca08e363cc38025e51302939c41e9b36317c95a648"
+    },
+    {
+      "path": "gpu/event_runtime.slang",
+      "bytes": 143427,
+      "sha256": "f02bf696a522a612498a925b6b35200ef68f9604924e9862c99fccf26b390bc9"
+    },
+    {
+      "path": "gpu/portable_schema.slang",
+      "bytes": 24016,
+      "sha256": "9c57ddd55b5f0a54a75df72bd86ce795d7937a824beb5bda181c836c54c88db6"
+    },
+    {
+      "path": "gpu/world_fraction_runtime.slang",
+      "bytes": 2277,
+      "sha256": "6ee8371cee6f0ab559cbfb4c7fe2feb07b126270be9a87339893ea0f55bb3644"
+    },
+    {
+      "path": "gpu/world_roster_entry.slang",
+      "bytes": 66,
+      "sha256": "7d78135536c330b19acf05b458748e3236450d1281a9c5ac81fb8351c57dbbf4"
+    },
+    {
+      "path": "gpu/world_team_runtime.slang",
+      "bytes": 5096,
+      "sha256": "46844c4adedd8c14000066672825226a269e2e6f427f52eb824a5e6f3b3bcfa6"
+    },
+    {
+      "path": "tests/test_portable_cuda_preservation.py",
+      "bytes": 6215,
+      "sha256": "42056001c48fe9676df0e11309795b4f4a5b585ce47d88f34770e7821e617007"
+    },
+    {
+      "path": "tests/test_portable_world_roster_input.py",
+      "bytes": 3954,
+      "sha256": "365dc9cef898131553a425fff01d0a2c8649ec9dbf4ca6f921feac67b111e5a5"
+    },
+    {
+      "path": "research/verify-world-roster.py",
+      "bytes": 5256,
+      "sha256": "5636e59aded5ec7fb4ed273f94488b819dad7acc1f5b22d957bee467fc7485c3"
+    },
+    {
+      "path": "research/verify-world-roster-short.py",
+      "bytes": 4839,
+      "sha256": "96c9fb4b1fe1f14e94edfe51365ff0cde71391342c5ba097685af9a5cec5e6ed"
+    },
+    {
+      "path": "research/portable-world-roster-short-expected.json",
+      "bytes": 13001,
+      "sha256": "836dffc70aa1bdbee5e98039f02f3d663d05248d27aa22706acad04925fb28b8"
+    }
+  ],
+  "bytes": 238622,
+  "private_settings": false,
+  "raw": false,
+  "large_reports": false,
+  "authorization": "User permits GitHub sharing until current goal achieved",
+  "windows_input_count": 10,
+  "windows_native_oracles": 6,
+  "old1063_reexecutions": 0,
+  "old_reload65_reexecutions": 0
+}

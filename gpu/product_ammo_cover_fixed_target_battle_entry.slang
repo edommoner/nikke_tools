@@ -1,0 +1,3 @@
+#define PORTABLE_PRODUCT_FIXED_COORDINATE
+#define PORTABLE_PRODUCT_FIXED_BURST
+#include "product_ammo_cover_target_battle_entry.slang"

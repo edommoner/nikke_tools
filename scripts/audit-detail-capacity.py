@@ -28,7 +28,7 @@ for subject,meta in a.META.items():
             raise Captured()
         body=dict(profile=dict(chars=chars,_account=account),squad=names,duration=1,level=400,
                   enemy={'def':31784,'core_px':5,'code':'풍압','distance':25},
-                  burst_policy='auto',shooting_policy='auto',_compile_gpu_detail=True)
+                  burst_policy='auto',shooting_policy='auto',_compile_detail=True)
         try:
             with patch.object(gpu,'compile_effects',capture):a.evaluate(body)
         except Captured:pass
@@ -53,7 +53,7 @@ chain=dict(characters=selected,expanded_lower_bound=sum(r['expanded_lower_bound'
 for example in (accepted_max,chain):
     chosen=example['characters'];names=[r['character'] for r in chosen]
     chars={r['character']:{**copy.deepcopy(growth),'favorite_stage':r['favorite']} for r in chosen}
-    body=dict(profile=dict(chars=chars,_account=account),squad=names,duration=1,level=400,enemy={'def':31784,'core_px':5,'code':'풍압','distance':25},burst_policy='auto',shooting_policy='auto',_compile_gpu_detail=True)
+    body=dict(profile=dict(chars=chars,_account=account),squad=names,duration=1,level=400,enemy={'def':31784,'core_px':5,'code':'풍압','distance':25},burst_policy='auto',shooting_policy='auto',_compile_detail=True)
     try:
         result=a.evaluate(body);example.update(actual_compiler_accepted=True,actual_effect_rows=len(result['program']['effects']))
     except gpu.UnsupportedDetail as error:

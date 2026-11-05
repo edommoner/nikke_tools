@@ -4,8 +4,6 @@ from pathlib import Path
 from datetime import datetime,timezone
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
-from detail_gpu import run
-from gpu_selector import Cuda
 from detail_coverage import a,body_for
 
 def load(name,file):
@@ -61,53 +59,3 @@ def full_scenarios():
  es={n[0]:[E('shots','buff','atk_pct',80,'all_allies',duration_bullets=5),E('remove slow recipient','instant','remove_named_buff',0,n[2],target_effect='shots',remove_scope='target'),E('reference stays until all bullet counters finish','buff','atk_dmg_pct',100,scaling='stack_count',scaling_ref='shots'),E('last counter notification','damage','damage',100,'target',event='event:state_end:shots')]}
  cases.append(('scoped-bullet-lifetime-includes-removed-recipient',es,12))
  return cases
-
-def verify(device,backend='auto'):
- results=[]
- for name,program,script,expected in primitives():
-  bs={n:{'atk':100000+i*10000,'hp':1000000,'def':1000} for i,n in enumerate(NAMES)}
-  cpu,totals=oracle.oracle(program,script,[31784,50],bs);gpu=run(device,[program],script,[[31784,50]],[bs],module_backend=backend)
-  errors=[]
-  for i,(x,y) in enumerate(zip(cpu,gpu['queries'][0])):
-   if x[0]!=expected[i] or y[0]!=expected[i]:errors.append([i,'expected atk',expected[i],x[0],y[0]])
-   for k in (0,6,28,37):
-    if not math.isclose(x[k],y[k],rel_tol=1e-12,abs_tol=1e-8):errors.append([i,k,x[k],y[k]])
-  case={'name':name,'passed':not errors,'errors':errors,'backend':gpu['module_backend']};results.append(case);print(json.dumps(case),flush=True)
- for name,effects,seconds in full_scenarios():
-  from calculator.buff_manager import BuffManager
-  dispatch=BuffManager._dispatch_instant;actions={'named_operations_changed':0}
-  def track_operation(manager,eff,caster,t,**kw):
-   watched=eff.get('stat') in ('remove_named_buff','named_buff_duration_extend')
-   def snapshot():return [(ab.uid,tuple(ab.target_chars or []),ab.expires_at) for ab in manager._active]
-   before=snapshot() if watched else None;result=dispatch(manager,eff,caster,t,**kw)
-   if watched and before!=snapshot():actions['named_operations_changed']+=1
-   return result
-  with periodic.custom_effects(effects) as observed,patch.object(BuffManager,'_dispatch_instant',track_operation):
-   case=periodic.full.compare(device,name,body_for(periodic.NAMES,seconds),module_backend=backend)
-  observed.update(actions);case['passed'] &= actions['named_operations_changed']>0
-  case['observed']=copy.deepcopy(observed);case['backend']=backend
-  if name=='extension-updates-real-dot-timer':case['passed'] &= observed['damage_ticks']==6
-  if name=='scoped-enemy-dot-cancels-timer':case['passed'] &= observed['damage_ticks']==5
-  results.append(case);print(json.dumps({'name':name,'passed':case['passed'],'cpu':case['cpu_total'],'gpu':case['gpu_total'],'ticks':observed['damage_ticks']}),flush=True)
- # Real newly accepted characters are exercised with their unmodified skills.
- old=json.loads((ROOT/'research/detail-coverage-after.json').read_text(encoding='utf-8'));new=json.loads((ROOT/'research/detail-coverage-named.json').read_text(encoding='utf-8'));was={r['character'] for r in old['results'] if r['supported']}
- for record in new['results']:
-  name=record['character']
-  if record['supported'] and name not in was:
-   squad=[name]+[n for n in NAMES if n!=name][:4]
-   from calculator.buff_manager import BuffManager
-   dispatch=BuffManager._dispatch_instant;observed={'live_named_removals':0}
-   def track(manager,eff,caster,t,**kw):
-    if eff.get('stat')=='remove_named_buff' and any(ab.effect.get('name')==eff.get('target_effect') for ab in manager._active):observed['live_named_removals']+=1
-    return dispatch(manager,eff,caster,t,**kw)
-   with patch.object(BuffManager,'_dispatch_instant',track):case=periodic.full.compare(device,'real-'+name,body_for(squad,60,True),module_backend=backend)
-   case['backend']=backend;case['observed']=observed;case['mechanic_scope']='Real squad damage parity; live removal itself is required by the synthetic full-squad cases above';results.append(case);print(json.dumps({'name':name,'passed':case['passed'],'cpu':case['cpu_total'],'gpu':case['gpu_total'],'observed':observed},ensure_ascii=True),flush=True)
- return results
-
-if __name__=='__main__':
- d=Cuda()
- try:cases=verify(d,'native')+verify(d,'ptx')
- finally:d.close()
- sources=['app/detail_gpu.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-sm86.cubin','app/engine_worker.py','scripts/verify-named-detail.py']
- r={'generated_at':datetime.now(timezone.utc).isoformat(),'passed':all(c['passed'] for c in cases),'cpu_trace_used_as_gpu_input':False,'cases':cases,'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sources}}
- (ROOT/'research/detail-named-verification.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if r['passed'] else 1)

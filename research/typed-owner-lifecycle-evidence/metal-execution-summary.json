@@ -1,0 +1,361 @@
+{
+  "package_id": "dcd09db2434b77873a93c0f8d1109f5cbea990f9d1d49cd330d86ef8a573be67",
+  "device": "Apple M5",
+  "cases": 88,
+  "gpu_seconds": 4.110688208369538,
+  "library_compile_seconds": 0.005774021148681641,
+  "pipeline_compile_seconds": 0.0029031038284301758,
+  "pipeline_cache": {
+    "archive_bytes": 9393504,
+    "archive_compile_seconds": 0,
+    "archive_sha256": "9557ffe4485d88c83e988241aead9fe1244e0b11ae2fa530ad58090e1cc23940",
+    "enabled": true,
+    "hit": true,
+    "identity": {
+      "consumer_sha256": "272e3dc37e0a5710e274f5ab64d9d4eaf7b280ab523ac9bbbff3d2b57f406c3b",
+      "device": "Apple M5",
+      "entry": "portableEvents",
+      "math_mode": "safe",
+      "os_build": "Version 26.6.2 (Build 25G83)",
+      "registry_id": "4294968313",
+      "resident_stride": "138952",
+      "schema": "1",
+      "source_sha256": "6f60bfd077aff6577b4312d2aacc5961afe28aea830d7248912904d3bc2ae439",
+      "threads_per_threadgroup": "1"
+    },
+    "key": "34aa5841bf5dd458e67963eb1b80f239333650ccae4bc854230861bbb4c0730b",
+    "native_archive_miss_rejected": true,
+    "required": true,
+    "schema": 1
+  },
+  "runtime_stride_bytes": 138952,
+  "cpu_preflight": {
+    "passed": true,
+    "input_count": 88,
+    "native_oracles": 53,
+    "input_sha256": "2b75d9e0c27893c4bde1ee21ea023b4e67a741b64ff456cc05c211c24c77eaab",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 297.8210870421026,
+    "transport_input": {
+      "schema": 1,
+      "package_id": "dcd09db2434b77873a93c0f8d1109f5cbea990f9d1d49cd330d86ef8a573be67",
+      "input_count": 88,
+      "input_words": 115680,
+      "input_bytes": 40719364,
+      "input_sha256": "2b75d9e0c27893c4bde1ee21ea023b4e67a741b64ff456cc05c211c24c77eaab"
+    }
+  },
+  "execution": {
+    "passed": true,
+    "timed_out": false,
+    "timeout_seconds": 180,
+    "elapsed_seconds": 7.182687666034326,
+    "child_exit_code": 0,
+    "final_child_exit_code": 0,
+    "error": null,
+    "cleanup_error": null,
+    "cleanup_wait_seconds": 5,
+    "observation_error": null,
+    "wait_completed_unix_ns": 1793010049432083000,
+    "below_normal_priority": false,
+    "phase": {
+      "events": 41,
+      "last_event": {
+        "elapsed_seconds": 6.857393208,
+        "monotonic_ns": 1109198985225833,
+        "pid": 87686,
+        "stage": "shared_gpu_execute",
+        "state": "returned",
+        "wall_time_ns": 1793010049355337000
+      },
+      "timed_calls": [
+        {
+          "stage": "slang_generation_identity",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.122491541
+        },
+        {
+          "stage": "slang_generation_read_entry",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.016090875
+        },
+        {
+          "stage": "slang_reflection_plan",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.001779541
+        },
+        {
+          "stage": "slang_layout_assertions",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.008206583
+        },
+        {
+          "stage": "slang_scope_snapshot_audit",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.062913542
+        },
+        {
+          "stage": "slang_generation_validate_pair",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.073752125
+        },
+        {
+          "stage": "slang_generation_identity",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.122039458
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.000870125
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.000285417
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.000844375
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.00024325
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.000185208
+        },
+        {
+          "stage": "slang_build",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.357632375
+        },
+        {
+          "stage": "slang_reflection_plan",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.001722208
+        },
+        {
+          "stage": "slang_layout_assertions",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.007841208
+        },
+        {
+          "stage": "slang_scope_snapshot_audit",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.062477417
+        },
+        {
+          "stage": "slang_generation_validate_pair",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.072668417
+        },
+        {
+          "stage": "slang_reflection_plan",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.001725125
+        },
+        {
+          "stage": "shared_gpu_execute",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 6.857393208
+        }
+      ],
+      "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_linked_artifact_observed": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retry_count": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false
+  },
+  "original_comparison": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "passed": false,
+    "containment_verified": true,
+    "transport_verified": true,
+    "comparison_error": null,
+    "first_difference": {
+      "index": 85,
+      "name": "coordinate-typed-owner-lifecycle/hp-stale-filter",
+      "reason": "AssertionError: ('coordinate-typed-owner-lifecycle/hp-stale-filter', 0, ['enemy_fields'])"
+    },
+    "phase": {
+      "events": 41,
+      "last_event": {
+        "elapsed_seconds": 6.857393208,
+        "monotonic_ns": 1109198985225833,
+        "pid": 87686,
+        "stage": "shared_gpu_execute",
+        "state": "returned",
+        "wall_time_ns": 1793010049355337000
+      },
+      "timed_calls": [
+        {
+          "stage": "slang_generation_identity",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.122491541
+        },
+        {
+          "stage": "slang_generation_read_entry",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.016090875
+        },
+        {
+          "stage": "slang_reflection_plan",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.001779541
+        },
+        {
+          "stage": "slang_layout_assertions",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.008206583
+        },
+        {
+          "stage": "slang_scope_snapshot_audit",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.062913542
+        },
+        {
+          "stage": "slang_generation_validate_pair",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.073752125
+        },
+        {
+          "stage": "slang_generation_identity",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.122039458
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.000870125
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.000285417
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.000844375
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.00024325
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.000185208
+        },
+        {
+          "stage": "slang_build",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.357632375
+        },
+        {
+          "stage": "slang_reflection_plan",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.001722208
+        },
+        {
+          "stage": "slang_layout_assertions",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.007841208
+        },
+        {
+          "stage": "slang_scope_snapshot_audit",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.062477417
+        },
+        {
+          "stage": "slang_generation_validate_pair",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.072668417
+        },
+        {
+          "stage": "slang_reflection_plan",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 0.001725125
+        },
+        {
+          "stage": "shared_gpu_execute",
+          "pid": 87686,
+          "state": "returned",
+          "elapsed_seconds": 6.857393208
+        }
+      ],
+      "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_linked_artifact_observed": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "full_evidence": {
+    "bytes": 64276,
+    "sha256": "b46669c2fa5691b7d07d6b0b46d693581e5f1991dd73a1cbdeb54580556a383f"
+  },
+  "new_gpu_dispatches": 1,
+  "gpu_retries": 0
+}

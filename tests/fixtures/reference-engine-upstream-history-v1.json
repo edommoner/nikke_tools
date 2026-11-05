@@ -1,0 +1,27 @@
+{
+  "revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d",
+  "current_revision": "67835ca3033a95482749ea2db35a8ee2a0856a92",
+  "current_parity_claim": false,
+  "files": {
+    "research/upstream/nikke-calc-master/calculator/timeline.py": {
+      "old_path": "research/upstream/nikke-calc-23164e4/calculator/timeline.py",
+      "old_sha256": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+      "current_sha256": "766fc0cb0559a21d218f5bfbbf51ee7723380143438e3e5257df1a19cfc6da3f"
+    },
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": {
+      "old_path": "research/upstream/nikke-calc-23164e4/calculator/buff_manager.py",
+      "old_sha256": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+      "current_sha256": "d7834cc37a4d20e285e4b9da813f90d6d322171923d2cd31c866bc48b61bd47a"
+    },
+    "research/upstream/nikke-calc-master/docs/IMPL-STATUS.md": {
+      "old_path": "research/upstream/nikke-calc-23164e4/docs/IMPL-STATUS.md",
+      "old_sha256": "9a1249c6951a4d56d67061a71131289d9e6d87a64d8999fcdd7d7512ceb0f3d3",
+      "current_sha256": "36872fdb8c2ff42f2d93b7064d0dd23b863bbed4aff9ebe466eddfae1a68e419"
+    },
+    "research/upstream/nikke-calc-master/docs/GAMEPLAY.md": {
+      "old_path": "research/upstream/nikke-calc-23164e4/docs/GAMEPLAY.md",
+      "old_sha256": "9640ef2a5f0c2e651b20075e7b9e72f84890ad7c608809fd1eeb86962ce20e27",
+      "current_sha256": "299a167d4f8575aa5cac7bb3ec6c7b4190b05cd83647299d617cdf29bdaa45f8"
+    }
+  }
+}

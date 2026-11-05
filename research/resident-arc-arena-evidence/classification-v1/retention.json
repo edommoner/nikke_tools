@@ -1,0 +1,23 @@
+{
+  "schema": "classification-evidence-retention-v1",
+  "passed": true,
+  "package_id": "d01875a4cd0c734a752c0ce1418c18f37c6c12ae3810a184d76e1b9dc02efcb3",
+  "profile_count": 266,
+  "packed_profiles": 245,
+  "failed_profiles": 21,
+  "priority_categories": 20,
+  "all_profile_input_and_issue_records_equal": true,
+  "priority_order_and_frequency_equal": true,
+  "work_lanes_equal": true,
+  "changed_scope": "Latest scoped Metal106/CUDA standalone40 evidence metadata only",
+  "previous_inventory_sha256": "41fa64b247157c66ef5b41de6f4f4220b2c82d36947690be7295ee4975613646",
+  "current_inventory_sha256": "738a01bc258b6719939360d46a57b8e4c44a1da6558792e9cef6c629ceb62852",
+  "current_inventory_bytes": 313224,
+  "classification_tests": 20,
+  "forbidden_calls": {
+    "cpu_battle": 0,
+    "gpu": 0
+  },
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

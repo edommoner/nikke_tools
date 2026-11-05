@@ -12,14 +12,4 @@ class NamedHitBoundaryTests(unittest.TestCase):
   for slot in (None,'','스킬9',7):
    with self.subTest(slot=slot),self.assertRaises(g.UnsupportedDetail):g.compile_effects(self.chars,[(m.E('force','instant','force_skill_use',0,target_skill=slot),m.N[0])])
   with self.assertRaises(g.UnsupportedDetail):g.compile_effects(self.chars,[(m.B('not force','atk_pct',10,target_skill='스킬1'),m.N[0])])
- def test_slot_selection_and_forged_references_are_checked(self):
-  effects=[(m.B('selected','atk_pct',10),m.N[0]),(m.B('other owner','atk_pct',10),m.N[1]),(m.E('force','instant','force_skill_use',0,target_skill='스킬1'),m.N[0])]
-  effects[-1][0]['source']='스킬2';p=g.compile_effects(self.chars,effects);row=p['effects'][2]
-  self.assertEqual(row[g.B3_MASK],1)
-  for bits in (2,4,1.5,-1):
-   bad=copy.deepcopy(p);bad['effects'][2][g.B3_MASK]=bits
-   with self.subTest(bits=bits),self.assertRaises(ValueError):g.run(None,[bad],[[0,2,0,0,-1,0,0,0]],[[0,0]],[{}])
-  for event in (55,56):
-   with self.subTest(event=event),self.assertRaisesRegex(ValueError,'private skill'):
-    g.run(None,[p],[[0,0,event,0,0,-1,0,0],[0,2,0,0,-1,0,0,0]],[[0,0]],[{}])
 if __name__=='__main__':unittest.main()

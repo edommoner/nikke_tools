@@ -1,0 +1,83 @@
+{
+  "files": {
+    "gpu/admission_runtime.slang": {
+      "before_sha256": "d6878d76a5cd62bf9033831a5a94eb03452c36c43def0ba5780e22057a350ae8",
+      "after_sha256": "752dc754d31e7755db52d5ffc294a454bfd61d66eb4512f774b3f9898406774f",
+      "hunks": [
+        {
+          "before": "        }\n        uint periodic = input+P_PERIODIC_DEFINITION_BASE+j*2;\n        bool accumEnemy=false;\n#ifdef PORTABLE_DAMAGE_ACCUM\n        accumEnemy=d.kind==0 && d.stat>=81U && d.stat<=83U;\n#endif\n",
+          "after": "        }\n        uint periodic = input+P_PERIODIC_DEFINITION_BASE+j*2;\n        bool accumEnemy=false;\n#ifdef PORTABLE_ENEMY_MOVEMENT\n        accumEnemy=enemyMovementMarker(s,d);\n#endif\n#ifdef PORTABLE_DAMAGE_ACCUM\n        accumEnemy=d.kind==0 && d.stat>=81U && d.stat<=83U;\n#endif\n"
+        }
+      ]
+    },
+    "gpu/world_actor_fields.slang": {
+      "before_sha256": "c8135c36e0fc30950a105c4ad0c4262f6420b496871b71b2b4d295f5b79d9996",
+      "after_sha256": "e0656380ad22c8ccf916e8acedc5e8e717da88b971273d4e353ccc91d93f6058",
+      "hunks": [
+        {
+          "before": "    }\n    WORLD_STATUS_FIELD_GUARD(s,d) if(d.enemyBuff==0) return true;\n    bool accumStat=false;\n#ifdef PORTABLE_DAMAGE_ACCUM\n    accumStat=d.stat>=81U && d.stat<=83U;\n#endif\n",
+          "after": "    }\n    WORLD_STATUS_FIELD_GUARD(s,d) if(d.enemyBuff==0) return true;\n    bool accumStat=false;\n#ifdef PORTABLE_ENEMY_MOVEMENT\n    accumStat=enemyMovementMarker(s,d);\n#endif\n#ifdef PORTABLE_DAMAGE_ACCUM\n    accumStat=d.stat>=81U && d.stat<=83U;\n#endif\n"
+        }
+      ]
+    },
+    "gpu/world_actor_status.slang": {
+      "before_sha256": "b054092383d6306f6a964db21d85a7b39d610f530ed905d3aa88bdb15789baef",
+      "after_sha256": "0ce4d6b2bfe870e8e1b830905146bf0d9df5931fb13ead6737ceabf2ef1eb0db",
+      "hunks": [
+        {
+          "before": "bool actorStatusFieldInvalid(inout Runtime s,Definition d)\n{\n    bool accumStat=false;\n#ifdef PORTABLE_DAMAGE_ACCUM\n    accumStat=d.stat>=81U && d.stat<=83U;\n#endif\n",
+          "after": "bool actorStatusFieldInvalid(inout Runtime s,Definition d)\n{\n    bool accumStat=false;\n#ifdef PORTABLE_ENEMY_MOVEMENT\n    accumStat=enemyMovementMarker(s,d);\n#endif\n#ifdef PORTABLE_DAMAGE_ACCUM\n    accumStat=d.stat>=81U && d.stat<=83U;\n#endif\n"
+        }
+      ]
+    },
+    "gpu/world_frame_runtime.slang": {
+      "before_sha256": "34088a880f51b09f986cdea7f43aac361e0439976b759f2e4ed343f6b07ff084",
+      "after_sha256": "abb6732680997f0bf25533144dddf937dca27a81d19fb6d1efd159893567e2e1",
+      "hunks": [
+        {
+          "before": "#endif\n#ifdef PORTABLE_ENEMY_HEALING\n    if(s.error==0) enemyHealingFrame(s,when);\n#endif\n#ifdef PORTABLE_DESTRUCTIBLE_BATTLE\n    if(s.error==0) destructibleBattleSync(s,when,false);\n",
+          "after": "#endif\n#ifdef PORTABLE_ENEMY_HEALING\n    if(s.error==0) enemyHealingFrame(s,when);\n#endif\n#ifdef PORTABLE_ENEMY_MOVEMENT\n    if(s.error==0) enemyMovementFrame(s,when);\n#endif\n#ifdef PORTABLE_DESTRUCTIBLE_BATTLE\n    if(s.error==0) destructibleBattleSync(s,when,false);\n"
+        }
+      ]
+    },
+    "gpu/world_coordinate_area_entry.slang": {
+      "before_sha256": "fce682c3e9417708144b143013dde4c3b026a6c33c8c727d3724ee75be6ba6ce",
+      "after_sha256": "bfc824c9cbcae6871fa5b04030b665aa45e10213ca071ebaf3223a8d23c28f2c",
+      "hunks": [
+        {
+          "before": "#endif\n{\n    if(id.x>=commands[0])return;\n#if defined(PORTABLE_ENEMY_AMMO)\n    uint input=1+id.x*EAM_INPUT_WORDS,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;\n#elif defined(PORTABLE_ADD_ATTACK_BATTLE)\n    uint input=1+id.x*ADB_INPUT_WORDS,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;\n",
+          "after": "#endif\n{\n    if(id.x>=commands[0])return;\n#if defined(PORTABLE_ENEMY_MOVEMENT)\n    uint input=1+id.x*EMB_INPUT,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;\n#elif defined(PORTABLE_ENEMY_AMMO)\n    uint input=1+id.x*EAM_INPUT_WORDS,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;\n#elif defined(PORTABLE_ADD_ATTACK_BATTLE)\n    uint input=1+id.x*ADB_INPUT_WORDS,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;\n"
+        },
+        {
+          "before": "    if(!initializeEnemyHealing(s)){results[output]=64;return;}\n    enemyHealingFrame(s,0);if(s.error!=0){results[output]=s.error;return;}\n#endif\n#ifdef PORTABLE_ADD_ATTACK_BATTLE\n    if(!initializeAddAttackBattle(s)){results[output]=64;return;}\n#endif\n",
+          "after": "    if(!initializeEnemyHealing(s)){results[output]=64;return;}\n    enemyHealingFrame(s,0);if(s.error!=0){results[output]=s.error;return;}\n#endif\n#ifdef PORTABLE_ENEMY_MOVEMENT\n    if(!initializeEnemyMovement(s)){results[output]=64;return;}\n    enemyMovementFrame(s,0);if(s.error!=0){results[output]=s.error;return;}\n#endif\n#ifdef PORTABLE_ADD_ATTACK_BATTLE\n    if(!initializeAddAttackBattle(s)){results[output]=64;return;}\n#endif\n"
+        }
+      ]
+    },
+    "gpu/logical_actor_geometry_runtime.slang": {
+      "before_sha256": "69f358a09f9b7799dd67d68f806049c28215826434561ae749f5e055a4b7f2bc",
+      "after_sha256": "b6f13dc786231f0ed354811045eeb11df2d0893e260e7f69e524aab54fbc2cfe",
+      "hunks": [
+        {
+          "before": "}\nbool lagContains(inout Runtime s,uint row,uint64_t x,uint64_t y,uint64_t grow)\n{\n    uint64_t d=coordinateShapeDistance(commands[row+6],cNumber(row+8),cNumber(row+10),cNumber(row+12),cNumber(row+14),cNumber(row+16),cNumber(row+22),cNumber(row+24),x,y);\n    if(!f64Finite(d)){s.error=16;return false;}return coordinateShapeContains(d,grow);\n}\nuint64_t lagAmount(inout Runtime s,uint hit,uint kind)\n",
+          "after": "}\nbool lagContains(inout Runtime s,uint row,uint64_t x,uint64_t y,uint64_t grow)\n{\n#ifdef PORTABLE_ENEMY_MOVEMENT\n    uint64_t d=coordinateShapeDistance(commands[row+6],enemyMovementPosition(s,row,0),enemyMovementPosition(s,row,1),cNumber(row+12),cNumber(row+14),cNumber(row+16),cNumber(row+22),cNumber(row+24),x,y);\n#else\n    uint64_t d=coordinateShapeDistance(commands[row+6],cNumber(row+8),cNumber(row+10),cNumber(row+12),cNumber(row+14),cNumber(row+16),cNumber(row+22),cNumber(row+24),x,y);\n#endif\n    if(!f64Finite(d)){s.error=16;return false;}return coordinateShapeContains(d,grow);\n}\nuint64_t lagAmount(inout Runtime s,uint hit,uint kind)\n"
+        }
+      ]
+    },
+    "app/portable_backend.py": {
+      "before_sha256": "ffc231ddf0504d9c1b4181174ec251e6215218a9a9a6bd9110da1be2593b68e8",
+      "after_sha256": "1b332a62359c12ab31f188ee50a9dc177afdfab08a4e77a75ebbbd82b997e377",
+      "hunks": [
+        {
+          "before": "\n\ndef validate_composed_stride(source,input_words,output_words):\n    if source=='gpu/world_enemy_ammo_self_destruct_entry.slang':\n        from portable_enemy_ammo_self_destruct_wire import check_schema,LAYOUT\n        check_schema(ROOT)\n",
+          "after": "\n\ndef validate_composed_stride(source,input_words,output_words):\n    if source=='gpu/world_enemy_movement_entry.slang':\n        from portable_enemy_movement_wire import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Movement requires complete collider, marker and motion banks')\n        return\n    if source=='gpu/world_enemy_ammo_self_destruct_entry.slang':\n        from portable_enemy_ammo_self_destruct_wire import check_schema,LAYOUT\n        check_schema(ROOT)\n"
+        }
+      ]
+    }
+  },
+  "added_sources": {
+    "gpu/enemy_movement_layout.slang": "588d797a71e1dc351521a199e32bc228e5e95dc0a3cb973317908f99ea626aa8",
+    "gpu/enemy_movement_runtime.slang": "2f761c9a78e5daf0da8ce4bc5acec215542b3845a0260f6f2ec9cf88093babbf",
+    "gpu/world_enemy_movement_entry.slang": "9d0408b04af60451c9d4436dca0b5c8aeb4722c7f40e1c1599b4463d265ab41a"
+  }
+}

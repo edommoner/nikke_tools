@@ -1,0 +1,116 @@
+{
+  "source_commit": "da7a4c35033865322846a844f432e45f64cb201c",
+  "package_id": "66edec5d576025c2c76dc70de61bc73b41f3a0a57e06f1fb3184d9e5f819f0f4",
+  "transport_branch": "codex/product-current-parts-v1-packet",
+  "transport_commit": "701ddf50990434953e134b623286366127277c1e",
+  "api_requests_commit": "52b342d239af47b5f5fe4767dd8a6d6a3ce5c09b",
+  "scope": "Windows compiler preparation for current ordinary accumulated product entry; status from peer, not independent Mac artifact audit",
+  "payload_delta": {
+    "old_owner": "1b668b9f676397f62efe39548dfe2248422c755d0c015d835ab0347057bb440d",
+    "new_owner": "66edec5d576025c2c76dc70de61bc73b41f3a0a57e06f1fb3184d9e5f819f0f4",
+    "changed": [
+      "tests/test_weighted_source_contract.py"
+    ],
+    "added": [],
+    "removed": [],
+    "complete_golden_identical": true,
+    "all_calculation_bytes_identical": true
+  },
+  "mac_unit_tests": 48,
+  "fixture_fix": {
+    "file": "tests/test_weighted_source_contract.py",
+    "old": "Path.write_text changes historical LF preimage to CRLF on Windows",
+    "new": "UTF-8 write_bytes plus exact raw-byte assertion",
+    "exact_failure_reproduced_on_mac": true,
+    "normal_source_tests": 5,
+    "simulated_crlf_source_tests": 5,
+    "production_validator_changed": false,
+    "gpu_source_changed": false,
+    "numerical_expectations_changed": false
+  },
+  "windows_peer_status": {
+    "thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
+    "cursor": "4b3eff0d-96af-48be-b3ad-b6609ae33ca8:185",
+    "root": "C:/Users/owner/Documents/Codex/nikke-product-current-parts-fixture-v2",
+    "unit_tests": 48,
+    "unit_skipped": 0,
+    "ptx_plan_passed": true,
+    "paired_generation_verified": true,
+    "generated_normalized": {
+      "cuda": "fe2a3e9291b7e99dc0c27223cfe2a40a6da0cba2a23667353534e6978f9aec8f",
+      "metal": "ffbb74c5f6a196e2a20e66f6eaeceae7426ac387c8ea922aa8361d5b3a020ae3"
+    },
+    "nvrtc_compile_attempts": 1,
+    "nvrtc_normal_return": false,
+    "ptx_generated": false,
+    "timed_out": true,
+    "inner_timeout_seconds": 60,
+    "inner_elapsed_seconds": 62.563,
+    "outer_elapsed_seconds": 77.532,
+    "inner_job_peak_bytes": 196964352,
+    "outer_job_peak_bytes": 230236160,
+    "child_creation_to_nvrtc_entered_seconds": 16.7680502,
+    "pre_gate_to_nvrtc_entered_seconds": 16.7158141,
+    "nvrtc_entered_to_post_job_observation_seconds": 43.2838683,
+    "exact_nvrtc_duration_known": false,
+    "time_anchor": "FILETIME converted to Unix epoch; wall clocks only, no mixing with monotonic",
+    "returned_stage_times": {
+      "inner_before_observation": [
+        2.5896821
+      ],
+      "gpu_child_verify_package": [
+        7.9845097
+      ],
+      "slang_generation_identity": [
+        1.1981345,
+        1.2206399
+      ],
+      "slang_generation_validate_pair": [
+        1.5623187,
+        1.0855955
+      ],
+      "slang_scope_snapshot_audit": [
+        1.1630561,
+        0.6377474
+      ],
+      "slang_build": [
+        4.3651021
+      ],
+      "nvrtcCreateProgram": [
+        0.0051883
+      ]
+    },
+    "stage_times_nested_do_not_sum": true,
+    "stored_option_list": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false"
+    ],
+    "exact_this_invocation_option_argv_saved": false,
+    "current_missing_processes": 0,
+    "cleanup_errors": 0,
+    "observation_errors": 0,
+    "inspection_errors": 0,
+    "post_job_empty": true,
+    "retry_count": 0,
+    "ptxas_calls": 0,
+    "link_calls": 0,
+    "gpu_calls": 0,
+    "details_remain_windows": true,
+    "old_claims_failures_and_historical_false_retained": true
+  },
+  "api_preparation": {
+    "requests": 5,
+    "executed": 0,
+    "scope": "Existing default profile factories; no imported user session; no extra suite"
+  },
+  "next_action": "Inspect duplicate generation validation in existing compile observer locally; no new CUDA compilation or budget extension approved by this record",
+  "coverage": {
+    "metal_historical_profiles": 255,
+    "cuda_historical_profiles": 1,
+    "cuda_historical_duration_seconds": 1,
+    "cuda_fixed_profiles": 0,
+    "new_cuda_profiles": 0,
+    "full_goal_complete": false
+  }
+}

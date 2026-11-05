@@ -1,0 +1,142 @@
+{
+  "calculation_verified": false,
+  "entries": [
+    {
+      "name": "coordinate-mode-actions/hold-active-mode",
+      "input_sha256": "144b0167d768043973d87f5d09fbf94d7c3920cc774d6123e3cd68a217cc05c9",
+      "output_sha256": "099dcb88ae28550b4a1b632d27d0e3ec4d71f6b9a47e4aeff6c820286915036b",
+      "native_sha256": "c72ac415743618b0be2a2a668d9ffb2acd4351be02eef3bd7ef6b9547fb902b2"
+    },
+    {
+      "name": "coordinate-mode-actions/cover-then-hold",
+      "input_sha256": "c241beed0cef386674eab1630df998e44096d7606008d71cca7c549d9140fba5",
+      "output_sha256": "1592838f73b227a12d6ee260f0f1150950388cb0653e8b352f06dde2c2894da4",
+      "native_sha256": "f5a24e9af58040db572d40b3fbda8d6e85e3331568cf90de0f1d3e5b1e103156"
+    },
+    {
+      "name": "coordinate-mode-actions/hold-then-cover",
+      "input_sha256": "06c8c9ea136338252f217650a0f88809e0fc972fd7f342d9b78f05f29c8e774a",
+      "output_sha256": "f8becc04159098aeac3ff9d19c70dd3d7553ca1abed8f2618f34e8c8486fa68b",
+      "native_sha256": "67c1550b708dc0d84645f1c37576f74fde229d52fb241ec85c10df29490240bc"
+    },
+    {
+      "name": "coordinate-mode-actions/same-frame-ordered",
+      "input_sha256": "140bec317f475419d67e7e1546a10ac0a19689e25bdc24909f3f7d7f5a81715c",
+      "output_sha256": "edaa71d0ec0e04adfc4bb05545753c07afcbf5793e8869fbbf32b86dcb291e14",
+      "native_sha256": "67a3e21e858b557c9b3c08c3faa11f1fb58d1760266568e9668ac816aefb03aa"
+    },
+    {
+      "name": "coordinate-mode-actions/hold-release-before-ready",
+      "input_sha256": "8501766d2b698d5523b7cdb029e49c4cede8666aa07fb4102811bfa421809778",
+      "output_sha256": "369bd0adf7e9afef50c71c56531b7e8fc85544671960543a1a3d908c40f19a55",
+      "native_sha256": "024de92969051dc0e846821369e8e59bd04292627f0ae3f5d7cce6d97c457955"
+    },
+    {
+      "name": "coordinate-mode-actions/hold-none",
+      "input_sha256": "d601c40e83466ea75fcc0fdc5a82df2015a573e88ca117f73c88f2beff28b325",
+      "output_sha256": "7ca2e201841eaa5082148facdfc8f3c7167a9c4993d38014844cb5b1aa7237f2",
+      "native_sha256": "be69fb196998db11351370b3b8dfabc502f69939044cd162440abdccc71926eb"
+    },
+    {
+      "name": "coordinate-mode-actions/cover-post-delay-base-auto",
+      "input_sha256": "2b5b1707ba1fb852bec7f1a61b32f1c4877bd353fbac490d406f193a2c10d03d",
+      "output_sha256": "bcc3d393b1bd4b0a6414917bcc89e2422cefc1c80be0c3095f9a342b839e47de",
+      "native_sha256": "85e160e5eba1d022c474ef62d0c017e2a0e1612cc20db2111fc3b43f916c8842"
+    },
+    {
+      "name": "coordinate-mode-actions/cover-post-delay-until-reload",
+      "input_sha256": "3b9013a278e787b1bb695af3f91b49697c8b455b3b31dcb9cb9d40df4e0002f3",
+      "output_sha256": "c044240b60b05f701f4e525dc3f5c87eed6f7ba8a7dc7acadda8f23480f787e2",
+      "native_sha256": "13ea8aa51b39c30850817d83c2709868a8cadeb63bcd4ebe9e179e050649c70e"
+    },
+    {
+      "name": "coordinate-mode-actions/cover-post-delay-mode-expires",
+      "input_sha256": "8d9db0d78e83ff61703b1eafba9e79b2b9243e1934ec5ea1b951daf9d5d2367b",
+      "output_sha256": "99cd25bee71713e576dc1cbd2e7d94bff191fd86294a0a2962b4e47e82c862d5",
+      "native_sha256": "60e782a3c6161e9239242b7011d93b36629f2b37ec2bc0e6cab4413369580b3b"
+    },
+    {
+      "name": "coordinate-mode-actions/hold-mode-expires",
+      "input_sha256": "b96461a331d438acf8efcf8a3fe6d7445174563c0a72b932afb584f5d13f0f94",
+      "output_sha256": "e4da0f622e7528b887444debe7ed3afe3784800628e622786de50acb712992ad",
+      "native_sha256": "583775784f3b17e01dffc94e23537454c37d0ff5c89ffd5711f3ff43775131b6"
+    },
+    {
+      "name": "coordinate-mode-actions/hold-mode-auto",
+      "input_sha256": "ef2e3852630c32ddc9281e033054dcec62c47dfa8cc55ba40c0f0ccb5ae4a8d0",
+      "output_sha256": "76d0987b95c2b2408efb5eb876e90a951891ff6863cccc450e319ed84b1f0d15",
+      "native_sha256": "4b6ce1b40caa45d68e75ee974d7707a5ed51e314a6a38db6ce11d7c22840db4d"
+    },
+    {
+      "name": "coordinate-mode-actions/entry-wait-cover-hold",
+      "input_sha256": "a9c8657825528ba15d24ba93fe6355a1a06ddb090fff1310e32811711e0150ac",
+      "output_sha256": "8fae8576ed75a48b5fb02a38e0903b633f86892a23a3b1ea99995ad7ed3592d3",
+      "native_sha256": "b3d0954030c8e1e7096ed4edf5c4e21bbb398781bc1e30a8e1ee065ba3c6c4b1"
+    },
+    {
+      "name": "coordinate-mode-actions/automatic-reload-post-delay",
+      "input_sha256": "018b6f1b2bc5f1b13267a4bc946a32f6e9ec01f31c8ca8a068e58fc5087f362e",
+      "output_sha256": "e50f145d8acf2205d89e44d039bacba5eaa94471a57c78a222aa672da9fba7d0",
+      "native_sha256": "517ae5696ece12f39f57e47cb103d13614bfa0ff6518c00fc1a9447740957cc0"
+    },
+    {
+      "name": "coordinate-mode-actions/tap-mode",
+      "input_sha256": "58283ad9f1b845ee7e1ec685aa8fd1aa6db49a01fd989e1e61fa06fce720309c",
+      "output_sha256": "dce652bbb3fa40dca65364960043b56b59a5cba1c4741c6a829fd7cb843b847c",
+      "native_sha256": "fe10f7efaa1f4ed451dfd244557e92be7d8135ba208bda2266c73b559ed0366a"
+    },
+    {
+      "name": "coordinate-mode-actions/tap-mode-cover",
+      "input_sha256": "4066ac5a93f59ecd5395a85666dc0c4b43e2f9f3ea2b7a75718b100caa76acea",
+      "output_sha256": "94ded8213acf22ce7bdb49015280f41c5232fbf744325c08e618f45b9e987381",
+      "native_sha256": "2197aacb1afaba50d651d7df8925f63c8fef26c98756f0a8de76d7684c97d47d"
+    },
+    {
+      "name": "coordinate-mode-actions/base-min-cycle-not-inherited",
+      "input_sha256": "6165ec5f2e587df5fe8a84e3a33fa13862331bd7e509b2211a35beb40866ce60",
+      "output_sha256": "7949ebe2a72e437164c9db7657491b70b2a6ab46f9d2ac6061549aacf4708507",
+      "native_sha256": "9302ae9a28fc4edf341af4665a898d82f9ae0a2f31cb4567a5a3c11b88af89f1"
+    },
+    {
+      "name": "coordinate-mode-actions/blocked-cover-keeps-hold",
+      "input_sha256": "0c48cf48de3b6a69d1e8c1d906bd4d5d3382d631088fe6d8e07dab38798e213f",
+      "output_sha256": "8ccad8bf26bf42be0e9bdb59a753e2a699147d3649ec97e60db9eadf2e337f98",
+      "native_sha256": "059dc328f4a465a16b25bee4db44748c8d9458b7f74552201b76edb081b80758"
+    }
+  ],
+  "mismatches": [
+    {
+      "index": 6,
+      "name": "coordinate-mode-actions/cover-post-delay-base-charge",
+      "reason": "AssertionError: ('coordinate-mode-actions/cover-post-delay-base-charge', 0, ['fractional_hits', 'team_hits'])"
+    },
+    {
+      "index": 9,
+      "name": "coordinate-mode-actions/cover-post-delay-zero",
+      "reason": "AssertionError: ('coordinate-mode-actions/cover-post-delay-zero', 0, ['fractional_hits', 'team_hits'])"
+    },
+    {
+      "index": 15,
+      "name": "coordinate-mode-actions/automatic-reload-cover",
+      "reason": "AssertionError: ('coordinate-mode-actions/automatic-reload-cover', 0, ['fractional_hits', 'team_hits'])"
+    }
+  ],
+  "input_count": 20,
+  "native_oracles": 20,
+  "input_sha256": "3e7cf4374872d17cc79e5bc709668009d9513e31077b0f42f8ab6d4190bd4eb6",
+  "output_sha256": "8141aa85a940ce39a35dee824971bef486b8d0e3c9c6a021a0fe09bc672efdf8",
+  "generated_normalized": {
+    "cuda": "1f7ad556d5ec0ba1c7867cd5682348e31cd13b1d0a14f4b60a4ce6cd29ac26be",
+    "metal": "f7cc1423fa00f5a99a9bc22050d8dff943f45446bb5948febcc9556d52d8da1b"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 17,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 17
+  }
+}

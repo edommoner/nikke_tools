@@ -1,0 +1,35 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "full-burst-landing-real/Elegg-Boom-Shock/3s",
+      "input_sha256": "93737c61a2b1a42bdcbc3bff72fa16f9807a7def03a6bbf5b6537e37b94055a8",
+      "output_sha256": "129d7734e501658a82016f9f2ecb123c3de18c9bed4c9cd0cef2a6745e39c196",
+      "native_sha256": "95b5fe0feaf54eb34298dadca035db63a2709866695c249472d8cd210d7aca5f"
+    },
+    {
+      "name": "full-burst-landing-real/Elegg-Boom-Shock/30s",
+      "input_sha256": "f6dafdb121c0a6c3da48795a414fe925dc5ea5b6cedb61e2e3333de6766ac96d",
+      "output_sha256": "fa27592cfd4ff409a148c762bc5d4ff4461efbd043f8d3af8142973db9eba459",
+      "native_sha256": "8b58041d82b7a036ac9c9f4c118f6b0827d6ecf2fc465a3c79ddc07dabb14498"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 2,
+  "native_oracles": 2,
+  "input_sha256": "30bc53df7a6d25df7f727c4aafdeb814337ac97a9efa6873af873f5ce3b444af",
+  "output_sha256": "1b7470df773d02f153590f72d9fdd15bb029be6ed1dfd5c397885f444c7a5971",
+  "generated_normalized": {
+    "cuda": "c8a1a4e0f6b65f4c8a9d268e95e491157f6a19108fa9572eb08c7a61a15b86bf",
+    "metal": "d027b193a3fbdc57902991927698daad082dbfa4e8ea1769d193a465b77a924b"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 2,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

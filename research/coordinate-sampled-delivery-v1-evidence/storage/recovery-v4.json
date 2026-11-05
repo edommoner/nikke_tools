@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-parts-world-regression-v2-metal",
+  "raw_bytes": 2670723072,
+  "raw_sha256": "89afa4ed803477c6e1d4aa37bc06bb32fb5b9717e29cc7d413f168a8717d92e1",
+  "evidence_sha256": "9f0c5d469fd249b730e4ede1ca43a3fdd81ddc3906fd0debdeaed565abb7ff74",
+  "raw_inode": 507420995,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 20553,
+  "zero_range_bytes": 2558267392,
+  "allocated_before": 771751936,
+  "allocated_after": 112455680,
+  "allocated_reclaimed": 659296256,
+  "full_hash_verified": true
+}

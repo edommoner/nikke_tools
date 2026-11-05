@@ -1,0 +1,82 @@
+[
+  {
+    "pattern": "test_portable_partial_charge.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.302987583912909,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70244
+  },
+  {
+    "pattern": "test_portable_nonfull_charge_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.981452374951914,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70244
+  },
+  {
+    "pattern": "test_portable_nonfull_charge_routing.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.0030256250174716115,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70244
+  },
+  {
+    "pattern": "test_portable_definition_view.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.39993979199789464,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70244
+  },
+  {
+    "pattern": "test_portable_charge_control.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.8034012909047306,
+    "tests": 28,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70244
+  },
+  {
+    "pattern": "test_portable_world_roster_input.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.0574273340171203,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70244
+  },
+  {
+    "pattern": "test_portable_squad_stage.py",
+    "exit_code": 0,
+    "elapsed_seconds": 5.469803999993019,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70244
+  },
+  {
+    "pattern": "test_portable_partial_query.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.8633779579540715,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70244
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "passed": false,
+  "stage": "legacy-api-negative-gate",
+  "error": "AssertionError: Multi-target periodic damage silently accepted",
+  "reason": "The previous API test still required rejection of periodic multi-target damage after that feature was implemented",
+  "computation_failure": false,
+  "correction": "Keep supported periodic input positive; reject an unsupported external scaling_ref instead; new periodic API cases check accepted outputs",
+  "initial_log": "Traceback (most recent call last):\n  File \"/Users/edo/Documents/ChatGPT/nikke_tools/scripts/verify-portable-api.py\", line 415, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/Users/edo/Documents/ChatGPT/nikke_tools/scripts/verify-portable-api.py\", line 290, in main\n    else:raise AssertionError('Multi-target periodic damage silently accepted')\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Multi-target periodic damage silently accepted\n",
+  "acceptance_criteria_weakened": false,
+  "global_app_script_fingerprints_require_refresh": true
+}

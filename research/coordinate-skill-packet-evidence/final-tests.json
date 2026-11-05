@@ -1,0 +1,52 @@
+[
+  {
+    "pattern": "test_coordinate_packets.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.1965308340732008,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 9628
+  },
+  {
+    "pattern": "test_coordinate_skill_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.2835895830066875,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 9628
+  },
+  {
+    "pattern": "test_impact_runtime.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.004076749901287258,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 9628
+  },
+  {
+    "pattern": "test_coordinate_world_pool.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.4414314159657806,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 9628
+  },
+  {
+    "pattern": "test_portable_coordinate_scene.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.014610209036618471,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 9628
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "coordinate-original-source/Julia-1",
+      "input_sha256": "210566112d945d8967192ee54bd9c3b3fb2d1852310ddf4fd63e1a0762cf1fff",
+      "output_sha256": "5661ffe9a2bf611c21710e7e8c33fcba81b3b7012131417dc09f7144103522dc",
+      "native_sha256": "49b3e27aa602e02121c792095bd5a5b266ca79e9500dae6aae523d14c9098133"
+    },
+    {
+      "name": "coordinate-original-source/Julia-2",
+      "input_sha256": "8a25d497ca102115eb4f0882ffa956a16fb01fffa4430404a421eff81e8199d5",
+      "output_sha256": "1eef287ce14997f5579477001514607cfd8f47e87226f578a83a2c9a29f384bf",
+      "native_sha256": "879e7ad4196bdc2f2910a9a375f96bdeff97729e2cfb7c0d47a412a494b21362"
+    },
+    {
+      "name": "coordinate-original-source/Julia-3",
+      "input_sha256": "fe4af17429cae8c62a56108992ca76595a6db2212b06b68e1c21805f8f863657",
+      "output_sha256": "a2bf91627298d5932ad218d6885a2250ec67d5fd88f6152cacdf98cbb265945f",
+      "native_sha256": "3abe43e0ef2fa3b63c3e207a3359147aef139e90cce0538def6cf32664d5e0bb"
+    },
+    {
+      "name": "coordinate-original-source/Sakura-control",
+      "input_sha256": "726a8fa2aa3726d336cd13f7553ffacecb01fbe463dd54af42dbba57f5f06190",
+      "output_sha256": "a8aabd84ac5a7ebbc07ea48755c1c5d27f26e97687f9c8f580a6abf019cf5fe3",
+      "native_sha256": "024a98b8bec89f79f9168a5af19904ebfc16b05835cc184ac0cba0a68173a033"
+    },
+    {
+      "name": "coordinate-original-source/Sakura-parts",
+      "input_sha256": "7bf9fe6e7d27733ab017d7dfb03c4688415fbcfc021d904e7a94cd5802c56427",
+      "output_sha256": "0be63445e5d78490d1ca35f9e92e6d84ee0f2fa6dfe67d214926f9d309e9cb54",
+      "native_sha256": "a4535bbfca2be9f7765b71be1993ddc6659e380e1c48363a4377e7c6b62c32e7"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 5,
+  "native_oracles": 5,
+  "input_sha256": "c5f95badd2e353921f4cde82fcbbde7c46f282780edbdd58bd361d510b671826",
+  "output_sha256": "71d24fb8f2c43752064bf8598678c655a5c457dd0d2c0dda1334d424c2143fb0",
+  "generated_normalized": {
+    "cuda": "03c45a417dde75666dc6df76d29e6d33bfbff6e7f2b24fef8a76efc5b6a2449c",
+    "metal": "0db2bea509004e36a116c34ea5bff8d4068239be309437a0b9c4f829aa3cbad0"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 5,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 5
+  }
+}

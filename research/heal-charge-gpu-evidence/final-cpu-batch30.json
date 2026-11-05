@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "mode": "single-process-unittest",
+  "patterns": [
+    "test_portable_heal_charge_reference.py",
+    "test_portable_heal_charge_gpu.py",
+    "test_quantity_specs.py",
+    "test_portable_readiness_semantics.py"
+  ],
+  "timeout_seconds": 60,
+  "elapsed_seconds": 8.009359583025798,
+  "timed_out": false,
+  "exit_code": 0,
+  "gpu_calls": 0,
+  "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+}

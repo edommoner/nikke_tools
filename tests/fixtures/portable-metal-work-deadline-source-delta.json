@@ -1,0 +1,35 @@
+{
+  "schema": "metal-work-deadline-source-history-v1",
+  "baseline_commit": "00120d0e90983c4597e9097b538e13c8bd1b5647",
+  "path": "app/portable_backend.py",
+  "normalizer_changed": false,
+  "current_product_equivalence_claim": false,
+  "before_sha256": "d1633dff508eb6d3c37b4e2629a8f16e859afe70adcff792611e2c430ce44175",
+  "after_sha256": "1c5586206da404682c045dfe9cd89faa33530cf47b5b99207a8d2b7607421de2",
+  "hunks": [
+    {
+      "start": 371,
+      "end": 1115,
+      "before": "ROOT = Path(__file__).resolve().parents[1]\nfrom portable_wire_layout import MAX_INPUT_WORDS,MAX_OUTPUT_WORDS,LARGE_OUTPUT_WORDS\nREADBACK_CHUNK_BYTES=8*1024*1024\n\n\ndef source_hashes(source):\n",
+      "after": "ROOT = Path(__file__).resolve().parents[1]\nfrom portable_wire_layout import MAX_INPUT_WORDS,MAX_OUTPUT_WORDS,LARGE_OUTPUT_WORDS\nREADBACK_CHUNK_BYTES=8*1024*1024\nMETAL_COMPILE_TIMEOUT_SECONDS=300\nMETAL_GPU_SECONDS_PER_CASE=120\nMETAL_GPU_TIMEOUT_MAX_SECONDS=960\n\n\ndef metal_gpu_timeout_seconds(cases):\n    \"\"\"Bound the whole command, including all sequential dispatches/readbacks.\n\n    One case retains its original deadline. Packed cases can run serially on\n    the device, so budget per case rather than per host command or batch.\n    \"\"\"\n    if type(cases) is not int or cases<1:raise ValueError('Positive Metal case count required')\n    return min(cases*METAL_GPU_SECONDS_PER_CASE,METAL_GPU_TIMEOUT_MAX_SECONDS)\n\n\n\ndef source_hashes(source):\n"
+    },
+    {
+      "start": 1861,
+      "end": 2214,
+      "before": "    return [command[0],'-module-cache-path',str(cache),*command[1:]]\n\n\ndef run_metal_command(command, *, compile_timeout=300, gpu_timeout=120):\n    \"\"\"Bound cold compilation separately from GPU execution; consume both pipes.\n\n    The Swift adapter emits the dispatch marker just before command.commit().\n",
+      "after": "    return [command[0],'-module-cache-path',str(cache),*command[1:]]\n\n\ndef run_metal_command(command, *, compile_timeout=METAL_COMPILE_TIMEOUT_SECONDS, gpu_timeout=METAL_GPU_SECONDS_PER_CASE):\n    \"\"\"Bound cold compilation separately from GPU execution; consume both pipes.\n\n    The Swift adapter emits the dispatch marker just before command.commit().\n"
+    },
+    {
+      "start": 32638,
+      "end": 33896,
+      "before": "        if backend == 'metal':\n            if platform.system() != 'Darwin':\n                raise RuntimeError('Metal requires macOS')\n            process = run_metal_command(['swift', str(ROOT/'scripts/run-metal-probe.swift'),\n                                         str(outputs['metal']), str(input_path), str(output_path),\n                                         entry, str(input_words), str(output_words),*([str(resident[\"stride\"])] if resident else [])])\n            if process.returncode:\n                raise RuntimeError(process.stderr or process.stdout)\n            raw, transport = None if destination is not None else output_path.read_bytes(), json.loads(process.stdout)\n            transport.update(compile_timeout_seconds=300,gpu_timeout_seconds=120)\n        else:\n            raw, transport = execute_cuda(outputs['cuda'], entry, packed, count*output_words*4, count,**({'resident':resident} if resident else {}),**({'output_path':partial} if destination is not None else {}))\n    if destination is not None:\n",
+      "after": "        if backend == 'metal':\n            if platform.system() != 'Darwin':\n                raise RuntimeError('Metal requires macOS')\n            gpu_timeout=metal_gpu_timeout_seconds(count)\n            process = run_metal_command(['swift', str(ROOT/'scripts/run-metal-probe.swift'),\n                                         str(outputs['metal']), str(input_path), str(output_path),\n                                         entry, str(input_words), str(output_words),*([str(resident[\"stride\"])] if resident else [])],\n                                         **(dict(compile_timeout=METAL_COMPILE_TIMEOUT_SECONDS,gpu_timeout=gpu_timeout) if count>1 else {}))\n            if process.returncode:\n                raise RuntimeError(process.stderr or process.stdout)\n            raw, transport = None if destination is not None else output_path.read_bytes(), json.loads(process.stdout)\n            transport.update(compile_timeout_seconds=METAL_COMPILE_TIMEOUT_SECONDS,gpu_timeout_seconds=gpu_timeout)\n        else:\n            raw, transport = execute_cuda(outputs['cuda'], entry, packed, count*output_words*4, count,**({'resident':resident} if resident else {}),**({'output_path':partial} if destination is not None else {}))\n    if destination is not None:\n"
+    },
+    {
+      "start": 37775,
+      "end": 39044,
+      "before": "                inp,out=Path(tmp)/f'{i}.in',Path(tmp)/f'{i}.out';inp.write_bytes(packed)\n                paths.append(dict(input=str(inp),output=str(out)))\n            manifest=Path(tmp)/'batches.json';manifest.write_text(json.dumps(paths))\n            process=run_metal_command(['swift',str(ROOT/'scripts/run-metal-probe.swift'),str(outputs['metal']),str(manifest),'--batches',entry,str(input_words),str(output_words),*([str(resident['stride'])] if resident else [])])\n            if process.returncode:raise RuntimeError(process.stderr or process.stdout)\n            status=json.loads(process.stdout);transports=status['batches'];raw=[Path(p['output']).read_bytes() for p in paths]\n            for t in transports:t.update(compile_timeout_seconds=300,gpu_timeout_seconds=120)\n    if len(raw)!=len(batches) or len(transports)!=len(batches) or hashes!=source_hashes(source):raise RuntimeError('Incomplete GPU dispatch sequence or source changed')\n    generated={k:hashlib.sha256(p.read_bytes()).hexdigest() for k,p in outputs.items()}\n    results=[]\n",
+      "after": "                inp,out=Path(tmp)/f'{i}.in',Path(tmp)/f'{i}.out';inp.write_bytes(packed)\n                paths.append(dict(input=str(inp),output=str(out)))\n            manifest=Path(tmp)/'batches.json';manifest.write_text(json.dumps(paths))\n            gpu_timeout=metal_gpu_timeout_seconds(sum(counts))\n            process=run_metal_command(['swift',str(ROOT/'scripts/run-metal-probe.swift'),str(outputs['metal']),str(manifest),'--batches',entry,str(input_words),str(output_words),*([str(resident['stride'])] if resident else [])],\n                **(dict(compile_timeout=METAL_COMPILE_TIMEOUT_SECONDS,gpu_timeout=gpu_timeout) if sum(counts)>1 else {}))\n            if process.returncode:raise RuntimeError(process.stderr or process.stdout)\n            status=json.loads(process.stdout);transports=status['batches'];raw=[Path(p['output']).read_bytes() for p in paths]\n            for t in transports:t.update(compile_timeout_seconds=METAL_COMPILE_TIMEOUT_SECONDS,gpu_timeout_seconds=gpu_timeout)\n    if len(raw)!=len(batches) or len(transports)!=len(batches) or hashes!=source_hashes(source):raise RuntimeError('Incomplete GPU dispatch sequence or source changed')\n    generated={k:hashlib.sha256(p.read_bytes()).hexdigest() for k,p in outputs.items()}\n    results=[]\n"
+    }
+  ]
+}

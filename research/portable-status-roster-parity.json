@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "current_profiles": 64,
+  "previous_stage_profiles_preserved": 60,
+  "before_nullable_fix_profiles_preserved": 64,
+  "excluded_fields": [
+    "cpu_reference_wall_seconds"
+  ],
+  "all_other_decoded_fields_and_cpu_reference_preserved": true
+}

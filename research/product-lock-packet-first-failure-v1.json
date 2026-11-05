@@ -1,0 +1,207 @@
+{
+  "schema": "product-lock-packet-first-failure-v1",
+  "source_commit": "6fd7fd4d1289d486eedc0ed2eea393b60ab1878c",
+  "development_owner": "bc62435c38eb63d2a5cd68b9166d33c349c7b08506bd8f1957809b2ba4a49b92",
+  "scope": "Failure-only shared diagnostics, not a correction of the unknown CUDA failure",
+  "program": "lock-cover-fixed",
+  "existing_diagnostic_bank": [
+    786416,
+    786432
+  ],
+  "sites": {
+    "9001": "invalid token or hit budget",
+    "9002": "shot time/snapshot mismatch",
+    "9003": "packet trace capacity",
+    "9004": "queue packet address",
+    "9005": "occupied token",
+    "9006": "non-lock row carrying lock token",
+    "9010": "invalid enqueue receipt",
+    "9011": "queue capacity",
+    "9012": "invalid decoded receipt"
+  },
+  "diagnostic_words": [
+    "magic",
+    "site",
+    "row",
+    "packet",
+    "hit",
+    "hits",
+    "depth",
+    "epoch",
+    "lock_snapshot",
+    "shot_count",
+    "when_low",
+    "when_high",
+    "queue_tail",
+    "queue_cursor",
+    "detail",
+    "original_status"
+  ],
+  "helper_contract": {
+    "schema": "lock-packet-failure-helper-contract-v1",
+    "helper_source_sha256": "f62651678a8138a4e7a7a8895ed463a312e2f280dd51dd6aa0c3306ecefb7285",
+    "actual_source_function_executed": true,
+    "sites": 9,
+    "exact16word_layout": true,
+    "signed_zero_bits_preserved": true,
+    "adjacent_words_unchanged": true,
+    "first_failure_retained": true,
+    "preexisting_error_does_not_create_false_first_site": true,
+    "gpu_calls": 0,
+    "native_battles": 0,
+    "scope": "Host execution of exact shared helper body with buffer/address stubs; not shader or battle proof"
+  },
+  "metal": {
+    "cpu_tests": 136,
+    "calculation_verified": true,
+    "independent_seal": true,
+    "input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+    "output_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+    "all_old_input_and_readback_bytes_equal": true
+  },
+  "standard_fixed_retention": {
+    "source": "gpu/product_fixed_battle_entry.slang",
+    "generated": {
+      "cuda": {
+        "normalized": "84ca925f66f2a60e882e46c4d9bf2b4d199adefff91369365d3824a15cf695e8",
+        "raw_bytes_equal": true
+      },
+      "metal": {
+        "normalized": "308692a0e201e294162f390c02533b795e1f70b85633f5c965913f7f782aca78",
+        "raw_bytes_equal": true
+      }
+    },
+    "gpu_calls": 0,
+    "native_battles": 0,
+    "scope": "Generated program retention only, not 245 profile execution"
+  },
+  "new_standard_profiles": 0,
+  "cuda_execution": true,
+  "goal_complete": false,
+  "windows_preparation": {
+    "source_commit": "bd19f2bfc0c8c3b0ec891ab2684f10db43527f54",
+    "owner": "aef09ee5d04a4442fb8b1231f23cb20de073a8d9e2a9f60f9ca3f68e6801ce1e",
+    "transport_commit": "8fb760c0",
+    "archive_bytes": 14498389,
+    "archive_sha256": "91a8a0528907c793fc0a21d0f79d2880b9fad3258f6262f5019faa0d8e485971",
+    "compile_plans_passed": [
+      "ptx",
+      "cubin-o1"
+    ],
+    "validation_deps_passed": true,
+    "sdk_job_protected_files_retained": 18,
+    "requested": "paired generation once, PTX once, conditional O1 object once; no link/driver/GPU/HTTP",
+    "windows_result_received": true
+  },
+  "saved_reader": {
+    "existing_command": "readback-compare",
+    "new_commands": 0,
+    "tests": 18,
+    "unaligned_batch_case_verified": true,
+    "unknown_and_admission_marker_not_interpreted": true,
+    "source_integrity_and_raw_hash_guards_retained": true,
+    "real_metal_readback_all_blocks_equal": true,
+    "real_metal_failure_diagnostics": [],
+    "real_metal_comparison_sha256": "7f57630407452f05b42a928c92fdd012f0b2945697d631d4e3c9932fb75367ac",
+    "gpu_calls": 0,
+    "native_battles": 0
+  },
+  "windows_compile": {
+    "report_commit": "30c868ff42704071ea94958d39797ae6a19878cf",
+    "report_path": "lock-cover-packet-diagnostic-compile-status-v1.json",
+    "report_sha256": "fd7bbb456a19dd74ed01cd761f2a53a989e1601380aba187a3688095961d0832",
+    "compiler_verified": true,
+    "object_verified": true,
+    "ptx_sha256": "541740a399e3eeefad8f0ab4009ba0a0ae269b601cb9c22947a6531e434aa0f0",
+    "object_sha256": "1b08d0c63b7019459d7758e81cfd31abd927976fb90c1d2cfffdb16b44516648",
+    "paired_generation_matches_metal": true,
+    "all_missing_zero": true,
+    "all_jobs_empty": true,
+    "nvrtc_calls": 1,
+    "ptxas_calls": 1,
+    "link_calls": 0,
+    "gpu_calls": 0,
+    "native_battles": 0,
+    "overall_passed": false,
+    "environment_preservation_verified": false,
+    "service": "unverified"
+  },
+  "windows_link_request": {
+    "object_sha256": "1b08d0c63b7019459d7758e81cfd31abd927976fb90c1d2cfffdb16b44516648",
+    "object_bytes": 5574448,
+    "existing_command": "jit-link-object",
+    "calls_requested": 1,
+    "result_received": true,
+    "gpu_calls_requested": 0,
+    "child_seconds": 60,
+    "outer_seconds": 180,
+    "memory_mib": 2048
+  },
+  "windows_link": {
+    "report_commit": "f8b0773ceef75e3bdd0ad1ba6c9ea5ad269447cf",
+    "report_path": "lock-cover-packet-diagnostic-link-status-v1.json",
+    "report_sha256": "118fa13c884dd7c115b42988e6a43b824a56f98a35024e08ba610bb4461a6a1d",
+    "link_verified": true,
+    "containment_verified": true,
+    "image_bytes": 5198416,
+    "image_sha256": "4a142dde70e69a264bfd862945732223e2cbe0f07e731472c5d037e5a667fb7b",
+    "all_missing_zero": true,
+    "all_jobs_empty": true,
+    "driver_calls": 0,
+    "gpu_calls": 0,
+    "overall_passed": false,
+    "environment_preservation_verified": false
+  },
+  "normal_api_request": {
+    "transport_commit": "e900cce3",
+    "body_bytes": 7707,
+    "body_sha256": "958800b6a1f739506c7c372b7f0664121723b72051ccfda6a08e53e7c5077151",
+    "body_identical_to_original": true,
+    "static_pack_input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+    "expected_readback_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+    "cuda_image_sha256": "4a142dde70e69a264bfd862945732223e2cbe0f07e731472c5d037e5a667fb7b",
+    "post_requested": 1,
+    "gpu_launches_requested": 1,
+    "result_received": true,
+    "reader_sha256": "d921b979d6dc1eb203ecd77568bd991be2ed541175f4dc97d0e07fd5b3928bd1",
+    "immutable_packet_not_overwritten": true,
+    "helper_child_seconds": 53,
+    "memory_mib": 2048
+  },
+  "normal_api_result": {
+    "report_commit": "f6c1a966ff14dccfaf46a220a997f903f05ffe17",
+    "status_sha256": "8182a7979d0ae11ed191670c9906e7a61556596f961d56c710da01810dff42ea",
+    "actual_gpu_launches": 1,
+    "status": 64,
+    "input_matched": true,
+    "readback_sha256": "87ccd984a88b483d85a8c8200fe9b0ebd498bd684c77638542657a2ef37532d7",
+    "changed_blocks": 143,
+    "diagnostic": {
+      "case_index": 0,
+      "status": 64,
+      "packet_failure": {
+        "magic": 1464877380,
+        "site": 9001,
+        "row": 8,
+        "packet": 1,
+        "hit": 1,
+        "hits": 5,
+        "depth": 2,
+        "epoch": 1,
+        "lock_snapshot": 0,
+        "shot_count": 1,
+        "when_low": 858993462,
+        "when_high": 1072902963,
+        "queue_tail": 6,
+        "queue_cursor": 2,
+        "detail": 0,
+        "status": 64
+      }
+    },
+    "calculation_verified": false,
+    "secondary_file_not_found": false,
+    "overall_passed": false,
+    "environment_preservation_verified": false
+  },
+  "cuda_calculation_verified": false
+}

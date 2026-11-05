@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-undying-retention-gpu-v2-metal",
+  "raw_bytes": 3784310784,
+  "raw_sha256": "bab8c100ea038133ba5321dcf877cb57841b1375af51e82852f31dbaa2f761fe",
+  "evidence_sha256": "e88294a3f492f1eb4da708cac5e57d8b2b10a1c05d76ce6bbdad25d29afc4e68",
+  "raw_inode": 507860183,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 29089,
+  "zero_range_bytes": 3628081152,
+  "allocated_before": 1097334784,
+  "allocated_after": 156229632,
+  "allocated_reclaimed": 941105152,
+  "full_hash_verified": true
+}

@@ -1,0 +1,132 @@
+{
+  "schema": "removal-snapshot-fixed-status-v1",
+  "owner": "993ad38cde858c913291c4a3cb892c5ad241f643ad761b1821181ced9fa3aba3",
+  "source_commit": "31082f06381c41eaa5b8a11962beacc6b2a2024b",
+  "transport_commit": "330e7e9b68b6a86ced0607dfc5ca0c7e04e92bd0",
+  "path_base": "Documents/Codex",
+  "archive": {
+    "bytes": 12021454,
+    "sha256": "97c2dcbc71bcb8ad358db84acadff738e4c4f92e47751dd8800af7f1c07f1c48"
+  },
+  "api_document": {
+    "bytes": 17777,
+    "sha256": "b4ea67d11bb72a068b43ce37836e9d6c0d98e9d513bb9f9501751581ae766971"
+  },
+  "stopped": true,
+  "stop_stage": "CPU difference tests",
+  "passed": false,
+  "preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "unpack": {
+    "payload_verified": true,
+    "observation": {
+      "seconds": 24.566799300257117,
+      "peak_bytes": 73330688,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "observation_error": null,
+      "cleanup_error": null,
+      "service": "unverified",
+      "service_preservation_verified": false,
+      "child_exit_code": 0
+    }
+  },
+  "cpu_delta": {
+    "capture": "removal-snapshot-fixed-v1/cpu-delta-v1",
+    "all_files_owner_verified": true,
+    "files_checked": 2742,
+    "requested": 17,
+    "executed": 10,
+    "passed_tests": 9,
+    "failures": 0,
+    "errors": 1,
+    "skipped": 0,
+    "weighted7_executed": false,
+    "seconds": 10.329094399698079,
+    "observation": {
+      "seconds": 15.55375700024888,
+      "peak_bytes": 141897728,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "observation_error": null,
+      "cleanup_error": null,
+      "service": "unverified",
+      "service_preservation_verified": false,
+      "child_exit_code": 1
+    },
+    "failed_test": "test_product_detail_packet.ProductPacket.test_generated_snapshot_guard_also_checks_preexisting_cached_outputs",
+    "original_error_type": "RuntimeError",
+    "original_error": "GPU build/execute forbidden in CPU/audit stage",
+    "source_explanation": "CPU audit forbid_gpu replaces portable_slang_generation.build with stop. The regression test mocks _build_unchecked and calls generation.build; that call reaches the audit stop before the mocked unchecked builder.",
+    "guard_or_test_changed": false,
+    "test_rerun": false
+  },
+  "source_evidence": {
+    "tests/test_product_detail_packet.py": {
+      "bytes": 10036,
+      "sha256": "1adc5a649d9e90e60e324a1a2d0bab710751fbdc7ffd6ae33126792186f807c4",
+      "lines": [
+        [
+          20,
+          31
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "scripts/nikke_gpu.py": {
+      "bytes": 469326,
+      "sha256": "6dddbeab01892d44db7dcb1241b75c8e9eb730926132398f000a30d52ab3f044",
+      "lines": [
+        [
+          1500,
+          1506
+        ]
+      ],
+      "immutable_manifest_match": true
+    }
+  },
+  "test_log": {
+    "bytes": 1071,
+    "sha256": "bd36d4cbc4b8412cd522e559344dabe752412415b30be0a0f43114ca54ddaf36"
+  },
+  "formal_generation_compiler_origin_not_executed": true,
+  "artifacts": {
+    "ptx": null,
+    "object": null,
+    "cubin": null
+  },
+  "api": {
+    "poli3_executed": false,
+    "d0_executed": false,
+    "new_device": null,
+    "poli_state_contract_actual": null
+  },
+  "unexecuted": [
+    "weighted source7",
+    "paired generation",
+    "PTX",
+    "module-object",
+    "jit-link-object",
+    "Poli3 API",
+    "D0 API"
+  ],
+  "actual_calls": {
+    "paired_generation": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "driver": 0,
+    "context": 0,
+    "kernel": 0,
+    "cpu_battle": 0,
+    "http": 0,
+    "retry": 0
+  },
+  "old_source_cubin_reexecuted": false,
+  "original_failures_hash_diagnoses_claims_retained": true,
+  "original_records_unchanged": true,
+  "original_records_checked": 1304,
+  "code_expected_values_normalizer_tolerance_modified": false
+}

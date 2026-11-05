@@ -1,0 +1,15 @@
+{
+  "schema": "independent-metal-audit-v1",
+  "package_id": "60a60b6695a031885fc2d97fe46f078c247fadb701acd293c9b81677c2150de8",
+  "capture": "/private/tmp/nikke-original-periodic-metal-v1",
+  "child_pid": 19749,
+  "input_count": 4,
+  "native_cases": 4,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 91.14413908298593,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "d96064dc95c825a348f0ffb5d0da7df04a8850106c6ef401371ee61a460e6828",
+  "output_sha256": "cf1666726cec708be95c771c797b9368497dd1a48ac18682ab6fd973867c66f8",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls"
+}

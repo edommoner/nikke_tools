@@ -1,0 +1,99 @@
+{
+  "schema": "enemy-ammo-metal-v1",
+  "source_commit": "0d3bce27",
+  "package_id": "34cbe45d3dc84300870a49633c6c8f40762e8452ea2a8a42ec3e3f892ef81afa",
+  "device": "Apple M5",
+  "inputs": 20,
+  "native_cases": 6,
+  "raw_rejections": 14,
+  "original_definitions": 76,
+  "original_effects_owners_weapons_config_preserved": true,
+  "shared_allied_enemy_numeric_operator": true,
+  "resource_notifications": 4800,
+  "resource_history_capacity": 4096,
+  "actual_incoming_executor_reused": true,
+  "calculation_verified": true,
+  "independent_gpu_calls": 0,
+  "independent_audit_seconds": 124.23206337500596,
+  "gpu_seconds": 0.8562024999991991,
+  "pipeline_compile_seconds": 59.39447808265686,
+  "library_compile_seconds": 1.987326979637146,
+  "runtime_stride": 138952,
+  "input_sha256": "7f6cf4ef635fcd2d006f36c8aaae92582860521f91d4e1b80ddbd3699161722a",
+  "output_sha256": "d527b625632b13c291ead1209aa9830dfcb91cd992461141d1c7cc731c8b92d6",
+  "independent_receipt_sha256": "700d69a84b4cbc6fa27b5c61547bf091f3a671f3c044ab79d045bc654abb4427",
+  "failures_preserved": [
+    "v2: kind11 actor admission status64",
+    "v5: original resource trace128 exhausted status8"
+  ],
+  "gpu_retries": 0,
+  "cuda_verified": false,
+  "default_admission": false,
+  "full_goal_complete": false,
+  "cases": [
+    {
+      "name": "enemy-ammo/Velvet/level10",
+      "resource_notifications": 800,
+      "magazine_generations": 3,
+      "receipts": 64,
+      "attempt_status_counts": {
+        "1": 40,
+        "3": 2,
+        "2": 8
+      }
+    },
+    {
+      "name": "enemy-ammo/Velvet/level1",
+      "resource_notifications": 800,
+      "magazine_generations": 3,
+      "receipts": 64,
+      "attempt_status_counts": {
+        "1": 40,
+        "3": 2,
+        "2": 8
+      }
+    },
+    {
+      "name": "enemy-ammo/Velvet/late-empty",
+      "resource_notifications": 800,
+      "magazine_generations": 2,
+      "receipts": 42,
+      "attempt_status_counts": {
+        "1": 30,
+        "3": 2,
+        "2": 2
+      }
+    },
+    {
+      "name": "enemy-ammo/Velvet/renewal",
+      "resource_notifications": 800,
+      "magazine_generations": 4,
+      "receipts": 48,
+      "attempt_status_counts": {
+        "1": 12,
+        "3": 4,
+        "2": 16
+      }
+    },
+    {
+      "name": "enemy-ammo/Velvet/dead",
+      "resource_notifications": 800,
+      "magazine_generations": 2,
+      "receipts": 8,
+      "attempt_status_counts": {
+        "1": 2
+      }
+    },
+    {
+      "name": "enemy-ammo/Velvet/body",
+      "resource_notifications": 800,
+      "magazine_generations": 3,
+      "receipts": 37,
+      "attempt_status_counts": {
+        "1": 20,
+        "3": 1,
+        "2": 4
+      }
+    }
+  ]
+}

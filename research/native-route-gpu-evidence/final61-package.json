@@ -1,0 +1,13 @@
+{
+  "path": "/tmp/nikke-native-route-final61-v1",
+  "package_id": "6dbb436d12f9b092c01cd9a317fa6f99ff76b06d53b506da1c07624df6736838",
+  "payload_files": 2845,
+  "manifest_sha256": "d98bcb619287a162b3ee64b775e315ff9135c7ca8f248a615f10141201be8a13",
+  "archive_bytes": 9469778,
+  "archive_sha256": "bb8c3d1a44bb81a96082c8ca4654096519525bf0b4e6467016dfd43d4c8c7e28",
+  "changes_from_executed_producer": [
+    "app/portable_readiness_semantics.py",
+    "research/portable-destructible-body-heal-share-retention-short-expected.json",
+    "scripts/nikke_gpu.py"
+  ]
+}

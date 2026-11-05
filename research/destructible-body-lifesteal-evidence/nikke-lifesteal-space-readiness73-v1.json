@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-readiness-73-final-metal",
+  "raw_bytes": 229638144,
+  "raw_sha256": "3ea5bcf7d50398bca5ad9082454dd9c2096370b92e56dea31850e6a361b73ec1",
+  "evidence_sha256": "55a644318c3bd7698f14acc18d3e21afc0703cfc6b41c849a7883693eec00941",
+  "raw_inode": 506549822,
+  "zero_ranges": 535,
+  "zero_range_bytes": 164495360,
+  "allocated_before": 229638144,
+  "allocated_after": 65142784,
+  "allocated_reclaimed": 164495360,
+  "full_hash_verified": true
+}

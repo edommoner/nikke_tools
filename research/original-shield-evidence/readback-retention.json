@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "retained_cases": 6,
+  "retained_bytes": 42476544,
+  "all_bytes_equal": true,
+  "rows": [
+    {
+      "name": "coordinate-original-shield/Mori/full",
+      "bytes": 7079424,
+      "sha256": "0499db6b1021f5cc776d714986d9a9ea12e52e3ab170e07a6788046b60061627"
+    },
+    {
+      "name": "coordinate-original-shield/Mori/chipped",
+      "bytes": 7079424,
+      "sha256": "90f52e812eb16c1d940b20b893cf3bdfb7624e76b338e8072e1a566a160847f5"
+    },
+    {
+      "name": "coordinate-original-shield/Mori/broken",
+      "bytes": 7079424,
+      "sha256": "3a619aa271bda9a0c84bd9e816521f9f36f445c1790bd37bff96286d321465bc"
+    },
+    {
+      "name": "coordinate-original-shield/Kilo/full",
+      "bytes": 7079424,
+      "sha256": "47198e9e762a7890db054b577d654379dc451ce4b6dd90ec5f2fa6456dd9c3b6"
+    },
+    {
+      "name": "coordinate-original-shield/Kilo/chipped",
+      "bytes": 7079424,
+      "sha256": "b8e8af0d243c2e3522f2bba99b0c3df1f51074e4c2ff977eceb075852ef097b0"
+    },
+    {
+      "name": "coordinate-original-shield/Kilo/broken",
+      "bytes": 7079424,
+      "sha256": "1e4206102f1e44c55a2d38b649f6b7fdb3cfe21f23be18614a842a89b32dcd41"
+    }
+  ],
+  "gpu_calls": 0
+}

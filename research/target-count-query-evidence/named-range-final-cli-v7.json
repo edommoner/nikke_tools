@@ -1,0 +1,50 @@
+{
+  "schema": "named-range-final-cli-v7",
+  "source_commit": "358687df",
+  "selection_unit_checks": [
+    {
+      "package_id": "dc15ba311f2ffed28c4a26867068f3ccf7302715cbea489d97b651b813014245",
+      "suite": "named-effect-range",
+      "passed": true,
+      "tests": 24,
+      "groups": 3,
+      "gpu_calls": 0
+    },
+    {
+      "package_id": "b45e925cdcd35f036f31eb8e90761bce27ff54832e0af8d850c73acf05aae599",
+      "suite": "named-effect-range-cache-only",
+      "passed": true,
+      "tests": 52,
+      "groups": 5,
+      "gpu_calls": 0
+    }
+  ],
+  "sealed_generation": {
+    "package_id": "dc15ba311f2ffed28c4a26867068f3ccf7302715cbea489d97b651b813014245",
+    "verified": true,
+    "cache_hit": true,
+    "compiler_invocations": 0,
+    "gpu_calls": 0,
+    "sealed_generated_baseline_verified": true
+  },
+  "compile_plan": {
+    "package_id": "b45e925cdcd35f036f31eb8e90761bce27ff54832e0af8d850c73acf05aae599",
+    "passed": true,
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60
+  },
+  "model_check_passed": true,
+  "missing_canonical_stats": [
+    "enemy_movement_disable",
+    "force_move",
+    "effect_range_pct",
+    "effect_target_count_add",
+    "lock_on"
+  ],
+  "public_gpu_admitted": false,
+  "current_cuda_verified": false,
+  "full_goal_complete": false,
+  "additional_gpu_calls": 0
+}

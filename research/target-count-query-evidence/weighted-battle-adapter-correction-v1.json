@@ -1,0 +1,44 @@
+{
+  "schema": "weighted-battle-adapter-correction-v1",
+  "original_package_created": false,
+  "gpu_calls": 0,
+  "failure_log_sha256": "6c90629cea3618fb321d86613e9a0e0fabcfd147d2f03e2dd2118f8d05fab95d",
+  "diagnostic_sha256": "982747842ba105e6be9e6430d37a6cbd1d3961305f00d6dadc073b84db371538",
+  "differences": [
+    [
+      "hits[18].hp_after",
+      2928800.7906894037,
+      2999482.0960138296
+    ],
+    [
+      "hits[23].hp_after",
+      2927968.8867032332,
+      2999482.0960138296
+    ],
+    [
+      "hits[28].hp_after",
+      2927136.982717063,
+      2999482.0960138296
+    ],
+    [
+      "hits[33].hp_after",
+      2926305.0787308924,
+      2998650.192027659
+    ],
+    [
+      "hits[38].hp_after",
+      2925473.174744722,
+      2997818.2880414887
+    ],
+    [
+      "hits[43].hp_after",
+      2924715.060642125,
+      2997060.173938892
+    ]
+  ],
+  "cause": "Live synthetic HP shield redirected original body shots and changed Miranda lifesteal after Biscuit burst",
+  "correction": "Audit binding remains unspawned beyond duration. Distance alone does not prevent typed automatic selection.",
+  "original_allocation_and_hp_comparison_kept": true,
+  "corrected_Biscuit_contract_passed": true,
+  "correction_receipt_sha256": "9b0fab617b51a877951f017aec1e70a455540c15023246c7c72a97d0af370fd5"
+}

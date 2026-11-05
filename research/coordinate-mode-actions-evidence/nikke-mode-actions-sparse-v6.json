@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-mode-actions-metal-v6",
+  "raw_bytes": 2215859712,
+  "raw_sha256": "cab6915a56b73dab9b753aeaf577d7310ee67c3d8d71dcc6c3cbc0a997cc9078",
+  "evidence_sha256": "626184d6408e1b248c083f5ddeb86bab746d16c7f4e403cc36c4d34928a75170",
+  "raw_inode": 510811577,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 10570,
+  "zero_range_bytes": 2164912128,
+  "allocated_before": 2215862272,
+  "allocated_after": 50950144,
+  "allocated_reclaimed": 2164912128,
+  "full_hash_verified": true
+}

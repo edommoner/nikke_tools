@@ -1,0 +1,80 @@
+{
+  "schema": "moving-group-current-metal-checkpoint-v2",
+  "development_package_id": "75fd5e51544fa43212c94c910979665b1042cb2da4891f1b1f4746ee0db7e7d9",
+  "sealed_package_id": "fa991605ec12e88b3436ad23e9e46b637fa093e5b012db7920f715a3d7055edd",
+  "suite": "moving-group-current",
+  "cache_suite": "moving-group-current-cache-only",
+  "golden": {
+    "path": "research/portable-moving-group-v2-expected.json",
+    "bytes": 35689,
+    "sha256": "947fb9c72219219ed441284f7dc1c18c0522dd3fea6c17c1b36ce553c65cb8c6"
+  },
+  "current_source_changes_relative_to_original_seal": [
+    {
+      "path": "gpu/world_moving_typed_entry.slang",
+      "before_sha256": "34bc9fd1155faacb50caed4b88768e5b9d898d2a79cd7f75f1900069a19bbe6f",
+      "after_sha256": "47f3ddc7efc50ed13fe50017db7c6bb338ef966e973493157516093430aa5e86"
+    },
+    {
+      "path": "gpu/moving_many_layout.slang",
+      "before_sha256": null,
+      "after_sha256": "1aa4fb8711ae76eb850d729cc2c792abec4a3279609e3f825afbfd700fe4fce9"
+    },
+    {
+      "path": "gpu/portable_schema.slang",
+      "before_sha256": "bb97d92b183e0ac3002f3f45c63ef2aab9ad8abc6a7c9e9c4c92c9666f630481",
+      "after_sha256": "379438732b3f9cd1c101f2032ebcecb0f1fccb8d8c26db35b68911810b8493f3"
+    }
+  ],
+  "gpu": {
+    "device": "Apple M5",
+    "cases": 15,
+    "gpu_seconds": 2.2813385000044946,
+    "pipeline_compile_seconds": 60.518017053604126,
+    "pipeline_cache_hit": false,
+    "pipeline_cache_key": "dedd55485a78179c05f442c886c3288c2f8e0d9b4715843a7f44b8ca8f6b8dff",
+    "input_bytes": 7391284,
+    "output_bytes": 129908160,
+    "generation_cache_hit": true,
+    "slang_calls": 0,
+    "retries": 0
+  },
+  "cpu": {
+    "native_oracles": 3,
+    "elapsed_seconds": 69.94422658300027
+  },
+  "independent": {
+    "receipt_sha256": "3409285af5c414c6e660070a6902180222df228e4e45b8ce412ab72802010cdc",
+    "elapsed_seconds": 121.88039233299787,
+    "groups": 8,
+    "native_cases": 3,
+    "input_count": 15,
+    "gpu_calls": 0,
+    "live_parent_receipt_present": false
+  },
+  "original_input_output_entries_and_generated_pair_retained": true,
+  "original_suite_paths_unchanged": true,
+  "completed_pipeline_file_probe_hit": true,
+  "completed_pipeline_native_warm_hit_verified": false,
+  "cache_probe_failures_preserved": [
+    "Old capture rejected current Swift consumer hash",
+    "Exact current identity absent before cold pipeline creation"
+  ],
+  "tests": {
+    "development_passed": 185,
+    "frozen_sealed_packet_passed": 185,
+    "frozen_before_after_payload_verified": true
+  },
+  "ptx_compile_plan_passed": true,
+  "ptx_compile_plan_is_calculation_proof": false,
+  "calculation_verified": true,
+  "metal_current_source_verified": true,
+  "cuda_current_source_calculation_verified": false,
+  "default_admission_changed": false,
+  "full_character_verified": false,
+  "full_goal_complete": false,
+  "source_or_numeric_changed_this_milestone": false,
+  "protected_cpu_changed": false,
+  "raw_and_failed_attempts_retained": true,
+  "next_step": "Transport current sealed source; file-only exact Windows PTX cache triage before any bounded compile. Old PTX/object/JIT reports retain old source identities; require full current-source/native admission and bounded native groups before CUDA execution."
+}

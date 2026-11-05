@@ -1,0 +1,390 @@
+{
+  "schema": "retained-link-environment-v1",
+  "purpose": "Separate immutable image integrity from a precisely bound historical environment failure",
+  "default_missing_rejection_retained": true,
+  "other_ptx_object_and_current_job_guards_unchanged": true,
+  "binding_fields": [
+    "capture",
+    "observation_sha256",
+    "missing_identities",
+    "disposition"
+  ],
+  "disposition": "retained-failure",
+  "filetime_representation": "canonical decimal text, never JSON floating point",
+  "exact_sorted_complete_identity_set_required": true,
+  "prior_observation_and_original_claims_modified": false,
+  "receipt_identity_carries_false_preservation": true,
+  "service_unidentified_cannot_become_preserved": true,
+  "history_recomputed_during_independent_admission": true,
+  "cpu_fallback_retains_history_after_admission": true,
+  "explicit_image_not_admitted_marker": true,
+  "frontend_readiness": "Shape/path hint; authoritative exact identity and raw observation verification is Python",
+  "tests": {
+    "linked": 25,
+    "product": 22,
+    "node": 24,
+    "packet": 3,
+    "scope": "Mocked compiler/driver output; no Windows GPU proof"
+  },
+  "review": {
+    "claude_completed": true,
+    "medium_gaps_addressed": [
+      "multi-process subset/superset/order/case/duplicate/extra-key tests",
+      "real descriptor to CLI admission to read_verified to phases to product response test"
+    ],
+    "other_gaps_addressed": [
+      "contradictory service preservation rejected",
+      "history-stripped/re-keyed receipt rejected by independent admission",
+      "not_admitted status explicit",
+      "history shape validated before publishing"
+    ]
+  },
+  "calculation_functions_unchanged": [
+    "prepare",
+    "compile_product",
+    "decode_payload"
+  ],
+  "numeric_golden_or_gpu_source_changed": false,
+  "windows_preflight_pending": false,
+  "cuda_product_profiles_verified": 1,
+  "planned_first_hardware_scope": "One ordinary HTTP/API request, duration1second, CPU full payload comparison after GPU; not full30seconds/allprofiles",
+  "new_run_requirements": [
+    "fresh BelowNormal Job",
+    "2GiB and existing bounded timeouts",
+    "current before/after snapshots with zero missing identities",
+    "service identification reported separately",
+    "stop on any new loss; no repeat claim or build"
+  ],
+  "full_goal_complete": false,
+  "short_metal_reference": {
+    "requested": "metal_detail",
+    "backend": "metal_detail",
+    "capture_id": "14072248c1c74711a6a50deaac9adc93",
+    "device": "Apple M5",
+    "elapsed_ms": 1262.0074580190703,
+    "gpu_execution_verified": true,
+    "input_sha256": "e26cf2bbb65dd20fc1b03780b24d38729a3c783b41913f1971284ca45b29c0d8",
+    "output_sha256": "647c30819467bd6e970c8c5a993d4a9b49688890cfe82c161350c33482cb5c3f",
+    "source": "gpu/product_battle_entry.slang",
+    "scope": "shared autonomous battle; CPU verified for this request",
+    "gpu_seconds": 0.10230450000381097,
+    "cpu_verification": {
+      "matched": true,
+      "differing_fields": []
+    }
+  },
+  "short_reference_duration_seconds": 1,
+  "short_reference_scope": "Ordinary API actual M5 plus full CPU payload comparison; dynamic input for first Windows request, not a new suite/golden",
+  "windows_package_preparation_failure": {
+    "evidence": "Windows peer saved summary, raw retained on Windows; not independently imported telemetry",
+    "source_commit": "2c684f88e03b2943340f20510cd4f59a64115ad3",
+    "failed_capture": "C:/Users/owner/Documents/Codex/nikke-historical-link-audit-v1/setup-v1",
+    "summary_sha256": "a0211a208681afbf49dc41636fd3e5fc83dbbad261b81468e563998a076f9c3f",
+    "inner_timeout_seconds": 60,
+    "observed_claim_to_timeout_seconds": 60.085,
+    "outer_seconds": 65.842,
+    "zip_or_manifest_produced": false,
+    "internal_phase_records": 0,
+    "last_internal_operation": "unknown",
+    "generation_or_native_recomputed": "unknown",
+    "new_missing_processes": 0,
+    "remaining_job_processes": 0,
+    "cleanup_errors": 0,
+    "observation_errors": 0,
+    "old_protected_evidence_files_unchanged": 148,
+    "compiler_calls": 0,
+    "gpu_calls": 0,
+    "service_preservation_verified": false,
+    "historical_failures_preserved": true,
+    "same_stage_retried": false
+  },
+  "windows_saved_object_link_timing_breakdown": {
+    "evidence": "Windows peer read-only saved phase/snapshot timestamps, no re-execution",
+    "object": {
+      "outer_seconds": 69.56,
+      "inner_seconds": 35.8,
+      "outer_gate_to_inner_job_observed_seconds": 19.303,
+      "inner_gate_to_origin_observed_seconds": 19.701,
+      "main_stage_seconds": 10.411,
+      "compiler_api_seconds": 10.339,
+      "inner_post_snapshot_to_outer_exit_observed_seconds": 8.887
+    },
+    "link": {
+      "outer_seconds": 93.725,
+      "inner_seconds": 36.047,
+      "outer_gate_to_inner_job_observed_seconds": 30.833,
+      "inner_gate_to_origin_observed_seconds": 30.419,
+      "main_stage_seconds": 0.261,
+      "link_api_seconds": 0.060171,
+      "inner_post_snapshot_to_outer_exit_observed_seconds": 21.352
+    },
+    "timing_limits": "Adjacent timestamp gaps mix startup/import/audit/observation; do not sum nested intervals, infer individual component durations, or attribute transfer cost. Snapshot gaps are not direct snapshot duration measurements."
+  },
+  "source_packet_transport": {
+    "schema": 1,
+    "scope": "Immutable source/data-only packet transport, not GPU evidence",
+    "package_id": "d1206d3f6ca2b3c0c78aa9ca23dce5e65dd66a17ce7105d581cafc01330a9ff7",
+    "source_commit": "2c684f88e03b2943340f20510cd4f59a64115ad3",
+    "files": 4166,
+    "archive_bytes": 14185428,
+    "archive_sha256": "78e1e629af4b48a5a32cf04744b1be0c0ea725858d95945a934809b3501451df",
+    "personal_settings": false,
+    "raw_gpu_buffers": false,
+    "compiled_binaries": false,
+    "transport_commit": "127e07d153aacce761df378a23674ec358755bf0",
+    "transport_branch": "codex/product-retained-history-packet-v1"
+  },
+  "diagnostic_error_fix": {
+    "scope": "Preserve KeyError/TypeError/ImportError originating inside saved_program caller body; admission metadata exceptions still map to ValueError. Product fallback retains original error type/message.",
+    "cpu_tests": {
+      "product": 23,
+      "linked": 25,
+      "packet": 3
+    },
+    "gpu_source_or_numeric_contract_changed": false,
+    "additional_gpu_or_compiler_calls": 0
+  },
+  "windows_transferred_packet": {
+    "evidence": "Windows peer saved summaries; no raw independently imported",
+    "packet": "C:/Users/owner/Documents/Codex/nikke-history-packet-transfer-v1/packet",
+    "git_fetch_seconds": 2.864,
+    "archive_read_and_sha_seconds": 0.374,
+    "unpack_seconds": 51.807,
+    "archive_and_all_member_integrity_verified": true,
+    "package_id_matches": true,
+    "unpack_following_verify_timed_out": true,
+    "combined_outer_seconds": 62.875,
+    "new_missing_processes": 0,
+    "observation_errors": 0,
+    "cleanup_errors": 0,
+    "remaining_job_processes": 0,
+    "old_protected_evidence_files_unchanged": 163,
+    "summary_sha256": "7cff5f300a4ff624e60171ff1185893439f26e2d43a50e9eba9dc0f477b1613e",
+    "unpack_repeated": false
+  },
+  "windows_initial_cpu_coordinator_failure": {
+    "summary_sha256": "0e43ee2bfe1092a6fa6d43373749518205b1c05d5a7562294c2e364224dc9a68",
+    "cli_import_seconds": 0.085,
+    "package_verify_seconds": 8.637,
+    "package_all_file_source_golden_verified": true,
+    "product_test_import_seconds": 2.545,
+    "product_tests_seconds": 3.654,
+    "tests": {
+      "passed": 15,
+      "failures": 1,
+      "errors": 6
+    },
+    "cause": "Coordinator overly broad subprocess ban intercepted required Git provenance; parent forbid_gpu leaked into in-process mocked cache tests. Manual timing event missing pid broke summary before observation/execution persistence.",
+    "product_regression_established": false,
+    "missing_processes": "unknown",
+    "old_protected_evidence_files_unchanged": 178,
+    "compiler_calls": 0,
+    "gpu_calls": 0,
+    "original_failure_and_unknown_preserved": true
+  },
+  "windows_corrected_cpu_preflight": {
+    "summary_sha256": "21b434fe9aa5aa23870b9ebdf09cbe765821180e157a9596d17281e74d4daa34",
+    "method": "Existing packet own unit-check and linked unittest, original process boundaries; no custom global subprocess/GPU patch around tests",
+    "unit_check_total_seconds": 26.093,
+    "unit_check_test_seconds": [
+      6.417,
+      0.095
+    ],
+    "linked_total_seconds": 6.647,
+    "linked_test_seconds": 1.19,
+    "passed_tests": 50,
+    "skipped_tests": 0,
+    "fresh_jobs": true,
+    "below_normal": true,
+    "memory_limit_bytes": 2147483648,
+    "child_limit_seconds": 60,
+    "new_missing_processes": 0,
+    "observation_errors": 0,
+    "cleanup_errors": 0,
+    "inspection_errors": 0,
+    "remaining_job_processes": 0,
+    "service_preservation_verified": false,
+    "old_protected_evidence_files_unchanged": 194,
+    "historical_failures_and_unknown_preserved": true,
+    "compiler_calls": 0,
+    "gpu_calls": 0,
+    "full_native_calls": 0,
+    "admission_or_image_read_executed": false
+  },
+  "windows_api_one_second_request_pending": false,
+  "cuda_product_verification_scope": "One original fixture profile, duration1 second, normal HTTP/API on immutable source2c684f88; no30-second/full-profile certification, peer summary pending saved JSON import",
+  "windows_api_one_second_success": {
+    "evidence": "Exported JSON/native journal independently audited on Mac; original CUDA binary/raw and telemetry remain on Windows",
+    "source_commit": "2c684f88e03b2943340f20510cd4f59a64115ad3",
+    "package_id": "d1206d3f6ca2b3c0c78aa9ca23dce5e65dd66a17ce7105d581cafc01330a9ff7",
+    "summary_sha256": "410e185c5a6322da08bee2e93bbe31e43c2d5d4a5ea3642718a8e0a0b2b63531",
+    "api_submissions": 1,
+    "duration_seconds": 1,
+    "profiles": 1,
+    "backend": "cuda_shared_detail",
+    "gpu_execution_verified": true,
+    "api_cache_hit": false,
+    "full_cpu_payload_matched": true,
+    "differing_fields": [],
+    "input_sha256": "e26cf2bbb65dd20fc1b03780b24d38729a3c783b41913f1971284ca45b29c0d8",
+    "output_sha256": "647c30819467bd6e970c8c5a993d4a9b49688890cfe82c161350c33482cb5c3f",
+    "mac_one_second_raw_hashes_match": true,
+    "artifact_provider": "saved-module-jit-cubin",
+    "receipt_key": "2287019be22f0cbf292b5d5ebe074d89e0a8e068a5947e538ec0e205fd837f69",
+    "cubin_bytes": 5051088,
+    "cubin_sha256": "b4d35f760d23d9bd974d4d6e5ed4200889a69002386e293a381b123081f71250",
+    "paired_generation_required_hit": true,
+    "new_compiler_calls": 0,
+    "read_completed_before_cuda_init": true,
+    "launch_sync_readback_calls": [
+      1,
+      1,
+      1
+    ],
+    "owner_seconds": 7.033,
+    "admission_seconds": 30.452,
+    "generation_read_validation_seconds": 2.099,
+    "image_read_seconds": 0.026,
+    "host_dispatch_seconds": 0.292813,
+    "timing_scope": "Host launch/sync/readback interval, not pure GPU kernel time",
+    "post_gpu_cpu_evaluation_save_compare_interval_seconds_approx": 0.018,
+    "cpu_evaluation_seconds": "unknown",
+    "total_seconds": 50.5,
+    "job_peak_bytes": 1989414912,
+    "job_memory_limit_bytes": 2147483648,
+    "peak_attribution": "unknown, requested saved-record inspection only",
+    "new_missing_processes": 0,
+    "observation_errors": 0,
+    "cleanup_errors": 0,
+    "inspection_errors": 0,
+    "remaining_job_processes": 0,
+    "service_preservation_verified": false,
+    "old_protected_evidence_files_unchanged": 238,
+    "historical_missing_processes": 7,
+    "historical_preservation_verified": false,
+    "historical_termination_cause": "unknown",
+    "prior_unknown_observation_preserved": true,
+    "additional_runs": 0,
+    "full_goal_complete": false
+  },
+  "windows_export_mac_audit": {
+    "passed": true,
+    "source_commit": "2c684f88e03b2943340f20510cd4f59a64115ad3",
+    "package_id": "d1206d3f6ca2b3c0c78aa9ca23dce5e65dd66a17ce7105d581cafc01330a9ff7",
+    "report_commit": "efadc71c4d643baae4277510bcd33a2fe65fcbe4",
+    "export_files": 8,
+    "export_bytes": 330346,
+    "all_export_file_hashes_verified": true,
+    "all_cpu_gpu_api_payloads_equal": true,
+    "mac_actual_raw_hashes_equal_recorded_cuda_hashes": true,
+    "receipt_and_native_phase_order_verified": true,
+    "historical_preservation_verified": false,
+    "historical_missing": 7,
+    "current_comparison": {
+      "all_monitored_processes_preserved": true,
+      "missing_existing_processes": [],
+      "identified_nikke_service_preservation_verified": false,
+      "nikke_service_status_before": "unverified",
+      "nikke_service_status_after": "unverified",
+      "termination_cause": null,
+      "command_lines_saved": false
+    },
+    "job": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 100712,
+          "wrapper_pid": 89576,
+          "pre_gate": {
+            "child_pid": 100712,
+            "child_ppid": 89576,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793377147768586400,
+            "wrapper_pid": 89576,
+            "child_creation_filetime_ticks": "134378507477303998",
+            "job_members": [
+              100712
+            ],
+            "job_peak_memory_bytes": 5918720,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 100712,
+            "child_ppid": 89576,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793377195442532400,
+            "wrapper_pid": 89576,
+            "child_creation_filetime_ticks": "134378507477303998",
+            "job_members": [],
+            "job_peak_memory_bytes": 1989414912,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    },
+    "resources": {
+      "schema": "saved-cuda-resource-summary-v1",
+      "allocations": [
+        {
+          "requested_bytes": 417604,
+          "return_code": 0
+        },
+        {
+          "requested_bytes": 3145728,
+          "return_code": 0
+        },
+        {
+          "requested_bytes": 138992,
+          "return_code": 0
+        }
+      ],
+      "launches": [
+        {
+          "grid": [
+            1,
+            1,
+            1
+          ],
+          "block": [
+            1,
+            1,
+            1
+          ],
+          "dynamic_shared_bytes": 0,
+          "return_code": 0
+        }
+      ],
+      "snapshots": [],
+      "incomplete_native_events": [],
+      "allocation_arguments_recorded": true,
+      "launch_arguments_recorded": true,
+      "memory_observations_present": false,
+      "memory_observation_complete": false,
+      "failure_cause_verified": false,
+      "diagnostic_gpu_calls": 0,
+      "diagnostic_driver_calls": 0,
+      "calculation_verified": false,
+      "scope": "Pinned saved events only; not source, containment, allocation capacity, or calculation certification"
+    },
+    "initial_native_path_check_rejected_windows_capture_on_mac": true,
+    "native_admission_path_rules_unchanged": true,
+    "scope": "Independent portable data-only audit of exported JSON/native journal; CUDA binary/raw buffers and original telemetry remain on Windows. One profile/duration1 only.",
+    "additional_gpu_or_native_calls": 0,
+    "full_goal_complete": false,
+    "existing_full_native_trace_and_streamed_readback_auditor_passed": true
+  },
+  "windows_export_mac_audit_sha256": "0e39beaf56fc2d0c8ff1c44f28da27e1c779e7b261ca63514f117d295839ed8c",
+  "windows_export_recovery": {
+    "original_send_received": false,
+    "original_wait_cell": 789,
+    "original_wait_cancelled_after_user_reconnection": true,
+    "read_only_status_confirmed_not_received": true,
+    "report_commit": "efadc71c4d643baae4277510bcd33a2fe65fcbe4",
+    "files": 8,
+    "bytes": 330346,
+    "gpu_or_native_reexecutions": 0
+  }
+}

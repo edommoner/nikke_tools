@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "source": "https://developer.download.nvidia.com/compute/cuda/redist/redistrib_12.4.1.json",
+  "version": "12.4.131",
+  "url": "https://developer.download.nvidia.com/compute/cuda/redist/cuda_nvcc/windows-x86_64/cuda_nvcc-windows-x86_64-12.4.131-archive.zip",
+  "archive_bytes": 63662970,
+  "archive_sha256": "3b14cf8dd9dda4a3b1a9682270d46eef775f018e17650187a8a448a06111f2b8",
+  "members": [
+    {
+      "member": "cuda_nvcc-windows-x86_64-12.4.131-archive/bin/nvlink.exe",
+      "bytes": 19965440,
+      "sha256": "60d8c8bca6df7d7ec2aafef688192f46bb7d76bd94c4f82f5a520ff278ea5ceb"
+    },
+    {
+      "member": "cuda_nvcc-windows-x86_64-12.4.131-archive/bin/ptxas.exe",
+      "bytes": 19582976,
+      "sha256": "0183c5b1fdecc69234597efac421eca4670a3f6ed6ed028ff6afb85d06f3efb8"
+    },
+    {
+      "member": "cuda_nvcc-windows-x86_64-12.4.131-archive/LICENSE",
+      "bytes": 63021,
+      "sha256": "e2c71babfd18a8e69542dd7e9ca018f9caa438094001a58e6bc4d8c999bf0d07"
+    }
+  ],
+  "download_calls": 1,
+  "tool_execution_calls": 0,
+  "compiler_calls": 0,
+  "link_calls": 0,
+  "driver_calls": 0,
+  "gpu_calls": 0,
+  "global_install": false,
+  "tool_runtime_version_verified": false,
+  "link_compatibility_verified": false,
+  "status": "official archive bytes and tool members verified on Mac; not executed or installed",
+  "scope": "Future explicit linking experiment candidate only; current focus-object trial does not link",
+  "existing_pinned_ptxas_member_identical": true
+}

@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "changed_cases": [
+    {
+      "name": "coordinate-squad-mode/stunned-after",
+      "unfired_charge_weapon_owners": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "changed_words": 8,
+      "fields": [
+        "nextShot"
+      ],
+      "equals_last_manual_cover_entry": true
+    },
+    {
+      "name": "coordinate-squad-mode/end-in-mode",
+      "unfired_charge_weapon_owners": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "changed_words": 8,
+      "fields": [
+        "nextShot"
+      ],
+      "equals_last_manual_cover_entry": true
+    },
+    {
+      "name": "coordinate-burst-control/cover-down-all",
+      "unfired_charge_weapon_owners": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "changed_words": 8,
+      "fields": [
+        "nextShot"
+      ],
+      "equals_last_manual_cover_entry": true
+    },
+    {
+      "name": "coordinate-burst-control/cover-break-only-all",
+      "unfired_charge_weapon_owners": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "changed_words": 8,
+      "fields": [
+        "nextShot"
+      ],
+      "equals_last_manual_cover_entry": true
+    },
+    {
+      "name": "coordinate-burst-control/cover-down-after-prior",
+      "unfired_charge_weapon_owners": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "changed_words": 8,
+      "fields": [
+        "nextShot"
+      ],
+      "equals_last_manual_cover_entry": true
+    },
+    {
+      "name": "coordinate-burst-control/cover-down-last",
+      "unfired_charge_weapon_owners": [
+        4
+      ],
+      "changed_words": 2,
+      "fields": [
+        "nextShot"
+      ],
+      "equals_last_manual_cover_entry": true
+    }
+  ],
+  "scope": "Exact raw delta characterization, not an all-bytes retention pass; no excluded comparison fields"
+}

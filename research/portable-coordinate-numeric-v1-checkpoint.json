@@ -1,0 +1,317 @@
+{
+  "schema": 1,
+  "milestone": "coordinate-binary64-v1 primitive proof",
+  "goal_complete": false,
+  "all_character_certification": 0,
+  "gap_categories": 20,
+  "ui_backend": "cpu",
+  "user_selected_policy": "deterministic-shared-numeric",
+  "contract": "coordinate-binary64-v1",
+  "contract_sha256": "94bed5dc9d555fb2a50ce9912aaa3ebab650e5e795a97311f486c46486065d73",
+  "suite": {
+    "name": "coordinate-numeric",
+    "inputs": 2783,
+    "common_cpu": 2771,
+    "rejections": 12,
+    "input_words": 12,
+    "output_words": 16,
+    "reference_kind": "deterministic-common-cpu",
+    "native_host_reference": false
+  },
+  "accuracy": {
+    "kind": "coordinate-numeric-independent-accuracy-v1",
+    "contract": "coordinate-binary64-v1",
+    "contract_sha256": "94bed5dc9d555fb2a50ce9912aaa3ebab650e5e795a97311f486c46486065d73",
+    "source_sha256": {
+      "app/portable_coordinate_numeric_v1.py": "7694fd132426ec7ba4a7fe321b192acf5f2a9d8715d28d0e88fd17bced4029e7",
+      "gpu/coordinate_numeric_v1.slang": "2af3f13829bab845f6d7f763777d61ac1c9fd868468af7d207ab7043c9d7fcb7",
+      "research/coordinate_numeric_accuracy.py": "839f00b158ce0af5fb7c4c6e29d3ff7e790e391d38d0db7f5e06689eb988851d",
+      "research/coordinate_decimal_oracle.py": "4120f1f785307c05993b38ac21174ed75ac8082fa18b349ba7a5d7f94d551089",
+      "research/portable_coordinate_numeric_cases.py": "06736e4439db36e4de22fcc8ce0c196958efb9286e4bf20e3b2248490850a4a3"
+    },
+    "samples_per_operation": 2048,
+    "inputs": 10451,
+    "operations": {
+      "sincos-degrees": {
+        "inputs": 2103,
+        "compared_outputs": 4206,
+        "max_ulp": 1,
+        "worst": {
+          "label": "degree-axis/-7/0",
+          "lane": 0,
+          "input": [
+            "c073b00000000000",
+            "0000000000000000"
+          ],
+          "actual": "3fe6a09e667f3bcc",
+          "oracle": "3fe6a09e667f3bcd"
+        },
+        "gate_ulp": 4
+      },
+      "sincos-bounded-radians": {
+        "inputs": 2096,
+        "compared_outputs": 4192,
+        "max_ulp": 1,
+        "worst": {
+          "label": "radian-axis/-7/0",
+          "lane": 1,
+          "input": [
+            "c015fdbbe9bba775",
+            "0000000000000000"
+          ],
+          "actual": "3fe6a09e667f3bcc",
+          "oracle": "3fe6a09e667f3bcb"
+        },
+        "gate_ulp": 4
+      },
+      "atan2": {
+        "inputs": 2134,
+        "compared_outputs": 2134,
+        "max_ulp": 1,
+        "worst": {
+          "label": "atan-random/0",
+          "lane": 0,
+          "input": [
+            "3e3359e34aab204c",
+            "3bb708e86ec00797"
+          ],
+          "actual": "3ff921fb54441a0c",
+          "oracle": "3ff921fb54441a0d"
+        },
+        "gate_ulp": 4
+      },
+      "acos": {
+        "inputs": 2056,
+        "compared_outputs": 2056,
+        "max_ulp": 2,
+        "worst": {
+          "label": "acos-random/170",
+          "lane": 0,
+          "input": [
+            "3fec10431ecfc62c",
+            "0000000000000000"
+          ],
+          "actual": "3fe00a325f467daa",
+          "oracle": "3fe00a325f467dac"
+        },
+        "gate_ulp": 4
+      },
+      "sqrt": {
+        "inputs": 2062,
+        "compared_outputs": 2062,
+        "max_ulp": 0,
+        "worst": null,
+        "gate_ulp": 0
+      }
+    },
+    "accuracy_verified": true,
+    "oracle": "Decimal190; independent AGM210 pi; convergent series; alternate acos reduction",
+    "empirical_only": true,
+    "correct_rounding_claim": false,
+    "battle_connected": false,
+    "gpu_executions": 0,
+    "elapsed_seconds": 0.7109627079917118
+  },
+  "metal": {
+    "calculation_verified": true,
+    "independent_seal": true,
+    "capture": "/tmp/nikke-coordinate-numeric-metal-v1",
+    "package_root": "/tmp/nikke-coordinate-numeric-develop-v1",
+    "package_id": "acb3c0dff3312b10461a7c0b1ecfb773d61fe19232f7bbbcfda46badd4a5141a",
+    "transport": {
+      "backend": "metal",
+      "cases": 2783,
+      "command_status": "completed",
+      "configured_max_threads_per_threadgroup": 1,
+      "device": "Apple M5",
+      "file_readback_chunk_bytes": 8388608,
+      "gpu_seconds": 0.0018729167059063911,
+      "input_bytes": 133588,
+      "library_compile_seconds": 0.06347393989562988,
+      "output_bytes": 178112,
+      "pipeline_cache": {
+        "archive_bytes": 89168,
+        "archive_compile_seconds": 0.0643090009689331,
+        "archive_sha256": "1849dd5f3a2feaff1483f3f0ab8b1cc20a4127a3b8bc7b50d99c09f1aa0b5279",
+        "enabled": true,
+        "hit": false,
+        "identity": {
+          "consumer_sha256": "f6acf8d854da2c87db85ccc326879fa4f0706b6d3e063e8799262da958a10714",
+          "device": "Apple M5",
+          "entry": "portableEvents",
+          "math_mode": "safe",
+          "os_build": "Version 26.6.2 (Build 25G83)",
+          "registry_id": "4294968313",
+          "resident_stride": "0",
+          "schema": "1",
+          "source_sha256": "fd7db758c942c678a231967374a9cb28b6fdefd1a160d734f04fed5b8793c7c2",
+          "threads_per_threadgroup": "1"
+        },
+        "key": "18d6d1a9792bc298e8a813c1e2e01d0ca6121e1e280e91208b08fe3d709347ce",
+        "native_archive_miss_rejected": true,
+        "required": false,
+        "schema": 1
+      },
+      "pipeline_compile_seconds": 0.0645209550857544,
+      "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+      "pipeline_max_threads_per_threadgroup": 1,
+      "pipeline_os_build": "Version 26.6.2 (Build 25G83)",
+      "registry_id": "4294968313",
+      "threads_per_threadgroup": 1,
+      "compile_timeout_seconds": 300,
+      "gpu_timeout_seconds": 120
+    },
+    "new_runs": 1,
+    "retries": 0
+  },
+  "retained_packages": {
+    "passed": true,
+    "full_package_id": "434c5969ea10a10aba4e350ccb76f53ca58bef8dc15b87ccd5b12c0b96f7aaae",
+    "compact_package_id": "9d95e016bca259b5c1dcea1e3593b1215e52c4beadecbe62856df7e0c3048fa4",
+    "full_files": 2944,
+    "compact_files": 1614,
+    "all_retained_records_and_bytes_equal": true,
+    "golden_equal": true,
+    "protected_sha256": {
+      "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+      "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+      "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+      "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+      "research/summarize-portable-cross-gpu.py": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a",
+      "app/portable_compile_cache.py": "d1dcc7cf1a5c7197b1dd63dd0d6bd1cc90192356eb42ad4a4e6b2f641c5cc505"
+    },
+    "previous_suite_source_retention": {
+      "coordinate-arc-scalar": {
+        "source_current": true,
+        "reexecuted": false
+      },
+      "coordinate-arcs": {
+        "source_current": true,
+        "reexecuted": false
+      },
+      "coordinate-composed": {
+        "source_current": true,
+        "reexecuted": false
+      },
+      "coordinate-generation": {
+        "source_current": true,
+        "reexecuted": false
+      },
+      "attack-group-mixed": {
+        "source_current": true,
+        "reexecuted": false
+      }
+    },
+    "gpu_calls": 0
+  },
+  "cpu": {
+    "selected": 9,
+    "development_package_selected": 8,
+    "final_full_selected": 9,
+    "final_compact_selected": 9,
+    "control_with_related": 436,
+    "skips": 1
+  },
+  "windows": {
+    "status": "not_requested_at_checkpoint",
+    "new_gpu_runs": 0,
+    "last_cursor": "b0ceb4a4-c8c1-428e-bc07-b30c38de2633:78",
+    "saved_object_recovery": "idle; earlier send failed; no verified job"
+  },
+  "numeric_profile_limitations": {
+    "empirical_accuracy_only": true,
+    "radians_bounded": true,
+    "geometry_battle_connected": false,
+    "full_numeric_policy_implemented": false,
+    "public_gpu_admitted": false
+  },
+  "remaining": [
+    "degree rotation caller and shape/arc geometry",
+    "radial quadrature and cache key rounding",
+    "physical packet expansion and RNG routing",
+    "all original character definitions and public GPU admission"
+  ],
+  "evidence_files": {
+    "research/coordinate-numeric-v1-evidence/accuracy.json": {
+      "bytes": 2738,
+      "sha256": "85a26c07a07ab9b44910133b7b4c7d86e53f8e407373a39c05b086b6d7e66eed"
+    },
+    "research/coordinate-numeric-v1-evidence/artifacts.json": {
+      "bytes": 3384,
+      "sha256": "3165fd66c79f84df66e7718a8a1b4071459c0d634f8a47ce6ca4d778c6ab38ec"
+    },
+    "research/coordinate-numeric-v1-evidence/control.json": {
+      "bytes": 1876,
+      "sha256": "8f20baee5d604ee92687436da45853374225749fbde8ecdecaf3089c1617f8a2"
+    },
+    "research/coordinate-numeric-v1-evidence/cpu-batch.json": {
+      "bytes": 339,
+      "sha256": "b798cde7f775d25c2a659d49565945a7305fe20c585efcde5eaed760e21d9f57"
+    },
+    "research/coordinate-numeric-v1-evidence/cpu-tests.json": {
+      "bytes": 219,
+      "sha256": "14991ec293d4a0096252dac0bbad5046d31bfa35b36ea73ff36f140ae8e0a8e7"
+    },
+    "research/coordinate-numeric-v1-evidence/evidence.json": {
+      "bytes": 15061,
+      "sha256": "ca48dc378334b0a7fe7f9c149d9bee5b2465f7964ae8deb6ee877801d5b80ac4"
+    },
+    "research/coordinate-numeric-v1-evidence/execution.json": {
+      "bytes": 1560,
+      "sha256": "aa6c92355dda4632af6fd04a462365e0bedb2629a3699a84e0015204ca8ffa5b"
+    },
+    "research/coordinate-numeric-v1-evidence/final-cpu-batch.json": {
+      "bytes": 338,
+      "sha256": "5f0c535a4d25f3a0d2555610903ce27aa53cc659b839e95df30c03a094ff29b6"
+    },
+    "research/coordinate-numeric-v1-evidence/final-cpu-tests.json": {
+      "bytes": 218,
+      "sha256": "2c4af9f1cb6ae7857c687be07f5f671a8124267b2576c6adfbb1e6f7c5bb1a21"
+    },
+    "research/coordinate-numeric-v1-evidence/final-full-cpu-batch.json": {
+      "bytes": 339,
+      "sha256": "4e2d4a85fe8eb9cae69951a95fd5c9f90efd60d86c13c45a47836c21b6a259cd"
+    },
+    "research/coordinate-numeric-v1-evidence/final-full-cpu-tests.json": {
+      "bytes": 218,
+      "sha256": "d823242354c1e59420a09050b3bb564128b93965686b6f9f993bd2eabf89c862"
+    },
+    "research/coordinate-numeric-v1-evidence/final-full-result.json": {
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    "research/coordinate-numeric-v1-evidence/final-result.json": {
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    "research/coordinate-numeric-v1-evidence/frontier.json": {
+      "bytes": 38574,
+      "sha256": "e48425edfbb62f6991a525c3c599773c2ff72d614e651d8941712199bb0fadaf"
+    },
+    "research/coordinate-numeric-v1-evidence/input-preflight.json": {
+      "bytes": 257,
+      "sha256": "3060f8761bd1792aff66b416dca9941a1490b1af0c446f12c0550a5e272768ab"
+    },
+    "research/coordinate-numeric-v1-evidence/phases.jsonl": {
+      "bytes": 597,
+      "sha256": "3f3a84945260722db57cb78ad8f9c649f6e0c46357726d255a458defe166fd5c"
+    },
+    "research/coordinate-numeric-v1-evidence/result.json": {
+      "bytes": 1392,
+      "sha256": "9e2cf03e9bc9ea98cc48cc541beae97603917449cd6e59bda01ddfd4060e9276"
+    },
+    "research/coordinate-numeric-v1-evidence/retention.json": {
+      "bytes": 1562,
+      "sha256": "ee1baaabfa6ff3fe7804cf63f65e8171afd8571a2d5e5e9cbe160ce33af01bcd"
+    },
+    "research/coordinate-numeric-v1-evidence/runtime.json": {
+      "bytes": 1082,
+      "sha256": "6d2adafbd8d9de62f0698dcffd996870d17dcbcf859dcf5a21343e93814af322"
+    },
+    "research/coordinate-numeric-v1-evidence/storage-before-gpu.json": {
+      "bytes": 244,
+      "sha256": "0a3f810f3a36be682bbba6b81866a345b1a7a4f85f5a939c8ca1335ce4826c7e"
+    }
+  }
+}

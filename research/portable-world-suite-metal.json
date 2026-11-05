@@ -1,0 +1,397 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "frame:initial-zero-before-own-shot",
+      "passed": true,
+      "output_sha256": "00fa29c608f1e89c79ecc4ea3d331a92c4a8462001fa3e73fb4752ac9e8f8241",
+      "status": 0
+    },
+    {
+      "name": "frame:taunt-slot:2-0",
+      "passed": true,
+      "output_sha256": "6d505c97f291f2367c6911f4ba58cb9cb7f5cf991ea8ee5604e0e13d3642d78f",
+      "status": 0
+    },
+    {
+      "name": "frame:taunt-slot:2-4",
+      "passed": true,
+      "output_sha256": "51e3b18fd9c68348c148ce66973765c2f5152dfd56c493bad9418ef5876bde0c",
+      "status": 0
+    },
+    {
+      "name": "frame:taunt-top_atk:2-0",
+      "passed": true,
+      "output_sha256": "bc9e8a8937e7b92bf9f7ab5d394622ff92349d369c9de5eb6cc96a2f06603055",
+      "status": 0
+    },
+    {
+      "name": "frame:taunt-top_atk:2-4",
+      "passed": true,
+      "output_sha256": "2205a14a5650b7063f72a4f4d458cc44dbf8a19a70109d127599b0af499dcba2",
+      "status": 0
+    },
+    {
+      "name": "frame:taunt-random:2-0",
+      "passed": true,
+      "output_sha256": "d7435480a7df665e12c9af888485d0974f51cced4ac41146db05f683afa8f9e6",
+      "status": 0
+    },
+    {
+      "name": "frame:taunt-random:2-4",
+      "passed": true,
+      "output_sha256": "8ad8eae679de8c34bd7cbc93807fb2a42ca0296d026774fa7a6b2039c20cbd83",
+      "status": 0
+    },
+    {
+      "name": "frame:layer-shield_from_max_hp_pct",
+      "passed": true,
+      "output_sha256": "42b6a0538d04e5c0bf2e87dd050f5da5c1ec917ff6c661a679e67fe5e1f8c074",
+      "status": 0
+    },
+    {
+      "name": "frame:layer-decoy",
+      "passed": true,
+      "output_sha256": "e6fdcd9733ae4d817241fa6d0bfd337f7e0c41c089dc1163edf9587548bc605a",
+      "status": 0
+    },
+    {
+      "name": "frame:layer-received_dmg_split_even",
+      "passed": true,
+      "output_sha256": "453615354dad63e1266980a027903647a6366d2dad36b9ee6564ecfa67f1b92e",
+      "status": 0
+    },
+    {
+      "name": "frame:layer-invincible",
+      "passed": true,
+      "output_sha256": "64a71d04bd0345f96c4d1583061bc2cd97aca6c89769f54f1fe52a8cc8962e9a",
+      "status": 0
+    },
+    {
+      "name": "frame:lethal-before-own-zero-shot",
+      "passed": true,
+      "output_sha256": "0977d3f2710bb3f22fc2bf37cd1ae9a8c20040d4b6e245fccb248ebb436c083a",
+      "status": 0
+    },
+    {
+      "name": "frame:automatic-reload-cover",
+      "passed": true,
+      "output_sha256": "98e9e6b2581ad9d12e4cc3c249110bafb24fa13018ce68727493a96e55524275",
+      "status": 0
+    },
+    {
+      "name": "frame:received-hit-buff-next-attacker-order",
+      "passed": true,
+      "output_sha256": "ff379c4aa21518d44ef1f06e3ea39edfb1de14b30d7ca3a23420a7a87267ffe7",
+      "status": 0
+    },
+    {
+      "name": "frame:expiry-cancels-pending",
+      "passed": true,
+      "output_sha256": "cd400ca74ef9f9115e7336de8a1c4b68d6964eefe839700c9408100d6fd94e49",
+      "status": 0
+    },
+    {
+      "name": "frame:cyclic-frame-attacks",
+      "passed": true,
+      "output_sha256": "5215fba8967582fd8f254c6ff624fe715b9bc475432548cf6aaaa02169115dab",
+      "status": 0
+    },
+    {
+      "name": "frame:rank-before-exact-expiry-boundary",
+      "passed": true,
+      "output_sha256": "34e46413e5ff926fcb01309cda0cf760388ead12991a07b49d0801d0173867df",
+      "status": 0
+    },
+    {
+      "name": "extended:beyond64-72-attacks",
+      "passed": true,
+      "output_sha256": "a42aae797ce28017f7dd43c27a8732cee0e2d4679615363f914265b76009e950",
+      "status": 0
+    },
+    {
+      "name": "extended:same-frame-512-random3-mt-rollover",
+      "passed": true,
+      "output_sha256": "ce9d81a0e4c07ed1e8cbb526942435c59a714af431dde0dab32bc839c99e1f2e",
+      "status": 0
+    },
+    {
+      "name": "extended:target-query-capacity",
+      "passed": true,
+      "output_sha256": "6f88f465c3ceae971df8dcb787c6ae82a3216d462851229e04ce6d7bb315a534",
+      "status": 2
+    },
+    {
+      "name": "extended:recipient-trace-capacity",
+      "passed": true,
+      "output_sha256": "23604e0e0b9697bd344eff31e5be8b1b21e86e785929a54c160cb9c5b7c50fb0",
+      "status": 2
+    },
+    {
+      "name": "extended:expiry-end-notice-before-target-selection",
+      "passed": true,
+      "output_sha256": "81c844e71d11c2e1a8329bd761c05fba863d5648d9209fb0abac1334eed71df3",
+      "status": 0
+    },
+    {
+      "name": "zero:initial-zero-once-sub-epsilon-expiry",
+      "passed": true,
+      "output_sha256": "402e170abce1755e9c22c17ee6a8b69689782a8e006e9a7421bc782f9c0eeab9",
+      "status": 0
+    },
+    {
+      "name": "zero:initial-zero-once-sub-epsilon-repeat",
+      "passed": true,
+      "output_sha256": "8ce751836255227862f2266813176725d849c209d9090bf13271a7ad3706d166",
+      "status": 0
+    },
+    {
+      "name": "zero:initial-zero-once-sub-epsilon-follow",
+      "passed": true,
+      "output_sha256": "e19298dad438f3bea1026fbd0b002ac7246fff40d945140ee51b4447883d5565",
+      "status": 0
+    },
+    {
+      "name": "zero:initial-zero-once-zero-duration-finish",
+      "passed": true,
+      "output_sha256": "619a87ea0602fb3a156a23926471cb21db45e418bc2542e46d074955a95caf99",
+      "status": 0
+    },
+    {
+      "name": "notices:later-node-notice-before-attack-event:part_destroy",
+      "passed": true,
+      "output_sha256": "4530730c629fb3ffce363d0d345ac2a23dc298102f7982ce9ae142837eb969ab",
+      "status": 0
+    },
+    {
+      "name": "notices:later-node-notice-before-attack-event:target_spawn",
+      "passed": true,
+      "output_sha256": "1d440ed6274de2506ea03dc1311e9f5c9c5acf2620643243b0adfd3745d2838e",
+      "status": 0
+    },
+    {
+      "name": "notices:later-node-notice-before-attack-event:projectile_destroy",
+      "passed": true,
+      "output_sha256": "4530730c629fb3ffce363d0d345ac2a23dc298102f7982ce9ae142837eb969ab",
+      "status": 0
+    },
+    {
+      "name": "notices:later-node-notice-before-attack-enemy_death",
+      "passed": true,
+      "output_sha256": "4530730c629fb3ffce363d0d345ac2a23dc298102f7982ce9ae142837eb969ab",
+      "status": 0
+    },
+    {
+      "name": "notices:all-four-open-close",
+      "passed": true,
+      "output_sha256": "bdb5b5d6b94972362a34e338a7e635fbc65c4f6fb79b3fe17b970fe5adc0787c",
+      "status": 0
+    },
+    {
+      "name": "notices:duplicate-order",
+      "passed": true,
+      "output_sha256": "5fbf51e0af0012c46409a855f8165282da2b6b3a761089d5939bd8b9533a1c0a",
+      "status": 0
+    },
+    {
+      "name": "notices:maximum-eight",
+      "passed": true,
+      "output_sha256": "aed02635ef71d09224e67ea30af59bdae2ebd1440d31b92e3ec278972a1165bc",
+      "status": 0
+    },
+    {
+      "name": "notices:notice-after-expiry-tick",
+      "passed": true,
+      "output_sha256": "1e6a49271cc4dfc0c7bbf96aa6acee4ad921549f379c2cd9afd37fa2673ce42a",
+      "status": 0
+    },
+    {
+      "name": "notices:notice-after-battle-start",
+      "passed": true,
+      "output_sha256": "40101e2363a31d24053fab05de0c3d1e5eb622132c91850b2fc9c87b20224d72",
+      "status": 0
+    },
+    {
+      "name": "notices:close-notice-before-following-attack",
+      "passed": true,
+      "output_sha256": "e66bb32ba2b591b5b033ad92368ff4c853c7e4dce67cb9a19de3525928ae5238",
+      "status": 0
+    },
+    {
+      "name": "notices:finish-does-not-emit-end",
+      "passed": true,
+      "output_sha256": "270d1d1160d6cbc925bbf5255b6f0cb8dd3e244db0a484cffe6f0e2216ed61cc",
+      "status": 0
+    },
+    {
+      "name": "notices:spawn-notice-does-not-match-other-named-event",
+      "passed": true,
+      "output_sha256": "f774a905ce9f09c4149a26b6e740710e72fe83566a8a1cf23df5b0a13840b4d2",
+      "status": 0
+    },
+    {
+      "name": "notices:sub-epsilon-notice-once",
+      "passed": true,
+      "output_sha256": "27ef5f31afa60d17715c8451bc531829efbd8c988e7f9ccf5969fbc7d69650a9",
+      "status": 0
+    },
+    {
+      "name": "notices:sub-epsilon-repeat-notice-once",
+      "passed": true,
+      "output_sha256": "1fe95d4da0133e81273b7e6eb46ea949c39b295d5c8b6e861729108421818356",
+      "status": 0
+    },
+    {
+      "name": "notices-rejected:notice-count9",
+      "passed": true,
+      "output_sha256": "bc30377e8f046d7ba72a399f83e5798a484d9b1a344edf6089b425066f35d24b",
+      "status": 64
+    },
+    {
+      "name": "notices-rejected:notice-id0",
+      "passed": true,
+      "output_sha256": "bc30377e8f046d7ba72a399f83e5798a484d9b1a344edf6089b425066f35d24b",
+      "status": 64
+    },
+    {
+      "name": "notices-rejected:notice-id5",
+      "passed": true,
+      "output_sha256": "bc30377e8f046d7ba72a399f83e5798a484d9b1a344edf6089b425066f35d24b",
+      "status": 64
+    },
+    {
+      "name": "notices-rejected:notice-unused-bits",
+      "passed": true,
+      "output_sha256": "bc30377e8f046d7ba72a399f83e5798a484d9b1a344edf6089b425066f35d24b",
+      "status": 64
+    },
+    {
+      "name": "notices-rejected:end-count-without-id",
+      "passed": true,
+      "output_sha256": "bc30377e8f046d7ba72a399f83e5798a484d9b1a344edf6089b425066f35d24b",
+      "status": 64
+    },
+    {
+      "name": "notices-rejected:spawn-tag-without-spawn",
+      "passed": true,
+      "output_sha256": "bc30377e8f046d7ba72a399f83e5798a484d9b1a344edf6089b425066f35d24b",
+      "status": 64
+    },
+    {
+      "name": "notices-rejected:unused-node-notice",
+      "passed": true,
+      "output_sha256": "bc30377e8f046d7ba72a399f83e5798a484d9b1a344edf6089b425066f35d24b",
+      "status": 64
+    },
+    {
+      "name": "notices-rejected:spawn-tag-missing",
+      "passed": true,
+      "output_sha256": "bc30377e8f046d7ba72a399f83e5798a484d9b1a344edf6089b425066f35d24b",
+      "status": 64
+    },
+    {
+      "name": "notices-rejected:spawn-tag-over-capacity",
+      "passed": true,
+      "output_sha256": "bc30377e8f046d7ba72a399f83e5798a484d9b1a344edf6089b425066f35d24b",
+      "status": 64
+    }
+  ],
+  "generated_normalized_sha256": {
+    "cuda": "102785e1fed54dcfa373ce2ddfafee4fffb55cc2e6258dd0e0d3b147416ffbb5",
+    "metal": "6c8643d2c1f909c7cacee4dac1b6c3b26076d56787980b3d6ab269d577d28fbb"
+  },
+  "golden_sha256": "474c5518d0fb0c33fd6ae826eb93e8974da13364797c2e15ffd467a8af2b5bb3",
+  "captured": "/Users/edo/.codex/worktrees/world-notices/nikke_tools/research/portable-build/world-suite-20261020T164925218603Z",
+  "evidence": {
+    "transport": {
+      "backend": "metal",
+      "cases": 49,
+      "command_status": "completed",
+      "configured_max_threads_per_threadgroup": 1,
+      "device": "Apple M5",
+      "gpu_seconds": 0.07173166668508202,
+      "input_bytes": 17414212,
+      "library_compile_seconds": 0.004116058349609375,
+      "output_bytes": 44154880,
+      "pipeline_compile_seconds": 0.0042999982833862305,
+      "pipeline_lock_wait_seconds": 1.9073486328125e-06,
+      "pipeline_max_threads_per_threadgroup": 1,
+      "registry_id": "4294968313",
+      "threads_per_threadgroup": 1,
+      "compile_timeout_seconds": 300,
+      "gpu_timeout_seconds": 120
+    },
+    "source_sha256": {
+      "gpu/world_frame_entry.slang": "0f9f49c8225bada65d06b069f7eebbb316c72bbb00eab05fa679f9ceaf755269",
+      "gpu/event_runtime.slang": "b2b2afeb055be9b6dce6103dedb6395514c6f8ad135b18e799a7576469c24f7d",
+      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+      "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+      "gpu/portable_schema.slang": "6915870da99061338204aa96cb9cebeb49091391f4608f170c20f633dcd1a055",
+      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+      "gpu/runtime_init.slang": "54ad60a47e8c25a48c9e3640d7610e34d5dc968b2136a4944a753d676423a123",
+      "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+      "gpu/geometry_runtime.slang": "fc0b6202a75be21dfec22dc7e1c787d3f556fb68caf2c34c5b815d1d8591e33e",
+      "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+      "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+      "gpu/reference_runtime.slang": "3ea6e2b3d617728568a4455097ae2f139466127729026b3011dbb3d930b72a05",
+      "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+      "gpu/bullet_runtime.slang": "1b0f0ffb2eaff6778e0fcab801cb7d644b83af2cb9bc8a230b9d33502bc1c324",
+      "gpu/rank_runtime.slang": "6862c849997a111e228286b553b9043a6035fbf150b9c831130da6171d271526",
+      "gpu/lazy_runtime.slang": "cfea04c172c8ee5df11341cbdb746705f7fd99b05200d24ae9e2515aa30aade1",
+      "gpu/enemy_buff_runtime.slang": "f8785fb25f492b06d4fca0fc64f4e69ea3dfb2a754dd438c4209dae7ed8c31fb",
+      "gpu/carrier_runtime.slang": "d7a14d89cefa0e73fea1a7a096fc26947221b1862ec2a73ae7eab1043c179112",
+      "gpu/quantity_runtime.slang": "843dc4d8246dc2babe7a02db51eb365883551e6aa150cf4ea661b10eb3af5a5e",
+      "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+      "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
+      "gpu/cover_runtime.slang": "eb1b4a4e7c9683b615a160f3010e0e50a5da9d9a7f0425b471c83b1d625dffe6",
+      "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+      "gpu/hp_attack_runtime.slang": "2bb2bdcca7a86353ad8cff2de5908037fd344e4091e07eb92abcaac9093e1a21",
+      "gpu/recipient_runtime.slang": "c9a5acde13e4a7f43dcb3b5ebebdafdce5c6b730e848eeb49e26e35d1cb051bf",
+      "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+      "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+      "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
+      "gpu/damage_runtime.slang": "b47310ceab078ccb38a5e1d0db8bebd6f08db0b3c66a9505e73abb19b5df8eaa",
+      "gpu/incoming_runtime.slang": "3d32bee084317b63a3c00e8b94a9397196f4a8a39efc6a78a8efd74d90f1985c",
+      "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
+      "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+      "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+      "gpu/landing_runtime.slang": "763ee4080d8ec7191c6937c2c5a8e048ecc212cf2db07664ea26f6beb4aaff84",
+      "gpu/periodic_runtime.slang": "574670587e48ff1bfc0498e2ba7b71a86c1285b2281649e46bd9e5ef877f21b9",
+      "gpu/removal_runtime.slang": "7f96937400b9cd9b59fe750a1cca05d4dd77d310eab2a03a81eb588b8e14832b",
+      "gpu/duration_extend_runtime.slang": "028445e661b12f54a8dc48da3b3438b0c4df7b1da833a4b63a54c84ac18a1081",
+      "gpu/stack_runtime.slang": "b46417666a422f4f9fcdfd15e78295394cc1b9571a6083e46ef18f4f300031e8",
+      "gpu/status_runtime.slang": "648f7355bb38092a53a45c608eb5a95f9dd2ca8b6dc6b906712a22f8fd54e3d4",
+      "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+      "gpu/pending_burst_runtime.slang": "ebc7b917f8ce3418d7f18de6c0c07e1c67a58d6cde04156cb52d50de2388c905",
+      "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+      "gpu/world_frame_addresses.slang": "5f4f5bd1401b9db5b05a3f1b057fc1fabe72255aed612b552f3a5b4057a5cc80",
+      "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+      "gpu/protection_runtime.slang": "768eefaec94ee16a561a471c0400506f2b9c13ac3b8756693be1bbbcafc4bdd2",
+      "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+      "gpu/world_frame_runtime.slang": "705bb6a964271f70d7bb602dbfb14b190161b7bbd5901bd0630be5fefd5c1793",
+      "gpu/combat_runtime.slang": "de65fe8974c6e035a2611ed04eb5cf1e67fd3b4af532476bd355550d82cd281d",
+      "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+      "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+      "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+      "gpu/admission_runtime.slang": "06a609cf2707955d8c186b2e3e28ae5cfaefd716782606698aefd54fa3e9d44e",
+      "gpu/portable_mt19937.slang": "116f6a7ee3cf8e069db171aace0c06a1b160c3d25b0975451125929b68dd3b61",
+      "gpu/enemy_target_runtime.slang": "bb88cf05d475109cf34e6fca4099ce71096cecc8ba03c72995cce8de15a0b730"
+    },
+    "generated_sha256": {
+      "cuda": "13908df91c51860b2b2e4db139256827c423606569fc352db60d16b24eea2acb",
+      "metal": "7031f2c22926670ba296cce5e648fbedc65475e7893e9648ba82ac9829702e04"
+    },
+    "input_sha256": "5847f07fc130203b6233f916032b6f19438b1ac3a1ddfc43fb2f554fd3054fa9",
+    "output_sha256": "edc5eb8c82680ada6538ac02a81f93bd579e281c2e002675b26d8c1e51512614",
+    "gpu_execution_verified": true,
+    "backend": "metal"
+  },
+  "source_commit": "9d61cbc5fc71a209ee12d76be20e4533ed528fcf",
+  "gpu_execution_reused": false,
+  "physical_gpu_sessions": 1,
+  "scope": "One-session49-input complete-word preservation against the same native-proved world fixtures on CUDA/Metal;no full-world/catalog admission",
+  "full_character_verified": 0,
+  "canonical_world_admission": false,
+  "normal_ui": "CPU",
+  "full_goal_complete": false
+}

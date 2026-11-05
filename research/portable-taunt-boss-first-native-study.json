@@ -1,0 +1,4021 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "gpu_admission_enabled": false,
+  "gpu_execution_performed": false,
+  "cases": [
+    {
+      "owner": 0,
+      "effect_target": "self",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "self",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "self",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "self",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "self",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "self",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "self",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "all_allies",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "all_allies",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "all_allies",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "all_allies",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "all_allies",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "all_allies",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "all_allies",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "boss",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "boss",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "boss",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "boss",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "boss",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "boss",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "effect_target": "boss",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "self",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "self",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "self",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "self",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "self",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "self",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "self",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "all_allies",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "all_allies",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "all_allies",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "all_allies",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "all_allies",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "all_allies",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "all_allies",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "boss",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "boss",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "boss",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "boss",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "boss",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "boss",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "effect_target": "boss",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "self",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "self",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        2
+      ],
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "self",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "self",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        2
+      ],
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "self",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "self",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        2
+      ],
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "self",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "all_allies",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "all_allies",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "all_allies",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "all_allies",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "all_allies",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "all_allies",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "all_allies",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "boss",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "boss",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        2
+      ],
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "boss",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "boss",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        2
+      ],
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "boss",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "boss",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        2
+      ],
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "effect_target": "boss",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "self",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "self",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        3
+      ],
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "self",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "self",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        3
+      ],
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "self",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "self",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        3
+      ],
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "self",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "all_allies",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "all_allies",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "all_allies",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "all_allies",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "all_allies",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "all_allies",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "all_allies",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "boss",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "boss",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        3
+      ],
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "boss",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "boss",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        3
+      ],
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "boss",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "boss",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        3
+      ],
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "effect_target": "boss",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "self",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "self",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        4
+      ],
+      "actual_targets": [
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "self",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "self",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        4
+      ],
+      "actual_targets": [
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "self",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "self",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        4
+      ],
+      "actual_targets": [
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "self",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "all_allies",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "all_allies",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "all_allies",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "all_allies",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "all_allies",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "all_allies",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0
+      ],
+      "actual_targets": [
+        0
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "all_allies",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "boss",
+      "rule": "all",
+      "ignore_taunt": false,
+      "expected_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "리타",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3385513.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        },
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "boss",
+      "rule": "slot:2",
+      "ignore_taunt": false,
+      "expected_targets": [
+        4
+      ],
+      "actual_targets": [
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "boss",
+      "rule": "slot:2",
+      "ignore_taunt": true,
+      "expected_targets": [
+        1
+      ],
+      "actual_targets": [
+        1
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "크라운",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3669974.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "boss",
+      "rule": "top_atk:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        4
+      ],
+      "actual_targets": [
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "boss",
+      "rule": "top_atk:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        2
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "앨리스",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "boss",
+      "rule": "random:1",
+      "ignore_taunt": false,
+      "expected_targets": [
+        4
+      ],
+      "actual_targets": [
+        4
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "N102",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 2827043.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "effect_target": "boss",
+      "rule": "random:1",
+      "ignore_taunt": true,
+      "expected_targets": null,
+      "actual_targets": [
+        3
+      ],
+      "hits": [
+        {
+          "t": 0.0,
+          "pattern": "observe",
+          "target": "모더니아",
+          "damage": 1.0,
+          "pierce": true,
+          "decoy": 0.0,
+          "shield": 0.0,
+          "cover": 0.0,
+          "hp": 1.0,
+          "hp_after": 3101115.0,
+          "down": false,
+          "source": "",
+          "by": ""
+        }
+      ]
+    }
+  ],
+  "seed": 19,
+  "scope": "105 original simulate/boss-attack cases,5 owners,3 effect targets,all/slot/top-attack/random with ignore_taunt. For ignored top/random,only cardinality is asserted;no shared RNG or rank certification.",
+  "source_sha256": {
+    "research/characterize-taunt-boss-native.py": "24cd4d38b9e440eb4ce977995729ae24281b66ab72daf608e95189b033cfe312",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/calculator/boss_pattern.py": "ccbfde085e5c809b07215b15177a08d725cd56a2691fd26675a9b19b01296565"
+  }
+}

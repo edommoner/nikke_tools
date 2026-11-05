@@ -1,0 +1,8 @@
+{
+  "initial_failure": "Physical Metal Runtime layout differs: composed entry used a local Runtime and the resident buffer was removed by compilation",
+  "kernel_dispatch_before_failure": false,
+  "fix": "Pass existing runtimeStates[id.x] into noinline composed executor; initialize existing mutable state there",
+  "new_runtime_arrays": 0,
+  "layout_check_relaxed": false,
+  "gpu_fallback": false
+}

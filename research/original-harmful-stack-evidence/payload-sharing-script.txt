@@ -1,0 +1,18 @@
+import json,hashlib,os,stat,shutil,time
+from pathlib import Path
+roots=[Path('/tmp')/n for n in ['nikke-original-harmful-stack-develop-v4','nikke-original-harmful-stack-develop-v3','nikke-original-harmful-stack-develop-v2','nikke-original-harmful-stack-observation-v1']]
+free_before=shutil.disk_usage('/tmp').free;index={};linked=[];packets=[]
+for root in roots:
+ m=json.loads((root/'gpu-package.json').read_text())
+ for r in m['files']:
+  p=root/r['path'];assert p.is_file() and not p.is_symlink();data=p.read_bytes();assert hashlib.sha256(data).hexdigest()==r['sha256'];s=p.stat();key=(r['path'],r['sha256'],s.st_size,stat.S_IMODE(s.st_mode))
+  if key not in index:index[key]=p;continue
+  source=index[key]
+  if p.samefile(source):continue
+  temp=p.with_name(p.name+'.dedup-'+str(os.getpid()));assert not temp.exists();os.link(source,temp);os.replace(temp,p)
+  assert p.samefile(source) and p.read_bytes()==data
+  linked.append(dict(path=str(p),canonical=str(source),bytes=s.st_size,sha256=r['sha256']))
+ for r in m['files']:assert hashlib.sha256((root/r['path']).read_bytes()).hexdigest()==r['sha256']
+ packets.append(dict(path=str(root),package_id=m['package_id'],all_payload_hashes_verified=True))
+result=dict(schema=1,scope='Only immutable manifest payloads of four snapshots created in this goal turn; archives, raw, results, manifests and execution claims are unchanged',free_before=free_before,free_after=shutil.disk_usage('/tmp').free,files_linked=len(linked),payload_bytes_shared=sum(r['bytes'] for r in linked),packets=packets,linked=linked,gpu_calls=0,calculation_verified=False)
+Path('/tmp/nikke-original-harmful-payload-dedup-v1.json').write_text(json.dumps(result,indent=2)+'\n');print({k:v for k,v in result.items() if k!='linked'})

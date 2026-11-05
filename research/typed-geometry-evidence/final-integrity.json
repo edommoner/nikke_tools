@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "scope": "Final package binds the already completed independent audit: identical native/calculation producers, inputs, sources and saved readbacks; only registry sealing and readiness metadata/assertions changed",
+  "package_id": "c7d70f1d545a515216e2d46e44063d9e5b76ace07a972cf1f50f6f1c78c4cb5c",
+  "execution_package_id": "2d0850de5490bf63960d1f01efad94f1855844adaa4fdaca24db37010b72f194",
+  "files": 1979,
+  "all_payload_checkout_hashes_exact": true,
+  "all_native_and_calculation_producer_files_exact": true,
+  "all28_input_native_and_source_fingerprints_exact": true,
+  "all28_output_hashes_verified": true,
+  "positive_reserved_and_rejection_checks_pass": true,
+  "paired_generated_cuda_metal_reflections_raw_exact": true,
+  "generation_required_hit": true,
+  "additional_compiler_calls": 0,
+  "additional_gpu_calls": 0,
+  "independent_audit_receipt_sha256": "eb5050754368b4867572b749402009d877e0cf12caf0c300989e197244b382eb",
+  "output_sha256": "bdd071a47ea0c76ff23ff69196c9e62851264d5bba7581252579e79de6b35c95",
+  "cuda_execution_verified": false
+}

@@ -1,0 +1,58 @@
+{
+  "transport": {
+    "backend": "metal",
+    "cases": 1026,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 0.00026120839174836874,
+    "input_bytes": 32836,
+    "library_compile_seconds": 0.04721200466156006,
+    "output_bytes": 32832,
+    "pipeline_cache": {
+      "archive_bytes": 46864,
+      "archive_compile_seconds": 0.03615093231201172,
+      "archive_sha256": "b396f3764bd23fcf67dfb2d438915d833768942b82f7852ff5d2c8bb3a38401b",
+      "enabled": true,
+      "hit": false,
+      "identity": {
+        "consumer_sha256": "6c0f42bafdb0cd04e95c4b88e7962bcd822bb6bd0e1de1090c3888cce3758486",
+        "device": "Apple M5",
+        "entry": "portableEvents",
+        "math_mode": "safe",
+        "os_build": "Version 26.6.2 (Build 25G83)",
+        "registry_id": "4294968313",
+        "resident_stride": "0",
+        "schema": "1",
+        "source_sha256": "071276714eeadac539d2baa323611a27b513bdd079b8996342f4ee24ed214154",
+        "threads_per_threadgroup": "1"
+      },
+      "key": "38c688a9fde4745fc095d5b38590888a6c4f9c801747efaab6a9304ad2b8f5d5",
+      "native_archive_miss_rejected": true,
+      "required": false,
+      "schema": 1
+    },
+    "pipeline_compile_seconds": 0.03631293773651123,
+    "pipeline_lock_wait_seconds": 9.5367431640625e-07,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "pipeline_os_build": "Version 26.6.2 (Build 25G83)",
+    "registry_id": "4294968313",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "source_sha256": {
+    "gpu/coordinate_math_probe.slang": "63cb5962a4a573df76197a55dc3cc727bbda4c3c66782e6ffab9ddeeeb80ad70",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/coordinate_math.slang": "f888a6b0d8ce1d6f7bf87481ad0c7360a43927d9d278910d844d7664df66faad"
+  },
+  "generated_sha256": {
+    "cuda": "dc8d0540bd60352ce73cd0eae3644e7f64c5163352cb881ef31b7e73a68b0c32",
+    "metal": "071276714eeadac539d2baa323611a27b513bdd079b8996342f4ee24ed214154"
+  },
+  "input_sha256": "e44821cc6d878a2aa418a7b20cda481c7883f061c45757e88261d55722e44735",
+  "output_sha256": "58c3832ae49c670d7a7023acaead285c97db7b3f9ad58351c7c33d0af17b7b7f",
+  "gpu_execution_verified": true,
+  "backend": "metal"
+}

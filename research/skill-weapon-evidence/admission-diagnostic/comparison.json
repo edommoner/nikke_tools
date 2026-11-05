@@ -1,0 +1,28 @@
+{
+  "calculation_verified": false,
+  "entries": [],
+  "mismatches": [
+    {
+      "index": 0,
+      "name": "skill-weapon-real/Anis-Star/3s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    }
+  ],
+  "input_count": 1,
+  "native_oracles": 1,
+  "input_sha256": "664a7baf8dd97a246d3f0e1aea19fe9d973b76e53d73883e3f8f560ce1a8493a",
+  "output_sha256": "62d1bb7bfe04a1347d073615d24c364aa5352b4d1adcfea7746cedc4ccda6505",
+  "generated_normalized": {
+    "cuda": "c89f8a04dba6f1a7d0967dfbdc4933e857af6fa10db4307b8913db2be6ba791b",
+    "metal": "224b2c064630dd1d39efe9eed9b5ead7465d13247d29cf834a0085d248273010"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 0,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

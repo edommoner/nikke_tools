@@ -1,0 +1,167 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "scope": "CPU-only stimulus diagnosis, not a production input rewrite or GPU expected-value change",
+  "observations": [
+    {
+      "type": "instant",
+      "handler_calls": 0,
+      "operations": [],
+      "physical_shots": [
+        {
+          "owner": 0,
+          "mode": 0,
+          "time": 0.0,
+          "pellets": 1,
+          "muzzles": 1,
+          "reach": 0,
+          "damage": 6600
+        },
+        {
+          "owner": 0,
+          "mode": 0,
+          "time": 0.11666666666666665,
+          "pellets": 1,
+          "muzzles": 1,
+          "reach": 0,
+          "damage": 6600
+        },
+        {
+          "owner": 0,
+          "mode": 0,
+          "time": 0.21666666666666665,
+          "pellets": 1,
+          "muzzles": 1,
+          "reach": 0,
+          "damage": 6000
+        }
+      ]
+    },
+    {
+      "type": "buff",
+      "handler_calls": 3,
+      "operations": [
+        {
+          "time": 0.0,
+          "before": [
+            {
+              "name": "no-crit",
+              "stack": 1,
+              "expires_at": Infinity
+            },
+            {
+              "name": "duration-reference",
+              "stack": 3,
+              "expires_at": Infinity
+            },
+            {
+              "name": "duration-scaled",
+              "stack": 1,
+              "expires_at": 0.15000000000000002
+            }
+          ],
+          "after": [
+            {
+              "name": "no-crit",
+              "stack": 1,
+              "expires_at": Infinity
+            },
+            {
+              "name": "duration-reference",
+              "stack": 3,
+              "expires_at": Infinity
+            },
+            {
+              "name": "duration-scaled",
+              "stack": 2,
+              "expires_at": 0.05
+            }
+          ]
+        },
+        {
+          "time": 0.11666666666666665,
+          "before": [
+            {
+              "name": "no-crit",
+              "stack": 1,
+              "expires_at": Infinity
+            },
+            {
+              "name": "duration-reference",
+              "stack": 3,
+              "expires_at": Infinity
+            }
+          ],
+          "after": [
+            {
+              "name": "no-crit",
+              "stack": 1,
+              "expires_at": Infinity
+            },
+            {
+              "name": "duration-reference",
+              "stack": 3,
+              "expires_at": Infinity
+            }
+          ]
+        },
+        {
+          "time": 0.21666666666666665,
+          "before": [
+            {
+              "name": "no-crit",
+              "stack": 1,
+              "expires_at": Infinity
+            },
+            {
+              "name": "duration-reference",
+              "stack": 3,
+              "expires_at": Infinity
+            }
+          ],
+          "after": [
+            {
+              "name": "no-crit",
+              "stack": 1,
+              "expires_at": Infinity
+            },
+            {
+              "name": "duration-reference",
+              "stack": 3,
+              "expires_at": Infinity
+            }
+          ]
+        }
+      ],
+      "physical_shots": [
+        {
+          "owner": 0,
+          "mode": 0,
+          "time": 0.0,
+          "pellets": 1,
+          "muzzles": 1,
+          "reach": 0,
+          "damage": 6600
+        },
+        {
+          "owner": 0,
+          "mode": 0,
+          "time": 0.11666666666666665,
+          "pellets": 1,
+          "muzzles": 1,
+          "reach": 0,
+          "damage": 6000
+        },
+        {
+          "owner": 0,
+          "mode": 0,
+          "time": 0.21666666666666665,
+          "pellets": 1,
+          "muzzles": 1,
+          "reach": 0,
+          "damage": 6000
+        }
+      ]
+    }
+  ]
+}

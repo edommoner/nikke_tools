@@ -1,0 +1,374 @@
+{
+  "schema": "product-lock-consumer-static-v1",
+  "source_commit": "581ffabb20438cc60c4e73f34a8fba232f2cc095",
+  "source_hashes": {
+    "app/product_lock_model.py": "6c6fcab16c5851647cb05978a8546b5a0b78120534a708cc32e8bfcd10d0f9f9",
+    "app/named_generation_locks.py": "8ef584b07a278b51e642b770ad93e0cc910d40c47d7846a1937f29c9c40f295c",
+    "app/live_lock_delivery_policy.py": "dcaf086b4cc20fa8d69c0e67e43b9f4693c5e84985f6f3828ef58c6265f7869a",
+    "app/lock_delivery_policy.py": "278f42b8cf204e50349c6d8e9927c3ea4b78066064c805c62e14b839bb71a591",
+    "app/effect_target_count_policy.py": "2ef32fe4ffc85b1a1d227c4691a50e2194fe477e0e3dcdb93467ccf2bdc7c6c8",
+    "research/world_physical_locks_native.py": "ea7d48e9a489f9ac67c252df8b0aeeef97aaaa217942dcf0dd87a316e5992b1b",
+    "app/portable_product_locks.py": "79e7815bec504c25479ac73d13938d564f6402a3e57148e3273f06509450f573",
+    "app/portable_effect_target_count_shot_specs.py": "99d1356c4790f1acbebce2d9f0c72357b71a764e0985d8b67b58ec8658c29e41",
+    "gpu/named_generation_locks.slang": "b643c4eb1dd1f28545ab7ff69be9ba13f3ec227c443bd13972caa6bf23e5ac50",
+    "gpu/physical_generation_locks.slang": "620d5da91f99f2af56eab6b092eb78dbd8240804e1009e15a7c412d74f5cee43",
+    "gpu/effect_target_count_shot_runtime.slang": "3941f6c7a4dca33ac57f0dab20c39d04da4778d83c5b9ba3bb7aee76b09d3a89",
+    "gpu/live_lock_delivery_runtime.slang": "9c772b9dd72530f07b5f5e00922c08c728485003b3fedb880ca783327a487cc7",
+    "gpu/lock_delivery_policy.slang": "3765effd0479aa515e49703f61deacdf599850168460f769c0b7c3b45a398506"
+  },
+  "source_sites": [
+    {
+      "source": "app/product_lock_model.py",
+      "line": 20,
+      "function": "normalize",
+      "ast_sha256": "943bd5294f9aead86288c6cec481d9847bde5bf151af6e5f84bdbc01e840ba7c",
+      "source_sha256": "6c6fcab16c5851647cb05978a8546b5a0b78120534a708cc32e8bfcd10d0f9f9"
+    },
+    {
+      "source": "app/product_lock_model.py",
+      "line": 41,
+      "function": "validate_effects",
+      "ast_sha256": "62cdaf7edccd6b25ca7f49a4420debc6d3c65b904bf1d6a2cded4884d879dca1",
+      "source_sha256": "6c6fcab16c5851647cb05978a8546b5a0b78120534a708cc32e8bfcd10d0f9f9"
+    },
+    {
+      "source": "app/product_lock_model.py",
+      "line": 104,
+      "function": "execution",
+      "ast_sha256": "76662e8466355e918fc3248048e32fffadb2f305b2935167527f974d7e5be328",
+      "source_sha256": "6c6fcab16c5851647cb05978a8546b5a0b78120534a708cc32e8bfcd10d0f9f9"
+    },
+    {
+      "source": "app/product_lock_model.py",
+      "line": 124,
+      "function": "emission",
+      "ast_sha256": "0dd14e14e8d9ed26c3ec0f918ef70894cf001760210fd4affcfa7b8215f9a7a9",
+      "source_sha256": "6c6fcab16c5851647cb05978a8546b5a0b78120534a708cc32e8bfcd10d0f9f9"
+    },
+    {
+      "source": "app/product_lock_model.py",
+      "line": 144,
+      "function": "routed",
+      "ast_sha256": "7133052156097f41c731ef5f32591e5662e878c996e873f277aa4fea54b0a21b",
+      "source_sha256": "6c6fcab16c5851647cb05978a8546b5a0b78120534a708cc32e8bfcd10d0f9f9"
+    },
+    {
+      "source": "app/named_generation_locks.py",
+      "line": 58,
+      "function": "_prepared",
+      "ast_sha256": "625839ed6e712992c1c2cf55c9dcf27ec04bf929d73cb089c18fcc6ac122358b",
+      "source_sha256": "8ef584b07a278b51e642b770ad93e0cc910d40c47d7846a1937f29c9c40f295c"
+    },
+    {
+      "source": "app/named_generation_locks.py",
+      "line": 86,
+      "function": "acquire",
+      "ast_sha256": "46dab6c7a343f520eba12ce65bc898e0c4208da7cd8192b10ef2a1e7259592e1",
+      "source_sha256": "8ef584b07a278b51e642b770ad93e0cc910d40c47d7846a1937f29c9c40f295c"
+    },
+    {
+      "source": "app/named_generation_locks.py",
+      "line": 104,
+      "function": "clear",
+      "ast_sha256": "01f701a05d586d3d761c506131a8bb1062b0c465ff5150bb4b179d5e565e1dac",
+      "source_sha256": "8ef584b07a278b51e642b770ad93e0cc910d40c47d7846a1937f29c9c40f295c"
+    },
+    {
+      "source": "app/named_generation_locks.py",
+      "line": 145,
+      "function": "capacity",
+      "ast_sha256": "6703f28c19ddb756839207fbc1028d1a00d170a7e170b954f1b9d6163245ae7a",
+      "source_sha256": "8ef584b07a278b51e642b770ad93e0cc910d40c47d7846a1937f29c9c40f295c"
+    },
+    {
+      "source": "app/named_generation_locks.py",
+      "line": 149,
+      "function": "acquire",
+      "ast_sha256": "c0e5bd7c0212bbd97f40b0c03f0e350bc64780ee0d3050721eedf08fc9e99eca",
+      "source_sha256": "8ef584b07a278b51e642b770ad93e0cc910d40c47d7846a1937f29c9c40f295c"
+    },
+    {
+      "source": "app/named_generation_locks.py",
+      "line": 156,
+      "function": "capture",
+      "ast_sha256": "70539fc241c3779499900b14a1d2fdc7995726764a64f191bf1a1d2e7c0a827c",
+      "source_sha256": "8ef584b07a278b51e642b770ad93e0cc910d40c47d7846a1937f29c9c40f295c"
+    },
+    {
+      "source": "app/named_generation_locks.py",
+      "line": 160,
+      "function": "clear",
+      "ast_sha256": "477d7d445ae8ff1d8064e7c5499c08068c7c87752b7d2b65afea850460c89e51",
+      "source_sha256": "8ef584b07a278b51e642b770ad93e0cc910d40c47d7846a1937f29c9c40f295c"
+    },
+    {
+      "source": "app/live_lock_delivery_policy.py",
+      "line": 9,
+      "function": "select_live",
+      "ast_sha256": "b20a0ad5efdb22cfca6afcc98e56cd4e4cf670df385c2a35ec9856ca7cfbcc56",
+      "source_sha256": "dcaf086b4cc20fa8d69c0e67e43b9f4693c5e84985f6f3828ef58c6265f7869a"
+    },
+    {
+      "source": "app/lock_delivery_policy.py",
+      "line": 18,
+      "function": "select",
+      "ast_sha256": "b398f7de5aa80369db76561e4ee04bac4b608c23fdf6e7608c56fe90c5073491",
+      "source_sha256": "278f42b8cf204e50349c6d8e9927c3ea4b78066064c805c62e14b839bb71a591"
+    },
+    {
+      "source": "research/world_physical_locks_native.py",
+      "line": 15,
+      "function": "capture",
+      "ast_sha256": "010b0d409f4281d6902383fac806ed2cf776425402c17b4e47206accc6b064ea",
+      "source_sha256": "ea7d48e9a489f9ac67c252df8b0aeeef97aaaa217942dcf0dd87a316e5992b1b"
+    },
+    {
+      "source": "research/world_physical_locks_native.py",
+      "line": 31,
+      "function": "activated",
+      "ast_sha256": "7e18059fdcbd6a9f455b8a0e2ce14dc133cf784602f33d6c326fdb1ad70d8f81",
+      "source_sha256": "ea7d48e9a489f9ac67c252df8b0aeeef97aaaa217942dcf0dd87a316e5992b1b"
+    },
+    {
+      "source": "research/world_physical_locks_native.py",
+      "line": 42,
+      "function": "fired",
+      "ast_sha256": "78a8caf05a576266dae4d9ae07e7a7ddaab26f51fd2840b647f954a3fccc7c6a",
+      "source_sha256": "ea7d48e9a489f9ac67c252df8b0aeeef97aaaa217942dcf0dd87a316e5992b1b"
+    },
+    {
+      "source": "research/world_physical_locks_native.py",
+      "line": 50,
+      "function": "notified",
+      "ast_sha256": "d5a4a9c7a0ec29f5b2798e544a58bcf1d074f7b8fe43baac86c57d1e9e7b672e",
+      "source_sha256": "ea7d48e9a489f9ac67c252df8b0aeeef97aaaa217942dcf0dd87a316e5992b1b"
+    },
+    {
+      "source": "research/world_physical_locks_native.py",
+      "line": 57,
+      "function": "used",
+      "ast_sha256": "26769346e16fc3348a490f64de977c2a9543454a5ea04ac64c10c22b1c2c7b1c",
+      "source_sha256": "ea7d48e9a489f9ac67c252df8b0aeeef97aaaa217942dcf0dd87a316e5992b1b"
+    },
+    {
+      "source": "app/portable_product_locks.py",
+      "line": 42,
+      "function": "compile_product",
+      "ast_sha256": "3d90af67611dbd0b70a3da6644adc19e690f88b0787f3e5b8b411e9583c38d62",
+      "source_sha256": "79e7815bec504c25479ac73d13938d564f6402a3e57148e3273f06509450f573"
+    },
+    {
+      "source": "app/portable_product_locks.py",
+      "line": 197,
+      "function": "read_result",
+      "ast_sha256": "2231bdc0c8df6935023c8c8557de04a4431ab25bb64f993a374d87eee47de4bb",
+      "source_sha256": "79e7815bec504c25479ac73d13938d564f6402a3e57148e3273f06509450f573"
+    }
+  ],
+  "actual_function_identity_checks": true,
+  "registry": "product reference_models.lock_on -> product_lock_model.execution -> physical native acquisition/shot/notify adapters -> NamedGenerationLocks and queue hooks -> select_live -> original skill landing",
+  "original_contract": "Exactly one unchanged original HeavyArms acquisition/packet/projectile definition; no arbitrary packet substitution",
+  "acquisition": {
+    "trigger": "Original every0.2 seconds while charging; actual activation path, no second clock",
+    "capacity": "Fresh effect_target_count_add exact marker query, base5/limit128; not the named carrier stack count",
+    "order": "Product BODY then live ADD spawn order; framework eligible kinds0/1/5 but actual provider emits0/5 only",
+    "membership": "Distinct kind/identity/generation, remove dead/replaced before acquisition or shot; reject duplicate/stale provider",
+    "decrease": "Lower capacity blocks new acquisition; existing live locks not evicted solely for capacity decrease"
+  },
+  "snapshot_delivery": {
+    "shot": "Capture before native shot and bullet consumption; immutable handles/revision, queue stores same-shot token/time/hit ordinal",
+    "selection": "(hit-1)%frozen_count; no live compaction or guessed retarget",
+    "ready_empty": "READY0/EMPTY1 accepted; empty routes zero recipients",
+    "unsupported": "MISSING2/STALE3/DEAD4 raise UnresolvedLockDelivery on CPU; equivalent stale/missing/dead GPU frozen-slot validation sets error64; not silently dropped",
+    "clear": "normal_attack/taking_cover clears live membership; pending shot tuple remains frozen",
+    "bounds": "Physical product limit128, explicit wire queue/history bounds; framework broader limits not claimed as product coverage"
+  },
+  "wire": {
+    "count_stat": 93,
+    "marker": "록 온 exact symbol",
+    "count_definition_value": 10.0,
+    "count_lifetime_bullets": 2,
+    "base_count": 5,
+    "capacity_limit": 128,
+    "pulse_marker_kind": 4,
+    "pulse_marker_stat": 0,
+    "pulse_definition_row_base": 0,
+    "packet": "Original source row8 -> wire bound row; snapshot token/revision/count/time validated by existing decoder",
+    "no_CPU_schedule_or_membership_input": true
+  },
+  "saved_current_evidence": {
+    "schema": "lock-on-saved-evidence-v1",
+    "capture": "8b03b2d01ea546e68a6bd8a01e0e0019",
+    "source": "gpu/product_typed_lock_battle_entry.slang",
+    "input_sha256": "abe28ac2210a537f5b42a614e18022f605d0f8f9bfa1f117b70401856e561556",
+    "readback_sha256": "af1f30fcc9af7e319d251e91c16734c635753da7ea25baf7213ff39216a47a7f",
+    "source_closure_exact": true,
+    "all_original_CPU_GPU_data_source_files_unchanged": true,
+    "source_snapshot_sha256": "71caa3a6fc3c6454c6a1c8c4ef4b3ad99fc9df6b53a0b603a41486aaec55534b",
+    "current_input_exact": true,
+    "existing_strict_full_decoder_passed": true,
+    "lock_public_projection_CPU_GPU_HTTP_exact": true,
+    "full_public_current_projection_vs_old_CPU_differing_fields": [
+      "evaluator"
+    ],
+    "full_public_drift_values": {
+      "evaluator": {
+        "old": {
+          "repo": "Jgaram/nikke-calc",
+          "commit": "b3141d7718eca7cb3f0dd77c8bc0aacd1d6ced9b",
+          "dirty": false
+        },
+        "current": {
+          "repo": "Jgaram/nikke-calc",
+          "commit": "581ffabb20438cc60c4e73f34a8fba232f2cc095",
+          "dirty": false
+        }
+      }
+    },
+    "pulses": 134,
+    "shots": 18,
+    "clears": 19,
+    "owner_quotas": 18,
+    "positive_owner_quotas": [
+      {
+        "who": 0,
+        "time": 7.416666666666646,
+        "before": {
+          "capacity": 15,
+          "additional": 10.0,
+          "remaining": 2,
+          "present": true,
+          "activated": 4.033333333333324,
+          "skipped": false
+        },
+        "after": {
+          "capacity": 15,
+          "additional": 10.0,
+          "remaining": 1,
+          "present": true,
+          "activated": 4.033333333333324,
+          "skipped": false
+        }
+      },
+      {
+        "who": 0,
+        "time": 11.000000000000126,
+        "before": {
+          "capacity": 15,
+          "additional": 10.0,
+          "remaining": 1,
+          "present": true,
+          "activated": 4.033333333333324,
+          "skipped": false
+        },
+        "after": {
+          "capacity": 5,
+          "additional": 0.0,
+          "remaining": 0,
+          "present": false,
+          "activated": 0.0,
+          "skipped": false
+        }
+      }
+    ],
+    "shot_first": {
+      "time": 2.2166666666666637,
+      "revision": 6,
+      "handles": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          5,
+          0,
+          1
+        ],
+        [
+          5,
+          1,
+          1
+        ]
+      ]
+    },
+    "snapshot_max_handles": 3,
+    "static_input_binding": {
+      "owner": "스노우 화이트 : 헤비암즈",
+      "marker": "록 온",
+      "pulse_row0_based": 0,
+      "count_row0_based": 20,
+      "count_numeric_stat": 93,
+      "count_value": 10.0,
+      "base_count": 5,
+      "capacity_limit": 128,
+      "duration_bullets": 2,
+      "packet_source_original0_based": 8
+    },
+    "scope": "Original authored36 normal Metal scene saved reuse; gen1 BODY+ADD membership and2-shot quota transition only; not all delivery cases",
+    "new_CPU_battles": 0,
+    "new_GPU_calls": 0,
+    "Windows_calls": 0
+  },
+  "scope": "Static L3 plus reused original authored36 current-source Metal LockOn domain; not full retarget/death/distance/lifecycle proof",
+  "remaining": [
+    "Capacity-binding membership above5 and capacity-decrease non-eviction runtime",
+    "Dead/missing/stale/respawn/empty delivery semantics and game retarget rules",
+    "Other rank/distance models, actor kinds and arbitrary composition",
+    "Current CUDA execution",
+    "Runtime evaluator Gitref metadata remains visible; no full public bit-equivalence claim"
+  ],
+  "new_CPU_battles": 0,
+  "new_GPU_calls": 0,
+  "Windows_calls": 0,
+  "full_goal_complete": false,
+  "claude_decision": "accept L3 and exact authored36 saved Metal LockOn domain only after provenance conditions closed",
+  "claude_review_sha256": "963dbeb736bfe6b3a2815ca0f53ce9e64af4b96eaa1c6862215cea33fd6bdfed",
+  "claude_review": "# 判定: 受理条件1〜3は閉じています\n\n報告内容を前提にすると、L3 と exact authored 36 / Metal 1 case の LockOn domain は受理可能です。必須の不足はありません。ツールは使っておらず、以下はいただいた要約のみに基づく判定です。\n\n## 1. 比較treeの同一性: 閉\n- 比較対象は専用 worktree `runtime-resident` で、HEAD は `581ffabb…`、`git status --porcelain` は空です。\n- cwd、ROOT、sys.path が同一の絶対pathに固定されています。\n- sources.json の全 closure hash が現在のファイルと一致しています。\n- 私の startup context(main checkout の `168561d6` と dirty な storage 変更)が無関係であることも整理されています。\n- 補足(非必須): `--porcelain` は ignored file を表示しません。ただし closure を hash で全照合しているので、受理には影響しません。\n\n## 2. evaluator 差分の性質: 閉\n- 「計算fileがdriftした」という仮定を撤回し、runtime Git ref metadata の差として扱う整理は正確です。\n- 生成元 `sim.py` の SHA は保存時と現在で同一です。\n- `.git` が closure の外にあることも確認済みです。\n- 旧 ref-file SHA を推定値で埋めず null と明記した点、旧 commit を `cat-file` で実在確認した点も適切です。\n- 記録として残すべき事項(受理を止めるものではありません):\n  - `evaluator.commit` は upstream `Jgaram/nikke-calc` の版を特定しません。実際には enclosing tool の HEAD を指しています。これを既知の provenance ラベル欠陥として一行明記してください。\n  - upstream の版の同一性は sources.json の hash に依拠する、と受理文書に書いておくと、将来の誤読を防げます。\n- 前提の確認: saved CPU 出力と sources.json が同一 run で生成された(run id などで紐付いている)ことが既存の bundle で示されていれば、追加作業は不要です。示されていなければ、それだけは確認してください。\n\n## 3. kind1(PART)の扱い: 閉\n- provider だけでなく、製品 decoder `app/portable_product_locks.py:255` も kind ∉ {0,5} を拒否しています。\n- 「generic core の eligible1 を製品機能として数えない」という記述への統一で、矛盾は解消されています。\n\n## 受理範囲(この通りで妥当)\n- 主張は LockOn subdomain における 保存CPU = GPU = HTTP の一致に限定します。\n- 全 public の evaluator 旧値/現値は除外せず、そのまま保持します。\n- backend は Metal のみで、Windows は 0、新規 CPU/GPU 実行も 0 です。\n\n次の unit は `gauge_charge_enabled` で問題ありません。scope の拡張は不要です。",
+  "provenance_clarification": {
+    "worktree": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/runtime-resident",
+    "worktree_HEAD": "581ffabb20438cc60c4e73f34a8fba232f2cc095",
+    "worktree_status_porcelain": "",
+    "main_checkout_not_used": true,
+    "comparison_execution_root": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/runtime-resident",
+    "evaluator_generator": {
+      "source": "research/upstream/nikke-calc-master/runner/sim.py",
+      "old_sha256": "b5f24cad9b7e5079a00303674b1ff3b2803acd4450f502a9a651cdf9baf215c9",
+      "current_sha256": "b5f24cad9b7e5079a00303674b1ff3b2803acd4450f502a9a651cdf9baf215c9",
+      "calculation_file_unchanged": true,
+      "behavior": "git rev-parse HEAD and git status --porcelain in vendored source parent; Git discovers enclosing tool worktree repository",
+      "upstream_repo_label_does_not_pin_commit": true
+    },
+    "metadata_reference": {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.git/refs/heads/codex/runtime-resident",
+      "old_commit_from_saved_payload": "b3141d7718eca7cb3f0dd77c8bc0aacd1d6ced9b",
+      "current_commit": "581ffabb20438cc60c4e73f34a8fba232f2cc095",
+      "current_ref_file_sha256": "ec4debd4bc3cc90806ea733bef1a3dd68ab4fb2a67b04b3a494dfb8e576aa7fe",
+      "old_ref_file_sha256": null,
+      "old_ref_not_captured": "No historical ref-file bytes captured; do not fabricate an old file SHA. Saved evaluator commit and immutable commit object identify old value.",
+      "reference_in_sources_json": false,
+      "reference_in_GPU_calculation_closure": false
+    },
+    "eligibility": {
+      "product_decoder": "app/portable_product_locks.py:255 explicitly rejects kind not in(0,5)",
+      "framework_kind1": "Allowed by generic core policy only; not admitted by product decoder"
+    }
+  },
+  "same_run_bundle_linkage": {
+    "original_committed_report": "research/product-mixed-revival-v1.json",
+    "original_committed_report_sha256": "692703d4518180b24c930043bc43f69fa0aea70ccda72432b5028e1b5d2c2442",
+    "job_id": "dd317a54-d68b-4884-b03f-cfc18315bccd",
+    "capture_id": "8b03b2d01ea546e68a6bd8a01e0e0019",
+    "cpu_payload_file_sha256": "6db78bc07ae5afe9c4a467fb69da205ae17f7d09559c533da859153b111d7713",
+    "input_output_and_CPU_SHA_match_original_committed_case": true,
+    "source_snapshot_sha256": "71caa3a6fc3c6454c6a1c8c4ef4b3ad99fc9df6b53a0b603a41486aaec55534b",
+    "source_before_after_complete_sha256": "83f9327f8a02e5a6dfbfea6666602f0909cbb1b3c0531415407cc09e7b2c9ca9",
+    "source_files_unchanged": true,
+    "server_owned_sha256": "9f89e52d68f72e289e3a784245c745c673514a575954c41550647b4a95ad8c8b",
+    "server_execution_HEAD": "b3141d7718eca7cb3f0dd77c8bc0aacd1d6ced9b"
+  },
+  "known_provenance_label_defect": "Vendored runner evaluator.repo says Jgaram/nikke-calc but commit is enclosing tool worktree HEAD. Upstream source identity relies on captured source file hashes, not this label.",
+  "product_eligibility": "Product decoder explicitly rejects kind not in(0,5); framework kind1 is not product support",
+  "next_Claude_priority": "gauge_charge_enabled marker definition/whole reference chain/type rejection/nonintercept/wire; no assumed boolean charge gate",
+  "production_changes": 0
+}

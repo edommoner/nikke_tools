@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-full-burst-query-metal291-v1",
+  "raw_bytes": 915406848,
+  "raw_sha256": "b764d21230d625abcb86c1da8919e8eac7ec0847682d549536c1aecb5418c0ef",
+  "evidence_sha256": "dfc20a818da85364830e4d3e6b98a7fdeea2320c61e0a4190c02b2bc5b17155a",
+  "raw_inode": 508486579,
+  "zero_ranges": 2085,
+  "zero_range_bytes": 663093248,
+  "allocated_before": 915406848,
+  "allocated_after": 252313600,
+  "allocated_reclaimed": 663093248,
+  "full_hash_verified": true
+}

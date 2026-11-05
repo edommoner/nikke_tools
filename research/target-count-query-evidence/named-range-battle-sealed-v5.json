@@ -1,0 +1,106 @@
+{
+  "schema": "named-range-battle-sealed-v5",
+  "source_commit": "240a9788",
+  "package_id": "8b5326264e1b71482e842195a1d6ed8f9062d934bc8a2318d81c04d3732fedc3",
+  "metal_verified": true,
+  "independently_audited": true,
+  "inputs": 16,
+  "native_worlds": 4,
+  "rejections": 12,
+  "original_roster_definitions": 87,
+  "cast_records_per_world": 54,
+  "replay_seconds": 242.41910395899322,
+  "independent_seconds": 216.40274820799823,
+  "independent_groups": [
+    {
+      "child_pid": 65814,
+      "case_indices": [
+        0,
+        1
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 103.74212095800613
+    },
+    {
+      "child_pid": 65841,
+      "case_indices": [
+        2,
+        3
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 93.33325170799799
+    },
+    {
+      "child_pid": 65863,
+      "case_indices": [
+        4,
+        5
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0714828339987434
+    },
+    {
+      "child_pid": 65865,
+      "case_indices": [
+        6,
+        7
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.07809991700924
+    },
+    {
+      "child_pid": 65866,
+      "case_indices": [
+        8,
+        9
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.109093124992796
+    },
+    {
+      "child_pid": 65868,
+      "case_indices": [
+        10,
+        11
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0883563329989556
+    },
+    {
+      "child_pid": 65869,
+      "case_indices": [
+        12,
+        13
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0839089170040097
+    },
+    {
+      "child_pid": 65871,
+      "case_indices": [
+        14,
+        15
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0673321669892175
+    }
+  ],
+  "live_parent_receipt_present": false,
+  "gpu_calls_after_original_dispatch": 0,
+  "original_failure_preserved": true,
+  "input_sha256": "86e3b2f4d45bf5526780f641b3fa12ea48830763451ba29a8c0f2914dedc74fe",
+  "output_sha256": "a016d1b2cc30357a022d9901f63cbc8d6a65b2b0f0f792a3c50fdadcb590db3b",
+  "current_cuda_verified": false,
+  "public_gpu_admitted": false,
+  "full_goal_complete": false,
+  "windows_status": "Existing thread host unavailable/durable; status read only, no new run",
+  "scope": "Declared radial model and existing logical actor order in four full original battles; not in-game radius/nearest proof"
+}

@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "suite": "coordinate-typed-aim",
+  "stage": "scoped-shared-gpu-validation",
+  "inputs": 59,
+  "native_cases": 36,
+  "rejection_cases": 23,
+  "execution_package_id": "884ef54af1dd1bdf3cc5da29067cbe595f2154602506abf7cba5cb080e14683f",
+  "final_package_id": "36acee7f37ed722a54ea6a4a4dc6de3996855aecdd799663aedea4d6b466ed57",
+  "metal_verified": true,
+  "independent_audit_verified": true,
+  "declared_policy": "typed-before-body-v1",
+  "typed_slots": 128,
+  "focus_id_bits": 9,
+  "add_aim_id": 257,
+  "last_slot_actual_focus_id": 256,
+  "old46_all_output_bytes_exact": 373888000,
+  "actual_metal_dispatches": 2,
+  "calculation_failures_retained": 1,
+  "device_invisibility_stops_before_cpu_or_gpu": 1,
+  "gpu_retries": 0,
+  "finalization_gpu_calls": 0,
+  "cuda_device_verified": false,
+  "current_enemy_recipient_connected": false,
+  "canonical_consumer_verified": false,
+  "in_game_rules_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "remaining": [
+    "logical current-enemy recipient and owner policy without removing original definitions",
+    "moving typed shapes and further caller/variant contracts",
+    "current short CUDA/cache validation when existing Windows chat can receive a turn",
+    "public GPU admission and full-character certification"
+  ],
+  "evidence": [
+    {
+      "path": "typed-aim-gpu-evidence/add-diagnostic.json",
+      "bytes": 981,
+      "sha256": "8ae6da955354d034d7d25a11407fea521a79c825bc728321eb0ed1f8c740348f"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/arena.json",
+      "bytes": 49441,
+      "sha256": "abf151662a7fdae1b763d2b784c6434cc4334ac52c05d88548ab8aa6cf288293"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/control.json",
+      "bytes": 234,
+      "sha256": "a0b98961fa84af5d5905bb761982a8b8887f0bd8549df732f01e4ef4747d313b"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/failed-metal.json",
+      "bytes": 2912,
+      "sha256": "6ee6e9dda8166605b4afd753b6870b0af11c012d0aaf8e5a6e731b767493654a"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/failed-sparse.json",
+      "bytes": 690,
+      "sha256": "37b931729911fa87a1ea2337ff3c9ee3274cf9455c5e3a7d70c27e79298257fe"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/faults.json",
+      "bytes": 785,
+      "sha256": "e4aeeebfb6a68e32c911b72b47244acb8a34dd03ef051690a3acaa50eab857ad"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/faults.py",
+      "bytes": 1987,
+      "sha256": "46a3327a61d1a67e01e67e454b3cc52a73c045d519e6288da6df377eae2fe0d5"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/final-binding.json",
+      "bytes": 1469,
+      "sha256": "c06ac52446443e0930193ac58cd88438e3dc2f08ee5796a722dc9419bb6bf0dd"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/final-binding.py",
+      "bytes": 3798,
+      "sha256": "4d90ac13c57d71c5cf6e2ff7af9bdfe1ae4fc679b3ed375f8c77af176a185935"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/final-cpu.json",
+      "bytes": 248,
+      "sha256": "16a540d09af3e123915f919a6cef2d13371fa66e0a761916cd56bc6b6cab0816"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/fix-retention.json",
+      "bytes": 363,
+      "sha256": "f4045a5457bde52393c40b103589c548e5955b71be2061657560ce5f4a45e531"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/fix-retention.py",
+      "bytes": 1197,
+      "sha256": "749641f4cd2e6d3a8813af10e80613dd263783e3b785571966d1ff3c20baf3d9"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/fresh59.json",
+      "bytes": 673,
+      "sha256": "3164325a9ac08f9cace5a2b77b6624c38aea9ed4da3a8323fc17b2cdf9756bc8"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/generation-final.json",
+      "bytes": 515,
+      "sha256": "05c32dc06b0ba8e107e4880fa41b637fd867217dfb735c9c26aa340847421878"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/old46-retention.json",
+      "bytes": 185,
+      "sha256": "be670c77f8e72fee04605cef36e03c5bafa6e4f5f66adabc26c0e67dd3ca11e6"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/related.json",
+      "bytes": 233,
+      "sha256": "d1c221f58eecf35c10475775235ebdc4c8ebf41aaa6b43fae3e1c39dfbf6b0f6"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/success-metal.json",
+      "bytes": 2620,
+      "sha256": "9f271f62f9f7b2f9348866a99e9438d2cbc4ecb5a167094a602620eff159387d"
+    },
+    {
+      "path": "typed-aim-gpu-evidence/success-sparse.json",
+      "bytes": 690,
+      "sha256": "2392d2dc29ea8c8b92f790ddc8fb5ef5c56386115d4986a80492e6022f4f4dcb"
+    }
+  ]
+}

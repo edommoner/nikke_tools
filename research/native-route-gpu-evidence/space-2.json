@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-named-magnitude-zero-development-metal",
+  "raw_bytes": 169869312,
+  "raw_sha256": "c5916b76cf2b6da41b5fa361a194c8500fe446769836e499bba1e5b09737684c",
+  "evidence_sha256": "2c43a23152ab4a433f6697ea768fd2a849003dd08c8aa7a5c8f39059065c45f6",
+  "raw_inode": 506742621,
+  "zero_ranges": 413,
+  "zero_range_bytes": 121110528,
+  "allocated_before": 169869312,
+  "allocated_after": 48758784,
+  "allocated_reclaimed": 121110528,
+  "full_hash_verified": true
+}

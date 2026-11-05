@@ -1,0 +1,1108 @@
+{
+  "scope": "Only unlisted recreatable Python bytecode, all manifest payload hashes checked before and after; source/ZIP/raw/result/claim retained",
+  "packages": 130,
+  "allocated_bytes": 451768320,
+  "gpu_calls": 0,
+  "receipts": [
+    {
+      "schema": 1,
+      "scope": "Only unlisted recreatable __pycache__/*.pyc in 24 coordinate package snapshots; no payload/source/ZIP/raw/result/claim changes",
+      "packages": [
+        {
+          "package": "/private/tmp/nikke-coordinate-world-pool13-v1",
+          "package_id": "305ace1f1d06c15893e3f701eef9ab8ce5e936070706614fba653be5024e2b66",
+          "removed_unlisted_bytecode_files": 231,
+          "logical_bytes": 3685097,
+          "allocated_bytes": 4177920,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-world-pool16-compact-v5",
+          "package_id": "69ac993c5ab5b3546292be13a9b728198b0cf7b72a661dad6d12af949bf61ad6",
+          "removed_unlisted_bytecode_files": 231,
+          "logical_bytes": 3689570,
+          "allocated_bytes": 4177920,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-skills24-v2",
+          "package_id": "57ca558c1c8f6af9458bc0f83ba34b4d96a681f5f88d945e4ced5ba14c2b1e5e",
+          "removed_unlisted_bytecode_files": 233,
+          "logical_bytes": 3674409,
+          "allocated_bytes": 4169728,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-dot-old24-v1",
+          "package_id": "462443eec9b88af98b26c4922bce0f43dfaf3aa6f4914bfac217793f2cf2a82d",
+          "removed_unlisted_bytecode_files": 233,
+          "logical_bytes": 3675080,
+          "allocated_bytes": 4169728,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-skills23-v1",
+          "package_id": "77ecd73b7d8e2dcabf078895f3ff1a901b489b03f947c08162347af53b82f487",
+          "removed_unlisted_bytecode_files": 233,
+          "logical_bytes": 3671359,
+          "allocated_bytes": 4165632,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-composed97-v3",
+          "package_id": "db34172a456241244ecf574014b7bb16e13ae6c7453f6f140659006a9a271b3d",
+          "removed_unlisted_bytecode_files": 267,
+          "logical_bytes": 3604555,
+          "allocated_bytes": 4165632,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-composed97-v1",
+          "package_id": "84be80ef235a742288f790737c1ce8f0c51c2a5b3fd22836bf1c834b8fe45928",
+          "removed_unlisted_bytecode_files": 264,
+          "logical_bytes": 3596985,
+          "allocated_bytes": 4153344,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-physical-legacy81-v1",
+          "package_id": "52865432db7cd2717cdf7daf94a6748b14ec06760659eb2a0e09c0b163d64179",
+          "removed_unlisted_bytecode_files": 235,
+          "logical_bytes": 3640348,
+          "allocated_bytes": 4153344,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-composed97-v2",
+          "package_id": "71fd48cceda76db1a82cb4cb243ab6278279d48843a48b95edb44cfa4707a80b",
+          "removed_unlisted_bytecode_files": 264,
+          "logical_bytes": 3596985,
+          "allocated_bytes": 4153344,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-packet-old16-v1",
+          "package_id": "616544515a6b081db23013c2ecd5c1160332043ed8b2f52fe38a3b4ecd782611",
+          "removed_unlisted_bytecode_files": 230,
+          "logical_bytes": 3652995,
+          "allocated_bytes": 4141056,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-packet-old81-v1",
+          "package_id": "1f0f2cad988cdbb482f04176630068a88b6fea53de41462113520d2220e47175",
+          "removed_unlisted_bytecode_files": 234,
+          "logical_bytes": 3624034,
+          "allocated_bytes": 4136960,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-world-pool16-v3",
+          "package_id": "1c09258690c84339bd086520bb46e64a680e02107d9414058842e3b3720f4fe9",
+          "removed_unlisted_bytecode_files": 230,
+          "logical_bytes": 3648326,
+          "allocated_bytes": 4136960,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-pool-old81-v3",
+          "package_id": "cb98cfdee860f4e8b3509c3cef228eaa3b10eeb05b603da1c50621b0de3e9f35",
+          "removed_unlisted_bytecode_files": 234,
+          "logical_bytes": 3618897,
+          "allocated_bytes": 4132864,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-world-pool16-compact-v4",
+          "package_id": "d438cc61f25357afe774808e3043d4bc5614612726c54f48672d4f3119a4d473",
+          "removed_unlisted_bytecode_files": 228,
+          "logical_bytes": 3644535,
+          "allocated_bytes": 4128768,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-full-burst-old81-v1",
+          "package_id": "1069b73fe1f4a8a765c8e4f235448f418504df2a02fe11d833ab787c662e42b0",
+          "removed_unlisted_bytecode_files": 232,
+          "logical_bytes": 3609329,
+          "allocated_bytes": 4124672,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-physical-frontier-compact-v1",
+          "package_id": "967cfcdd7a17158d357c4a31df7d92ea6e0c482d8d09952f038f487b49223b44",
+          "removed_unlisted_bytecode_files": 262,
+          "logical_bytes": 3562066,
+          "allocated_bytes": 4112384,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-group-reference-full-v2",
+          "package_id": "ffc0fbe064cb649ed3a80ecc5187a752eba027802ecce2911c1b869c5b167058",
+          "removed_unlisted_bytecode_files": 233,
+          "logical_bytes": 3598497,
+          "allocated_bytes": 4091904,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-bridge-regression-v2",
+          "package_id": "ab24a0240b3c55f661d9449ba1c1f3eb602109219dbaaac93952151dafadab90",
+          "removed_unlisted_bytecode_files": 222,
+          "logical_bytes": 3576074,
+          "allocated_bytes": 4063232,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-scene-regression81-v3",
+          "package_id": "66e8929480c03bbb7ab17901ccca3cc971b9df0676b0351f7fc7842f1a768b46",
+          "removed_unlisted_bytecode_files": 223,
+          "logical_bytes": 3555034,
+          "allocated_bytes": 4046848,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-generation87-v1",
+          "package_id": "9071495c97257ab3a5eb327eb3eca616593e707532c42a61e3cb4e174a29b970",
+          "removed_unlisted_bytecode_files": 252,
+          "logical_bytes": 3449483,
+          "allocated_bytes": 3981312,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-full-burst76-v1",
+          "package_id": "fea325b2c54101fe9ce5b9d46fac3dede23c5750aa6b200123c46a0ee1581427",
+          "removed_unlisted_bytecode_files": 249,
+          "logical_bytes": 3436567,
+          "allocated_bytes": 3960832,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-area52-v1",
+          "package_id": "8c7ee435e924fce408f7caa46e8af3eaf752086ae553f5da88169d006fee5edd",
+          "removed_unlisted_bytecode_files": 240,
+          "logical_bytes": 3377503,
+          "allocated_bytes": 3891200,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-dot35-final-v1",
+          "package_id": "1aac903a743605bf48f974a7d17abdfc762fc939b16569fda54d8d462bc81b98",
+          "removed_unlisted_bytecode_files": 232,
+          "logical_bytes": 3330654,
+          "allocated_bytes": 3825664,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-world-pool13-v2",
+          "package_id": "c014f5c1fb965edcf95f8133e5e324c389db376a75cc366c341d76f56ad590a4",
+          "removed_unlisted_bytecode_files": 227,
+          "logical_bytes": 3292870,
+          "allocated_bytes": 3780608,
+          "all_manifest_payload_hashes_verified_before_after": true
+        }
+      ],
+      "free_before": 1037815808,
+      "free_after": 1138507776,
+      "gpu_calls": 0,
+      "calculation_verified": false
+    },
+    {
+      "schema": 1,
+      "scope": "Only unlisted recreatable __pycache__/*.pyc in 48 coordinate package snapshots; no payload/source/ZIP/raw/result/claim changes",
+      "packages": [
+        {
+          "package": "/private/tmp/nikke-coordinate-pool-old81-v2",
+          "package_id": "1ab8e2bb1ce0e2bfcfebdb749493ec05b782b9170c51d07f9c1d518f6ce826b7",
+          "removed_unlisted_bytecode_files": 182,
+          "logical_bytes": 3185084,
+          "allocated_bytes": 3588096,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-physical-reference-v1",
+          "package_id": "4e41114e2f55b9144df14c802c33cbc2f9799907480eaecf38f0823d981997ee",
+          "removed_unlisted_bytecode_files": 172,
+          "logical_bytes": 3218143,
+          "allocated_bytes": 3575808,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-group-reference-full-v3",
+          "package_id": "0ee9aadc2e07ab5e7fec6a2a990f7af3718fa7d8d0025e8578ca5cbbb2722f20",
+          "removed_unlisted_bytecode_files": 179,
+          "logical_bytes": 2886813,
+          "allocated_bytes": 3256320,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-scene21-final-v3",
+          "package_id": "c6ec26bb136e07886c4dd8edb1342f03c07f0d018943d07934424018bc018d2d",
+          "removed_unlisted_bytecode_files": 151,
+          "logical_bytes": 2835254,
+          "allocated_bytes": 3166208,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-scene21-v2",
+          "package_id": "de68cf975db21c1582f8c4e481cc1a2ef0aa2ec392ca22224cfefbd31d45b9d6",
+          "removed_unlisted_bytecode_files": 149,
+          "logical_bytes": 2792096,
+          "allocated_bytes": 3121152,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-scene-poolview21-v1",
+          "package_id": "d457029e91382422dd22087a98c0148cb1f4f8a085feb2b89261158b160fba20",
+          "removed_unlisted_bytecode_files": 149,
+          "logical_bytes": 2793809,
+          "allocated_bytes": 3121152,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-aim-reference-full-v1",
+          "package_id": "87b1c3844cf7b1ff7fc8064f1c861a8f0374dbc0359ce90b8a226201715e4a3e",
+          "removed_unlisted_bytecode_files": 164,
+          "logical_bytes": 2778948,
+          "allocated_bytes": 3117056,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-group-reference-full-v1",
+          "package_id": "7ed354364da235f3b8391cee7c7c9f38707bf3036bd77524e8393536ad61df07",
+          "removed_unlisted_bytecode_files": 159,
+          "logical_bytes": 2771603,
+          "allocated_bytes": 3104768,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-arc-scalar-develop-v4",
+          "package_id": "a1e02318a4eb86d2c1b40fe711a3d640227b35147fa0d567f2658686229f994f",
+          "removed_unlisted_bytecode_files": 104,
+          "logical_bytes": 2320868,
+          "allocated_bytes": 2555904,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-landing-develop-v4",
+          "package_id": "3540902562e9878c05aad6bc07eb06516a3b2f70b76fbc56c4722b2c44c9ccfd",
+          "removed_unlisted_bytecode_files": 84,
+          "logical_bytes": 2179544,
+          "allocated_bytes": 2363392,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-landing-develop-v2",
+          "package_id": "8c7855e9345b1503bc16ee3a92310809e65ae380adfa14aa51dbd65f107c1f69",
+          "removed_unlisted_bytecode_files": 84,
+          "logical_bytes": 2171698,
+          "allocated_bytes": 2355200,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-sample-develop-v1",
+          "package_id": "cd6e82a38ccd095c4c239131b5f692c9eb7ce9a7a0b8bb7a6134bd29e174d3ee",
+          "removed_unlisted_bytecode_files": 79,
+          "logical_bytes": 2167804,
+          "allocated_bytes": 2338816,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-geometry-develop-v1",
+          "package_id": "93a7319c623ff0173c9470f678bb06f0df54cec36030084a0239c25681cfefca",
+          "removed_unlisted_bytecode_files": 80,
+          "logical_bytes": 2154566,
+          "allocated_bytes": 2330624,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-geometry-final-full-v1",
+          "package_id": "de4ec354f2f94e0d0690495fe9901bc7a548719e5425b03106bc6d4a509617db",
+          "removed_unlisted_bytecode_files": 78,
+          "logical_bytes": 2135505,
+          "allocated_bytes": 2306048,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-geometry-final-v1",
+          "package_id": "6c387981c1c8ba7c5abeb0c8ec390cd227901f6c6c741da29ed58a429ce93560",
+          "removed_unlisted_bytecode_files": 78,
+          "logical_bytes": 2135115,
+          "allocated_bytes": 2306048,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-arc-scalar-develop-v3",
+          "package_id": "038c9d32797676cf10b127c1a569e6141ea710f192f22a5cc47623b082049f00",
+          "removed_unlisted_bytecode_files": 73,
+          "logical_bytes": 2094563,
+          "allocated_bytes": 2256896,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-arc-scalar-develop-v1",
+          "package_id": "c745e685a59873006ea43f77e64aa2f385ea9ea97efe98a8e763b793b0f7098d",
+          "removed_unlisted_bytecode_files": 73,
+          "logical_bytes": 2092189,
+          "allocated_bytes": 2252800,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-arcs-develop-v2",
+          "package_id": "ed1ecbd64ed8c8e468eb1d32ac8d78da34c239ae59492ea8a7d2d0dc23827bb7",
+          "removed_unlisted_bytecode_files": 72,
+          "logical_bytes": 2079888,
+          "allocated_bytes": 2236416,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-shape158-v1",
+          "package_id": "67a936b9619a935d284c8036dd563b5df4b501ac9b3a9ea29acc7ae82251c46e",
+          "removed_unlisted_bytecode_files": 74,
+          "logical_bytes": 2043518,
+          "allocated_bytes": 2207744,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-landing-develop-v1",
+          "package_id": "dc41840ce0a0a72101cc099184baad8dee4fbd84fbd000f2798a0f403df0c680",
+          "removed_unlisted_bytecode_files": 82,
+          "logical_bytes": 1805519,
+          "allocated_bytes": 1986560,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-landing-final-v1",
+          "package_id": "3d5434d518be6a1e5d759b126908272cbcb834c2597e81229caf97ccbcb3e442",
+          "removed_unlisted_bytecode_files": 82,
+          "logical_bytes": 1804663,
+          "allocated_bytes": 1986560,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-landing-final-full-v1",
+          "package_id": "00cc09131493491ef6d5f1846111315ead5347422dac3d793472606b45a72aab",
+          "removed_unlisted_bytecode_files": 82,
+          "logical_bytes": 1805073,
+          "allocated_bytes": 1986560,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-arc-scalar-develop-v2",
+          "package_id": "97d4dc7db31bf9a06510a01d0620706ab1528fa7f13cf1db9210ba95f0cb5b24",
+          "removed_unlisted_bytecode_files": 72,
+          "logical_bytes": 1736505,
+          "allocated_bytes": 1892352,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-shape158-final-v1",
+          "package_id": "51739deb24c96d88579f3c4984eb54a50f1dc3625c3824fa4fd2523446715c82",
+          "removed_unlisted_bytecode_files": 70,
+          "logical_bytes": 1637834,
+          "allocated_bytes": 1794048,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-power-develop-v1",
+          "package_id": "013ced681b15702937f012967a38ad74012435d5f9a501e61c5b2464c67fcdfb",
+          "removed_unlisted_bytecode_files": 22,
+          "logical_bytes": 606061,
+          "allocated_bytes": 643072,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-numeric-develop-v1",
+          "package_id": "acb3c0dff3312b10461a7c0b1ecfb773d61fe19232f7bbbcfda46badd4a5141a",
+          "removed_unlisted_bytecode_files": 20,
+          "logical_bytes": 600986,
+          "allocated_bytes": 638976,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-numeric-final-full-v1",
+          "package_id": "434c5969ea10a10aba4e350ccb76f53ca58bef8dc15b87ccd5b12c0b96f7aaae",
+          "removed_unlisted_bytecode_files": 18,
+          "logical_bytes": 580426,
+          "allocated_bytes": 614400,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-numeric-final-v1",
+          "package_id": "9d95e016bca259b5c1dcea1e3593b1215e52c4beadecbe62856df7e0c3048fa4",
+          "removed_unlisted_bytecode_files": 18,
+          "logical_bytes": 580336,
+          "allocated_bytes": 614400,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-round-develop-v2",
+          "package_id": "42e8e45d395374e1f84cb88cd60e42269bdcbec53e9aa5df8b3e101f0f65dea6",
+          "removed_unlisted_bytecode_files": 17,
+          "logical_bytes": 572365,
+          "allocated_bytes": 602112,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-hypot1026-v1",
+          "package_id": "efb784deef881a72c2cc207d832a034e12c5a6b143f3ac3aefe33335357e7b37",
+          "removed_unlisted_bytecode_files": 14,
+          "logical_bytes": 505786,
+          "allocated_bytes": 532480,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-hypot1026-final-v1",
+          "package_id": "e0074dcffc79460882d624ff28acfc116db878a8bc4e3969c9e633142f128da4",
+          "removed_unlisted_bytecode_files": 15,
+          "logical_bytes": 502665,
+          "allocated_bytes": 528384,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-coordinate-round-develop-v1",
+          "package_id": "5c3ffd0366bf6d8b291c04c821546244fe05bbb5ff8d7146bf46bb51887bd438",
+          "removed_unlisted_bytecode_files": 16,
+          "logical_bytes": 208829,
+          "allocated_bytes": 237568,
+          "all_manifest_payload_hashes_verified_before_after": true
+        }
+      ],
+      "free_before": 1145184256,
+      "free_after": 1210945536,
+      "gpu_calls": 0,
+      "calculation_verified": false
+    },
+    {
+      "schema": 1,
+      "scope": "Only unlisted recreatable __pycache__/*.pyc in 24 damage package snapshots; no payload/source/ZIP/raw/result/claim changes",
+      "packages": [
+        {
+          "package": "/private/tmp/nikke-damage-battle-retention-v1",
+          "package_id": "a324073215d0709c2e0ca485572d207644a67628a59bcbe023eea683cf361c37",
+          "removed_unlisted_bytecode_files": 610,
+          "logical_bytes": 5716331,
+          "allocated_bytes": 6975488,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-retention-audit-v3",
+          "package_id": "a65751e6d847348ed48fbe4349cd1200ca0c2bfc4829ebbf556ca79454525800",
+          "removed_unlisted_bytecode_files": 493,
+          "logical_bytes": 4701357,
+          "allocated_bytes": 5742592,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-core-bounded-v11",
+          "package_id": "b18591acdb4d479be73bd53e730c5de2ec8d02fe2a10413b70f53ab446f88702",
+          "removed_unlisted_bytecode_files": 338,
+          "logical_bytes": 4854561,
+          "allocated_bytes": 5525504,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-core-bounded-v10",
+          "package_id": "b8d56d2032d2d65857f7c966a1cc611c70d13e942d40a7dc5bd1f451550d0986",
+          "removed_unlisted_bytecode_files": 338,
+          "logical_bytes": 4852921,
+          "allocated_bytes": 5525504,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-core-bounded-v13",
+          "package_id": "b63c5e8a803a12e897c7154236804c2bc8985562ddf982ac858acf34c7c36a9f",
+          "removed_unlisted_bytecode_files": 304,
+          "logical_bytes": 4653560,
+          "allocated_bytes": 5259264,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-rosters-v4",
+          "package_id": "6a44dee21629ce959fe854bd06a1ff5b319b32ef8a93a0081e430e6daeb2fbf9",
+          "removed_unlisted_bytecode_files": 279,
+          "logical_bytes": 3952729,
+          "allocated_bytes": 4546560,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-reference-final-v7",
+          "package_id": "9a6e80f128825ab09e84e33d52584c85ffdc3580d75c74143128ba296cd1dfce",
+          "removed_unlisted_bytecode_files": 280,
+          "logical_bytes": 3860223,
+          "allocated_bytes": 4427776,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-battle-v7",
+          "package_id": "19c1f89354c3cdcae3cbd74905d5d95cc062fe4c59c3c257324c05e14e76f1b5",
+          "removed_unlisted_bytecode_files": 256,
+          "logical_bytes": 3829685,
+          "allocated_bytes": 4366336,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-rosters-v3",
+          "package_id": "0334cac89082a353bb040ffbfedc35eb9f6adefd586747f24a2060a81db2e9d5",
+          "removed_unlisted_bytecode_files": 274,
+          "logical_bytes": 3584934,
+          "allocated_bytes": 4169728,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-battle-v6",
+          "package_id": "c86a59bdac351135f3f14420654c1727ad1ca6ed71117d6ccf0f381680fa7744",
+          "removed_unlisted_bytecode_files": 255,
+          "logical_bytes": 3518467,
+          "allocated_bytes": 4055040,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-battle-v5-host",
+          "package_id": "d08d6cfb3eaa469bd3d192e7d8731395d0585a5f81a7465833dd4a9814bc72fa",
+          "removed_unlisted_bytecode_files": 255,
+          "logical_bytes": 3517531,
+          "allocated_bytes": 4050944,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-battle-v5",
+          "package_id": "d08d6cfb3eaa469bd3d192e7d8731395d0585a5f81a7465833dd4a9814bc72fa",
+          "removed_unlisted_bytecode_files": 254,
+          "logical_bytes": 3513318,
+          "allocated_bytes": 4046848,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-battle-v4",
+          "package_id": "10755cd207f9411f2e1ab56ede1cf3a27d98ebf644f521f3d09b63a0a1abaf17",
+          "removed_unlisted_bytecode_files": 251,
+          "logical_bytes": 3478987,
+          "allocated_bytes": 4005888,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-battle-final-v1",
+          "package_id": "ab8ba8314d803bdc8dcba3dd6606cfa32daee5149c235ef67e1b3464e8e1f196",
+          "removed_unlisted_bytecode_files": 247,
+          "logical_bytes": 3432328,
+          "allocated_bytes": 3952640,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-battle-v3",
+          "package_id": "0d404faa20a3b09588232cda38d4b6096136697180c5d1a49fabb710cdf906bd",
+          "removed_unlisted_bytecode_files": 247,
+          "logical_bytes": 3425650,
+          "allocated_bytes": 3944448,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-battle-v2",
+          "package_id": "3950c49e0c0248c3d5689a28639721ffb445acae88ebfcc5ea81feb6dab79815",
+          "removed_unlisted_bytecode_files": 246,
+          "logical_bytes": 3413439,
+          "allocated_bytes": 3932160,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-battle-v1",
+          "package_id": "2355c54b00420d5d9351378317fcb1835c49c19cc026bda7548e0941a749f4d3",
+          "removed_unlisted_bytecode_files": 238,
+          "logical_bytes": 3331474,
+          "allocated_bytes": 3837952,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-battle-final-replay-v2",
+          "package_id": "40f8b79fb2c83f97deee8fc0416dab2ec45dbd983b9a17416c2fcefdddfec005",
+          "removed_unlisted_bytecode_files": 239,
+          "logical_bytes": 3318999,
+          "allocated_bytes": 3821568,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-rosters-v2",
+          "package_id": "2862fa9bea9ec471a2ed8e3094d050bc12bc69d4a1c82e011583821516749886",
+          "removed_unlisted_bytecode_files": 223,
+          "logical_bytes": 3250102,
+          "allocated_bytes": 3731456,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-core-bounded-v14",
+          "package_id": "58e69f8b9701907cc9a9993124fff395581777652ce5c7d9037f3a68c22782a6",
+          "removed_unlisted_bytecode_files": 177,
+          "logical_bytes": 3218364,
+          "allocated_bytes": 3592192,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-core-v8",
+          "package_id": "f0a4c78606c84b48009c01e564beaf8616c7c00e27bef20fc93dd218faaa2435",
+          "removed_unlisted_bytecode_files": 178,
+          "logical_bytes": 3216191,
+          "allocated_bytes": 3592192,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-core-bounded-final-v12",
+          "package_id": "bdb482e1b3e93428db5f25f690f828abb7da1977b85aeaeb3b4b879e55065f73",
+          "removed_unlisted_bytecode_files": 177,
+          "logical_bytes": 3216825,
+          "allocated_bytes": 3588096,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-reference-v5",
+          "package_id": "e4a327206d46e14db1ac01c79d9b59ff3eee15d84e4c474b006e76e66271289c",
+          "removed_unlisted_bytecode_files": 166,
+          "logical_bytes": 3044311,
+          "allocated_bytes": 3399680,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-reference-v6",
+          "package_id": "8cee67dd37061acc71db37f46bf581d811fb6a4b8bc5135f1c613e8db0b7aba2",
+          "removed_unlisted_bytecode_files": 166,
+          "logical_bytes": 3047070,
+          "allocated_bytes": 3399680,
+          "all_manifest_payload_hashes_verified_before_after": true
+        }
+      ],
+      "free_before": 1212018688,
+      "free_after": 1317154816,
+      "gpu_calls": 0,
+      "calculation_verified": false
+    },
+    {
+      "schema": 1,
+      "scope": "Only unlisted recreatable __pycache__/*.pyc in 48 damage package snapshots; no payload/source/ZIP/raw/result/claim changes",
+      "packages": [
+        {
+          "package": "/private/tmp/nikke-damage-accum-reference-v4",
+          "package_id": "7b3ebe69ba79d6510190998c8eaf2d15e81be30a58bc7394bda085bd12a6dd87",
+          "removed_unlisted_bytecode_files": 165,
+          "logical_bytes": 3031622,
+          "allocated_bytes": 3387392,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-reference-v3",
+          "package_id": "2b1ef3f2ce4502acc5c21db4e6b068d196b9c9f4d16f2a0b31d6d2eaa2651346",
+          "removed_unlisted_bytecode_files": 164,
+          "logical_bytes": 3012298,
+          "allocated_bytes": 3366912,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-core-final-v9",
+          "package_id": "47a3e486e1c6cbfe155c06a4a96013396b6e615eac4bfdc38f6b7dc4edc5db27",
+          "removed_unlisted_bytecode_files": 178,
+          "logical_bytes": 2909866,
+          "allocated_bytes": 3289088,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-core-v5",
+          "package_id": "17548057da8a98a9b5cb7d6258fb7e046699ccb697b76059da868cf270537b21",
+          "removed_unlisted_bytecode_files": 177,
+          "logical_bytes": 2904165,
+          "allocated_bytes": 3280896,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-core-v3",
+          "package_id": "e5085cdd7071969e77c813615f89d1856c974da9bb5356968ecc1d0f92f0bce0",
+          "removed_unlisted_bytecode_files": 172,
+          "logical_bytes": 2842498,
+          "allocated_bytes": 3211264,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-core-v7",
+          "package_id": "079d687acab03142a5cb4afdd17037d5d98a3c3689f5a4fddd9329b40e680b06",
+          "removed_unlisted_bytecode_files": 172,
+          "logical_bytes": 2833768,
+          "allocated_bytes": 3198976,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-core-v4",
+          "package_id": "2a65f921785eb6360933c5636bbc93a7075ec0c1eb16f2ade08fd0b5d2b2ed32",
+          "removed_unlisted_bytecode_files": 171,
+          "logical_bytes": 2820971,
+          "allocated_bytes": 3186688,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-core-v1",
+          "package_id": "ce66d448be7a36d13b5efb59cb2cbbe04d703aac15e24dcd54c120a336b7cb91",
+          "removed_unlisted_bytecode_files": 169,
+          "logical_bytes": 2799230,
+          "allocated_bytes": 3162112,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-reference-v1",
+          "package_id": "1bd88a2a92caf4b709df9fb299b34a06095e782555c040f0d43647a18d6d0f21",
+          "removed_unlisted_bytecode_files": 144,
+          "logical_bytes": 2631820,
+          "allocated_bytes": 2940928,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-reference-v2",
+          "package_id": "59b3938c7b7bd04588eba68d50a86d04e9045f5eca94119d70a47a6ab1001aa7",
+          "removed_unlisted_bytecode_files": 135,
+          "logical_bytes": 2636868,
+          "allocated_bytes": 2924544,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-damage-accum-core-v6",
+          "package_id": "071a5f98cb2dbb5cfd03c730b686b7c2475180fa2cd1fe1543cc9a9415f43e43",
+          "removed_unlisted_bytecode_files": 63,
+          "logical_bytes": 1630315,
+          "allocated_bytes": 1781760,
+          "all_manifest_payload_hashes_verified_before_after": true
+        }
+      ],
+      "free_before": 1219342336,
+      "free_after": 1252626432,
+      "gpu_calls": 0,
+      "calculation_verified": false
+    },
+    {
+      "schema": 1,
+      "scope": "Only unlisted recreatable __pycache__/*.pyc in 24 ammo package snapshots; no payload/source/ZIP/raw/result/claim changes",
+      "packages": [
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-retention-v2",
+          "package_id": "863d1c4d4d779f3b8b15c28f472504b9aca81de51f67344c83baa3ff6f10d360",
+          "removed_unlisted_bytecode_files": 390,
+          "logical_bytes": 4895621,
+          "allocated_bytes": 5681152,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-catalogue-v1",
+          "package_id": "1bebb21e39cd3be9a0aa9f3f58060fe87b5bbdbf221bd8581aba2a8c10a5ba72",
+          "removed_unlisted_bytecode_files": 244,
+          "logical_bytes": 3683152,
+          "allocated_bytes": 4190208,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-gpu-v3",
+          "package_id": "633c1526741a0b9a5b9a1972613b2620bc323761b3fdf36d5e57b1b3cd6568f1",
+          "removed_unlisted_bytecode_files": 242,
+          "logical_bytes": 3676229,
+          "allocated_bytes": 4177920,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-gpu-v2",
+          "package_id": "95f8fa5a54f4b2e293f55afeec4af23b6fcf6f1ded6a246f04298496321cee54",
+          "removed_unlisted_bytecode_files": 241,
+          "logical_bytes": 3671369,
+          "allocated_bytes": 4173824,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-gpu-v1",
+          "package_id": "d3222d299c1fa24cda2bec3af1880c7a574d2ed2d137158dae0cec7adf02ab7f",
+          "removed_unlisted_bytecode_files": 240,
+          "logical_bytes": 3668146,
+          "allocated_bytes": 4169728,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-sealed-v1",
+          "package_id": "5fd5e2720e8a375d92274c8e912a3974f1902823131fb4ebceee423ad09b8a91",
+          "removed_unlisted_bytecode_files": 236,
+          "logical_bytes": 3606658,
+          "allocated_bytes": 4096000,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-rosters-v2",
+          "package_id": "f352d1b3d786afc0e06bb101e1236225071af23de568e7602d9ec812f3bd5dd7",
+          "removed_unlisted_bytecode_files": 230,
+          "logical_bytes": 3607433,
+          "allocated_bytes": 4087808,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-roster-admission-v3",
+          "package_id": "e88ead81fc53beba7bd5b2f45817d183590e5f6559213c713a5af0c5b0458931",
+          "removed_unlisted_bytecode_files": 227,
+          "logical_bytes": 3359638,
+          "allocated_bytes": 3833856,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-roster-admission-v4",
+          "package_id": "61582c482935fb47d5d6b69f038dc7599d6e7cc5545067db188abebd5e447720",
+          "removed_unlisted_bytecode_files": 227,
+          "logical_bytes": 3359638,
+          "allocated_bytes": 3833856,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-roster-admission-v5",
+          "package_id": "8f53b912d4053ea25804545e922554da21116ab424f5b267fda4de03c778f79b",
+          "removed_unlisted_bytecode_files": 227,
+          "logical_bytes": 3359638,
+          "allocated_bytes": 3833856,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-roster-admission-v2",
+          "package_id": "a28b92ab3b50773a3f579a04e8af674374f162b89283b5f3975f834667cfa56b",
+          "removed_unlisted_bytecode_files": 227,
+          "logical_bytes": 3359638,
+          "allocated_bytes": 3833856,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-roster-control-v2",
+          "package_id": "e12f563c095df6e90721bc29701dce8a9ba9dc43d807dc553a24b9aaeb521bb3",
+          "removed_unlisted_bytecode_files": 227,
+          "logical_bytes": 3359184,
+          "allocated_bytes": 3833856,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-roster-control-v4",
+          "package_id": "ca54bce710c355d3cb9a3baa4baaf9bfc066e1aefc551a9733cd3a6c53a8abe9",
+          "removed_unlisted_bytecode_files": 227,
+          "logical_bytes": 3359184,
+          "allocated_bytes": 3833856,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-roster-control-v3",
+          "package_id": "bdf3b85f3c87b0ca8bac3b4bd843f8baa5db2af3977edbf61eee5cc4a735dd57",
+          "removed_unlisted_bytecode_files": 227,
+          "logical_bytes": 3359184,
+          "allocated_bytes": 3833856,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-roster-admission-v1",
+          "package_id": "15c01f68b963377a94b855dc289d75cb9a3337b03e89f70af0922c9a1b69b67c",
+          "removed_unlisted_bytecode_files": 227,
+          "logical_bytes": 3359638,
+          "allocated_bytes": 3833856,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-roster-control-v1",
+          "package_id": "762fe3d894e8108a319d1808fd5d69676d8661f6bab08d24b9ddb4f8d76437ea",
+          "removed_unlisted_bytecode_files": 227,
+          "logical_bytes": 3359184,
+          "allocated_bytes": 3833856,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-rosters-v1",
+          "package_id": "d98caade0660a7c59d8c536d857dcc5464a0a493055b4762ad752b6f67a78779",
+          "removed_unlisted_bytecode_files": 227,
+          "logical_bytes": 3357595,
+          "allocated_bytes": 3833856,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-reference-v2",
+          "package_id": "973c251ee7b6678dd1c18d41a412e4cea55452e7c357795f86c8f8a137913142",
+          "removed_unlisted_bytecode_files": 168,
+          "logical_bytes": 3021895,
+          "allocated_bytes": 3379200,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-reference-v1",
+          "package_id": "884cc9705f0f0bd072186bf44f91540bce97b3f5001e9380e9180f3d8f1b2452",
+          "removed_unlisted_bytecode_files": 160,
+          "logical_bytes": 2969129,
+          "allocated_bytes": 3313664,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-codegen-v2",
+          "package_id": "633c1526741a0b9a5b9a1972613b2620bc323761b3fdf36d5e57b1b3cd6568f1",
+          "removed_unlisted_bytecode_files": 6,
+          "logical_bytes": 327556,
+          "allocated_bytes": 335872,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-ammo-equivalent-codegen-v1",
+          "package_id": "95f8fa5a54f4b2e293f55afeec4af23b6fcf6f1ded6a246f04298496321cee54",
+          "removed_unlisted_bytecode_files": 6,
+          "logical_bytes": 326631,
+          "allocated_bytes": 335872,
+          "all_manifest_payload_hashes_verified_before_after": true
+        }
+      ],
+      "free_before": 1253474304,
+      "free_after": 1331851264,
+      "gpu_calls": 0,
+      "calculation_verified": false
+    },
+    {
+      "schema": 1,
+      "scope": "Only unlisted recreatable __pycache__/*.pyc in 24 skill package snapshots; no payload/source/ZIP/raw/result/claim changes",
+      "packages": [
+        {
+          "package": "/private/tmp/nikke-skill-weapon-retention95-v1",
+          "package_id": "ac35cdddfd6a83024c75bc9d5072fec2ea50320706ac953e7c98f118cc746bd1",
+          "removed_unlisted_bytecode_files": 446,
+          "logical_bytes": 4667477,
+          "allocated_bytes": 5574656,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-weapon-v1",
+          "package_id": "308c83d4dd92d3f447e28a4abbab63746f6a976d90188ae98455cb4da30599f2",
+          "removed_unlisted_bytecode_files": 450,
+          "logical_bytes": 4590359,
+          "allocated_bytes": 5509120,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-weapon-v2",
+          "package_id": "a124e076e865c05d279620ef797aff5bfdc6f49415f812a339db96c7ec404617",
+          "removed_unlisted_bytecode_files": 446,
+          "logical_bytes": 4555249,
+          "allocated_bytes": 5468160,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-hp-basis-retention-v2",
+          "package_id": "29f1534a600086a9c0e4377977f187a51d3c4228957b5c4cc95783bd37f34334",
+          "removed_unlisted_bytecode_files": 354,
+          "logical_bytes": 4700351,
+          "allocated_bytes": 5423104,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-hp-basis-retention-v1",
+          "package_id": "72ece1d7c15f5fa401010b4b33d7e7f09c73f1c1650568bba4382b126c837739",
+          "removed_unlisted_bytecode_files": 344,
+          "logical_bytes": 4638393,
+          "allocated_bytes": 5341184,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-shield-native-v1",
+          "package_id": "39c1188eb05de20d847fcf07fb85c58cd6d38fef7e08d2e5c8a84a490ee4f8f3",
+          "removed_unlisted_bytecode_files": 261,
+          "logical_bytes": 3647800,
+          "allocated_bytes": 4206592,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-weapon-diagnostic-v1",
+          "package_id": "1e724c051e78cb73d2799b7d311e073cd80b77140feb6f247ba8621fe93fd9f7",
+          "removed_unlisted_bytecode_files": 254,
+          "logical_bytes": 3505470,
+          "allocated_bytes": 4038656,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-hp-basis-rosters-v3",
+          "package_id": "cb568e98df8bf8868c835efb6e292aa3db8dcfadde84faeff4dc63453a314454",
+          "removed_unlisted_bytecode_files": 223,
+          "logical_bytes": 3562217,
+          "allocated_bytes": 4026368,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-hp-basis-protection-v1",
+          "package_id": "7c72a67f02ffaeefe489d8f9643321e40f72bf4252410dfcc52d0a59efa497bf",
+          "removed_unlisted_bytecode_files": 223,
+          "logical_bytes": 3532617,
+          "allocated_bytes": 3997696,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-hp-basis-v5",
+          "package_id": "9c496f731989eb362c3690b89148196d987e3531255e0a4050a02d5e0ab5354d",
+          "removed_unlisted_bytecode_files": 222,
+          "logical_bytes": 3528164,
+          "allocated_bytes": 3993600,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-hp-basis-v4",
+          "package_id": "85ef2934a72accdfc28a6ffd953ae6d4d84abac27261d228c6d311d909f0cdc8",
+          "removed_unlisted_bytecode_files": 221,
+          "logical_bytes": 3523911,
+          "allocated_bytes": 3985408,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-hp-basis-v3",
+          "package_id": "2dd7e16ec84331766ca4b2d3cf8f73fa043bed57219ceb4f95031cb7f0118c03",
+          "removed_unlisted_bytecode_files": 221,
+          "logical_bytes": 3523911,
+          "allocated_bytes": 3985408,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-hp-basis-v1",
+          "package_id": "04fb6bfbfbd65187dbe015f5fb5cdb3d39353e9e0dcec1ea3ad71e8d24beecdc",
+          "removed_unlisted_bytecode_files": 217,
+          "logical_bytes": 3500760,
+          "allocated_bytes": 3948544,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-hp-basis-sealed-v1",
+          "package_id": "4de897fbd355d4574c7a78f0a16e72f0f470f4c8272fe7853554a492265166cf",
+          "removed_unlisted_bytecode_files": 216,
+          "logical_bytes": 3477659,
+          "allocated_bytes": 3932160,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-hp-basis-rosters-v2",
+          "package_id": "5375ebbc4575a123bd141c652dcb5939036c761cf54e8f688e1f341b66e6c3bf",
+          "removed_unlisted_bytecode_files": 222,
+          "logical_bytes": 3324128,
+          "allocated_bytes": 3784704,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-hp-basis-kilo-diag-v1",
+          "package_id": "4d836446b0bcd2e8067949ab466c967b2386a795532ac95b02eb1ea6790d2f4c",
+          "removed_unlisted_bytecode_files": 221,
+          "logical_bytes": 3321623,
+          "allocated_bytes": 3780608,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-hp-basis-v2",
+          "package_id": "ba36010a267afea737d37c51a6c4edace2d5690a415bcaf3bb5af5a917435847",
+          "removed_unlisted_bytecode_files": 197,
+          "logical_bytes": 3092686,
+          "allocated_bytes": 3506176,
+          "all_manifest_payload_hashes_verified_before_after": true
+        },
+        {
+          "package": "/private/tmp/nikke-skill-hp-basis-codegen-v1",
+          "package_id": "9c496f731989eb362c3690b89148196d987e3531255e0a4050a02d5e0ab5354d",
+          "removed_unlisted_bytecode_files": 6,
+          "logical_bytes": 97408,
+          "allocated_bytes": 106496,
+          "all_manifest_payload_hashes_verified_before_after": true
+        }
+      ],
+      "free_before": 1217843200,
+      "free_after": 1293684736,
+      "gpu_calls": 0,
+      "calculation_verified": false
+    }
+  ]
+}

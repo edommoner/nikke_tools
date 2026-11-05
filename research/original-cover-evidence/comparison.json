@@ -1,0 +1,60 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "coordinate-original-cover/Biscuit/full",
+      "input_sha256": "d704d8deeb9b7ee72a1a4f82b35949ff88f97925aba0d0ec403c6457ecd10967",
+      "output_sha256": "7a3b2ba7b55e73637f52110f548eb84acd14103929a29b5e367504228dd14410",
+      "native_sha256": "69887c682ebc747972cba05cf1891966985dbfa1cbacaf7820ec01a88ad9525e"
+    },
+    {
+      "name": "coordinate-original-cover/Biscuit/singleton",
+      "input_sha256": "6d5e961535e08a69a1916a2a6f16ae42d9ea7f18b49d2632dbe5d5ecab2f1f29",
+      "output_sha256": "8e8799a587f0dab7e7ef6dbb595167fef4575b941862a811f3e325f86f5c74f3",
+      "native_sha256": "64885be0347a690ac4efc869a57c3794670d9f65a044dd42e05df729393846c0"
+    },
+    {
+      "name": "coordinate-original-cover/Biscuit/pool",
+      "input_sha256": "4da157bd04360ce68f697450904c80c40b7813a3fabf7353fcfd8e4eddc78b28",
+      "output_sha256": "79b54ba3630030bb91a24ddbf5387b9520a1d66324ac3929b3f682b59619dec8",
+      "native_sha256": "f8ae4eb0122102ddb048aaa4b2eb83dd6d2d9fab8d9a4a5477fe60c1e3ad2beb"
+    },
+    {
+      "name": "coordinate-original-cover/Lili/full",
+      "input_sha256": "6d89ff71e90495926a5fa05378f031f2018d5f057ab69a7182c31d543e9268ea",
+      "output_sha256": "2e38e73048a5521d9d5017f26bab148b5cf2f0aadf2a30f0642933d06556df0d",
+      "native_sha256": "8a72cbada33d027ab91ede3f17600fb6b14f548006585530411f50037a56c3f8"
+    },
+    {
+      "name": "coordinate-original-cover/Lili/singleton",
+      "input_sha256": "62985dfdfad89750320daab08b37b9e2ba598dc63b194d0c34e87d0fa97b672e",
+      "output_sha256": "540b0e67e53bcddc64e8824903c6ec49eb025c70b93a2ef38d476cd86b12b70a",
+      "native_sha256": "ff629755fe6e004aeecb2ce2514733479d20b04674d646fece2ad47d40ce12d9"
+    },
+    {
+      "name": "coordinate-original-cover/Lili/pool",
+      "input_sha256": "975b93ea2488c705c8c0fbf77e17fc8979274c0650c2c8ea78aa9a9b11ac575a",
+      "output_sha256": "b42cf0d2de5edcc94ecb3f9d9472e00e567f83e875ed561e3e324eca8c53c1c6",
+      "native_sha256": "2550caba88785eb6a170f79c2bbd73f4dc28298440cf617b0096a7922958bbb3"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 6,
+  "native_oracles": 6,
+  "input_sha256": "eb34fba3c9b538e24031fb56bb14b48e8a552afba4b4db9c25e34d064684851a",
+  "output_sha256": "3d1cd7a2de9b53d1361c8562cc2ca0f5248e6e5efaaee2bae94e79689dcf35f4",
+  "generated_normalized": {
+    "cuda": "8fe7b15d1f4bd4251a875591000c4230d3fc4e406770ddc67801336f1f8b5ec6",
+    "metal": "b57a2453b008242ea98d77c4c7f24c215c6cbc09a5dd37c2f29c36edf71b7e38"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 6,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 6
+  }
+}

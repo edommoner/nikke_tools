@@ -1,0 +1,20 @@
+{
+  "stage": "component-verified-full-goal-in-progress",
+  "source_commit": "21e03a0fdd974c7e4a485746d1ddc087e9809666",
+  "metal_verified": true,
+  "cuda_verified": true,
+  "windows_gpu_runs": 1,
+  "windows_elapsed_seconds": 66.97557559981942,
+  "windows_saved_parts": 20,
+  "windows_execution_and_transfer_turn": "01a15409-8e1d-7fd0-bed9-21266d01501c",
+  "windows_saved_only_retry_turn": "01a15412-5b3d-7173-b6f5-c09f87ebf2e9",
+  "validation_receipt": "portable-staged-index-validation.json",
+  "live_handles": {},
+  "normal_ui_backend": "cpu",
+  "full_character_verified": 0,
+  "remaining": [
+    "Connect shared world scheduling and remaining lifecycle/effect families across all characters",
+    "Certify all 203 characters and all variants before normal UI Metal",
+    "Profile real staged characters after their remaining effect families are connected; no general speedup claim"
+  ]
+}

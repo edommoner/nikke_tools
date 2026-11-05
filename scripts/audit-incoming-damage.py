@@ -68,7 +68,7 @@ for name,atk,pierce,effects,expected in cases:
  if name=='lethal-trigger-undying':assert any(e['event']=='event:lethal_hit' for e in events)
  if name=='down':assert hits[0]['down'] and hits[0]['hp_after']==0 and any(e['event']=='event:self_down' for e in events)
  with v.v.t.p.custom_effects({owner:effects}):
-  try:v.a.evaluate({**b,'_compile_gpu_detail':True});accepted=True;issues=[]
+  try:v.a.evaluate({**b,'_compile_detail':True});accepted=True;issues=[]
   except v.g.UnsupportedDetail as e:accepted=False;issues=e.issues
  assert not accepted,name
  row=dict(name=name,base_stats=base,attack=b['enemy']['patterns'][0]['spec'],hits=hits,events=events,gpu_accepted=False,gpu_issues=issues,cpu_model_note='The literal legacy damage_reduction_pct marker leaves this CPU incoming formula unchanged; no game-correctness claim.' if expected.get('literal_legacy_marker') else '')

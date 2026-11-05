@@ -1,0 +1,13 @@
+{
+  "sealed": true,
+  "gpu_calls": 0,
+  "package_id": "9810324727c7ca218f59afdfab2c4a93d820f31f18d3a77f402d9c2c98927367",
+  "input_count": 251,
+  "golden": "/private/tmp/nikke-squad-mode-seal-v1.json",
+  "compiler_certificate": "/private/tmp/nikke-squad-mode-source-certificate-v1.json",
+  "compiler_certificate_sha256": "839256ab499eb2e9c6a11dec2d2b30e7f309bac8dd97091336c15383617791ce",
+  "certificate_from_same_fresh_audit": true,
+  "independent_metal_audits": 1,
+  "compiler_verified": false,
+  "cache_hit_verified": false
+}

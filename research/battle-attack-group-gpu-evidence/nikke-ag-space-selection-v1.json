@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-enemy-selection-development-metal",
+  "raw_bytes": 195035136,
+  "raw_sha256": "5b7cf1d3cd408934d0fc010819c479f38d2a2509f21963b55aad237aed8c6693",
+  "evidence_sha256": "b8ab03cd37ce3a8f9c14d9dc89b7501af519a5623077d821daaad9b49b15e883",
+  "raw_inode": 506757882,
+  "zero_ranges": 479,
+  "zero_range_bytes": 138084352,
+  "allocated_before": 195035136,
+  "allocated_after": 56950784,
+  "allocated_reclaimed": 138084352,
+  "full_hash_verified": true
+}

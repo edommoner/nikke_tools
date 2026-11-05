@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "shared-once-debuff_stack_add-seed",
+      "carrier_count": 1,
+      "stack": 4,
+      "captured_recipients": 128
+    },
+    {
+      "name": "shared-once-debuff_stack_remove-seed",
+      "carrier_count": 1,
+      "stack": 2,
+      "captured_recipients": 128
+    },
+    {
+      "name": "shared-partial-immunity-does-not-split-stack",
+      "carrier_count": 1,
+      "stack": 4,
+      "captured_recipients": 128
+    },
+    {
+      "name": "shared-delta-from-owned-stack-reference",
+      "carrier_count": 1,
+      "stack": 5,
+      "captured_recipients": 128
+    }
+  ],
+  "scope": "Actual full native simulate;partial target selection mutates shared stack once",
+  "gpu_executions": 0,
+  "cpu_state_used_as_gpu_input": false
+}

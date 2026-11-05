@@ -1,0 +1,13 @@
+{
+  "base_commit": "f559b2c67b363a097c05570976dc64ea6c44e224",
+  "sha256": {
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "app/portable_backend.py": "19fd84b078282d410e27df0cdac9d7b54d9e8da3252457115f4b8b6de1edf62b",
+    "app/portable_slang_generation.py": "3c7d10365ed81221060120268b682187e0bcbb3c37cecbdd1a87ed216ad21f32",
+    "research/summarize-portable-cross-gpu.py": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a"
+  }
+}

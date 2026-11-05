@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-29",
+  "request": "Use public online information instead of waiting for a game environment",
+  "decision": "Keep supported acquisition/lifetime/delivery rules; do not invent an exact distance metric, tie-break or PART eligibility. Continue independent GPU development without waiting for user hardware.",
+  "sources": [
+    {
+      "url": "https://www.famitsu.com/article/202512/62211",
+      "access": "full text retrieved",
+      "kind": "reported official-program skill text",
+      "supported": [
+        "acquire nearest-to-crosshair unlocked enemy every 0.2 seconds while charging",
+        "maximum 5 targets, burst adds 10",
+        "normal attack or cover removes locks"
+      ],
+      "not_established": [
+        "centre versus shape distance",
+        "projected versus 3D distance",
+        "equal-distance ordering",
+        "PART eligibility"
+      ]
+    },
+    {
+      "url": "https://www.prydwen.gg/nikke/characters/snow-white-heavy-arms",
+      "access": "full text retrieved",
+      "kind": "authored gameplay analysis, secondary evidence",
+      "supported": [
+        "sequential attacks cycle in lock acquisition order",
+        "one target receives all sequential attacks",
+        "character-specific taunt exception"
+      ],
+      "not_established": [
+        "numerical nearest-target metric"
+      ]
+    },
+    {
+      "url": "https://nikke.gg/snow-white-heavy-arms-analysis-should-you-pull/",
+      "access": "search index text only; direct fetch returned 403",
+      "kind": "authored gameplay analysis; not a newly observed controlled experiment",
+      "supported": [
+        "index distinguishes pre-launch retarget from post-launch target death wasting attack"
+      ],
+      "not_established": [
+        "deterministic replacement target",
+        "same-frame ordering"
+      ]
+    }
+  ],
+  "independent_new_experiment_found": false,
+  "game_video_observed": false,
+  "calculation_code_changed": false,
+  "gpu_calls_for_research": 0,
+  "windows_requests_for_research": 0,
+  "full_goal_complete": false
+}

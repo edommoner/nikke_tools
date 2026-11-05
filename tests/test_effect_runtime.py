@@ -2,7 +2,7 @@ import sys,unittest
 from pathlib import Path
 from types import SimpleNamespace as NS
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'app'))
-from lifecycle_specs import LifecycleSpec,ordered_specs,gpu_source_matches
+from lifecycle_specs import LifecycleSpec,ordered_specs
 from effect_runtime import Catalog,Handler,RuntimeState,state,pool
 
 class RuntimeCatalogTests(unittest.TestCase):
@@ -35,7 +35,6 @@ class RuntimeCatalogTests(unittest.TestCase):
             c.register(name,Handler(activate=lambda manager,effect,caster,t,key=name:calls.append((key,effect['value']))))
         c.seal();c.emit('activate',None,{'value':7},'new-character',0)
         self.assertEqual(calls,[('existing',7),('new_operation',7)])
-    def test_generated_cuda_catalog_matches(self):self.assertTrue(gpu_source_matches())
 
 class RuntimeStateTests(unittest.TestCase):
     def test_activation_carrier_context_restores_after_nested_calls_and_exceptions(self):
@@ -52,7 +51,7 @@ class RuntimeStateTests(unittest.TestCase):
     def test_bulk_expiry_preserves_charge_until_its_own_end_notification(self):
         import engine_worker
         from calculator.buff_manager import BuffManager
-        manager=BuffManager.__new__(BuffManager)
+        manager=BuffManager.__new__(BuffManager);manager._effects=[]
         manager._active=[];manager._notify_ctx={};manager.is_down=lambda name:False
         record=NS(uid=1,caster='a',effect={'name':'pool'},heal_charge_current=7.0,
                   heal_charge_ended=False,heal_charge_done=False)
@@ -84,7 +83,7 @@ class RuntimeStateTests(unittest.TestCase):
     def test_nested_context_and_exception_restore_real_adapter(self):
         import engine_worker
         from calculator.buff_manager import BuffManager
-        manager=BuffManager.__new__(BuffManager);manager._active=[];manager._notify_ctx={}
+        manager=BuffManager.__new__(BuffManager);manager._effects=[];manager._active=[];manager._notify_ctx={}
         calls=[]
         def deliver(event,t,caster):
             calls.append((event,len(state(manager).event_stack),manager.notify_ctx('marker')))

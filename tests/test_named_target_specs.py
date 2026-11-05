@@ -21,16 +21,5 @@ class NamedTargetSpecsTests(unittest.TestCase):
   cases.extend([([(self.attack,'a')],{**self.bonus,**changes}) for changes in ({'target':'same_target:'},{'stat':'dot_damage','tick_interval':1},{'type':'buff'})])
   for effects,bonus in cases:
    with self.subTest(effects=effects,bonus=bonus),self.assertRaises(ValueError):resolve_named_attack(bonus,'a',effects)
- def test_compiler_binding_and_forged_count_boundary(self):
-  import engine_worker
-  import detail_gpu as g
-  chars=[{'name':n,'skill_levels':{'1':10},'_weapon':{}} for n in ('a','b','c','d','e')]
-  attack={**self.attack,'trigger':{'timing':['burst_cast'],'condition':[]},'fixed_value':100}
-  bonus={**self.bonus,'trigger':{'timing':['burst_cast'],'condition':[]},'fixed_value':10}
-  program=g.compile_effects(chars,[(attack,'a'),(bonus,'a')])
-  self.assertEqual(program['effects'][1][52],10)
-  for count in (-1,.5,4097):
-   forged=copy.deepcopy(program);forged['effects'][1][52]=count
-   with self.subTest(count=count),self.assertRaisesRegex(ValueError,'named attack target count'):g.run(None,[forged],[[0,2,0,0,-1,0,0,0]],[[0,0]],[{}])
 
 if __name__=='__main__':unittest.main()

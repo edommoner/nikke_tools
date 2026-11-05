@@ -1,0 +1,7 @@
+coordinate-sampled-burst/legacy-later-buff status 0
+damage [56500.0, 0.0, 0.0, 0.0, 0.0] [55750, 0, 0, 0, 0]
+packet lengths 11 11 differences [(6, (0, 0, 0, 0.5833333333333335, 1500.0), (0, 0, 0, 0.5833333333333335, 750))]
+legacy native [{'batch': 0, 'index': 0, 'owner': 0, 'name': 'parts-source', 'time': 0.5833333333333335, 'hit': 1, 'hits': 1, 'damage': 750, 'critical': False, 'crit_fraction': 0.0, 'crit_rate': 0.5, 'atk_pct': 0.0}] bank [1500.0, 0.0, 0.0]
+MT equal True
+coordinate-sampled-burst/optin-latched-reference status 64
+kinds [('sampled-rate', 0), ('part-factor', 0), ('start-gauge', 24), ('parts-source', 3), ('cast-count', 4)]

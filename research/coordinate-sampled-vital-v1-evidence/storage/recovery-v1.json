@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-sampled-burst-metal-v3",
+  "raw_bytes": 629932032,
+  "raw_sha256": "38ff4650245ae1d49a687e0eb22a9944ccecfb1882dbb89337ca6eda79c97573",
+  "evidence_sha256": "459573b8608a5bc654b4aeb3712d9f7b0b1cedbec7be94530cf6af38e0aa4b55",
+  "raw_inode": 510387198,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 3234,
+  "zero_range_bytes": 614035456,
+  "allocated_before": 629932032,
+  "allocated_after": 15896576,
+  "allocated_reclaimed": 614035456,
+  "full_hash_verified": true
+}

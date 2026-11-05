@@ -1,0 +1,43 @@
+{
+  "schema": "exact-ptx-linked-reuse-checkpoint-v1",
+  "base_commit": "b7f63a39ba0cc1b3f7204f0b4e5b76aff8ea6f6c",
+  "cli": "linked-reuse-audit",
+  "bounded_stage": "audit-linked-reuse",
+  "tests": {
+    "development_passed": 209,
+    "frozen_passed": 209,
+    "frozen_before_after_payload_verified": true
+  },
+  "package": {
+    "path": "research/windows-source-packets/exact-ptx-linked-reuse-v2.zip",
+    "bytes": 13436441,
+    "sha256": "599fee88b94f889d836050478862c17d6f6ca66a40dd7afb60fc9678edd374fb",
+    "package_id": "24870e4d50b1ecf265ae4c17525a14a22b3a36bb03461c720d4cc91b14aa02fc",
+    "suite": "moving-group-current"
+  },
+  "required": [
+    "Original full object/link/PTX producer chain audit",
+    "Current sealed world producer full payload/source/native golden and Job audit",
+    "Current producer compile claim ID/capture/PTX binding",
+    "Actual immutable nonempty PTX bytes equal, with exact size/SHA/version/target metadata",
+    "Complete compiler identity and compiler key equal; artifact size/SHA match actual PTX",
+    "Current full sealed golden/source/normalized pair and CUDA/header bindings match receiver",
+    "Nested link producer remains the original producer; old/current origins are separately retained"
+  ],
+  "gpu_or_compiler_or_native_execution_in_audit": false,
+  "original_artifact_claims_modified": false,
+  "old_admission_paths_retained": true,
+  "output_exclusive_and_outside_explicit_inputs": true,
+  "maximum_job_memory_mb": 2048,
+  "maximum_outer_seconds": 180,
+  "windows_real_reuse_audit_verified": false,
+  "calculation_verified": false,
+  "default_admission_changed": false,
+  "gpu_or_protected_cpu_changed": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "One Windows bounded read-only reuse audit with original artifacts and current cached PTX producer",
+    "Carry explicit producer pair through fresh staged execution transaction; current run/staged-run CLI still constructs legacy linked request",
+    "One bounded current CUDA execution and shared independent output/native audit"
+  ]
+}

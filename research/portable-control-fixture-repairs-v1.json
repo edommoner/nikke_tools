@@ -1,0 +1,31 @@
+{
+  "schema": "control-fixture-repairs-checkpoint-v1",
+  "package_id": "866522e7f961cc3c9daf8a024f8ed1d70e99e1f468fe14fdf15e93ef420b30d1",
+  "archive_bytes": 13461612,
+  "archive_sha256": "3bb5671e7a8cb2859acacaf371b1dd1f09eb12e8cead56cb61f1bc3367b6574f",
+  "cpu_only_frozen_control_groups": 69,
+  "cpu_only_frozen_control_tests": 719,
+  "platform_specific_skips": 1,
+  "all_control_groups_passed": true,
+  "payload_after_verified": true,
+  "native_oracles": 0,
+  "real_gpu_or_slang_execution": 0,
+  "original_full_golden_retained": true,
+  "backend_generator_and_protected_cpu_bytes_retained": true,
+  "original_extraction_expected_fixture_retained": true,
+  "repair_ledger": "tests/fixtures/portable-control-fixture-repairs-v1.json",
+  "repair_ledger_sha256": "30920e25cea3db9be660809d8d061723e252a138a97d06273a858cd70de2a734",
+  "fixed": [
+    "POSIX and Windows fake SDK names through local OS proxies",
+    "Exact resident-arc input already restored by outer inverses does not re-enter newer inverses",
+    "Three-line fd15fec6 append audit restored by full-source SHA anchored inverse for original 8ca7c8dd AST proof"
+  ],
+  "windows_failed_smoke_report_commit": "9578c258c1c5e848f9b0077360498910bc5a1b13",
+  "windows_failed_smoke_summary": "research/cuda-preparation-evidence/tail-budget-v1-smoke-summary.json",
+  "windows_smoke_stays_failed": true,
+  "windows_resume_started": false,
+  "windows_gpu_executed": false,
+  "old_claims_and_failures_retained": true,
+  "full_goal_complete": false,
+  "next_step": "Carry these explicit reviewed control repairs in a new immutable continuation capsule while keeping original calculation/input/golden and old failure artifacts; pass its complete control gate before another bounded Windows stage"
+}

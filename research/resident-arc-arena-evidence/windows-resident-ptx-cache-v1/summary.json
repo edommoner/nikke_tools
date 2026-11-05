@@ -1,0 +1,600 @@
+{
+  "schema": "resident-ptx-cache-v1-stage-report",
+  "distribution": {
+    "distribution_commit": "d736ef690064ce634549dc1dd91197c7665e2555",
+    "archive_bytes": 9150212,
+    "archive_sha256": "850403b930644a6bebfe4f0b54bee5b568976ae4956d682bc608093e96770aa5",
+    "package_id": "942b009e436b13c45c7e1fe0d97cf6863a4cced8fcfa87b4da12c8c56fcb0e5e",
+    "archive_members": 2067,
+    "safe_paths_verified": true
+  },
+  "package_verification": {
+    "passed": true,
+    "package_id": "942b009e436b13c45c7e1fe0d97cf6863a4cced8fcfa87b4da12c8c56fcb0e5e",
+    "suite": "compiler-full--coordinate-resident-arc",
+    "purpose": "compiler-diagnostic",
+    "manifest_files": 2066,
+    "payload_bytes": 57509493,
+    "gpu_calls": 0
+  },
+  "distribution_metadata": {
+    "schema": "resident-ptx-compact-cache-v1",
+    "package_id": "942b009e436b13c45c7e1fe0d97cf6863a4cced8fcfa87b4da12c8c56fcb0e5e",
+    "archive_bytes": 9150212,
+    "archive_sha256": "850403b930644a6bebfe4f0b54bee5b568976ae4956d682bc608093e96770aa5",
+    "full_package_id": "c6b4aea7a5160f302afada24243f6a997677317c14f6f0094416716b76af186e",
+    "full_files": 3546,
+    "compact_files": 2066,
+    "full_payload_bytes": 62834577,
+    "compact_payload_bytes": 57509493,
+    "all_retained_bytes_equal": true,
+    "all_gpu_sources_and_native_and_fixtures_retained": true,
+    "golden_equal": true,
+    "resident106_source_and_generated_baseline_equal": true,
+    "compiler_groups": 20,
+    "compiler_tests": 207,
+    "smoke_groups": 60,
+    "smoke_tests": 585,
+    "smoke_skipped": 1,
+    "mac_generation_required_hit": true,
+    "mac_generation_compiler_invocations": 0,
+    "plan_passed": true,
+    "windows_new_executions": 0,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "initial_guard_failure_preserved": true,
+    "scope": "CPU controller tests and compiler-only payload projection; original model/golden/source preserved, no GPU admission"
+  },
+  "outcome": "Stopped at common smoke CPU-worker timeout; tests stage succeeded; generation/plan/PTX compile not executed",
+  "invocation_policy": {
+    "entrypoint": "packet/scripts/run-gpu-packet.py",
+    "cwd": "<CURRENT_PACKET>",
+    "execution_permission": "require_escalated",
+    "outer_timeout_seconds": 180,
+    "compiler_child_timeout_seconds": 60,
+    "memory_limit_bytes": 2147483648,
+    "priority": "BelowNormal",
+    "custom_stage_driver_used": false,
+    "environment_scope": "Fresh invocation shell only; parent/user environment unchanged"
+  },
+  "stages": {
+    "tests": {
+      "result": {
+        "schema": 1,
+        "package_id": "942b009e436b13c45c7e1fe0d97cf6863a4cced8fcfa87b4da12c8c56fcb0e5e",
+        "stage": "tests",
+        "bounded_execution_verified": true,
+        "proof_result": {
+          "mode": "cpu-tests-only",
+          "package_id": "942b009e436b13c45c7e1fe0d97cf6863a4cced8fcfa87b4da12c8c56fcb0e5e",
+          "cpu_tests_verified": true,
+          "groups": 20,
+          "tests": 207,
+          "cpu_reference_verified": false,
+          "counter_scope": "Packet controller calls; unit-test doubles are not runtime calculation evidence",
+          "calculation_verified": false,
+          "compiler_verified": false,
+          "gpu_calls": 0,
+          "driver_load_calls": 0,
+          "native_preflight_calls": 0
+        },
+        "compiler_verified": false,
+        "generation_verified": false,
+        "calculation_verified": false,
+        "cpu_verified": false,
+        "smoke_verified": false,
+        "whole_stage_process_preservation_verified": true,
+        "whole_stage_environment_preservation_verified": false,
+        "stage_verified": true,
+        "stage_complete": true,
+        "gpu_retries": 0,
+        "full_goal_complete": false,
+        "cpu_tests_verified": true,
+        "cpu_reference_verified": false
+      },
+      "execution": {
+        "passed": true,
+        "timed_out": false,
+        "timeout_seconds": 179.85999999986961,
+        "elapsed_seconds": 53.536319700069726,
+        "child_exit_code": 0,
+        "final_child_exit_code": 0,
+        "error": null,
+        "cleanup_error": null,
+        "cleanup_wait_seconds": 5,
+        "observation_error": null,
+        "wait_completed_unix_ns": 1793059239053773000,
+        "below_normal_priority": true,
+        "gpu_retry_count": 0,
+        "full_character_verified": 0,
+        "full_goal_complete": false
+      },
+      "requested_outer_timeout_seconds": 180,
+      "recipe_inner_gpu_timeout_seconds": 60,
+      "recipe_inner_timeout_scope": "Compiler/GPU slot; no compiler or GPU child was started in these stages",
+      "cpu_batch": {
+        "schema": 1,
+        "mode": "single-process-unittest",
+        "patterns": [
+          "test_portable_compile_cli.py",
+          "test_portable_compile_cache.py",
+          "test_portable_generation_cache.py",
+          "test_portable_offline_assembly.py",
+          "test_portable_phase_codegen.py",
+          "test_portable_compiler_diagnostic.py",
+          "test_portable_ptx_stats.py",
+          "test_portable_ptx_callgraph.py",
+          "test_portable_ptx_partition.py",
+          "test_portable_partition_object.py",
+          "test_portable_module_object.py",
+          "test_portable_device_linker.py",
+          "test_portable_native_process.py",
+          "test_portable_job_limits.py",
+          "test_portable_native_output_probe.py",
+          "test_portable_jit_link.py",
+          "test_portable_jit_link_capture.py",
+          "test_portable_linked_artifact.py",
+          "test_portable_compiler_certificate.py",
+          "test_portable_seal.py"
+        ],
+        "timeout_seconds": 60,
+        "elapsed_seconds": 42.12491129990667,
+        "timed_out": false,
+        "exit_code": 0,
+        "gpu_calls": 0,
+        "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+      },
+      "job_receipt": {
+        "schema": 1,
+        "records": [
+          {
+            "child_pid": 129904,
+            "wrapper_pid": 143424,
+            "pre_gate": {
+              "child_pid": 129904,
+              "child_ppid": 143424,
+              "parent_observation": "os_process_snapshot",
+              "observed_unix_ns": 1793059187704247600,
+              "wrapper_pid": 143424,
+              "child_creation_filetime_ticks": "134375327876707235",
+              "job_members": [
+                129904
+              ],
+              "job_peak_memory_bytes": 5861376,
+              "job_memory_limit_bytes": 2147483648
+            },
+            "pre_gate_verified": true,
+            "post_wait": {
+              "child_pid": 129904,
+              "child_ppid": 143424,
+              "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+              "observed_unix_ns": 1793059239053270300,
+              "wrapper_pid": 143424,
+              "child_creation_filetime_ticks": "134375327876707235",
+              "job_members": [],
+              "job_peak_memory_bytes": 128479232,
+              "job_memory_limit_bytes": 2147483648
+            },
+            "inspection_error": null
+          }
+        ],
+        "observer_assigns_processes": false
+      },
+      "monitoring": {
+        "before_service_status": "unverified",
+        "after_service_status": "unverified",
+        "all_monitored_processes_preserved": true,
+        "missing_existing_process_count": 0,
+        "identified_nikke_service_preservation_verified": false,
+        "raw_snapshot_shared": false
+      }
+    },
+    "smoke": {
+      "result": {
+        "schema": 1,
+        "package_id": "942b009e436b13c45c7e1fe0d97cf6863a4cced8fcfa87b4da12c8c56fcb0e5e",
+        "stage": "smoke",
+        "bounded_execution_verified": false,
+        "proof_result": null,
+        "compiler_verified": false,
+        "generation_verified": false,
+        "calculation_verified": false,
+        "cpu_verified": false,
+        "smoke_verified": false,
+        "whole_stage_process_preservation_verified": true,
+        "whole_stage_environment_preservation_verified": false,
+        "stage_verified": false,
+        "stage_complete": false,
+        "gpu_retries": 0,
+        "full_goal_complete": false
+      },
+      "execution": {
+        "passed": false,
+        "timed_out": false,
+        "timeout_seconds": 179.86000000033528,
+        "elapsed_seconds": 71.85585599998012,
+        "child_exit_code": 1,
+        "final_child_exit_code": 1,
+        "error": null,
+        "cleanup_error": null,
+        "cleanup_wait_seconds": 5,
+        "observation_error": null,
+        "wait_completed_unix_ns": 1793059356744951300,
+        "below_normal_priority": true,
+        "gpu_retry_count": 0,
+        "full_character_verified": 0,
+        "full_goal_complete": false
+      },
+      "requested_outer_timeout_seconds": 180,
+      "recipe_inner_gpu_timeout_seconds": 60,
+      "recipe_inner_timeout_scope": "Compiler/GPU slot; no compiler or GPU child was started in these stages",
+      "cpu_batch": {
+        "schema": 1,
+        "mode": "single-process-unittest",
+        "patterns": [
+          "test_package_payload_reuse.py",
+          "test_portable_windows_cleanup.py",
+          "test_portable_gpu_cli.py",
+          "test_portable_compile_cache.py",
+          "test_portable_cuda_artifact.py",
+          "test_portable_module_check.py",
+          "test_portable_weapon_phases.py",
+          "test_portable_offline_assembly.py",
+          "test_portable_readback_stream.py",
+          "test_portable_regression_compact.py",
+          "test_portable_file_transport.py",
+          "test_portable_cpu_batch.py",
+          "test_portable_query_boundaries.py",
+          "test_portable_ptx_stats.py",
+          "test_portable_compiler_diagnostic.py",
+          "test_portable_compiler_certificate.py",
+          "test_portable_python_dependencies.py",
+          "test_portable_cuda_cached_profile.py",
+          "test_portable_input_extension.py",
+          "test_portable_generation_cache.py",
+          "test_portable_metal_cache.py",
+          "test_portable_metal_cache_probe.py",
+          "test_portable_generation_separation.py",
+          "test_portable_definition_view.py",
+          "test_portable_ptx_callgraph.py",
+          "test_portable_ptx_partition.py",
+          "test_portable_partition_object.py",
+          "test_portable_module_object.py",
+          "test_portable_object_recovery.py",
+          "test_portable_device_linker.py",
+          "test_portable_native_process.py",
+          "test_portable_job_limits.py",
+          "test_portable_native_output_probe.py",
+          "test_portable_jit_link.py",
+          "test_portable_jit_link_capture.py",
+          "test_portable_linked_artifact.py",
+          "test_portable_packet_stage.py",
+          "test_portable_generation_gate.py",
+          "test_portable_readback_blocks.py",
+          "test_portable_sparse_raw.py",
+          "test_portable_metal_device.py",
+          "test_portable_required_cache_preflight.py",
+          "test_portable_test_repackage.py",
+          "test_portable_migration_receipt_reuse.py",
+          "test_portable_scope_snapshot_audit.py",
+          "test_portable_authored_case_purity.py",
+          "test_portable_prepared_input.py",
+          "test_portable_arena_specs.py",
+          "test_portable_package_projection.py",
+          "test_portable_storage_budget.py",
+          "test_portable_development_expectations.py",
+          "test_portable_comparison_groups.py",
+          "test_typed_owner_observer_migration.py",
+          "test_portable_cache_fs_compression.py",
+          "test_counter_field_decoder.py",
+          "test_portable_windows_observer.py",
+          "test_portable_snapshot_failure.py",
+          "test_portable_wire_layout.py",
+          "test_portable_metal_wire_refresh.py",
+          "test_resident_arc_retention.py"
+        ],
+        "timeout_seconds": 60,
+        "elapsed_seconds": 60.08560930006206,
+        "timed_out": true,
+        "exit_code": null,
+        "gpu_calls": 0,
+        "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+      },
+      "job_receipt": {
+        "schema": 1,
+        "records": [
+          {
+            "child_pid": 86340,
+            "wrapper_pid": 86852,
+            "pre_gate": {
+              "child_pid": 86340,
+              "child_ppid": 86852,
+              "parent_observation": "os_process_snapshot",
+              "observed_unix_ns": 1793059287126214900,
+              "wrapper_pid": 86852,
+              "child_creation_filetime_ticks": "134375328870919681",
+              "job_members": [
+                86340
+              ],
+              "job_peak_memory_bytes": 5877760,
+              "job_memory_limit_bytes": 2147483648
+            },
+            "pre_gate_verified": true,
+            "post_wait": {
+              "child_pid": 86340,
+              "child_ppid": 86852,
+              "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+              "observed_unix_ns": 1793059356743446700,
+              "wrapper_pid": 86852,
+              "child_creation_filetime_ticks": "134375328870919681",
+              "job_members": [],
+              "job_peak_memory_bytes": 241057792,
+              "job_memory_limit_bytes": 2147483648
+            },
+            "inspection_error": null
+          }
+        ],
+        "observer_assigns_processes": false
+      },
+      "monitoring": {
+        "before_service_status": "unverified",
+        "after_service_status": "unverified",
+        "all_monitored_processes_preserved": true,
+        "missing_existing_process_count": 0,
+        "identified_nikke_service_preservation_verified": false,
+        "raw_snapshot_shared": false
+      }
+    }
+  },
+  "tests_receipt": {
+    "cpu_tests_verified": true,
+    "groups": 20,
+    "tests": 207,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "rows_file": "tests-cpu-receipt.json",
+    "cpu_reference_verified": false,
+    "compiler_verified": false,
+    "calculation_verified": false,
+    "native_preflight_calls": 0
+  },
+  "smoke_receipt": {
+    "complete": false,
+    "expected_groups": 60,
+    "expected_tests_from_distribution": 585,
+    "completed_groups": 34,
+    "completed_tests": 354,
+    "completed_group_failures": 0,
+    "completed_group_errors": 0,
+    "completed_group_skips": 0,
+    "last_completed_group": "test_portable_jit_link.py",
+    "rows_file": "smoke-partial-cpu-receipt.json",
+    "native_job_smoke_started": false
+  },
+  "failure": {
+    "type": "TimeoutExpired",
+    "component": "CPU smoke subprocess worker",
+    "outer_timed_out": false,
+    "outer_elapsed_seconds": 71.85585599998012,
+    "cpu_worker_timed_out": true,
+    "cpu_worker_timeout_seconds": 60,
+    "cpu_worker_elapsed_seconds": 60.08560930006206,
+    "budget_source": {
+      "path": "scripts/nikke_gpu.py",
+      "line": 1971,
+      "expression": "SUITES[selected_suite].get(cpu_test_timeout,60)",
+      "selected_value": 60
+    },
+    "timeout_call": {
+      "path": "scripts/nikke_gpu.py",
+      "line": 1979,
+      "function": "cpu_test_groups"
+    },
+    "compiler_child_started": false,
+    "raw_exception_command_and_traceback_shared": false
+  },
+  "declared_source_baseline": {
+    "equal_to_v4_resident_source_closure": true,
+    "equal_to_v4_generated_normalized": true,
+    "expected_generated_normalized": {
+      "cuda": "b1a97508325194ab98643d2a2c307c99a007aa6d0be17b567dfccdb5fe91efc2",
+      "metal": "c4f8eb68214aee1c999554ef205c55cb31688441e70dd9a0980fda0d51e93f5a"
+    },
+    "actual_generation_this_packet": false,
+    "raw_cuda_msl_comparison_to_v4": null
+  },
+  "remaining_stages": {
+    "generation": "not executed after smoke failure",
+    "compile_plan": "supplied plan retained, not executed",
+    "compile_ptx": "not executed"
+  },
+  "supplied_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "942b009e436b13c45c7e1fe0d97cf6863a4cced8fcfa87b4da12c8c56fcb0e5e",
+    "suite": "compiler-full--coordinate-resident-arc",
+    "purpose": "compiler-diagnostic",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "PTX-only/2GiB/no-ptxas-level",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "generation_cache": {
+    "created": false,
+    "receipt": null,
+    "required_flag_set": false
+  },
+  "ptx_cache": {
+    "check_executed": false,
+    "key": null,
+    "artifact": null,
+    "new_compile_claim_created": false
+  },
+  "preservation_verified": null,
+  "calculation_verified": false,
+  "retained_current_stage_claims": [
+    "packet-stage-claimed-smoke-cuda.json",
+    "packet-stage-claimed-tests-cuda.json"
+  ],
+  "original_local_byte_provenance": [
+    {
+      "local_relative_path": "tests/stage-result.json",
+      "bytes": 1116,
+      "sha256": "bcf479c17bda5d92f77ab95707a6a70e5b316842b6ba5482f27caaca82310fe2",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "tests/recipe.json",
+      "bytes": 685,
+      "sha256": "bc88882527284e55f84fb1fee281e2381e6a6712c6f6deec10300d4def13be3f",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "tests/execution.json",
+      "bytes": 1108,
+      "sha256": "a235bedd3cd58e33bfed38c31c8eb46ac4df30e7dd929b3d3fb3547ce01734d0",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "tests/job.json",
+      "bytes": 1099,
+      "sha256": "77fb57f20a415790682805c14cb9a3de6ab0dc0ac1cb9434f66c704472f2340c",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "tests/observation.json",
+      "bytes": 21051,
+      "sha256": "c0f4c89a87bd9b9d41ef10a7125b2f6ed54b9c9b61587ca360a726fd3560d299",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "tests/preparation.jsonl",
+      "bytes": 1447,
+      "sha256": "38b5d273fab238f0b780da39be8a680801c0c964ab03b7608c703d718932b9d7",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "tests/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "tests/proof/cpu-tests.json",
+      "bytes": 4345,
+      "sha256": "07a04e549fc42f4787a413b5b0ec356e906514431ba43a7bc8b01babd5dbeb20",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "tests/proof/cpu-batch.json",
+      "bytes": 1071,
+      "sha256": "f6dce6621766b6da003df751e39023188dd9f4790ee9d91cfc85df4313519146",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "tests/proof/result.json",
+      "bytes": 466,
+      "sha256": "5e87a2beb45e23d854a3029ed041ca93fb3bc5bca46de62937845cec0447fae5",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "tests/proof/artifacts.json",
+      "bytes": 8117,
+      "sha256": "15835fc75a48f693b4b30785c753d0e66b7743544faf31123acf2abb27e40ecb",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/stage-result.json",
+      "bytes": 566,
+      "sha256": "1ec785cb54fcf765d4fec970145936119ad81a1de042f435a591460a3f68275b",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/recipe.json",
+      "bytes": 685,
+      "sha256": "60480332c9dda2f0c28683ae24722244aea0c5660ed73a2c6bca7ab4efdae269",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/execution.json",
+      "bytes": 1108,
+      "sha256": "2f56fa315e4d2058c24b1095a5a756a3f929fb4a9255c14c75fa785444cd9733",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/job.json",
+      "bytes": 1090,
+      "sha256": "b400f22dc1771169191cda90654a8aa37a12abc85762cecabfd034dc60b86972",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/observation.json",
+      "bytes": 21047,
+      "sha256": "2282a94655c3502d7516be95ac324638a6c7fdc675566bc4f5631b0ee250340a",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/preparation.jsonl",
+      "bytes": 2127,
+      "sha256": "77c420a4ff5bc6293f69aa466c024122fd4603db0595f0032d99a2c354409e7d",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/stderr.log",
+      "bytes": 3907,
+      "sha256": "3760daf311e7edd9027b6286728b5f1fcf2a3c560b586c0995022f97bb9f5ef3",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/proof/cpu-tests.json",
+      "bytes": 7373,
+      "sha256": "e1e55a03b7b362448ed0aeeab8b286b5271ae8fdc29280dca0fb2a55a8164b4f",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/proof/cpu-batch.json",
+      "bytes": 2711,
+      "sha256": "5d16f2aa6ca32cc51edb15f2e4bae6b4667311a2e6b7cf936e9c3c5ef57a9aa7",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/proof/failure.json",
+      "bytes": 496,
+      "sha256": "fb31d02031ad803122e806f20a72d918451d8ba701b3e735a5ceb67b1c6041a5",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/proof/artifacts.json",
+      "bytes": 13553,
+      "sha256": "b6301c23d02e7e2ec9ee90f94c1a42f376a439d0591312200c8c63667835c55d",
+      "raw_content_shared": false
+    }
+  ],
+  "actions": {
+    "tests_stage_runs": 1,
+    "smoke_stage_runs": 1,
+    "generation_stage_runs": 0,
+    "compile_plan_runs": 0,
+    "compile_ptx_runs": 0,
+    "nvrtc_calls": 0,
+    "cuda_driver_loads": 0,
+    "context_calls": 0,
+    "module_calls": 0,
+    "kernel_calls": 0,
+    "object_calls": 0,
+    "link_calls": 0,
+    "retries": 0,
+    "old_cubin_cache_claim_touched": false,
+    "os_wmi_acl_service_changes": 0
+  },
+  "old_failures_claims_and_raw_preserved": true,
+  "shared_path_policy": "Repository-relative paths and placeholders only; no raw/SDK/process snapshots/exception command/private settings shared"
+}

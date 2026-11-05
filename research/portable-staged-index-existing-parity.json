@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "baseline_commit": "459465c",
+  "mechanics": 1027,
+  "profiles": 52,
+  "comparison": "Complete decoded equality of every field; metadata ABI changed, no raw input parity claim",
+  "current_reports": {
+    "portable-combat-metal": "cc60d16a72d8f31abb8cbb5c55df883aa5e31ad7808c83b1234a655f7c6dd9ef",
+    "portable-roster-battles-metal": "8fa849c237f18f4b9dd596d6978a9fb7ff77b46e32ee018031548b0c8617b849"
+  }
+}

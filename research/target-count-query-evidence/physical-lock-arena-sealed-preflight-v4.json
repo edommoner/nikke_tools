@@ -1,0 +1,30 @@
+{
+  "schema": "physical-lock-arena-sealed-preflight-v4",
+  "source_commit": "b9c090cab3d88f7a8c33455f0829be088ce05d6a",
+  "package_id": "779d20ccc07626a7950c266a8c482ae8c75d5d230a8badddb3957b5423cfd4e5",
+  "archive_sha256": "f44355d3b6d5cc5454ac34c360a7f283810a510b24f1b430f2d5cffb5d2802c2",
+  "checks": {
+    "cpu": {
+      "groups": 7,
+      "tests": 54,
+      "skips": 0,
+      "gpu_calls": 0,
+      "verified": true
+    },
+    "smoke": {
+      "groups": 66,
+      "tests": 642,
+      "skips": 1,
+      "gpu_calls": 0,
+      "verified": true
+    }
+  },
+  "additional_gpu_calls": 0,
+  "prior_cpu_only_failures_preserved": 3,
+  "historical_wire_repair": "Pinned old and replacement width lists and exact target hash; future widths do not alter historical repair.",
+  "metal_calculation_evidence": "metal-physical-lock-arena-v2.json",
+  "new_source_cuda_verified": false,
+  "full_character_verified": 0,
+  "public_GPU": false,
+  "goal_complete": false
+}

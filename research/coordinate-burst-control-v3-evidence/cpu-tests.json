@@ -1,0 +1,32 @@
+[
+  {
+    "pattern": "test_coordinate_burst_control.py",
+    "exit_code": 0,
+    "elapsed_seconds": 49.82167562504765,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 98580
+  },
+  {
+    "pattern": "test_burst_control_policy.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.028278916026465595,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 98580
+  },
+  {
+    "pattern": "test_coordinate_physical_frontier.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.3333049999782816,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 98580
+  }
+]

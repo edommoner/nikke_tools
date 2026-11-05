@@ -1,0 +1,126 @@
+{
+  "package": {
+    "package_id": "6966ae4511f8f76914233413606268a4ab44407ec7f804158fb587ca73d089a6",
+    "files": 1817,
+    "bytes": 4511424,
+    "archive_sha256": "03707a4fe5a5d9b5e7dace5a74efb924d2bc3644a6bfc8465f89e2182c7f522f",
+    "source_commit": "47cfbd4b7d4af51de77d1369cc5b27f38fdc41de"
+  },
+  "result": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "passed": false,
+    "containment_verified": true,
+    "comparison_error": null,
+    "first_difference": {
+      "index": 1,
+      "name": "revive-synchronous",
+      "reason": "AssertionError: ('revive-synchronous', 'damage')"
+    },
+    "phase": {
+      "events": 6,
+      "last_event": {
+        "monotonic_ns": 707663706420791,
+        "pid": 26157,
+        "stage": "shared_native_compare",
+        "state": "returned",
+        "wall_time_ns": 1792608513919305000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "mismatches": [
+    {
+      "index": 1,
+      "name": "revive-synchronous",
+      "reason": "AssertionError: ('revive-synchronous', 'damage')"
+    },
+    {
+      "index": 2,
+      "name": "revive-preserved",
+      "reason": "AssertionError: ('revive-preserved', 'damage')"
+    },
+    {
+      "index": 3,
+      "name": "revive-passive-not-periodic",
+      "reason": "AssertionError: ('revive-passive-not-periodic', 'damage')"
+    },
+    {
+      "index": 4,
+      "name": "revive-shared-no-double-stack",
+      "reason": "AssertionError: ('revive-shared-no-double-stack', 'damage')"
+    },
+    {
+      "index": 5,
+      "name": "revive-once-only",
+      "reason": "AssertionError: ('revive-once-only', 'damage')"
+    },
+    {
+      "index": 6,
+      "name": "revive-no-hp-threshold",
+      "reason": "AssertionError: ('revive-no-hp-threshold', 'damage')"
+    },
+    {
+      "index": 7,
+      "name": "revive-whole-squad",
+      "reason": "AssertionError: ('revive-whole-squad', 'damage')"
+    },
+    {
+      "index": 8,
+      "name": "revive-delayed",
+      "reason": "AssertionError: ('revive-delayed', 'damage')"
+    },
+    {
+      "index": 10,
+      "name": "revive-caster-down",
+      "reason": "AssertionError: ('revive-caster-down', 'damage')"
+    },
+    {
+      "index": 11,
+      "name": "revive-finite-passive",
+      "reason": "AssertionError: ('revive-finite-passive', 'damage')"
+    },
+    {
+      "index": 12,
+      "name": "revive-bullet-passive",
+      "reason": "AssertionError: ('revive-bullet-passive', 'damage')"
+    },
+    {
+      "index": 13,
+      "name": "revive-charge-reset",
+      "reason": "AssertionError: ('revive-charge-reset', 'damage')"
+    },
+    {
+      "index": 14,
+      "name": "revive-restored-max-ammo",
+      "reason": "AssertionError: ('revive-restored-max-ammo', 'damage')"
+    },
+    {
+      "index": 15,
+      "name": "revive-class-random",
+      "reason": "AssertionError: ('revive-class-random', 'damage')"
+    },
+    {
+      "index": 16,
+      "name": "revive-class-random-self",
+      "reason": "AssertionError: ('revive-class-random-self', 'damage')"
+    },
+    {
+      "index": 25,
+      "name": "reject/revive-zero-count",
+      "reason": "ValueError: Expected rejection status64"
+    }
+  ],
+  "failure_analysis": "Canonical kind29 was omitted from the host recipient-packing call list. Its selector stayed default self instead of canonical22/23, so no down target was selected. The zero-count negative also changed an unused field and was accepted. Original immutable package and raw retained.",
+  "gpu_retries": 0,
+  "full_goal_complete": false
+}

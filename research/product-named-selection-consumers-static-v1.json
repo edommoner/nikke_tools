@@ -1,0 +1,285 @@
+{
+  "schema": "product-named-selection-consumers-static-v1",
+  "source_commit": "4c19977fd210d9b4c334d8be5bcda09005eb8c86",
+  "source_hashes": {
+    "app/product_named_range_model.py": "1eecc391b4188d6649dddff3d23d8866660ba1e5d205f7093d3b10516aeb99ca",
+    "app/named_range_battle.py": "ccabf4974ed62d240f67b4ed771227a54da75bc79c5ceb1d8bda9965eae02637",
+    "app/effect_range_policy.py": "4ff892a6103a237a219d733b921d9373a467ebccb730826b5612b04438425d60",
+    "app/effect_target_count_policy.py": "2ef32fe4ffc85b1a1d227c4691a50e2194fe477e0e3dcdb93467ccf2bdc7c6c8",
+    "app/portable_named_range_battle_wire.py": "528f11a9171867d36655728fc546b82ea5e07b8b30173d125ea0249e3be360ca",
+    "app/portable_product_named_range.py": "8f9ff79b1760f8d6148d568ab0687e7bce90eb6a75e675005e1ec8965831f725",
+    "app/portable_product_named_carriers.py": "88d0f5f38b1821ac9b2d5bc61f59ae721ea06cbef1a92db187667fd2b266d20f",
+    "gpu/named_range_battle_runtime.slang": "7b7fd7a0692a647905c696a4f321a8cc068bcff7ee27f05f352ea0eb92747019",
+    "gpu/effect_target_count_runtime.slang": "eaa4a3885ca7067692fe1a376c2b891846a3b5718ee942b6250968d09616c447",
+    "gpu/coordinate_shape_math.slang": "4eb14b0c9df56f7d1908c732ecba7b022cdca6fb3e58cc78066dd17aed96ffcd",
+    "research/coordinate_geometry_reference.py": "5edce9c918589c58ef58ea709fe4712a10afbbd1127d8d71c6022b2d3a6cd455"
+  },
+  "source_sites": [
+    {
+      "source": "app/product_named_range_model.py",
+      "line": 34,
+      "function": "execution",
+      "ast_sha256": "74f45445761c2b9dde1938cec7e1c05214d13fbae6a692bf3cf6673e3c851c2e",
+      "source_sha256": "1eecc391b4188d6649dddff3d23d8866660ba1e5d205f7093d3b10516aeb99ca"
+    },
+    {
+      "source": "app/named_range_battle.py",
+      "line": 17,
+      "function": "capacity",
+      "ast_sha256": "a391b09c170ed2665bf8db15a175526d58f5147ce56c03b32de6ff4ddc1207fe",
+      "source_sha256": "ccabf4974ed62d240f67b4ed771227a54da75bc79c5ceb1d8bda9965eae02637"
+    },
+    {
+      "source": "app/named_range_battle.py",
+      "line": 24,
+      "function": "normalize",
+      "ast_sha256": "06f75e8118f23a370c1777e5f5d5131d6adfecc69ff94efa56caddb3fa610444",
+      "source_sha256": "ccabf4974ed62d240f67b4ed771227a54da75bc79c5ceb1d8bda9965eae02637"
+    },
+    {
+      "source": "app/named_range_battle.py",
+      "line": 66,
+      "function": "capture",
+      "ast_sha256": "60ca27f87d73ea77b60a6532b017d8a26f8a5df422d7b78fb7a7c7836740b879",
+      "source_sha256": "ccabf4974ed62d240f67b4ed771227a54da75bc79c5ceb1d8bda9965eae02637"
+    },
+    {
+      "source": "app/named_range_battle.py",
+      "line": 117,
+      "function": "route",
+      "ast_sha256": "ad0088e6bc1df8efe34e923acd50cf7fa788744244ab1878af66608ddc9f7c35",
+      "source_sha256": "ccabf4974ed62d240f67b4ed771227a54da75bc79c5ceb1d8bda9965eae02637"
+    },
+    {
+      "source": "app/effect_range_policy.py",
+      "line": 11,
+      "function": "validate_effect",
+      "ast_sha256": "a79147e2268c3dbfeb4f6a0c3d766b2958cfe34597dbca644474e18b4850cd7a",
+      "source_sha256": "4ff892a6103a237a219d733b921d9373a467ebccb730826b5612b04438425d60"
+    },
+    {
+      "source": "app/effect_range_policy.py",
+      "line": 21,
+      "function": "query",
+      "ast_sha256": "04409911e9a3849ddf25c14f45e7477402317df3e2b2569f0e5a59612dc7e627",
+      "source_sha256": "4ff892a6103a237a219d733b921d9373a467ebccb730826b5612b04438425d60"
+    },
+    {
+      "source": "app/effect_target_count_policy.py",
+      "line": 13,
+      "function": "validate_effect",
+      "ast_sha256": "569fca0fdb46c9731574ecd04efc9ad86afe373208e9b3db7d4c44570d67c5b5",
+      "source_sha256": "2ef32fe4ffc85b1a1d227c4691a50e2194fe477e0e3dcdb93467ccf2bdc7c6c8"
+    },
+    {
+      "source": "app/effect_target_count_policy.py",
+      "line": 25,
+      "function": "_reader",
+      "ast_sha256": "5c061accc1d9b773b6b83b87fd7b7a2adde88acf8be344e5822ffde446e4462d",
+      "source_sha256": "2ef32fe4ffc85b1a1d227c4691a50e2194fe477e0e3dcdb93467ccf2bdc7c6c8"
+    },
+    {
+      "source": "app/effect_target_count_policy.py",
+      "line": 59,
+      "function": "query",
+      "ast_sha256": "f691f4d76a2180dd0fb6a6d378783770521df5f5246f39f251698aec680cdf03",
+      "source_sha256": "2ef32fe4ffc85b1a1d227c4691a50e2194fe477e0e3dcdb93467ccf2bdc7c6c8"
+    },
+    {
+      "source": "app/effect_target_count_policy.py",
+      "line": 46,
+      "function": "__init__",
+      "ast_sha256": "1c41398c461caa7ff88ab0a5a0885d768421476eac5d12fee6bfa2f61dd2f42a",
+      "source_sha256": "2ef32fe4ffc85b1a1d227c4691a50e2194fe477e0e3dcdb93467ccf2bdc7c6c8"
+    },
+    {
+      "source": "app/portable_named_range_battle_wire.py",
+      "line": 22,
+      "function": "compile_battle",
+      "ast_sha256": "d6323ab0508ed548edda9327d30295a4df142797a087aa869991d939ee297dd4",
+      "source_sha256": "528f11a9171867d36655728fc546b82ea5e07b8b30173d125ea0249e3be360ca"
+    },
+    {
+      "source": "app/portable_named_range_battle_wire.py",
+      "line": 53,
+      "function": "pack_rules",
+      "ast_sha256": "ccd0b711d9f5b1b36d0edf1cd78025d64ed68aee62c4028c9b97ff79e9a60eab",
+      "source_sha256": "528f11a9171867d36655728fc546b82ea5e07b8b30173d125ea0249e3be360ca"
+    }
+  ],
+  "registry": "reference_models.named_range -> product_named_range_model.execution -> named_range_battle context -> cast capture -> radius.query and count.query -> frozen logical recipients",
+  "actual_reader_bindings": [
+    {
+      "stat": "effect_range_pct",
+      "method": "get_buffs",
+      "actual_closure_reader": [
+        {
+          "source": "research/upstream/nikke-calc-master/calculator/buff_manager.py",
+          "line": 4498,
+          "projection": "effect_range_pct"
+        }
+      ]
+    },
+    {
+      "stat": "effect_range_pct",
+      "method": "_plan_step",
+      "actual_closure_reader": [
+        {
+          "source": "research/upstream/nikke-calc-master/calculator/buff_manager.py",
+          "line": 4425,
+          "projection": "effect_range_pct"
+        }
+      ]
+    },
+    {
+      "stat": "effect_target_count_add",
+      "method": "get_buffs",
+      "actual_closure_reader": [
+        {
+          "source": "research/upstream/nikke-calc-master/calculator/buff_manager.py",
+          "line": 4498,
+          "projection": "effect_target_count_add"
+        }
+      ]
+    },
+    {
+      "stat": "effect_target_count_add",
+      "method": "_plan_step",
+      "actual_closure_reader": [
+        {
+          "source": "research/upstream/nikke-calc-master/calculator/buff_manager.py",
+          "line": 4425,
+          "projection": "effect_target_count_add"
+        }
+      ]
+    }
+  ],
+  "native_global_projection_unchanged": true,
+  "original_modifiers": [
+    {
+      "row": 26,
+      "stat": "effect_target_count_add",
+      "numeric_stat": 93,
+      "value": 1.0,
+      "exact_target_effect": "섬멸 태세 추가 효과",
+      "target_name_symbol": 1,
+      "original_definition": {
+        "effect": {
+          "source": "스킬1",
+          "type": "buff",
+          "name": "섬멸 지원 4",
+          "trigger": {
+            "timing": [
+              "full_burst_start"
+            ],
+            "condition": []
+          },
+          "target": "allies_with_buff:섬멸 태세",
+          "stat": "effect_target_count_add",
+          "target_effect": "섬멸 태세 추가 효과",
+          "polarity": "beneficial",
+          "duration": 9.0,
+          "fixed_value": 1.0
+        },
+        "owner": "레이 (가칭)"
+      }
+    },
+    {
+      "row": 27,
+      "stat": "effect_range_pct",
+      "numeric_stat": 94,
+      "value": 500.0,
+      "exact_target_effect": "섬멸 태세 추가 효과",
+      "target_name_symbol": 1,
+      "original_definition": {
+        "effect": {
+          "source": "스킬1",
+          "type": "buff",
+          "name": "섬멸 지원 5",
+          "trigger": {
+            "timing": [
+              "full_burst_start"
+            ],
+            "condition": []
+          },
+          "target": "allies_with_buff:섬멸 태세",
+          "stat": "effect_range_pct",
+          "target_effect": "섬멸 태세 추가 효과",
+          "polarity": "beneficial",
+          "duration": 9.0,
+          "fixed_value": 500.0
+        },
+        "owner": "레이 (가칭)"
+      }
+    }
+  ],
+  "raw_units": {
+    "effect_range_pct": "Percentage points >=-100 individually; original500 -> factor6. Aggregate finite nonnegative factor/radius required, no extra clamp",
+    "effect_target_count_add": "Nonnegative exact integral fixed value<=INT32_MAX; base+sum must be exact integer0..capacity_limit, otherwise reject not truncate/clamp",
+    "original_HeavyArms": "Target_count_add10 to exact marker Lock On for2 bullets; separate downstream Lock On scope, not a range-battle witness"
+  },
+  "context": "Declared base radius/colliders and logical order, not inferred game distances; original Rei modifier targets allies already carrying named state at application",
+  "selection": {
+    "capacity": "Battle base1..128, nearby base>=2; count query uses explicit capacity128",
+    "radius": "Ephemeral query filters exact stat/target_effect; native get_buffs ordered aggregation then factor1+total/100 and base_radius*factor",
+    "normal": "Original logical nearest order, geometry contains filters, alive actor then selected-count cap",
+    "nearby": "Primary center, stable edge-distance sorting for remaining candidates; equal distance retains canonical order",
+    "identity": "Unique owner/effect rule, required geometry for all configured ADDs, frozen actor generation checked on landing",
+    "zero": "Zero radius allowed; no auto-minimum radius or fallback body. Zero selected recipients remains empty.",
+    "bounds": "Additional count overflow/fraction/nonfinite rejects; circle/rectangle boundary follows existing geometry contains contract, not a new proximity rule",
+    "geometry_boundary": {
+      "rule": "Existing distance<=radius+1e-9 inclusive-touch rule",
+      "CPU": "research/coordinate_geometry_reference.py",
+      "GPU": "gpu/coordinate_shape_math.slang coordinateShapeContains",
+      "binary64_constant_hex": "3e112e0be826d695",
+      "new_tolerance_added": false
+    },
+    "capacity_zero_scope": "Generic count query permits base0/capacity0; battle rule base>=1 and extra>=0 so empty selection means geometry/availability, not a clamped capacity"
+  },
+  "wire": {
+    "bank_base": 115680,
+    "bank_words": 544,
+    "rule_header_words": 32,
+    "rule_width": 32,
+    "rule_row_encoding": "Zero-based compiled damage row+1 in wire; zero reserved for no binding",
+    "modifier_stats": {
+      "range": 94,
+      "count": 93
+    },
+    "target_effect": "Exact symbol ID in definition TARGET_NAME",
+    "numeric": "LE binary64 values and base radius; capacity integer checks before uint assignment",
+    "stat_alias_note": "Actual path explicitly uses numeric93/94; do not claim ID-independent. Cover composition uses96 to avoid collision.",
+    "compiled_definition_row_base": 0,
+    "modifier_rows": "26/27 are zero-based compiled definition rows, not rule indices"
+  },
+  "saved_evidence": {
+    "scope": "Proof paths named named-range/named_range/target-count/target_count/effect-range, copied fixtures excluded",
+    "candidates": 32,
+    "current_exact": 0,
+    "current_live_receipts_verified": false,
+    "standard251": "BODY-only named-carriers entry with no matching definition names; not evidence of spatial range/count selection"
+  },
+  "L3_proposed": "Static connected, current source-matched live selection evidence not found in indexed captures",
+  "remaining": [
+    "Current normal API nonzero range/count selection with all exact frozen receipts",
+    "Lock On consumer has separate path/lifetime",
+    "Other geometry/lifecycle/stack/composition policies and game-spec verification"
+  ],
+  "new_CPU_battles": 0,
+  "new_GPU_calls": 0,
+  "Windows_calls": 0,
+  "full_goal_complete": false,
+  "claude_decision": "accept static L3 after four required record clarifications; live spatial proof incomplete",
+  "claude_review_sha256": "abfe141b1d568b035adc21eb4d3f7c5c43eee80cc39709b3977724bff6e10d76",
+  "claude_review": "# 最終チェック結果: 静的L3として受理可\n\n**前提:** ツールが無効なので、ご提示の要約だけを基にレビューしました。ソースの再照合はしていません。\n\n## 判定\n\nブロッキングな問題はありません。「live receiptが無いので静的L3のみ、実証は未完了のまま終了」という扱いで受理して問題ありません。\n\n## 必須修正(記録の文言のみ。コードの変更は不要)\n\n1. **stat ID方針の訂正を明記する**\n   - 前回の「numeric stat IDに依存していない」は撤回として記録してください。\n   - この経路は93(count)と94(range)を固定契約として使っています。\n   - stat 93はHeavyArmsのLock On count+10と同じIDです。両者を区別しているのはTARGET_NAMEの完全一致だけなので、その点も明記してください。\n\n2. **row番号の基準を明記する**\n   - 「ruleはcompiled damage definition row+1」とrow26/27が、0-basedか1-basedかを書いてください。\n   - wire長の算術は整合しています(115680+32+16×32=116224)。\n\n3. **stub確認の範囲を限定する**\n   - 未初期化stubで確認できたのはreader bindingの解決だけです。\n   - 集計や選択の意味論の検証として扱わないでください。\n\n4. **9秒の失効境界を未検証として残す**\n   - capture時点でrange/countの値を凍結するのか、castからlandingの間に失効した場合どうなるのか、さらに境界が閉区間か開区間かは要約に含まれていません。\n   - 静的契約として確認していないなら、暗黙に合格扱いにせず未了項目に入れてください。\n\n## 問題なしと確認した点\n\n- **range:** 各値が-100以上でも合計が-100未満になる場合は、factor非負の条件でrejectされます。\n- **count:** 整数性とlimitの検査を丸めもclampもせずに行い、GPU側でcapacityを再比較しています。\n- **幾何境界:** 0x3e112e0be826d695は1e-9のbinary64表現と一致し、許容差を新設も拡大もしていません。\n- **保存証拠:** 一致0件なので認定せず、Rei profile 251とLock On証拠を流用しない判断も妥当です。探索範囲を限定した書き方も適切です。\n\n上記1〜4を記録に反映したうえで受理し、既定順どおりLock Onの静的経路と既存のsource一致証拠の調査に進んでください。全L4、任意の組合せ、ゲーム仕様との一致、CUDA、全効果の完成は未了のまま維持します。",
+  "review_conditions_applied": true,
+  "reader_stub_scope": "Only actual get_buffs/_plan_step closure binding resolution; no initialized battle manager, no query aggregation or selector execution semantics tested",
+  "review_policy_correction": "Previous numeric-ID-independent assumption withdrawn. This path uses count93/range94 explicitly; count93 is shared with HeavyArms Lock On. Effect-specific contribution is selected by exact TARGET_NAME, plus recipient/lifetime/common predicates, not a separate numeric tag for each producer.",
+  "unverified_expiry": [
+    "Original Rei9-second expiry boundary not executed",
+    "Cast-to-landing expiry, exact boundary eligibility and refresh/lifetime interactions remain open; frozen actor identity is not proof of all quantity-lifetime behavior"
+  ],
+  "next_Claude_priority": "Lock On static chain and source-exact saved evidence; no new measurement",
+  "production_changes": 0,
+  "L3_live_evidence_gap": "No current source-exact live selection receipts found among the32 scoped named proof paths; not an assertion of global storage absence"
+}

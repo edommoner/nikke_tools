@@ -1,0 +1,43 @@
+E.E
+======================================================================
+ERROR: test_audit_reuses_public_and_arena_guards_without_battles (test_coordinate_physical_frontier.FrontierTests.test_audit_reuses_public_and_arena_guards_without_battles)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-physical-reference-final-v2/tests/test_coordinate_physical_frontier.py", line 18, in test_audit_reuses_public_and_arena_guards_without_battles
+    result = verify(ROOT)
+             ^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-physical-reference-final-v2/app/portable_coordinate_frontier.py", line 58, in verify
+    arc_golden = json.loads((root/'research/portable-coordinate-arcs-short-expected.json').read_text())
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/nikke-coordinate-physical-reference-final-v2/research/portable-coordinate-arcs-short-expected.json'
+
+======================================================================
+ERROR: test_cli_writes_once_without_backend_or_native_execution (test_coordinate_physical_frontier.FrontierTests.test_cli_writes_once_without_backend_or_native_execution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-physical-reference-final-v2/tests/test_coordinate_physical_frontier.py", line 53, in test_cli_writes_once_without_backend_or_native_execution
+    cli.main(['model-check','--out',str(out)])
+  File "/private/tmp/nikke-coordinate-physical-reference-final-v2/scripts/nikke_gpu.py", line 2689, in main
+    with forbid_gpu():result=audit_frontier(ROOT)
+                             ^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-physical-reference-final-v2/app/portable_coordinate_frontier.py", line 58, in verify
+    arc_golden = json.loads((root/'research/portable-coordinate-arcs-short-expected.json').read_text())
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/nikke-coordinate-physical-reference-final-v2/research/portable-coordinate-arcs-short-expected.json'
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.920s
+
+FAILED (errors=2)

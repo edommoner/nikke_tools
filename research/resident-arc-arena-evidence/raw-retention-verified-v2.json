@@ -1,0 +1,165 @@
+{
+  "schema": "resident-arc-retention-v1",
+  "passed": true,
+  "reference_evidence_sha256": "bc36dc68a8d96e5325fedec9597205932742a0a77558a9a31e4c0e8c8e4f0ed5",
+  "candidate_evidence_sha256": "7d3d04853ffec3099855d4d10803bc7510724296151aaecba5fc372f6c168bfe",
+  "reference_output_sha256": "6323e3bad0e5b5591af5fb9d9f68bd36904578eea0e279a1daa19ab1046a9280",
+  "candidate_output_sha256": "4ecc755e4f17e2eaaa9c9eb013bbcaa2fb27422893982f910894287df96ced09",
+  "cases": 106,
+  "old_words": 2032000,
+  "new_words": 2064786,
+  "verbatim_prefix_equal": false,
+  "all_other_prefix_bytes_equal": true,
+  "all_tail_bytes_zero": true,
+  "relocated_address_words": 20,
+  "relocations": [
+    {
+      "case_index": 1,
+      "word_offset": 1924498,
+      "record_index": 1,
+      "old_address": 3805424,
+      "new_address": 3838210
+    },
+    {
+      "case_index": 2,
+      "word_offset": 1924498,
+      "record_index": 1,
+      "old_address": 5837424,
+      "new_address": 5902996
+    },
+    {
+      "case_index": 3,
+      "word_offset": 1924498,
+      "record_index": 1,
+      "old_address": 7869424,
+      "new_address": 7967782
+    },
+    {
+      "case_index": 4,
+      "word_offset": 1924498,
+      "record_index": 5,
+      "old_address": 9905584,
+      "new_address": 10036728
+    },
+    {
+      "case_index": 5,
+      "word_offset": 1924498,
+      "record_index": 1,
+      "old_address": 11933424,
+      "new_address": 12097354
+    },
+    {
+      "case_index": 6,
+      "word_offset": 1924498,
+      "record_index": 1,
+      "old_address": 13965424,
+      "new_address": 14162140
+    },
+    {
+      "case_index": 7,
+      "word_offset": 1924498,
+      "record_index": 1,
+      "old_address": 15997424,
+      "new_address": 16226926
+    },
+    {
+      "case_index": 8,
+      "word_offset": 1924498,
+      "record_index": 1,
+      "old_address": 18029424,
+      "new_address": 18291712
+    },
+    {
+      "case_index": 9,
+      "word_offset": 1924498,
+      "record_index": 14,
+      "old_address": 20074944,
+      "new_address": 20370018
+    },
+    {
+      "case_index": 10,
+      "word_offset": 1924498,
+      "record_index": 2,
+      "old_address": 22094464,
+      "new_address": 22422324
+    },
+    {
+      "case_index": 11,
+      "word_offset": 1924498,
+      "record_index": 2,
+      "old_address": 24126464,
+      "new_address": 24487110
+    },
+    {
+      "case_index": 12,
+      "word_offset": 1924498,
+      "record_index": 2,
+      "old_address": 26158464,
+      "new_address": 26551896
+    },
+    {
+      "case_index": 13,
+      "word_offset": 1924498,
+      "record_index": 2,
+      "old_address": 28190464,
+      "new_address": 28616682
+    },
+    {
+      "case_index": 14,
+      "word_offset": 1924498,
+      "record_index": 2,
+      "old_address": 30222464,
+      "new_address": 30681468
+    },
+    {
+      "case_index": 15,
+      "word_offset": 1924498,
+      "record_index": 2,
+      "old_address": 32254464,
+      "new_address": 32746254
+    },
+    {
+      "case_index": 16,
+      "word_offset": 1924498,
+      "record_index": 2,
+      "old_address": 34286464,
+      "new_address": 34811040
+    },
+    {
+      "case_index": 28,
+      "word_offset": 1924498,
+      "record_index": 2,
+      "old_address": 58670464,
+      "new_address": 59588472
+    },
+    {
+      "case_index": 29,
+      "word_offset": 1924498,
+      "record_index": 2,
+      "old_address": 60702464,
+      "new_address": 61653258
+    },
+    {
+      "case_index": 30,
+      "word_offset": 1924498,
+      "record_index": 2,
+      "old_address": 62734464,
+      "new_address": 63718044
+    },
+    {
+      "case_index": 31,
+      "word_offset": 1924498,
+      "record_index": 2,
+      "old_address": 64766464,
+      "new_address": 65782830
+    }
+  ],
+  "source_witnesses": {
+    "gpu/destructible_battle_runtime.slang": "91be4819b2f6f28d7fdedfbed014bea3c1aaa67f396968e506b39f11f2c75c8a",
+    "gpu/destructible_shield_frame_hooks.slang": "8ab3384c7b37fd774ef20a2b60c15fd37f4dd0bbd965832e79b608aadd747d92",
+    "gpu/world_coordinate_typed_entry.slang": "2dc5fb456a7f7edbceb4b5122fe99f6750f418a170ddb47694cb9678e3828f71"
+  },
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "scope": "Every byte accounted for; one exact source-defined address field checked against record identity and old/new case bases. Fresh native audit remains required."
+}

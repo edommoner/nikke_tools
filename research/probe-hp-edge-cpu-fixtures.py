@@ -15,7 +15,7 @@ for name,b,extra in v.fixtures():
         return on_activate(self,eff,caster,t,*args,**kwargs)
     try:
         with v.s.v.context(name,extra),patch.object(v.BuffManager,'notify',notify),patch.object(v.BuffManager,'_activate',activate):
-            compiled=v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True});cpu=v.s.v.v.a.evaluate(b)
+            compiled=v.s.v.v.a.evaluate({**b,'_compile_detail':True});cpu=v.s.v.v.a.evaluate(b)
         row=dict(name=name,compiled=True,cpu_verified=True,gpu_verified=False,events=events,activation_attempts=acts,total=cpu['total_damage'])
     except Exception as exc:row=dict(name=name,compiled=False,cpu_verified=False,gpu_verified=False,error=repr(exc))
     rows.append(row);print(json.dumps(dict(name=name,compiled=row['compiled'],cpu_verified=row['cpu_verified'],events=len(events),witness_activations=len(acts),**({'error':row['error']} if 'error' in row else {}))),flush=True)

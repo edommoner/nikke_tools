@@ -1,0 +1,45 @@
+{
+  "sealed": false,
+  "purpose": "development",
+  "calculation_verified": true,
+  "preservation_verified": null,
+  "passed": true,
+  "containment_verified": true,
+  "comparison_error": null,
+  "first_difference": null,
+  "phase": {
+    "events": 4,
+    "last_event": {
+      "elapsed_seconds": 4.610134417,
+      "monotonic_ns": 940465999815833,
+      "pid": 7098,
+      "stage": "shared_gpu_execute",
+      "state": "returned",
+      "wall_time_ns": 1792841316259550000
+    },
+    "timed_calls": [
+      {
+        "stage": "slang_build",
+        "pid": 7098,
+        "state": "returned",
+        "elapsed_seconds": 3.939572625
+      },
+      {
+        "stage": "shared_gpu_execute",
+        "pid": 7098,
+        "state": "returned",
+        "elapsed_seconds": 4.610134417
+      }
+    ],
+    "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+    "nvrtc_compile_returned_success": false,
+    "cuda_compile_cache_hit_verified": false,
+    "cuda_linked_artifact_observed": false,
+    "cuda_launch_returned_success": false,
+    "cuda_synchronize_returned_success": false,
+    "cuda_readback_returned_success": false,
+    "scope": "Observed API returns only; full output verification requires the shared suite report"
+  },
+  "gpu_retries": 0,
+  "audit_gpu_calls": 0
+}

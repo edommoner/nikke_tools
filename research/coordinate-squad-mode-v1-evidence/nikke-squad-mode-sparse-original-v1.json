@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-squad-mode-metal-v1",
+  "raw_bytes": 1748617728,
+  "raw_sha256": "8d88589df94bff35017740ee20d4f6c8c374a1e2306d4b6ddea6e0786e842e4d",
+  "evidence_sha256": "5aae8c3886a4c1c4b1a773854b6f03b470055636382093db5736560f0363a4fe",
+  "raw_inode": 510635691,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 8365,
+  "zero_range_bytes": 1708343296,
+  "allocated_before": 1748619264,
+  "allocated_after": 40275968,
+  "allocated_reclaimed": 1708343296,
+  "full_hash_verified": true
+}

@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "source_commit": "dd7d62b98a63f9fa99892dd964809775b136a9d6",
+  "wire_abi": "0x5045566a",
+  "prior_source": "ed68e68",
+  "input_words": 86016,
+  "output_words": 159744,
+  "input_stride_growth_words": 0,
+  "output_stride_growth_words": 0,
+  "added_runtime_arrays": 0,
+  "added_runtime_scalars": 0,
+  "added_definition_fields": 0,
+  "added_frame_fields": 0,
+  "declarations": {
+    "Runtime": {
+      "declaration_unchanged": true,
+      "sha256": "8991968ef48a8f28981a553477a80d6668a2b5d6df01ea8f696c990e780e634f"
+    },
+    "Definition": {
+      "declaration_unchanged": true,
+      "sha256": "62c71302cf671be33e07d6a1b8fab6396b06df1fd73a0f7fdaa2c22b0893a42b"
+    },
+    "Frame": {
+      "declaration_unchanged": true,
+      "sha256": "ab0f26842b4a418733bb8be106a1b763882fba614b06beb1d21dc7fd1e0d8616"
+    }
+  },
+  "world_metadata": {
+    "base": 51913,
+    "words": 7,
+    "used_words": 2,
+    "storage_origin": "Previously zero alignment padding after the aim policy"
+  },
+  "scope": "Static shared declarations and wire layout only; no compiler register/spill,physical private storage or peak-memory measurement."
+}

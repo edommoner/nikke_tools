@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "package_id": "96d36c82773f8660c8aa4402083afa58d8a0879a2424612ce061bba73456d53b",
+  "payload_files": 1971,
+  "all_payload_sha_and_checkout_bytes_equal": true,
+  "gpu_source_input_native_output_equal": true,
+  "calculation_verified": true,
+  "gpu_calls": 0
+}

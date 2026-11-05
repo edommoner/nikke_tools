@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "package_id": "51739deb24c96d88579f3c4984eb54a50f1dc3625c3824fa4fd2523446715c82",
+  "suite": "coordinate-shape",
+  "archive_bytes": 7170225,
+  "archive_sha256": "b34836813b1f6dc60bf23a466e40183d20145bc20de3e2b28c1fddb796754729",
+  "scope": "Pure shared circle/rotated-rectangle math only; no full battle CUDA build",
+  "inputs": 158,
+  "native": 150,
+  "max_seconds": 180,
+  "job_memory_mb": 2048,
+  "priority": "BelowNormal",
+  "gpu_attempts": 1,
+  "distribution_commit": "00ddeb57abeac1979dd2c0bdeb5b215ee7dcd08d"
+}

@@ -1,0 +1,602 @@
+{
+  "schema": 1,
+  "scope": "Shared weapon-change magazine reference snapshot, precedence, integer factor, zero/ammo-instant/reload/reentry semantics",
+  "full_goal_complete": false,
+  "full_character_certifications": 0,
+  "proofs": [
+    {
+      "suite": "mode-capacity",
+      "package_id": "cadbf1a5088b0f116f75497f4220d4cc9faf8a4e5a286811c439951cce2e1877",
+      "capture": "/tmp/nikke-mode-capacity-v1-metal",
+      "seal": "/tmp/nikke-mode-capacity-v1-sealed.json",
+      "inputs": 32,
+      "native": 26,
+      "rejected": 6,
+      "source_files": 114,
+      "independent_seal": true,
+      "device": "Apple M5",
+      "gpu_seconds": 0.05310549994464964,
+      "generation_cache_hit": false,
+      "slang_calls": 2,
+      "runtime_stride_bytes": 138952,
+      "cpu_tests": {
+        "tests": 41,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "input_sha256": "83c163393a3ecbea36538c170a6f0481ac1dbcb670b034c37f7a2d437cac0cf2",
+      "output_sha256": "23b7d22626e96d2fadd3d79869db12895380d289634de159dcd671c3b4dbc639"
+    },
+    {
+      "suite": "mode-capacity-instant",
+      "package_id": "b169ad113b7f6ac1bc3e6c3aaba790755f2ec0da2ff25ddf1dcdc7a67ca71b1d",
+      "capture": "/tmp/nikke-mode-capacity-instant-v1-metal",
+      "seal": "/tmp/nikke-mode-capacity-instant-v1-sealed.json",
+      "inputs": 3,
+      "native": 3,
+      "rejected": 0,
+      "source_files": 114,
+      "independent_seal": true,
+      "device": "Apple M5",
+      "gpu_seconds": 0.04822787502780557,
+      "generation_cache_hit": true,
+      "slang_calls": 0,
+      "runtime_stride_bytes": 138952,
+      "cpu_tests": {
+        "tests": 45,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "input_sha256": "d6fbb1d5361f523ae66592eae984f077369ed861f167a81ba82c671d343f994a",
+      "output_sha256": "54b803993ab1220b18c30ad171bdd995d959f50e05d1bcc8660f96d42f872932"
+    },
+    {
+      "suite": "mode-capacity-rosters",
+      "package_id": "3c02e033f1d0b317b4bc4880e930272fb52974da64b64ea5d96d53f4d93ef59e",
+      "capture": "/tmp/nikke-mode-capacity-rosters-v1-metal",
+      "seal": "/tmp/nikke-mode-capacity-rosters-v1-sealed.json",
+      "inputs": 2,
+      "native": 2,
+      "rejected": 0,
+      "source_files": 114,
+      "independent_seal": true,
+      "device": "Apple M5",
+      "gpu_seconds": 2.172528791707009,
+      "generation_cache_hit": true,
+      "slang_calls": 0,
+      "runtime_stride_bytes": 138952,
+      "cpu_tests": {
+        "tests": 22,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "input_sha256": "5e349b40aaa181cbc5cbcd862e1ad3dab13836c82c33900926e487fa9252c9bc",
+      "output_sha256": "c2a2bea35fcd93e4f13f5a1374ad2dc4728cd65432e68b228001d074b48b6b83"
+    },
+    {
+      "suite": "heal-share-regression",
+      "package_id": "84b6568c11316544c87e224684aa38d5b0eb966e7e03f978a151e9cf8df02b05",
+      "capture": "/tmp/nikke-mode-capacity-regression-v2-metal",
+      "seal": "/tmp/nikke-mode-capacity-regression-v2-sealed.json",
+      "inputs": 849,
+      "native": 676,
+      "rejected": 173,
+      "source_files": 114,
+      "independent_seal": true,
+      "device": "Apple M5",
+      "gpu_seconds": 10.460413708351552,
+      "generation_cache_hit": true,
+      "slang_calls": 0,
+      "runtime_stride_bytes": 138952,
+      "cpu_tests": {
+        "tests": 330,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "input_sha256": "010b72c5120af825d2326a1504a4d7e111ac36807ed39652190c5e91880096f0",
+      "output_sha256": "89afa4ed803477c6e1d4aa37bc06bb32fb5b9717e29cc7d413f168a8717d92e1"
+    },
+    {
+      "suite": "parts-skill-world",
+      "package_id": "14d5f7a3fdc884299e541f7d18ceda26e8d58d2cd8ad8c693d8f12aa3dd58b93",
+      "capture": "/tmp/nikke-mode-capacity-parts-v1-metal",
+      "seal": "/tmp/nikke-mode-capacity-parts-v1-sealed.json",
+      "inputs": 63,
+      "native": 59,
+      "rejected": 4,
+      "source_files": 114,
+      "independent_seal": true,
+      "device": "Apple M5",
+      "gpu_seconds": 0.04586499999277294,
+      "generation_cache_hit": true,
+      "slang_calls": 0,
+      "runtime_stride_bytes": 138952,
+      "cpu_tests": {
+        "tests": 55,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "input_sha256": "76e08013cd2b58b80cf08c1fda79c812ca0f457007bff15699769f918d061824",
+      "output_sha256": "ee1935cc64319a2f3c659ceb6cecc9cceac1c695087efbe7ee804967591ecce1"
+    },
+    {
+      "suite": "heal-share-rosters",
+      "package_id": "b5c4b5306d9fe4a0967616e9820047885c223a0728eb014965cb3dde178caaee",
+      "capture": "/tmp/nikke-mode-capacity-old-rosters-v1-metal",
+      "seal": "/tmp/nikke-mode-capacity-old-rosters-v1-sealed.json",
+      "inputs": 4,
+      "native": 4,
+      "rejected": 0,
+      "source_files": 114,
+      "independent_seal": true,
+      "device": "Apple M5",
+      "gpu_seconds": 3.1639432499650866,
+      "generation_cache_hit": true,
+      "slang_calls": 0,
+      "runtime_stride_bytes": 138952,
+      "cpu_tests": {
+        "tests": 19,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "input_sha256": "b3f6051d7254403e8655998a049ce5f8d532a43afe82d26b3d5effbd50d60957",
+      "output_sha256": "f83a45b0297cf2f46a2232c9d2469e3148665c79337899562c1e56f8d043de97"
+    },
+    {
+      "suite": "ally-burst",
+      "package_id": "79b062582ee66ad105cfe522d8160f0be4ff0394a5378b48e98494de6f7e4b3e",
+      "capture": "/tmp/nikke-mode-capacity-ally-v1-metal",
+      "seal": "/tmp/nikke-mode-capacity-ally-v1-sealed.json",
+      "inputs": 16,
+      "native": 15,
+      "rejected": 1,
+      "source_files": 114,
+      "independent_seal": true,
+      "device": "Apple M5",
+      "gpu_seconds": 0.07888787495903671,
+      "generation_cache_hit": true,
+      "slang_calls": 0,
+      "runtime_stride_bytes": 138952,
+      "cpu_tests": {
+        "tests": 21,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "input_sha256": "68d54e30c03b2d300980b73c32460d51431202b903a96f181fc720f38921bea3",
+      "output_sha256": "ef69cd6f212f81cb546f3276fe7093c6f8c45966505e3ff1f982e1e6c0b93420"
+    },
+    {
+      "suite": "ally-burst-rosters",
+      "package_id": "ed33fd14bb48f25f07486a3b4b2ee21ba96e397a0565702e3486ff59847bcf1a",
+      "capture": "/tmp/nikke-mode-capacity-ally-rosters-v1-metal",
+      "seal": "/tmp/nikke-mode-capacity-ally-rosters-v1-sealed.json",
+      "inputs": 2,
+      "native": 2,
+      "rejected": 0,
+      "source_files": 114,
+      "independent_seal": true,
+      "device": "Apple M5",
+      "gpu_seconds": 1.604852500022389,
+      "generation_cache_hit": true,
+      "slang_calls": 0,
+      "runtime_stride_bytes": 138952,
+      "cpu_tests": {
+        "tests": 19,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "input_sha256": "0eb5ea636fc631b34d0a73c40a92a318f1b6ed8915bfcdd9a8e89ba25eeb5c17",
+      "output_sha256": "57603c94263e7871b23d4937a8cd497ef97478a2cb234d1fd1bcd2b8c9d69464"
+    }
+  ],
+  "total_inputs": 971,
+  "new_inputs": 37,
+  "retention": {
+    "entries": {
+      "heal-share-regression": {
+        "input_native_output_entries_equal": true,
+        "inputs": 849,
+        "old_golden_sha256": "69d11f6a026edde8303c06dccb4eceb9f9e87318a1c5fa6ebf2ad29488118c65"
+      },
+      "parts-skill-world": {
+        "input_native_output_entries_equal": true,
+        "inputs": 63,
+        "old_golden_sha256": "c9f9c92c10c9ba5cfbc7fd42fcf78345190a7f4234e6b1072597f01bf60801ce"
+      },
+      "heal-share-rosters": {
+        "input_native_output_entries_equal": true,
+        "inputs": 4,
+        "old_golden_sha256": "fb38c0a17f49d9ad28a0a18eb2ef2cc72b52d3b91b718e1c42cf828ba80efdd3"
+      },
+      "ally-burst": {
+        "input_native_output_entries_equal": true,
+        "inputs": 16,
+        "old_golden_sha256": "5d06279ceea55da4b235b5dffee92e8fef4c6b560013cbe6941e400abb60bb02"
+      },
+      "ally-burst-rosters": {
+        "input_native_output_entries_equal": true,
+        "inputs": 2,
+        "old_golden_sha256": "83d4fc33bc7f6439dd16d482402227b3c327d9c668d6854095a29f31d33ff641"
+      }
+    },
+    "raw": {
+      "regression": {
+        "input.bin": {
+          "bytes": 354542404,
+          "sha256": "010b72c5120af825d2326a1504a4d7e111ac36807ed39652190c5e91880096f0",
+          "all_bytes_equal": true
+        },
+        "readback.bin": {
+          "bytes": 2670723072,
+          "sha256": "89afa4ed803477c6e1d4aa37bc06bb32fb5b9717e29cc7d413f168a8717d92e1",
+          "all_bytes_equal": true
+        }
+      },
+      "parts": {
+        "input.bin": {
+          "bytes": 26308804,
+          "sha256": "76e08013cd2b58b80cf08c1fda79c812ca0f457007bff15699769f918d061824",
+          "all_bytes_equal": true
+        },
+        "readback.bin": {
+          "bytes": 198180864,
+          "sha256": "ee1935cc64319a2f3c659ceb6cecc9cceac1c695087efbe7ee804967591ecce1",
+          "all_bytes_equal": true
+        }
+      },
+      "old-rosters": {
+        "input.bin": {
+          "bytes": 1670404,
+          "sha256": "b3f6051d7254403e8655998a049ce5f8d532a43afe82d26b3d5effbd50d60957",
+          "all_bytes_equal": true
+        },
+        "readback.bin": {
+          "bytes": 12582912,
+          "sha256": "f83a45b0297cf2f46a2232c9d2469e3148665c79337899562c1e56f8d043de97",
+          "all_bytes_equal": true
+        }
+      },
+      "ally": {
+        "input.bin": {
+          "bytes": 6681604,
+          "sha256": "68d54e30c03b2d300980b73c32460d51431202b903a96f181fc720f38921bea3",
+          "all_bytes_equal": true
+        },
+        "readback.bin": {
+          "bytes": 50331648,
+          "sha256": "ef69cd6f212f81cb546f3276fe7093c6f8c45966505e3ff1f982e1e6c0b93420",
+          "all_bytes_equal": true
+        }
+      },
+      "ally-rosters": {
+        "input.bin": {
+          "bytes": 835204,
+          "sha256": "0eb5ea636fc631b34d0a73c40a92a318f1b6ed8915bfcdd9a8e89ba25eeb5c17",
+          "all_bytes_equal": true
+        },
+        "readback.bin": {
+          "bytes": 6291456,
+          "sha256": "57603c94263e7871b23d4937a8cd497ef97478a2cb234d1fd1bcd2b8c9d69464",
+          "all_bytes_equal": true
+        }
+      }
+    },
+    "total_old_inputs": 934,
+    "total_raw_bytes": 2938109952
+  },
+  "runtime": {
+    "new_fields": 0,
+    "stride_bytes": 138952,
+    "cuda_constants_bytes": 48,
+    "input_reference_word": 3,
+    "descriptor_key_bits": 9,
+    "descriptor_name_bits": 8,
+    "integer_product_limit": 2147483647
+  },
+  "native_reference": {
+    "report": "/tmp/nikke-mode-capacity-reference-release.json",
+    "cases": 29,
+    "gpu_calls": 0,
+    "packing_calls": 0,
+    "report_sha256": "b34982a152da1d35429b84d2f520d37c9505557c93c3b8867b520a9784c9ddc3",
+    "source_identity_matches_release": true
+  },
+  "real_profile": {
+    "character": "E.H.",
+    "durations_seconds": [
+      3,
+      30
+    ],
+    "physical_history": [
+      152,
+      1388
+    ],
+    "physical_history_omitted": [
+      0,
+      0
+    ],
+    "native_observation": {
+      "character": "E.H.",
+      "duration": 30,
+      "native_only": true,
+      "gpu_calls": 0,
+      "capacity_queries": [
+        {
+          "time": 4.016666666666658,
+          "before": null,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.033333333333324,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.049999999999991,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.0666666666666575,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.083333333333324,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.099999999999991,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.116666666666657,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.133333333333324,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.149999999999991,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.166666666666657,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.183333333333324,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.19999999999999,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.216666666666657,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.233333333333324,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.24999999999999,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.266666666666657,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.2833333333333234,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.29999999999999,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.316666666666657,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.333333333333323,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.34999999999999,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.3666666666666565,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.383333333333323,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.39999999999999,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.416666666666656,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        },
+        {
+          "time": 4.433333333333323,
+          "before": 1,
+          "capacity": 1,
+          "after": 1
+        }
+      ],
+      "mode_frames": 26,
+      "mode_packets": 1,
+      "first_mode_frame": 4.016666666666658,
+      "last_mode_frame": 4.433333333333323,
+      "all_physical_shots": 1388
+    }
+  },
+  "paired_commands": {
+    "report": "/tmp/nikke-mode-capacity-commands-codegen-v1.json",
+    "source_files": 115,
+    "generated_normalized": {
+      "cuda": "adf01a91ba164c402de4f4cd30bff9f3a5dcea8f9dcea3b1d6c05f7eb5e9f262",
+      "metal": "2ed24d9f1ef2eb9fa5e84e3d592fa3ed7ff2b67c2a4b39641bb5a9637f40e40f"
+    },
+    "gpu_calls": 0
+  },
+  "inventory": {
+    "profiles": 266,
+    "packed": 220,
+    "packed_base": 160,
+    "priority_categories": 75,
+    "gpu_certification": false,
+    "report": "/tmp/nikke-mode-capacity-inventory-final.json"
+  },
+  "seal_cwd_fix": {
+    "reason": "Legacy adapter relative imports selected factories from caller checkout; immutable input mismatch rejected sealing",
+    "real_child_two_checkout_test": true,
+    "test_failed_before_fix": true,
+    "tests_passed_after_fix": 4,
+    "package_cwd_explicit": true,
+    "own_and_host_seals_byte_equal": true,
+    "seal_sha256": "cba1984dd98ee30447f33f3d4b5e887d26191c94470d85f23372d494234f5413",
+    "gpu_rerun": false
+  },
+  "retained_failures": [
+    {
+      "stage": "initial literal reference",
+      "reports": [
+        "/tmp/nikke-mode-capacity-reference-v1.json",
+        "/tmp/nikke-mode-capacity-reference-v2.json"
+      ],
+      "reason": "Initial continuous-fire exit time and reloadable bullet-limit assumptions were rejected by native 60Hz/finite-mode behavior; contracts separate physical shots, packets, exits and permitted reloads"
+    },
+    {
+      "stage": "native observer",
+      "report": "/tmp/nikke-mode-capacity-reference-v4.json",
+      "reason": "Mode completion resets _wc_shots; replaced before/after subtraction with profiling actual native fire returns, not extra queries"
+    },
+    {
+      "stage": "source stimuli",
+      "reason": "Periodic source refresh prohibits scalar fixed_value; corrected authored stimuli to use its existing descriptor"
+    },
+    {
+      "stage": "cross-checkout seal",
+      "report": "/tmp/nikke-mode-capacity-v1-seal-failure.txt",
+      "reason": "Saved input mismatch from relative oracle imports; original GPU capture and claim kept, fixed CPU-only seal matched own-package seal"
+    },
+    {
+      "stage": "regression preflight",
+      "capture": "/tmp/nikke-mode-capacity-regression-v1-metal",
+      "cpu_tests": 261,
+      "failures": 3,
+      "native_inputs": 849,
+      "native_preflight_passed": true,
+      "gpu_claim_created": false,
+      "reason": "Historical query token guard rejected the newly reviewed capacity body; added finite inverse into the existing ledger, baseline fixture unchanged"
+    }
+  ],
+  "windows": {
+    "new_gpu_executions": 0,
+    "new_compilations": 0,
+    "new_native_battles": 0,
+    "preservation_verified": false,
+    "cause": "unknown",
+    "new_validation_stopped": true
+  },
+  "unresolved": [
+    "All-character/all-effect GPU certification incomplete; UI remains CPU",
+    "Current full-runtime CUDA numerical parity/compile/link and Windows preservation remain unproven",
+    "Capacity bases require exact integer values 1..10000 or sentinel -1; nonnegative referenced factor and product <=signed32 maximum, otherwise explicit runtime error",
+    "Explicit max_ammo and simple reference names required; broader descriptor variants not silently admitted",
+    "Coordinate/deferred and other historical adapter/capacity limits remain",
+    "75 static unsupported categories remain; unconfirmed projectile/shield consumers require research rather than noop admission"
+  ],
+  "final_cpu_gate": {
+    "package_id": "524c2ee44292821f1378f8db7fe8c335463423e5bdeb62e5e008dc71b27cbf72",
+    "archive": "/tmp/nikke-mode-capacity-sealed-v1.zip",
+    "archive_sha256": "6384478f38752784012273183f24ac90b1527bc4727e3196590f6b4d1e728eae",
+    "capture": "/tmp/nikke-mode-capacity-sealed-v1-cpu",
+    "tests": 52,
+    "failures": 0,
+    "native_inputs": 32,
+    "native_oracles": 26,
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "gpu_claim_created": false,
+    "compiler_certificate_tests": 14,
+    "native_reference_release_source_identity_rechecked": true
+  },
+  "final_source_ready_suites": [
+    "mode-capacity",
+    "mode-capacity-instant",
+    "mode-capacity-rosters",
+    "heal-share-regression",
+    "parts-skill-world",
+    "heal-share-rosters",
+    "ally-burst",
+    "ally-burst-rosters",
+    "compiler-full",
+    "compiler-commands"
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "schema": "product-logical-owner-current-ptx-status-v1",
+  "status": "ptx-artifact-verified-whole-stage-unverified",
+  "authorized_scope": "One PTX compile only; no generation rerun, object/link, GPU, API or battle tests",
+  "owner": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+  "source_commit": "4c70a7972a6a0df2736eb97913d52d467d944329",
+  "working_tree_dirty": true,
+  "purpose": "sealed",
+  "source_transport_commit": "23f633327d14dde2673d8e1139431329807734d9",
+  "source_archive_sha256": "3b2cff4d6eebe0530fcf060880c94bb990a61829eab4ca40cc6d4ff722eec764",
+  "manifest_sha256": "68db3cc13023e560ce9b32daab5d20a2f03c2328a201a573116f3a3219070d8c",
+  "manifest_files_reverified": 2806,
+  "all_manifest_bytes_and_hashes_unchanged": true,
+  "ptx_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "plan_created_no_claim_and_preserved_prior_claims": true,
+  "ram_gate": {
+    "passed": true,
+    "gate": "Immediately before first API worker launch",
+    "observed_unix_ns": 1793584558356864400,
+    "observed_at_jst": "2026-11-02T10:55:58.356864+09:00",
+    "available_physical_bytes": 15046352896,
+    "required_available_bytes": 4294967296,
+    "ram_measurements_at_this_gate": 1,
+    "resampling_loop": false,
+    "sdk_calls": 0,
+    "gpu_calls": 0,
+    "actual_context": "Fresh PTX stage admission; original API-oriented label retained"
+  },
+  "generation_provenance": {
+    "previous_generation_status_sha256": "497ab1e0f554a9d7599697001728933692c669652373a9598370faae6217134b",
+    "previous_pair_normalized_hashes": {
+      "cuda": "9dc3e44027c554d49a46a2e062e40ac0fb75afb9d013ded20e63d69534bf4619",
+      "metal": "f09ed8e266749fe4660d58a3c38175b006b2977c268d792216bc629a52e75b11"
+    },
+    "original_generation_cache_key": "c3d4c29e6be342c78ec5dcf88d7403dea3f6f5922e1c039b447dd7f266e9f1b7",
+    "current_generation_cache_key": "c3d4c29e6be342c78ec5dcf88d7403dea3f6f5922e1c039b447dd7f266e9f1b7",
+    "exact_cache_key_match": true,
+    "required_hit_verified": true,
+    "slang_actual_invocations_this_stage": 0,
+    "generation_rerun": false
+  },
+  "ptx": {
+    "compiler_verified": true,
+    "compile_only": true,
+    "artifact_kind": "ptx",
+    "cache_key": "781c894036e8c6e1b4678c7e8efc80d826f02528a73f00cf291b6f66a8d4f4c9",
+    "ptx_cache_hit": false,
+    "bytes": 14477831,
+    "sha256": "59dc4f2b12c0728cc843862807bffddec30b9e12f9e22b552f00f91a54e12e07",
+    "generated_cuda_sha256": "94dc3968c0591001dcb915fdd5511d62d311d1015a47eed0590a119f26cf4bd9",
+    "options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "header_hashes_by_basename": {
+      "slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
+    },
+    "nvrtc_binary_hashes": {
+      "nvrtc-builtins64_124.dll": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43",
+      "nvrtc64_120_0.dll": "3aa3cd8aa10437e212760c0e1ed730807811ec3bc330216dbfde4b26211d2243"
+    },
+    "source_closure_file_count": 287,
+    "source_closure_canonical_hash_map_sha256": "ce6d68f22dc1f75f0d58293915eb054893cf8830d705d30a600f048be61b4c78",
+    "nvrtc_compile_invocations": 1,
+    "nvrtc_compile_return_code": 0,
+    "nvrtc_api_calls": {
+      "nvrtcCompileProgram": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 24.1664196
+      },
+      "nvrtcCreateProgram": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0024828
+      },
+      "nvrtcDestroyProgram": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0011845
+      },
+      "nvrtcGetPTX": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0011846
+      },
+      "nvrtcGetPTXSize": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 4.3e-06
+      },
+      "nvrtcGetProgramLog": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 4.9e-06
+      },
+      "nvrtcGetProgramLogSize": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 6e-06
+      },
+      "nvrtcVersion": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 1.23e-05
+      }
+    },
+    "cache_miss_scope": "Paired generation cache hit is mandatory and satisfied. PTX artifact was first-compiled by NVRTC; PTX cache hit=false retained."
+  },
+  "stage_results": {
+    "generation_verified_flag": false,
+    "compiler_verified": true,
+    "bounded_execution_verified": false,
+    "proof_containment_verified": true,
+    "proof_preservation_verified": false,
+    "whole_stage_process_preservation_verified": true,
+    "whole_stage_environment_preservation_verified": false,
+    "stage_verified": false,
+    "stage_complete": false,
+    "calculation_verified": false,
+    "compiler_proof_error": null,
+    "cli_exit_code": 1,
+    "scope_stop": "No retry or later stage. Artifact success does not change original whole-stage/environment false."
+  },
+  "bounds_and_preservation": {
+    "outer": {
+      "passed": false,
+      "child_exit_code": 2,
+      "elapsed_seconds": 44.95475939987227,
+      "timeout_seconds": 179.81300000008196,
+      "timed_out": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true,
+      "job_boundary_configuration_verified": true,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "owned_live_count": 0,
+      "job_limit_bytes": 2147483648,
+      "job_peak_bytes": 464338944,
+      "missing_process_count": 0,
+      "service_status_before": "unverified",
+      "service_status_after": "unverified",
+      "identified_service_preservation_verified": false
+    },
+    "inner": {
+      "passed": true,
+      "child_exit_code": 0,
+      "elapsed_seconds": 35.39967909967527,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true,
+      "job_boundary_configuration_verified": true,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "owned_live_count": 0,
+      "job_limit_bytes": 2147483648,
+      "job_peak_bytes": 429875200,
+      "missing_process_count": 0,
+      "service_status_before": "unverified",
+      "service_status_after": "unverified",
+      "identified_service_preservation_verified": false
+    }
+  },
+  "current_packet_claims_after": {
+    "compile-claimed-cuda.json": "420889810e42ab5936207546389947acde1b68b0e29dd85f0b5853bd0a8c7066",
+    "packet-stage-claimed-compile-ptx-cuda.json": "169cf349df8ab205c1e700d6aaaaf3f831bdaf766d439ee70541d33e04a49074",
+    "packet-stage-claimed-generation-cuda.json": "43e64609b26cc1ba626d39d4913a66753005dc289e14412c4901f3616790ba54"
+  },
+  "prior_generation_claim_hashes_unchanged": true,
+  "old_protected_sha256_before": {
+    "product-typed-lock-resident-windows-v1/stop.json": "9bb5a303b4e88f7956b3a805d693bb67c6f0e33f777c6b2df4f0312b0c17a72d",
+    "nikke-gpu-cli-3c44b97/product-typed-lock-resident-windows-status-v1.json": "d1ed30f2f25dc442dc6ff219120c45b3b9b2b413a25eed3d8265f0199e565795",
+    "nikke-gpu-cli-3c44b97/product-coordinate-lock-windows-status-v2.json": "7e9a6d9bbe47db5c985c5474eb82d4ed7ef2b3c60799d926293b47eb141aead6"
+  },
+  "old_protected_sha256_after": {
+    "product-typed-lock-resident-windows-v1/stop.json": "9bb5a303b4e88f7956b3a805d693bb67c6f0e33f777c6b2df4f0312b0c17a72d",
+    "nikke-gpu-cli-3c44b97/product-typed-lock-resident-windows-status-v1.json": "d1ed30f2f25dc442dc6ff219120c45b3b9b2b413a25eed3d8265f0199e565795",
+    "nikke-gpu-cli-3c44b97/product-coordinate-lock-windows-status-v2.json": "7e9a6d9bbe47db5c985c5474eb82d4ed7ef2b3c60799d926293b47eb141aead6"
+  },
+  "checkout_branch_and_head_unchanged": true,
+  "execution_counts": {
+    "ptx_stage_attempts": 1,
+    "ptx_plan_checks": 1,
+    "fresh_ram_samples": 1,
+    "ram_resamples": 0,
+    "slang_invocations": 0,
+    "nvrtc_compile_invocations": 1,
+    "ptxas_calls": 0,
+    "cubin_object_calls": 0,
+    "link_calls": 0,
+    "gpu_calls": 0,
+    "driver_load_calls": 0,
+    "api_posts": 0,
+    "cpu_unit_tests": 0,
+    "native_battles": 0,
+    "saved_battle_audits": 0,
+    "source_fetches": 0,
+    "reunpacks": 0,
+    "retries": 0,
+    "github_result_transfers": 0
+  },
+  "evidence_files": [
+    {
+      "file": "ptx-plan/own-ptx-plan.json",
+      "bytes": 731,
+      "sha256": "077626141806ca5feffd8ccd87614a33a669bbd2f2d53ecbcb94a79b32e894c4"
+    },
+    {
+      "file": "ptx-before-ram/verification.json",
+      "bytes": 376,
+      "sha256": "d8348cb19a22e6215548557f60f673bb66f46f0e8ab80c39a93a819409bb6304"
+    },
+    {
+      "file": "compile-ptx-v1/stage-result.json",
+      "bytes": 6229,
+      "sha256": "8fb5e4c7eb82e88e2a4b3a3876b48fe59a62cce3485988a4a82af376993ea848"
+    },
+    {
+      "file": "compile-ptx-v1/execution.json",
+      "bytes": 1178,
+      "sha256": "285a4ca7f5cb0925831c34bf19d6687ba60bce7e33cba10781ff957f70a91245"
+    },
+    {
+      "file": "compile-ptx-v1/job.json",
+      "bytes": 1099,
+      "sha256": "5ce237049ba4a68d99e6ca79a80c035d47c1d024cc8204390871cbb18cb6bb9e"
+    },
+    {
+      "file": "compile-ptx-v1/observation.json",
+      "bytes": 45387,
+      "sha256": "f93f659ef7b5bb51e9f3d57b277c44826e239b2e7ae70ba3ee7ccc85e40154ae"
+    },
+    {
+      "file": "compile-ptx-v1/proof/compiler.json",
+      "bytes": 32892,
+      "sha256": "15d87e7a344f019e1b5caf9d46666bbd471451f5ad953ad62889273b81bfee82"
+    },
+    {
+      "file": "compile-ptx-v1/proof/generation-cache.json",
+      "bytes": 42946,
+      "sha256": "94308a817364dfb53727859693d12db1878fbbe89e4d4d7b1106d661d684129e"
+    },
+    {
+      "file": "compile-ptx-v1/proof/execution.json",
+      "bytes": 5521,
+      "sha256": "e52fa33d504678c2e42b9484e64be7ff863f26d6df094dd63fb04c01f91dc78d"
+    },
+    {
+      "file": "compile-ptx-v1/proof/job.json",
+      "bytes": 1095,
+      "sha256": "951df2082bee6a57fabbaee8b8e0cd119ac8b316ded03e1b4954a83437de989a"
+    },
+    {
+      "file": "compile-ptx-v1/proof/observation.json",
+      "bytes": 46548,
+      "sha256": "0824058ecdd158c107a1cafd974e3a4195ccbcb6969fa4359e2bf43ed09e0ba3"
+    },
+    {
+      "file": "compile-ptx-v1/proof/phases.jsonl",
+      "bytes": 54580,
+      "sha256": "7463dbc94c9a360ba46561cbeccb12d44165b3d5e8a4b36a773ee88f70319ed6"
+    },
+    {
+      "file": "product-logical-owner-current-generation-status-v1.json",
+      "bytes": 7923,
+      "sha256": "497ab1e0f554a9d7599697001728933692c669652373a9598370faae6217134b"
+    }
+  ],
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_calculation_verified": false,
+  "full_goal_complete": false
+}

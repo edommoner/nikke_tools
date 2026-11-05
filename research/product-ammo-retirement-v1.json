@@ -1,0 +1,784 @@
+{
+  "schema": 1,
+  "scope": "Existing declared enemy-magazine product entries consume canonical ADD final-shot retirement, without new suites or program aliases",
+  "implementation": {
+    "common_cuda_metal_executor": true,
+    "new_suites": 0,
+    "new_programs": 0,
+    "new_auditors": 0,
+    "normal_resource_capacity": 15124,
+    "self_destruct_resource_capacity": 4096,
+    "legacy_actual_resource_notifications_verified": 4100,
+    "legacy_full_input_output_and_native_hashes_unchanged": true,
+    "retirement_uses_existing_relocated_bank": true,
+    "unchanged_input_output_dimensions": true,
+    "unbounded_resource_or_retirement_histories_admitted": false,
+    "canonical_cpu_files_changed": [],
+    "numeric_rules_or_tolerances_changed": false
+  },
+  "normal_api": {
+    "cases": 16,
+    "posts": 1,
+    "physical_gpu_batches": 4,
+    "http_job_seconds": 54.06156983296387,
+    "rows": [
+      {
+        "variant": "plain-fixed-single-zero",
+        "source": "gpu/product_ammo_fixed_battle_entry.slang",
+        "capture_id": "ceb1b926990e46e59de26be6be3e36f0",
+        "input_sha256": "cd72b7cf8053c5cc1488f2711e3d3b2cb6be7590af9077c4445a4bd70ba8389c",
+        "output_sha256": "6dd5e8f116caf490aad232266e026fa6df6fb36acacab429d851a272e1289832",
+        "definitions": 76,
+        "retirements": [
+          {
+            "time": 0,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              1
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          },
+          {
+            "time": 0,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              1
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          }
+        ],
+        "retired_queue_attempts": 2,
+        "attempt_statuses": [
+          "fired"
+        ],
+        "resource_notifications": 1100,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "plain-accumulate-single-zero",
+        "source": "gpu/product_ammo_battle_entry.slang",
+        "capture_id": "d824cef3b687434bb25cade9cadf86fd",
+        "input_sha256": "2185e845278d80f19d23356f36bbcbd7dbbd756075b7f60e03a50043d19b6328",
+        "output_sha256": "3baeab6f9888c5a8f186d3b5e41f8e226e0cf5888e17624ce7e74b1efb04f8b8",
+        "definitions": 76,
+        "retirements": [
+          {
+            "time": 0,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              1
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          },
+          {
+            "time": 0,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              1
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          }
+        ],
+        "retired_queue_attempts": 2,
+        "attempt_statuses": [
+          "fired"
+        ],
+        "resource_notifications": 800,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "plain-fixed-spaced",
+        "source": "gpu/product_ammo_fixed_battle_entry.slang",
+        "capture_id": "ee797aa2d9794b87b41aba12e01ef214",
+        "input_sha256": "1f6e88c3bc40ec086ab6ee0085f98d488f37aaf328e9a1b5a4fbfcf89a045b1d",
+        "output_sha256": "baea4df4578b9c300e84c820a602bbbf6faafdc636f5902eb6f5cf368d4b3f85",
+        "definitions": 76,
+        "retirements": [
+          {
+            "time": 0.7500000000000007,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              2
+            ]
+          },
+          {
+            "time": 0.7500000000000007,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              2
+            ]
+          }
+        ],
+        "retired_queue_attempts": 2,
+        "attempt_statuses": [
+          "fired"
+        ],
+        "resource_notifications": 1100,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "plain-accumulate-spaced",
+        "source": "gpu/product_ammo_battle_entry.slang",
+        "capture_id": "3e92abd991e247d6953e652371946fd8",
+        "input_sha256": "7ac98a4fef897a175e6c822ddf45286c146b4fd300b8eca8db91e86b2d0c1e82",
+        "output_sha256": "a7292269edd3a155fcd793c7d5b70d9c854bfb5bccbac68c1a21f500989aa74d",
+        "definitions": 76,
+        "retirements": [
+          {
+            "time": 0.7500000000000007,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              2
+            ]
+          },
+          {
+            "time": 0.7500000000000007,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              2
+            ]
+          }
+        ],
+        "retired_queue_attempts": 2,
+        "attempt_statuses": [
+          "fired"
+        ],
+        "resource_notifications": 800,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "plain-fixed-coincident",
+        "source": "gpu/product_ammo_fixed_battle_entry.slang",
+        "capture_id": "f1165936c9c4425da53847ee4da44ec2",
+        "input_sha256": "338b49ba180199d192cb7b29f628a1b231b87e01a1141979f66de02ae6370ecf",
+        "output_sha256": "0170b63e90d40428e0876ed3e7b69f196fb5869656cb546a927f9d250e72fc64",
+        "definitions": 76,
+        "retirements": [
+          {
+            "time": 0.24999999999999997,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "time": 0.24999999999999997,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              0,
+              1,
+              2
+            ]
+          }
+        ],
+        "retired_queue_attempts": 6,
+        "attempt_statuses": [
+          "fired"
+        ],
+        "resource_notifications": 1100,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "plain-fixed-empty",
+        "source": "gpu/product_ammo_fixed_battle_entry.slang",
+        "capture_id": "40342803ac394cb5a47a2849db61afc1",
+        "input_sha256": "9db46974e6db0278206d2841c51d410c9808541b8991afe4521a041df5517f50",
+        "output_sha256": "6384bf89b752cee22e62ff82fef723b77d099c1f766ba45fc358155b58d68f73",
+        "definitions": 76,
+        "retirements": [
+          {
+            "time": 0.24999999999999997,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              1
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          },
+          {
+            "time": 0.24999999999999997,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              1
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          }
+        ],
+        "retired_queue_attempts": 2,
+        "attempt_statuses": [
+          "empty"
+        ],
+        "resource_notifications": 1100,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "plain-accumulate-empty",
+        "source": "gpu/product_ammo_battle_entry.slang",
+        "capture_id": "36048159013b4ef59a69d660f187f332",
+        "input_sha256": "9ecc921444bd89692ac90633d5501307592803e0f74499e74ef9c0f0869cd189",
+        "output_sha256": "4bab770fa9f6a316781e4d2caa60bf887220cde6d925c0a42b0e18307960caa8",
+        "definitions": 76,
+        "retirements": [
+          {
+            "time": 0.24999999999999997,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              1
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          },
+          {
+            "time": 0.24999999999999997,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              1
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          }
+        ],
+        "retired_queue_attempts": 2,
+        "attempt_statuses": [
+          "empty"
+        ],
+        "resource_notifications": 800,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "plain-fixed-reload-final",
+        "source": "gpu/product_ammo_fixed_battle_entry.slang",
+        "capture_id": "e06fbbbcc645485eb7bc23f8128c1289",
+        "input_sha256": "faa60e43d9641ea497f63dfe5b25b371199a13d831ee2e8d8cf1ae98cc38ef7c",
+        "output_sha256": "afaee8526463671f639036d7be28c12e6fd12e1da3b79bf399f31e2e3c27fe0d",
+        "definitions": 76,
+        "retirements": [
+          {
+            "time": 0.7500000000000007,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              2
+            ]
+          },
+          {
+            "time": 0.7500000000000007,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              2
+            ]
+          }
+        ],
+        "retired_queue_attempts": 2,
+        "attempt_statuses": [
+          "empty",
+          "reloading"
+        ],
+        "resource_notifications": 1100,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "plain-fixed-renewal",
+        "source": "gpu/product_ammo_fixed_battle_entry.slang",
+        "capture_id": "cbf51eda97fb4bc98d9b5fdf76a7d9f5",
+        "input_sha256": "e259b8e2d012f0621b62b23ec2e01f0d57ecdf186b8c3f9dbf48532660df648c",
+        "output_sha256": "c66546058b3aaa0a6af1501a736bbc7f6cf42d9fce872cdc55b012493283c39a",
+        "definitions": 76,
+        "retirements": [
+          {
+            "time": 0.24999999999999997,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              1
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          },
+          {
+            "time": 0.24999999999999997,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              1
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          },
+          {
+            "time": 0.5166666666666666,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              2
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          },
+          {
+            "time": 0.5166666666666666,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              2
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          }
+        ],
+        "retired_queue_attempts": 4,
+        "attempt_statuses": [
+          "fired"
+        ],
+        "resource_notifications": 1100,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "plain-accumulate-renewal",
+        "source": "gpu/product_ammo_battle_entry.slang",
+        "capture_id": "31e3cd327af744f5a1dfe702659ee84e",
+        "input_sha256": "ce655d9717bea9c280456683754ec170c485d083581e8a9e6e0a40fb56ad35a8",
+        "output_sha256": "2ef4a1f3d2030ba4ca1b5ba67c61654bcdc8964e584b3910c0e35868b5c4c2d8",
+        "definitions": 76,
+        "retirements": [
+          {
+            "time": 0.24999999999999997,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              1
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          },
+          {
+            "time": 0.24999999999999997,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              1
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          },
+          {
+            "time": 0.5166666666666666,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              2
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          },
+          {
+            "time": 0.5166666666666666,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              2
+            ],
+            "fired": 1,
+            "queued_indices": [
+              0
+            ]
+          }
+        ],
+        "retired_queue_attempts": 4,
+        "attempt_statuses": [
+          "fired"
+        ],
+        "resource_notifications": 800,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "plain-fixed-hp-before-shot",
+        "source": "gpu/product_ammo_fixed_battle_entry.slang",
+        "capture_id": "f9ef03ae240148f49f5e74838e8975c5",
+        "input_sha256": "2cb0b4104c03fa7bd6106d0b08132557a06e6ebd4897303ff14461b991d94bd9",
+        "output_sha256": "09be8f617d6ed267544daf25869c9010b6ce7cec46d0880ebf7c658529e2df0b",
+        "definitions": 76,
+        "retirements": [],
+        "retired_queue_attempts": 0,
+        "attempt_statuses": [],
+        "resource_notifications": 1100,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "plain-fixed-time-close",
+        "source": "gpu/product_ammo_fixed_battle_entry.slang",
+        "capture_id": "0be49df63c6e4bb69e53cafaceb8b112",
+        "input_sha256": "a8c26477f29410a19d0c2c90378e5866bfb3f3d769fd29a0900e83a2058face2",
+        "output_sha256": "690874cb9fe9e8fac34cc158d4f4f4e623bebce318a4f745f16cfaeb10657816",
+        "definitions": 76,
+        "retirements": [],
+        "retired_queue_attempts": 0,
+        "attempt_statuses": [],
+        "resource_notifications": 1100,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-cover-fixed-coincident",
+        "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+        "capture_id": "504c32e412d542a89e748834a02c324f",
+        "input_sha256": "6bdc75862040a9a38e038cb954b8f64a502434d8437a74020be17dfa1e214eb8",
+        "output_sha256": "b031286c36bccf569761a9c877de6de35585ac5745c9cd17015d5a96b345e024",
+        "definitions": 79,
+        "retirements": [
+          {
+            "time": 0.24999999999999997,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "time": 0.24999999999999997,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              0,
+              1,
+              2
+            ]
+          }
+        ],
+        "retired_queue_attempts": 6,
+        "attempt_statuses": [
+          "fired"
+        ],
+        "resource_notifications": 1100,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-cover-fixed-reload-final",
+        "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+        "capture_id": "88a374aefa6e45df8ee5d158972f27e7",
+        "input_sha256": "d886980b4626bc21888692d29ae9902f8ac1de13cf6f70c51989ca13d0bcd5dc",
+        "output_sha256": "ed5f65ee2cb13b3891d2737fba3f205c61f69dd3e2f8f13b0e86a2acfb9bcf85",
+        "definitions": 79,
+        "retirements": [
+          {
+            "time": 0.7500000000000007,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              2
+            ]
+          },
+          {
+            "time": 0.7500000000000007,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              2
+            ]
+          }
+        ],
+        "retired_queue_attempts": 2,
+        "attempt_statuses": [
+          "empty",
+          "reloading"
+        ],
+        "resource_notifications": 1100,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-cover-accumulate-coincident",
+        "source": "gpu/product_ammo_cover_group_battle_entry.slang",
+        "capture_id": "cd5886f0d43c4273b78107adc1f4d047",
+        "input_sha256": "024b92ba67c8269ee07ab50f5a1b39e1a44475de2f0c112689add1abf3777ff3",
+        "output_sha256": "d0e9161f4737833e4be368f836c1e8511f5a58e93702a2cb951f4013670409ba",
+        "definitions": 79,
+        "retirements": [
+          {
+            "time": 0.24999999999999997,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "time": 0.24999999999999997,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              0,
+              1,
+              2
+            ]
+          }
+        ],
+        "retired_queue_attempts": 6,
+        "attempt_statuses": [
+          "fired"
+        ],
+        "resource_notifications": 800,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-cover-accumulate-reload-final",
+        "source": "gpu/product_ammo_cover_group_battle_entry.slang",
+        "capture_id": "e8262f1fb0bd490f90ce544cf64a5dad",
+        "input_sha256": "c203b1ab96fac66ea063112974ece8d000e41112046cc8fab0e2673f84a1ea27",
+        "output_sha256": "97ec2f4c6432b09dcb2a1d9d83e52d264daba670a6c82837581d6772d326f59d",
+        "definitions": 79,
+        "retirements": [
+          {
+            "time": 0.7500000000000007,
+            "label": "__enemy__:self-ammo#1",
+            "actor": [
+              5,
+              0,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              2
+            ]
+          },
+          {
+            "time": 0.7500000000000007,
+            "label": "__enemy__:self-ammo#2",
+            "actor": [
+              5,
+              1,
+              1
+            ],
+            "fired": 3,
+            "queued_indices": [
+              2
+            ]
+          }
+        ],
+        "retired_queue_attempts": 2,
+        "attempt_statuses": [
+          "empty",
+          "reloading"
+        ],
+        "resource_notifications": 800,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      }
+    ],
+    "all_full_cpu_gpu_http_payloads_equal": true,
+    "saved_audit_extra_battles": 0,
+    "saved_audit_extra_gpu": 0,
+    "node_process_group_absent": true
+  },
+  "cli": {
+    "program": "ammo-cover-fixed-group",
+    "original_case_preserved": true,
+    "added_cases": [
+      "coincident-final-queue",
+      "reload-final-final-queue"
+    ],
+    "metal_cases": 3,
+    "fresh_native_and_independent_seal_passed": true,
+    "independent_audit": {
+      "package_id": "d6c92431a6033df6efcf476416185dc70dd0a812885bcdf84e8f4b97e8427dee",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-ammo-retirement-v1-20261101/metal-v1",
+      "child_pid": 28207,
+      "input_count": 3,
+      "native_cases": 3,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 2.3025010830024257,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "4a599cdf5212bc829d2a7842552c28ae6a2f9d5a5d0e482b43e0f714f017328c",
+      "output_sha256": "5514409490cfce15af1d1d6029e78dbd2a3d6090f2a4eff786dde74c2d58f554",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "cpu_tests": 154,
+    "cpu_groups": [
+      67,
+      11,
+      7,
+      69
+    ],
+    "existing_private_self_destruct_tests": 7,
+    "private_tests_passed": true
+  },
+  "release": {
+    "owner": "5774450341c168cc9043e8481df7a290b6e52c56b5f585e6ebec62f66ecfb626",
+    "own_cpu_deps_ptx_o1_plans_passed": true,
+    "calculation_files_byte_equal": 1061,
+    "administrative_only_differences": [
+      "app/portable_product_programs.py",
+      "app/portable_weighted_incoming_source_contract.py"
+    ],
+    "final_reprojection_cases": 16,
+    "extra_battles": 0,
+    "extra_gpu": 0
+  },
+  "baseline": {
+    "version": 46,
+    "updated_existing_member": "ammo-cover-fixed-group",
+    "original_first_input_output_native_entries_unchanged": true,
+    "added_cases": 2,
+    "other34_members_unchanged": true
+  },
+  "failures_retained": [
+    "New negative test initially expected product finite-hit error; original native schema rejected hits0 earlier, corrected assertion to native hits error before any GPU",
+    "API preparation initially imported calculator before engine_worker initialized pinned imports; no job/POST/GPU existed; initialized existing worker and retained supplied bodies unchanged"
+  ],
+  "standard_metal_profiles": 263,
+  "standard_cuda_profiles": 263,
+  "configured_recorded_metal_profiles": 266,
+  "configured_recorded_cuda_profiles": 265,
+  "new_standard_profiles_added": 0,
+  "current_new_composition_cuda_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Target modifier/other enemy magazine compositions",
+    "Windows short saved-image/new-source differentials when memory permits",
+    "Unconfigured game models and unrestricted compositions"
+  ],
+  "pre_device_failure_evidence_scope": "Original tool transcripts; neither observation launched a GPU or created an API job"
+}

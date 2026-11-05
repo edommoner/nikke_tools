@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "prior_proof_commit": "e4ea13c",
+  "old_profiles_preserved": 82,
+  "current_profiles": 84,
+  "excluded_fields": [
+    "cpu_reference_wall_seconds"
+  ]
+}

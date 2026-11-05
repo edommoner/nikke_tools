@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "scope": "Mac hash/source/request and summary consistency audit of saved Windows reports; raw PTX/object/image/Job receipts not imported",
+  "producer_commits": [
+    "3484abbf8e29fcbc985bb0ace9c9ae096a8a93c7",
+    "17899a509339405b6129a223a34f786ccc8c5770"
+  ],
+  "owner": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
+  "files": [
+    {
+      "file": "research/heavy-original-lock-continuation-status-v1.json",
+      "bytes": 11418,
+      "sha256": "4a0759dbb35be80f66fd52102a989a76a8a540491152127b66eb295205af4c73"
+    },
+    {
+      "file": "research/heavy-original-lock-continuation-status-v2.json",
+      "bytes": 6160,
+      "sha256": "fcd0f69098ba4a37c9ff8eb9762855a00cbbd1ca2c9226ae0a54796c685fc75e"
+    }
+  ],
+  "local_manifest_job_and_original_expected_hashes_verified": true,
+  "compile_plan_identity": {
+    "distributed_sha256": "3540d19c93c402ccd6b18edc38d07126bff35b3246908d08fb513e35f93c2853",
+    "windows_reported_sha256": "a7dab2c456c25494838db082d12cfce5ba32de43e732fe287d9884ec7c464bb9",
+    "byte_identical": false,
+    "provenance": "Windows own immutable CLI plans stage; raw UTF8 text and SHA imported, JSON equals distributed plan, only26 CRLF newlines differ",
+    "windows_raw_sha256_verified": true,
+    "json_contents_equal": true,
+    "crlf_to_lf_exact": true,
+    "original_file_bytes_modified": false
+  },
+  "ptx_recompiled": false,
+  "object_first_execution_reported": true,
+  "link_first_execution_reported": true,
+  "artifact_binary_bytes_imported": false,
+  "artifact_hashes_cross_report_equal": true,
+  "original_cpu87_reused": true,
+  "original_outer_missing7_and_unadmitted_preserved": true,
+  "object_link_inner_success_outer_unverified_preserved": true,
+  "launch_argument_failure_preserved": true,
+  "current_stop": "Fresh start RAM guard stopped before strict artifact readmission/static/API",
+  "available_ram_bytes": 2239844352,
+  "required_ram_bytes": 4294967296,
+  "prepared_expected_document_byte_identical": false,
+  "original_case_and_physical_expectations_equal_reported": true,
+  "api_posts": 0,
+  "gpu_dispatches": 0,
+  "configured_profile_delta": 0,
+  "extra_mac_cpu_battles": 0,
+  "extra_mac_gpu_calls": 0,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "later_readonly_status": {
+    "file": "research/heavy-original-lock-readonly-status-v3.json",
+    "producer_commit": "656c42e32226afbdcdea9a1173a900d3023f5290",
+    "sha256": "e7ada4dcdaeb8f8e057d54415b546b045342448c977aa42ca34e4aec2ece6238",
+    "available_ram_bytes": 4584529920,
+    "observed_at_jst": "2026-11-01T18:46:40.535324+09:00",
+    "gpu_calls": 0,
+    "api_automatically_started": false
+  },
+  "latest_start_guard": {
+    "file": "research/heavy-original-lock-continuation-status-v4.json",
+    "producer_commit": "eac57e36cba4c893e587d31965c8b347c7877ee5",
+    "sha256": "b91e397d9b2a0c1767d33ead1f6b6ce23ce94c6f2cbc92cb443a9eb529551a34",
+    "observed_at_jst": "2026-11-01T18:50:54.196685+09:00",
+    "ram_measurements": 1,
+    "strict_artifact_and_live_guards_after_ram_failure": false,
+    "gpu_calls": 0,
+    "posts": 0,
+    "extra_sdk_calls": 0,
+    "preflight_seconds": 0.39178270008414984
+  }
+}

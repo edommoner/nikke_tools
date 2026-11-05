@@ -1,0 +1,62 @@
+[
+  {
+    "pattern": "test_battle_attack_group_runtime.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.1757842500228435,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 2676
+  },
+  {
+    "pattern": "test_attack_group_runtime.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.008087667054496706,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 2676
+  },
+  {
+    "pattern": "test_portable_battle_attack_group.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.2627081249374896,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 2676
+  },
+  {
+    "pattern": "test_battle_native_route.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.0269860830157995,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 2676
+  },
+  {
+    "pattern": "test_long_group_history.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.022216749959625304,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 2676
+  },
+  {
+    "pattern": "test_mixed_attack_groups.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.47314308292698115,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 2676
+  }
+]

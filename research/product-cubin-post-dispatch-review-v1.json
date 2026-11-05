@@ -1,0 +1,32 @@
+{
+  "schema": "product-cubin-post-dispatch-review-v1",
+  "base_commit": "4155099d5a51133d8550d9d24f0185f77a295c15",
+  "decision": "accept",
+  "review_response_sha256": "cb570193f73e9255a048a6ec03bb29c3c2f33583717bb1ef2cf5697abf8db5f4",
+  "source_sha256": "2fc966697db2e7507dcef88f7872d632b39ca0b1832d048003ca8dc493e666ca",
+  "tests_sha256": "b7cdc0864d15fb28bac516a2ec69daa8bdff31b886c5b31e2b7570164903a9b7",
+  "checks": {
+    "product_tests": 75,
+    "strict_source_ledger_tests": 7
+  },
+  "change": "Preserve original exceptions once provider body entered, including post-dispatch phase audit; journal post-dispatch validation separately",
+  "no_native_gpu_or_sdk_executions": true,
+  "public_comparison_exclusions": [
+    "compute"
+  ],
+  "http_wrapper_fields": [
+    "cache_hit"
+  ],
+  "caller_confirmed": "portable_detail._evaluation catches Exception on GPU path, then evaluates CPU once outside GPU try; no GPU or compiler retry",
+  "preserved": [
+    "Slang",
+    "CPU canonical",
+    "decoder",
+    "golden",
+    "normalizer",
+    "strict admission"
+  ],
+  "nonblocking_followup": "Import verify_phases before dispatch in a separate unit if needed; no change now",
+  "next": "Immutable new consumer and saved CUBIN typed-lock-healing36 CUDA1 only after reconnect; read-only existing model-check while waiting",
+  "goal_complete": false
+}

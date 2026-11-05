@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-original-harmful-stack-metal-v3",
+  "raw_bytes": 14158848,
+  "raw_sha256": "045db61177621367b02d02fae78f8c0bdd573dad055ea9ffc89062c39d95623c",
+  "evidence_sha256": "7b3e387daad10ee2870cf7d32417a85514ec7cfc586c84ab96d69fd65ab16b69",
+  "raw_inode": 511388899,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 26,
+  "zero_range_bytes": 10354688,
+  "allocated_before": 14159872,
+  "allocated_after": 3805184,
+  "allocated_reclaimed": 10354688,
+  "full_hash_verified": true
+}

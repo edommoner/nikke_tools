@@ -1,0 +1,537 @@
+{
+  "name": "coordinate-original-reload/Milk-character",
+  "actual_count": 474,
+  "native_count": 471,
+  "first_shot_difference": 445,
+  "gpu_near": [
+    {
+      "owner": 1,
+      "mode": 0,
+      "time": 16.98333333333365
+    },
+    {
+      "owner": 1,
+      "mode": 0,
+      "time": 17.016666666666982
+    },
+    {
+      "owner": 0,
+      "mode": 1,
+      "time": 17.033333333333648
+    },
+    {
+      "owner": 1,
+      "mode": 0,
+      "time": 17.06666666666698
+    },
+    {
+      "owner": 1,
+      "mode": 0,
+      "time": 17.10000000000031
+    },
+    {
+      "owner": 1,
+      "mode": 0,
+      "time": 17.150000000000308
+    }
+  ],
+  "native_near": [
+    {
+      "owner": 1,
+      "mode": 0,
+      "time": 16.98333333333365
+    },
+    {
+      "owner": 1,
+      "mode": 0,
+      "time": 17.016666666666982
+    },
+    {
+      "owner": 1,
+      "mode": 0,
+      "time": 17.06666666666698
+    },
+    {
+      "owner": 1,
+      "mode": 0,
+      "time": 17.10000000000031
+    },
+    {
+      "owner": 1,
+      "mode": 0,
+      "time": 17.150000000000308
+    },
+    {
+      "owner": 1,
+      "mode": 0,
+      "time": 17.18333333333364
+    }
+  ],
+  "gpu_packet_count": 706,
+  "native_packet_count": 703,
+  "first_packet_difference": 668,
+  "gpu_packets_near": [
+    {
+      "owner": 1,
+      "time": 16.98333333333365,
+      "damage": 24322.0
+    },
+    {
+      "owner": 1,
+      "time": 17.016666666666982,
+      "damage": 24322.0
+    },
+    {
+      "owner": 0,
+      "time": 17.033333333333648,
+      "damage": 343125.0
+    },
+    {
+      "owner": 1,
+      "time": 17.06666666666698,
+      "damage": 24322.0
+    },
+    {
+      "owner": 1,
+      "time": 17.10000000000031,
+      "damage": 24322.0
+    },
+    {
+      "owner": 1,
+      "time": 17.150000000000308,
+      "damage": 52387.0
+    }
+  ],
+  "native_packets_near": [
+    {
+      "owner": 1,
+      "time": 16.98333333333365,
+      "damage": 24322
+    },
+    {
+      "owner": 1,
+      "time": 17.016666666666982,
+      "damage": 24322
+    },
+    {
+      "owner": 1,
+      "time": 17.06666666666698,
+      "damage": 24322
+    },
+    {
+      "owner": 1,
+      "time": 17.10000000000031,
+      "damage": 24322
+    },
+    {
+      "owner": 1,
+      "time": 17.150000000000308,
+      "damage": 24322
+    },
+    {
+      "owner": 1,
+      "time": 17.18333333333364,
+      "damage": 52387
+    }
+  ],
+  "actual_reload": {
+    "reload_events": [
+      {
+        "kind": "start",
+        "owner": 0,
+        "time": 4.966666666666654,
+        "until": 6.966666666666654,
+        "ammo": 0,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "kind": "finish",
+        "owner": 0,
+        "time": 6.983333333333314,
+        "until": -1.0,
+        "ammo": 17,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "kind": "start",
+        "owner": 1,
+        "time": 11.500000000000151,
+        "until": 12.93000000000015,
+        "ammo": 0,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "kind": "finish",
+        "owner": 1,
+        "time": 12.933333333333556,
+        "until": -1.0,
+        "ammo": 276,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "kind": "force",
+        "owner": 0,
+        "time": 13.800000000000265,
+        "name": "부끄러움 5"
+      },
+      {
+        "kind": "start",
+        "owner": 0,
+        "time": 13.800000000000265,
+        "until": 16.800000000000267,
+        "ammo": 0,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "kind": "start",
+        "owner": 4,
+        "time": 14.000000000000275,
+        "until": 15.500000000000275,
+        "ammo": 0,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "kind": "finish",
+        "owner": 4,
+        "time": 15.50000000000035,
+        "until": -1.0,
+        "ammo": 21,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "kind": "finish",
+        "owner": 0,
+        "time": 16.800000000000328,
+        "until": -1.0,
+        "ammo": 17,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      }
+    ],
+    "reload_until": [
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0
+    ]
+  },
+  "native_reload": {
+    "requests": [
+      {
+        "row": 4,
+        "owner": 0,
+        "name": "부끄러움 5",
+        "time": 13.800000000000265,
+        "before": [
+          {
+            "owner": 0,
+            "until": -1.0,
+            "ammo": 0,
+            "phase": "charging",
+            "full_time": 13.30000000000024,
+            "release_time": 13.816666666666858
+          },
+          {
+            "owner": 1,
+            "until": -1.0,
+            "ammo": 255,
+            "phase": "ready",
+            "full_time": -1.0,
+            "release_time": -1.0
+          },
+          {
+            "owner": 2,
+            "until": -1.0,
+            "ammo": 4,
+            "phase": "post_delay",
+            "full_time": -1.0,
+            "release_time": -1.0
+          },
+          {
+            "owner": 3,
+            "until": -1.0,
+            "ammo": 7,
+            "phase": "charging",
+            "full_time": -1.0,
+            "release_time": -1.0
+          },
+          {
+            "owner": 4,
+            "until": -1.0,
+            "ammo": 0,
+            "phase": "ready",
+            "full_time": -1.0,
+            "release_time": -1.0
+          }
+        ],
+        "after": [
+          {
+            "owner": 0,
+            "until": 16.800000000000267,
+            "ammo": 0,
+            "phase": "ready",
+            "full_time": -1.0,
+            "release_time": -1.0
+          },
+          {
+            "owner": 1,
+            "until": -1.0,
+            "ammo": 255,
+            "phase": "ready",
+            "full_time": -1.0,
+            "release_time": -1.0
+          },
+          {
+            "owner": 2,
+            "until": -1.0,
+            "ammo": 4,
+            "phase": "post_delay",
+            "full_time": -1.0,
+            "release_time": -1.0
+          },
+          {
+            "owner": 3,
+            "until": -1.0,
+            "ammo": 7,
+            "phase": "charging",
+            "full_time": -1.0,
+            "release_time": -1.0
+          },
+          {
+            "owner": 4,
+            "until": -1.0,
+            "ammo": 0,
+            "phase": "ready",
+            "full_time": -1.0,
+            "release_time": -1.0
+          }
+        ],
+        "starts": [
+          {
+            "kind": "start",
+            "time": 13.800000000000265,
+            "owner": 0,
+            "until": 16.800000000000267,
+            "ammo": 0,
+            "phase": "ready",
+            "full_time": -1.0,
+            "release_time": -1.0
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "kind": "start",
+        "time": 4.966666666666654,
+        "owner": 0,
+        "until": 6.966666666666654,
+        "ammo": 0,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "kind": "finish",
+        "time": 6.983333333333314,
+        "owner": 0,
+        "until": -1.0,
+        "ammo": 17,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "kind": "start",
+        "time": 11.500000000000151,
+        "owner": 1,
+        "until": 12.93000000000015,
+        "ammo": 0,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "kind": "finish",
+        "time": 12.933333333333556,
+        "owner": 1,
+        "until": -1.0,
+        "ammo": 276,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "kind": "force",
+        "owner": 0,
+        "name": "부끄러움 5",
+        "time": 13.800000000000265
+      },
+      {
+        "kind": "start",
+        "time": 13.800000000000265,
+        "owner": 0,
+        "until": 16.800000000000267,
+        "ammo": 0,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "kind": "start",
+        "time": 14.000000000000275,
+        "owner": 4,
+        "until": 15.500000000000275,
+        "ammo": 0,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "kind": "finish",
+        "time": 15.50000000000035,
+        "owner": 4,
+        "until": -1.0,
+        "ammo": 21,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "kind": "finish",
+        "time": 16.800000000000328,
+        "owner": 0,
+        "until": -1.0,
+        "ammo": 17,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      }
+    ],
+    "final": [
+      {
+        "owner": 0,
+        "until": -1.0,
+        "ammo": 16,
+        "phase": "charging",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "owner": 1,
+        "until": -1.0,
+        "ammo": 154,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "owner": 2,
+        "until": -1.0,
+        "ammo": 1,
+        "phase": "post_delay",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "owner": 3,
+        "until": -1.0,
+        "ammo": 5,
+        "phase": "charging",
+        "full_time": -1.0,
+        "release_time": -1.0
+      },
+      {
+        "owner": 4,
+        "until": -1.0,
+        "ammo": 17,
+        "phase": "ready",
+        "full_time": -1.0,
+        "release_time": -1.0
+      }
+    ]
+  },
+  "actual_final": [
+    {
+      "warm": 0.0,
+      "last_fire": -999.0,
+      "last_interval": 0.0,
+      "post_reload_until": -1.0,
+      "spread": 9.506048,
+      "probability": 0.0,
+      "probability_evaluations": 0,
+      "pending_auto_reload": false,
+      "charge_started_at": 17.700000000000276
+    },
+    {
+      "warm": 0.0,
+      "last_fire": -999.0,
+      "last_interval": 0.0,
+      "post_reload_until": -1.0,
+      "spread": 100.781076,
+      "probability": 0.0,
+      "probability_evaluations": 0,
+      "pending_auto_reload": false,
+      "charge_started_at": 0.0
+    },
+    {
+      "warm": 0.0,
+      "last_fire": -999.0,
+      "last_interval": 0.0,
+      "post_reload_until": -1.0,
+      "spread": 9.506048,
+      "probability": 0.0,
+      "probability_evaluations": 0,
+      "pending_auto_reload": false,
+      "charge_started_at": 16.683333333333668
+    },
+    {
+      "warm": 0.0,
+      "last_fire": -999.0,
+      "last_interval": 0.0,
+      "post_reload_until": -1.0,
+      "spread": 9.506048,
+      "probability": 0.0,
+      "probability_evaluations": 0,
+      "pending_auto_reload": false,
+      "charge_started_at": 17.016666666666982
+    },
+    {
+      "warm": 0.0,
+      "last_fire": -999.0,
+      "last_interval": 0.0,
+      "post_reload_until": -1.0,
+      "spread": 237.65120000000002,
+      "probability": 0.0,
+      "probability_evaluations": 0,
+      "pending_auto_reload": false,
+      "charge_started_at": 0.0
+    }
+  ],
+  "native_battle_shots": [
+    26,
+    398,
+    13,
+    9,
+    25
+  ],
+  "physical_rng_matches": false,
+  "seconds": 0.05102104204706848,
+  "reload_matches": true
+}

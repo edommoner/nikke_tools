@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "suite": "coordinate-typed-logical-owner-common",
+  "cpu_cases": 3,
+  "original_definitions": 71,
+  "declared_audit_effects": 2,
+  "cpu_reference_verified": true,
+  "logical_owner": [
+    5,
+    1,
+    1
+  ],
+  "actual_received_damage_pct": [
+    0,
+    0,
+    17
+  ],
+  "old_body_lifecycle_cases_retained": 13,
+  "all_old_native_and_trace_hashes_exact": true,
+  "shared_battle_registry_connected": true,
+  "gpu_wire_connected": false,
+  "metal_verified": false,
+  "cuda_device_verified": false,
+  "gpu_dispatches": 0,
+  "windows_requests": 0,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "artifacts": {
+    "body-reference-summary.json": {
+      "bytes": 5758,
+      "sha256": "c76aacbfed5576fe11bad52ace3f001ae9d8f287da5c947e969a68027671d71d"
+    },
+    "control-tests.json": {
+      "bytes": 226,
+      "sha256": "517d7067af0f71bb90b9268cea91b960f7e7bc3dc327e1d653b04055cf366988"
+    },
+    "generation-cache.json": {
+      "bytes": 267,
+      "sha256": "014b3ded130e82ee38b2b34b50595f89ac4464e5c61423848f03fb17eb0df423"
+    },
+    "lifecycle-reference-summary.json": {
+      "bytes": 8961,
+      "sha256": "5d58a658e36140e16d0bf937b69c366c41814df8fc324a2970e5a8826b569ab5"
+    },
+    "logical-reference-summary.json": {
+      "bytes": 4260,
+      "sha256": "4f2a3ba3e955b63fb4d6fa3656add71360fa3e12370aa8e7a5037ccac54c1e8f"
+    },
+    "package-binding.json": {
+      "bytes": 781,
+      "sha256": "2e09b020da8dd104aa9c46c08659298d8441fe49cb87e2014f29876ffb088acf"
+    },
+    "preserved-failures.json": {
+      "bytes": 826,
+      "sha256": "669e93eb1fec0d2af5785c861c933e35d23f460d7cb0b590db98df4b07590d5c"
+    },
+    "related-tests.json": {
+      "bytes": 225,
+      "sha256": "8381e691add28b7fe666e8a90ab39c25fb19ba71ca41d5e27521b248a3956ced"
+    },
+    "retained-body-lifecycle.json": {
+      "bytes": 769,
+      "sha256": "ddec9b972e89babcc34f0a7cbfeab024b3316c7f7c4f66902ac8af4378d03cad"
+    }
+  }
+}

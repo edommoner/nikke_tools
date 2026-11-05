@@ -1,0 +1,174 @@
+{
+  "schema": "product-boss-cast-evidence-v1",
+  "implementation_commit": "161a8229",
+  "scope": "Standalone native boss debuff casts through ordinary HTTP product API; atk_pct across eight product programs",
+  "primary_profiles": [
+    "Miranda",
+    "Belorta",
+    "Asuka"
+  ],
+  "metal_profile_count": 3,
+  "metal_conditions": 8,
+  "cuda_current_source_profile_count": 0,
+  "cuda_current_source_conditions": 0,
+  "historical_cuda_profiles": 3,
+  "historical_cuda_source": "9a6c3aa7a52361b40f44963b21f60afe3a9a9969",
+  "snapshots": {
+    "product-boss-cast-v1-20261031": {
+      "total": 8,
+      "metal": 4,
+      "cpu_fallbacks": 4,
+      "sources_sha256": "a3cd30d907f89f8766f3e16ddfad7b0c95699dc63eec38899b6aa55ee86a16a4",
+      "saved_audit_sha256": "e972d8f60eb03c95ddb33119dc7158cb1c96f97e521b8aa59b8c9abf8684b349"
+    },
+    "product-boss-cast-target-v2-20261031": {
+      "total": 4,
+      "metal": 4,
+      "cpu_fallbacks": 0,
+      "sources_sha256": "4a83746b432926afebeb13ee768a934df17b3a6f1d7535b5aa7714a3a002cc81",
+      "saved_audit_sha256": "d43558255378fca21c957b7255d5f98c3f1b0fecaedb171d3637a2c9730525e7"
+    }
+  },
+  "current_source_saved_audit": {
+    "rows": [
+      {
+        "proof": "product-boss-cast-v1-20261031",
+        "index": 0,
+        "capture": "2f65b0e1914344bea7fde0e395f98b8f",
+        "source": "gpu/product_battle_entry.slang",
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_cpu_gpu_api": true,
+        "received_damage": 0,
+        "received_hits": 0
+      },
+      {
+        "proof": "product-boss-cast-v1-20261031",
+        "index": 1,
+        "capture": "3e5368d770b44025bf69ce92ccd9f5bb",
+        "source": "gpu/product_group_battle_entry.slang",
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_cpu_gpu_api": true,
+        "received_damage": 0,
+        "received_hits": 0
+      },
+      {
+        "proof": "product-boss-cast-v1-20261031",
+        "index": 4,
+        "capture": "5678eef2150e45a1a5e29ea25d45c66a",
+        "source": "gpu/product_fixed_battle_entry.slang",
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_cpu_gpu_api": true,
+        "received_damage": 0,
+        "received_hits": 0
+      },
+      {
+        "proof": "product-boss-cast-v1-20261031",
+        "index": 5,
+        "capture": "82dbe46b501943489db15c87623c0e4d",
+        "source": "gpu/product_fixed_group_battle_entry.slang",
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_cpu_gpu_api": true,
+        "received_damage": 0,
+        "received_hits": 0
+      },
+      {
+        "proof": "product-boss-cast-target-v2-20261031",
+        "index": 0,
+        "capture": "656b8d5931754a4ba4adc8e26104894c",
+        "source": "gpu/product_target_battle_entry.slang",
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_cpu_gpu_api": true,
+        "received_damage": 0,
+        "received_hits": 0
+      },
+      {
+        "proof": "product-boss-cast-target-v2-20261031",
+        "index": 1,
+        "capture": "91ba58e042a049749b0b91081fdd0cd1",
+        "source": "gpu/product_group_target_battle_entry.slang",
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_cpu_gpu_api": true,
+        "received_damage": 0,
+        "received_hits": 0
+      },
+      {
+        "proof": "product-boss-cast-target-v2-20261031",
+        "index": 2,
+        "capture": "9659f583e6dd4b07ae5084141fdf7675",
+        "source": "gpu/product_fixed_target_battle_entry.slang",
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_cpu_gpu_api": true,
+        "received_damage": 0,
+        "received_hits": 0
+      },
+      {
+        "proof": "product-boss-cast-target-v2-20261031",
+        "index": 3,
+        "capture": "83a622bed7634879830778a513a553ba",
+        "source": "gpu/product_fixed_group_target_battle_entry.slang",
+        "current_gpu_closure_exact": true,
+        "current_static_input_exact": true,
+        "current_reprojection_matches_cpu_gpu_api": true,
+        "received_damage": 0,
+        "received_hits": 0
+      }
+    ],
+    "native_battle_calls": 0,
+    "gpu_calls": 0
+  },
+  "normal_30s_retention": {
+    "accumulate": {
+      "package_id": "730f94f9a5159551989f5102436417c5c32c9feca0cf47e541555e6200a38be9",
+      "input_sha256": "291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18",
+      "output_sha256": "bc19e1324c7f293c24367148ec8d050a506d3779ba283983641f2f53d3fb01fc",
+      "all_previous_entries_native_exact": true,
+      "independent_seal": true,
+      "audit_gpu_calls": 0
+    },
+    "fixed": {
+      "package_id": "f6999e39960737d523c4c2016a7d2cc6f5a0d78154236ef3f9a22c66f99f7bed",
+      "input_sha256": "b534ebb2f7abcf613ea7b052f0ad8b9f9bcb48ec5ece9e0c766422871ba06a6f",
+      "output_sha256": "9c72bd03cc18453a9f8c6a9cdfebd6fe126e3e0b8e5889e6668cf158c4698be2",
+      "all_previous_entries_native_exact": true,
+      "independent_seal": true,
+      "audit_gpu_calls": 0
+    }
+  },
+  "common_cpu": {
+    "passed": true,
+    "groups": 77,
+    "tests": 856,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "native_boss_dot_contract": {
+    "test_class": "test_portable_detail.BossDotNativeContract",
+    "cases": 5,
+    "canonical_timeline_sha256": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "observed_legacy_defect": "Duration5s/interval3s:121 DoT ticks at3.5..5.5s instead of1; active carrier re-creates exhausted schedule each frame",
+    "received_hit_notifications_from_dots": 0,
+    "proposed_conditional_change": "Delete exhausted schedule only when uid not in live",
+    "canonical_change_applied": false,
+    "scope_permission_pending": true
+  },
+  "failures_retained": [
+    "v1 target/group-target four CPU fallbacks retained; host world-kind predicate corrected and only those4 re-executed",
+    "unit-check invoked in development checkout rejected missing immutable manifest; existing CPU run_groups used instead",
+    "saved audit invocation initially included compute metadata in payload comparison; corrected to existing audit exclusions; no numeric mismatch/GPU retry"
+  ],
+  "limits": [
+    "Current source whole-catalogue recertification not performed",
+    "11 canonical-model-gap profiles remain",
+    "Boss DoT still explicitly falls back",
+    "Standalone cast numerical proof covers atk_pct; prior attack-attached14 types are a separate condition set",
+    "No new CUDA compile/device execution requested"
+  ]
+}

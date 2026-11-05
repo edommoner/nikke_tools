@@ -1,0 +1,328 @@
+{
+  "scope": "Existing resident dispatch frame storage enabled only for fixed movement and named-range product entries",
+  "implementation_commit": "fc92b5fd6237a8e1c3771a3c8cac8a28a39716ea",
+  "proof_root": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-resident-frames-v1-20261101",
+  "golden": "research/portable-product-programs-v16-expected.json",
+  "golden_changes": {
+    "independently_sealed_members": [
+      "movement-fixed",
+      "named-range-fixed"
+    ],
+    "unchanged_historical_members": 14,
+    "input_output_native_entries_unchanged": true
+  },
+  "metal": {
+    "ordinary_api_conditions": 11,
+    "full_cpu_payload_match": true,
+    "all_input_and_readback_bytes_equal_previous": true,
+    "saved_audits": [
+      "saved-api-audit-v1.json",
+      "saved-short-audit-v1.json",
+      "old-new-byte-audit-v1.json"
+    ],
+    "extra_gpu_native_calls_for_saved_audits": 0,
+    "runtime_stride_before_bytes": 163584,
+    "runtime_stride_after_bytes": 167680
+  },
+  "cuda": {
+    "new_source_compiled": true,
+    "new_source_product_gpu_verified": true,
+    "memory_reduction_proven": false,
+    "memory_reduction_scope": "Single measured Job peak reduced 604667904 bytes; background uncontrolled, no general guarantee",
+    "one_measured_job_peak_before_bytes": 2139754496,
+    "one_measured_job_peak_after_bytes": 1535086592,
+    "linked_entry_stack_before_bytes": 22848,
+    "linked_entry_stack_after_bytes": 14936,
+    "standard_profile_30s_verified": 0,
+    "declared_original_rosters_verified": [
+      {
+        "profile": "Yuni",
+        "duration_seconds": 4,
+        "input_sha256": "5f0ac969a35509b188039b12cf90a6901e94d37749de2ee826d38e36909b95f9",
+        "readback_sha256": "b1c1e77e1a34e87f92ae6e0b058cb6e1dfbf1b03f7e8640680fbf9b55c966087"
+      }
+    ],
+    "range_current_gpu_verified": false,
+    "range_missing_processes": 7,
+    "range_cause": "unknown",
+    "environment_preservation_verified": false,
+    "memory_observation_complete": false,
+    "original_windows_raw_read_on_mac": false
+  },
+  "coverage": {
+    "last_standard_metal_profile_sweep_matched": 262,
+    "last_standard_profile_sweep_total": 266,
+    "new_standard_profiles": 0,
+    "new_standard_cuda_profiles": 0,
+    "all_characters_effects_complete": false
+  },
+  "boundaries": [
+    "No CPU canonical, numerical arithmetic, tolerance or normalizer changes",
+    "No new suite or execution engine",
+    "Historical failures and claims preserved",
+    "Dedicated port4401 stopped after saved captures; user servers untouched"
+  ],
+  "sealed_release": {
+    "movement": {
+      "package_id": "bc57f0d3b8875cef6d2f8e6f673f3e7990e60453e0d18ae22750157517da9a70",
+      "source_commit": "24a36a118d053c5301dca414cf448ed088699748",
+      "unit_tests": 109,
+      "fresh_native_cases": 1,
+      "gpu_calls": 0,
+      "compile_plan": {
+        "schema": "compile-plan-v1",
+        "passed": true,
+        "package_id": "bc57f0d3b8875cef6d2f8e6f673f3e7990e60453e0d18ae22750157517da9a70",
+        "suite": "product-detail",
+        "purpose": "sealed",
+        "artifact_kind": "ptx",
+        "ptxas_level": null,
+        "memory_limit_mb": 2048,
+        "timeout_seconds": 60,
+        "error": null,
+        "compiler_options": [
+          "--std=c++17",
+          "--gpu-architecture=compute_86",
+          "--fmad=false",
+          "--split-compile=2"
+        ],
+        "policy": "sealed-battle compile-only transport",
+        "gpu_calls": 0,
+        "compiler_calls": 0,
+        "claim_created": false,
+        "execution_claim_available": true,
+        "calculation_verified": false,
+        "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+      }
+    },
+    "range": {
+      "package_id": "954a9cd1e315b8bf7f40f214683d47747beb6c7bb1bcba484112b52423f71775",
+      "source_commit": "24a36a118d053c5301dca414cf448ed088699748",
+      "unit_tests": 109,
+      "fresh_native_cases": 1,
+      "gpu_calls": 0,
+      "compile_plan": {
+        "schema": "compile-plan-v1",
+        "passed": true,
+        "package_id": "954a9cd1e315b8bf7f40f214683d47747beb6c7bb1bcba484112b52423f71775",
+        "suite": "product-detail",
+        "purpose": "sealed",
+        "artifact_kind": "ptx",
+        "ptxas_level": null,
+        "memory_limit_mb": 2048,
+        "timeout_seconds": 60,
+        "error": null,
+        "compiler_options": [
+          "--std=c++17",
+          "--gpu-architecture=compute_86",
+          "--fmad=false",
+          "--split-compile=2"
+        ],
+        "policy": "sealed-battle compile-only transport",
+        "gpu_calls": 0,
+        "compiler_calls": 0,
+        "claim_created": false,
+        "execution_claim_available": true,
+        "calculation_verified": false,
+        "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+      }
+    }
+  },
+  "transport": {
+    "branch": "codex/product-cuda-origin-gates-v1-packet",
+    "commit": "31d99419",
+    "artifacts": [
+      "resident-frames-movement-v1.zip",
+      "resident-frames-range-v1.zip",
+      "resident-frames-v1-transport.json"
+    ]
+  },
+  "windows_request": {
+    "turn_id": "01a19317-e8b7-7af3-9f3a-2c53836fd58b",
+    "last_cursor": "4b3eff0d-96af-48be-b3ad-b6609ae33ca8:442",
+    "scope": "All requested movement stages terminal; one actual ordinary CUDA API matched CPU and full Metal readback hash. Range stopped at PTX/missing7, no retry.",
+    "pending": 0
+  },
+  "pre_device_plan_notes": [
+    "An unsupported --split-count argument was rejected by argparse before claim/compiler/device work. The successful v2 plans use the actual NIKKE_CUDA_SPLIT_COMPILE=2 environment; earlier v1 single-thread plans remain saved."
+  ],
+  "windows_saved_status": {
+    "report": "research/product-resident-frames-ptx-status-v1.json",
+    "transport_commit": "213100b8f46029dac34dc6bb07744b4e66c34f31",
+    "report_sha256": "4729d973b6f74b711271fe6a71a685aa73c19c723475e61eff6865c2369ed574",
+    "summary": {
+      "schema": "resident-frames-ptx-summary-v1",
+      "transport_commit": "31d99419e312e25c34d86ff5cec7632b398941c7",
+      "source_commit": "24a36a118d053c5301dca414cf448ed088699748",
+      "path_base": "Documents/Codex",
+      "stopped": true,
+      "stop_reason": "range PTX inner and outer observations each contain 7 missing existing processes",
+      "missing_termination_cause": "unknown",
+      "sources": {
+        "movement": {
+          "owner": "bc57f0d3b8875cef6d2f8e6f673f3e7990e60453e0d18ae22750157517da9a70",
+          "zip_verified": true,
+          "paired_strict_sealed_origin_verified": true,
+          "compiler_verified": true,
+          "containment_verified": true,
+          "passed": false,
+          "preservation_verified": false,
+          "stage_verified": false,
+          "formal_error": null,
+          "generation": {
+            "seconds": 24.01148940017447,
+            "peak_bytes": 642539520,
+            "missing": 0,
+            "job_empty": true,
+            "service": "unverified",
+            "preservation_verified": false,
+            "timeout": false,
+            "error": null,
+            "observation_error": null,
+            "cleanup_error": null,
+            "inspection_error": false,
+            "exit_code": 0
+          },
+          "ptx_outer": {
+            "seconds": 44.63924020016566,
+            "peak_bytes": 409735168,
+            "missing": 0,
+            "job_empty": true,
+            "service": "unverified",
+            "preservation_verified": false,
+            "timeout": false,
+            "error": null,
+            "observation_error": null,
+            "cleanup_error": null,
+            "inspection_error": false,
+            "exit_code": 2
+          },
+          "ptx_sdk": {
+            "seconds": 34.820857299957424,
+            "peak_bytes": 374837248,
+            "missing": 0,
+            "job_empty": true,
+            "service": "unverified",
+            "preservation_verified": false,
+            "timeout": false,
+            "error": null,
+            "observation_error": null,
+            "cleanup_error": null,
+            "inspection_error": false,
+            "exit_code": 0
+          },
+          "nvrtc": {
+            "calls": 1,
+            "return_code": 0,
+            "seconds": 22.777535
+          },
+          "ptx_bytes": 13133645,
+          "ptx_sha256": "bf4e273cc253916a47a7b19ec8c958a921a1c616027091722b2f7c6a0fead572",
+          "capture": "resident-frames-movement-v1/compile-ptx-v2/proof",
+          "cache": "nikke-product-parts-boundary-v1/compile-cache-v1/8d14742db646215fb950c3735c5f1e47491ffd7e6846aacc2291f637f91db378.json",
+          "cache_hit": false,
+          "old_records_unchanged": true,
+          "old_records_checked": 506,
+          "next_stage_admitted": false
+        },
+        "range": {
+          "owner": "954a9cd1e315b8bf7f40f214683d47747beb6c7bb1bcba484112b52423f71775",
+          "zip_verified": true,
+          "paired_strict_sealed_origin_verified": true,
+          "compiler_verified": true,
+          "containment_verified": true,
+          "passed": false,
+          "preservation_verified": false,
+          "stage_verified": false,
+          "formal_error": null,
+          "generation": {
+            "seconds": 26.327705800067633,
+            "peak_bytes": 643620864,
+            "missing": 0,
+            "job_empty": true,
+            "service": "unverified",
+            "preservation_verified": false,
+            "timeout": false,
+            "error": null,
+            "observation_error": null,
+            "cleanup_error": null,
+            "inspection_error": false,
+            "exit_code": 0
+          },
+          "ptx_outer": {
+            "seconds": 46.27057009981945,
+            "peak_bytes": 414236672,
+            "missing": 7,
+            "job_empty": true,
+            "service": "unverified",
+            "preservation_verified": false,
+            "timeout": false,
+            "error": null,
+            "observation_error": null,
+            "cleanup_error": null,
+            "inspection_error": false,
+            "exit_code": 2
+          },
+          "ptx_sdk": {
+            "seconds": 35.925967999733984,
+            "peak_bytes": 378671104,
+            "missing": 7,
+            "job_empty": true,
+            "service": "unverified",
+            "preservation_verified": false,
+            "timeout": false,
+            "error": null,
+            "observation_error": null,
+            "cleanup_error": null,
+            "inspection_error": false,
+            "exit_code": 0
+          },
+          "nvrtc": {
+            "calls": 1,
+            "return_code": 0,
+            "seconds": 23.5041521
+          },
+          "ptx_bytes": 13201797,
+          "ptx_sha256": "a38112e3df4ffa311d3624a351af3f5eb6ce35631d064fdb3572e7456e0b99cd",
+          "capture": "resident-frames-range-v1/compile-ptx-v2/proof",
+          "cache": "nikke-product-parts-boundary-v1/compile-cache-v1/9c63ae9b1f0ad25bff0e818e0f989d8381b1ee1a546f66a6272e663442866494.json",
+          "cache_hit": false,
+          "old_records_unchanged": true,
+          "old_records_checked": 506,
+          "next_stage_admitted": false
+        }
+      },
+      "additional_calls": {
+        "nvrtc_compile": 2,
+        "paired_generation": 2,
+        "unit": 0,
+        "native_battle": 0,
+        "object": 0,
+        "link": 0,
+        "driver": 0,
+        "context": 0,
+        "gpu": 0,
+        "http": 0,
+        "retry": 0
+      },
+      "historical_bindings_created": 0
+    }
+  },
+  "windows_saved_object_and_api_reports": {
+    "resident-frames-movement-object-status-v1.json": {
+      "file": "research/product-resident-frames-movement-object-status-v1.json",
+      "commit": "6eafb33bdb4f7aaa2ef710f5c10aef1c6b9f5566",
+      "sha256": "acc47acd04ffe1e48d681c626896b3b9e946c834735b6f471fa11bbc813819f6"
+    },
+    "resident-frames-movement-api-status-v1.json": {
+      "file": "research/product-resident-frames-movement-api-status-v1.json",
+      "commit": "63695b05f5794a9bbad05f13f5f4c1f84f08fe1a",
+      "sha256": "d9fb1c063d7bd7b6b84f974853fdccb1e841b1c01056a34ce7b907306fe485c8"
+    }
+  },
+  "saved_cross_backend_audit": {
+    "passed": true,
+    "scope": "Mac actual input/readback bytes/source seal plus Windows peer saved summary; original Windows raw not copied to Mac",
+    "extra_gpu_native_calls": 0
+  }
+}

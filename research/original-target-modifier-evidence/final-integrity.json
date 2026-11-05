@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "package_id": "b71786439d797d72770f0d79c2912374de5a6f5c7b59a3cc382c8d3daa1b26f2",
+  "files": 1956,
+  "all_payload_sha256_and_checkout_bytes_exact": true,
+  "full_input_native_source_and_saved_output_exact": true,
+  "paired_cuda_metal_generation_and_reflection_bytes_exact": true,
+  "generation_cache_required_hit": true,
+  "additional_slang_invocations": 0,
+  "gpu_calls": 0,
+  "cuda_execution_verified": false
+}

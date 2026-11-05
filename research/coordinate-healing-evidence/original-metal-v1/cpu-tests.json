@@ -1,0 +1,22 @@
+[
+  {
+    "pattern": "test_coordinate_healing.py",
+    "exit_code": 0,
+    "elapsed_seconds": 6.743736834032461,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 11335
+  },
+  {
+    "pattern": "test_portable_parent_oracles.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.6423593340441585,
+    "tests": 20,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 11335
+  }
+]

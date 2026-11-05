@@ -1,0 +1,1291 @@
+{
+  "status": 0,
+  "legacy_damage": [
+    34000.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "native_damage": [
+    34000,
+    0,
+    0,
+    0,
+    0
+  ],
+  "groups": {
+    "(0, 'front', 1)": {
+      "count": 1,
+      "total": 2000
+    },
+    "(0, '', 0)": {
+      "count": 26,
+      "total": 52000
+    }
+  },
+  "target_kinds": {
+    "front": 1,
+    "behind": 1,
+    "__enemy__": 0,
+    "__enemy__:healing-adds#1": 5,
+    "__enemy__:healing-adds#2": 5
+  },
+  "exact_bank": [
+    {
+      "amount": 34000,
+      "count": 17
+    },
+    {
+      "amount": 0,
+      "count": 0
+    },
+    {
+      "amount": 0,
+      "count": 0
+    },
+    {
+      "amount": 0,
+      "count": 0
+    },
+    {
+      "amount": 0,
+      "count": 0
+    }
+  ],
+  "native_allies": [
+    {
+      "hp": 10000.0,
+      "max_hp": 10000.0,
+      "hp_pct": 100.0,
+      "defense": 0.0,
+      "down": false,
+      "received_damage": 0,
+      "received_hits": 0
+    },
+    {
+      "hp": 10000.0,
+      "max_hp": 10000.0,
+      "hp_pct": 100.0,
+      "defense": 0.0,
+      "down": false,
+      "received_damage": 0,
+      "received_hits": 0
+    },
+    {
+      "hp": 10000.0,
+      "max_hp": 10000.0,
+      "hp_pct": 100.0,
+      "defense": 0.0,
+      "down": false,
+      "received_damage": 0,
+      "received_hits": 0
+    },
+    {
+      "hp": 10000.0,
+      "max_hp": 10000.0,
+      "hp_pct": 100.0,
+      "defense": 0.0,
+      "down": false,
+      "received_damage": 0,
+      "received_hits": 0
+    },
+    {
+      "hp": 20000.0,
+      "max_hp": 20000.0,
+      "hp_pct": 100.0,
+      "defense": 0.0,
+      "down": false,
+      "received_damage": 0,
+      "received_hits": 0
+    }
+  ],
+  "native_healing_charge": {
+    "events": [
+      {
+        "kind": "snapshot",
+        "time": 0.0,
+        "before": [],
+        "owner": 0,
+        "row": 1,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 0.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.0,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 0.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 2000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 3
+      },
+      {
+        "kind": "capacity",
+        "time": 0.0,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 0.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 0.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 3,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.016666666666666666,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 2000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 5
+      },
+      {
+        "kind": "capacity",
+        "time": 0.016666666666666666,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 2000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 2000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 5,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.016666666666666666,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 7
+      },
+      {
+        "kind": "capacity",
+        "time": 0.016666666666666666,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 7,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.016666666666666666,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 9
+      },
+      {
+        "kind": "capacity",
+        "time": 0.016666666666666666,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 9,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.11666666666666665,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 11
+      },
+      {
+        "kind": "capacity",
+        "time": 0.11666666666666665,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 11,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.13333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 13
+      },
+      {
+        "kind": "capacity",
+        "time": 0.13333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 13,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.13333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 15
+      },
+      {
+        "kind": "capacity",
+        "time": 0.13333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 15,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.13333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 17
+      },
+      {
+        "kind": "capacity",
+        "time": 0.13333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 17,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.21666666666666665,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 19
+      },
+      {
+        "kind": "capacity",
+        "time": 0.21666666666666665,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 19,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.2333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 21
+      },
+      {
+        "kind": "capacity",
+        "time": 0.2333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 21,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.2333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 23
+      },
+      {
+        "kind": "capacity",
+        "time": 0.2333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 23,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.2333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 25
+      },
+      {
+        "kind": "capacity",
+        "time": 0.2333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 25,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.31666666666666665,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 27
+      },
+      {
+        "kind": "capacity",
+        "time": 0.31666666666666665,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 27,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.3333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 29
+      },
+      {
+        "kind": "capacity",
+        "time": 0.3333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 29,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "collect",
+        "time": 0.3333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 31
+      },
+      {
+        "kind": "capacity",
+        "time": 0.3333333333333333,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": true
+          }
+        ],
+        "returned_sequence": 31,
+        "value": 3000.0,
+        "row": 1
+      },
+      {
+        "kind": "latch_end",
+        "time": null,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": false,
+            "active": false
+          }
+        ],
+        "name": "pool",
+        "owner": 0,
+        "amount": null,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": true,
+            "active": false
+          }
+        ],
+        "returned_sequence": 32
+      },
+      {
+        "kind": "discharge",
+        "time": 0.41666666666666663,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": true,
+            "active": false
+          }
+        ],
+        "owner": 0,
+        "row": 3,
+        "after": [],
+        "returned_sequence": 39,
+        "targets": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "taken": 3000.0
+      },
+      {
+        "kind": "take",
+        "time": 0.41666666666666663,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 3000.0,
+            "done": false,
+            "ended": true,
+            "active": false
+          }
+        ],
+        "name": "pool",
+        "owner": 0,
+        "amount": null,
+        "row": 3,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 0.0,
+            "done": true,
+            "ended": false,
+            "active": false
+          }
+        ],
+        "returned_sequence": 34,
+        "value": 3000.0
+      },
+      {
+        "kind": "collect",
+        "time": 0.41666666666666663,
+        "before": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 0.0,
+            "done": true,
+            "ended": false,
+            "active": false
+          }
+        ],
+        "name": "리타",
+        "owner": 0,
+        "amount": 3000.0,
+        "after": [
+          {
+            "row": 1,
+            "owner": 0,
+            "base": 3000.0,
+            "current": 0.0,
+            "done": true,
+            "ended": false,
+            "active": false
+          }
+        ],
+        "returned_sequence": 35
+      },
+      {
+        "kind": "collect",
+        "time": 0.41666666666666663,
+        "before": [],
+        "name": "크라운",
+        "owner": 1,
+        "amount": 3000.0,
+        "after": [],
+        "returned_sequence": 36
+      },
+      {
+        "kind": "collect",
+        "time": 0.41666666666666663,
+        "before": [],
+        "name": "앨리스",
+        "owner": 2,
+        "amount": 3000.0,
+        "after": [],
+        "returned_sequence": 37
+      },
+      {
+        "kind": "collect",
+        "time": 0.41666666666666663,
+        "before": [],
+        "name": "모더니아",
+        "owner": 3,
+        "amount": 3000.0,
+        "after": [],
+        "returned_sequence": 38
+      },
+      {
+        "kind": "collect",
+        "time": 0.41666666666666663,
+        "before": [],
+        "name": "N102",
+        "owner": 4,
+        "amount": 3000.0,
+        "after": [],
+        "returned_sequence": 39
+      },
+      {
+        "kind": "collect",
+        "time": 0.41666666666666663,
+        "before": [],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [],
+        "returned_sequence": 40
+      },
+      {
+        "kind": "collect",
+        "time": 0.4333333333333333,
+        "before": [],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [],
+        "returned_sequence": 41
+      },
+      {
+        "kind": "collect",
+        "time": 0.5166666666666666,
+        "before": [],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [],
+        "returned_sequence": 42
+      },
+      {
+        "kind": "collect",
+        "time": 0.5333333333333333,
+        "before": [],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [],
+        "returned_sequence": 43
+      },
+      {
+        "kind": "collect",
+        "time": 0.6000000000000002,
+        "before": [],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [],
+        "returned_sequence": 44
+      },
+      {
+        "kind": "collect",
+        "time": 0.6166666666666669,
+        "before": [],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [],
+        "returned_sequence": 45
+      },
+      {
+        "kind": "collect",
+        "time": 0.7000000000000005,
+        "before": [],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [],
+        "returned_sequence": 46
+      },
+      {
+        "kind": "collect",
+        "time": 0.7166666666666672,
+        "before": [],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [],
+        "returned_sequence": 47
+      },
+      {
+        "kind": "collect",
+        "time": 0.8000000000000008,
+        "before": [],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [],
+        "returned_sequence": 48
+      },
+      {
+        "kind": "collect",
+        "time": 0.8166666666666675,
+        "before": [],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [],
+        "returned_sequence": 49
+      },
+      {
+        "kind": "collect",
+        "time": 0.9000000000000011,
+        "before": [],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [],
+        "returned_sequence": 50
+      },
+      {
+        "kind": "collect",
+        "time": 0.9166666666666679,
+        "before": [],
+        "name": "리타",
+        "owner": 0,
+        "amount": 2000.0,
+        "after": [],
+        "returned_sequence": 51
+      }
+    ],
+    "final": []
+  }
+}

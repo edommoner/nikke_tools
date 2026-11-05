@@ -1,0 +1,16 @@
+{
+  "schema": "portable-admission-readset-check-v1",
+  "owner_package_id": "1e54383d95d39389d10e0bfb8b9d3a037f2fa6f310ac0749da13c10c64b2abc9",
+  "package_files": 3995,
+  "observed_files": 3996,
+  "seconds": 0.5677159579936415,
+  "full_package_verification": true,
+  "complete_package_read_set": true,
+  "streaming_digest_repeats_verified": true,
+  "unit_tests": 17,
+  "admission_verified": false,
+  "calculation_verified": false,
+  "gpu_calls": 0,
+  "windows_requests": 0,
+  "scope": "Read-set capture and complete immutable package closure only; staged/link admission and execution handoff remain unconnected"
+}

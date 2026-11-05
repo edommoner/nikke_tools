@@ -1,0 +1,42 @@
+{
+  "candidate_package_id": "981e71beb7a30043f3a2c492aa351e5a26bb4f44b446c6115d9d45107887b6c9",
+  "candidate_inputs": 428,
+  "raw_reread_sha_verified": true,
+  "gpu_calls": 0,
+  "full_goal_complete": false,
+  "baselines": {
+    "old420": {
+      "package_id": "0df77172da0832d96bb3d245f1637a1b46fb9de6eadf5e915704e23d6fc2bdda",
+      "checked_inputs": 420,
+      "original_calculation_verified": true,
+      "original_mismatches": [],
+      "input_all_raw_and_native_equal": true
+    },
+    "bank7": {
+      "package_id": "a621f1aae599c7af2dfde34ea69373d5c053366f1c40711ac68a78214e1796c0",
+      "checked_inputs": 7,
+      "original_calculation_verified": false,
+      "original_mismatches": [
+        {
+          "index": 7,
+          "name": "reject/lazy-bank-error-after-warm",
+          "reason": "ValueError: Expected execution rejection after bounded cache reuse, not an admission rejection"
+        }
+      ],
+      "input_all_raw_and_native_equal": true
+    },
+    "late_error1": {
+      "package_id": "d3f36571f86056c7de0fab7c29a970cf125d090ba560cdfe0401985f546610ee",
+      "checked_inputs": 1,
+      "original_calculation_verified": true,
+      "original_mismatches": [],
+      "input_all_raw_and_native_equal": true
+    }
+  },
+  "bank_zero_all_inputs": {
+    "checked": 428,
+    "base_word": 757536,
+    "end_word": 763680,
+    "includes_execution_rejection": true
+  }
+}

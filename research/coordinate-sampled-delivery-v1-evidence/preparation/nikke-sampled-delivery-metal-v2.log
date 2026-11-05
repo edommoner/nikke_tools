@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/private/tmp/nikke-sampled-delivery-develop-v2/scripts/nikke_gpu.py", line 2910, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/private/tmp/nikke-sampled-delivery-develop-v2/scripts/nikke_gpu.py", line 2853, in main
+    result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**(dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-sampled-delivery-develop-v2/scripts/nikke_gpu.py", line 1712, in run_capture
+    cpu_test_groups(m,capture,smoke)
+  File "/private/tmp/nikke-sampled-delivery-develop-v2/scripts/nikke_gpu.py", line 1574, in cpu_test_groups
+    raise ValueError('CPU tests failed: '+failed)
+ValueError: CPU tests failed: test_coordinate_mixed.py

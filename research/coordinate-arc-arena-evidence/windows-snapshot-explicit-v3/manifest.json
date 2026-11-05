@@ -1,0 +1,10 @@
+{
+  "schema": "snapshot-explicit-pwsh-v3-manifest",
+  "files": [
+    {
+      "path": "summary.json",
+      "bytes": 11254,
+      "sha256": "6c9a4d6ad977a4b3639d8ee6b6b89a69722d06670c02d4c39ab7199c32702b3e"
+    }
+  ]
+}

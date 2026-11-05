@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-stun-regression81-metal",
+  "raw_bytes": 254803968,
+  "raw_sha256": "07e45468313f381a9341174421d76bdbc8905ff373fb944e6049d1db6696e9a8",
+  "evidence_sha256": "4dd76bbf2e527773bd82a7f4104ff39b79767b2ee41f0f247de89e02050bd6f4",
+  "raw_inode": 506608618,
+  "zero_ranges": 557,
+  "zero_range_bytes": 187039744,
+  "allocated_before": 254803968,
+  "allocated_after": 67764224,
+  "allocated_reclaimed": 187039744,
+  "full_hash_verified": true
+}

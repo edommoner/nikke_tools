@@ -1,0 +1,231 @@
+{
+  "passed": true,
+  "cpu_only_replay": true,
+  "gpu_reexecuted": false,
+  "cases": [
+    {
+      "character": "백학",
+      "grown": false,
+      "known_cpu_difference": {
+        "kind": "Pinned effective_max_hp omits runtime predicate recheck",
+        "effect_name": "회복 독점 서약",
+        "caster": "백학",
+        "conditions": [
+          "not_self_state:서약 해지"
+        ],
+        "runtime_condition_enabled": false,
+        "observed_time": 179.9833333333687,
+        "values": [
+          {
+            "owner": 0,
+            "base_hp": 3284775,
+            "value_pct": 10.0,
+            "native_hp": 3613252.5,
+            "contract_hp": 3284775
+          },
+          {
+            "owner": 1,
+            "base_hp": 3000314,
+            "value_pct": 10.0,
+            "native_hp": 3328791.5,
+            "contract_hp": 3000314
+          },
+          {
+            "owner": 2,
+            "base_hp": 2715916,
+            "value_pct": 10.0,
+            "native_hp": 3044393.5,
+            "contract_hp": 2715916
+          },
+          {
+            "owner": 3,
+            "base_hp": 2441844,
+            "value_pct": 10.0,
+            "native_hp": 2770321.5,
+            "contract_hp": 2441844
+          },
+          {
+            "owner": 4,
+            "base_hp": 3000314,
+            "value_pct": 10.0,
+            "native_hp": 3328791.5,
+            "contract_hp": 3000314
+          }
+        ],
+        "native_battle_modified": false,
+        "independent_contract_fixture": "tests/fixtures/portable-health-runtime.json",
+        "scope": "Two fixed 180-second simple-boss profiles;not a generic CPU difference waiver",
+        "original_native_differences": [
+          {
+            "path": ".allies[0].hp",
+            "gpu": 3284775.0,
+            "cpu": 3613252.5
+          },
+          {
+            "path": ".allies[0].max_hp",
+            "gpu": 3284775.0,
+            "cpu": 3613252.5
+          },
+          {
+            "path": ".allies[1].hp",
+            "gpu": 3000314.0,
+            "cpu": 3328791.5
+          },
+          {
+            "path": ".allies[1].max_hp",
+            "gpu": 3000314.0,
+            "cpu": 3328791.5
+          },
+          {
+            "path": ".allies[2].hp",
+            "gpu": 2715916.0,
+            "cpu": 3044393.5
+          },
+          {
+            "path": ".allies[2].max_hp",
+            "gpu": 2715916.0,
+            "cpu": 3044393.5
+          },
+          {
+            "path": ".allies[3].hp",
+            "gpu": 2441844.0,
+            "cpu": 2770321.5
+          },
+          {
+            "path": ".allies[3].max_hp",
+            "gpu": 2441844.0,
+            "cpu": 2770321.5
+          },
+          {
+            "path": ".allies[4].hp",
+            "gpu": 3000314.0,
+            "cpu": 3328791.5
+          },
+          {
+            "path": ".allies[4].max_hp",
+            "gpu": 3000314.0,
+            "cpu": 3328791.5
+          }
+        ],
+        "contract_all_fields_verified": true,
+        "native_exact_match": false
+      }
+    },
+    {
+      "character": "백학",
+      "grown": true,
+      "known_cpu_difference": {
+        "kind": "Pinned effective_max_hp omits runtime predicate recheck",
+        "effect_name": "회복 독점 서약",
+        "caster": "백학",
+        "conditions": [
+          "not_self_state:서약 해지"
+        ],
+        "runtime_condition_enabled": false,
+        "observed_time": 179.9833333333687,
+        "values": [
+          {
+            "owner": 0,
+            "base_hp": 3541478,
+            "value_pct": 6.81,
+            "native_hp": 3782652.6518,
+            "contract_hp": 3541478
+          },
+          {
+            "owner": 1,
+            "base_hp": 3267307,
+            "value_pct": 6.81,
+            "native_hp": 3508481.6518,
+            "contract_hp": 3267307
+          },
+          {
+            "owner": 2,
+            "base_hp": 2993617,
+            "value_pct": 6.81,
+            "native_hp": 3234791.6518,
+            "contract_hp": 2993617
+          },
+          {
+            "owner": 3,
+            "base_hp": 2725779,
+            "value_pct": 6.81,
+            "native_hp": 2966953.6518,
+            "contract_hp": 2725779
+          },
+          {
+            "owner": 4,
+            "base_hp": 3293786,
+            "value_pct": 6.81,
+            "native_hp": 3534960.6518,
+            "contract_hp": 3293786
+          }
+        ],
+        "native_battle_modified": false,
+        "independent_contract_fixture": "tests/fixtures/portable-health-runtime.json",
+        "scope": "Two fixed 180-second simple-boss profiles;not a generic CPU difference waiver",
+        "original_native_differences": [
+          {
+            "path": ".allies[0].hp",
+            "gpu": 3541478.0,
+            "cpu": 3782652.6518
+          },
+          {
+            "path": ".allies[0].max_hp",
+            "gpu": 3541478.0,
+            "cpu": 3782652.6518
+          },
+          {
+            "path": ".allies[1].hp",
+            "gpu": 3267307.0,
+            "cpu": 3508481.6518
+          },
+          {
+            "path": ".allies[1].max_hp",
+            "gpu": 3267307.0,
+            "cpu": 3508481.6518
+          },
+          {
+            "path": ".allies[2].hp",
+            "gpu": 2993617.0,
+            "cpu": 3234791.6518
+          },
+          {
+            "path": ".allies[2].max_hp",
+            "gpu": 2993617.0,
+            "cpu": 3234791.6518
+          },
+          {
+            "path": ".allies[3].hp",
+            "gpu": 2725779.0,
+            "cpu": 2966953.6518
+          },
+          {
+            "path": ".allies[3].max_hp",
+            "gpu": 2725779.0,
+            "cpu": 2966953.6518
+          },
+          {
+            "path": ".allies[4].hp",
+            "gpu": 3293786.0,
+            "cpu": 3534960.6518
+          },
+          {
+            "path": ".allies[4].max_hp",
+            "gpu": 3293786.0,
+            "cpu": 3534960.6518
+          }
+        ],
+        "contract_all_fields_verified": true,
+        "native_exact_match": false
+      }
+    }
+  ],
+  "initial_raw_readback_missing": true,
+  "source_sha256": {
+    "research/verify-conditional-hp-roster-gap.py": "be7072fcc0fc1fb54fed0f3de748ed9c4e390cb5fee4c4f5588a050e47832f26",
+    "scripts/portable_conditional_hp_gap.py": "f4436e6dbe91c6ddba37aaa2aa07d46be6ed2c0a205a572ce790d8b363c2d0cf",
+    "tests/fixtures/portable-health-runtime.json": "51269deaf06379a67aed3bc4e2f5d22e86fb12bc3d70b191eefba94a5875bd73",
+    "research/portable-health-runtime-metal.json": "956755f604ea3eedad5a423cfad1d816ce9ddb7137f3679155985eaa64e44203"
+  },
+  "scope": "CPU passthrough produces the exact original native result;strict contract accounts for only the10 observed HP fields per profile;other fields unchanged"
+}

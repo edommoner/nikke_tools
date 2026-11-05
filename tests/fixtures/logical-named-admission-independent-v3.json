@@ -1,0 +1,95 @@
+{
+  "package_id": "8b47340372bb1880845f180e35eac6ac914ef44eb364b1bc4a4236c7f027816a",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/logical-actor-geometry-named-admission-recert-v3-metal",
+  "schema": "independent-metal-audit-groups-v1",
+  "child_pids": [
+    66560,
+    66573,
+    66581,
+    66608,
+    66611,
+    66612,
+    66615
+  ],
+  "groups": [
+    {
+      "child_pid": 66560,
+      "case_indices": [
+        0,
+        1
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 25.46011037500284
+    },
+    {
+      "child_pid": 66573,
+      "case_indices": [
+        2,
+        3
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 25.687773750003544
+    },
+    {
+      "child_pid": 66581,
+      "case_indices": [
+        4,
+        5
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 81.89482491700619
+    },
+    {
+      "child_pid": 66608,
+      "case_indices": [
+        6,
+        7
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.2762085420108633
+    },
+    {
+      "child_pid": 66611,
+      "case_indices": [
+        8,
+        9
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.2834977909951704
+    },
+    {
+      "child_pid": 66612,
+      "case_indices": [
+        10,
+        11
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.2977467499877093
+    },
+    {
+      "child_pid": 66615,
+      "case_indices": [
+        12
+      ],
+      "input_count": 1,
+      "native_cases": 0,
+      "elapsed_seconds": 3.4084574580047047
+    }
+  ],
+  "input_count": 13,
+  "native_cases": 6,
+  "live_parent_receipt_present": false,
+  "per_group_timeout_seconds": 180,
+  "elapsed_seconds": 147.15095533400017,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "ca6538e82b5fbb42c92a788cc22e314b07388d1be35e3eaca60b94ee22b85228",
+  "output_sha256": "b3cded4818690ca4b314287a035d96455edeb0b250cc9cff8672eeb7e855900a",
+  "scope": "Fresh GPU-forbidden child groups, each individually bounded, covering every input once; total elapsed includes all groups"
+}

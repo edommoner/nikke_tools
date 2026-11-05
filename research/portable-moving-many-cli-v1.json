@@ -1,0 +1,65 @@
+{
+  "schema": "moving-many-cli-v1",
+  "executed_package_id": "b44a5f398023385658bf9150cb8dbb5f160acefdb0d10605253c86f9ee92901c",
+  "cache_only_package_id": "e5c5ce5bef377982e24edb0c03c87f27a8abd3a35a34aeb9143c632e5db4cbc4",
+  "unit_check": {
+    "schema": "unit-check-v1",
+    "package_id": "e5c5ce5bef377982e24edb0c03c87f27a8abd3a35a34aeb9143c632e5db4cbc4",
+    "suite": "moving-many-cache-only",
+    "passed": true,
+    "unit_tests_verified": true,
+    "full_native_preflight_executed": false,
+    "cpu_verified": false,
+    "calculation_verified": false,
+    "gpu_execution_verified": false,
+    "gpu_calls": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false,
+    "groups": 7,
+    "tests": 55
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "e5c5ce5bef377982e24edb0c03c87f27a8abd3a35a34aeb9143c632e5db4cbc4",
+    "suite": "moving-many-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "changed_payload_files": [
+    "app/portable_cpu_tests.py",
+    "app/portable_readiness_semantics.py",
+    "scripts/nikke_gpu.py",
+    "tests/test_moving_many_wire.py"
+  ],
+  "added_payload_files": [
+    "research/portable-moving-many-v1-expected.json",
+    "tests/fixtures/moving-many-metal-v1.json"
+  ],
+  "unchanged_existing_payload_files": 3974,
+  "all_gpu_sources_input_factories_native_observers_wires_and_comparers_identical": true,
+  "old_generated_arithmetic_retained": {
+    "passed": true,
+    "generated_normalized": {
+      "cuda": "3aac7da3537cb4153d802c4180d240cd6a12ca6e77d1dd89722b1afc80d3a08e",
+      "metal": "2b54d9f6ff46fd7f34a2e0c52b272c98ae8c58e64a3cea59180518727f7264a5"
+    },
+    "gpu_calls": 0,
+    "scope": "Same original short entry generated arithmetic; source closure and current-source GPU admission remain separate"
+  },
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "windows_requests": 0,
+  "cuda_calculation_verified": false,
+  "full_goal_complete": false
+}

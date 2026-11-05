@@ -1,0 +1,20 @@
+{
+  "schema": "moving-group-cuda-preparation-v1",
+  "source_host_commit": "5551b4928b323b504dadc0cba69812638fba82f4",
+  "source_host_branch": "codex/cuda-moving-group-prepare-v1-report",
+  "peer_summary": "research/cuda-preparation-evidence/moving-group-v1-peer-summary.json",
+  "peer_summary_bytes": 2231,
+  "peer_summary_sha256": "b0bb7a6b42cdba01113ba660a6abb282beec5e68a66b3d8fd0ac5119afc57581",
+  "package_id": "76fbe7c3c06307e6c1fd07329e0f129b6bc9433a1f4fbff5732b59dc8b0e0557",
+  "reported_tests": 59,
+  "reported_generation_verified": true,
+  "reported_slang_invocations": 2,
+  "reported_nvrtc_calls": 0,
+  "reported_gpu_calls": 0,
+  "normalized_pair_matches_retained_metal_golden": true,
+  "original_job_and_phase_files_independently_read_on_mac": false,
+  "verification_scope": "Peer preparation summary fields and exact imported bytes only; not a CUDA execution or original Windows artifact audit",
+  "calculation_verified": false,
+  "environment_preservation_verified": false,
+  "full_goal_complete": false
+}

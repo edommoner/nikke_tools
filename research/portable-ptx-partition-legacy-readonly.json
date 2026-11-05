@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "scope": "Existing legacy PTX only, not v135. In-memory candidate construction; no original changed or assembler run.",
+  "gpu_calls": 0,
+  "ptxas_calls": 0,
+  "rows": [
+    {
+      "file": "app/combat.ptx",
+      "input_sha256": "082baaf527a087fe673bce9d6d1da694fe92fefe29f06b80841ef174e3304d40",
+      "focus": "__internal_accurate_pow",
+      "definitions": 2,
+      "state_count": 0,
+      "body_abi": true,
+      "state_ownership": true,
+      "artifacts": {
+        "focus.ptx": 7655,
+        "remainder.ptx": 282591
+      },
+      "compiler_verified": false,
+      "calculation_verified": false
+    },
+    {
+      "file": "app/detail_effects.ptx",
+      "input_sha256": "5f5d014c5d6f0c0147c63867180f61e229252dfdfff49b63828fdf9e0dec08bd",
+      "focus": "_Z6notifyPKdS0_iP5StateS0_diiiididid9TargetRef",
+      "definitions": 48,
+      "state_count": 4,
+      "body_abi": true,
+      "state_ownership": true,
+      "artifacts": {
+        "focus.ptx": 1852358,
+        "remainder.ptx": 6633420
+      },
+      "compiler_verified": false,
+      "calculation_verified": false
+    },
+    {
+      "file": "app/disjoint.ptx",
+      "scope": "No device function; explicit skip, not a successful partition"
+    }
+  ]
+}

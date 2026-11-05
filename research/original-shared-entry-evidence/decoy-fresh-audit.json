@@ -1,0 +1,15 @@
+{
+  "schema": "independent-metal-audit-v1",
+  "package_id": "df4a7425c2ecb53645c96708b83372597944aa27bcc081b519736558276ae52a",
+  "capture": "/private/tmp/nikke-original-decoy-replay-v3",
+  "child_pid": 47056,
+  "input_count": 3,
+  "native_cases": 3,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 14.403378957882524,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "f9d0df235e3fd6a3beebe8271dd7a60c4a19e0ea3097dd8b90095cd2862b2aa2",
+  "output_sha256": "e7ab967ee4190d992977ed6e73353e9e51e13b47fb285dc75faf1002806ba0c1",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls"
+}

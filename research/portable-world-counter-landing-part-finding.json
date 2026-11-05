@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "source": "1f07dbd",
+  "failure_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/world-counter-landing-20261020T230142983636Z",
+  "native_cases_matched": 21,
+  "part_counter_damage_hp_and_completion_matched": true,
+  "part_pool_difference": "GPU used direct hits/landed counters for extra pierce part hits;native keeps hits/landed separate from extra_hits/extra_dealt.Unbreakable extra parts must not advance HP dealt.",
+  "old622_all_output_words_exact": true,
+  "raw14_rejected": true,
+  "gpu_diagnostic_executions": 0,
+  "unchanged_gpu_retries": 0,
+  "repair": "Select direct/extra accounting inside the common Actor pool landing arithmetic and store per-generation extra hit/dealt counters in a separate GPU-owned bank"
+}

@@ -1,0 +1,254 @@
+{
+  "schema": 1,
+  "scope": "Shared non-coordinate physical part and interrupt captured values, grouped landing/accounting/lifesteal",
+  "full_goal_complete": false,
+  "full_character_certifications": 0,
+  "proofs": [
+    {
+      "suite": "parts-skill-world",
+      "package_id": "c0660d326f99595df086a2f6be96b26eb0fb9daee248a5b6560ae214417dfa0e",
+      "capture": "/tmp/nikke-physical-interrupt-v2-metal",
+      "seal": "/tmp/nikke-physical-interrupt-v2-sealed.json",
+      "inputs": 63,
+      "native": 59,
+      "rejected": 4,
+      "source_files": 114,
+      "input_sha256": "76e08013cd2b58b80cf08c1fda79c812ca0f457007bff15699769f918d061824",
+      "output_sha256": "ee1935cc64319a2f3c659ceb6cecc9cceac1c695087efbe7ee804967591ecce1",
+      "independent_seal": true,
+      "device": "Apple M5",
+      "gpu_seconds": 0.04608474997803569,
+      "generation_cache_hit": true,
+      "slang_calls": 0,
+      "cpu_tests": {
+        "tests": 55,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "suite": "heal-share-regression",
+      "package_id": "25bac8005dcf4d1de21c1aefe4be773ebc192c5d3b1d4375d560d31e1c302088",
+      "capture": "/tmp/nikke-physical-interrupt-regression-v2-metal",
+      "seal": "/tmp/nikke-physical-interrupt-regression-v2-sealed.json",
+      "inputs": 849,
+      "native": 676,
+      "rejected": 173,
+      "source_files": 114,
+      "input_sha256": "010b72c5120af825d2326a1504a4d7e111ac36807ed39652190c5e91880096f0",
+      "output_sha256": "89afa4ed803477c6e1d4aa37bc06bb32fb5b9717e29cc7d413f168a8717d92e1",
+      "independent_seal": true,
+      "device": "Apple M5",
+      "gpu_seconds": 10.348317499971017,
+      "generation_cache_hit": true,
+      "slang_calls": 0,
+      "cpu_tests": {
+        "tests": 312,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "suite": "heal-share-rosters",
+      "package_id": "d9a6dd06708b975a8762243a7e2d0de5122ef957307203e2f409982582c96fbc",
+      "capture": "/tmp/nikke-physical-interrupt-rosters-v1-metal",
+      "seal": "/tmp/nikke-physical-interrupt-rosters-v1-sealed.json",
+      "inputs": 4,
+      "native": 4,
+      "rejected": 0,
+      "source_files": 114,
+      "input_sha256": "b3f6051d7254403e8655998a049ce5f8d532a43afe82d26b3d5effbd50d60957",
+      "output_sha256": "f83a45b0297cf2f46a2232c9d2469e3148665c79337899562c1e56f8d043de97",
+      "independent_seal": true,
+      "device": "Apple M5",
+      "gpu_seconds": 3.156584499985911,
+      "generation_cache_hit": true,
+      "slang_calls": 0,
+      "cpu_tests": {
+        "tests": 19,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  ],
+  "runtime": {
+    "stride_bytes": 138952,
+    "cuda_constant_bytes": 48,
+    "fields_unchanged": true,
+    "physical_snapshot_words_per_owner": 8
+  },
+  "retention": {
+    "parts": {
+      "old_cases": 46,
+      "new_cases": 63,
+      "retained_cases": 45,
+      "all_retained_input_native_output_fingerprints_equal": true,
+      "all_retained_raw_bytes_equal": true,
+      "compared_bytes": 141557760,
+      "intentionally_replaced_cases": [
+        "reject/interrupt-physical-reach-not-ported"
+      ],
+      "gpu_calls": 0
+    },
+    "rosters": {
+      "old": "/tmp/nikke-interrupt-reach-rosters-v2-metal/readback.bin",
+      "new": "/tmp/nikke-physical-interrupt-rosters-v1-metal/readback.bin",
+      "bytes": 12582912,
+      "sha256": "f83a45b0297cf2f46a2232c9d2469e3148665c79337899562c1e56f8d043de97",
+      "all_bytes_equal": true,
+      "gpu_calls": 0
+    },
+    "regression": {
+      "old": "/tmp/nikke-interrupt-reach-regression-v3-metal/readback.bin",
+      "new": "/tmp/nikke-physical-interrupt-regression-v2-metal/readback.bin",
+      "bytes": 2670723072,
+      "sha256": "89afa4ed803477c6e1d4aa37bc06bb32fb5b9717e29cc7d413f168a8717d92e1",
+      "all_bytes_equal": true,
+      "gpu_calls": 0
+    }
+  },
+  "guards": {
+    "verified": true,
+    "properties": 55,
+    "local_override_properties": [
+      "damageRoute",
+      "damageHits"
+    ],
+    "wire_immutable": true,
+    "other_shared_sources_unchanged": false,
+    "other_sources_outside_reviewed_delta_unchanged": true,
+    "reviewed_scope_snapshot_sources": [
+      "gpu/world_actor_state.slang"
+    ],
+    "reviewed_damage_factor_sources": [
+      "gpu/damage_runtime.slang",
+      "gpu/damage_factors.slang"
+    ],
+    "reviewed_part_receipt_sources": [
+      "gpu/landing_runtime.slang",
+      "gpu/dispatch_phases.slang",
+      "gpu/counter_landing_runtime.slang",
+      "gpu/world_skill_runtime.slang",
+      "gpu/skill_part_receipt.slang"
+    ],
+    "reviewed_interrupt_sources": [
+      "gpu/world_enemy_attack_runtime.slang",
+      "gpu/world_actor_pools.slang",
+      "gpu/world_actor_fields.slang",
+      "gpu/world_actor_registry.slang"
+    ],
+    "reviewed_interrupt_reach_sources": [
+      "gpu/damage_runtime.slang",
+      "gpu/world_periodic_runtime.slang",
+      "gpu/world_interrupt_runtime.slang",
+      "gpu/interrupt_packet_codec.slang"
+    ],
+    "reviewed_interrupt_frame_metadata": true,
+    "reviewed_physical_interrupt_sources": [
+      "gpu/damage_runtime.slang",
+      "gpu/event_runtime.slang",
+      "gpu/counter_landing_runtime.slang",
+      "gpu/world_skill_runtime.slang",
+      "gpu/weapon_frame_phases.slang"
+    ],
+    "gpu_calls": 0,
+    "scope": "Source correspondence/snapshot contract; explicit later source deltas do not prove numerical parity, which requires actual execution"
+  },
+  "paired_commands": {
+    "path": "/tmp/nikke-physical-interrupt-commands-codegen.json",
+    "source_files": 115,
+    "gpu_calls": 0
+  },
+  "earlier_tier_codegen": [
+    {
+      "source": "gpu/world_skill_entry.slang",
+      "source_files": 102,
+      "generated_bytes": {
+        "cuda": 1566222,
+        "metal": 1638615
+      },
+      "gpu_calls": 0
+    },
+    {
+      "source": "gpu/world_periodic_entry.slang",
+      "source_files": 104,
+      "generated_bytes": {
+        "cuda": 1590374,
+        "metal": 1665257
+      },
+      "gpu_calls": 0
+    }
+  ],
+  "inventory": {
+    "profile_count": 266,
+    "packed_profiles": 218,
+    "packed_base": 158,
+    "forbidden_calls": {
+      "cpu_battle": 0,
+      "gpu": 0
+    },
+    "classification": {
+      "method": "Independent lowered definition validation plus complete program packing",
+      "exhaustive_within_effect": false,
+      "unlock_counts_are_predictions": false,
+      "diagnostic_sources": {
+        "effect": {
+          "structured_reason": 74,
+          "message_fallback": 13
+        },
+        "program": {
+          "structured_reason": 42,
+          "message_fallback": 6
+        }
+      },
+      "reference_readiness_scope": "Conservative recorded native prerequisites; not runtime validation, exhaustive semantics or GPU support"
+    }
+  },
+  "inventory_work_lane_counts": {
+    "gpu_lowering_candidate": 0,
+    "native_contract_extension": 0,
+    "native_consumer_research": 4,
+    "reference_model_gap": 1,
+    "reference_review": 72
+  },
+  "inventory_report": "/tmp/nikke-physical-interrupt-inventory.json",
+  "retained_failures": [
+    {
+      "capture": "/tmp/nikke-physical-interrupt-v1-metal",
+      "cause": "Authored RL native CDN post-delay/minimum cycle differed from literal GPU weapon; main shots1 vs3, extra hits6 vs18; raw/source/claim retained; canonical CPU unchanged"
+    },
+    {
+      "capture": "/tmp/nikke-physical-interrupt-regression-v1-metal",
+      "cause": "Selected generation cache leaked into a minimal CPU test backend; CPU failure before GPU/claim; fixed only test worker environment"
+    }
+  ],
+  "windows": {
+    "new_runs": 0,
+    "seven_exit_cause": "unknown",
+    "service": "unverified",
+    "preservation_verified": false
+  },
+  "unresolved": [
+    "coordinate landing",
+    "deferred burst reference model gap",
+    "random periodic final tick boundary",
+    "actual CUDA equivalence/resource proof",
+    "Windows seven process exit cause",
+    "full character/effect certification"
+  ],
+  "compiler_controller": {
+    "package_id": "b9bcb3d31974ee2717826146340b191730f7f92ad459ccf6deb1be3fdaced2a7",
+    "capture": "/tmp/nikke-physical-interrupt-controller-v1-cpu",
+    "cpu": {
+      "tests": 289,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    "gpu_calls": 0,
+    "calculation_verified": false
+  }
+}

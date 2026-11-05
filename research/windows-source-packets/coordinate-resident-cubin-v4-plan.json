@@ -1,0 +1,18 @@
+{
+  "schema": "compile-plan-v1",
+  "passed": true,
+  "package_id": "c187138ec7a98a0f3d89b796b4ba638f690bf01ee02b8fad82bdae6b815ee4eb",
+  "suite": "coordinate-resident-arc",
+  "purpose": "sealed",
+  "artifact_kind": "cubin",
+  "ptxas_level": 1,
+  "memory_limit_mb": 2048,
+  "timeout_seconds": 60,
+  "error": null,
+  "policy": "sealed-battle compile-only transport",
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "claim_created": false,
+  "calculation_verified": false,
+  "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+}

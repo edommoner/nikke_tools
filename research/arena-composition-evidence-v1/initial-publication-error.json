@@ -1,0 +1,6 @@
+{
+  "gpu_calls": 0,
+  "error": "FileNotFoundError: missing intended evidence parent; mkdir had used package cwd",
+  "result_published": false,
+  "corrected_by": "create explicit absolute evidence directory"
+}

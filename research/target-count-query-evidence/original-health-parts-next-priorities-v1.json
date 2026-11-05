@@ -1,0 +1,105 @@
+{
+  "schema": "original-health-parts-next-priorities-v1",
+  "inventory_sha256": "c7f766c5bfaeea438fbca2496ff27c8e9840ff588131ea135558c95ec0506ca4",
+  "profile_count": 266,
+  "base_count": 203,
+  "packed_profiles": 245,
+  "packed_base": 185,
+  "blocked_profiles": 21,
+  "full_character_verified": 0,
+  "canonical_world_admission": false,
+  "normal_ui": "CPU",
+  "full_goal_complete": false,
+  "priority_groups": [
+    {
+      "stat": "projectile_dmg_pct",
+      "target": "all_allies",
+      "category": "effect",
+      "affected_profiles": 3,
+      "single_observed_category_profiles": 2,
+      "lane": "reference_model_gap"
+    },
+    {
+      "stat": "shield_dmg_pct",
+      "target": "all_allies",
+      "category": "effect",
+      "affected_profiles": 2,
+      "single_observed_category_profiles": 2,
+      "lane": "reference_model_gap"
+    },
+    {
+      "stat": "shield_dmg_pct",
+      "target": "self",
+      "category": "effect",
+      "affected_profiles": 2,
+      "single_observed_category_profiles": 2,
+      "lane": "reference_model_gap"
+    },
+    {
+      "stat": "cover_def_pct",
+      "target": "allies_top_atk:3",
+      "category": "effect",
+      "affected_profiles": 1,
+      "single_observed_category_profiles": 1,
+      "lane": "reference_model_gap"
+    },
+    {
+      "stat": "enemy_movement_disable",
+      "target": "enemies_in_range",
+      "category": "effect",
+      "affected_profiles": 1,
+      "single_observed_category_profiles": 1,
+      "lane": "reference_model_gap"
+    },
+    {
+      "stat": "force_move",
+      "target": "enemies_in_range",
+      "category": "effect",
+      "affected_profiles": 1,
+      "single_observed_category_profiles": 1,
+      "lane": "reference_model_gap"
+    },
+    {
+      "stat": "projectile_dmg_pct",
+      "target": "self",
+      "category": "effect",
+      "affected_profiles": 1,
+      "single_observed_category_profiles": 1,
+      "lane": "reference_model_gap"
+    },
+    {
+      "stat": "heal_received_pct",
+      "target": "all_enemies",
+      "category": "recipient",
+      "affected_profiles": 1,
+      "single_observed_category_profiles": 1,
+      "lane": "reference_model_gap"
+    }
+  ],
+  "projectile_modifier_profiles": [
+    {
+      "character": "사쿠라",
+      "favorite_stage": 0,
+      "other_observed_blockers": []
+    },
+    {
+      "character": "앵커",
+      "favorite_stage": 0,
+      "other_observed_blockers": []
+    },
+    {
+      "character": "일레그",
+      "favorite_stage": 0,
+      "other_observed_blockers": [
+        "split_damage"
+      ]
+    },
+    {
+      "character": "클레이",
+      "favorite_stage": 0,
+      "other_observed_blockers": []
+    }
+  ],
+  "next_action": "Reuse existing declared typed modifier and battle consumers for complete original Sakura/Clay/Anchor profiles, then Elegg nearby selector; do not turn missing canonical target-world semantics into no-op GPU admission",
+  "scope": "Static packing and observed first failures only; no GPU/battle certification from inventory"
+}

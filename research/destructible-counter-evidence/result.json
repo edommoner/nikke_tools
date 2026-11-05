@@ -1,0 +1,147 @@
+{
+  "sealed": false,
+  "purpose": "development",
+  "calculation_verified": true,
+  "preservation_verified": null,
+  "passed": true,
+  "containment_verified": true,
+  "comparison_error": null,
+  "first_difference": null,
+  "phase": {
+    "events": 41,
+    "last_event": {
+      "elapsed_seconds": 0.789476333,
+      "monotonic_ns": 887223356199791,
+      "pid": 40437,
+      "stage": "shared_gpu_execute",
+      "state": "returned",
+      "wall_time_ns": 1792788073508156000
+    },
+    "timed_calls": [
+      {
+        "stage": "slang_generation_identity",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.109241709
+      },
+      {
+        "stage": "slang_generation_read_entry",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.008001833
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.001929125
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.004141791
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.010395375
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.017038584
+      },
+      {
+        "stage": "slang_generation_identity",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.10894725
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.002248959
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.000558667
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.000879417
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.000297292
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.000162625
+      },
+      {
+        "stage": "slang_build",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.259165417
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.001763834
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.004124625
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.01014575
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.016530417
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.001782875
+      },
+      {
+        "stage": "shared_gpu_execute",
+        "pid": 40437,
+        "state": "returned",
+        "elapsed_seconds": 0.789476333
+      }
+    ],
+    "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+    "nvrtc_compile_returned_success": false,
+    "cuda_compile_cache_hit_verified": false,
+    "cuda_linked_artifact_observed": false,
+    "cuda_launch_returned_success": false,
+    "cuda_synchronize_returned_success": false,
+    "cuda_readback_returned_success": false,
+    "scope": "Observed API returns only; full output verification requires the shared suite report"
+  },
+  "gpu_retries": 0,
+  "audit_gpu_calls": 0
+}

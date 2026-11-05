@@ -29,7 +29,7 @@ def audit():
   for stage in range(4):
    b=body_for(names);b['profile']['chars'][n]['favorite_stage']=stage
    record={'character':n,'favorite_stage':stage}
-   try:a.evaluate({**b,'_compile_gpu_detail':True});record.update(accepted=True)
+   try:a.evaluate({**b,'_compile_detail':True});record.update(accepted=True)
    except UnsupportedDetail as e:record.update(accepted=False,issues=e.issues)
    except (Exception,SystemExit) as e:record.update(accepted=False,setup_error=str(e))
    matrix.append(record)

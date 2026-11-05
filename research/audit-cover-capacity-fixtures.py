@@ -13,7 +13,7 @@ for name,b,extra in list(v.fixtures())+list(v.real_fixtures()):
         return result
     try:
         with v.v.s.v.context(name,extra),patch.object(v.BuffManager,'sync_cover_hp',sync):
-            compiled=v.v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True});cpu=v.v.s.v.v.a.evaluate(b)
+            compiled=v.v.s.v.v.a.evaluate({**b,'_compile_detail':True});cpu=v.v.s.v.v.a.evaluate(b)
         row=dict(name=name,compiled=True,cpu_usable=True,total=cpu['total_damage'],capacity_changes=len(changes),capacity_exercised=any(c['after']!=c['base'] for c in changes))
     except Exception as exc:row=dict(name=name,compiled=False,cpu_usable=False,error=repr(exc))
     rows.append(row);print(json.dumps(row,ensure_ascii=True),flush=True)

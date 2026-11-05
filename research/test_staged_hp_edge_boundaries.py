@@ -9,7 +9,7 @@ class HPEdgeBoundaries(unittest.TestCase):
     def setUp(self):
         b=v.s.v.body(1);b['enemy']['patterns']=[]
         with v.s.v.context('controlled',{v.N[0]:[v.B('fractional crossing','atk_pct',10,event='hp_below:60.125')]}):
-            self.compiled=v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True})
+            self.compiled=v.s.v.v.a.evaluate({**b,'_compile_detail':True})
     def run_bad(self,program,script,match):
         with patch.object(g,'module_image',side_effect=AssertionError('CUDA must not be reached')):
             with self.assertRaisesRegex(ValueError,match):g.run(object(),[program],script,[self.compiled['enemy']],[self.compiled['base_stats']])

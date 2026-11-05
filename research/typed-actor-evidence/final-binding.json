@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "execution_package_id": "103f948f1890778e6af1b5bf8a5c38a198d1e43555d5b62387dab863ce564cc5",
+  "final_package_id": "959199e61f2cc6894ad5b0ed0a03649a1cef3d02b4c7e1e529a837fafa608371",
+  "payload_files_verified": 3455,
+  "existing_payload_files_exact": 3452,
+  "changed_files": [
+    "app/portable_readiness_semantics.py",
+    "scripts/nikke_gpu.py"
+  ],
+  "added_files": [
+    "research/portable-coordinate-typed-actor-short-expected.json"
+  ],
+  "all_cli_functions_ast_exact": true,
+  "all_cpu_producer_test_and_data_bytes_exact": true,
+  "all67_prepared_input_source_native_fingerprints_exact": true,
+  "input_bytes": 31002244,
+  "generated_cuda_metal_exact": true,
+  "protected_files_exact": [
+    "app/detail_gpu.py",
+    "app/engine_worker.py",
+    "app/effect_spec.py",
+    "app/engine_compat.py",
+    "gpu/binary64.slang",
+    "gpu/core_probability.slang",
+    "research/summarize-portable-cross-gpu.py",
+    "app/portable_compile_cache.py"
+  ],
+  "new_native_or_gpu_calls": 0,
+  "scope": "Seal registration and scoped readiness metadata only. Reuses the same fresh67 independent audit because every native producer/input/test/calculation and GPU/transport byte is exact; no new final CPU preflight is claimed."
+}

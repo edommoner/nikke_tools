@@ -1,0 +1,9 @@
+# 同一実行内の正本再利用
+
+result.jsonはCPUだけの回帰結果です。新しいGPU capture／sealではありません。正本63件をfresh計算した同じ生存プロセスで既存比較器・creation contextを再利用し、全106のentry/input/output/generated指紋を元の独立認証済みMetal結果へ照合しました。native値をfileからロードしません。
+
+保存したcheck-parent-reuse-v1/v2.pyは実行時のスクリプトです。再現時は元の永続proof rootへ配置し、同じimmutable packet／capture／独立receiptを原本として使います。ここへrawやpacketを同梱していません。read-only-fixture内のGPU記録へのhardlinkは原captureの読み取り用で、新しいGPU実行記録を作成しません。
+
+最初のv1はreflection2ファイルのリンク不足で、fresh CPU63件の後に停止しました。failure／log／CPU成功を保持しています。v2はreflectionを含むgeneration pairとinput/raw全hashを先に検証してから実行しました。別の独立sealには同じ生存parentも保存native値も使えません。
+
+final-binding*.jsonは後続packetの変更範囲と、比較／事前計算／監査methodのAST・全golden・GPU/native/provider/comparatorの保持を確認します。コンパイル計画の制御変更は別の故障検査で確認しています。

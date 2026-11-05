@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "name": "coordinate-original-periodic/Harran/3s",
+      "periodic_packets": 0,
+      "source_rows": [],
+      "output_sha256": "928afa9102119bfbae25456e6b7aaa16076f380b003dad7607646a22db76cbc8"
+    },
+    {
+      "name": "coordinate-original-periodic/Harran/30s",
+      "periodic_packets": 21,
+      "source_rows": [
+        0
+      ],
+      "output_sha256": "c88abbac812cd0a33b56d19ff252299d078e9bcffae10afafdc740a10297c026"
+    },
+    {
+      "name": "coordinate-original-periodic/Kurumi/3s",
+      "periodic_packets": 0,
+      "source_rows": [],
+      "output_sha256": "cf9a82df2b57122b944106f6321ed20be24d804e3588f40fdcf21beb857d71f0"
+    },
+    {
+      "name": "coordinate-original-periodic/Kurumi/30s",
+      "periodic_packets": 27,
+      "source_rows": [
+        0
+      ],
+      "output_sha256": "e0d578fb64625ef374b58177429358f2c564dc62a43a2e83057fe39c51d41934"
+    }
+  ],
+  "gpu_calls": 0,
+  "scope": "Source rows decoded from exact sealed saved blocks; no new native/GPU execution"
+}

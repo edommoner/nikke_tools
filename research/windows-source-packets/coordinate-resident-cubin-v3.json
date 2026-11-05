@@ -1,0 +1,31 @@
+{
+  "schema": "resident-cubin-v3-distribution",
+  "package_id": "0064f91cb961cb10c2df7d19594d9179054ed84aed7325949537149c631af5c9",
+  "bytes": 11724258,
+  "sha256": "3b3a91cee975cde4a575284248744248f7c29a70d01519d377133d704e18d745",
+  "source_package_id": "814c08b1ff0d2957b2a027736dcbddb9a5327015516c7095421259da27e64c0c",
+  "changed_existing_files": [
+    "app/portable_readiness_semantics.py",
+    "tests/test_portable_metal_device.py",
+    "tests/test_portable_readiness_semantics.py"
+  ],
+  "added_files": [
+    "research/resident-arc-arena-evidence/parent-reuse-v2/check-parent-reuse-v1.py",
+    "research/resident-arc-arena-evidence/parent-reuse-v2/check-parent-reuse-v2.py",
+    "tests/fixtures/landing-arc-cuda-comparison-v4.json",
+    "tests/fixtures/landing-arc-cuda-summary-v4.json",
+    "tests/fixtures/resident-arc-independent-v2.json"
+  ],
+  "cli_bytes_equal": true,
+  "all_gpu_and_native_and_comparator_files_equal": true,
+  "entire106_golden_equal": true,
+  "control_tests": 580,
+  "skipped": 1,
+  "device_fixture_tests": 8,
+  "device_fixture_platforms": [
+    "posix",
+    "nt"
+  ],
+  "plan_passed": true,
+  "scope": "SDK-name test fixture and reporting metadata only; new Windows compile request remains CUBIN/O1/2GiB/60sec, no driver/context/kernel"
+}

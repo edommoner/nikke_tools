@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-heal-lifetime-metal398-v3",
+  "raw_bytes": 1251999744,
+  "raw_sha256": "03293c512f0eba5f164e6a50d038e95b006d70368b652d687b3b9f3becf1fb25",
+  "evidence_sha256": "0bdbed41bbe22173bfa96e67e227a1f5176e188eea3e9b11af077bd346a6b5e7",
+  "raw_inode": 508608603,
+  "zero_ranges": 2904,
+  "zero_range_bytes": 897712128,
+  "allocated_before": 1251999744,
+  "allocated_after": 354287616,
+  "allocated_reclaimed": 897712128,
+  "full_hash_verified": true
+}

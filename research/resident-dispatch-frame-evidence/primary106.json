@@ -1,0 +1,33 @@
+{
+  "schema": "resident-frame-primary106-check-v1",
+  "primary_calculation_verified": true,
+  "independent_audit_pending": true,
+  "source_commit": "42e5788d",
+  "cases": 106,
+  "native_domains": 63,
+  "rejected_cases": 43,
+  "CPU_tests": 176,
+  "CPU_groups": 28,
+  "CPU_preflight_seconds": 410.7177864580008,
+  "device": "Apple M5",
+  "GPU_seconds": 4.1036759999988135,
+  "Metal_pipeline_seconds": 60.3299959897995,
+  "GPU_child_execution_seconds": 74.99105229199631,
+  "raw_output_bytes": 875469264,
+  "all_old_input_native_output_entries_equal": true,
+  "runtime_prefix_fields_unchanged": 247,
+  "runtime_stride": 143048,
+  "runtime_extra_bytes": 4096,
+  "parent_comparison": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 63,
+    "fresh_native_cases": 0,
+    "rejection_cases": 43,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 63
+  },
+  "GPU_retries": 0,
+  "new_CUDA_stack_verified": false,
+  "full_goal_complete": false
+}

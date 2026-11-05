@@ -1,0 +1,1618 @@
+{
+  "wire_abi": "0x50455651",
+  "verified_commit": "fb0fb311574ed8fb38cc229fc455462b9a639062",
+  "source_provenance": {
+    "fixed_shared_source_commit": "fb0fb311574ed8fb38cc229fc455462b9a639062",
+    "metal_core_report_source_commit": "fb0fb311574ed8fb38cc229fc455462b9a639062",
+    "windows_source_commit": "fb0fb311574ed8fb38cc229fc455462b9a639062"
+  },
+  "previous_checkpoint": {
+    "report": "portable-combat-v32-checkpoint.json",
+    "original_checkpoint_commit": "406108babf102b35f000aaa8177966aa4caa9ccc",
+    "archived_by_source_commit": "fb0fb311574ed8fb38cc229fc455462b9a639062",
+    "scope": "Prior feature contracts, historical optimization measurements and validation history"
+  },
+  "positive_cases": 898,
+  "rejections": 124,
+  "batched_inputs": 1022,
+  "gpu_dispatches": 1,
+  "metal_verified": true,
+  "cuda_verified": true,
+  "metal_report": "portable-combat-metal.json",
+  "cuda_report": "portable-combat-cuda.json",
+  "windows_report": "windows-portable-combat-v33.json",
+  "source_sha256": {
+    "gpu/event_runtime.slang": "9564873fa749933f50126d476fc4eb3df513c493beac3eb0ec4382d6304772ef",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+    "gpu/portable_schema.slang": "b3c0a913b8de0703750a5ff056bbe61461de31bc1e2e1987be550148bcc18169",
+    "gpu/runtime_init.slang": "9b9136c3ca08b798d009b9ab5c850bbbd215df601837b67c0ecbf71b191e0b75",
+    "gpu/resource_runtime.slang": "5663120967beaf269c3928a7c581d4a9d009da7e1b36cf05b129f36df84ff2ab",
+    "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
+    "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
+    "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
+    "gpu/enemy_buff_runtime.slang": "33a1a116cea23eb0f5e4223a1f1b7c59e811e994db6f871c0a65c56d8be067a9",
+    "gpu/carrier_runtime.slang": "dcbc75f3d88edda0227c68975087fc56c73ed938e6b3b72cd5d6246eace7a43c",
+    "gpu/quantity_runtime.slang": "5d0a7ee77ad299b161f59ecccccc16a5a082ccc57fcf226c04873464264c2abf",
+    "gpu/health_runtime.slang": "071e46cf983d294241247cfef5a3de6105829bd9e85fed05dc9d6050f8cc90fb",
+    "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
+    "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
+    "gpu/recipient_runtime.slang": "e3dca124f523e4a28ec42e3bc915df6163dfeb2b071e0b25248ad6b0a4e85e0d",
+    "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+    "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+    "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
+    "gpu/incoming_runtime.slang": "72c36925c579e417300e8a0f30daa3f68c03a0778eae308e56e5c079432a91e1",
+    "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
+    "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+    "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+    "gpu/periodic_runtime.slang": "d0810fcc12c72ed8727988c31d98bf51268db084b955b597b46b0c3cd70a9d73",
+    "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
+    "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
+    "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+    "gpu/combat_runtime.slang": "fbbbadce16ebca5b4dcc0c6f6a44f834ff785824ee031f745edfb1269ef9f465",
+    "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+    "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+    "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
+  },
+  "input_sha256": "bf2b05ad395030da3e777f15ab202b3069f5e50bb8632f4f239c7ed95d37cf02",
+  "output_sha256": "3775d504e82a148d590a42ed5f0c6a9137a315d6b996bd54fb96c0a300582d02",
+  "validation_sha256": {
+    "app/portable_resource_specs.py": "7b08e48b1a70f9aa2d35a3e3e9ae1bcd6a17e096edc55ce8b00e2383ea0ae9eb",
+    "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
+    "app/resource_specs.py": "de67874a373c94834d3fbe43d9be9d18ccc45e1e22f563f9e5d892b66ea07b85",
+    "app/resource_runtime.py": "8356943f18d137bfb90d60ab2096c2505403c9156f088cf29c7aeda38fecd58c",
+    "scripts/portable_resource_oracle.py": "6e8ab20b01c41618c554779f4f41eb6a693c14893da935e1cf2b382d7b6040d8",
+    "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4",
+    "app/portable_roster_input.py": "7f65ee49d9688b59493ec958584ff157312e259eadf269b55fba6af813265593",
+    "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
+    "app/portable_enemy_specs.py": "027f575ec84a2f872d01622281971f1f97919c82e705f8a484208cfa811b1804",
+    "app/portable_runtime.py": "694aad00624e4b843230dcb0ed637b04d1d9b611158a2368f85c5ab049026712",
+    "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
+    "app/portable_specs.py": "b60b4b707b4015d71b68e214d248e3010addc7643934bbfec387b1342aa77ade",
+    "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
+    "app/portable_backend.py": "ab722934db2e3b7ae228990c7f0555dcea079c624675fa735b7328fa62889ec0",
+    "app/portable_trigger_specs.py": "a20f8d96a514fb6217c3eba47bf4a569fc1c861bc8837519b56694580e55dda4",
+    "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
+    "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
+    "scripts/portable_pending_oracle.py": "5919e9b30ef2b97cfeee24d19eb080c522df2fb6b98c1555be2efdf5c68e3359",
+    "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
+    "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
+    "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
+    "scripts/portable_enemy_oracle.py": "562c7614a8ecc358c581b5d289ffc60531901e00d7f988fa890d33386e3883d6",
+    "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
+    "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
+    "scripts/portable_weapon_oracle.py": "f011a2e648b4a34eb4bc6db5053066fec4b236c472ca7cad2e92e5677ffcc1a1",
+    "scripts/verify-detail.py": "20de1868cf509afa5696af87d94db27974d97c8505702e40eed27886f7c09972",
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
+    "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
+    "scripts/verify-portable-combat.py": "feb096db920a0bfde1df46d70c0016f0283682e482e46ac8ca3db276003c4252",
+    "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
+    "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
+    "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
+    "tests/fixtures/portable-enemy-auto-aim.json": "494d24a29f565f4cbf2243ae94de40e3e42aa37a97aa119c4b1d32c1f7508ed3",
+    "tests/fixtures/portable-periodic-targets.json": "d81c7db7e3c17527ea04738940b9cd42eb389269b762d33ad4a163944c4d6506",
+    "scripts/portable_enemy_buff_oracle.py": "4811d1c4fb66c3bd8b49bfb2e170380e68bb77bab28d8d03d74b2c53ce437cee",
+    "tests/fixtures/portable-enemy-buffs.json": "d1112e9bc6f236f1af7ec39453b7ca4e3d2ea8a548e57a38368965ff9b9cfd85",
+    "research/portable-mode-session-contract.json": "8c31ba85469c0ba1374ba0682bbb34aa3bc03eef2840a6c052e7efe405b3f5aa",
+    "tests/fixtures/portable-buff-notices.json": "234bd8ad051a89f7382b67069e0cfdf5e479cc0c9de42ba3528ae3d493265fd8",
+    "tests/fixtures/portable-mode-sessions.json": "027dbc7c09af926d554359128a7aa6662d287123eb3534f3f911c5181fc11593",
+    "tests/fixtures/portable-ammo-modes.json": "bcf69144ed0706a9e8f85e22b8f98824fbc2309e54c4d8ddc5a0a9c4da4365a2",
+    "tests/fixtures/portable-ammo-instants.json": "69dad6e77c9eb72c06c3178197a2d5081ef4b0072a76f0fb5ce36e471dbdebb8",
+    "tests/fixtures/portable-burst-duration.json": "43b852e0e57886272ca1de313b48022218702946d96622de9af7c0359ecdb64b",
+    "tests/fixtures/portable-pending-burst.json": "da124167496dc414248c8abd737b7410b4fa0a1d50b5899f4ba7cb1c1bd1b941",
+    "tests/fixtures/portable-cover.json": "3b2cae16148429ef53243644607f63aca167ba013ec98bbb15948533cb829fc7",
+    "tests/fixtures/portable-enemy-damage.json": "3c2bcbb04f5f39d6400b7ca8ab147c0230fc98cc4b31e4ad1aec100ce4848f52",
+    "tests/fixtures/portable-burst-resources.json": "8d0f0ff8422c6b28c0c90d318569ff278b126c6e7a935b401861df0120fa13f7",
+    "tests/fixtures/portable-bullets.json": "ade37d6cad7cbfa3587542cf2095d8ab0c107bf443bc061281412146fedc6e65",
+    "tests/fixtures/portable-lazy.json": "1fb643957e6d9e830127c0c61a66bab058645689d643a83a39ac81d610987b46",
+    "tests/fixtures/portable-lazy-capacity-rejection.json": "a1c3ad623fc63459eaf29d0c1d4d2edfcba86d5bb284b30e0b65c7faba36324e",
+    "tests/fixtures/portable-carriers.json": "ce9c7185429262140b6e7d0fb3c4229512b6da14821bd814c0da8cf9076d1be7",
+    "tests/fixtures/portable-recipients.json": "bd64e66ab8edc35f799066a0bc619bd0ba1f86b22b7a31a83c5c86587222d5db",
+    "tests/fixtures/portable-capacity.json": "c46cea733604b295b43ddf6ff607320eba6887ce356f52620fefb882d0a2729a",
+    "tests/fixtures/portable-incoming.json": "fbd69208aeeba331eb5e8b73c073f03c95a16b35cbae8a1d27349fa343da60de",
+    "tests/fixtures/portable-hp-edges.json": "2342470a63a6a2a0505b81a0e6356a6254d9b4fc8c9d3db95bea334004a9d6f0",
+    "tests/fixtures/portable-health.json": "614201f346546358376038785f3196032efd3b0aa51276474da723a41267c365",
+    "tests/fixtures/portable-charge-control.json": "00b643a72ad7026de9cb122386cc3dce521ae13bc5813383886e637d635f4994",
+    "tests/fixtures/portable-quantities.json": "53affbf8b6cfb6b87639a4bfe1090c3b30a44596c09f7f334ee9073daad3a9fa",
+    "tests/fixtures/portable-weapons.json": "75960cd6b9daaf1315a03af930f193df2c637bff7b845cc9f19b524561f5f7bf",
+    "tests/fixtures/portable-damage.json": "ab596e0f01bb9f94ee9813c6027d46a85415b77d5a72c36e06b32bf45b6ac5c7",
+    "tests/fixtures/portable-triggers.json": "680d8d5e212f9604e23f895b141651114e8703a4051facd37deb5ac890a403ec",
+    "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
+    "tests/fixtures/portable-combat-extensions.json": "286843374e7fa5e8735bc2501856ba6f8b3c01f42055cb2d138ee1e284e106d9",
+    "tests/fixtures/portable-autonomous.json": "0d97f8e8a848cfaf25d08e52414f1055d6a8807625f28bce3608a1726db6a5e9",
+    "scripts/run-metal-probe.swift": "af88fbd4fd947d8beb00d065e976e317bd8046d909ae6f681dd3c2138b933e08"
+  },
+  "metal_validation_sha256": {
+    "app/portable_resource_specs.py": "7b08e48b1a70f9aa2d35a3e3e9ae1bcd6a17e096edc55ce8b00e2383ea0ae9eb",
+    "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
+    "app/resource_specs.py": "de67874a373c94834d3fbe43d9be9d18ccc45e1e22f563f9e5d892b66ea07b85",
+    "app/resource_runtime.py": "8356943f18d137bfb90d60ab2096c2505403c9156f088cf29c7aeda38fecd58c",
+    "scripts/portable_resource_oracle.py": "6e8ab20b01c41618c554779f4f41eb6a693c14893da935e1cf2b382d7b6040d8",
+    "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4",
+    "app/portable_roster_input.py": "7f65ee49d9688b59493ec958584ff157312e259eadf269b55fba6af813265593",
+    "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
+    "app/portable_enemy_specs.py": "027f575ec84a2f872d01622281971f1f97919c82e705f8a484208cfa811b1804",
+    "app/portable_runtime.py": "694aad00624e4b843230dcb0ed637b04d1d9b611158a2368f85c5ab049026712",
+    "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
+    "app/portable_specs.py": "b60b4b707b4015d71b68e214d248e3010addc7643934bbfec387b1342aa77ade",
+    "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
+    "app/portable_backend.py": "ab722934db2e3b7ae228990c7f0555dcea079c624675fa735b7328fa62889ec0",
+    "app/portable_trigger_specs.py": "a20f8d96a514fb6217c3eba47bf4a569fc1c861bc8837519b56694580e55dda4",
+    "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
+    "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
+    "scripts/portable_pending_oracle.py": "5919e9b30ef2b97cfeee24d19eb080c522df2fb6b98c1555be2efdf5c68e3359",
+    "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
+    "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
+    "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
+    "scripts/portable_enemy_oracle.py": "562c7614a8ecc358c581b5d289ffc60531901e00d7f988fa890d33386e3883d6",
+    "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
+    "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
+    "scripts/portable_weapon_oracle.py": "f011a2e648b4a34eb4bc6db5053066fec4b236c472ca7cad2e92e5677ffcc1a1",
+    "scripts/verify-detail.py": "20de1868cf509afa5696af87d94db27974d97c8505702e40eed27886f7c09972",
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
+    "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
+    "scripts/verify-portable-combat.py": "feb096db920a0bfde1df46d70c0016f0283682e482e46ac8ca3db276003c4252",
+    "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
+    "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
+    "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
+    "tests/fixtures/portable-enemy-auto-aim.json": "494d24a29f565f4cbf2243ae94de40e3e42aa37a97aa119c4b1d32c1f7508ed3",
+    "tests/fixtures/portable-periodic-targets.json": "d81c7db7e3c17527ea04738940b9cd42eb389269b762d33ad4a163944c4d6506",
+    "scripts/portable_enemy_buff_oracle.py": "4811d1c4fb66c3bd8b49bfb2e170380e68bb77bab28d8d03d74b2c53ce437cee",
+    "tests/fixtures/portable-enemy-buffs.json": "d1112e9bc6f236f1af7ec39453b7ca4e3d2ea8a548e57a38368965ff9b9cfd85",
+    "research/portable-mode-session-contract.json": "8c31ba85469c0ba1374ba0682bbb34aa3bc03eef2840a6c052e7efe405b3f5aa",
+    "tests/fixtures/portable-buff-notices.json": "234bd8ad051a89f7382b67069e0cfdf5e479cc0c9de42ba3528ae3d493265fd8",
+    "tests/fixtures/portable-mode-sessions.json": "027dbc7c09af926d554359128a7aa6662d287123eb3534f3f911c5181fc11593",
+    "tests/fixtures/portable-ammo-modes.json": "bcf69144ed0706a9e8f85e22b8f98824fbc2309e54c4d8ddc5a0a9c4da4365a2",
+    "tests/fixtures/portable-ammo-instants.json": "69dad6e77c9eb72c06c3178197a2d5081ef4b0072a76f0fb5ce36e471dbdebb8",
+    "tests/fixtures/portable-burst-duration.json": "43b852e0e57886272ca1de313b48022218702946d96622de9af7c0359ecdb64b",
+    "tests/fixtures/portable-pending-burst.json": "da124167496dc414248c8abd737b7410b4fa0a1d50b5899f4ba7cb1c1bd1b941",
+    "tests/fixtures/portable-cover.json": "3b2cae16148429ef53243644607f63aca167ba013ec98bbb15948533cb829fc7",
+    "tests/fixtures/portable-enemy-damage.json": "3c2bcbb04f5f39d6400b7ca8ab147c0230fc98cc4b31e4ad1aec100ce4848f52",
+    "tests/fixtures/portable-burst-resources.json": "8d0f0ff8422c6b28c0c90d318569ff278b126c6e7a935b401861df0120fa13f7",
+    "tests/fixtures/portable-bullets.json": "ade37d6cad7cbfa3587542cf2095d8ab0c107bf443bc061281412146fedc6e65",
+    "tests/fixtures/portable-lazy.json": "1fb643957e6d9e830127c0c61a66bab058645689d643a83a39ac81d610987b46",
+    "tests/fixtures/portable-lazy-capacity-rejection.json": "a1c3ad623fc63459eaf29d0c1d4d2edfcba86d5bb284b30e0b65c7faba36324e",
+    "tests/fixtures/portable-carriers.json": "ce9c7185429262140b6e7d0fb3c4229512b6da14821bd814c0da8cf9076d1be7",
+    "tests/fixtures/portable-recipients.json": "bd64e66ab8edc35f799066a0bc619bd0ba1f86b22b7a31a83c5c86587222d5db",
+    "tests/fixtures/portable-capacity.json": "c46cea733604b295b43ddf6ff607320eba6887ce356f52620fefb882d0a2729a",
+    "tests/fixtures/portable-incoming.json": "fbd69208aeeba331eb5e8b73c073f03c95a16b35cbae8a1d27349fa343da60de",
+    "tests/fixtures/portable-hp-edges.json": "2342470a63a6a2a0505b81a0e6356a6254d9b4fc8c9d3db95bea334004a9d6f0",
+    "tests/fixtures/portable-health.json": "614201f346546358376038785f3196032efd3b0aa51276474da723a41267c365",
+    "tests/fixtures/portable-charge-control.json": "00b643a72ad7026de9cb122386cc3dce521ae13bc5813383886e637d635f4994",
+    "tests/fixtures/portable-quantities.json": "53affbf8b6cfb6b87639a4bfe1090c3b30a44596c09f7f334ee9073daad3a9fa",
+    "tests/fixtures/portable-weapons.json": "75960cd6b9daaf1315a03af930f193df2c637bff7b845cc9f19b524561f5f7bf",
+    "tests/fixtures/portable-damage.json": "ab596e0f01bb9f94ee9813c6027d46a85415b77d5a72c36e06b32bf45b6ac5c7",
+    "tests/fixtures/portable-triggers.json": "680d8d5e212f9604e23f895b141651114e8703a4051facd37deb5ac890a403ec",
+    "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
+    "tests/fixtures/portable-combat-extensions.json": "286843374e7fa5e8735bc2501856ba6f8b3c01f42055cb2d138ee1e284e106d9",
+    "tests/fixtures/portable-autonomous.json": "0d97f8e8a848cfaf25d08e52414f1055d6a8807625f28bce3608a1726db6a5e9",
+    "scripts/run-metal-probe.swift": "af88fbd4fd947d8beb00d065e976e317bd8046d909ae6f681dd3c2138b933e08"
+  },
+  "cuda_validation_sha256": {
+    "app/portable_resource_specs.py": "7b08e48b1a70f9aa2d35a3e3e9ae1bcd6a17e096edc55ce8b00e2383ea0ae9eb",
+    "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
+    "app/resource_specs.py": "de67874a373c94834d3fbe43d9be9d18ccc45e1e22f563f9e5d892b66ea07b85",
+    "app/resource_runtime.py": "8356943f18d137bfb90d60ab2096c2505403c9156f088cf29c7aeda38fecd58c",
+    "scripts/portable_resource_oracle.py": "6e8ab20b01c41618c554779f4f41eb6a693c14893da935e1cf2b382d7b6040d8",
+    "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4",
+    "app/portable_roster_input.py": "7f65ee49d9688b59493ec958584ff157312e259eadf269b55fba6af813265593",
+    "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
+    "app/portable_enemy_specs.py": "027f575ec84a2f872d01622281971f1f97919c82e705f8a484208cfa811b1804",
+    "app/portable_runtime.py": "694aad00624e4b843230dcb0ed637b04d1d9b611158a2368f85c5ab049026712",
+    "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
+    "app/portable_specs.py": "b60b4b707b4015d71b68e214d248e3010addc7643934bbfec387b1342aa77ade",
+    "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
+    "app/portable_backend.py": "ab722934db2e3b7ae228990c7f0555dcea079c624675fa735b7328fa62889ec0",
+    "app/portable_trigger_specs.py": "a20f8d96a514fb6217c3eba47bf4a569fc1c861bc8837519b56694580e55dda4",
+    "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
+    "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
+    "scripts/portable_pending_oracle.py": "5919e9b30ef2b97cfeee24d19eb080c522df2fb6b98c1555be2efdf5c68e3359",
+    "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
+    "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
+    "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
+    "scripts/portable_enemy_oracle.py": "562c7614a8ecc358c581b5d289ffc60531901e00d7f988fa890d33386e3883d6",
+    "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
+    "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
+    "scripts/portable_weapon_oracle.py": "f011a2e648b4a34eb4bc6db5053066fec4b236c472ca7cad2e92e5677ffcc1a1",
+    "scripts/verify-detail.py": "20de1868cf509afa5696af87d94db27974d97c8505702e40eed27886f7c09972",
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
+    "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
+    "scripts/verify-portable-combat.py": "feb096db920a0bfde1df46d70c0016f0283682e482e46ac8ca3db276003c4252",
+    "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
+    "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
+    "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
+    "tests/fixtures/portable-enemy-auto-aim.json": "494d24a29f565f4cbf2243ae94de40e3e42aa37a97aa119c4b1d32c1f7508ed3",
+    "tests/fixtures/portable-periodic-targets.json": "d81c7db7e3c17527ea04738940b9cd42eb389269b762d33ad4a163944c4d6506",
+    "scripts/portable_enemy_buff_oracle.py": "4811d1c4fb66c3bd8b49bfb2e170380e68bb77bab28d8d03d74b2c53ce437cee",
+    "tests/fixtures/portable-enemy-buffs.json": "d1112e9bc6f236f1af7ec39453b7ca4e3d2ea8a548e57a38368965ff9b9cfd85",
+    "research/portable-mode-session-contract.json": "8c31ba85469c0ba1374ba0682bbb34aa3bc03eef2840a6c052e7efe405b3f5aa",
+    "tests/fixtures/portable-buff-notices.json": "234bd8ad051a89f7382b67069e0cfdf5e479cc0c9de42ba3528ae3d493265fd8",
+    "tests/fixtures/portable-mode-sessions.json": "027dbc7c09af926d554359128a7aa6662d287123eb3534f3f911c5181fc11593",
+    "tests/fixtures/portable-ammo-modes.json": "bcf69144ed0706a9e8f85e22b8f98824fbc2309e54c4d8ddc5a0a9c4da4365a2",
+    "tests/fixtures/portable-ammo-instants.json": "69dad6e77c9eb72c06c3178197a2d5081ef4b0072a76f0fb5ce36e471dbdebb8",
+    "tests/fixtures/portable-burst-duration.json": "43b852e0e57886272ca1de313b48022218702946d96622de9af7c0359ecdb64b",
+    "tests/fixtures/portable-pending-burst.json": "da124167496dc414248c8abd737b7410b4fa0a1d50b5899f4ba7cb1c1bd1b941",
+    "tests/fixtures/portable-cover.json": "3b2cae16148429ef53243644607f63aca167ba013ec98bbb15948533cb829fc7",
+    "tests/fixtures/portable-enemy-damage.json": "3c2bcbb04f5f39d6400b7ca8ab147c0230fc98cc4b31e4ad1aec100ce4848f52",
+    "tests/fixtures/portable-burst-resources.json": "8d0f0ff8422c6b28c0c90d318569ff278b126c6e7a935b401861df0120fa13f7",
+    "tests/fixtures/portable-bullets.json": "ade37d6cad7cbfa3587542cf2095d8ab0c107bf443bc061281412146fedc6e65",
+    "tests/fixtures/portable-lazy.json": "1fb643957e6d9e830127c0c61a66bab058645689d643a83a39ac81d610987b46",
+    "tests/fixtures/portable-lazy-capacity-rejection.json": "a1c3ad623fc63459eaf29d0c1d4d2edfcba86d5bb284b30e0b65c7faba36324e",
+    "tests/fixtures/portable-carriers.json": "ce9c7185429262140b6e7d0fb3c4229512b6da14821bd814c0da8cf9076d1be7",
+    "tests/fixtures/portable-recipients.json": "bd64e66ab8edc35f799066a0bc619bd0ba1f86b22b7a31a83c5c86587222d5db",
+    "tests/fixtures/portable-capacity.json": "c46cea733604b295b43ddf6ff607320eba6887ce356f52620fefb882d0a2729a",
+    "tests/fixtures/portable-incoming.json": "fbd69208aeeba331eb5e8b73c073f03c95a16b35cbae8a1d27349fa343da60de",
+    "tests/fixtures/portable-hp-edges.json": "2342470a63a6a2a0505b81a0e6356a6254d9b4fc8c9d3db95bea334004a9d6f0",
+    "tests/fixtures/portable-health.json": "614201f346546358376038785f3196032efd3b0aa51276474da723a41267c365",
+    "tests/fixtures/portable-charge-control.json": "00b643a72ad7026de9cb122386cc3dce521ae13bc5813383886e637d635f4994",
+    "tests/fixtures/portable-quantities.json": "53affbf8b6cfb6b87639a4bfe1090c3b30a44596c09f7f334ee9073daad3a9fa",
+    "tests/fixtures/portable-weapons.json": "75960cd6b9daaf1315a03af930f193df2c637bff7b845cc9f19b524561f5f7bf",
+    "tests/fixtures/portable-damage.json": "ab596e0f01bb9f94ee9813c6027d46a85415b77d5a72c36e06b32bf45b6ac5c7",
+    "tests/fixtures/portable-triggers.json": "680d8d5e212f9604e23f895b141651114e8703a4051facd37deb5ac890a403ec",
+    "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
+    "tests/fixtures/portable-combat-extensions.json": "286843374e7fa5e8735bc2501856ba6f8b3c01f42055cb2d138ee1e284e106d9",
+    "tests/fixtures/portable-autonomous.json": "0d97f8e8a848cfaf25d08e52414f1055d6a8807625f28bce3608a1726db6a5e9",
+    "scripts/run-metal-probe.swift": "af88fbd4fd947d8beb00d065e976e317bd8046d909ae6f681dd3c2138b933e08"
+  },
+  "input_words": 57344,
+  "output_words": 65536,
+  "batch_capacity": 1024,
+  "definition_capacity": 256,
+  "carrier_capacity": 512,
+  "normal_ui_connected": false,
+  "cpu_fallback": false,
+  "normal_ui_backend": "cpu",
+  "cpu_trace_used_as_gpu_input": false,
+  "experimental_real_prepared_input_connected": true,
+  "gpu_timeline_connected": true,
+  "autonomous_battle_connected": false,
+  "all_characters_supported": false,
+  "full_goal_complete": false,
+  "catalog_characters": 203,
+  "catalog_definition_audits": 203,
+  "full_character_verified": 0,
+  "catalog_readiness": "portable-catalog-readiness.json",
+  "own_effect_preflight_passed": 26,
+  "weapon_input_preflight_passed": 203,
+  "weapon_only_metal_verified": true,
+  "weapon_only_report": "portable-catalog-weapons-metal.json",
+  "real_equipment_initialization_squads": 203,
+  "real_equipment_report": "portable-real-equipment-metal.json",
+  "real_fixed_squad": {
+    "report": "portable-real-battle-metal.json",
+    "cases": 8
+  },
+  "real_roster_profiles": {
+    "report": "portable-roster-battles-metal.json",
+    "candidates": [
+      "아니스 : 스파클링 서머",
+      "미란다",
+      "미카",
+      "브리드",
+      "솔린",
+      "리타",
+      "은화",
+      "드레이크",
+      "N102",
+      "메어리",
+      "메어리 : 베이 갓데스",
+      "프림",
+      "율리아",
+      "미하라",
+      "애드미",
+      "도라",
+      "노벨",
+      "이사벨",
+      "누아르",
+      "루주",
+      "프로덕트 12",
+      "iDoll 오션",
+      "퀀시 : 이스케이프 퀸",
+      "히메노",
+      "파스칼",
+      "사쿠라 (SR)"
+    ],
+    "required_cases": 52,
+    "passed_cases": 52,
+    "overall_passed": true,
+    "scope": "Every own-effect-preflight candidate, two 180-second simple-boss auto/expected profiles, favorite0/no cube; not all variants or full catalog"
+  },
+  "regressions": {
+    "resource_cpu_references": 32,
+    "periodic_target_cpu_references": 29,
+    "enemy_buff_cpu_references": 55,
+    "named_buff_cpu_references": 22,
+    "mode_session_cpu_references": 16,
+    "ammo_instant_cpu_references": 96,
+    "burst_duration_cpu_references": 30,
+    "pending_controller_cpu_references": 29,
+    "cover_cpu_references": 32,
+    "enemy_component_cpu_references": 144,
+    "burst_cpu_references": 31,
+    "bullet_cpu_references": 33,
+    "lazy_cpu_references": 26,
+    "carrier_cpu_references": 41,
+    "capacity_cpu_references": 12,
+    "health_cpu_references": 156,
+    "weapon_cpu_references": 81,
+    "damage_cpu_references": 37,
+    "trigger_cpu_references": 15,
+    "portable_unit_tests": 71,
+    "http_resource_cases": 4,
+    "existing_mechanic_parity": 866,
+    "existing_real_profile_parity": 52
+  },
+  "windows_checks_this_stage": 1,
+  "windows_execution": {
+    "command": "python scripts/verify-portable-combat.py --backend cuda",
+    "commit": "fb0fb311574ed8fb38cc229fc455462b9a639062",
+    "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
+    "original_status_before": [],
+    "gpu_before": "35, 4731",
+    "below_normal_priority": true,
+    "python_utf8": true,
+    "python_dontwritebytecode": true,
+    "trace_preflight": {
+      "trace_is_none": true,
+      "profile_is_none": true,
+      "sitecustomize_loaded": false,
+      "pythonpath_removed": true,
+      "exit_code": 0
+    },
+    "pythonpath_removed": true,
+    "diagnostic_hook_enabled": false,
+    "timeout_seconds": 120,
+    "existing_gpu_service_preserved": true,
+    "busy_skip_disabled_by_explicit_instruction": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 58.924736000131816,
+    "stdout": "{\"passed\": true, \"cases\": 898, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "stderr": ""
+  },
+  "windows_postcheck": {
+    "remaining_verification_processes": 0,
+    "original_head_after": "61a43e91301841c272badce519e4d8984bb5efae",
+    "original_status_after": []
+  },
+  "cuda_comparison": {
+    "report": "windows-portable-combat-v33.json",
+    "all_source_input_output_validation_hashes_match": true,
+    "all_case_status_and_reference_lists_match": true
+  },
+  "generated_source_comparison": "portable-generated-v33-comparison.json",
+  "metal_stage_deadlines": {
+    "compile_lock_and_pipeline_seconds": 300,
+    "gpu_seconds": 120,
+    "configured_threads_per_group": 1,
+    "dispatch_threads_per_group": 1,
+    "tests": 5,
+    "cold_compile_report": "portable-resources-focused-metal.json",
+    "cold_pipeline_compile_seconds": 74.69419205188751,
+    "windows_verification_timeout_unchanged": 120
+  },
+  "resource_quantities_connected": true,
+  "resource_cases": 32,
+  "resource_all_new_cases_native_referenced": true,
+  "resource_count_capacity": 256,
+  "resource_owner_count": 5,
+  "resource_notifications_gpu_owned": true,
+  "resource_boundary_snapshot_and_sorted_union": true,
+  "resource_modulo_avoids_int64_narrowing": true,
+  "resource_actual_spend_survives_subtraction_cancellation": true,
+  "resource_raw_cap_literal_integer_precision_guard": true,
+  "resource_cap_compensated_sum": true,
+  "resource_marker_does_not_intercept_charge": true,
+  "resource_down_preserves_presence_and_base_cap": true,
+  "resource_input_stride_growth_words": 4096,
+  "resource_output_stride_growth_words": 12288,
+  "resource_runtime_private_arrays_added": 0,
+  "resource_runtime_definition_fields_added": 0,
+  "resource_output_owned_state_words": 6400,
+  "resource_output_owned_index_words": 3328,
+  "resource_runtime_allocation_growth_measured": false,
+  "resource_equivalence": {
+    "report": "portable-resources-equivalence.json",
+    "positive_cases": 898,
+    "rejections": 124,
+    "all_output_words_equal": true
+  },
+  "resource_unit_report": "portable-resource-unit-tests.json",
+  "resource_native_witness": "portable-resource-native-witness.json",
+  "resource_existing_parity": "portable-resource-existing-parity.json",
+  "resource_validation_receipt": "portable-resource-validation.json",
+  "resource_initial_compiler_failures": [
+    "portable-resources-initial-compile.json",
+    "portable-resources-second-compile.json",
+    "portable-resources-third-compile.json"
+  ],
+  "resource_api_cases": 4,
+  "resource_index_benchmark": {
+    "before": 3.664991458354052,
+    "after": 3.248773999977857,
+    "ratio": 0.886434262369845,
+    "before_samples": [
+      3.6585215000086464,
+      3.664991458354052,
+      3.679922500043176
+    ],
+    "after_samples": [
+      3.253437999985181,
+      3.248773999977857,
+      3.2432706666877493
+    ],
+    "input_output_hashes_match": true,
+    "scope": "64 programs, 256 definitions, one resource charge and notification every 0.05 seconds for 60 seconds; 1200 notifications each, zero damage; not full battle or catalog",
+    "source_commit": "fb0fb311574ed8fb38cc229fc455462b9a639062",
+    "measurement_context": "Variants ran strictly sequentially after verification jobs and saved Windows transfer completed. Unrelated desktop GPU activity is not claimed excluded."
+  },
+  "known_cpu_differences": [
+    {
+      "name": "equipment-display-name-does-not-collapse-quantity-components",
+      "reason": "Pinned CPU collapses distinct equipment components by display name before quantity grouping",
+      "actual_cpu_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 7,
+                "shots": 1,
+                "next": 1.0,
+                "reload_until": -1.0
+              }
+            ]
+          }
+        }
+      ],
+      "expected_cpu_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "shots": 1,
+                "ammo": 7
+              }
+            ]
+          }
+        }
+      ],
+      "expected_gpu_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "shots": 1,
+                "ammo": 8
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "known_health_cpu_differences": [
+    {
+      "name": "max-hp-expiry-clamps-to-current-maximum",
+      "reason": "Pinned CPU does not clamp current HP when a max_hp_pct carrier expires",
+      "actual_cpu_queries": [
+        {
+          "allies": [
+            {
+              "hp": 1500.0,
+              "max_hp": 1500.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 400,
+              "max_hp": 2000.0,
+              "hp_pct": 20.0,
+              "defense": 200.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 3000,
+              "max_hp": 3000.0,
+              "hp_pct": 100.0,
+              "defense": 300.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 2000,
+              "max_hp": 4000.0,
+              "hp_pct": 50.0,
+              "defense": 400.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 5000,
+              "max_hp": 5000.0,
+              "hp_pct": 100.0,
+              "defense": 500.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            }
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "allies": [
+            {
+              "hp": 1500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 400,
+              "max_hp": 2000.0,
+              "hp_pct": 20.0,
+              "defense": 200.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 3000,
+              "max_hp": 3000.0,
+              "hp_pct": 100.0,
+              "defense": 300.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 2000,
+              "max_hp": 4000.0,
+              "hp_pct": 50.0,
+              "defense": 400.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 5000,
+              "max_hp": 5000.0,
+              "hp_pct": 100.0,
+              "defense": 500.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            }
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "expected_cpu_queries": [
+        {
+          "allies": [
+            {
+              "hp": 1500,
+              "max_hp": 1500
+            }
+          ]
+        },
+        {
+          "allies": [
+            {
+              "hp": 1500,
+              "max_hp": 1000
+            }
+          ]
+        }
+      ],
+      "expected_gpu_queries": [
+        {
+          "allies": [
+            {
+              "hp": 1500,
+              "max_hp": 1500
+            }
+          ]
+        },
+        {
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 1000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "maximum-hp-expiry-can-reach-adjacent-full",
+      "reason": "Pinned CPU leaves stale hp_pct after max_hp_only_pct expiry and misses adjacent-full transition",
+      "actual_cpu_queries": [
+        {
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 2000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            }
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            }
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "expected_cpu_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 2000,
+              "hp_pct": 50
+            }
+          ]
+        },
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 1000,
+              "hp_pct": 50
+            }
+          ]
+        }
+      ],
+      "expected_gpu_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 2000,
+              "hp_pct": 50
+            }
+          ]
+        },
+        {
+          "attack_buffs": [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 1000,
+              "hp_pct": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lazy-max-hp-first-consumption-and-derived-percentage",
+      "reason": "Pinned CPU does not resynchronize hp_pct after a lazy maximum-HP buff resolves during get_buffs; GPU synchronizes the derived percentage on the next observation.",
+      "actual_cpu_queries": [
+        {
+          "allies": [
+            {
+              "hp": 500,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 0.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 200,
+              "max_hp": 1000.0,
+              "hp_pct": 20.0,
+              "defense": 0.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 800,
+              "max_hp": 1000.0,
+              "hp_pct": 80.0,
+              "defense": 0.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 200,
+              "max_hp": 1000.0,
+              "hp_pct": 20.0,
+              "defense": 0.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 900,
+              "max_hp": 1000.0,
+              "hp_pct": 90.0,
+              "defense": 0.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            }
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "allies": [
+            {
+              "hp": 500,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 0.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 200,
+              "max_hp": 1100.0,
+              "hp_pct": 20.0,
+              "defense": 0.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 800,
+              "max_hp": 1000.0,
+              "hp_pct": 80.0,
+              "defense": 0.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 200,
+              "max_hp": 1000.0,
+              "hp_pct": 20.0,
+              "defense": 0.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            },
+            {
+              "hp": 900,
+              "max_hp": 1000.0,
+              "hp_pct": 90.0,
+              "defense": 0.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 0
+            }
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "expected_cpu_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {},
+            {
+              "hp": 200,
+              "max_hp": 1100,
+              "hp_pct": 20
+            }
+          ]
+        }
+      ],
+      "expected_gpu_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {},
+            {
+              "hp": 200,
+              "max_hp": 1100,
+              "hp_pct": 18.181818181818183
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bullet-expiry-clamps-current-hp-to-new-maximum",
+      "reason": "Pinned CPU leaves current HP above the new maximum after bullet exhaustion; shared GPU preserves the existing current-HP clamp contract.",
+      "actual_cpu_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 9,
+                "shots": 1
+              },
+              {
+                "ammo": 1,
+                "shots": 0
+              },
+              {
+                "ammo": 1,
+                "shots": 0
+              },
+              {
+                "ammo": 1,
+                "shots": 0
+              },
+              {
+                "ammo": 1,
+                "shots": 0
+              }
+            ]
+          },
+          "allies": [
+            {
+              "hp": 1500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0
+            }
+          ]
+        },
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 8,
+                "shots": 2
+              },
+              {
+                "ammo": 1,
+                "shots": 0
+              },
+              {
+                "ammo": 1,
+                "shots": 0
+              },
+              {
+                "ammo": 1,
+                "shots": 0
+              },
+              {
+                "ammo": 1,
+                "shots": 0
+              }
+            ]
+          },
+          "allies": [
+            {
+              "hp": 1500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0
+            }
+          ]
+        }
+      ],
+      "expected_cpu_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1500,
+              "max_hp": 1000,
+              "hp_pct": 100
+            }
+          ]
+        },
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1500,
+              "max_hp": 1000,
+              "hp_pct": 100
+            }
+          ]
+        }
+      ],
+      "expected_gpu_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 1000,
+              "hp_pct": 100
+            }
+          ]
+        },
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 1000,
+              "hp_pct": 100
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "known_mode_cpu_differences": [
+    {
+      "name": "mode-expiry-end-child-starts-fresh-session",
+      "reason": "Pinned CharState._in_weapon_change never observes the expired gap when the end callback immediately creates a child mode. GAMEPLAY.md:577-578 requires a new mode magazine and fresh charge; keep the pre-existing shared fresh-session expectation.",
+      "contract": "research/portable-mode-session-contract.json",
+      "differences": [
+        {
+          "query": 1,
+          "path": [
+            "combat",
+            "weapons",
+            0,
+            "ammo"
+          ],
+          "cpu": 999997,
+          "gpu": 999998
+        },
+        {
+          "query": 1,
+          "path": [
+            "combat",
+            "weapons",
+            0,
+            "mode_shots"
+          ],
+          "cpu": 2,
+          "gpu": 1
+        },
+        {
+          "query": 1,
+          "path": [
+            "combat",
+            "weapons",
+            0,
+            "next"
+          ],
+          "cpu": 0.5,
+          "gpu": 0.75
+        }
+      ],
+      "actual_cpu_queries": [
+        {
+          "combat": {
+            "full_end": 0,
+            "last_b3_caster": -1,
+            "last_b3_cast_time": -1.0,
+            "last_full_start": -1.0,
+            "phase": 0,
+            "gauge": 0,
+            "gauge_charging": true,
+            "cast_mask": 0,
+            "casts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cooldown_wait_mask": 0,
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "weapons": [
+              {
+                "ready": 0.0,
+                "ammo": 999998,
+                "shots": 1,
+                "reload_until": -1.0,
+                "next": 0.25,
+                "mode_shots": 1,
+                "mode_index": 1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              }
+            ]
+          },
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "combat": {
+            "full_end": 0,
+            "last_b3_caster": -1,
+            "last_b3_cast_time": -1.0,
+            "last_full_start": -1.0,
+            "phase": 0,
+            "gauge": 0,
+            "gauge_charging": true,
+            "cast_mask": 0,
+            "casts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cooldown_wait_mask": 0,
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "weapons": [
+              {
+                "ready": 0.0,
+                "ammo": 999997,
+                "shots": 2,
+                "reload_until": -1.0,
+                "next": 0.5,
+                "mode_shots": 2,
+                "mode_index": 1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              }
+            ]
+          },
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "combat": {
+            "full_end": 0,
+            "last_b3_caster": -1,
+            "last_b3_cast_time": -1.0,
+            "last_full_start": -1.0,
+            "phase": 0,
+            "gauge": 0,
+            "gauge_charging": true,
+            "cast_mask": 0,
+            "casts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cooldown_wait_mask": 0,
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "weapons": [
+              {
+                "ready": 0.0,
+                "ammo": 9,
+                "shots": 3,
+                "reload_until": -1.0,
+                "next": 1.25,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              }
+            ]
+          },
+          "damage": [
+            5000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    }
+  ],
+  "next_work": [
+    "Connect resource-based scaling and resource-referenced hit counts to the same shared GPU quantities, retaining native notifications and numerical boundaries",
+    "Connect world scheduling and remaining damage/control/survival, lifecycle, weapon, healing and equipment effects",
+    "Verify all 203 characters and all authored variants with full real battles, then connect normal UI Metal execution",
+    "Optimize each new shared mechanism only with bounded sequential measurements and exact output equality"
+  ],
+  "missing_families": {
+    "damage_modifiers": 136,
+    "effect_lifecycle": 93,
+    "weapon": 69,
+    "damage": 62,
+    "protection": 50,
+    "control_survival": 44,
+    "healing": 29,
+    "resource_accumulation": 16,
+    "charge": 15,
+    "ammo_reload": 15,
+    "burst_cooldown": 13,
+    "healing_buffers": 9,
+    "hp": 8,
+    "character_state": 5
+  },
+  "unsupported_damage_definitions": 62,
+  "unchanged_prior_verifications": {
+    "numeric": {
+      "report": "portable-numeric-metal.json",
+      "rerun": false,
+      "dependency_fingerprints_revalidated": true
+    },
+    "probe": {
+      "report": "portable-probe-metal.json",
+      "rerun": false,
+      "dependency_fingerprints_revalidated": true
+    },
+    "scope": "Independent existing primitive reports; not new GPU executions or full character certification"
+  }
+}

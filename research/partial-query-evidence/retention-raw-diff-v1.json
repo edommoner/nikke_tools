@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "prior_inputs": 1516,
+  "prior_input_native_fingerprints_preserved": true,
+  "unchanged_raw_inputs": 1512,
+  "changed_raw_inputs": 4,
+  "all_raw_changes": [
+    {
+      "index": 1338,
+      "name": "squad-stage-retention/aimed-area-retention/aimed-factor-retention/interrupt-aim-retention/ordered-history-retention/ordered-history-battles/late-attack-random/late-attack-random-first-capped-heal",
+      "words": [
+        {
+          "word": 785448,
+          "before": 160,
+          "after": 154
+        }
+      ]
+    },
+    {
+      "index": 1354,
+      "name": "squad-stage-retention/aimed-area-retention/aimed-factor-retention/interrupt-aim-retention/ordered-history-retention/ordered-history-battles/state-focus-rosters/state-focus-real/\ub9b4\ub9ac/30s",
+      "words": [
+        {
+          "word": 785448,
+          "before": 25915,
+          "after": 25911
+        }
+      ]
+    },
+    {
+      "index": 1382,
+      "name": "squad-stage-retention/aimed-area-retention/aimed-factor-retention/interrupt-aim-retention/mixed-query/mixed-query-focus-heal",
+      "words": [
+        {
+          "word": 785448,
+          "before": 155,
+          "after": 149
+        }
+      ]
+    },
+    {
+      "index": 1384,
+      "name": "squad-stage-retention/aimed-area-retention/aimed-factor-retention/interrupt-aim-retention/mixed-query/mixed-query-focus-heal-parts",
+      "words": [
+        {
+          "word": 785448,
+          "before": 163,
+          "after": 157
+        }
+      ]
+    }
+  ],
+  "new17_individual_full_raw_identical": true,
+  "old_output_sha256": "46b9d82bde569d67c47be99273e98ce63aec1816cff3731aabf4f598869f4ac9",
+  "new_output_sha256": "ebd307f48dae6a80b9d7d764f5798e484d5ab9fde8fe7e40e1bcdf5ad8776be3",
+  "scope": "Complete raw difference inventory; interpretation requires source review, not an exclusion mask"
+}

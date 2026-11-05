@@ -1,0 +1,32 @@
+[
+  {
+    "pattern": "test_coordinate_sample_v1.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.6586472919443622,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 87516
+  },
+  {
+    "pattern": "test_coordinate_sampling_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.2655067499727011,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 87516
+  },
+  {
+    "pattern": "test_coordinate_sampling_bank.py",
+    "exit_code": 1,
+    "elapsed_seconds": 0.195580166997388,
+    "tests": 6,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 87516
+  }
+]

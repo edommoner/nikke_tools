@@ -1,0 +1,13 @@
+{
+  "gpu_calls": 0,
+  "initial_round_failure": "All9039 numeric outputs matched; the probe returned rejection1, while shared transport requires64. Corrected external status only; preserved original capture.",
+  "cache_v1_cpu_failure": "Duplicate-label test expected the later adapter message, but the existing typed Actor compiler rejected the duplicate earlier. Corrected the assertion and tested cross-kind label rejection. No GPU claim consumed.",
+  "cache_v2": "CPU72 passed. Added closed base negative-zero case and stored actual Shape radius in the cache signature before first cache GPU run.",
+  "preparation_corrections": [
+    "Kept long-charge controls within existing180-second scalar bound.",
+    "Extended the capacity witness to30seconds so its actual unique key count exceeds231. Workloads were never reduced to fit storage.",
+    "Literal weapon spread IR and native metadata are now checked for agreement before GPU.",
+    "Metadata-only native test calls now supply real compiled descriptors for cache signature mapping."
+  ],
+  "scope": "Existing numeric/effect/reference gates remain strict; canonical CPU sources are unchanged."
+}

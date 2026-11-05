@@ -1,0 +1,45 @@
+{
+  "input_sha256": "e3c776a6403e28b0180a7f158f6cc736d095e960b07279f1b5c93f8140e2f331",
+  "output_sha256": "eac2058d3cca7ca942b9cc1f56efb34782363362cd757fd8593bf77536304b35",
+  "source_sha256": {
+    "gpu/dispatch_frame_storage_probe.slang": "788a9c2f451e9988df0465ba8d0fc897bf800d2ddd297479af23781984ef2d99",
+    "gpu/dispatch_frame_type.slang": "738d14f32df909b685e275fc985caf10df2b9eafc56b2f69be850e07fc8995d3",
+    "gpu/dispatch_frame_storage.slang": "eb3615a6f4a3bc1b24f1d1eaaf4946af86be4c10198ad7d9fe6517b59da9ac1b"
+  },
+  "entries": [
+    {
+      "name": "dispatch-frame-storage/0",
+      "input_sha256": "b393978842a0fa3d3e1470196f098f473f9678e72463cb65ec4ab5581856c2e4",
+      "output_sha256": "2a59681d53927d68ea59f26e7d5b4620608585607dc844ddb60aaf3e1406d991",
+      "native_sha256": "96b490f7032735ed5d878053295dbed681825d421b3146002ee048a5c61afdac"
+    },
+    {
+      "name": "dispatch-frame-storage/1",
+      "input_sha256": "b2bf2314b5e2a891a6be3998632f589ff0a8a31cde25e47f4f8152d988916ef3",
+      "output_sha256": "0273ba73a646e9565e0a8f47ea9d61a42e1957763b89da706a615708f442cd5f",
+      "native_sha256": "91e6d7630faf564df141d16fab768a18b03e4b6fc1b04df1cd9d865f21e33dfd"
+    },
+    {
+      "name": "dispatch-frame-storage/2",
+      "input_sha256": "0b338fd7396e4b4b7c3eb4af53af01511a4893e74934a169ec74c992bed068ad",
+      "output_sha256": "c7706ce58ad80ec0162ad9fc421165a63f10266364d8df52bebab964df8aa5bc",
+      "native_sha256": "054ad95e34d4bbe23139ffbd28a899ee69e8d97ee521baa79769b336be3ac69b"
+    },
+    {
+      "name": "dispatch-frame-storage/3",
+      "input_sha256": "83412e91c785a7fc88e7f9c139d94596a8dd33777886457b0b26b4cf4404c1e8",
+      "output_sha256": "dffcd4cef6e4632e9546e6c790edbdceeb334b5ec4402d24571c2dd024747d58",
+      "native_sha256": "90e012fb2c90682f761981f85ad7a07d1f123a83f64941d5b39817592741336b"
+    },
+    {
+      "name": "dispatch-frame-storage/4",
+      "input_sha256": "90d3d1ffe995a6e40fd6f1970dced1cb2e5233141f535f9f1996b5b6afe31f70",
+      "output_sha256": "6bb08261f8459426ca78ac77020aa6ed17834c72fbbccb6a8efb8e91c8d382bf",
+      "native_sha256": "eaed52b78c5f65ba3455228dd4bd5481e6c45ed18504cc74bc9d13a65ec30580"
+    }
+  ],
+  "generated_normalized": {
+    "cuda": "2ee21141f52818c4ca1d6201a4a21079d8c56edef117fdc1593e9b28c99e013c",
+    "metal": "833643f725f0a6b5b8859cc8214cf0f53ea73be9e33df9d01edf53f83bd96da1"
+  }
+}

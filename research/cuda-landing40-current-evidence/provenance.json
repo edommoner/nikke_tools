@@ -1,0 +1,10 @@
+{
+  "github_commit": "6ed21084aac27cafbc220c8ce0e8cdf59c5221bb",
+  "github_branch": "codex/cuda-landing40-current-report",
+  "source": "Windows saved-file diagnostic summary; underlying CUBIN and full Job captures retained on Windows, not independently audited on Mac",
+  "report_blobs_verified_on_mac": true,
+  "package_input_and_generated_normalized_match_mac": true,
+  "calculation_verified": false,
+  "full_battle_verified": false,
+  "cause_unknown": true
+}

@@ -1,0 +1,236 @@
+{
+  "development_package": {
+    "package_id": "981e71beb7a30043f3a2c492aa351e5a26bb4f44b446c6115d9d45107887b6c9",
+    "files": 1780,
+    "bytes": 4526685,
+    "archive_sha256": "890ef327fc5d651b3e1bfea2d4904929e38f65bf0b1dc3d98d8f5ee9764cb30a",
+    "source_commit": "a9366fb5ca1dd1737aab01a8445571113e29dd2b"
+  },
+  "metal": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": true,
+    "preservation_verified": null,
+    "passed": true,
+    "containment_verified": true,
+    "comparison_error": null,
+    "first_difference": null,
+    "phase": {
+      "events": 6,
+      "last_event": {
+        "monotonic_ns": 694711394842500,
+        "pid": 3050,
+        "stage": "shared_native_compare",
+        "state": "returned",
+        "wall_time_ns": 1792595561467072000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 428,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "gpu_seconds": 8.339457624941133,
+    "input_bytes": 178732804,
+    "library_compile_seconds": 1.1119630336761475,
+    "output_bytes": 1346371584,
+    "pipeline_compile_seconds": 9.732110977172852,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "bounded": {
+    "passed": true,
+    "timed_out": false,
+    "timeout_seconds": 180,
+    "elapsed_seconds": 53.365146166062914,
+    "child_exit_code": 0,
+    "final_child_exit_code": 0,
+    "error": null,
+    "cleanup_error": null,
+    "cleanup_wait_seconds": 5,
+    "observation_error": null,
+    "wait_completed_unix_ns": 1792595561635467000,
+    "below_normal_priority": false,
+    "phase": {
+      "events": 6,
+      "last_event": {
+        "monotonic_ns": 694711394842500,
+        "pid": 3050,
+        "stage": "shared_native_compare",
+        "state": "returned",
+        "wall_time_ns": 1792595561467072000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retry_count": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false
+  },
+  "cpu_preflight": {
+    "passed": true,
+    "input_count": 428,
+    "native_oracles": 341,
+    "input_sha256": "102dffbc18572fc562421bd462d40e613f4e0728c88a8d84922a2e203a10ff46",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 24.02797245804686
+  },
+  "cpu_groups": [
+    {
+      "pattern": "test_portable_regression_adapter.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.874997082981281
+    },
+    {
+      "pattern": "test_portable_roster_regression.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0437999160494655
+    },
+    {
+      "pattern": "test_portable_readiness.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.2034589160466567
+    },
+    {
+      "pattern": "test_portable_stun.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.378856624942273
+    },
+    {
+      "pattern": "test_portable_typed_recipient_delegation.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.05431554198730737
+    },
+    {
+      "pattern": "test_portable_skill_cooldown.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.828066874993965
+    },
+    {
+      "pattern": "test_portable_healing_storage.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.282808250049129
+    },
+    {
+      "pattern": "test_portable_trigger_reduction.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.580037541920319
+    },
+    {
+      "pattern": "test_portable_skill_critical.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.1861585829174146
+    },
+    {
+      "pattern": "test_portable_skill_interval.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.2464218749664724
+    },
+    {
+      "pattern": "test_portable_skill_interval_flat.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.9662659160094336
+    },
+    {
+      "pattern": "test_portable_lazy_bank.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.5671442500315607
+    },
+    {
+      "pattern": "test_portable_compiler_stats.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.056443459005095065
+    }
+  ],
+  "generation": {
+    "gpu/event_runtime.slang": {
+      "cuda": {
+        "bytes": 1001529,
+        "sha256": "ff98baa61897f88afd4fc00538e9b2e926e6592c7cbe6a66f44ce64180d79167",
+        "legacy_all_bytes_equal": true
+      },
+      "metal": {
+        "bytes": 1014317,
+        "sha256": "85859ef0780dfb83918f3cf7e9e71e10972f4d45b7d9fcf9158acca2a7ccb8e1",
+        "legacy_all_bytes_equal": true
+      }
+    },
+    "gpu/world_roster_entry.slang": {
+      "cuda": {
+        "bytes": 1552750,
+        "sha256": "6d37ccd6d864498823e824114819039613997ea6c1e589a100ab5c162560160c",
+        "legacy_all_bytes_equal": true
+      },
+      "metal": {
+        "bytes": 1591109,
+        "sha256": "7e8a31974c9bf4a04a859baa10c52025fce7b048f5ae55589e7248b70bf5e13a",
+        "legacy_all_bytes_equal": true
+      }
+    },
+    "gpu/world_projectile_entry.slang": {
+      "cuda": {
+        "bytes": 1564802,
+        "sha256": "fc8e7ea003c96f9805da590fea9bfd0577cf08499cd77d440ceb49ebd2820e78"
+      },
+      "metal": {
+        "bytes": 1603732,
+        "sha256": "20a7614e4ad34554d3c7053afedb518dddd52d45c0a81c2e75e4c4ac40f64b60"
+      },
+      "runtime_storage": {
+        "symbol": "Runtime_0",
+        "members": 246,
+        "declared_member_bytes": 138896,
+        "scalar_aligned_size_estimate_bytes": 138928,
+        "cuda_abi_verified": false,
+        "scope": "Explicit uint/int32,ulonglong64 and FixedArray payloads. Alignment model is an estimate; not compiler memory, PTX local storage, registers or performance"
+      }
+    }
+  },
+  "seal": {
+    "sealed": true,
+    "gpu_calls": 0,
+    "package_id": "981e71beb7a30043f3a2c492aa351e5a26bb4f44b446c6115d9d45107887b6c9",
+    "input_count": 428,
+    "golden": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-world-lazy-bank-regression-short-expected.json"
+  },
+  "retention": "research/portable-lazy-bank-retention.json",
+  "windows_compile_dispatched": false,
+  "compiler_improvement_verified": false,
+  "cuda_calculation_verified": false,
+  "full_goal_complete": false,
+  "coverage": {
+    "static_profiles": 193,
+    "total_profiles": 266,
+    "base_characters": 134,
+    "total_base": 203,
+    "full_gpu_certified": 0
+  },
+  "final_cpu_tests": {
+    "tests": 690,
+    "skipped": 1,
+    "failures": 0,
+    "seconds": 37.441,
+    "log": "/tmp/nikke-lazy-bank-final-tests.log"
+  }
+}

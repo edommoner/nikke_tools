@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "scope": "Windows peer read-only exit evidence; not an independent Mac raw audit",
+  "source": "5c4bfcdebf52122cef1773deae7db58063542ec1",
+  "receipt_path": "C:/Users/owner/Documents/Codex/nikke-scope-fix-5c4bfcd-process-cpu/exit-receipt.json",
+  "receipt_sha256": "1f06a528391aa3780416a1d79741736b2a80b390f972d4c9b0c5485a180bc271",
+  "records": [
+    {
+      "pid": 121428,
+      "creation_filetime_ticks": "134371348980481714",
+      "exit_filetime_ticks": "134371370650251081",
+      "exit_unix_ns": "1792663465025108100",
+      "exit_code": 1,
+      "wait_signaled": true,
+      "cim_creation_microsecond_floor_matches": true
+    },
+    {
+      "pid": 126576,
+      "creation_filetime_ticks": "134371348980660406",
+      "exit_filetime_ticks": "134371370650302427",
+      "exit_unix_ns": "1792663465030242700",
+      "exit_code": 1,
+      "wait_signaled": true,
+      "cim_creation_microsecond_floor_matches": true
+    },
+    {
+      "pid": 121280,
+      "creation_filetime_ticks": "134371348980889699",
+      "exit_filetime_ticks": "134371370650295402",
+      "exit_unix_ns": "1792663465029540200",
+      "exit_code": 1,
+      "wait_signaled": true,
+      "cim_creation_microsecond_floor_matches": true
+    },
+    {
+      "pid": 120016,
+      "creation_filetime_ticks": "134371348981337829",
+      "exit_filetime_ticks": "134371370650302539",
+      "exit_unix_ns": "1792663465030253900",
+      "exit_code": 1,
+      "wait_signaled": true,
+      "cim_creation_microsecond_floor_matches": true
+    },
+    {
+      "pid": 116876,
+      "creation_filetime_ticks": "134371348981425631",
+      "exit_filetime_ticks": "134371370650302143",
+      "exit_unix_ns": "1792663465030214300",
+      "exit_code": 1,
+      "wait_signaled": true,
+      "cim_creation_microsecond_floor_matches": true
+    },
+    {
+      "pid": 80120,
+      "creation_filetime_ticks": "134371348982482508",
+      "exit_filetime_ticks": "134371370650250623",
+      "exit_unix_ns": "1792663465025062300",
+      "exit_code": 1,
+      "wait_signaled": true,
+      "cim_creation_microsecond_floor_matches": true
+    },
+    {
+      "pid": 124536,
+      "creation_filetime_ticks": "134371348982691372",
+      "exit_filetime_ticks": "134371370650294229",
+      "exit_unix_ns": "1792663465029422900",
+      "exit_code": 1,
+      "wait_signaled": true,
+      "cim_creation_microsecond_floor_matches": true
+    }
+  ],
+  "all_exits_between_saved_before_and_after": true,
+  "cause": "unknown",
+  "preservation_verified": false,
+  "new_native_or_gpu_experiments": 0
+}

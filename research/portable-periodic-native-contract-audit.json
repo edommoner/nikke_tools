@@ -1,0 +1,136 @@
+{
+  "stage": "native-source-contract-audit",
+  "runtime_verification_performed": false,
+  "gpu_port_completed": false,
+  "affected_definitions": [
+    {
+      "character": "디젤 : 윈터 스위츠",
+      "effect": "라라라♬ 2",
+      "stat": "dot_damage",
+      "timings": [
+        "burst_cast"
+      ],
+      "remaining_issue": "Multi-target periodic damage requires per-recipient clocks"
+    },
+    {
+      "character": "베스티",
+      "effect": "미사일 컨테이너",
+      "stat": "damage:2",
+      "timings": [
+        "burst_cast"
+      ],
+      "remaining_issue": "Multi-target periodic damage requires per-recipient clocks"
+    },
+    {
+      "character": "밀크 : 블루밍 바니",
+      "effect": "성질 내기 2",
+      "stat": "split_damage",
+      "timings": [
+        "burst_cast"
+      ],
+      "remaining_issue": "Multi-target periodic damage requires per-recipient clocks"
+    },
+    {
+      "character": "니힐리스타",
+      "effect": "화상",
+      "stat": "dot_damage",
+      "timings": [
+        "burst_cast"
+      ],
+      "remaining_issue": "Multi-target periodic damage requires per-recipient clocks"
+    },
+    {
+      "character": "로산나 : 시크 오션",
+      "effect": "스피나 디 로사 2",
+      "stat": "dot_damage",
+      "timings": [
+        "every:30s"
+      ],
+      "remaining_issue": "Multi-target periodic damage requires per-recipient clocks"
+    },
+    {
+      "character": "사쿠라 : 블룸 인 서머",
+      "effect": "벚꽃잎",
+      "stat": "dot_damage",
+      "timings": [
+        "every:30.0s"
+      ],
+      "remaining_issue": "Multi-target periodic damage requires per-recipient clocks"
+    },
+    {
+      "character": "마나",
+      "effect": "페이탈 에러! 2",
+      "stat": "dot_damage",
+      "timings": [
+        "burst_cast"
+      ],
+      "remaining_issue": "Multi-target periodic damage requires per-recipient clocks"
+    },
+    {
+      "character": "아크레인저 블랙",
+      "effect": "궁극! 아크 블랙 메테오! 2",
+      "stat": "dot_damage",
+      "timings": [
+        "burst_cast"
+      ],
+      "remaining_issue": "Multi-target periodic damage requires per-recipient clocks"
+    },
+    {
+      "character": "쿠루미",
+      "effect": "해킹",
+      "stat": "dot_damage",
+      "timings": [
+        "burst_cast"
+      ],
+      "remaining_issue": "Multi-target periodic damage requires per-recipient clocks"
+    }
+  ],
+  "definition_count": 9,
+  "findings": [
+    {
+      "contract": "Single mapping clock per immutable effect identity, phase-preserved for dot_damage",
+      "source": "research/upstream/nikke-calc-master/calculator/buff_manager.py",
+      "line": 3588
+    },
+    {
+      "contract": "Same caster/name, max_stack=1 dot merges into a running sibling effect and unions non-lazy target labels",
+      "source": "research/upstream/nikke-calc-master/calculator/buff_manager.py",
+      "line": 3558
+    },
+    {
+      "contract": "Timer consumes next deadline before children; replacement loses old ownership; phase-preserving refresh retains it",
+      "source": "app/timer_registry_runtime.py",
+      "line": 39
+    },
+    {
+      "contract": "At damage evaluation, existing active effect target_chars become explicit hit_to; target rules are not rerun each tick",
+      "source": "research/upstream/nikke-calc-master/calculator/timeline.py",
+      "line": 5038
+    },
+    {
+      "contract": "Explicit hit_to filters living labels; current native route does not bind them to generations",
+      "source": "research/upstream/nikke-calc-master/calculator/boss_pattern.py",
+      "line": 1786
+    },
+    {
+      "contract": "Generation-aware enemy carrier fanout applies to buff fields; damage carriers use separate existing path",
+      "source": "app/enemy_recipient_runtime.py",
+      "line": 158
+    }
+  ],
+  "next_requirements": [
+    "Reproduce retained-target versus dynamic-rule behavior with the real timeline observer before porting",
+    "Resolve generation semantics explicitly instead of inventing independent per-recipient phases",
+    "Preserve same-name union, stack refresh, cancellation/restart ownership and tick boundary ordering",
+    "Handle ordinary periodic attacks separately from DoT phase/target binding and ramp scheduling"
+  ],
+  "source_sha256": {
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/boss_pattern.py": "ccbfde085e5c809b07215b15177a08d725cd56a2691fd26675a9b19b01296565",
+    "app/timer_registry_runtime.py": "6a07cc0bc79e197b7a3506f21f2ddbdba077b3d98768d74dda86453228a6c256",
+    "app/periodic_target_runtime.py": "b2475507525e8f06b9139142fb662d831f73a72cbb8e99b087dd0c6a1ae3d188",
+    "app/enemy_recipient_runtime.py": "7ab242283f8de0b746e10af22178a074ee4368c8a7160c0be084ca0b0ac65d4d"
+  },
+  "scope": "Source inspection to guide the next common runtime connection; not a passed runtime or compatibility test"
+}

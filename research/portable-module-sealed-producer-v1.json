@@ -1,0 +1,55 @@
+{
+  "schema": "module-sealed-producer-checkpoint-v1",
+  "base_commit": "6f072ee64b0b3b6aa72e5815032178965e41ec5b",
+  "changed_cli_definitions": [
+    "assembly_origin",
+    "partition_object_origin"
+  ],
+  "package": {
+    "path": "research/windows-source-packets/module-sealed-source-v1.zip",
+    "bytes": 13358547,
+    "sha256": "0f5ea56892d0e1598c86b177999fbeb77180c72f18583ca1bbedb33d085d1d76",
+    "package_id": "bb28af2e246fa49c7994f65b9140c1cd1b40a729440034a08d42e3c864b24a0d",
+    "suite": "moving-many-cache-only",
+    "purpose": "Current immutable diagnostic controller; source PTX remains the exact saved old moving-group producer"
+  },
+  "tests": {
+    "development_passed": 120,
+    "frozen_passed": 120,
+    "frozen_before_after_payload_verified": true,
+    "failures": 0
+  },
+  "earlier_unit_failure": {
+    "reason": "Negative fixture called readiness nonworld although its registered entry is world; corrected to the registered damage-factors probe",
+    "gpu_calls": 0
+  },
+  "peer_readonly_inspection": {
+    "thread_id": "01a140bc-5f3b-7661-b720-50c945596eaa",
+    "turn_id": "01a18643-bc2c-7063-a666-28de69a13114",
+    "package_id": "76fbe7c3c06307e6c1fd07329e0f129b6bc9433a1f4fbff5732b59dc8b0e0557",
+    "ptx_version": "8.4",
+    "ptx_target": "sm_86",
+    "ptx_bytes": 13556055,
+    "ptx_sha256": "e6d83bf98e727ee989aaca68364c632ebbf9e26c259dd71161462a90184a104e",
+    "assembly_origin_verified": true,
+    "pinned_tool_bytes": 19582976,
+    "pinned_tool_sha256": "0183c5b1fdecc69234597efac421eca4670a3f6ed6ed028ff6afb85d06f3efb8",
+    "native_tool_calls": 0,
+    "compiler_calls": 0,
+    "gpu_calls": 0,
+    "raw_independently_read_on_mac": false
+  },
+  "historical_compiler_guard_unchanged": true,
+  "direct_assembly_same_golden_guard_unchanged": true,
+  "gpu_source_changed": false,
+  "protected_cpu_changed": false,
+  "golden_changed": false,
+  "calculation_verified": false,
+  "current_battle_equivalence_verified": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Run one bounded module-object with source-host original producer/cache/phase audit",
+    "Audit sealed object ownership before JIT-link admission; existing compiler-only loader guards remain closed",
+    "Current source CUDA and full catalogue/default admission remain unverified"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "import_commit": "3678fbabf254523c441fcfef2482e8cfdd4838f9",
+  "files": 7,
+  "bytes": 51094,
+  "manifest_sha256": "56a89c9495ba2bbf646a526341a76f0aca5405750c5dab3f01aa0dcf0e61e14d",
+  "transport_hashes_verified": true,
+  "visible_owner_source_golden_generation_ptx_consistent": true,
+  "original_windows_full_identity_peer_verified": true,
+  "private_paths_redacted": true,
+  "mac_independent_full_compiler_identity_audit": false,
+  "raw_ptx_not_transported": true,
+  "current_cuda_calculation_verified": false,
+  "reuse_admission_verified": false,
+  "block": "Existing history binding not transported by audit CLI",
+  "cache_required": true,
+  "extra_compiler_gpu_calls": 0,
+  "historical_preservation_verified": false,
+  "scope": "Sanitized JSON consistency and immutable Mac owner comparison only"
+}

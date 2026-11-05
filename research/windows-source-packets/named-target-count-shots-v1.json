@@ -1,0 +1,23 @@
+{
+  "schema": "named-capacity-source-capsule-v1",
+  "source_commit": "ef7e72dda60366671b663d534e27bcfa4df8a8fe",
+  "package_id": "2aafcadfde3e7f794c3ca36732d07ffeefe5d9e738719b5ffef4606e69bcbeba",
+  "suite": "named-target-count-shots",
+  "archive_bytes": 11842355,
+  "archive_sha256": "238067f323f387cb8d1c89fe49dd5d38e3cd93ea8909f118311b3497337eacf6",
+  "selected_tests": 8,
+  "cpu_preflight_verified": true,
+  "Mac_Metal_proof": "research/target-count-query-evidence/metal-physical-shots-v1.json",
+  "Metal_independent_fresh_audit_verified": true,
+  "common_code_smoke_reference_package_id": "2aafcadfde3e7f794c3ca36732d07ffeefe5d9e738719b5ffef4606e69bcbeba",
+  "common_code_smoke_groups": 66,
+  "common_code_smoke_tests": 641,
+  "common_code_smoke_skips": 1,
+  "source_only": true,
+  "Windows_executed": false,
+  "Windows_request_sent": false,
+  "spatial_selection_verified": false,
+  "original_full25_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

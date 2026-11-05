@@ -1,0 +1,30 @@
+{
+  "schema": "sealed-object-link-owner-checkpoint-v1",
+  "base_commit": "344c9c5217e1d25d120d47907c98e4a223d7d27c",
+  "changed_cli_definitions": [
+    "linked_object_origin"
+  ],
+  "tests": {
+    "development_passed": 122,
+    "frozen_passed": 122,
+    "frozen_before_after_payload_verified": true
+  },
+  "package_id": "b418ed145aa6d3439da69304d2b0229654090ca58ae6a601af664c0e3f9f6c0f",
+  "local_archive_bytes": 13358855,
+  "local_archive_sha256": "21eb294eb0997e982359b44687277b9fa821e432288f9f43f5b1df530cdef568",
+  "packet_transported_to_windows": false,
+  "source_object_not_recomputed": true,
+  "old_historical_compiler_validation_retained": true,
+  "development_owner_rejected": true,
+  "saved_linked_admission_function_unchanged": true,
+  "portable_linked_artifact_module_unchanged": true,
+  "gpu_source_changed": false,
+  "golden_changed": false,
+  "protected_cpu_changed": false,
+  "windows_new_link_calls": 0,
+  "windows_new_gpu_calls": 0,
+  "calculation_verified": false,
+  "current_battle_equivalence_verified": false,
+  "full_goal_complete": false,
+  "scope": "CPU-tested diagnostic object ownership bridge only. Windows module-object result is pending; no JIT-link or calculation claim."
+}

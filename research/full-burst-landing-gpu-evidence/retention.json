@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "old_inputs": 230,
+  "old_original_profile_inputs": 2,
+  "retained_input_native_output_fingerprints": 232,
+  "retained_raw_bytes": 729808896,
+  "old230_output_sha256": "daec9537a302805183afc6fb38e6eaa92946928adde1ece5185cbea0c9b672c7",
+  "old2_output_sha256": "b547db021f9afc2bb6fab378567e6852f4eb0d45add1cd4f7c7cd17765f6c5f7",
+  "resident_layout_identical": true,
+  "runtime_stride": 138952,
+  "same_generated_cuda_msl_for_rosters": true,
+  "gpu_calls": 0
+}

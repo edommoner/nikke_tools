@@ -1,0 +1,38 @@
+{
+  "schema": "product-coordinate-lock-wire-history-registration-v1",
+  "scope": "Exact historical source inverse registration only; not a GPU verification",
+  "registration": {
+    "schema": "wire-history-exact-inverse-v1",
+    "original_model_check_stopped": true,
+    "original_reason": "Unreviewed cover source: scripts/run-metal-probe.swift",
+    "reviewed_path": "scripts/run-metal-probe.swift",
+    "before_sha256": "ef52604784c90e4c57cce6ed387fa57bec9a382504987a25a2c017379038fbe9",
+    "after_sha256": "3b35ce823f52658c2df2b1811b932b5090363f578ecb2e93ff3e4a0fa45d35a8",
+    "only_registered_width_added": 2558208,
+    "all_other_swift_bytes_exact": true,
+    "old_pinned_cover_ledger_unchanged": true,
+    "exact_inverse_hunks": 1,
+    "normalizer_changed": false,
+    "current_calculation_equivalence_claim": false,
+    "gpu_calls": 0,
+    "battles": 0
+  },
+  "model_check_summary": {
+    "passed": true,
+    "gpu_calls": 0,
+    "native_battle_calls": 0
+  },
+  "cover_wire_tests": {
+    "tests": 7,
+    "passed": true
+  },
+  "weighted_source_contract_tests": {
+    "tests": 7,
+    "passed": true,
+    "new_negative": "Changing Swift inputWords <= 131072 to 131073 must be rejected"
+  },
+  "old_pinned_ledgers_unchanged": true,
+  "numerical_source_changed": false,
+  "immutable_packet_owner_unchanged": "ec80ecb25850c479feaf676d0cf6d3f9b43d708daaeb4ffd1e76da78d8c52013",
+  "gpu_reruns": 0
+}

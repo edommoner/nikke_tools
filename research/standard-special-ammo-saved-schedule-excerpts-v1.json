@@ -1,0 +1,130 @@
+{
+  "schema": "saved-ammo-world-schedule-code-excerpts-v1",
+  "owner": "a5f405c447a07b20d27f260fcd3efbec3807906698a6dc0b041513e00caefb81",
+  "source_program": "gpu/product_ammo_fixed_battle_entry.slang",
+  "capture_id": "d187e57c56104d039d6af0fe19296b51",
+  "generated_cuda": {
+    "file": "compile-ptx-v1/proof/generated.cu",
+    "bytes": 2404386,
+    "sha256": "244c871a8d3d27a0bf25943a332ac56084766aa5bb5f8102349964f4292ee92d"
+  },
+  "saved_ptx": {
+    "file": "compile-ptx-v1/proof/compiled.ptx",
+    "bytes": 10087341,
+    "sha256": "352ed7aac55a5e224f157c09354db2f7434aa887e14cff332ff453b54ea73ba9",
+    "compiler_cache_key": "9bfa41cbbb495a4e03c3d5b25550c3bf5b222202ace2860a6d06763ce041d368"
+  },
+  "lexical_extractor": {
+    "file": "app/portable_ptx_stats.py",
+    "sha256": "13f18c3efe27636023e9fa69cf5b441ca71256fa8665669a6b875bbf7dadc2dd",
+    "name": "function_records"
+  },
+  "world_schedule_fields": [
+    "uint input_10",
+    "uint output_1",
+    "uint count_2",
+    "uint error_1"
+  ],
+  "frameSchedule_ptx_symbols": [],
+  "worldFrameBegin_ptx": {
+    "symbol": "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f617worldFrameBegin_0Ejy",
+    "first_line": 353949,
+    "lines": 2148,
+    "definition_sha256": "903a18c1e9d82519d465a5595df1dc485cf66ce432906e7b8d32823c1fb45dfd"
+  },
+  "excerpts": [
+    {
+      "kind": "cuda",
+      "label": "WorldSchedule declared fields",
+      "first_line": 4492,
+      "last_line": 4499,
+      "sha256": "1ebf98c19165f0652572b63cb4ba9577d86c71d5b993c3ec01a694fe526ff755",
+      "text": "struct WorldSchedule_0\n{\n    uint input_10;\n    uint output_1;\n    uint count_2;\n    uint error_1;\n};\n\n"
+    },
+    {
+      "kind": "cuda",
+      "label": "frameSchedule value-return function",
+      "first_line": 17943,
+      "last_line": 17956,
+      "sha256": "61ba42bd73b7e4d4b82fe61f23bbe84414b3281cddebefc38f65b8cb67b894f7",
+      "text": "static __device__ WorldSchedule_0 frameSchedule_0(uint _S1855)\n{\n    Runtime_0 * _S1856 = (&(globalParams_0->runtimeStates_0)[_S1855]);\n    WorldSchedule_0 w_14;\n    uint _S1857 = _S1856->inputBase_0 + 86016U;\n    (&w_14)->input_10 = _S1857;\n    (&w_14)->output_1 = _S1856->resourceOutput_0 + 159744U;\n    uint _S1858 = __ldg((&(globalParams_0->commands_0)[_S1857 + 1U]));\n    (&w_14)->count_2 = _S1858;\n    (&w_14)->error_1 = _S1856->error_0;\n    return w_14;\n}\n\nstatic __device__ bool actorPoolsEnabled_0(uint _S1859)\n"
+    },
+    {
+      "kind": "cuda",
+      "label": "worldFrameBegin schedule copy and wsBegin caller",
+      "first_line": 78492,
+      "last_line": 78520,
+      "sha256": "8c4a1fce096abee5adbfebd51a7d2b8e7fd2bdabb8ef577f5dbc839ef597b972",
+      "text": "static __device__ __noinline__ void worldFrameBegin_0(uint _S11564, ulonglong _S11565)\n{\n    Runtime_0 * _S11566 = (&(globalParams_0->runtimeStates_0)[_S11564]);\n    bool _S11567 = worldFrameEnabled_0(_S11564);\n    if(!_S11567)\n    {\n        return;\n    }\n    WorldSchedule_0 _S11568 = frameSchedule_0(_S11564);\n    WorldSchedule_0 w_24 = _S11568;\n    uint bossFirstLog_0 = *(&(globalParams_0->results_0)[(&w_24)->output_1 + 2U]);\n    bool _S11569;\n    if(f64Zero_0(_S11565))\n    {\n        _S11569 = (*(&(globalParams_0->results_0)[(&w_24)->output_1 + 1U])) != 0U;\n    }\n    else\n    {\n        _S11569 = false;\n    }\n    if(_S11569)\n    {\n        return;\n    }\n    uint addAttackFirst_0 = *(&(globalParams_0->results_0)[(&w_24)->output_1 + 2U]);\n    uint _S11570 = actorPoolsCleared_0(_S11564);\n    wsBegin_0(&w_24, _S11565, _S11570);\n    _S11566->error_0 = (&w_24)->error_1;\n    if(((&w_24)->error_1) == 0U)\n"
+    },
+    {
+      "kind": "cuda",
+      "label": "actorPoolsCleared separate ActorBits value initialization",
+      "first_line": 77769,
+      "last_line": 77780,
+      "sha256": "b620a4772e798e12b3d430ec7f2762d2bd87df8c900976484d9ecbd64d1ca00a",
+      "text": "static __device__ uint actorPoolsCleared_0(uint _S11458)\n{\n    bool _S11459;\n    Runtime_0 * _S11460 = (&(globalParams_0->runtimeStates_0)[_S11458]);\n    bool _S11461 = actorPoolsEnabled_0(_S11458);\n    if(!_S11461)\n    {\n        return 0U;\n    }\n    ActorBits_0 _S11462 = actorBitsEmpty_0();\n    ActorBits_0 alive_3 = _S11462;\n    uint i_163 = 1U;\n"
+    },
+    {
+      "kind": "ptx",
+      "label": "worldFrameBegin prologue and inlined schedule initialization",
+      "first_line": 353949,
+      "last_line": 354000,
+      "sha256": "b752207e84b70e7f300a9334cada4e646504d4d4188ccaa7a0d8da7a710b18b4",
+      "text": ".func _ZN42_INTERNAL_00000000_11_portable_cu_634e18f617worldFrameBegin_0Ejy(\n\t.param .b32 _ZN42_INTERNAL_00000000_11_portable_cu_634e18f617worldFrameBegin_0Ejy_param_0,\n\t.param .b64 _ZN42_INTERNAL_00000000_11_portable_cu_634e18f617worldFrameBegin_0Ejy_param_1\n)\n{\n\t.local .align 4 .b8 \t__local_depot252[16];\n\t.reg .b64 \t%SP;\n\t.reg .b64 \t%SPL;\n\t.reg .pred \t%p<168>;\n\t.reg .b16 \t%rs<77>;\n\t.reg .b32 \t%r<681>;\n\t.reg .b64 \t%rd<583>;\n\n\n\tmov.u64 \t%SPL, __local_depot252;\n\tcvta.local.u64 \t%SP, %SPL;\n\tld.param.u32 \t%r142, [_ZN42_INTERNAL_00000000_11_portable_cu_634e18f617worldFrameBegin_0Ejy_param_0];\n\tld.param.u64 \t%rd125, [_ZN42_INTERNAL_00000000_11_portable_cu_634e18f617worldFrameBegin_0Ejy_param_1];\n\tadd.u64 \t%rd127, %SP, 0;\n\tadd.u64 \t%rd1, %SPL, 0;\n\tld.const.u64 \t%rd128, [SLANG_globalParams+32];\n\tcvta.to.global.u64 \t%rd2, %rd128;\n\tcvt.u64.u32 \t%rd3, %r142;\n\tmul.wide.u32 \t%rd129, %r142, 163584;\n\tadd.s64 \t%rd130, %rd2, %rd129;\n\tadd.s64 \t%rd4, %rd130, 109624;\n\tld.global.u32 \t%r144, [%rd130+109624];\n\tadd.s32 \t%r145, %r144, 86016;\n\tld.const.u64 \t%rd5, [SLANG_globalParams];\n\tmul.wide.u32 \t%rd131, %r145, 4;\n\tadd.s64 \t%rd126, %rd5, %rd131;\n\t// begin inline asm\n\tld.global.nc.u32 %r143, [%rd126];\n\t// end inline asm\n\tsetp.eq.s32 \t%p3, %r143, 0;\n\t@%p3 bra \t$L__BB252_163;\n\n\tld.global.u32 \t%r147, [%rd4];\n\tadd.s32 \t%r148, %r147, 86016;\n\tld.global.u32 \t%r1, [%rd4+-84972];\n\tadd.s32 \t%r149, %r1, 159744;\n\tadd.s32 \t%r150, %r147, 86017;\n\tmul.wide.u32 \t%rd133, %r150, 4;\n\tadd.s64 \t%rd132, %rd5, %rd133;\n\t// begin inline asm\n\tld.global.nc.u32 %r146, [%rd132];\n\t// end inline asm\n\tld.global.u32 \t%r151, [%rd4+18996];\n\tst.local.u32 \t[%rd1], %r148;\n\tst.local.u32 \t[%rd1+4], %r149;\n\tst.local.u32 \t[%rd1+8], %r146;\n\tst.local.u32 \t[%rd1+12], %r151;\n"
+    },
+    {
+      "kind": "ptx",
+      "label": "conditional zero stores to the same 16-byte local slot",
+      "first_line": 354014,
+      "last_line": 354028,
+      "sha256": "c026d034dde04984ee29a34d988f4470db3786b1132fa3c17deda384de003b82",
+      "text": "\tadd.s32 \t%r158, %r157, 90536;\n\tmul.wide.u32 \t%rd141, %r158, 4;\n\tadd.s64 \t%rd140, %rd5, %rd141;\n\t// begin inline asm\n\tld.global.nc.u32 %r155, [%rd140];\n\t// end inline asm\n\tsetp.eq.s32 \t%p6, %r155, 0;\n\tmov.u32 \t%r648, 0;\n\t@%p6 bra \t$L__BB252_30;\n\n\tmov.u32 \t%r648, 0;\n\tst.local.u32 \t[%rd1], %r648;\n\tst.local.u32 \t[%rd1+4], %r648;\n\tst.local.u32 \t[%rd1+8], %r648;\n\tst.local.u32 \t[%rd1+12], %r648;\n"
+    },
+    {
+      "kind": "ptx",
+      "label": "wsBegin argument pointer and post-call local loads",
+      "first_line": 354258,
+      "last_line": 354281,
+      "sha256": "a72a629d2ab7f62f9d5126930bf4d710f657d7b2a5a48847b7b4e77374e056f8",
+      "text": "$L__BB252_30:\n\t{ // callseq 2382, 0\n\t.reg .b32 temp_param_reg;\n\t.param .b64 param0;\n\tst.param.b64 \t[param0+0], %rd127;\n\t.param .b64 param1;\n\tst.param.b64 \t[param1+0], %rd125;\n\t.param .b32 param2;\n\tst.param.b32 \t[param2+0], %r648;\n\tcall.uni \n\t_ZN42_INTERNAL_00000000_11_portable_cu_634e18f69wsBegin_0EP15WorldSchedule_0yj, \n\t(\n\tparam0, \n\tparam1, \n\tparam2\n\t);\n\t} // callseq 2382\n\tld.local.u32 \t%r653, [%rd1+12];\n\tst.global.u32 \t[%rd4+18996], %r653;\n\tsetp.ne.s32 \t%p31, %r653, 0;\n\t@%p31 bra \t$L__BB252_46;\n\n\tld.local.u32 \t%r235, [%rd1+4];\n\tadd.s32 \t%r236, %r235, 2;\n"
+    }
+  ],
+  "observations": [
+    "Generated CUDA returns WorldSchedule by value and copies it before actorPoolsCleared and wsBegin.",
+    "Saved PTX has no frameSchedule named definition, prototype or call; schedule setup appears inline in worldFrameBegin.",
+    "Prologue computes inputBase+86016 and resourceOutput+159744 and stores input/output/count/error at local offsets 0/4/8/12.",
+    "A later conditional path shown in the excerpt writes zero to the same local offsets through %rd1 before the shown wsBegin call receives %rd127.",
+    "%rd1 is SPL+0; %rd127 is SP+0; SP is cvta.local(SPL) in this saved PTX.",
+    "The excerpts do not establish which branch ran or certify a causal fix."
+  ],
+  "hypothesis_status": "Unconfirmed; no standalone frameSchedule return ABI remains to inspect in this PTX",
+  "artifacts_and_stop_claim_anchors_unchanged": true,
+  "anchor_count": 8,
+  "generated_cuda_pre_sha256": "244c871a8d3d27a0bf25943a332ac56084766aa5bb5f8102349964f4292ee92d",
+  "generated_cuda_post_sha256": "244c871a8d3d27a0bf25943a332ac56084766aa5bb5f8102349964f4292ee92d",
+  "ptx_pre_sha256": "352ed7aac55a5e224f157c09354db2f7434aa887e14cff332ff453b54ea73ba9",
+  "ptx_post_sha256": "352ed7aac55a5e224f157c09354db2f7434aa887e14cff332ff453b54ea73ba9",
+  "readback_sha256": "65e21f9bffdaa5a366c5bb949902428f057faeda086cc8116cfc828ff690b19a",
+  "additional_compile_calls": 0,
+  "additional_sdk_calls": 0,
+  "additional_posts": 0,
+  "additional_gpu_calls": 0,
+  "additional_cpu_battles": 0,
+  "raw_buffers_shared": false,
+  "compiler_distribution_shared": false,
+  "calculation_verified": false,
+  "overall_verified": false,
+  "bounded_saved_audit": {
+    "child_exit_code": 0,
+    "elapsed_seconds": 8.708822600077838,
+    "timeout_seconds": 60,
+    "enforced_pre_post_job_limit_bytes": 2147483648,
+    "pre_gate_verified": true,
+    "post_wait_empty": true,
+    "missing_processes": 0,
+    "cleanup_error": null,
+    "observation_error": null,
+    "below_normal": true
+  }
+}

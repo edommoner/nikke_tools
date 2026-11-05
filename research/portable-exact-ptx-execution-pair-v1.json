@@ -1,0 +1,58 @@
+{
+  "schema": "exact-ptx-execution-pair-checkpoint-v1",
+  "base_commit": "4c8ca89354446509c1083db34596ed4d0acb99d7",
+  "tests": {
+    "development_passed": 126,
+    "frozen_passed": 126,
+    "frozen_payload_before_after_verified": true
+  },
+  "package": {
+    "package_id": "835c8dbd8f9a829a4cffbd5e933de061fa55eca7e969ddab728e69579e97d096",
+    "suite": "moving-group-current",
+    "archive_bytes": 13437305,
+    "archive_sha256": "1e5b552fa6a3ca743f456ff2ad3c7a56d8f49ddbcc3e73b7c09ac2b87034c270",
+    "storage": "persistent Mac proof archive"
+  },
+  "windows_reuse_audit": {
+    "commit": "93d6556dce2ecb359f33164f4dd1f4e7194142eb",
+    "summary": "research/cuda-preparation-evidence/exact-ptx-reuse-v1-summary.json",
+    "manifest": "research/cuda-preparation-evidence/exact-ptx-reuse-v1-report-manifest.json",
+    "summary_manifest_original_bytes_verified": true,
+    "raw_chain_independently_audited_on_mac": false,
+    "admission_verified": true,
+    "elapsed_seconds": 76.43492910033092,
+    "peak_memory_bytes": 110571520,
+    "ptx_bytes": 13556055,
+    "ptx_sha256": "e6d83bf98e727ee989aaca68364c632ebbf9e26c259dd71161462a90184a104e",
+    "compiler_key": "ded5292f9aa24aee1d01b79b04df40f46a9472a9d16bba8fdeb1751f9f61525e",
+    "calculation_verified": false,
+    "environment_preservation_verified": false,
+    "overall_verified": false
+  },
+  "implementation": {
+    "cli": [
+      "run",
+      "staged-run"
+    ],
+    "wrapper": [
+      "gpu-linked",
+      "staged-gpu-linked"
+    ],
+    "optional_pair": [
+      "producer_package",
+      "producer_capture"
+    ],
+    "capture_request_persisted": true,
+    "legacy_pair_supported": true,
+    "fresh_native_and_tests_retained": true,
+    "staged_transaction_retained": true,
+    "live_compiler_exclusive": true
+  },
+  "gpu_or_protected_cpu_or_golden_changed": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Fresh bounded staged preflight on Windows in a new immutable execution packet",
+    "One current CUDA dispatch using original saved CUBIN and exact current producer pair",
+    "Fresh independent native/readback comparison; no GPU rerun"
+  ]
+}

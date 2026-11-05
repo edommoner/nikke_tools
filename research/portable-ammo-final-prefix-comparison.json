@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "initial_metal_git_reference": "d7b06b2:research/portable-combat-metal.json",
+  "final": "portable-combat-metal.json",
+  "unchanged_positive_results": 601,
+  "new_mode_boundary_results": 3,
+  "scope": "Every decoded initial positive result is identical in the final fixed source; added mode-entry boundaries are additional cases, not removed or weakened expectations"
+}

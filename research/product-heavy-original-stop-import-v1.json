@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "original_commit": "38a8397c2b723f2d184625028542c9462ba61670",
+  "bytes": 12014,
+  "sha256": "14b398dbed99513234a6c98105ef5f46d9e9ca3ad8a47a836616b11b0f8588d3",
+  "owner": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
+  "source_commit": "3965b3908a973a28b5c32d826dce93766454542d",
+  "original7documents_and_archive_verified": true,
+  "cpu_tests": 87,
+  "paired_generation_and_ptx_runs": 1,
+  "ptx_compiler_verified": true,
+  "ptx_admitted_for_next_stage": false,
+  "outer_missing_processes": 7,
+  "missing_roles": {
+    "unrelated": 5,
+    "service_candidate": 2
+  },
+  "termination_cause": "unknown",
+  "inner_missing_processes": 0,
+  "own_job_limits_prepost_empty_cleanup_verified": true,
+  "object_link_posts_gpu_retries": 0,
+  "old50494_files_preserved": true,
+  "standard_profile_delta": 0,
+  "configured_profile_delta": 0,
+  "mac_import_additional_battles": 0,
+  "mac_import_additional_gpu": 0,
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false
+}

@@ -1,0 +1,67 @@
+{
+  "version": "v133",
+  "source_commit": "5ce7269e43a8e3105d42a48e01693c35c91d8810",
+  "package": {
+    "id": "71a90022c01c2956e401ef264f647a640fe62522fa0a563c52e74703f36194d8",
+    "files": 1964,
+    "bytes": 5219925,
+    "windows_zip_sha256": "037667776e45fc486e92a0a47a81c46f6b6ef0d8db4ba60b3ee8491626658fa5",
+    "purpose": "compiler-diagnostic",
+    "unpack_verified": true
+  },
+  "smoke": {
+    "attempts": 1,
+    "tests": 153,
+    "passed": 152,
+    "errors": 1,
+    "skipped": 0,
+    "verified": false,
+    "runner_pid": 31148,
+    "batch_elapsed_seconds": 25.7784235002473,
+    "batch_timeout_seconds": 60,
+    "timed_out": false,
+    "failed_test": "test_purpose_and_battle_claims_cannot_be_forged_in_a_valid_hash_packet",
+    "error": "ValueError: Unsafe artifact path",
+    "location": "tests/test_portable_compiler_diagnostic.py:109",
+    "cause": "テストfixtureがstr(baseline.relative_to(root))でWindowsのバックスラッシュを渡し、file_recordsのsafe_nameが拒否",
+    "compiler_diagnostic_group": {
+      "tests": 9,
+      "passed": 8,
+      "errors": 1
+    },
+    "other_groups": {
+      "tests": 144,
+      "passed": 144
+    },
+    "validation_job_started": false,
+    "job_post_empty": null,
+    "missing_processes": null,
+    "service_preservation": "unverified"
+  },
+  "decision": "smoke preflightエラーで停止。修正・再試行なし",
+  "compiler_calls": 0,
+  "assembly_calls": 0,
+  "cache_check_calls": 0,
+  "driver_calls": 0,
+  "module_calls": 0,
+  "kernel_calls": 0,
+  "calculation_verified": false,
+  "battle_verified": false,
+  "retries": 0,
+  "fallbacks": 0,
+  "postcheck_exit_codes": {
+    "audit": 1,
+    "collect": 0,
+    "status": 0
+  },
+  "parent_environment_preserved": true,
+  "original_checkout_clean": true,
+  "existing_results_caches_claims_preserved": true,
+  "stdout_stderr_records_preserved": true,
+  "saved_report": {
+    "name": "nikke-v133-diagnostic/safe-summary.json",
+    "bytes": 7328,
+    "sha256": "5521b669462177fb4cf94ca16961e88f244bb6ed9d557b847ea267317b9994fc"
+  },
+  "source_scope": "Windows peer safe report; original capture not independently audited on Mac"
+}

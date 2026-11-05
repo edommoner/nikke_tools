@@ -1,0 +1,47 @@
+{
+  "package_id": "468ff5fb20a4a9f6774c6da1766b249974468c1293476d8139d8162525001d59",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/add-attack-schedule-metal-v2-capture",
+  "schema": "independent-metal-audit-groups-v1",
+  "child_pids": [
+    69325
+  ],
+  "groups": [
+    {
+      "child_pid": 69325,
+      "case_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "input_count": 19,
+      "native_cases": 8,
+      "elapsed_seconds": 1.0834092920122202
+    }
+  ],
+  "input_count": 19,
+  "native_cases": 8,
+  "live_parent_receipt_present": false,
+  "per_group_timeout_seconds": 180,
+  "elapsed_seconds": 1.4879863749956712,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "fe8c1bb1c50fa2fd0e578a25281af92c22dcbf22ca615e1ce712420c2096ef7b",
+  "output_sha256": "90d8c197ea58d0036b90ba4394a40e0b42cd05ea956dc2b1f44eab324a11d73a",
+  "scope": "Fresh GPU-forbidden child groups, each individually bounded, covering every input once; total elapsed includes all groups"
+}

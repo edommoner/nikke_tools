@@ -1,0 +1,751 @@
+{
+  "gpu_calls": 0,
+  "sealed_native_digests_match": true,
+  "native_cases": 78,
+  "logical_pellets": 622,
+  "landed_packets": 1845,
+  "accumulation_emissions": 46,
+  "cases": [
+    {
+      "name": "coordinate-physical-reference/occlusion-and-body",
+      "logical_pellets": 1,
+      "landed_packets": 2,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-reference/full-front",
+      "logical_pellets": 1,
+      "landed_packets": 1,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-reference/interrupt-front",
+      "logical_pellets": 1,
+      "landed_packets": 1,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-reference/two-muzzles-three-pellets",
+      "logical_pellets": 6,
+      "landed_packets": 12,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-reference/retirement",
+      "logical_pellets": 3,
+      "landed_packets": 6,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-reference/body-without-targets",
+      "logical_pellets": 1,
+      "landed_packets": 1,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-reference/pierce-reach",
+      "logical_pellets": 1,
+      "landed_packets": 3,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-reference/charge-pierce",
+      "logical_pellets": 1,
+      "landed_packets": 3,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-reference/threshold-snapshot",
+      "logical_pellets": 12,
+      "landed_packets": 18,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-gpu/rotated-rectangle",
+      "logical_pellets": 1,
+      "landed_packets": 3,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-gpu/critical-fraction",
+      "logical_pellets": 1,
+      "landed_packets": 2,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-gpu/accuracy",
+      "logical_pellets": 1,
+      "landed_packets": 2,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-gpu/two-owners",
+      "logical_pellets": 2,
+      "landed_packets": 4,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-gpu/unbreakable",
+      "logical_pellets": 1,
+      "landed_packets": 2,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-gpu/same-shot-retirement",
+      "logical_pellets": 12,
+      "landed_packets": 24,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-gpu/interrupt-reach",
+      "logical_pellets": 1,
+      "landed_packets": 4,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-physical-gpu/weapon-change",
+      "logical_pellets": 6,
+      "landed_packets": 12,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-quantity/pierce-parent",
+      "logical_pellets": 1,
+      "landed_packets": 4,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-quantity/two-muzzles-seven-pellets",
+      "logical_pellets": 14,
+      "landed_packets": 44,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-quantity/large-parent",
+      "logical_pellets": 14,
+      "landed_packets": 44,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-quantity/including-interrupt",
+      "logical_pellets": 1,
+      "landed_packets": 5,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-quantity/zero-child",
+      "logical_pellets": 1,
+      "landed_packets": 3,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-quantity/fraction-to-zero",
+      "logical_pellets": 1,
+      "landed_packets": 4,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-quantity/last-owner",
+      "logical_pellets": 1,
+      "landed_packets": 4,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-quantity/two-shooters",
+      "logical_pellets": 2,
+      "landed_packets": 6,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-accum-emission/dealt-default",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/received-default",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 4500
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/last-owner-dealt",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 4,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/dealt-ignores-other-casters",
+      "logical_pellets": 8,
+      "landed_packets": 24,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-accum-emission/received-counts-other-casters",
+      "logical_pellets": 8,
+      "landed_packets": 25,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 3600
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/base50",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 450
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/base50-named25",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 675
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/absent-base",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/explicit-zero-base",
+      "logical_pellets": 10,
+      "landed_packets": 30,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-accum-emission/absent-base-named25",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 1125
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/zero-base-named25",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 225
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/empty-values-is-zero",
+      "logical_pellets": 10,
+      "landed_packets": 30,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-accum-emission/wrong-named-rate",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/wrong-caster-rate",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/own-rate-wrong-recipient",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 450
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/two-baseline-rates",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 675
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/negative-rate",
+      "logical_pellets": 10,
+      "landed_packets": 30,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-accum-emission/cap-clamp",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 500
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/zero-cap",
+      "logical_pellets": 10,
+      "landed_packets": 30,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-accum-emission/negative-cap",
+      "logical_pellets": 10,
+      "landed_packets": 30,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-accum-emission/epsilon-inside",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/epsilon-outside",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/initial-ATK",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 1900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/later-ATK-keeps-cap",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/empty-expiry",
+      "logical_pellets": 10,
+      "landed_packets": 30,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-accum-emission/archived-consume-once",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/active-consume-once",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/missing-name",
+      "logical_pellets": 10,
+      "landed_packets": 30,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-accum-emission/cross-owner-active",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 1,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/cross-owner-archive",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 1,
+          "time": 0.5166666666666666,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/refresh-clears-archive",
+      "logical_pellets": 9,
+      "landed_packets": 27,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-accum-emission/refresh-collects-new-lifetime",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.7166666666666672,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/named-removal-retains-archive",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.5166666666666666,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/split-only-and-int-truncation",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 1126
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/no-second-attack-modifier",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/lifesteal-before-rate",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 369
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/scatter-two-muzzles",
+      "logical_pellets": 20,
+      "landed_packets": 61,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 1800
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/all-pools-full-before-notices",
+      "logical_pellets": 10,
+      "landed_packets": 32,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "amount": 500
+        },
+        {
+          "owner": 1,
+          "time": 0.21666666666666665,
+          "amount": 500
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/duplicate-name-first-active",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 2,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/duplicate-name-last-archive",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 2,
+          "time": 0.5166666666666666,
+          "amount": 4500
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/pool-target-does-not-filter-damage",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/stacked-rate",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 1800
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/release-feeds-another-pool",
+      "logical_pellets": 10,
+      "landed_packets": 32,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        },
+        {
+          "owner": 1,
+          "time": 0.7000000000000005,
+          "amount": 9900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/rate-expired-before-hit",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/last-owner-cap-snapshot",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 4,
+          "time": 0.41666666666666663,
+          "amount": 2000
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/dealt-group-before-received",
+      "logical_pellets": 10,
+      "landed_packets": 32,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "amount": 500
+        },
+        {
+          "owner": 0,
+          "time": 0.21666666666666665,
+          "amount": 500
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/ordered-baseline-cancellation",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 9
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/separate-baseline-and-named-groups",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 9
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/duplicate-name-active-reverse-stat-order",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 2,
+          "time": 0.41666666666666663,
+          "amount": 4500
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/fully-occluded",
+      "logical_pellets": 10,
+      "landed_packets": 10,
+      "emissions": []
+    },
+    {
+      "name": "coordinate-accum-emission/interrupt",
+      "logical_pellets": 10,
+      "landed_packets": 41,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/destroyed-parts",
+      "logical_pellets": 10,
+      "landed_packets": 21,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    },
+    {
+      "name": "coordinate-accum-emission/two-coordinate-shooters",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "emissions": [
+        {
+          "owner": 0,
+          "time": 0.41666666666666663,
+          "amount": 900
+        }
+      ]
+    }
+  ]
+}

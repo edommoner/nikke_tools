@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-lazy-bank-candidate-metal",
+  "raw_bytes": 1346371584,
+  "raw_sha256": "98476e407455a42a8f960fc5865490c0e492cf692b653c20dd62a40238816817",
+  "evidence_sha256": "db1a3a5f336e4b6d92d96f3d14e227905e313468ca24e3c8c50b8057778942b5",
+  "raw_inode": 506703519,
+  "zero_ranges": 3282,
+  "zero_range_bytes": 954400768,
+  "allocated_before": 1346371584,
+  "allocated_after": 391970816,
+  "allocated_reclaimed": 954400768,
+  "full_hash_verified": true
+}

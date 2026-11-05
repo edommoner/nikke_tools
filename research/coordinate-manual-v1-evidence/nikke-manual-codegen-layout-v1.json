@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "scope": "Paired generation and static reflection only",
+  "gpu_calls": 0,
+  "runtime_stride": 138952,
+  "runtime_field_count": 247,
+  "runtime_layout_unchanged": true,
+  "generated": {
+    "cuda": {
+      "bytes": 2439405,
+      "sha256": "247d2dbff5299e73c6f034e5f5511960227b290ea870df224b75a02db25f2008",
+      "functions": [
+        "initializeManualControls_0",
+        "manualCharging_0",
+        "manualBeforeReload_0",
+        "manualAfterReload_0"
+      ]
+    },
+    "metal": {
+      "bytes": 2591321,
+      "sha256": "0013e635e349dcf90cfc3591015821685ff49a4aa3d8a02f475ec7d8b99ec296",
+      "functions": [
+        "initializeManualControls_0",
+        "manualCharging_0",
+        "manualBeforeReload_0",
+        "manualAfterReload_0"
+      ]
+    }
+  },
+  "calculation_verified": false
+}

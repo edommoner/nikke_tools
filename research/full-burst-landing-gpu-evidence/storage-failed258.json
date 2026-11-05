@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-full-burst-landing-metal258-v1",
+  "raw_bytes": 811597824,
+  "raw_sha256": "5224018fa1596f301390ab3815adfeb53dc8eaee8f622ef1498c99f9fddb7c99",
+  "evidence_sha256": "04d83c1552b750c76484e5457b559a83790fb88b5964b383a3bc14269e4c91fa",
+  "raw_inode": 508462505,
+  "zero_ranges": 1793,
+  "zero_range_bytes": 596836352,
+  "allocated_before": 811597824,
+  "allocated_after": 214761472,
+  "allocated_reclaimed": 596836352,
+  "full_hash_verified": true
+}

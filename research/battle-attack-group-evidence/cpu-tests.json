@@ -1,0 +1,132 @@
+[
+  {
+    "pattern": "test_destructible_weapon_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 10.886992583982646,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86073
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.12786495801992714,
+    "tests": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86073
+  },
+  {
+    "pattern": "test_destructible_skill_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.4479680409422144,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86073
+  },
+  {
+    "pattern": "test_destructible_weapon_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 12.457338957930915,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86073
+  },
+  {
+    "pattern": "test_destructible_skill_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 23.845590417040512,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86073
+  },
+  {
+    "pattern": "test_destructible_body_lifesteal.py",
+    "exit_code": 0,
+    "elapsed_seconds": 11.638212415971793,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86073
+  },
+  {
+    "pattern": "test_destructible_aoe_burst_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 16.37016366701573,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86073
+  },
+  {
+    "pattern": "test_destructible_body_accum.py",
+    "exit_code": 0,
+    "elapsed_seconds": 5.758705332991667,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86073
+  },
+  {
+    "pattern": "test_destructible_body_heal_share.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.536057542078197,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86073
+  },
+  {
+    "pattern": "test_portable_heal_share_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.3166320830350742,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86073
+  },
+  {
+    "pattern": "test_portable_parent_oracles.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.40867024997714907,
+    "tests": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86073
+  },
+  {
+    "pattern": "test_destructible_parent_oracles.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.6161767079029232,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86073
+  },
+  {
+    "pattern": "test_battle_attack_group_runtime.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.4729058330412954,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86073
+  }
+]

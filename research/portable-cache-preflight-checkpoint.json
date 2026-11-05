@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-23T07:27:17.785592+00:00",
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "ui_backend": "cpu",
+  "development_only": true,
+  "stage": "cache-preflight-and-controller-checks",
+  "cache": {
+    "format_schema_unchanged": 1,
+    "legacy_key_and_serialized_bytes_preserved": true,
+    "file_only_probe_added": true,
+    "required_pair_miss_before_cpu_and_claim": true,
+    "required_generation_miss_before_cpu_and_claim": true,
+    "claims_never_removed_by_probe": true,
+    "empty_corrupt_artifacts_fail_closed": true,
+    "child_cache_revalidation_preserved": true
+  },
+  "cpu": {
+    "final_groups": 15,
+    "final_tests": 150,
+    "final_skipped": 0,
+    "final_seconds": 14.001763206906617
+  },
+  "mac_cpu_smoke": {
+    "passed": true,
+    "groups": 30,
+    "tests": 302,
+    "skipped": 1,
+    "scope": "Mac start gate and control checks; not Windows JobObject proof"
+  },
+  "metal": {
+    "device": "Apple M5",
+    "inputs": 47,
+    "native": 40,
+    "rejected": 7,
+    "actual_package_id": "25b6bee16b300b6d79839b53e2c22b95870aeab81a0107a2c9f73d65118cdf26",
+    "replay_audit_package_id": "bd1d6ca3add3c6ad7b24f1beb55ba1c60fa4611235a744af8a2e60d788c53e4f",
+    "independently_sealed": true,
+    "replay_gpu_calls": 0,
+    "gpu_seconds": 3.5552233749767765,
+    "all_raw_bytes_identical": 147849216,
+    "generation_preflight_seconds": 0.31054716708604246,
+    "generation_snapshot_calculation_verified": false
+  },
+  "generation_refresh": {
+    "compiler_invocations": 2,
+    "seconds": 2.6920069170882925,
+    "all_generated_and_reflection_bytes_identical": true,
+    "gpu_calls": 0,
+    "nvrtc_compile_calls": 0,
+    "identity_rules_unchanged": true
+  },
+  "source_scope": {
+    "passed": true,
+    "gpu_calls": 0,
+    "scope": "AST equality of unaffected top-level functions; not a substitute for runtime verification",
+    "functions": {
+      "app/portable_backend.py": {
+        "changed_existing_functions": [
+          "compile_cuda_source"
+        ],
+        "added_functions": [
+          "cuda_compiler_files",
+          "probe_cuda_source_cache"
+        ],
+        "removed_functions": []
+      },
+      "app/portable_compile_cache.py": {
+        "changed_existing_functions": [
+          "get_or_compile",
+          "read_artifact"
+        ],
+        "added_functions": [
+          "cache_request",
+          "probe"
+        ],
+        "removed_functions": []
+      },
+      "scripts/nikke_gpu.py": {
+        "changed_existing_functions": [
+          "main",
+          "run_capture"
+        ],
+        "added_functions": [
+          "cache_file_checks_only",
+          "cache_probe",
+          "required_cuda_cache_preflight",
+          "required_generation_cache_preflight",
+          "required_generation_snapshot"
+        ],
+        "removed_functions": []
+      }
+    },
+    "protected_cpu_gpu_and_windows_wrapper_changes": 0
+  },
+  "storage": {
+    "schema": 1,
+    "operation": "sparsify-raw",
+    "apply": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "raw_deleted": false,
+    "passed": true,
+    "capture": "/private/tmp/nikke-duration-scaling-retention-v1-capture",
+    "raw_bytes": 5070913536,
+    "raw_sha256": "5f33b4d07b041a845d47108f55c9d09af673eaf1c989f58fdc3ca9916d4bc028",
+    "evidence_sha256": "316c62f8d8f4caecdbdcc22e07bd95efa66817f2f7574cbf6389af30be14faec",
+    "raw_inode": 508329401,
+    "zero_ranges": 11977,
+    "zero_range_bytes": 3619946496,
+    "allocated_before": 5075107840,
+    "allocated_after": 1455161344,
+    "allocated_reclaimed": 3619946496,
+    "full_hash_verified": true
+  },
+  "skill": {
+    "installed": true,
+    "repository_matches_installed": true,
+    "standard_validator_passed": true
+  },
+  "failures_preserved": [
+    "v1 late generation miss after host consumer fingerprint changed; no Metal GPU dispatch, original claim retained",
+    "first Mac smoke blocked at historical compiler certificate test; saved certificate retained, current stale publication now negatively tested"
+  ],
+  "historical_compiler_certificates_changed": false,
+  "windows": {
+    "additional_operations": 0,
+    "current_source_cuda_verified": false,
+    "real_cache_probe_verified": false,
+    "new_job_smoke_verified": false,
+    "missing_process_cause": "unknown",
+    "preservation_verified": false
+  },
+  "historical_metal_body_inputs": 1612,
+  "current_host_transport_reexecution_inputs": 47,
+  "remaining": [
+    "actual_windows_file_only_cache_probe_and_bounded_job_smoke",
+    "current_source_cuda_validation",
+    "priority_unported_effect_consumers_and_full_catalog_battles"
+  ],
+  "evidence": "research/cache-preflight-evidence"
+}

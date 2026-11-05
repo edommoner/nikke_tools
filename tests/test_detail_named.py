@@ -17,18 +17,4 @@ class NamedEffectCompilerTests(unittest.TestCase):
    with self.subTest(kind=kind,stat=stat,kw=kw),self.assertRaises(UnsupportedDetail):self.compile([v.effect('bad',kind,stat,1,**kw)])
  def test_unregistered_name_cleanup_is_compiled_as_noop(self):
   p=self.compile([v.effect('cleanup','instant','remove_named_buff',0,'all_allies',target_effect='missing')]);self.assertEqual(p['effects'][0][1],1)
-class NamedEffectGPUTests(unittest.TestCase):
- @classmethod
- def setUpClass(cls):
-  from gpu_selector import Cuda,probe
-  status=probe()
-  if not status['available']:raise unittest.SkipTest(status['reason'])
-  cls.device=Cuda()
- @classmethod
- def tearDownClass(cls):cls.device.close()
- def test_state_changes_and_complete_squads_match_independent_cpu(self):
-  import json
-  cases=v.verify(self.device)
-  self.assertGreaterEqual(len(cases),len(v.primitives())+len(v.full_scenarios()))
-  self.assertTrue(all(c['passed'] for c in cases),json.dumps([c for c in cases if not c['passed']],ensure_ascii=True))
 if __name__=='__main__':unittest.main()

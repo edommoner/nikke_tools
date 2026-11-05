@@ -1,0 +1,595 @@
+{
+  "schema": "product-api-batch-v1",
+  "implementation_source": "ce38f2f5",
+  "warning_correction_source": "eeea56063db595b7b9f5d82d2ef2660ec6d53ce0",
+  "first_owner": "865cdca87117ff0ac831b6a9ef19c3f1350b0cdc34ca44ccdccf2c14491dcf1f",
+  "corrected_owner": "c90de4dbe9082926063f3e8824ac356cfa6768e9dbacccc853e983d5934a3aae",
+  "scope": "Actual normal HTTP search API, bounded shared product execution; no new suite",
+  "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-api-batch-v1-20261101",
+  "batch_limit": 8,
+  "normal_30s_eight_candidates": {
+    "status": "complete",
+    "seconds": 9.19270187499933,
+    "source_files_unchanged": true,
+    "results": [
+      {
+        "value": 0,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "9ebfb18bf61a438397ac6324f6aea854",
+          "device": "Apple M5",
+          "elapsed_ms": 6685.934167006053,
+          "gpu_execution_verified": true,
+          "input_sha256": "774447605c6480cb355fed607bc94b01290e993c9139f621c0235154b3b21a0e",
+          "output_sha256": "657ef8fb9ec63494bd16648f45f43a287cf0b04819448744f72e7675ae278050",
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 1.8017908749752678,
+          "batch": {
+            "capture_id": "batch-374b1bdfc51549e98f4de6980c97c4c9",
+            "index": 0,
+            "cases": 8,
+            "input_words": 104400,
+            "output_words": 786432,
+            "input_sha256": "774447605c6480cb355fed607bc94b01290e993c9139f621c0235154b3b21a0e",
+            "output_sha256": "657ef8fb9ec63494bd16648f45f43a287cf0b04819448744f72e7675ae278050",
+            "transport_input_sha256": "8f5aa4ac796f56cf033499c92a204e79e3bb65328a1c22a501a4e690cd7c2706",
+            "transport_output_sha256": "f879ea12f534c246f7d2600817a2ab9c96623d1de5753703051918b99c25992d",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "value": 100,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "84704b18dccc43e3812504df06c2efe1",
+          "device": "Apple M5",
+          "elapsed_ms": 6788.3180839708075,
+          "gpu_execution_verified": true,
+          "input_sha256": "848af37653da9be976ab41e1d98ada6c74e5e5aec09bfa61d82454da50124379",
+          "output_sha256": "4a2f9376e3103e8f9c1b46eb84be4bd1110de96b4ef3c3f46ac6ecbe99078d10",
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 1.8017908749752678,
+          "batch": {
+            "capture_id": "batch-374b1bdfc51549e98f4de6980c97c4c9",
+            "index": 1,
+            "cases": 8,
+            "input_words": 104400,
+            "output_words": 786432,
+            "input_sha256": "848af37653da9be976ab41e1d98ada6c74e5e5aec09bfa61d82454da50124379",
+            "output_sha256": "4a2f9376e3103e8f9c1b46eb84be4bd1110de96b4ef3c3f46ac6ecbe99078d10",
+            "transport_input_sha256": "8f5aa4ac796f56cf033499c92a204e79e3bb65328a1c22a501a4e690cd7c2706",
+            "transport_output_sha256": "f879ea12f534c246f7d2600817a2ab9c96623d1de5753703051918b99c25992d",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "value": 200,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "1fd491d5e2534c6aac6e5932d22c5917",
+          "device": "Apple M5",
+          "elapsed_ms": 6974.751208035741,
+          "gpu_execution_verified": true,
+          "input_sha256": "53fc1beb6cfc5097a42cbb765479c47d7db05ffdaa8c8daefca885cd22da0c17",
+          "output_sha256": "b8a298a611e0727bd5e6407ab78a17bbdd38d9773ea4d4ba8e84e3f1ef91b2aa",
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 1.8017908749752678,
+          "batch": {
+            "capture_id": "batch-374b1bdfc51549e98f4de6980c97c4c9",
+            "index": 2,
+            "cases": 8,
+            "input_words": 104400,
+            "output_words": 786432,
+            "input_sha256": "53fc1beb6cfc5097a42cbb765479c47d7db05ffdaa8c8daefca885cd22da0c17",
+            "output_sha256": "b8a298a611e0727bd5e6407ab78a17bbdd38d9773ea4d4ba8e84e3f1ef91b2aa",
+            "transport_input_sha256": "8f5aa4ac796f56cf033499c92a204e79e3bb65328a1c22a501a4e690cd7c2706",
+            "transport_output_sha256": "f879ea12f534c246f7d2600817a2ab9c96623d1de5753703051918b99c25992d",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "value": 300,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "16c7c8b8df564e4cb3d8edf3ec2adba9",
+          "device": "Apple M5",
+          "elapsed_ms": 7148.101250000764,
+          "gpu_execution_verified": true,
+          "input_sha256": "47293a33c1936a3bd1c35950c1694cbab4ac497c387dc01e9fe82efebbef577b",
+          "output_sha256": "3c966d3c4d41b9c831896168e1bfcf5ac3fecc01ebec06da87b39015a86f1897",
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 1.8017908749752678,
+          "batch": {
+            "capture_id": "batch-374b1bdfc51549e98f4de6980c97c4c9",
+            "index": 3,
+            "cases": 8,
+            "input_words": 104400,
+            "output_words": 786432,
+            "input_sha256": "47293a33c1936a3bd1c35950c1694cbab4ac497c387dc01e9fe82efebbef577b",
+            "output_sha256": "3c966d3c4d41b9c831896168e1bfcf5ac3fecc01ebec06da87b39015a86f1897",
+            "transport_input_sha256": "8f5aa4ac796f56cf033499c92a204e79e3bb65328a1c22a501a4e690cd7c2706",
+            "transport_output_sha256": "f879ea12f534c246f7d2600817a2ab9c96623d1de5753703051918b99c25992d",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "value": 400,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "cb5097412b59494d814900406e735893",
+          "device": "Apple M5",
+          "elapsed_ms": 7322.688499989454,
+          "gpu_execution_verified": true,
+          "input_sha256": "0a74f7c34e27b63a1e81688ec91c63901a71b04c6c78206bf8e5c24eae9bb252",
+          "output_sha256": "c40d21051039ea1ff5b8e9728332c2dc92302e88245e01f851875da0bd32e0e2",
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 1.8017908749752678,
+          "batch": {
+            "capture_id": "batch-374b1bdfc51549e98f4de6980c97c4c9",
+            "index": 4,
+            "cases": 8,
+            "input_words": 104400,
+            "output_words": 786432,
+            "input_sha256": "0a74f7c34e27b63a1e81688ec91c63901a71b04c6c78206bf8e5c24eae9bb252",
+            "output_sha256": "c40d21051039ea1ff5b8e9728332c2dc92302e88245e01f851875da0bd32e0e2",
+            "transport_input_sha256": "8f5aa4ac796f56cf033499c92a204e79e3bb65328a1c22a501a4e690cd7c2706",
+            "transport_output_sha256": "f879ea12f534c246f7d2600817a2ab9c96623d1de5753703051918b99c25992d",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "value": 500,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "d080ba13460e42d39e30fc19faf9dec8",
+          "device": "Apple M5",
+          "elapsed_ms": 7497.0712079666555,
+          "gpu_execution_verified": true,
+          "input_sha256": "a2eb565bba10b49abc03297476b00c3d1cb1d985c1e373c8169074a2fa28f043",
+          "output_sha256": "0b3452bd465d569de43c9510bcec6daa76557ef0e8009c95ccbbf509131c6d2a",
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 1.8017908749752678,
+          "batch": {
+            "capture_id": "batch-374b1bdfc51549e98f4de6980c97c4c9",
+            "index": 5,
+            "cases": 8,
+            "input_words": 104400,
+            "output_words": 786432,
+            "input_sha256": "a2eb565bba10b49abc03297476b00c3d1cb1d985c1e373c8169074a2fa28f043",
+            "output_sha256": "0b3452bd465d569de43c9510bcec6daa76557ef0e8009c95ccbbf509131c6d2a",
+            "transport_input_sha256": "8f5aa4ac796f56cf033499c92a204e79e3bb65328a1c22a501a4e690cd7c2706",
+            "transport_output_sha256": "f879ea12f534c246f7d2600817a2ab9c96623d1de5753703051918b99c25992d",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "value": 600,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "14fa000ba3be4210817ab0d737afebbe",
+          "device": "Apple M5",
+          "elapsed_ms": 7681.514041963965,
+          "gpu_execution_verified": true,
+          "input_sha256": "4249aff54c9f25ae2c612180c74760009878b7f0630bd467b214532599a87f2c",
+          "output_sha256": "2938b7a878e036e793e91eb0c34ddabe4b18396650f9f60ea23e673ccd2787b2",
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 1.8017908749752678,
+          "batch": {
+            "capture_id": "batch-374b1bdfc51549e98f4de6980c97c4c9",
+            "index": 6,
+            "cases": 8,
+            "input_words": 104400,
+            "output_words": 786432,
+            "input_sha256": "4249aff54c9f25ae2c612180c74760009878b7f0630bd467b214532599a87f2c",
+            "output_sha256": "2938b7a878e036e793e91eb0c34ddabe4b18396650f9f60ea23e673ccd2787b2",
+            "transport_input_sha256": "8f5aa4ac796f56cf033499c92a204e79e3bb65328a1c22a501a4e690cd7c2706",
+            "transport_output_sha256": "f879ea12f534c246f7d2600817a2ab9c96623d1de5753703051918b99c25992d",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "value": 700,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "d284c76522004fc3bf750fc256bc590b",
+          "device": "Apple M5",
+          "elapsed_ms": 7854.8958750325255,
+          "gpu_execution_verified": true,
+          "input_sha256": "d3ede4802d7b94071cdf26821488744ea5bf0d8f42088d705608a83686b398b9",
+          "output_sha256": "63af6409447cb0f19e7ee06cf2f3e8e200e5602c270ec8017efc94e18dbd0f2e",
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 1.8017908749752678,
+          "batch": {
+            "capture_id": "batch-374b1bdfc51549e98f4de6980c97c4c9",
+            "index": 7,
+            "cases": 8,
+            "input_words": 104400,
+            "output_words": 786432,
+            "input_sha256": "d3ede4802d7b94071cdf26821488744ea5bf0d8f42088d705608a83686b398b9",
+            "output_sha256": "63af6409447cb0f19e7ee06cf2f3e8e200e5602c270ec8017efc94e18dbd0f2e",
+            "transport_input_sha256": "8f5aa4ac796f56cf033499c92a204e79e3bb65328a1c22a501a4e690cd7c2706",
+            "transport_output_sha256": "f879ea12f534c246f7d2600817a2ab9c96623d1de5753703051918b99c25992d",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      }
+    ]
+  },
+  "healing_cover_30s_two_candidates": {
+    "status": "complete",
+    "seconds": 5.614117375051137,
+    "source_files_unchanged": true,
+    "results": [
+      {
+        "value": 0,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "b601d216b3384551a914f9d4df89962d",
+          "device": "Apple M5",
+          "elapsed_ms": 3679.2012079968117,
+          "gpu_execution_verified": true,
+          "input_sha256": "f98149847e5d783fb4fc4f39890ea65dbb6cfd4b6c26527f7700763d503049d6",
+          "output_sha256": "e3b790a67dacd7f6a5c284485a45f0ac972b35be943f6d0999f044093c0c0513",
+          "source": "gpu/product_healing_cover_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 2.6333157916669734,
+          "batch": {
+            "capture_id": "batch-47b2bd04f938401a910cfc9fcb285231",
+            "index": 0,
+            "cases": 2,
+            "input_words": 120072,
+            "output_words": 2048912,
+            "input_sha256": "f98149847e5d783fb4fc4f39890ea65dbb6cfd4b6c26527f7700763d503049d6",
+            "output_sha256": "e3b790a67dacd7f6a5c284485a45f0ac972b35be943f6d0999f044093c0c0513",
+            "transport_input_sha256": "6f67ef763269f6587251a5950cd6f47ac811b7a1ccf5c7d620713c70e62592f1",
+            "transport_output_sha256": "ad1b4ef7c881225eb0ab968f19e949bceb7393b45158bba687b94fdfa55f8bb7",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "value": 100,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "cd5b95eb19d44bb5a32c3fe918b566b5",
+          "device": "Apple M5",
+          "elapsed_ms": 4018.9585000043735,
+          "gpu_execution_verified": true,
+          "input_sha256": "3fcc4d840d9fd33badf09f7afb75576863f48b8d478ecc0faa1f631a6e661225",
+          "output_sha256": "21f69873687881dd03f2d02639ba6e9933b88b62f892013bc8fc052e12678d5d",
+          "source": "gpu/product_healing_cover_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 2.6333157916669734,
+          "batch": {
+            "capture_id": "batch-47b2bd04f938401a910cfc9fcb285231",
+            "index": 1,
+            "cases": 2,
+            "input_words": 120072,
+            "output_words": 2048912,
+            "input_sha256": "3fcc4d840d9fd33badf09f7afb75576863f48b8d478ecc0faa1f631a6e661225",
+            "output_sha256": "21f69873687881dd03f2d02639ba6e9933b88b62f892013bc8fc052e12678d5d",
+            "transport_input_sha256": "6f67ef763269f6587251a5950cd6f47ac811b7a1ccf5c7d620713c70e62592f1",
+            "transport_output_sha256": "ad1b4ef7c881225eb0ab968f19e949bceb7393b45158bba687b94fdfa55f8bb7",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      }
+    ]
+  },
+  "normal_saved_audit": {
+    "rows": [
+      {
+        "index": 0,
+        "value": 0,
+        "capture": "9ebfb18bf61a438397ac6324f6aea854",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": true,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 1,
+        "value": 100,
+        "capture": "84704b18dccc43e3812504df06c2efe1",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": true,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 2,
+        "value": 200,
+        "capture": "1fd491d5e2534c6aac6e5932d22c5917",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": true,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 3,
+        "value": 300,
+        "capture": "16c7c8b8df564e4cb3d8edf3ec2adba9",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": true,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 4,
+        "value": 400,
+        "capture": "cb5097412b59494d814900406e735893",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": true,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 5,
+        "value": 500,
+        "capture": "d080ba13460e42d39e30fc19faf9dec8",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": true,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 6,
+        "value": 600,
+        "capture": "14fa000ba3be4210817ab0d737afebbe",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": true,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 7,
+        "value": 700,
+        "capture": "d284c76522004fc3bf750fc256bc590b",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": true,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      }
+    ],
+    "audited": 8,
+    "native_battle_calls": 0,
+    "gpu_calls": 0
+  },
+  "healing_cover_saved_audit": {
+    "rows": [
+      {
+        "index": 0,
+        "value": 0,
+        "capture": "b601d216b3384551a914f9d4df89962d",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": true,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 1,
+        "value": 100,
+        "capture": "cd5b95eb19d44bb5a32c3fe918b566b5",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": true,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      }
+    ],
+    "audited": 2,
+    "native_battle_calls": 0,
+    "gpu_calls": 0
+  },
+  "original_single_poli3_full_input_readback_preserved": true,
+  "original_healing_cover_failure": {
+    "status": "complete",
+    "seconds": 18.32389629201498,
+    "matched_candidates": 1,
+    "rejected_candidates": 1,
+    "differing_fields": [
+      "app_warnings"
+    ],
+    "cause": "Declared warning was appended after hypothetical growth notice; CPU orders declarations before policy/growth notices",
+    "original_failure_and_captures_preserved": true,
+    "strict_comparison_unchanged": true
+  },
+  "warning_correction": {
+    "cpu_canonical_changed": false,
+    "numeric_or_shader_changes": false,
+    "expected_values_changed": false,
+    "warning_list_order_matches_cpu": true,
+    "original_complete_input_readback_preserved": [
+      {
+        "index": 0,
+        "input_sha256": "f98149847e5d783fb4fc4f39890ea65dbb6cfd4b6c26527f7700763d503049d6",
+        "output_sha256": "e3b790a67dacd7f6a5c284485a45f0ac972b35be943f6d0999f044093c0c0513",
+        "original_gpu_bytes_preserved": true
+      },
+      {
+        "index": 1,
+        "input_sha256": "3fcc4d840d9fd33badf09f7afb75576863f48b8d478ecc0faa1f631a6e661225",
+        "output_sha256": "21f69873687881dd03f2d02639ba6e9933b88b62f892013bc8fc052e12678d5d",
+        "original_gpu_bytes_preserved": true
+      }
+    ],
+    "byte_preservation": {
+      "gpu_source_files": 511,
+      "all_gpu_source_bytes_unchanged": true,
+      "comparison_scope": "Batch source ce38f2f5 vs warning-order correction eeea5606; not a new calculation proof",
+      "native_canonical_files": [
+        "app/engine_worker.py",
+        "app/detail_gpu.py",
+        "app/effect_spec.py",
+        "app/engine_compat.py"
+      ],
+      "native_canonical_unchanged": true
+    }
+  },
+  "tests": {
+    "detail": 67,
+    "reference_models": 43,
+    "weighted_source": 7,
+    "corrected_packet_unit_check": {
+      "passed": true,
+      "groups": 4,
+      "tests": 127,
+      "gpu_calls": 0,
+      "calculation_verified": false
+    },
+    "node_queue_and_server_preceding_implementation": 21
+  },
+  "transport": {
+    "physical_gpu_dispatches": 3,
+    "positive_dispatches": 2,
+    "retained_initial_warning_failure_dispatches": 1,
+    "normal_candidates": 8,
+    "healing_cover_corrected_candidates": 2,
+    "per_candidate_cpu_fullpayload_comparison": true,
+    "shared_gpu_time_not_multiplied_per_candidate": true,
+    "no_cpu_battle_as_gpu_input": true,
+    "saved_audit_additional_gpu_calls": 0,
+    "saved_audit_additional_native_battle_calls": 0
+  },
+  "coverage": {
+    "last_full_standard_metal_profiles": 262,
+    "total_standard_profiles": 266,
+    "strict_standard_cuda_profiles": 3,
+    "new_standard_profiles": 0,
+    "actual_cuda_batch_verified": false,
+    "full_goal_complete": false
+  },
+  "cleanup": {
+    "owned_servers_stopped": true,
+    "user_servers_modified": false
+  },
+  "remaining": [
+    "Windows corrected object observation fails existing link admission; original failure retained, no new SDK/GPU request",
+    "Remaining geometry/delivery-dependent profiles and other consumer compositions",
+    "Actual CUDA batching and other product-program batch wire coverage"
+  ]
+}

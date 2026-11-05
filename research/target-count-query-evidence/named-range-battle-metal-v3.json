@@ -1,0 +1,55 @@
+{
+  "schema": "named-range-battle-first-execution-v3",
+  "source_commit": "628dd82d8ef22c8ad569916e5e7b12997c616802",
+  "package_id": "ee3ab93f9406048a912b83c95833f8d74745e2a23cdd8c1571f59fbb5bd760b7",
+  "capture": "named-range-battle-metal-v3",
+  "calculation_verified": false,
+  "transport_execution_verified": true,
+  "inputs": 16,
+  "rejections_passed": 12,
+  "positive_worlds": 4,
+  "cast_records_matched_per_world": 54,
+  "full_comparison_errors": [
+    {
+      "index": 0,
+      "name": "named-range-battle/Asuka-Rei/expanded",
+      "reason": "AssertionError: Every frozen coordinate/radial selection"
+    },
+    {
+      "index": 1,
+      "name": "named-range-battle/Asuka-Rei/small-base-control",
+      "reason": "AssertionError: Every frozen coordinate/radial selection"
+    },
+    {
+      "index": 2,
+      "name": "named-range-battle/Asuka-Rei/late-spawn",
+      "reason": "AssertionError: Every frozen coordinate/radial selection"
+    },
+    {
+      "index": 3,
+      "name": "named-range-battle/Asuka-Rei/retirement",
+      "reason": "AssertionError: Every frozen coordinate/radial selection"
+    }
+  ],
+  "input_sha256": "86e3b2f4d45bf5526780f641b3fa12ea48830763451ba29a8c0f2914dedc74fe",
+  "output_sha256": "a016d1b2cc30357a022d9901f63cbc8d6a65b2b0f0f792a3c50fdadcb590db3b",
+  "generated_normalized": {
+    "cuda": "4f5d82a84d100a6da5b6e3b2350ff6d38ddb07449aa654a88b45db240a9eca74",
+    "metal": "93c8b1d8c49051dc22110d8e83f1147c0c0547d3377973e452ca4a1a4a3e072c"
+  },
+  "same_claim_retries": 0,
+  "additional_windows_calls": 0,
+  "diagnosis": "Selection comparer read legacy placeholder hit=1 instead of the native HitEvent creation hit-loop receipt; correction uses existing trace_view identity checks",
+  "corrected_independent_audit_verified": false,
+  "device": "Apple M5",
+  "gpu_seconds": 2.299042875005398,
+  "cold_pipeline_seconds": 58.40640306472778,
+  "expanded_saved_diagnostic": {
+    "passed": true,
+    "scope": "CPU diagnostic on saved expanded battle only; not immutable full audit",
+    "gpu_calls": 0,
+    "elapsed_seconds": 41.43583254200348,
+    "casts": 54,
+    "creation_receipts": 102
+  }
+}

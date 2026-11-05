@@ -1,0 +1,2504 @@
+{
+  "passed": false,
+  "stage": "verified-sentinel-and-context-mismatches",
+  "source_commit": "7f42a1d38cb5276ad5ecd1d632db25211339102d",
+  "cases": [
+    {
+      "name": "sentinel-auto-consumes-cartridge",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 999998,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-auto-pct-event:cover_healed-maxbuff-False",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 0,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 5,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-auto-pct-on_attack-maxbuff-False",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 0,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 499998,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    }
+  ],
+  "gpu_execution": {
+    "results": [
+      {
+        "pending_burst": {
+          "count": 0,
+          "enqueued": 0,
+          "fired": 0,
+          "entries": []
+        },
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
+        "body_damage": [
+          1000.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "add_damage": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scored_damage": [
+          1000.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "add_overkill": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "target_scored_damage": [
+          1000.0
+        ],
+        "bullet_lifetimes": {
+          "active_carriers": 0
+        },
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
+        "carriers": [
+          {
+            "slot": 0,
+            "definition": 0,
+            "effect": "no critical",
+            "recipients": 31,
+            "stacks": 1,
+            "active": true,
+            "lazy_pending": false,
+            "end": 1e+30,
+            "activated": 0.0,
+            "order": 1,
+            "hp_snapshot": 0.0
+          },
+          {
+            "slot": 1,
+            "definition": 1,
+            "effect": "extra magazine",
+            "recipients": 31,
+            "stacks": 1,
+            "active": true,
+            "lazy_pending": false,
+            "end": 1e+30,
+            "activated": 0.0,
+            "order": 2,
+            "hp_snapshot": 0.0
+          }
+        ],
+        "allies": [
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          },
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          },
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          },
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          },
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          }
+        ],
+        "status": 0,
+        "queries": [
+          {
+            "pending_burst": {
+              "count": 0,
+              "enqueued": 0,
+              "fired": 0
+            },
+            "body_damage": [
+              1000.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "add_damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scored_damage": [
+              1000.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "add_overkill": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "time": 0.0,
+            "damage": [
+              1000.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "active_timer_mask_words": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 0,
+                  "shots": 1,
+                  "next": 1.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": 2,
+                  "mode_shots": 1
+                },
+                {
+                  "ammo": 10,
+                  "shots": 0,
+                  "next": 0.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 10,
+                  "shots": 0,
+                  "next": 0.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 10,
+                  "shots": 0,
+                  "next": 0.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 10,
+                  "shots": 0,
+                  "next": 0.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                }
+              ],
+              "phase": 0,
+              "cast_mask": 0,
+              "gauge": 0.0,
+              "action": 0.0,
+              "full_end": 0.0,
+              "target": 0,
+              "clock": "grid",
+              "targets": [
+                {
+                  "generation": 1,
+                  "active": true,
+                  "hp": 1e+30,
+                  "damage": 1000.0,
+                  "hits": 1
+                }
+              ],
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cooldown_wait_mask": 0,
+              "gauge_charging": true,
+              "reentry_slot": false,
+              "reentry_done": 0,
+              "casts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "allies": [
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "no critical",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "extra magazine",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "mode",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "charge",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 0,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [
+          {
+            "kind": 0,
+            "identity": 0,
+            "generation": 1,
+            "active": true,
+            "hp": 1e+30,
+            "damage": 1000.0,
+            "hits": 1
+          }
+        ],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 1,
+        "max_stack_depth": 2
+      },
+      {
+        "pending_burst": {
+          "count": 0,
+          "enqueued": 0,
+          "fired": 0,
+          "entries": []
+        },
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
+        "body_damage": [
+          1000.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "add_damage": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scored_damage": [
+          1000.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "add_overkill": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "target_scored_damage": [
+          1000.0
+        ],
+        "bullet_lifetimes": {
+          "active_carriers": 0
+        },
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
+        "carriers": [
+          {
+            "slot": 0,
+            "definition": 0,
+            "effect": "no critical",
+            "recipients": 31,
+            "stacks": 1,
+            "active": true,
+            "lazy_pending": false,
+            "end": 1e+30,
+            "activated": 0.0,
+            "order": 1,
+            "hp_snapshot": 0.0
+          },
+          {
+            "slot": 1,
+            "definition": 1,
+            "effect": "extra magazine",
+            "recipients": 31,
+            "stacks": 1,
+            "active": true,
+            "lazy_pending": false,
+            "end": 1e+30,
+            "activated": 0.0,
+            "order": 2,
+            "hp_snapshot": 0.0
+          }
+        ],
+        "allies": [
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          },
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          },
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          },
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          },
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          }
+        ],
+        "status": 0,
+        "queries": [
+          {
+            "pending_burst": {
+              "count": 0,
+              "enqueued": 0,
+              "fired": 0
+            },
+            "body_damage": [
+              1000.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "add_damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scored_damage": [
+              1000.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "add_overkill": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "time": 0.1,
+            "damage": [
+              1000.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "active_timer_mask_words": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 0,
+                  "shots": 1,
+                  "next": 1.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": 2,
+                  "mode_shots": 1
+                },
+                {
+                  "ammo": 5,
+                  "shots": 0,
+                  "next": 0.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 5,
+                  "shots": 0,
+                  "next": 0.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 5,
+                  "shots": 0,
+                  "next": 0.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 5,
+                  "shots": 0,
+                  "next": 0.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                }
+              ],
+              "phase": 0,
+              "cast_mask": 0,
+              "gauge": 0.0,
+              "action": 0.0,
+              "full_end": 0.0,
+              "target": 0,
+              "clock": "grid",
+              "targets": [
+                {
+                  "generation": 1,
+                  "active": true,
+                  "hp": 1e+30,
+                  "damage": 1000.0,
+                  "hits": 1
+                }
+              ],
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cooldown_wait_mask": 0,
+              "gauge_charging": true,
+              "reentry_slot": false,
+              "reentry_done": 0,
+              "casts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "allies": [
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "no critical",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "extra magazine",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "mode",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "charge",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [
+          {
+            "kind": 0,
+            "identity": 0,
+            "generation": 1,
+            "active": true,
+            "hp": 1e+30,
+            "damage": 1000.0,
+            "hits": 1
+          }
+        ],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 1,
+        "max_stack_depth": 2
+      },
+      {
+        "pending_burst": {
+          "count": 0,
+          "enqueued": 0,
+          "fired": 0,
+          "entries": []
+        },
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
+        "body_damage": [
+          1000.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "add_damage": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scored_damage": [
+          1000.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "add_overkill": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "target_scored_damage": [
+          1000.0
+        ],
+        "bullet_lifetimes": {
+          "active_carriers": 0
+        },
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
+        "carriers": [
+          {
+            "slot": 0,
+            "definition": 0,
+            "effect": "no critical",
+            "recipients": 31,
+            "stacks": 1,
+            "active": true,
+            "lazy_pending": false,
+            "end": 1e+30,
+            "activated": 0.0,
+            "order": 1,
+            "hp_snapshot": 0.0
+          },
+          {
+            "slot": 1,
+            "definition": 1,
+            "effect": "extra magazine",
+            "recipients": 31,
+            "stacks": 1,
+            "active": true,
+            "lazy_pending": false,
+            "end": 1e+30,
+            "activated": 0.0,
+            "order": 2,
+            "hp_snapshot": 0.0
+          }
+        ],
+        "allies": [
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000000.0,
+            "max_hp": 1000000.0,
+            "hp_pct": 100.0,
+            "defense": 0.0,
+            "healing": 0.0,
+            "received_damage": 0.0,
+            "received_hits": 0,
+            "down": false
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          },
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          },
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          },
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          },
+          {
+            "warm": 0.0,
+            "last_fire": -999.0,
+            "last_interval": 0.0,
+            "post_reload_until": -1.0,
+            "spread": 0.0,
+            "probability": 0.0,
+            "probability_evaluations": 0,
+            "pending_auto_reload": false,
+            "charge_started_at": 0.0
+          }
+        ],
+        "status": 0,
+        "queries": [
+          {
+            "pending_burst": {
+              "count": 0,
+              "enqueued": 0,
+              "fired": 0
+            },
+            "body_damage": [
+              1000.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "add_damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scored_damage": [
+              1000.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "add_overkill": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "time": 0.1,
+            "damage": [
+              1000.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "active_timer_mask_words": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 0,
+                  "shots": 1,
+                  "next": 1.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": 2,
+                  "mode_shots": 1
+                },
+                {
+                  "ammo": 5,
+                  "shots": 0,
+                  "next": 0.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 5,
+                  "shots": 0,
+                  "next": 0.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 5,
+                  "shots": 0,
+                  "next": 0.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 5,
+                  "shots": 0,
+                  "next": 0.0,
+                  "reload_until": -1.0,
+                  "ready": 0.0,
+                  "charge_until": 0.0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                }
+              ],
+              "phase": 0,
+              "cast_mask": 0,
+              "gauge": 0.0,
+              "action": 0.0,
+              "full_end": 0.0,
+              "target": 0,
+              "clock": "grid",
+              "targets": [
+                {
+                  "generation": 1,
+                  "active": true,
+                  "hp": 1e+30,
+                  "damage": 1000.0,
+                  "hits": 1
+                }
+              ],
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cooldown_wait_mask": 0,
+              "gauge_charging": true,
+              "reentry_slot": false,
+              "reentry_done": 0,
+              "casts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "allies": [
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000000.0,
+                "max_hp": 1000000.0,
+                "hp_pct": 100.0,
+                "defense": 0.0,
+                "healing": 0.0,
+                "received_damage": 0.0,
+                "received_hits": 0,
+                "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "no critical",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "extra magazine",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "mode",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "charge",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [
+          {
+            "kind": 0,
+            "identity": 0,
+            "generation": 1,
+            "active": true,
+            "hp": 1e+30,
+            "damage": 1000.0,
+            "hits": 1
+          }
+        ],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 1,
+        "max_stack_depth": 2
+      }
+    ],
+    "transport": {
+      "backend": "metal",
+      "cases": 3,
+      "command_status": "completed",
+      "device": "Apple M5",
+      "gpu_seconds": 0.0029821666539646685,
+      "input_bytes": 638980,
+      "library_compile_seconds": 0.0006690025329589844,
+      "output_bytes": 638976,
+      "pipeline_compile_seconds": 0.0012309551239013672,
+      "pipeline_lock_wait_seconds": 9.5367431640625e-07,
+      "registry_id": "4294968313"
+    },
+    "source_sha256": {
+      "gpu/event_runtime.slang": "050080707a3877f724b835c2d4dc666567334eeb220c6c3d80c76da4d115e5d0",
+      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+      "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+      "gpu/portable_schema.slang": "9537cf8fd62ccec2656bd2ad4b9df3e0f813579217a2842236f42fa95a63f056",
+      "gpu/runtime_init.slang": "87fda44c2dc35d598ce87975b496de98e3c452ac323eccb9f5eb642814c540fa",
+      "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
+      "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
+      "gpu/lazy_runtime.slang": "fe31cbd40e8bc75d82b7d1146639772c6b236c3a08c126e4aa92299aae41932f",
+      "gpu/carrier_runtime.slang": "ee5785eb4a314831e271644f7341e5642549ffd3d19008e11fd877f3368a369f",
+      "gpu/quantity_runtime.slang": "5d0a7ee77ad299b161f59ecccccc16a5a082ccc57fcf226c04873464264c2abf",
+      "gpu/health_runtime.slang": "071e46cf983d294241247cfef5a3de6105829bd9e85fed05dc9d6050f8cc90fb",
+      "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
+      "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
+      "gpu/recipient_runtime.slang": "ea89a5a0656f93ac7f412c941fc6e37dd534680bdab7ea808cca648bf7a0866a",
+      "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
+      "gpu/incoming_runtime.slang": "322e92344f55def51fe181360ce35aba89daf341d423bed94b7da22923fa701b",
+      "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
+      "gpu/enemy_damage_runtime.slang": "499f560b14bdf8521d3157a5af56cac405f7e1507e5665a21d223cecf96806ba",
+      "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
+      "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+      "gpu/combat_runtime.slang": "05769cdf8eee8a55d61f3bcdb462675e80fbc98ff1206fb173b76878be0c0b8c",
+      "gpu/ammo_instant_runtime.slang": "952151aec0072d05278c790880024966a09e0cf48f876636a06613b94a716212",
+      "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+      "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
+    },
+    "generated_sha256": {
+      "cuda": "c67bf87d5752fd8acd30096c6bdb11b4538db4c710c847181d1fdeddcdceb133",
+      "metal": "69cabd3fca3d44ccb325f357935e4ecfaa455eaed815803d49603cf660240c3c"
+    },
+    "input_sha256": "ec1969cba011f802a98ba4cacdc40939b47803fa5688c0028c948572a0e5d855",
+    "output_sha256": "a640cd8cd9f4ac0b20cb31b5bab21f6b9b84e34acd6192a1ce9d50f075f8d8fa",
+    "gpu_execution_verified": true,
+    "backend": "metal",
+    "application_event_runtime_connected": true,
+    "autonomous_battle_connected": false,
+    "weapon_burst_target_connected": true,
+    "gpu_timeline_connected": true
+  },
+  "cpu_observations": [
+    {
+      "queries": [
+        {
+          "combat": {
+            "full_end": 0,
+            "last_b3_caster": -1,
+            "last_b3_cast_time": -1.0,
+            "last_full_start": -1.0,
+            "phase": 0,
+            "gauge": 0,
+            "gauge_charging": true,
+            "cast_mask": 0,
+            "casts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cooldown_wait_mask": 0,
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "weapons": [
+              {
+                "ready": 0.0,
+                "ammo": 999998,
+                "shots": 1,
+                "reload_until": -1.0,
+                "next": 1.0
+              },
+              {
+                "ready": 0.0,
+                "ammo": 10,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0
+              },
+              {
+                "ready": 0.0,
+                "ammo": 10,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0
+              },
+              {
+                "ready": 0.0,
+                "ammo": 10,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0
+              },
+              {
+                "ready": 0.0,
+                "ammo": 10,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0
+              }
+            ]
+          },
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "casts": []
+    },
+    {
+      "queries": [
+        {
+          "combat": {
+            "full_end": 0,
+            "last_b3_caster": -1,
+            "last_b3_cast_time": -1.0,
+            "last_full_start": -1.0,
+            "phase": 0,
+            "gauge": 0,
+            "gauge_charging": true,
+            "cast_mask": 0,
+            "casts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cooldown_wait_mask": 0,
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "weapons": [
+              {
+                "ready": 0.0,
+                "ammo": 5,
+                "shots": 1,
+                "reload_until": -1.0,
+                "next": 1.0
+              },
+              {
+                "ready": 0.0,
+                "ammo": 5,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0
+              },
+              {
+                "ready": 0.0,
+                "ammo": 5,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0
+              },
+              {
+                "ready": 0.0,
+                "ammo": 5,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0
+              },
+              {
+                "ready": 0.0,
+                "ammo": 5,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0
+              }
+            ]
+          },
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "casts": []
+    },
+    {
+      "queries": [
+        {
+          "combat": {
+            "full_end": 0,
+            "last_b3_caster": -1,
+            "last_b3_cast_time": -1.0,
+            "last_full_start": -1.0,
+            "phase": 0,
+            "gauge": 0,
+            "gauge_charging": true,
+            "cast_mask": 0,
+            "casts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cooldown_wait_mask": 0,
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "weapons": [
+              {
+                "ready": 0.0,
+                "ammo": 499998,
+                "shots": 1,
+                "reload_until": -1.0,
+                "next": 1.0
+              },
+              {
+                "ready": 0.0,
+                "ammo": 5,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0
+              },
+              {
+                "ready": 0.0,
+                "ammo": 5,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0
+              },
+              {
+                "ready": 0.0,
+                "ammo": 5,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0
+              },
+              {
+                "ready": 0.0,
+                "ammo": 5,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0
+              }
+            ]
+          },
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "casts": []
+    }
+  ]
+}

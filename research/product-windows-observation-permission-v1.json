@@ -1,0 +1,254 @@
+{
+  "schema": "product-windows-observation-permission-v1",
+  "default_diagnostic": {
+    "schema": "movement-cover-fixed-snapshot-diagnostic-v1",
+    "scope": "One independently authorized CPU snapshot-check; not an unpack, compiler retry, or before/after environment preservation proof.",
+    "status": "diagnostic_completed_snapshot_failed",
+    "original_status_commit": "150049a7442b5b383e9dd66ebb3e72c60dc9de35",
+    "original_diagnosis_commit": "f5bda1f83f53bb795573b34f9088a551cb80258d",
+    "static_preflight": {
+      "finite_diagnostic_version_verified": true,
+      "exclusive_report_before_query_verified": true,
+      "used_sources_sha256": {
+        "app/portable_windows_snapshot.py": "9548b945e77f6c327315c33ea5e805450ab7d4e07c07ddc752f8ce9feb7a364a",
+        "research/windows_validation_observer.py": "97d7405ff8771cf413f5e58c14ebea98037afb8a3691417d12e7b21d2d45fdd3",
+        "scripts/nikke_gpu.py": "d27d467b7c3380cfeb76f7cd8b5827b3e157ea775058fe1b412fc240bff47a33",
+        "research/run-world-bounded.py": "10ef875f8157d85b44ecc28e868c2cc95330eb9b4c59ad22723840533fa8074c"
+      }
+    },
+    "snapshot": {
+      "attempts": 1,
+      "retry_count": 0,
+      "exclusive_report_created": true,
+      "snapshot_verified": false,
+      "error_type": "SnapshotFailure",
+      "finite_failure": {
+        "exit_code": 1,
+        "stage": "processes",
+        "category": 0,
+        "hresult": -2146233088
+      },
+      "diagnostic": {
+        "operation": 1,
+        "type_id": 1,
+        "inner_type_id": 0,
+        "error_id_kind": 0,
+        "native_code": 2,
+        "inner_hresult": null
+      },
+      "type_id_interpretation": "Microsoft.Management.Infrastructure.CimException",
+      "operation_id_interpretation": "Get-CimInstance Win32_Process enumeration",
+      "inner_type_id_interpretation": "no InnerException in this exception record",
+      "native_code_interpretation": "not interpreted; numeric code retained",
+      "elapsed_seconds": 0.6294164997525513
+    },
+    "job_and_exit": {
+      "child_timeout_seconds": 30,
+      "outer_budget_seconds": 180,
+      "memory_limit_mb": 2048,
+      "below_normal_priority": true,
+      "start_gate_released": true,
+      "job_count": 1,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "inspection_error_present": false,
+      "child_exit_code": 1,
+      "wrapper_exit_code": 1,
+      "timed_out": false,
+      "cleanup_error_present": false,
+      "bounded_error_present": false,
+      "elapsed_seconds": 1.2158396001905203
+    },
+    "limits_and_claims": {
+      "sdk_calls": 0,
+      "compile_calls": 0,
+      "unpack_calls": 0,
+      "driver_calls": 0,
+      "gpu_calls": 0,
+      "http_calls": 0,
+      "os_wmi_acl_service_settings_changed": false,
+      "before_after_snapshot_pair_taken": false,
+      "calculation_verified": false,
+      "preservation_verified": false,
+      "original_failed_claim_modified": false,
+      "original_capture_files_checked_unchanged": 12,
+      "missing_process_count": null,
+      "service_status": "unverified",
+      "limit_query": null
+    },
+    "cause_assessment": {
+      "root_cause": "unknown",
+      "old_failure_same_cause": "not_established",
+      "prior_seven_process_disappearance_same_cause": "not_established",
+      "permission_mode": "use_default",
+      "permission_or_os_settings_modified": false
+    },
+    "privacy": {
+      "full_process_list_shared": false,
+      "arbitrary_exception_message_shared": false,
+      "command_lines_shared": false
+    },
+    "next_action": "Stopped after the single diagnostic query; no automatic follow-up or compilation."
+  },
+  "approved_diagnostic": {
+    "schema": "movement-cover-fixed-snapshot-permission-v2",
+    "scope": "One independently authorized CPU snapshot-check through the normal require_escalated approval path; no automatic compiler continuation.",
+    "permission": {
+      "mode": "require_escalated",
+      "approval_denied": false,
+      "uac_or_windows_administrator_elevation_performed": false,
+      "acl_wmi_service_settings_changed": false
+    },
+    "prior_default_permission_diagnostic_commit": "85fe12d60221324cfe04914745e0079369e01817",
+    "original_compile_stop_commit": "150049a7442b5b383e9dd66ebb3e72c60dc9de35",
+    "static_preflight": {
+      "finite_diagnostic_version_verified": true,
+      "exclusive_report_before_query_verified": true,
+      "used_sources_sha256": {
+        "app/portable_windows_snapshot.py": "9548b945e77f6c327315c33ea5e805450ab7d4e07c07ddc752f8ce9feb7a364a",
+        "research/windows_validation_observer.py": "97d7405ff8771cf413f5e58c14ebea98037afb8a3691417d12e7b21d2d45fdd3",
+        "scripts/nikke_gpu.py": "d27d467b7c3380cfeb76f7cd8b5827b3e157ea775058fe1b412fc240bff47a33",
+        "research/run-world-bounded.py": "10ef875f8157d85b44ecc28e868c2cc95330eb9b4c59ad22723840533fa8074c"
+      }
+    },
+    "snapshot": {
+      "query_attempts": 1,
+      "retries": 0,
+      "exclusive_report_created": true,
+      "snapshot_verified": true,
+      "error_type": null,
+      "finite_failure_codes": null,
+      "elapsed_seconds": 2.47781870001927,
+      "service_status": "unverified",
+      "uncertain_process_count": 8
+    },
+    "job_and_exit": {
+      "below_normal_priority": true,
+      "child_timeout_seconds": 30,
+      "outer_budget_seconds": 180,
+      "configured_memory_limit_mb": 2048,
+      "start_gate_released": true,
+      "job_count": 1,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "inspection_error_present": false,
+      "child_exit_code": 0,
+      "wrapper_exit_code": 0,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "elapsed_seconds": 2.800036400090903,
+      "saved_job_limit_observations": [
+        {
+          "pre_gate_limit_bytes": 2147483648,
+          "post_wait_limit_bytes": 2147483648,
+          "post_wait_peak_memory_bytes": 168448000
+        }
+      ],
+      "limit_query_complete": true
+    },
+    "claims": {
+      "before_after_environment_preservation_verified": false,
+      "calculation_verified": false,
+      "cuda_verified": false,
+      "missing_process_count": null,
+      "original_failed_claims_modified": false,
+      "original_files_checked_unchanged": 28,
+      "same_cause_as_prior_seven_missing_processes": "not_established"
+    },
+    "actual_calls": {
+      "snapshot_check": 1,
+      "unpack": 0,
+      "sdk": 0,
+      "slang": 0,
+      "compile": 0,
+      "driver": 0,
+      "context": 0,
+      "gpu": 0,
+      "http": 0
+    },
+    "privacy": {
+      "full_process_list_shared": false,
+      "arbitrary_exception_messages_shared": false,
+      "commands_shared": false
+    },
+    "next_action": "Stopped after this single CPU diagnostic; no automatic follow-up or compilation."
+  },
+  "interpretation": {
+    "native_code2_domain": "MI_Result ACCESS_DENIED in Microsoft.Management.Infrastructure.CimException",
+    "source": "https://learn.microsoft.com/en-us/windows/win32/api/mi/ne-mi-mi_result",
+    "approved_mode_observer_success": true,
+    "os_root_cause_not_fully_determined": true,
+    "prior_seven_missing_processes_cause_not_established": true,
+    "snapshot_success_not_environment_preservation": true,
+    "calculation_verified": false
+  },
+  "next_compile": {
+    "status": "requested_result_pending",
+    "record": "movement-cover-fixed-compile-v3",
+    "transport_commit": "ad4a4efe400b1862494b7afd0ca2a39ca25c1ac7",
+    "package_id": "de7eae326ff99ab4da1c28b0dca653e01da2c5abbc4ad8d1e6a9bf1d6211b988",
+    "source": "70e68113864923eaa3c5281b0d5f20deef1cbb3d",
+    "reason": "Previous v2 gate not released, no unpack or SDK execution, no SDK claim; new permission mode supported by independent diagnostic.",
+    "requested_mode": "require_escalated",
+    "sdk_child_seconds": 60,
+    "memory_limit_mb": 2048,
+    "outer_seconds": 180,
+    "below_normal": true,
+    "fresh_job": true,
+    "start_gate": true,
+    "nvrtc_once": true,
+    "ptxas_object_O1_once_if_all_gates_pass": true,
+    "link_driver_context_gpu_http_authorized": false,
+    "retries": 0
+  },
+  "local_preflight": {
+    "stat_ownership_guard_added": true,
+    "rejects_alias_without_incoming": true,
+    "old_numeric_ids_unchanged": true,
+    "normal_five_inputs": {
+      "cases": [
+        {
+          "index": 0,
+          "input_sha256": "b8b99b9659b97c70c709a1ab6ce7c540b8b973221c0a87111272149cda8c14a1",
+          "source": "gpu/product_named_range_cover_fixed_battle_entry.slang"
+        },
+        {
+          "index": 1,
+          "input_sha256": "59a9f711bc723c04c64ad232f48eefad2d05f407b17bbb62bc1e45cb2ce4ca82",
+          "source": "gpu/product_named_range_cover_fixed_battle_entry.slang"
+        },
+        {
+          "index": 2,
+          "input_sha256": "cb0c2e85ba5c07a01704c0c5e764c257d3c21cc71841e611eb753fdc3bac7c24",
+          "source": "gpu/product_named_range_cover_battle_entry.slang"
+        },
+        {
+          "index": 3,
+          "input_sha256": "8ebec7993ba998df08f1f75a08176000683abbc5b71409601ab46a304726fd2b",
+          "source": "gpu/product_named_range_cover_battle_entry.slang"
+        },
+        {
+          "index": 4,
+          "input_sha256": "d60bf71a008bd1601d8af5bc083f6ffcc61c3f8e537954dbcb04d5ea3282e85d",
+          "source": "gpu/product_cover_fixed_battle_entry.slang"
+        }
+      ],
+      "gpu_calls": 0,
+      "native_battle_calls": 0
+    },
+    "reference_model_tests": 47,
+    "snapshot_failure_tests": 17,
+    "history_tests": 7,
+    "gpu_source_changed": false,
+    "extra_metal_execution": 0
+  },
+  "coverage": {
+    "metal_standard_profiles": 262,
+    "total_standard_profiles": 266,
+    "new_standard_profiles": 0,
+    "historical_strict_cuda_profiles": 3,
+    "current_source_cuda_profiles": 0,
+    "goal_complete": false
+  }
+}

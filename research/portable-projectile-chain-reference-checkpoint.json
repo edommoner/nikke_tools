@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "status": "native_projectile_chain_contracts_and_saved_core_report_audited",
+  "source_parent": "b445b55",
+  "packages": {
+    "reference": "be4e455ecd27d36df0782bd0e324419848c42b0cef3b2c3b20ed84011b006b6a",
+    "report_audit": "eaa02f7dd204840c03696c6e2c97fa2370bf8d9a20dc5f0f6d83268cc34e23e4"
+  },
+  "native": {
+    "cases": 26,
+    "positive": 24,
+    "model_gap": 2,
+    "original_cases": 2,
+    "original_definitions": 87,
+    "reference_seconds": 1.4928235840052366,
+    "original_reference_seconds": 2.0964508339529857,
+    "extra_semantic_queries": 0,
+    "whole_battle_trace_rng_preserved": true,
+    "new_GPU_admission": false
+  },
+  "saved_CUDA": {
+    "export_commit": "62a173324f126771b6e6b2683652f1d2175596b9",
+    "files": 26,
+    "bytes": 201729,
+    "inputs": 41,
+    "all_input_native_output_reported_hashes_match_Metal": true,
+    "strict_generated_hashes_match": true,
+    "core_shader_sources": 3,
+    "raw_independent_audit": false,
+    "full_battle_CUDA_verified": false,
+    "cache_receipts_consistent": true,
+    "cold_compile_seconds": 1.453,
+    "warm_file_only_seconds": 0.08532420033589005,
+    "environment_preservation_verified": false,
+    "cause": "unknown",
+    "manifest_sha256": "e7c93111b6acb67f312df3c617bc8b21dc5778fc6ae9cfcd806ef3eaf1226448"
+  },
+  "static": {
+    "packed": 244,
+    "total": 266,
+    "base": 184,
+    "base_total": 203,
+    "remaining_categories": 23,
+    "lowering_candidates": 2,
+    "native_extensions": 1,
+    "model_gap": 10,
+    "review": 10,
+    "all266_records_and244_input_sha256_identical": true,
+    "priority_codes_and_order_preserved": true
+  },
+  "preserved": {
+    "battle_shader_sources": 146,
+    "old62_source_input_native_baseline_equal": true,
+    "Metal460_proof_reused": true
+  },
+  "new_gpu_calls": 0,
+  "new_slang_or_nvrtc_calls": 0,
+  "new_Windows_validation_or_observation_calls": 0,
+  "normal_UI": "CPU",
+  "full_character_certifications": 0,
+  "full_goal_complete": false,
+  "next": [
+    "private_shared_weapon_hit_handler_completion_continuation",
+    "ordinary_buff_carrier_projection_without_instant_mutation",
+    "matching_actor_base_weapon_annotation_guard",
+    "signed_zero_negative_hit_count_and_pending_handler_contracts",
+    "Metal_new_cases_plus_old460_retention_and_original_Rapi87"
+  ],
+  "cpu_tests": {
+    "reference_groups": 3,
+    "reference_tests": 15,
+    "report_audit_groups": 2,
+    "report_audit_tests": 21
+  },
+  "failures_preserved": [
+    {
+      "name": "saved-core-audit-v2-cuda-CPU-mode",
+      "reason": "Development package correctly refused CUDA backend before any execution",
+      "gpu_calls": 0,
+      "stderr": "/tmp/nikke-saved-core-audit-cpu-v2.stderr.log"
+    },
+    {
+      "name": "saved-core-audit-v2-metal-CPU",
+      "reason": "Two generated text fixture support files missing; explicitly packaged and tested",
+      "gpu_calls": 0,
+      "capture": "/tmp/nikke-saved-core-audit-cpu-v2-metal"
+    }
+  ],
+  "report_fixture_eol_conversion_disabled": true,
+  "all26_fixture_git_index_bytes_match_verified_export": true
+}

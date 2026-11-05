@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "body-approx-before.json",
+      "bytes": 730,
+      "sha256": "20540bf3e2bc1ecab492d44b4ba853660f28d6eba5913ca394bc54a287a1897a"
+    },
+    {
+      "path": "body-approx-guarded.json",
+      "bytes": 527,
+      "sha256": "08a2f3695dbb6b0c4a02add101274e4abcbfe5e0b785b69103d5db2e7835b43b"
+    },
+    {
+      "path": "final-cpu138.json",
+      "bytes": 3345,
+      "sha256": "f437ad2c635f2f140a1a9e56bf03f64a5776d90f05e5c5eabea91abd80d71b78"
+    },
+    {
+      "path": "inventory-preservation.json",
+      "bytes": 280,
+      "sha256": "baf76255e72fad95de30854e27b089f18aa2b0103c7e7ee9e1da06c95d851f37"
+    },
+    {
+      "path": "metal38.json",
+      "bytes": 15073,
+      "sha256": "f5bed8e94e621c449c76781ff6ef2eca6aba511a81c82bc93ce0440be3b70053"
+    },
+    {
+      "path": "metal42.json",
+      "bytes": 16522,
+      "sha256": "eb900ba05b530b874bb218ec9cedfc738f6656c5330406f83dc79f4c0d868a02"
+    },
+    {
+      "path": "metal44.json",
+      "bytes": 17268,
+      "sha256": "f74b3451f3c1aa4a8b5a10bbbd7ccfd0d36f33197621c49ac670b13612c8adb7"
+    },
+    {
+      "path": "post-guard-replay42.json",
+      "bytes": 321,
+      "sha256": "a3c58b3179fc958a999aaa5d1886de7dee11c57934bd3d3d8012ae6718a22f49"
+    },
+    {
+      "path": "prior25-golden.json",
+      "bytes": 25059,
+      "sha256": "bcd51ddfac3f0db5d883e39d802261568dcc88f04c332d80eec7a725ea802a6f"
+    },
+    {
+      "path": "retained25-through42.json",
+      "bytes": 1716,
+      "sha256": "cbd48878f0808779384ad578886e3d912034b916bcc13f79c488b4f12cd50362"
+    },
+    {
+      "path": "retained38-through42.json",
+      "bytes": 951,
+      "sha256": "670e150f8589336333b70c1ce53d523665e5dae5e1d41e9f69d832e59ce25080"
+    },
+    {
+      "path": "retained42-through44.json",
+      "bytes": 854,
+      "sha256": "e944b4e0fb4124b4dade4d1c437a7c69dfc330fb80445d253a767fd56d5b1039"
+    },
+    {
+      "path": "sealed-generation-cache.json",
+      "bytes": 221,
+      "sha256": "7bad087cc88d31d3676fddd29625fad6f1b1fd225f4438f6e025b4267c66017f"
+    },
+    {
+      "path": "unchanged-shader-reuse.json",
+      "bytes": 669,
+      "sha256": "1d2e38f93cbac73c62a1821927fcd5d8eddd516a5cdbc987423dfaeaffd77be6"
+    }
+  ],
+  "total_bytes": 83536,
+  "scope": "Small public-fixture proofs only; no raw buffers, personal settings or toolchains"
+}

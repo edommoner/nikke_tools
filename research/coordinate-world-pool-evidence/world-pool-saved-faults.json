@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "offsets": [
+    786440,
+    786443,
+    1048575,
+    225320
+  ],
+  "original_unchanged": true,
+  "raw_sha256": "523136a06b329eb23ab314d93a27b45dc7627d28c625182ac3ca338af571ab7a"
+}

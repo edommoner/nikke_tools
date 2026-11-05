@@ -1,0 +1,249 @@
+{
+  "schema": "metal-original-lock-composition-v4",
+  "observed_date": "2026-10-28",
+  "code_commit": "8fd51499ebe50d9e8570f2397c50d4690f69d184",
+  "package_id": "0d4b4748da6051d115417a932b48af5ab60d481fe2d03ef8acc7ee5ca5951f32",
+  "inputs": 8,
+  "native_cases": 4,
+  "rejected_cases": 4,
+  "original_source_definitions": 25,
+  "original_heavyarms_definitions_with_equipment_and_common": 34,
+  "complete_roster_definitions": 91,
+  "roster": [
+    "스노우 화이트 : 헤비암즈",
+    "미란다",
+    "도라",
+    "N102",
+    "메어리"
+  ],
+  "durations_seconds": [
+    3,
+    30
+  ],
+  "additional_enemies": [
+    0,
+    3
+  ],
+  "original_weapons_controls_stats_config_preserved": true,
+  "original_registration_order_and_owners_preserved": true,
+  "original_enemy_lock_sequential_and_projectile_consumers_composed": true,
+  "metal_calculation_verified": true,
+  "independently_sealed": true,
+  "independent_receipt_sha256": "6b8a563f39fbc3697d49cfb69c061e816a38b36a4791053b6d5ad061d9043dbf",
+  "golden_sha256": "cf90bc999528ed8d6f28abd61abd2393f60ad8b51fa2374d3678f62802d0e825",
+  "receipts": {
+    "result.json": "68d5faff2c290a4ef62357a7e539e9e93a8f90454b5e2e8416086a19c214d9cf",
+    "cpu.json": "143cbb4a142801232a6e238bf8b903c8087470172325895a9da97ad84610008c",
+    "cpu-tests.json": "5248ed765107ac99e8d32e61e27f991b51b8447cf765a2dc496251a6c316c765",
+    "artifacts.json": "e552a7ef6056a7ad7ad9efb0371ae16751d13af30823c981bd19961d61bf8b63",
+    "readback.bin": "a07d51d48790a28aeabbab477c3779dcc54559c3f44bf7982a7ea9332d0b02d4",
+    "generation-cache.json": "32e61749f4fcc80fb47c5650b1eee3f42ece7341c4ca6d33d888dd0e5a8f2b11"
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 8,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 2.2473757499974454,
+    "input_bytes": 3505156,
+    "library_compile_seconds": 1.5907540321350098,
+    "output_bytes": 41943040,
+    "pipeline_cache": {
+      "archive_bytes": 6634000,
+      "archive_compile_seconds": 9.392831921577454,
+      "archive_sha256": "d7828f8b25e7f7b0aed4a83e06b8f63a09e6f982beb1a3357097dc3015ccb817",
+      "enabled": true,
+      "hit": false,
+      "identity": {
+        "consumer_sha256": "80ad3f35e458e2f3a3f48a3997243e0906ac0719a04c352c4e901aeb753e268f",
+        "device": "Apple M5",
+        "entry": "portableEvents",
+        "math_mode": "safe",
+        "os_build": "Version 27.0.1 (Build 26A434)",
+        "registry_id": "4294968346",
+        "resident_stride": "140008",
+        "schema": "1",
+        "source_sha256": "243476610d2ddadb446138dd092d6e42f53f9e4ae13b25e776e70331aed39cc3",
+        "threads_per_threadgroup": "1"
+      },
+      "key": "a552698b9b6a7084f26f6589ec48f994165dfb57756c71ef0df97fddddc19ce2",
+      "native_archive_miss_rejected": true,
+      "required": false,
+      "schema": 1
+    },
+    "pipeline_compile_seconds": 9.39346706867218,
+    "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "pipeline_os_build": "Version 27.0.1 (Build 26A434)",
+    "registry_id": "4294968346",
+    "runtime_buffer_bytes": 1120064,
+    "runtime_element_capacity": 8,
+    "runtime_physical_stride_verified": true,
+    "runtime_stride_bytes": 140008,
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "resident_stride": 140008,
+  "paired_generation_required_hit": true,
+  "slang_compiler_invocations": 0,
+  "tests": {
+    "groups": 9,
+    "tests": 71,
+    "passed": true
+  },
+  "readback_counts": [
+    {
+      "case_index": 0,
+      "status": 0,
+      "physical_shots": 82,
+      "shot_quotas": 82,
+      "lock_pulses": 12,
+      "lock_shots": 2,
+      "lock_packets": 20,
+      "skill_rows": 14,
+      "fraction_rows": 254,
+      "fraction_omitted": 0,
+      "team_rows": 127,
+      "team_omitted": 0
+    },
+    {
+      "case_index": 1,
+      "status": 0,
+      "physical_shots": 82,
+      "shot_quotas": 82,
+      "lock_pulses": 12,
+      "lock_shots": 2,
+      "lock_packets": 20,
+      "skill_rows": 14,
+      "fraction_rows": 254,
+      "fraction_omitted": 0,
+      "team_rows": 127,
+      "team_omitted": 0
+    },
+    {
+      "case_index": 2,
+      "status": 0,
+      "physical_shots": 742,
+      "shot_quotas": 742,
+      "lock_pulses": 110,
+      "lock_shots": 15,
+      "lock_packets": 190,
+      "skill_rows": 113,
+      "fraction_rows": 2240,
+      "fraction_omitted": 0,
+      "team_rows": 1120,
+      "team_omitted": 0
+    },
+    {
+      "case_index": 3,
+      "status": 0,
+      "physical_shots": 742,
+      "shot_quotas": 742,
+      "lock_pulses": 110,
+      "lock_shots": 15,
+      "lock_packets": 190,
+      "skill_rows": 113,
+      "fraction_rows": 2240,
+      "fraction_omitted": 0,
+      "team_rows": 1120,
+      "team_omitted": 0
+    }
+  ],
+  "preclaim_native_history_budget_checks": 13,
+  "bank_words": {
+    "base": 1069200,
+    "pulses": 4096,
+    "packet_links": 8192,
+    "shot_quotas": 40960,
+    "fractional_hits": 65536,
+    "team_hits": 32768,
+    "end": 1220752,
+    "output": 1310720
+  },
+  "omitted_fraction_and_team_rows": 0,
+  "original_unused_banks_checked_zero": true,
+  "all_new_padding_and_unowned_tail_checked": true,
+  "cpu_trace_used_as_gpu_input": false,
+  "canonical_and_normalizer_changed": false,
+  "failures": [
+    {
+      "version": "v1",
+      "result_sha256": "b42e8b7f1981bfa1b7f10e2cc1a75c9543c91f6de30c36d94cea990d37ec2df9",
+      "raw_sha256": "9ccc0034b9159715ddfe18626b034fa4c32afbc0cdd3febaf8ca3d2c944b14a2",
+      "input_sha256": "e9c446913bb3bb71d53cb594b25ad3310f090dc0e327a82cf0a8ff9cbc68e7aa",
+      "passed": false,
+      "first_difference": {
+        "index": 0,
+        "name": "original-heavyarms/3s/0adds",
+        "reason": "KeyError: '_control_policy'"
+      },
+      "preserved": true,
+      "retried": false
+    },
+    {
+      "version": "v3",
+      "result_sha256": "23bcdc997cf222a61ae6d3b318bf941d64ea59b11691ad87f1bf7070ebfb6640",
+      "raw_sha256": "a4175dd18c7045a03ce0f6f91a08978001b04dbf8f92709a0f3419772adc13aa",
+      "input_sha256": "e9c446913bb3bb71d53cb594b25ad3310f090dc0e327a82cf0a8ff9cbc68e7aa",
+      "passed": false,
+      "first_difference": {
+        "index": 2,
+        "name": "original-heavyarms/30s/0adds",
+        "reason": "AssertionError: "
+      },
+      "preserved": true,
+      "retried": false
+    }
+  ],
+  "unexecuted_v2_package": "7dbfc855785211788e157c7750eeb46db747b8dddc7a9fe7beb13ddcffe95b64",
+  "v2_gpu_calls": 0,
+  "v3_native_expectation_baseline": {
+    "schema": "development-native-expectations-v1",
+    "baseline_package_id": "7dbfc855785211788e157c7750eeb46db747b8dddc7a9fe7beb13ddcffe95b64",
+    "baseline_manifest_sha256": "a42be5940f207e722c0b2465e76010d64d9029d246d9cb233e74f0a772a7a9c2",
+    "candidate_files_sha256": "9573fc04a9b695b1f25c0f8245660e169cb612282060840114b6b1d26fa07f01",
+    "fingerprints_sha256": "837d2ad08406a86ef897c1e448b279327d94f4d0c5b3c2c19c8eacd624902b63",
+    "source_sha256": "5849ee1e746ea67ea4c874da639f9e2a45cf39a20106e451dcd9448301a783b5",
+    "retained_cases": 8,
+    "changed_gpu_sources": [
+      "gpu/effect_target_count_shot_runtime.slang"
+    ],
+    "verified_slang_ledgers": [
+      "tests/fixtures/portable-original-lock-source-delta.json"
+    ],
+    "native_battles_recomputed_during_package": 0,
+    "fresh_native_preflight_required": true,
+    "independent_seal_required": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "scope": "Expected fingerprints only; no runtime oracle values or saved GPU calculation reuse"
+  },
+  "gpu_executions": 3,
+  "claim_retries": 0,
+  "windows_execution_requests": 0,
+  "windows_status_polls": 1,
+  "windows_status": "Could not determine whether old thread exists; unavailable host; not a terminal result",
+  "old_windows_transaction_resent": false,
+  "cuda_hardware_verified": false,
+  "cuda_cubin_cache_hit_verified": false,
+  "spatial_selection_policy": "explicit body/spawn-order provider; not established game crosshair metric",
+  "game_verified": false,
+  "all_conditional_branches_verified": false,
+  "remaining_branch_examples": [
+    "cover-triggered original effect2 with full roster",
+    "parts-specific damage consumer",
+    "injured/healing worlds",
+    "death/replacement rules for sequential recipients",
+    "distance metric/ties",
+    "other characters and variants",
+    "15-target burst saturation in the complete original roster"
+  ],
+  "public_admission": false,
+  "full_character_certified": false,
+  "legacy_current_source_gpu_recertification": false,
+  "full_goal_complete": false,
+  "burst_target_saturation_with_original_roster_verified": false
+}

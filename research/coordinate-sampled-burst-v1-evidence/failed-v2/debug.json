@@ -1,0 +1,54 @@
+[
+  {
+    "name": "coordinate-sampled-burst/legacy-later-buff",
+    "actual_damage": [
+      56500.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "native_damage": [
+      55750,
+      0,
+      0,
+      0,
+      0
+    ],
+    "packet_differences": [
+      [
+        6,
+        [
+          0,
+          0,
+          0,
+          0.5833333333333335,
+          1500.0
+        ],
+        [
+          0,
+          0,
+          0,
+          0.5833333333333335,
+          750
+        ]
+      ]
+    ],
+    "legacy": [
+      {
+        "batch": 0,
+        "index": 0,
+        "owner": 0,
+        "name": "parts-source",
+        "time": 0.5833333333333335,
+        "hit": 1,
+        "hits": 1,
+        "damage": 750,
+        "critical": false,
+        "crit_fraction": 0.0,
+        "crit_rate": 0.5,
+        "atk_pct": 0.0
+      }
+    ]
+  }
+]

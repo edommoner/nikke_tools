@@ -1,0 +1,137 @@
+{
+  "schema": "product-movement-range-cover-v1",
+  "scope": "Declared-model composition only; no inferred geometry, cover base or in-game rule",
+  "shared_implementation": "Existing ActorPool, clock, events, movement, named range/count and cover DEF consumers; disjoint literal inputs and owned GPU receipt banks",
+  "input_words": 118044,
+  "output_words": 2165136,
+  "cover_output_base": 2147744,
+  "cover_end": 2164656,
+  "unowned_tail_words": 480,
+  "owner": "edeaa2b11f7d51f7fe15f555b942672c5155ddfb018aece1ad5ae1ca30c6f4d6",
+  "own_cpu_tests": 139,
+  "fresh_native": true,
+  "real_metal_pilot": true,
+  "independent_seal": true,
+  "independent_audit_receipt_sha256": "febc26b21365644c5c5eaf7b948132bc027d2217f0211b73536331809303229d",
+  "normal_api_cases": [
+    {
+      "variant": "fixed-15",
+      "capture_id": "e8ed068fdcac4c17be1a6570fd56e34b",
+      "input_sha256": "e2c19b3699c589950f4bd0b690a0fb9ed443899122e5d207037323248a7f9e30",
+      "output_sha256": "893ac6a8a9177d242d740076fa1427380d4b4a3541db71f321b96a20643c9e25",
+      "cpu_full_payload_matched": true,
+      "movement_frames": 2700,
+      "range_casts": 54,
+      "cover_receipts": 7,
+      "incoming_hits": 25,
+      "physical_batch": "batch-89da8bf8071e4b5399f3424ed610ed0a"
+    },
+    {
+      "variant": "fixed-30",
+      "capture_id": "bd4a23ab157e4df783b8f911ee7b71d2",
+      "input_sha256": "b98e94903ae8a48105c5b9a0a40da0e3b6188da85421e8b532bb506343efcd22",
+      "output_sha256": "682356558bef81f9f7cce4970b398c9c3830daa7467abd2ee00f0146ee799165",
+      "cpu_full_payload_matched": true,
+      "movement_frames": 5403,
+      "range_casts": 54,
+      "cover_receipts": 7,
+      "incoming_hits": 25,
+      "physical_batch": "batch-89da8bf8071e4b5399f3424ed610ed0a"
+    },
+    {
+      "variant": "accumulate-15",
+      "capture_id": "fa606a63526e4c06bb29c028a0732f97",
+      "input_sha256": "3fa371e42a8ef603164bdf2de34fa93af87889d08e399f53778f917d3df5d25b",
+      "output_sha256": "46d86a8ea6a7ca1900fbafdeefafcf43d5a824b1c63e35ad698bb52fb89b05ac",
+      "cpu_full_payload_matched": true,
+      "movement_frames": 2700,
+      "range_casts": 54,
+      "cover_receipts": 6,
+      "incoming_hits": 25,
+      "physical_batch": "batch-3e8f70f304cb447a8b79896791ed1e66"
+    },
+    {
+      "variant": "accumulate-30",
+      "capture_id": "c7c35aabc47a43218dee64b13e129cc7",
+      "input_sha256": "fd658bcf5de0564f5c7600cbbdb1769be39d5bf6f05eb039bc1aa47b17f8b467",
+      "output_sha256": "6d87e80b1ac77121634194bb408c92879930d823ab7ac1568f7d17f2a626b0e3",
+      "cpu_full_payload_matched": true,
+      "movement_frames": 5403,
+      "range_casts": 54,
+      "cover_receipts": 6,
+      "incoming_hits": 25,
+      "physical_batch": "batch-3e8f70f304cb447a8b79896791ed1e66"
+    }
+  ],
+  "normal_http_posts": 1,
+  "physical_gpu_dispatches": 2,
+  "wall_seconds": 31.502018750004936,
+  "saved_independent_raw_parent_member_source_static_and_full_payload_audits": 4,
+  "saved_audit_additional_gpu_calls": 0,
+  "saved_audit_additional_battles": 0,
+  "owned_server_stopped": true,
+  "old_normal_fixed_generated_normalized_unchanged": true,
+  "registered_golden": "research/portable-product-programs-v32-expected.json",
+  "old_registry_members_retained": 25,
+  "registered_only_independently_sealed_fixed_member": true,
+  "accumulate_api_verified_but_cli_baseline_unregistered": true,
+  "cpu_canonical_files_unchanged": true,
+  "numeric_effect_core_unchanged": true,
+  "normalizer_and_tolerances_unchanged": true,
+  "pre_gpu_stops_retained": [
+    "Package refused untracked new GPU wrappers; staged reviewed source before packaging",
+    "CPU packet test expected48 programs; source adds2. Test-only refresh kept all non-test and numerical bytes"
+  ],
+  "new_standard_profiles": 0,
+  "cuda_execution_verified": false,
+  "goal_complete": false,
+  "old_standard_seven_cuda_metal_raw_generated_bytes_equal": true,
+  "old_standard_seven_sources": [
+    "gpu/product_fixed_battle_entry.slang",
+    "gpu/product_fixed_group_battle_entry.slang",
+    "gpu/product_fixed_target_battle_entry.slang",
+    "gpu/product_healing_fixed_battle_entry.slang",
+    "gpu/product_weighted_fixed_battle_entry.slang",
+    "gpu/product_cover_fixed_battle_entry.slang",
+    "gpu/product_ammo_fixed_battle_entry.slang"
+  ],
+  "old_standard_static_retention": {
+    "schema": "post-three-model-standard-static-retention-v1",
+    "input_profiles": 262,
+    "unchanged_reasoned_fallbacks": [
+      {
+        "index": 88,
+        "character": "유니",
+        "reason": "Movement requires explicit reference_models.enemy_movement geometry and policies; composition is not connected"
+      },
+      {
+        "index": 111,
+        "character": "얀",
+        "reason": "Movement requires explicit reference_models.enemy_movement geometry and policies; composition is not connected"
+      },
+      {
+        "index": 210,
+        "character": "스노우 화이트 : 헤비암즈",
+        "reason": "Lock On requires explicit reference_models.lock_on candidate/delivery policies and typed bindings; composition is not connected"
+      },
+      {
+        "index": 251,
+        "character": "레이 (가칭)",
+        "reason": "Named range requires explicit reference_models.named_range geometry and rules; composition is not connected"
+      }
+    ],
+    "all_old_input_bytes_equal": true,
+    "original_normal_metal_evidence_anchors": {
+      "requests.json": "f6fc18eca200dff638dee722490c0bfe1f323ac2ea2bfef8005e8389e20466cd",
+      "sources.json": "1ec0b45d6c426501b82479f8eadc92bb718c493dc2b5d4a906ab3452e6f7676f",
+      "saved-audit-progress.json": "58028b4ac8158825be8569e3c4272a13c0fbf33df5f012983b8684c1d1d01ab0"
+    },
+    "gpu_calls": 0,
+    "native_battles": 0,
+    "new_standard_profile_execution_claims": 0,
+    "scope": "Static input and reason retention only; paired program-byte preservation is separate, original execution owners retained"
+  },
+  "owned_server_process_group_absent": true,
+  "post_registration_history_tests": 7,
+  "post_registration_product_packet_tests": 10
+}

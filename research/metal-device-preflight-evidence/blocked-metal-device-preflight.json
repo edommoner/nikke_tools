@@ -1,0 +1,22 @@
+{
+  "schema": "metal-device-preflight-v1",
+  "passed": false,
+  "device_visible": false,
+  "gpu_calls": 0,
+  "kernel_calls": 0,
+  "calculation_verified": false,
+  "context_current_verified": false,
+  "scope": "Device visibility in this probe only; the bounded GPU child must acquire its own device",
+  "argv": [
+    "/usr/bin/swift",
+    "-module-cache-path",
+    "/tmp/nikke-scope-swift-module-cache-v1",
+    "/private/tmp/nikke-device-gate-ratio-v1/scripts/metal-device-probe.swift"
+  ],
+  "probe_sha256": "444f76f3f327a3f4b1137ddee63224b1f8e4efc9c0a6beb8a53b7ca5eeef1a85",
+  "timeout_seconds": 20,
+  "return_code": 2,
+  "stdout": "{\"device_visible\":false,\"kernel_calls\":0,\"schema\":\"metal-device-visibility-v1\"}\n",
+  "stderr": "",
+  "elapsed_seconds": 0.16176695795729756
+}

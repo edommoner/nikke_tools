@@ -1,0 +1,684 @@
+{
+  "schema": "product-windows-cpu-stage-review-v1",
+  "windows_status": {
+    "schema": "movement-cover-fixed-compile-status-v3",
+    "status": "stopped",
+    "permission_mode": "require_escalated",
+    "approval_denial_encountered": false,
+    "transport_commit": "ad4a4efe400b1862494b7afd0ca2a39ca25c1ac7",
+    "source_commit": "70e68113864923eaa3c5281b0d5f20deef1cbb3d",
+    "package_id": "de7eae326ff99ab4da1c28b0dca653e01da2c5abbc4ad8d1e6a9bf1d6211b988",
+    "archive": {
+      "name": "movement-cover-fixed-v1.zip",
+      "bytes": 12047589,
+      "sha256": "fb1d767a5995ff23854e4a1189b175b15ded31c96cb4c99c67db046a8a027086",
+      "byte_hash_verified": true,
+      "immutable_payload_verified": true,
+      "owner_verified": true
+    },
+    "reached_stage": "cpu_preflight_own_final_test_group_incomplete",
+    "stop": {
+      "first_condition": "CPU child exceeded its 60-second bound",
+      "additional_saved_condition": "After-wait process comparison recorded 14 missing identities",
+      "retry_count": 0,
+      "missing_cause": "unknown",
+      "sdk_or_compiler_failure_inferred": false,
+      "no_continuation": true
+    },
+    "unpack": {
+      "child_exit_code": 0,
+      "timed_out": false,
+      "child_timeout_seconds": 60,
+      "elapsed_seconds": 18.89600950013846,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "inspection_error_present": false,
+      "job_limits": [
+        {
+          "before_bytes": 2147483648,
+          "after_bytes": 2147483648,
+          "peak_bytes": 73650176
+        }
+      ],
+      "missing_process_count": 0,
+      "missing_roles": {},
+      "service_status_before": "unverified",
+      "service_status_after": "unverified",
+      "identified_service_preservation_verified": false,
+      "termination_cause": null,
+      "all_monitored_processes_preserved": true
+    },
+    "cpu_preflight": {
+      "execution": {
+        "child_exit_code": 1,
+        "timed_out": true,
+        "child_timeout_seconds": 60,
+        "elapsed_seconds": 61.99321580026299,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "below_normal_priority": true,
+        "pre_gate_verified": true,
+        "post_wait_job_empty": true,
+        "inspection_error_present": false,
+        "job_limits": [
+          {
+            "before_bytes": 2147483648,
+            "after_bytes": 2147483648,
+            "peak_bytes": 206557184
+          }
+        ],
+        "missing_process_count": 14,
+        "missing_roles": {
+          "unrelated": 10,
+          "service_candidate": 4
+        },
+        "service_status_before": "unverified",
+        "service_status_after": "unverified",
+        "identified_service_preservation_verified": false,
+        "termination_cause": "unknown",
+        "all_monitored_processes_preserved": false
+      },
+      "forbid_gpu_used": true,
+      "device_linker_expected": 15,
+      "device_linker_completed_receipt": [
+        {
+          "pattern": "test_portable_device_linker.py",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "exit_code": 0
+        }
+      ],
+      "own_expected": 129,
+      "own_completed_group_receipts": [
+        {
+          "pattern": "test_portable_detail.py",
+          "tests": 67,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "exit_code": 0
+        },
+        {
+          "pattern": "test_product_detail_packet.py",
+          "tests": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "exit_code": 0
+        },
+        {
+          "pattern": "test_weighted_source_contract.py",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "exit_code": 0
+        }
+      ],
+      "own_completed_receipt_tests": 84,
+      "own_full_suite_verified": false,
+      "unfinished_group": "test_product_reference_models.py",
+      "unfinished_group_saved_progress_markers": 35,
+      "progress_markers_are_final_receipt": false,
+      "final_stage_result_saved": false,
+      "timeout_failure_execution_saved": true
+    },
+    "remaining_stages": {
+      "strict_paired_generation": "not_started",
+      "nvrtc_ptx": "not_started",
+      "ptxas_module_object_O1": "not_started"
+    },
+    "actual_sdk_calls": {
+      "slang": 0,
+      "nvrtc": 0,
+      "ptxas": 0,
+      "link": 0,
+      "cubin": 0,
+      "driver": 0,
+      "context": 0,
+      "gpu": 0,
+      "http": 0
+    },
+    "compiler_artifacts": {
+      "generated_cuda_raw_sha256": null,
+      "generated_cuda_normalized_sha256": null,
+      "generated_metal_raw_sha256": null,
+      "generated_metal_normalized_sha256": null,
+      "ptx": null,
+      "object": null,
+      "availability": "unavailable_no_generation_or_compiler_call"
+    },
+    "ptxas_portableEvents": {
+      "registers": null,
+      "stack_bytes": null,
+      "spill_store_bytes": null,
+      "spill_load_bytes": null,
+      "shared_bytes": null,
+      "local_bytes": null,
+      "availability": "unavailable_no_ptxas_call"
+    },
+    "verification": {
+      "all_cpu_tests_verified": false,
+      "compiler_verified": false,
+      "object_verified": false,
+      "calculation_verified": false,
+      "environment_preservation_verified": false,
+      "containment_job_membership_verified": true,
+      "job_memory_limit_queries_complete": true,
+      "overall_passed": false
+    },
+    "historical_integrity": {
+      "files_checked": 1540,
+      "mismatches": 0,
+      "old_failed_claims_modified": false,
+      "old_removal_snapshot_rerun": false,
+      "v1_v2_and_diagnostics_preserved": true
+    },
+    "saved_capture": {
+      "path_base": "Documents/Codex",
+      "relative_directory": "movement-cover-fixed-compile-v3"
+    },
+    "next_action": "Stopped without retries or additional diagnosis; await new instruction."
+  },
+  "cpu_summary": {
+    "schema": "movement-cover-fixed-cpu-preflight-summary-v3",
+    "scope": "Saved CPU results only; no query, test or SDK re-execution.",
+    "package_id": "de7eae326ff99ab4da1c28b0dca653e01da2c5abbc4ad8d1e6a9bf1d6211b988",
+    "permission_mode": "require_escalated",
+    "gpu_forbidden_during_tests": true,
+    "device_linker_completed": 15,
+    "own_expected": 129,
+    "own_completed_receipt_tests": 84,
+    "own_complete": false,
+    "completed_receipt_tests_total": 99,
+    "groups_in_execution_order": [
+      {
+        "pattern": "test_portable_device_linker.py",
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "elapsed_seconds": 9.445391799788922,
+        "status": "completed",
+        "start_wall_time_ns": null,
+        "end_wall_time_ns": null,
+        "start_end_timestamp_reason": "Per-group wall timestamps were not saved; completed receipt and duration retained."
+      },
+      {
+        "pattern": "test_portable_detail.py",
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "elapsed_seconds": 9.106132799759507,
+        "status": "completed",
+        "start_wall_time_ns": null,
+        "end_wall_time_ns": null,
+        "start_end_timestamp_reason": "Per-group wall timestamps were not saved; completed receipt and duration retained."
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "elapsed_seconds": 2.8480555000714958,
+        "status": "completed",
+        "start_wall_time_ns": null,
+        "end_wall_time_ns": null,
+        "start_end_timestamp_reason": "Per-group wall timestamps were not saved; completed receipt and duration retained."
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "elapsed_seconds": 3.490756900049746,
+        "status": "completed",
+        "start_wall_time_ns": null,
+        "end_wall_time_ns": null,
+        "start_end_timestamp_reason": "Per-group wall timestamps were not saved; completed receipt and duration retained."
+      },
+      {
+        "pattern": "test_product_reference_models.py",
+        "status": "interrupted_without_final_receipt",
+        "tests": null,
+        "failures": null,
+        "errors": null,
+        "skipped": null,
+        "exit_code": null,
+        "elapsed_seconds": null,
+        "start_wall_time_ns": null,
+        "end_wall_time_ns": null,
+        "last_saved_progress": {
+          "stderr_bytes": 35,
+          "progress_dot_count": 35,
+          "only_progress_dots": true,
+          "final_unittest_summary_saved": false
+        },
+        "note": "Progress dots are not promoted to a final verified group result."
+      }
+    ],
+    "stage_journal": [
+      {
+        "stage": "bounded_cpu_stage",
+        "state": "entered",
+        "wall_time_ns": 1793487373307323200
+      },
+      {
+        "stage": "before_snapshot",
+        "state": "entered",
+        "wall_time_ns": 1793487373341419800
+      },
+      {
+        "stage": "before_snapshot",
+        "state": "returned",
+        "wall_time_ns": 1793487375864818900,
+        "elapsed_seconds": 2.5225941
+      },
+      {
+        "stage": "after_snapshot",
+        "state": "entered",
+        "wall_time_ns": 1793487433337593500
+      },
+      {
+        "stage": "after_snapshot",
+        "state": "returned",
+        "wall_time_ns": 1793487435300486100,
+        "elapsed_seconds": 1.9620449
+      },
+      {
+        "stage": "bounded_cpu_stage",
+        "state": "returned",
+        "wall_time_ns": 1793487435301014100,
+        "elapsed_seconds": 61.9938687
+      }
+    ],
+    "stop": {
+      "timed_out": true,
+      "child_bound_seconds": 60,
+      "sdk_started": false,
+      "stage_result_saved": false,
+      "recorded_execution_summary_saved": true
+    },
+    "missing_observation": {
+      "count": 14,
+      "original_roles": {
+        "unrelated": 10,
+        "service_candidate": 4
+      },
+      "all_missing_records_have_name_path_creation_identity": true,
+      "cause": "unknown",
+      "validation_caused_external_process_termination": "not_established",
+      "same_cause_as_prior_missing_events": "not_established",
+      "raw_identity_records_preserved_locally": true,
+      "raw_identity_records_shared": false,
+      "preservation_verified": false
+    },
+    "additional_execution": {
+      "queries": 0,
+      "tests": 0,
+      "sdk": 0,
+      "timeout_changes": 0,
+      "compiler_continuation": 0
+    },
+    "original_capture_or_claim_modified": false,
+    "next_action": "Stopped; no automatic retries or SDK continuation."
+  },
+  "stop_events": {
+    "schema": "movement-cover-fixed-stop-events-v1",
+    "scope": "Single independently authorized CPU read of existing narrowly filtered event logs; saved missing-process aggregation only.",
+    "permission_mode": "require_escalated",
+    "approval_denied": false,
+    "window_utc": {
+      "start_utc": "2026-10-31T22:55:43.341420Z",
+      "end_utc": "2026-10-31T22:57:45.300486Z",
+      "before_snapshot_start_utc": "2026-10-31T22:56:13.341420Z",
+      "after_snapshot_end_utc": "2026-10-31T22:57:15.300486Z"
+    },
+    "query_policy": {
+      "queries": 3,
+      "attempts_each": 1,
+      "retries": 0,
+      "timeout_each_seconds": 20,
+      "maximum_events_each": 64,
+      "raw_event_bodies_or_messages_saved": false
+    },
+    "queries": [
+      {
+        "provider": "Microsoft-Windows-Resource-Exhaustion-Detector",
+        "event_id": 2004,
+        "status": "no_events",
+        "count": 0,
+        "limit": 64,
+        "limit_reached": false,
+        "events": [],
+        "finite_error": null,
+        "query": "resource",
+        "exit_code": 0,
+        "elapsed_seconds": 0.8970848000608385
+      },
+      {
+        "provider": "Application Error",
+        "event_id": 1000,
+        "status": "no_events",
+        "count": 0,
+        "limit": 64,
+        "limit_reached": false,
+        "events": [],
+        "finite_error": null,
+        "query": "application",
+        "exit_code": 0,
+        "elapsed_seconds": 0.9213795997202396
+      },
+      {
+        "provider": "Windows Error Reporting",
+        "event_id": 1001,
+        "status": "no_events",
+        "count": 0,
+        "limit": 64,
+        "limit_reached": false,
+        "events": [],
+        "finite_error": null,
+        "query": "wer",
+        "exit_code": 0,
+        "elapsed_seconds": 0.9212297000922263
+      }
+    ],
+    "saved_missing_identity_aggregation": {
+      "missing_count": 14,
+      "roles": {
+        "unrelated": 10,
+        "service_candidate": 4
+      },
+      "distinct_saved_parent_ids": 11,
+      "parent_groups_with_multiple_missing_children": 1,
+      "largest_same_parent_group": 4,
+      "children_per_parent_group_sorted": [
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "missing_records_with_parent_also_in_missing_set": 4,
+      "parent_birth_identity_saved": false,
+      "scope": "Saved parent IDs only; parent creation times unavailable; no new process query. No causal inference."
+    },
+    "job_and_exit": {
+      "child_timeout_seconds": 30,
+      "outer_budget_seconds": 180,
+      "below_normal_priority": true,
+      "child_exit_code": 0,
+      "wrapper_exit_code": 0,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "elapsed_seconds": 1.0412798002362251,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "inspection_error_present": false,
+      "job_limit_values": [
+        {
+          "pre_bytes": 2147483648,
+          "post_bytes": 2147483648,
+          "peak_bytes": 226000896
+        }
+      ]
+    },
+    "conclusion": {
+      "matching_logged_events_found": false,
+      "retrieval_failure": false,
+      "process_disappearance_cause": "unknown",
+      "memory_exhaustion_ruled_out": false,
+      "external_termination_ruled_out": false,
+      "validation_killed_missing_processes": "not_established",
+      "environment_preservation_verified": false,
+      "calculation_verified": false
+    },
+    "execution_and_integrity": {
+      "new_process_snapshot_queries": 0,
+      "current_os_memory_queries": 0,
+      "battle": 0,
+      "slang": 0,
+      "sdk": 0,
+      "driver": 0,
+      "gpu": 0,
+      "settings_changes": 0,
+      "dump_generation": 0,
+      "old_capture_or_claim_modified": false,
+      "original_files_checked_unchanged": 65
+    },
+    "next_action": "Stopped after the one authorized event-log diagnostic; no retries or compilation."
+  },
+  "claude_review": {
+    "tool_mode": "safe-mode/plan/tools disabled/max-turns1/no-session-persistence",
+    "sent_sanitized_bytes": 25836,
+    "raw_output_private": true,
+    "raw_output_sha256": "bf23653949daef2573ea272de8ab488f4cf4a8855833c80ae7048ab63fb58463",
+    "pseudo_Write_and_ExitPlanMode_text_not_executed": true,
+    "review_is_not_authorization": true
+  },
+  "verified_findings": [
+    {
+      "finding": "Single CPU child exhausted60s after completed99 tests; own last45 group has no final receipt",
+      "scope": "Budget exhausted confirmed. Full final-group elapsed time and specific hanging case unknown;35 dots do not certify a subset."
+    },
+    {
+      "finding": "Existing exact-case staged partition retains all45 reference tests in9 groups of5, plus3 ordinary groups",
+      "scope": "Mac discovery only, no fixtures/test bodies/SDK/GPU/claim. This plan is not Windows admission and does not convert old non-staged receipts into staged claims."
+    },
+    {
+      "finding": "run_bounded passed excluded observation_error",
+      "fix": "Require observation_error is None even if child_exit_code0; CPU injection confirms rejection."
+    },
+    {
+      "finding": "Windows Job empty check used returned-ID count alone",
+      "fix": "Require successful query and assigned count0 and returned-ID count0; ERROR_MORE_DATA with65assigned/0returned must not pass.",
+      "source": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-jobobject_basic_process_id_list"
+    }
+  ],
+  "unconfirmed_or_not_adopted": [
+    {
+      "finding": "Specific36th case can be blamed from35 dots",
+      "decision": "Not proven; no test IDs/timestamps were saved. Do not claim a known culprit or subset receipt."
+    },
+    {
+      "finding": "Pre-assignment child escape race",
+      "decision": "Generic risk, not established in gated CPU controller or14 missing event. No suspended-process rewrite without evidence."
+    },
+    {
+      "finding": "subprocess.run pipe-holding descendant could exceed outer180s",
+      "decision": "Generic risk; current actual stage stopped61.993s and cleanup succeeded, no180s hang proven."
+    },
+    {
+      "finding": "No-op control or live process tracing",
+      "decision": "Not executed. Existing log diagnostic has no matching2004/1000/1001 events, but cannot rule out system memory exhaustion or external termination. Missing14 remainsunknown/preservationfalse."
+    }
+  ],
+  "existing_partition_plan": {
+    "schema": "existing-staged-unit-partition-review-v1",
+    "package_id": "de7eae326ff99ab4da1c28b0dca653e01da2c5abbc4ad8d1e6a9bf1d6211b988",
+    "host_scope": "Mac discovery only, no fixtures or tests executed; no Windows admission receipt",
+    "test_file_group_size": 1,
+    "split_test_pattern": "test_product_reference_models.py",
+    "case_group_size": 5,
+    "test_groups": [
+      [
+        "test_portable_detail.py"
+      ],
+      [
+        "test_product_detail_packet.py"
+      ],
+      [
+        "test_weighted_source_contract.py"
+      ],
+      [
+        "test_product_reference_models.py"
+      ],
+      [
+        "test_product_reference_models.py"
+      ],
+      [
+        "test_product_reference_models.py"
+      ],
+      [
+        "test_product_reference_models.py"
+      ],
+      [
+        "test_product_reference_models.py"
+      ],
+      [
+        "test_product_reference_models.py"
+      ],
+      [
+        "test_product_reference_models.py"
+      ],
+      [
+        "test_product_reference_models.py"
+      ],
+      [
+        "test_product_reference_models.py"
+      ]
+    ],
+    "selected_case_groups": [
+      null,
+      null,
+      null,
+      {
+        "test_product_reference_models.py": [
+          "test_product_reference_models.ProductReferenceModels.test_adapter_unwinds_after_execution_error_and_default_installs_nothing",
+          "test_product_reference_models.ProductReferenceModels.test_cover_and_original_group_listeners_share_one_product_input",
+          "test_product_reference_models.ProductReferenceModels.test_cover_composes_original_target_modifiers_and_optional_groups",
+          "test_product_reference_models.ProductReferenceModels.test_cover_malformed_or_unknown_roster_fails_closed",
+          "test_product_reference_models.ProductReferenceModels.test_cover_product_keeps_literal_operations_and_independent_bases"
+        ]
+      },
+      {
+        "test_product_reference_models.py": [
+          "test_product_reference_models.ProductReferenceModels.test_cover_readback_rejects_overflow_and_stale_depth_state",
+          "test_product_reference_models.ProductReferenceModels.test_default_world_preserves_all_original_carriers_without_inventing_incoming_quantities",
+          "test_product_reference_models.ProductReferenceModels.test_enemy_ammo_cover_preserves_complete_banks_and_requires_each_literal_model",
+          "test_product_reference_models.ProductReferenceModels.test_enemy_healing_and_cover_keep_both_banks_and_original_effects",
+          "test_product_reference_models.ProductReferenceModels.test_enemy_magazine_default_has_no_fabricated_capacity_and_attack_requires_declaration"
+        ]
+      },
+      {
+        "test_product_reference_models.py": [
+          "test_product_reference_models.ProductReferenceModels.test_extended_resource_history_is_complete_and_cannot_use_a_short_prefix",
+          "test_product_reference_models.ProductReferenceModels.test_fixed_coordinate_header_rejects_noncanonical_and_preserves_literal_fields",
+          "test_product_reference_models.ProductReferenceModels.test_fixed_cover_header_conversion_rejects_invalid_tap_masks_and_reserved_words",
+          "test_product_reference_models.ProductReferenceModels.test_fixed_cover_keeps_posture_controls_literal_and_restores_fixed_policy",
+          "test_product_reference_models.ProductReferenceModels.test_fixed_lock_uses_shared_literal_header_and_preserves_all_effects"
+        ]
+      },
+      {
+        "test_product_reference_models.py": [
+          "test_product_reference_models.ProductReferenceModels.test_gpu_healing_projection_preserves_hp_credit_and_rejects_incomplete_receipts",
+          "test_product_reference_models.ProductReferenceModels.test_independent_public_models_merge_losslessly_and_reject_overwrite",
+          "test_product_reference_models.ProductReferenceModels.test_invalid_or_unknown_models_fail_before_simulation",
+          "test_product_reference_models.ProductReferenceModels.test_lock_on_actual_projectile_consumer_uses_literal_binding_and_restores_aliases",
+          "test_product_reference_models.ProductReferenceModels.test_lock_on_decoder_checks_complete_arenas_and_reserved_words"
+        ]
+      },
+      {
+        "test_product_reference_models.py": [
+          "test_product_reference_models.ProductReferenceModels.test_lock_on_invalid_policies_bindings_composition_and_source_fail_closed",
+          "test_product_reference_models.ProductReferenceModels.test_lock_on_manual_control_projection_reads_its_relocated_owned_bank",
+          "test_product_reference_models.ProductReferenceModels.test_lock_on_original_product_keeps_all_definitions_and_empty_typed_world",
+          "test_product_reference_models.ProductReferenceModels.test_lock_on_standalone_cpu_worker_resolves_providers_before_checked_rewrites",
+          "test_product_reference_models.ProductReferenceModels.test_lock_on_typed_no_expiry_sentinel_is_exact_and_bound_to_declared_target"
+        ]
+      },
+      {
+        "test_product_reference_models.py": [
+          "test_product_reference_models.ProductReferenceModels.test_magazine_blocked_attempt_requires_matching_source_generation_and_no_query",
+          "test_product_reference_models.ProductReferenceModels.test_manual_cover_control_intervals_require_gpu_open_close_and_marker",
+          "test_product_reference_models.ProductReferenceModels.test_manual_cover_without_cover_effect_routes_to_existing_product_consumer",
+          "test_product_reference_models.ProductReferenceModels.test_missing_sources_reject_before_shared_dispatch_and_legacy_stays_closed",
+          "test_product_reference_models.ProductReferenceModels.test_movement_and_manual_cover_share_literal_banks_and_restore_native_contexts"
+        ]
+      },
+      {
+        "test_product_reference_models.py": [
+          "test_product_reference_models.ProductReferenceModels.test_movement_declarations_reject_unknown_geometry_or_composition_before_battle",
+          "test_product_reference_models.ProductReferenceModels.test_movement_product_uses_checked_native_clock_and_literal_shared_input",
+          "test_product_reference_models.ProductReferenceModels.test_movement_readback_rejects_partial_identity_reserved_and_segment_discontinuity",
+          "test_product_reference_models.ProductReferenceModels.test_movement_standalone_cpu_worker_resolves_provider_before_checked_rewrites",
+          "test_product_reference_models.ProductReferenceModels.test_named_range_decoder_rejects_reserved_partial_and_capacity_corruption"
+        ]
+      },
+      {
+        "test_product_reference_models.py": [
+          "test_product_reference_models.ProductReferenceModels.test_named_range_product_consumes_original_count_and_range_modifiers",
+          "test_product_reference_models.ProductReferenceModels.test_named_range_standalone_cpu_worker_uses_shared_coordinate_context",
+          "test_product_reference_models.ProductReferenceModels.test_named_range_unknown_binding_and_composition_fail_and_restore_native",
+          "test_product_reference_models.ProductReferenceModels.test_no_incoming_contract_checks_every_attack_node_without_predicting_schedule",
+          "test_product_reference_models.ProductReferenceModels.test_original_anne_reduction_reaches_actual_product_healing_and_restores_aliases"
+        ]
+      },
+      {
+        "test_product_reference_models.py": [
+          "test_product_reference_models.ProductReferenceModels.test_original_enemy_magazine_product_uses_literal_state_and_restores_native_operator",
+          "test_product_reference_models.ProductReferenceModels.test_static_original_anne_connects_the_same_consumer_with_or_without_healing_sources",
+          "test_product_reference_models.ProductReferenceModels.test_weighted_missing_weights_and_unsupported_composition_fail_before_dispatch",
+          "test_product_reference_models.ProductReferenceModels.test_weighted_original_product_consumes_real_markers_and_preserves_definitions",
+          "test_product_reference_models.ProductReferenceModels.test_weighted_readback_rejects_overflow_scratch_and_unaccounted_cover_receipts"
+        ]
+      }
+    ],
+    "exact_original_cases": 45,
+    "other_group_original_tests": 84,
+    "total_own_required_tests": 129,
+    "device_linker_required_tests": 15,
+    "old_timeout_not_promoted": true,
+    "gpu_or_sdk_claim_created": false,
+    "gpu_calls": 0,
+    "native_battle_calls": 0,
+    "unit_tests_executed": 0,
+    "all_cpu_tests_verified": false,
+    "windows_execution_authorized": false
+  },
+  "validation": {
+    "cleanup_tests_passed": 7,
+    "windows_only_real_job_test_skipped": 1,
+    "observer_tests_passed": 11,
+    "packet_stage_tests_passed": 44,
+    "extra_sdk_or_gpu_execution": 0,
+    "old_captures_modified": false,
+    "numeric_or_shader_changed": false
+  },
+  "coverage": {
+    "standard_profiles": 266,
+    "metal_profiles": 262,
+    "new_standard_profiles": 0,
+    "historical_strict_cuda_profiles": 3,
+    "current_source_cuda_profiles": 0,
+    "goal_complete": false
+  },
+  "next": {
+    "compile_v3": "terminal; SDK0; do not resend",
+    "windows_compute": "No additional test, compilation or GPU authorized by this record",
+    "implementation": "Use existing exact-case framework for future corrected controller, preserve every required test and failed ancestry; investigate missing-process cause separately.",
+    "remaining": "4 undeclared standard profiles, remaining product combinations and current CUDA product execution."
+  },
+  "private_proof": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/windows-cpu-stage-review-v1-20261101"
+}

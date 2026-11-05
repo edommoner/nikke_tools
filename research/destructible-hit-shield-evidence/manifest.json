@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "cpu191.json",
+      "bytes": 6387,
+      "sha256": "fe2d331f92bf9e15a2b054d507c8782505f06d39dd167bee08f26c4baa0116a8"
+    },
+    {
+      "path": "inventory-preservation.json",
+      "bytes": 384,
+      "sha256": "6a416149807a6c4169074d01854d797c8f3e5d019a95ea3c1053661a5bfb24b9"
+    },
+    {
+      "path": "metal111.json",
+      "bytes": 42196,
+      "sha256": "e77e9328b86bf14a1ecae821b0532d45f3a9858c5c51760dc3b357748f65afb2"
+    },
+    {
+      "path": "reference18.json",
+      "bytes": 13460,
+      "sha256": "43d81fb852ebc74b611463d7be63d5f7983f4174cc035d2286c034a0d9ec6d51"
+    },
+    {
+      "path": "retained88.json",
+      "bytes": 2168,
+      "sha256": "cc02c7b2167b4edc0fec03e1a861ae093fb5443badfe13c4735fca815fa2b9d7"
+    },
+    {
+      "path": "sealed-generation.json",
+      "bytes": 515,
+      "sha256": "ab2ac8d12cd0c6fc2b5d9c8f6b03e0bc34a6a4f56700b84c1fd3ed967ae25e8a"
+    },
+    {
+      "path": "source-preservation.json",
+      "bytes": 536,
+      "sha256": "fcb697f0efe85cefc543b72f709867feec7af88ab20717c1503c341c8dd1ba68"
+    },
+    {
+      "path": "sparse460.json",
+      "bytes": 575,
+      "sha256": "d07e216eaf8c62fe7d79be7facc2453fffdd59ad44edaf6824969999c6f6b965"
+    },
+    {
+      "path": "sparse88.json",
+      "bytes": 569,
+      "sha256": "d7bee1dca5867e11772e1d56e65bd6f6f4c113f6865a576795cb2e6f27bb4a0c"
+    }
+  ],
+  "total_bytes": 66790,
+  "scope": "Shared synthetic battle proof, native contract fingerprints and byte-preserving storage evidence; no raw, settings or toolchains"
+}

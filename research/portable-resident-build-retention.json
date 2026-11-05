@@ -1,0 +1,11 @@
+{
+  "gpu_calls": 0,
+  "generated_bytes_unchanged": true,
+  "validated_layout_unchanged": true,
+  "source_gpu_files_unchanged": true,
+  "generated_sha256": {
+    "cuda": "728a9f9237209b3c4f6b6166129e47fc1d5e69932c5c4d140987787fae566521",
+    "metal": "781d5757d8829ea0e4bf6ac6996362b96fde02fff55c1ad3b0d030367f174c49"
+  },
+  "reflection_metadata_observation": "Metal entryPoints.bindings now reports used:1 on three resources with explicit -o. Resource layout, bindings, stride and generated code are unchanged; no normalizer exclusion added."
+}

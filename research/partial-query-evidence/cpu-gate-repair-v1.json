@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "source_input_native_baselines_identical": true,
+  "cases": 1533,
+  "before_package_id": "eba5a06c310b694829a683f67fb8110f599f4299829db83c58647414f486d6ef",
+  "after_package_id": "05783f2f8dc862cef16e5d589eaf5faaaf7f09a4861701183267d885bced57bd",
+  "before_gpu_claim_exists": false
+}

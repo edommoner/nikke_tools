@@ -1,0 +1,215 @@
+{
+  "input_sha256": "f1ce26bb2af3b078c7ee32ddf133488e6537adaa855547974e19ab9e7587e85b",
+  "output_sha256": "cd10c2c2bb885a9201995125e34f75acd9d9dee13aceb3b468f93752ded4f712",
+  "source_sha256": {
+    "gpu/destructible_world_probe.slang": "50dbb9d95ff627a7c4ba3ce2e42229f73abe097e5d165ff1ea3d17b21e598bac",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+    "gpu/destructible_target_core.slang": "a76de4e9c79097db495d652cb22814691cdb12e15ebbed5f5fec7ef86032a694",
+    "gpu/destructible_world_runtime.slang": "88f7a9f571879282caba231d868a6ed2fde3f4c19dde10fd389b8fd23d4bd117"
+  },
+  "entries": [
+    {
+      "name": "destructible-world/timed-projectile",
+      "input_sha256": "f0d130787c5fc198a65d896b7963a0eac20cb85b757c8ce038484f2387e4af8b",
+      "output_sha256": "7cd21e0860bc8f89b6ae026ee5a9c32df8d17b10317430bbe2778817b5a19806",
+      "native_sha256": "84e7236a454c92d55239b08c26540cb8ca8676e53c5afaf3efd6d63cb21d5a5e"
+    },
+    {
+      "name": "destructible-world/delayed-shield",
+      "input_sha256": "e1621fac41f9bb023e63bda003d306e3e7c00117d1818f61fa5da0be8badaeb0",
+      "output_sha256": "06ae184fa7831825b534680bf14feae0aad96ce9845328110e10f11a7b262002",
+      "native_sha256": "3c489d3aaa6ffa7da1a698bec3575ca4ccea50111581477ab9ad67ff13cfbf61"
+    },
+    {
+      "name": "destructible-world/repeat-retires-live",
+      "input_sha256": "3f3ce7e0562bc67caf888a4d471ffa0fbc0d7b136dc7186600c9e36bf28dc92e",
+      "output_sha256": "557fc94aeebbb254d13f5bcf0f4b5872130b59e65ab0680f53ef919e4f2bfd67",
+      "native_sha256": "2a790d8c81d42ea11abe3573c8eb32c3d00af0eac033772d6943880a3f61d19e"
+    },
+    {
+      "name": "destructible-world/all-targets-cleared",
+      "input_sha256": "d33602635116b33982cccabec4abdb9d8d05e784840f5a39fe47a2381b416fa5",
+      "output_sha256": "32299dab393d6b0da41ca10ea0ba0b33ffda0af32c5042a8b0b6018aafc992cc",
+      "native_sha256": "57878c77e805fff0ae89ddc6f7943e98d1ad854b8af72c6183ec8ffba0789514"
+    },
+    {
+      "name": "destructible-world/same-time-reentry-defers-clear",
+      "input_sha256": "890d1051a7645817d4e746daca7293404ca25f644edfef533f0a2d1ec644e860",
+      "output_sha256": "82528e92e7e7330976168b6676e4db757f73de2f3374c7379b7d8a72a031c2c5",
+      "native_sha256": "f0a86e4dd655e2892220df6dcdd85c5505da70e6928952cc714243812a48fc98"
+    },
+    {
+      "name": "destructible-world/priority-False-False",
+      "input_sha256": "857808cdaf324b7b7861e0bb09d9b7b0219d295a36f5e1b954a259745739304f",
+      "output_sha256": "ec2037989660114e6b7a9448e31af1e23bdb795c03c43120ef0a43b36e62b0f2",
+      "native_sha256": "eda86f4c9c154f057fc0b15214ab71c71fb0b60a8a3c3a568442d72a09202703"
+    },
+    {
+      "name": "destructible-world/priority-False-True",
+      "input_sha256": "4f09ec167b7058f1ae608b2c92377dfefe8ed1bbae78c791815257dc300d6610",
+      "output_sha256": "2e29f7be0026e24c48e3f206bb4dfdb393101ffea3930b88277459aa209daf4d",
+      "native_sha256": "fecf4c3dbe628913d9fe474e5d49162e2c7a4a847ccd5db9bcce50f63187d389"
+    },
+    {
+      "name": "destructible-world/priority-True-False",
+      "input_sha256": "e7df7f6cfc90aac4c2dbffba85b213ed5423ac4a2a3a0f596a6da3480d763168",
+      "output_sha256": "1271a2405d0cb9768e9d2f0a98adc1be860256f210e65cdbaf4406e81940a773",
+      "native_sha256": "452b8e83ecc355486efc7f3969d1bf85d1b25d48652d73c35976284d6092f0b5"
+    },
+    {
+      "name": "destructible-world/priority-True-True",
+      "input_sha256": "6ddaf3753eeb22bd0ed63ab361d7215e4f33df8937c6e8f55bff928f6d40ffc1",
+      "output_sha256": "636b0f569a43db3b5d6bd4764baa23635c9f274b0856eadd8887f1e5812e1eb4",
+      "native_sha256": "02ae4238aa9db59c8ea1dc959b1286a7d2696d568f7207867902609717dc7a9e"
+    },
+    {
+      "name": "destructible-world/follow-while-alive",
+      "input_sha256": "65e291ce3b37db5f5e4ee5a5f0ac5950dd16fd9c556cac65f316005e316fadf4",
+      "output_sha256": "3414e3e247d53dc74a3955b125be71f6f7c650e369d0fb457a84afe3af3aa13c",
+      "native_sha256": "ca4c15d9726428b36c2f7b51b56de5f223aa623c96edbc9413c9615957cc0dcc"
+    },
+    {
+      "name": "destructible-world/finish-does-not-open-new-node",
+      "input_sha256": "3d3fe9bc6b0a15624fde38d82ac3582cfaa2593780a20560afaa4695d047a0f0",
+      "output_sha256": "90b13ab13ce0625be2ae48ca59d04a6094b9d803c6cad7d699564941c4376084",
+      "native_sha256": "34bf3f0277285c6c6c8a3dd03e4abde3da0b30c4b1f9d038d211873f40143640"
+    },
+    {
+      "name": "destructible-world/finish-without-first-frame",
+      "input_sha256": "6e972be32383912cce78a1d1fc683cf5fe4bbae1d096b0d60c0e18459603d279",
+      "output_sha256": "3b9098f006f16b5d8ab52e354efa675338aacf21035be243ae9eaa7b35d3c90b",
+      "native_sha256": "b3907b24507238baa8515677750d45c7221ce1786ca7e6580a8837f09867dd5d"
+    },
+    {
+      "name": "destructible-world/owner-is-descriptive",
+      "input_sha256": "a2899280f7747b1682af35900f3cab74c9cb87b21fe2a480f9ebc96c54ef79ac",
+      "output_sha256": "338ff301a7ae9f4da71781178a4f208ab42c2d0df06205c7f5795ac938fe7cfb",
+      "native_sha256": "fd16188d8723f9299ea76f1bc8a9f85931042f44f271b6ad378068ea8c9130bc"
+    },
+    {
+      "name": "destructible-world/fractional-hit-shield-clear",
+      "input_sha256": "250d1af5b3416fc852a177d09d67b7bc6d3a4275c44b072446721711b21e9b66",
+      "output_sha256": "c30a718a3d8eed99878274e3377f85bedf5983f7bcf8823f68608b2f654b06d8",
+      "native_sha256": "194246e90249ea93f3cc39f80880a93b9c4b8981fc23da9e04849beb9905e39a"
+    },
+    {
+      "name": "destructible-world/high-slot128",
+      "input_sha256": "6062d36c70c11be40fb1cfb0fbf9c468b6ec57f449db3b1d758b04d7507122ab",
+      "output_sha256": "69836d5c352aa2be25d2a65b30d3edc678cb8542c79ab9cffc55958b420cb3a8",
+      "native_sha256": "21f2d26d13bcd2409e85a2cd786e6be3d6024e31d12c1406684f1825b087e47a"
+    },
+    {
+      "name": "destructible-world/unbound-clock-node",
+      "input_sha256": "8747b3464820d2b312abb6f62d4db31baed569e69bd056a4a7509b900f628470",
+      "output_sha256": "62fccfa80603cf2360bc4d81a984c4a9d839b59e83671ee19badba9d5d26d207",
+      "native_sha256": "8649b5d915e6051eb91df3f05ff5bbeaab4affa47bf510b2270863e6efdd2292"
+    },
+    {
+      "name": "destructible-world/cycle-generations",
+      "input_sha256": "b7e4f4d9a667c0315d69383e2cc71ad91375ec42fa005841b8ed3c9bd41dfb81",
+      "output_sha256": "43c0a89b9ad3eaa9a8ffec527e1fe8e578494dafd7fbe3594215b46a84c7b1e4",
+      "native_sha256": "05557041e7989f6371b183e457961a8d1a392e5a453f6c6a80ed828fd9a5b8ec"
+    },
+    {
+      "name": "destructible-world/expiry-epsilon",
+      "input_sha256": "ec29806e129667eec29f6523c76258725ceb6b00066328cc160d42a3435935b7",
+      "output_sha256": "4aa17a68a7f9a31877db03bedb189e3a47130de5ce3252e619a193d78fb39ef9",
+      "native_sha256": "1af8c76f8515d0a619e84879e097a0a4d6ee3b336868f494c0e26dfe13a86dc1"
+    },
+    {
+      "name": "destructible-world/spawn-epsilon",
+      "input_sha256": "16a192d8e081b919aab6ea01d6213bc835204cfa0be6f2e5d1811231f2ca5441",
+      "output_sha256": "688816226b0a77167ef418c7839d616bfa2e853920b539e4c36d958bfb2c0fb9",
+      "native_sha256": "0841204d21b7b1eeeb1562472a186b70ecc419012b8f810e4dffaf740bc3672d"
+    },
+    {
+      "name": "destructible-world/frame-clock-False",
+      "input_sha256": "17e109257d09360019c279385271ab767bd40042b77e2473a174ff6dd9f23468",
+      "output_sha256": "491f4442a9e04cad6745799c1b85dc66bb13980334b7f0e1083ff6f07cc1da9d",
+      "native_sha256": "66a674c7bf147b4850cb3566754eaf75301181af8dccc6b329930b91ef951171"
+    },
+    {
+      "name": "destructible-world/frame-clock-True",
+      "input_sha256": "4a17cf9b40c16414409401823941ea63e125a1c65e170418a36994a916e94a6a",
+      "output_sha256": "d667dfd6f2d33983229d00360ce044976d36c1a25e102d189c790455f6c27429",
+      "native_sha256": "f0e63cbf17531ea7924abbafc64df3bd097b1a9452f77942bc0c65f065a3fd44"
+    },
+    {
+      "name": "reject/destructible-world/magic",
+      "input_sha256": "0c01daa359a7d6c861a2883a9d35269406a28f9fa9958e68d5a5b1ba8c64662e",
+      "output_sha256": "fc778783f9cc6d856e6b9f75ac4a082155634eeb20547b08e97cec24ca05dc84",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-world/world-frame-injection",
+      "input_sha256": "6926256227626a0ff8817b569d53ca1cc14326cd5a834b8a45be6234f15db868",
+      "output_sha256": "fc778783f9cc6d856e6b9f75ac4a082155634eeb20547b08e97cec24ca05dc84",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-world/binding-count",
+      "input_sha256": "70cc11a9b3f09296f00ace2b3f0cc50d7b11ab725a4e21757c8f2b51dd06e929",
+      "output_sha256": "a83594764af36397950bbcc989d6dfb4b4e7a05a840718df1007683bd5790e0a",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-world/binding-node",
+      "input_sha256": "e3c61c937a68c593aa47ba68a6b9c5c8a5004a470ff6e7107cd240eefede6483",
+      "output_sha256": "fc778783f9cc6d856e6b9f75ac4a082155634eeb20547b08e97cec24ca05dc84",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-world/binding-kind",
+      "input_sha256": "4440c9c1756d7dcf54208e4cd9b8bffc47a4900a910a7911131b0e260bd59462",
+      "output_sha256": "fc778783f9cc6d856e6b9f75ac4a082155634eeb20547b08e97cec24ca05dc84",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-world/binding-reserved",
+      "input_sha256": "de08a467fd697400fa51f5f7b76ede37750533170ea747a3c706f7f1558d9a4e",
+      "output_sha256": "fc778783f9cc6d856e6b9f75ac4a082155634eeb20547b08e97cec24ca05dc84",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-world/unused-binding",
+      "input_sha256": "fd95703db5e02f49a196ffe9f180f9815f0e06c9a66640bd3e14384398bb71c9",
+      "output_sha256": "c8f8ba1f2931917370e1d0ada135328d359646a3dc4e5a12503b5192586a3a5f",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-world/operation-reserved",
+      "input_sha256": "6ca918232b974d39eb5a8ed2664403450f4134552806403d62864212f28be4a4",
+      "output_sha256": "7de3febadafb46e483d8915e26235ef818ebd98f7af985049fb78c69fc519aa8",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-world/unused-operation",
+      "input_sha256": "a530ab5eeda7cdd83340a42a883a9da892bfb08fc93f4957daaba3a9a4c82727",
+      "output_sha256": "fc778783f9cc6d856e6b9f75ac4a082155634eeb20547b08e97cec24ca05dc84",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-world/step-count",
+      "input_sha256": "27447aa2e801c7e083f9f78d59a99868f64ecaee6a675c615625be8f8cc6dc17",
+      "output_sha256": "f116d89410b1c17792a8122825bd89059a531d8ae0c7d37644a13f699498cb48",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-world/duplicate-identity",
+      "input_sha256": "a1821afcc7d1f3c4e4915ffded69f5791354975b43b2a40379fffad5ee6803c5",
+      "output_sha256": "7ca9770707bc6fc362ca64c2ce7de81ca531a0b7b6428a2b49af442d42151eb5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-world/after-finish",
+      "input_sha256": "917efcb8a4e3a746680e86b7dc4cd22059e4a57a8dd7a7708b4bae4c20d14ec0",
+      "output_sha256": "587612c447dc731f5ed5e67ef5263fe9a627602546f2ba122e4788f21856e4cb",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "generated_normalized": {
+    "cuda": "e443327f18e3d20aa714a16a9bd1660862219a37b1514c8e1d828832ce4e2bd2",
+    "metal": "083eed35c2c6d914be71fe7494d69edd05dbe2527f2c31a6b964c3fab96e8567"
+  }
+}

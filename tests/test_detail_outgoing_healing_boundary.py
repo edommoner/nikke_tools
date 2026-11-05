@@ -7,15 +7,9 @@ sp=importlib.util.spec_from_file_location('outgoing_bounds',ROOT/'scripts/verify
 class OutgoingHealingBoundaries(unittest.TestCase):
     def setUp(self):
         b=v.v.body(1);b['enemy']['patterns']=[]
-        with v.v.s.v.context('outgoing-boundary',{v.N[0]:[v.B('outgoing','outgoing_heal_pct',50)]}):self.compiled=v.v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True})
+        with v.v.s.v.context('outgoing-boundary',{v.N[0]:[v.B('outgoing','outgoing_heal_pct',50)]}):self.compiled=v.v.s.v.v.a.evaluate({**b,'_compile_detail':True})
     def test_outgoing_is_a_distinct_direct_read_buff(self):
         q=self.compiled['program']['effects'][0];self.assertEqual((q[1],q[2],q[6],q[207]),(0,73,50,0))
-    def test_unknown_and_fractional_stat_codes_rejected_before_cuda(self):
-        for key in (-1,73.5,10000):
-            with self.subTest(key=key):
-                p=copy.deepcopy(self.compiled['program']);p['effects'][0][2]=key
-                with patch.object(g,'module_image',side_effect=AssertionError('CUDA must not be reached')),self.assertRaisesRegex(ValueError,'Invalid compiled detailed effect'):
-                    g.run(object(),[p],[[0,2,101,0,0,0,0,0]],[self.compiled['enemy']],[self.compiled['base_stats']])
     def test_instant_form_does_not_silently_compile(self):
         with self.assertRaises(g.UnsupportedDetail):g.compile_effects(self.compiled['program']['chars'],[(v.E('bad','instant','outgoing_heal_pct',50),v.N[0])])
     def test_zero_negative_and_stacked_bonuses_are_representable(self):

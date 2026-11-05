@@ -1,0 +1,5680 @@
+{
+  "name": "lazy-cache-capacity",
+  "effects": [
+    {
+      "name": "clock 0 0",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.1
+    },
+    {
+      "name": "clock 0 1",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.2,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.2
+    },
+    {
+      "name": "clock 0 2",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.3,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.3
+    },
+    {
+      "name": "clock 0 3",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.4,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.4
+    },
+    {
+      "name": "clock 0 4",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.5,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.5
+    },
+    {
+      "name": "clock 0 5",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.6,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.6
+    },
+    {
+      "name": "clock 0 6",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.7,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.7
+    },
+    {
+      "name": "clock 0 7",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.8,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.8
+    },
+    {
+      "name": "pending 0 0",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 1",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 2",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 3",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 4",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 5",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 6",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 7",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 8",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 9",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 10",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 11",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 12",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 13",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 14",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 15",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 16",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 17",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 18",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 19",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 20",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 21",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 22",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 23",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 24",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 25",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 26",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 27",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 28",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 29",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 30",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 31",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 32",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 33",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 34",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 35",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 36",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 37",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 38",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 39",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 40",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SR:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 0 41",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SR:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "reader 0",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 5,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 0 0:1",
+          "hit_count:clock 0 1:1",
+          "hit_count:clock 0 2:1",
+          "hit_count:clock 0 3:1",
+          "hit_count:clock 0 4:1",
+          "hit_count:clock 0 5:1",
+          "hit_count:clock 0 6:1",
+          "hit_count:clock 0 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "clock 1 0",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.1
+    },
+    {
+      "name": "clock 1 1",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.2,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.2
+    },
+    {
+      "name": "clock 1 2",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.3,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.3
+    },
+    {
+      "name": "clock 1 3",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.4,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.4
+    },
+    {
+      "name": "clock 1 4",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.5,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.5
+    },
+    {
+      "name": "clock 1 5",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.6,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.6
+    },
+    {
+      "name": "clock 1 6",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.7,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.7
+    },
+    {
+      "name": "clock 1 7",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.8,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.8
+    },
+    {
+      "name": "pending 1 0",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 1",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 2",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 3",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 4",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 5",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 6",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 7",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 8",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 9",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 10",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 11",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 12",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 13",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 14",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 15",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 16",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 17",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 18",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 19",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 20",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 21",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 22",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 23",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 24",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 25",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 26",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 27",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 28",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 29",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 30",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 31",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 32",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 33",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 34",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 35",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 36",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 37",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 38",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 39",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 40",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SR:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 1 41",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SR:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "reader 1",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 5,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 1 0:1",
+          "hit_count:clock 1 1:1",
+          "hit_count:clock 1 2:1",
+          "hit_count:clock 1 3:1",
+          "hit_count:clock 1 4:1",
+          "hit_count:clock 1 5:1",
+          "hit_count:clock 1 6:1",
+          "hit_count:clock 1 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "clock 2 0",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.1
+    },
+    {
+      "name": "clock 2 1",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.2,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.2
+    },
+    {
+      "name": "clock 2 2",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.3,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.3
+    },
+    {
+      "name": "clock 2 3",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.4,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.4
+    },
+    {
+      "name": "clock 2 4",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.5,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.5
+    },
+    {
+      "name": "clock 2 5",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.6,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.6
+    },
+    {
+      "name": "clock 2 6",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.7,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.7
+    },
+    {
+      "name": "clock 2 7",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.8,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.8
+    },
+    {
+      "name": "pending 2 0",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 1",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 2",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 3",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 4",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 5",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 6",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 7",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 8",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 9",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 10",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 11",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 12",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 13",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 14",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 15",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 16",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 17",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 18",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 19",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 20",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 21",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 22",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 23",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 24",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 25",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 26",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 27",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 28",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 29",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 30",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 31",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 32",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 33",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 34",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 35",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 36",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 37",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 38",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 39",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 40",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SR:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 2 41",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SR:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "reader 2",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 5,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 2 0:1",
+          "hit_count:clock 2 1:1",
+          "hit_count:clock 2 2:1",
+          "hit_count:clock 2 3:1",
+          "hit_count:clock 2 4:1",
+          "hit_count:clock 2 5:1",
+          "hit_count:clock 2 6:1",
+          "hit_count:clock 2 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "clock 3 0",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.1
+    },
+    {
+      "name": "clock 3 1",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.2,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.2
+    },
+    {
+      "name": "clock 3 2",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.3,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.3
+    },
+    {
+      "name": "clock 3 3",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.4,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.4
+    },
+    {
+      "name": "clock 3 4",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.5,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.5
+    },
+    {
+      "name": "clock 3 5",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.6,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.6
+    },
+    {
+      "name": "clock 3 6",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.7,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.7
+    },
+    {
+      "name": "clock 3 7",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.8,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.8
+    },
+    {
+      "name": "pending 3 0",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 1",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 2",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 3",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 4",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 5",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 6",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 7",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 8",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 9",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 10",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 11",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 12",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 13",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 14",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 15",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 16",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 17",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 18",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 19",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 20",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 21",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 22",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 23",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 24",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 25",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 26",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 27",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 28",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 29",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 30",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 31",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 32",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 33",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 34",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 35",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 36",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 37",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 38",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 39",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 40",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SR:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 3 41",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SR:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "reader 3",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 5,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 3 0:1",
+          "hit_count:clock 3 1:1",
+          "hit_count:clock 3 2:1",
+          "hit_count:clock 3 3:1",
+          "hit_count:clock 3 4:1",
+          "hit_count:clock 3 5:1",
+          "hit_count:clock 3 6:1",
+          "hit_count:clock 3 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "clock 4 0",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.1
+    },
+    {
+      "name": "clock 4 1",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.2,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.2
+    },
+    {
+      "name": "clock 4 2",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.3,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.3
+    },
+    {
+      "name": "clock 4 3",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.4,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.4
+    },
+    {
+      "name": "clock 4 4",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.5,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.5
+    },
+    {
+      "name": "clock 4 5",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.6,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.6
+    },
+    {
+      "name": "clock 4 6",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.7,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.7
+    },
+    {
+      "name": "clock 4 7",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "dot_damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 0.8,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "tick_interval": 0.8
+    },
+    {
+      "name": "pending 4 0",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 1",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 2",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 3",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 4",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 5",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 6",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 7",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 8",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 9",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_atk_excl:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 10",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 11",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 12",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 13",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 14",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 15",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 16",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 17",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 18",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 19",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_hp_excl:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 20",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 21",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 22",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 23",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 24",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_top_def:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 25",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 26",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 27",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 28",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 29",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_lowest_atk_burst3:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 30",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 31",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 32",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 33",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 34",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SMG:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 35",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 36",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 37",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:3",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 38",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:4",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 39",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:MG:5",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 40",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SR:1",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "pending 4 41",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.0001,
+      "target": "allies_weapon_top_atk:SR:2",
+      "duration": 1e-05,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "reader 4",
+      "source": "스킬1",
+      "type": "damage",
+      "stat": "damage",
+      "fixed_value": 1,
+      "target": "target",
+      "duration": 5,
+      "trigger": {
+        "timing": [
+          "hit_count:clock 4 0:1",
+          "hit_count:clock 4 1:1",
+          "hit_count:clock 4 2:1",
+          "hit_count:clock 4 3:1",
+          "hit_count:clock 4 4:1",
+          "hit_count:clock 4 5:1",
+          "hit_count:clock 4 6:1",
+          "hit_count:clock 4 7:1"
+        ],
+        "condition": []
+      }
+    }
+  ],
+  "owners": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "combat": {
+    "weapons": [
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      }
+    ],
+    "targets": [
+      {
+        "hp": 1e+30
+      }
+    ],
+    "trace": "summary"
+  },
+  "script": [
+    [
+      0,
+      4,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      1,
+      4,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ]
+  ],
+  "expected_queries": []
+}

@@ -5,7 +5,6 @@ from contextlib import contextmanager
 from datetime import datetime,timezone
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
 from detail_coverage import body_for,a
-from gpu_selector import Cuda
 spec=importlib.util.spec_from_file_location('periodic_full_oracle',ROOT/'scripts/verify-extended-detail.py');full=importlib.util.module_from_spec(spec);spec.loader.exec_module(full)
 NAMES=['리타','크라운','앨리스','모더니아','N102']
 def effect(name,kind,stat,value,target='self',event='battle_start',condition=None,**kw):
@@ -80,23 +79,3 @@ def custom_effects(effects):
  buff_manager.BuffManager=timeline.BuffManager=Custom
  try:yield observed
  finally:buff_manager.BuffManager=timeline.BuffManager=Original
-
-def verify(device,module_backend='auto'):
- cases=[]
- for name,effects,duration,required in scenarios():
-  b=body_for(NAMES,duration);b['stat_deltas']={NAMES[2]:{'atk':1000000}}
-  if name=='periodic-normal-attack-formula':b['enemy']['core_px']=3
-  try:
-   with custom_effects(effects) as observed:
-    case=full.compare(device,name,b,module_backend=module_backend)
-    checks={k:(observed[k[:-4]]>=value if k.endswith('_min') else observed[k]==value) for k,value in required.items()}
-    case.update(observed=copy.deepcopy(observed),mechanics_exercised=checks);case['passed'] &= all(checks.values())
-  except (Exception,SystemExit) as e:case={'name':name,'passed':False,'error':str(e)}
-  cases.append(case);print(json.dumps({'case':name,'passed':case['passed'],**({'error':case['error']} if 'error' in case else {'checks':case['mechanics_exercised'],'cpu':case['cpu_total'],'gpu':case['gpu_total'],'health_equal':case['final_health_equal']})},ensure_ascii=True),flush=True)
- sources=['app/detail_gpu.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json','app/gpu_selector.py',str(Path(__file__).relative_to(ROOT)).replace('\\','/')]
- return {'generated_at':datetime.now(timezone.utc).isoformat(),'passed':all(c['passed'] for c in cases),'device':device.name,'cpu_trace_used_as_gpu_input':False,'scope':'synthetic timer/bullet primitives in independently simulated real five-member weapon squads','cases':cases,'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sources}}
-if __name__=='__main__':
- d=Cuda()
- try:r=verify(d)
- finally:d.close()
- (ROOT/'research/detail-periodic-verification.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if r['passed'] else 1)

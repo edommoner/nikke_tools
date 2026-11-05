@@ -1,0 +1,15 @@
+{
+  "package_id": "062b27978b51598fff1776f75ea8555555ecc3ba4c0708fcc335979ba5d7b91c",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/named-range-v2-replay",
+  "child_pid": 63257,
+  "input_count": 21,
+  "native_cases": 12,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 1.3051067920023343,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "cc0b5f62f15c85d1e686598dbf637b1f2a185a4ccdd1da79e77ea5636646414b",
+  "output_sha256": "deddd9fc5d1358e7c4dea616c7e77db1c1e7efde4061caa656e91b0117b4b197",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1"
+}

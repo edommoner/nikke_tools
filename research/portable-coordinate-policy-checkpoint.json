@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "suite": "coordinate-policy",
+  "status": "sealed-private-profile",
+  "input_count": 196,
+  "native_count": 171,
+  "reject_count": 25,
+  "new_native_worlds": 20,
+  "retained_cases": 169,
+  "retained_output_bytes": 1196163072,
+  "all_reference_cases_retained": true,
+  "runtime_stride": 138952,
+  "runtime_fields": 247,
+  "extra_runtime_bytes": 0,
+  "input_words": 109656,
+  "extra_input_words": 128,
+  "output_words": 1769856,
+  "extra_output_words": 384,
+  "proof": {
+    "package_root": "/tmp/nikke-policy-develop-v2",
+    "package_id": "071f999dadf553c3fd7ccb22b0da5bc92b9c57ded8a1789f20c1994beddcc036",
+    "capture": "/tmp/nikke-policy-metal-v2",
+    "comparison_sha256": "f6e1bd483936d63456020f3b388fd13d043849d486804099ee649dba624d26c7",
+    "metal_golden": "research/portable-coordinate-policy-short-expected.json",
+    "independent_seal_gpu_calls": 0,
+    "compiler_certificate": "research/portable-compiler-full--coordinate-policy-source-certificate.json",
+    "certificate_audit_gpu_calls": 0,
+    "metal_golden_sha256": "5be8d734a31afa91ebff1a5b2f279d987283c17b020dca42bfd1ec17d092c77b",
+    "compiler_certificate_sha256": "8e26d3a3e4eb800c75c5702cea1f89c75aada3e501e5202715a66e2cbd16f9d3"
+  },
+  "checks": {
+    "selected_cpu_tests": 116,
+    "selected_cpu_seconds": 141.62638695992064,
+    "gpu_dispatches": 1,
+    "first_attempt_cpu_stopped": true,
+    "first_capture": "/tmp/nikke-policy-metal-v1",
+    "same_claim_retries": 0,
+    "source_originals_unchanged": [
+      "app/detail_gpu.py",
+      "app/engine_worker.py",
+      "app/effect_spec.py",
+      "app/engine_compat.py",
+      "gpu/binary64.slang",
+      "research/summarize-portable-cross-gpu.py",
+      "app/portable_compile_cache.py"
+    ],
+    "cuda_execution_verified": false,
+    "windows_new_requests": 0,
+    "host_input_bridge_passed": true,
+    "full_goal_complete": false,
+    "final_control_tests": 433,
+    "final_control_skips": 1,
+    "final_frontier_tests": 5,
+    "final_static_guard_tests": 1
+  },
+  "timing": {
+    "gpu_seconds": 0.6449263333342969,
+    "pipeline_compile_seconds": 91.37700200080872,
+    "native_preflight_seconds": 98.82410595798865,
+    "generation_cache_hit": true,
+    "generation_cache_required": true,
+    "cached_generation_compiler_calls": 0,
+    "cuda_warm_execution_measured": false
+  },
+  "limits": {
+    "owners": 5,
+    "reentry_history_per_owner": 16,
+    "cover_all_connected": false,
+    "forced_burst_actions_connected": false,
+    "public_gpu_admitted": false,
+    "all_characters_certified": 0,
+    "model_gap_profiles": 20,
+    "ui_backend": "cpu"
+  },
+  "remaining": [
+    "cover_all and forced burst action producers",
+    "post-delay, zero-listener, knockdown and storage combinations",
+    "mixed actor payloads and original definitions",
+    "current CUDA execution and warm cache measurements",
+    "public admission and all-character certification"
+  ],
+  "final_package": {
+    "passed": true,
+    "full_files": 3173,
+    "compact_files": 1832,
+    "all_selected_bytes_equal": true,
+    "changed_from_proof": [
+      "app/portable_coordinate_frontier.py",
+      "research/verify-coordinate-policy-short.py",
+      "scripts/nikke_gpu.py",
+      "tests/test_coordinate_physical_frontier.py",
+      "tests/test_coordinate_policy.py"
+    ],
+    "added_from_proof": [
+      "research/portable-compiler-full--coordinate-policy-source-certificate.json",
+      "research/portable-coordinate-policy-short-expected.json"
+    ],
+    "gpu_source_closure_unchanged": true,
+    "input_bridge": "nikke-policy-final-host-bridge-v1.json",
+    "gpu_calls": 0,
+    "native_battle_calls": 0,
+    "calculation_verified": false,
+    "archives": {
+      "full": {
+        "path": "/tmp/nikke-policy-final-full-v1.zip",
+        "sha256": "a21c371a06550cbbe3d5fd95a16396e191e6e2d45cfc9a6e76ed6789bd79901c"
+      },
+      "compact": {
+        "path": "/tmp/nikke-policy-final-compact-v1.zip",
+        "sha256": "b6ac453df05548118389653c163b883061ce28f45829215bb35076deb3bee094"
+      }
+    }
+  },
+  "raw_preservation": {
+    "receipt": "research/coordinate-policy-v1-evidence/raw-sparse-v1.json",
+    "full_byte_sha_and_inode_preserved": true,
+    "raw_deleted": false
+  },
+  "inventory": {
+    "profile_count": 266,
+    "base_count": 203,
+    "packed_profiles": 245,
+    "packed_base": 185,
+    "full_character_verified": 0,
+    "canonical_world_admission": false,
+    "normal_ui": "CPU",
+    "full_goal_complete": false
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "base_before": 102,
+  "base_after": 105,
+  "profiles_before": 142,
+  "profiles_after": 145,
+  "changes": [
+    {
+      "character": "라푼젤 : 퓨어 그레이스",
+      "favorite_stage": 0,
+      "before": false,
+      "after": true
+    },
+    {
+      "character": "길티 : 마이티 바니",
+      "favorite_stage": 0,
+      "before": false,
+      "after": true
+    },
+    {
+      "character": "신 : 스위프트 바니",
+      "favorite_stage": 0,
+      "before": false,
+      "after": true
+    }
+  ],
+  "forbidden_calls": {
+    "cpu_battle": 0,
+    "gpu_build": 0,
+    "gpu_execute": 0
+  },
+  "scope": "Python own-definition preflight only;not GPU admission or full character battle certification",
+  "full_character_verified": 0,
+  "canonical_world_admission": false
+}

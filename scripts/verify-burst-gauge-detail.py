@@ -6,7 +6,6 @@ from pathlib import Path
 from datetime import datetime,timezone
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
 spec=importlib.util.spec_from_file_location('burst_gauge_control',ROOT/'scripts/verify-control-detail.py');c=importlib.util.module_from_spec(spec);spec.loader.exec_module(c)
-from detail_gpu import evaluate_full
 from detail_coverage import coverage
 E=c.E;NAMES=c.NAMES
 
@@ -28,14 +27,6 @@ def scenarios():
  who='라피 : 레드 후드';names=[who]+NAMES[:4];body=c.body_for(names,30,True);body['burst_gauge_mode']='accumulate'
  yield 'skill-energy-exception',{who:[E('부착형 유탄 4','damage','damage',100,'target',event='on_attack_count:3')]},None,None,body
 
-def compare(device,name,body,backend):
- compiled=c.a.evaluate({**body,'_compile_gpu_detail':True});gpu=evaluate_full(device,compiled,module_backend=backend)
- with c.observe() as (_,manager,_):cpu=c.a.evaluate(body)
- checks={k:cpu[k]==gpu[k] for k in ('total_damage','members','base_stats','burst_timeline','burst_gauge_mode')}
- state=manager['bm'].state;g=gpu['compute']['burst_gauge']
- checks['gauge_amount']=math.isclose(state['burst_gauge'],g['amount'],rel_tol=1e-12,abs_tol=1e-8)
- checks['charging_flag']=state['burst_gauge_charging']==g['charging']
- return {'name':name,'backend':backend,'passed':all(checks.values()),'checks':checks,'cpu_total':cpu['total_damage'],'gpu_total':gpu['total_damage'],'cpu_gauge':state['burst_gauge'],'gpu_gauge':g,'cpu_bursts':cpu['burst_timeline'],'gpu_bursts':gpu['burst_timeline']}
 
 def verify(d,backend):
  out=[]
@@ -51,11 +42,3 @@ def verify(d,backend):
   for mode in ('fixed','accumulate'):
    body=c.body_for(names,30,True);body['burst_gauge_mode']=mode;r=compare(d,'real-'+who+'-'+mode,body,backend);out.append(r);print(json.dumps(r,ensure_ascii=True),flush=True)
  return out
-
-if __name__=='__main__':
- d=c.Cuda()
- try:cases=verify(d,'native')+verify(d,'ptx')
- finally:d.close()
- files=['app/detail_gpu.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-build.json','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json','app/engine_worker.py','scripts/verify-burst-gauge-detail.py']
- r={'generated_at':datetime.now(timezone.utc).isoformat(),'passed':all(x['passed'] for x in cases),'cpu_trace_used_as_gpu_input':False,'cases':cases,'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files}}
- (ROOT/'research/detail-burst-gauge-verification.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if r['passed'] else 1)

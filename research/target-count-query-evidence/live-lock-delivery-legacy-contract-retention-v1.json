@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "label": "packet8",
+      "package_id": "f99a1cfd032b22b09626175369bae473da960d79050dd03098dfc671cb5a277d",
+      "input_sha256": "90d5b14065c58b346a58baa41e2df4bdc9ff4bb292446ef3bfb106b06c9a0c9a",
+      "all_native_fingerprints_retained": true
+    },
+    {
+      "label": "cover23",
+      "package_id": "e0f2c2c2f9e4f5e0b4990775208e695add47fc8b72fda0b419cfb89b7bef252b",
+      "input_sha256": "4ea6cc94ef65ecc0b8b3a08497ec1d60a8a8f52397e3d769e995ca9cfa96c041",
+      "all_native_fingerprints_retained": true
+    },
+    {
+      "label": "physical10",
+      "package_id": "80a482654a8a80d5433822ec0e4326693e556654f2a84533558f9ff022a566be",
+      "input_sha256": "da951950f7ff590dea65c04f635136ed96adb56384f908d29cc9e64ecc72e5d7",
+      "all_native_fingerprints_retained": true
+    },
+    {
+      "label": "external16",
+      "package_id": "5eccbba236d3f4bb127422fa3115dc1f337ac18ffffd7272a5a9fded7a5688fd",
+      "input_sha256": "1f006d28b9badcff012c99464b2dc8e560fddc737ad423c741b274f214d9055e",
+      "all_native_fingerprints_retained": true
+    }
+  ],
+  "gpu_calls": 0
+}

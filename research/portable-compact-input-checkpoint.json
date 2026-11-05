@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "status": "cpu_and_saved_metal_verified",
+  "final_tested_package": {
+    "package_id": "722e299dfb3f0ba0e4c7d5753bd75481308a2cf3c8061e7786d576746dcdeb66",
+    "files": 1949,
+    "bytes": 5269786,
+    "archive_sha256": "fe3e4ed3c1386cb37f4fbc19e743122f48b6a6adbfbc815972fc4516b319497b",
+    "source_commit": "79eb9232e0cc9ff3eddc68597b26c97cd5e6e554"
+  },
+  "baseline_preparation": {
+    "schema": 1,
+    "package_id": "eac46030ed422231e05b55f7d7f8394d89b33fed3adf97450845fb4fc8fac6fc",
+    "input_count": 796,
+    "input_bytes": 332409604,
+    "input_sha256": "21080fdf79eca41ed2da2dff3ba4d6337d219e9cc29f7e4cb7efd81e094f0276",
+    "input_matches_sealed": true,
+    "word_row_types": {
+      "list": 796
+    },
+    "word_row_shallow_bytes": 729868352,
+    "compact_word_payload_bytes": 332409600,
+    "stages": [
+      {
+        "stage": "package_verified",
+        "peak_rss_bytes": 48611328
+      },
+      {
+        "stage": "adapter_imported",
+        "peak_rss_bytes": 145162240
+      },
+      {
+        "stage": "inputs_prepared",
+        "peak_rss_bytes": 2354872320
+      }
+    ],
+    "prepare_seconds": 5.946691541001201,
+    "gpu_calls": 0,
+    "scope": "CPU-only input preparation; peak is cumulative process RSS, shallow row sizes exclude integer/domain object ownership"
+  },
+  "candidate": {
+    "schema": 1,
+    "package_id": "7110852765a7caea8ec681988dc7a462415c8c91cf0b599e4aac18aa5f0b0642",
+    "saved_capture": "/tmp/nikke-weapon-phases-v1-metal",
+    "calculation_verified": true,
+    "input_count": 796,
+    "native_oracles": 633,
+    "output_sha256": "b9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637",
+    "output_bytes": 2503999488,
+    "comparison_equal": true,
+    "elapsed_seconds": 46.22298275004141,
+    "peak_rss_bytes": 1812381696,
+    "gpu_calls": 0,
+    "source_capture_modified": false,
+    "preparation": {
+      "input_bytes": 332409604,
+      "input_sha256": "21080fdf79eca41ed2da2dff3ba4d6337d219e9cc29f7e4cb7efd81e094f0276",
+      "word_row_types": {
+        "array": 796
+      },
+      "word_row_shallow_bytes": 332473280,
+      "compact_word_payload_bytes": 332409600,
+      "prepare_seconds": 4.76286912499927
+    },
+    "stages": [
+      {
+        "stage": "package_verified",
+        "peak_rss_bytes": 48726016
+      },
+      {
+        "stage": "adapter_imported",
+        "peak_rss_bytes": 145948672
+      },
+      {
+        "stage": "inputs_prepared",
+        "peak_rss_bytes": 1808695296
+      },
+      {
+        "stage": "full_comparison_finished",
+        "peak_rss_bytes": 1812381696
+      }
+    ]
+  },
+  "full_cpu": {
+    "discovered": 812,
+    "passed": 810,
+    "skipped": 1,
+    "failures": 1,
+    "elapsed_seconds": 55.535,
+    "failure": "Existing aggregation test required list representation; changed contract checks all values/domain/wire and exact compact array type",
+    "resolved_by_fresh_package_targeted": {
+      "tests": 5,
+      "passed": 5
+    },
+    "replayed_code_unchanged_after_test_fix": true
+  },
+  "new_gpu_executions": 0,
+  "remaining": [
+    "CUDA device zero/readback/child persistence still need bounded transfer",
+    "Windows offline assembly v130 failed once; saved evidence pending",
+    "All-character certification remains0"
+  ],
+  "logs": [
+    {
+      "path": "/tmp/nikke-compact-input-full-cpu.log",
+      "sha256": "3feab37a78214a713815aea214b9281fb39b99e2da9294f02ae2ed5bf291bb7b"
+    },
+    {
+      "path": "/tmp/nikke-compact-input-final-targeted.log",
+      "sha256": "e52df7c2ee3f6804fd82e8a0ec98dbf79b718e0b51b72626131b603b2b48e4be"
+    },
+    {
+      "path": "/tmp/nikke-compact-input-saved-metal.log",
+      "sha256": "20ce970ee1b4a2e423ac05bd13cc7734b01fa31a735aa9db36ec6d98383f137b"
+    }
+  ]
+}

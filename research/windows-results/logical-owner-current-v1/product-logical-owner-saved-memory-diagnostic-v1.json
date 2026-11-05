@@ -1,0 +1,1843 @@
+{
+  "schema": 1,
+  "mode": "saved-files-only-memory-diagnostic",
+  "owner": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+  "source_files": [
+    {
+      "path": "$VALIDATION_ROOT/logical-owner-api-v2/api-once-v1/detail-captures/29cbcd3a874a4a5798f0dbe37b6b494d/phases.jsonl",
+      "bytes": 202117,
+      "sha256": "9c47151463ca2589277ec580e47841ab355305043a294adb772c219fcd60269f"
+    },
+    {
+      "path": "$VALIDATION_ROOT/logical-owner-api-v2/api-once-v1/detail-captures/29cbcd3a874a4a5798f0dbe37b6b494d/result.json",
+      "bytes": 77534,
+      "sha256": "85c3d44325b7b16e2776f333ff08df6ab7cb8f11f7ea4eafd7771afc09509209"
+    },
+    {
+      "path": "$VALIDATION_ROOT/logical-owner-api-v2/api-once-v1/detail-captures/29cbcd3a874a4a5798f0dbe37b6b494d/evidence.json",
+      "bytes": 149746,
+      "sha256": "d3481dbb6a0a50dc4f179b0863ebe0651e5c3e646b4878f6a5737f96d68dfa5f"
+    },
+    {
+      "path": "$VALIDATION_ROOT/compile-ptx-v1/proof/phases.jsonl",
+      "bytes": 54580,
+      "sha256": "7463dbc94c9a360ba46561cbeccb12d44165b3d5e8a4b36a773ee88f70319ed6"
+    },
+    {
+      "path": "$VALIDATION_ROOT/compile-ptx-v1/proof/compiler.json",
+      "bytes": 32892,
+      "sha256": "15d87e7a344f019e1b5caf9d46666bbd471451f5ad953ad62889273b81bfee82"
+    },
+    {
+      "path": "$VALIDATION_ROOT/compile-ptx-v1/proof/result.json",
+      "bytes": 5081,
+      "sha256": "8cf4d1aa69f76895f7df26cb253b210dcd6d6038c4ffb8409206b329c6553407"
+    },
+    {
+      "path": "$VALIDATION_ROOT/compile-ptx-v1/proof/compiled.ptx",
+      "bytes": 14477831,
+      "sha256": "59dc4f2b12c0728cc843862807bffddec30b9e12f9e22b552f00f91a54e12e07"
+    }
+  ],
+  "cuFuncGetAttribute": "not_recorded",
+  "cuFuncGetAttribute_attribute_ids_and_values": "not_recorded",
+  "cuMemAlloc": [
+    {
+      "event_index": 64,
+      "api": "cuMemAlloc_v2",
+      "requested_bytes": 494932,
+      "return_code": 0,
+      "elapsed_seconds": 0.0001484
+    },
+    {
+      "event_index": 68,
+      "api": "cuMemAlloc_v2",
+      "requested_bytes": 9381536,
+      "return_code": 0,
+      "elapsed_seconds": 0.0001464
+    },
+    {
+      "event_index": 72,
+      "api": "cuMemAlloc_v2",
+      "requested_bytes": 163576,
+      "return_code": 0,
+      "elapsed_seconds": 2.57e-05
+    }
+  ],
+  "memory_checkpoints": [
+    {
+      "event_index": 63,
+      "boundary": "cuMemAlloc_v2",
+      "position": "before",
+      "device": {
+        "available": true,
+        "free_bytes": 7445938176,
+        "total_bytes": 8589410304,
+        "return_code": 0
+      },
+      "host": {
+        "process": {
+          "available": true,
+          "private_bytes": 391110656,
+          "peak_private_bytes": 391110656,
+          "working_set_bytes": 256028672
+        },
+        "parent": {
+          "available": true,
+          "private_bytes": 28114944,
+          "peak_private_bytes": 32186368,
+          "working_set_bytes": 64110592
+        },
+        "job": {
+          "available": true,
+          "job_peak_memory_bytes": 419229696,
+          "job_memory_limit_bytes": null
+        }
+      },
+      "atomic": false,
+      "scope": "Point-in-time estimate only; not allocation capacity, failure cause, or calculation proof",
+      "host_scope": "Current private commit and separate historical peaks; not current total Job usage"
+    },
+    {
+      "event_index": 66,
+      "boundary": "cuMemAlloc_v2",
+      "position": "after",
+      "device": {
+        "available": true,
+        "free_bytes": 7443841024,
+        "total_bytes": 8589410304,
+        "return_code": 0
+      },
+      "host": {
+        "process": {
+          "available": true,
+          "private_bytes": 393211904,
+          "peak_private_bytes": 393211904,
+          "working_set_bytes": 256065536
+        },
+        "parent": {
+          "available": true,
+          "private_bytes": 28114944,
+          "peak_private_bytes": 32186368,
+          "working_set_bytes": 64110592
+        },
+        "job": {
+          "available": true,
+          "job_peak_memory_bytes": 421330944,
+          "job_memory_limit_bytes": null
+        }
+      },
+      "atomic": false,
+      "scope": "Point-in-time estimate only; not allocation capacity, failure cause, or calculation proof",
+      "host_scope": "Current private commit and separate historical peaks; not current total Job usage"
+    },
+    {
+      "event_index": 67,
+      "boundary": "cuMemAlloc_v2",
+      "position": "before",
+      "device": {
+        "available": true,
+        "free_bytes": 7443841024,
+        "total_bytes": 8589410304,
+        "return_code": 0
+      },
+      "host": {
+        "process": {
+          "available": true,
+          "private_bytes": 393211904,
+          "peak_private_bytes": 393216000,
+          "working_set_bytes": 256065536
+        },
+        "parent": {
+          "available": true,
+          "private_bytes": 28114944,
+          "peak_private_bytes": 32186368,
+          "working_set_bytes": 64110592
+        },
+        "job": {
+          "available": true,
+          "job_peak_memory_bytes": 421330944,
+          "job_memory_limit_bytes": null
+        }
+      },
+      "atomic": false,
+      "scope": "Point-in-time estimate only; not allocation capacity, failure cause, or calculation proof",
+      "host_scope": "Current private commit and separate historical peaks; not current total Job usage"
+    },
+    {
+      "event_index": 70,
+      "boundary": "cuMemAlloc_v2",
+      "position": "after",
+      "device": {
+        "available": true,
+        "free_bytes": 7433355264,
+        "total_bytes": 8589410304,
+        "return_code": 0
+      },
+      "host": {
+        "process": {
+          "available": true,
+          "private_bytes": 404307968,
+          "peak_private_bytes": 404307968,
+          "working_set_bytes": 256065536
+        },
+        "parent": {
+          "available": true,
+          "private_bytes": 28114944,
+          "peak_private_bytes": 32186368,
+          "working_set_bytes": 64110592
+        },
+        "job": {
+          "available": true,
+          "job_peak_memory_bytes": 432427008,
+          "job_memory_limit_bytes": null
+        }
+      },
+      "atomic": false,
+      "scope": "Point-in-time estimate only; not allocation capacity, failure cause, or calculation proof",
+      "host_scope": "Current private commit and separate historical peaks; not current total Job usage"
+    },
+    {
+      "event_index": 71,
+      "boundary": "cuMemAlloc_v2",
+      "position": "before",
+      "device": {
+        "available": true,
+        "free_bytes": 7433355264,
+        "total_bytes": 8589410304,
+        "return_code": 0
+      },
+      "host": {
+        "process": {
+          "available": true,
+          "private_bytes": 404307968,
+          "peak_private_bytes": 404312064,
+          "working_set_bytes": 256065536
+        },
+        "parent": {
+          "available": true,
+          "private_bytes": 28114944,
+          "peak_private_bytes": 32186368,
+          "working_set_bytes": 64110592
+        },
+        "job": {
+          "available": true,
+          "job_peak_memory_bytes": 432427008,
+          "job_memory_limit_bytes": null
+        }
+      },
+      "atomic": false,
+      "scope": "Point-in-time estimate only; not allocation capacity, failure cause, or calculation proof",
+      "host_scope": "Current private commit and separate historical peaks; not current total Job usage"
+    },
+    {
+      "event_index": 74,
+      "boundary": "cuMemAlloc_v2",
+      "position": "after",
+      "device": {
+        "available": true,
+        "free_bytes": 7433355264,
+        "total_bytes": 8589410304,
+        "return_code": 0
+      },
+      "host": {
+        "process": {
+          "available": true,
+          "private_bytes": 404307968,
+          "peak_private_bytes": 404312064,
+          "working_set_bytes": 256065536
+        },
+        "parent": {
+          "available": true,
+          "private_bytes": 28114944,
+          "peak_private_bytes": 32186368,
+          "working_set_bytes": 64110592
+        },
+        "job": {
+          "available": true,
+          "job_peak_memory_bytes": 432427008,
+          "job_memory_limit_bytes": null
+        }
+      },
+      "atomic": false,
+      "scope": "Point-in-time estimate only; not allocation capacity, failure cause, or calculation proof",
+      "host_scope": "Current private commit and separate historical peaks; not current total Job usage"
+    },
+    {
+      "event_index": 81,
+      "boundary": "cuLaunchKernel",
+      "position": "before",
+      "device": {
+        "available": true,
+        "free_bytes": 7433355264,
+        "total_bytes": 8589410304,
+        "return_code": 0
+      },
+      "host": {
+        "process": {
+          "available": true,
+          "private_bytes": 404307968,
+          "peak_private_bytes": 404312064,
+          "working_set_bytes": 256114688
+        },
+        "parent": {
+          "available": true,
+          "private_bytes": 28114944,
+          "peak_private_bytes": 32186368,
+          "working_set_bytes": 64110592
+        },
+        "job": {
+          "available": true,
+          "job_peak_memory_bytes": 432427008,
+          "job_memory_limit_bytes": null
+        }
+      },
+      "atomic": false,
+      "scope": "Point-in-time estimate only; not allocation capacity, failure cause, or calculation proof",
+      "host_scope": "Current private commit and separate historical peaks; not current total Job usage"
+    },
+    {
+      "event_index": 84,
+      "boundary": "cuLaunchKernel",
+      "position": "after",
+      "device": {
+        "available": true,
+        "free_bytes": 5801771008,
+        "total_bytes": 8589410304,
+        "return_code": 0
+      },
+      "host": {
+        "process": {
+          "available": true,
+          "private_bytes": 2085318656,
+          "peak_private_bytes": 2085318656,
+          "working_set_bytes": 256147456
+        },
+        "parent": {
+          "available": true,
+          "private_bytes": 28114944,
+          "peak_private_bytes": 32186368,
+          "working_set_bytes": 64110592
+        },
+        "job": {
+          "available": true,
+          "job_peak_memory_bytes": 2113437696,
+          "job_memory_limit_bytes": null
+        }
+      },
+      "atomic": false,
+      "scope": "Point-in-time estimate only; not allocation capacity, failure cause, or calculation proof",
+      "host_scope": "Current private commit and separate historical peaks; not current total Job usage"
+    }
+  ],
+  "context_before_after_memory": "not_recorded",
+  "module_before_after_memory": "not_recorded",
+  "launch_before_after_memory": [
+    {
+      "event_index": 81,
+      "boundary": "cuLaunchKernel",
+      "position": "before",
+      "device": {
+        "available": true,
+        "free_bytes": 7433355264,
+        "total_bytes": 8589410304,
+        "return_code": 0
+      },
+      "host": {
+        "process": {
+          "available": true,
+          "private_bytes": 404307968,
+          "peak_private_bytes": 404312064,
+          "working_set_bytes": 256114688
+        },
+        "parent": {
+          "available": true,
+          "private_bytes": 28114944,
+          "peak_private_bytes": 32186368,
+          "working_set_bytes": 64110592
+        },
+        "job": {
+          "available": true,
+          "job_peak_memory_bytes": 432427008,
+          "job_memory_limit_bytes": null
+        }
+      },
+      "atomic": false,
+      "scope": "Point-in-time estimate only; not allocation capacity, failure cause, or calculation proof",
+      "host_scope": "Current private commit and separate historical peaks; not current total Job usage"
+    },
+    {
+      "event_index": 84,
+      "boundary": "cuLaunchKernel",
+      "position": "after",
+      "device": {
+        "available": true,
+        "free_bytes": 5801771008,
+        "total_bytes": 8589410304,
+        "return_code": 0
+      },
+      "host": {
+        "process": {
+          "available": true,
+          "private_bytes": 2085318656,
+          "peak_private_bytes": 2085318656,
+          "working_set_bytes": 256147456
+        },
+        "parent": {
+          "available": true,
+          "private_bytes": 28114944,
+          "peak_private_bytes": 32186368,
+          "working_set_bytes": 64110592
+        },
+        "job": {
+          "available": true,
+          "job_peak_memory_bytes": 2113437696,
+          "job_memory_limit_bytes": null
+        }
+      },
+      "atomic": false,
+      "scope": "Point-in-time estimate only; not allocation capacity, failure cause, or calculation proof",
+      "host_scope": "Current private commit and separate historical peaks; not current total Job usage"
+    }
+  ],
+  "launch_observed_deltas": {
+    "device_free_bytes_delta": -1631584256,
+    "process_private_bytes_delta": 1681010688,
+    "job_historical_peak_bytes_delta": 1681010688
+  },
+  "other_saved_memory_fields": "not_recorded",
+  "ptx": {
+    "path": "$VALIDATION_ROOT/compile-ptx-v1/proof/compiled.ptx",
+    "sha256": "59dc4f2b12c0728cc843862807bffddec30b9e12f9e22b552f00f91a54e12e07",
+    "entry_names": [
+      "portableEvents"
+    ],
+    "explicit_local_array_declarations": [
+      {
+        "symbol": "__local_depot4",
+        "declared_elements": 24,
+        "element_type": "b8",
+        "ptx_line": 1120,
+        "declared_bytes": 24,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot15",
+        "declared_elements": 256,
+        "element_type": "b8",
+        "ptx_line": 11708,
+        "declared_bytes": 256,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot18",
+        "declared_elements": 160,
+        "element_type": "b8",
+        "ptx_line": 12823,
+        "declared_bytes": 160,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot19",
+        "declared_elements": 80,
+        "element_type": "b8",
+        "ptx_line": 13174,
+        "declared_bytes": 80,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot21",
+        "declared_elements": 32,
+        "element_type": "b8",
+        "ptx_line": 13544,
+        "declared_bytes": 32,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot23",
+        "declared_elements": 72,
+        "element_type": "b8",
+        "ptx_line": 14394,
+        "declared_bytes": 72,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot25",
+        "declared_elements": 16,
+        "element_type": "b8",
+        "ptx_line": 20702,
+        "declared_bytes": 16,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot29",
+        "declared_elements": 40,
+        "element_type": "b8",
+        "ptx_line": 22142,
+        "declared_bytes": 40,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot30",
+        "declared_elements": 48,
+        "element_type": "b8",
+        "ptx_line": 22373,
+        "declared_bytes": 48,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot39",
+        "declared_elements": 24,
+        "element_type": "b8",
+        "ptx_line": 43732,
+        "declared_bytes": 24,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot40",
+        "declared_elements": 36,
+        "element_type": "b8",
+        "ptx_line": 44859,
+        "declared_bytes": 36,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot43",
+        "declared_elements": 128,
+        "element_type": "b8",
+        "ptx_line": 49531,
+        "declared_bytes": 128,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot46",
+        "declared_elements": 40,
+        "element_type": "b8",
+        "ptx_line": 56081,
+        "declared_bytes": 40,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot47",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 57482,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot48",
+        "declared_elements": 896,
+        "element_type": "b8",
+        "ptx_line": 59265,
+        "declared_bytes": 896,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot49",
+        "declared_elements": 40,
+        "element_type": "b8",
+        "ptx_line": 63196,
+        "declared_bytes": 40,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot50",
+        "declared_elements": 40,
+        "element_type": "b8",
+        "ptx_line": 64293,
+        "declared_bytes": 40,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot51",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 69774,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot52",
+        "declared_elements": 40,
+        "element_type": "b8",
+        "ptx_line": 70399,
+        "declared_bytes": 40,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot53",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 76692,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot54",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 78755,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot55",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 79010,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot56",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 79549,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot57",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 80087,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot58",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 80956,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot59",
+        "declared_elements": 40,
+        "element_type": "b8",
+        "ptx_line": 83552,
+        "declared_bytes": 40,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot60",
+        "declared_elements": 256,
+        "element_type": "b8",
+        "ptx_line": 84252,
+        "declared_bytes": 256,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot61",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 85189,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot62",
+        "declared_elements": 40,
+        "element_type": "b8",
+        "ptx_line": 85342,
+        "declared_bytes": 40,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot63",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 85920,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot64",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 87530,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot65",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 88743,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot66",
+        "declared_elements": 40,
+        "element_type": "b8",
+        "ptx_line": 90690,
+        "declared_bytes": 40,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot68",
+        "declared_elements": 24,
+        "element_type": "b8",
+        "ptx_line": 91776,
+        "declared_bytes": 24,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot69",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 100857,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot70",
+        "declared_elements": 32,
+        "element_type": "b8",
+        "ptx_line": 104292,
+        "declared_bytes": 32,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot72",
+        "declared_elements": 32,
+        "element_type": "b8",
+        "ptx_line": 104484,
+        "declared_bytes": 32,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot75",
+        "declared_elements": 32,
+        "element_type": "b8",
+        "ptx_line": 104858,
+        "declared_bytes": 32,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot76",
+        "declared_elements": 40,
+        "element_type": "b8",
+        "ptx_line": 105839,
+        "declared_bytes": 40,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot79",
+        "declared_elements": 52,
+        "element_type": "b8",
+        "ptx_line": 107024,
+        "declared_bytes": 52,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot81",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 119616,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot83",
+        "declared_elements": 1,
+        "element_type": "b8",
+        "ptx_line": 120228,
+        "declared_bytes": 1,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot84",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 120334,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot88",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 122863,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot90",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 124681,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot91",
+        "declared_elements": 64,
+        "element_type": "b8",
+        "ptx_line": 125588,
+        "declared_bytes": 64,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot92",
+        "declared_elements": 64,
+        "element_type": "b8",
+        "ptx_line": 126447,
+        "declared_bytes": 64,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot93",
+        "declared_elements": 176,
+        "element_type": "b8",
+        "ptx_line": 127135,
+        "declared_bytes": 176,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot94",
+        "declared_elements": 8,
+        "element_type": "b8",
+        "ptx_line": 134861,
+        "declared_bytes": 8,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot95",
+        "declared_elements": 32,
+        "element_type": "b8",
+        "ptx_line": 135093,
+        "declared_bytes": 32,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot96",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 135939,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot97",
+        "declared_elements": 4200,
+        "element_type": "b8",
+        "ptx_line": 137047,
+        "declared_bytes": 4200,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot98",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 140653,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot99",
+        "declared_elements": 1,
+        "element_type": "b8",
+        "ptx_line": 142851,
+        "declared_bytes": 1,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot100",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 143062,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot101",
+        "declared_elements": 96,
+        "element_type": "b8",
+        "ptx_line": 145276,
+        "declared_bytes": 96,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot102",
+        "declared_elements": 64,
+        "element_type": "b8",
+        "ptx_line": 147711,
+        "declared_bytes": 64,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot103",
+        "declared_elements": 512,
+        "element_type": "b8",
+        "ptx_line": 157477,
+        "declared_bytes": 512,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot106",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 158232,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot107",
+        "declared_elements": 576,
+        "element_type": "b8",
+        "ptx_line": 158878,
+        "declared_bytes": 576,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot108",
+        "declared_elements": 512,
+        "element_type": "b8",
+        "ptx_line": 161078,
+        "declared_bytes": 512,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot109",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 161187,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot113",
+        "declared_elements": 16,
+        "element_type": "b8",
+        "ptx_line": 162679,
+        "declared_bytes": 16,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot116",
+        "declared_elements": 8,
+        "element_type": "b8",
+        "ptx_line": 165114,
+        "declared_bytes": 8,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot117",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 165286,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot120",
+        "declared_elements": 560,
+        "element_type": "b8",
+        "ptx_line": 166189,
+        "declared_bytes": 560,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot122",
+        "declared_elements": 632,
+        "element_type": "b8",
+        "ptx_line": 168656,
+        "declared_bytes": 632,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot123",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 169718,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot124",
+        "declared_elements": 24,
+        "element_type": "b8",
+        "ptx_line": 171261,
+        "declared_bytes": 24,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot125",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 173027,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot126",
+        "declared_elements": 24,
+        "element_type": "b8",
+        "ptx_line": 174489,
+        "declared_bytes": 24,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot127",
+        "declared_elements": 24,
+        "element_type": "b8",
+        "ptx_line": 176080,
+        "declared_bytes": 24,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot129",
+        "declared_elements": 88,
+        "element_type": "b8",
+        "ptx_line": 179932,
+        "declared_bytes": 88,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot130",
+        "declared_elements": 568,
+        "element_type": "b8",
+        "ptx_line": 186262,
+        "declared_bytes": 568,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot131",
+        "declared_elements": 104,
+        "element_type": "b8",
+        "ptx_line": 191057,
+        "declared_bytes": 104,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot133",
+        "declared_elements": 532,
+        "element_type": "b8",
+        "ptx_line": 191650,
+        "declared_bytes": 532,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot134",
+        "declared_elements": 532,
+        "element_type": "b8",
+        "ptx_line": 198514,
+        "declared_bytes": 532,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot135",
+        "declared_elements": 1040,
+        "element_type": "b8",
+        "ptx_line": 199328,
+        "declared_bytes": 1040,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot136",
+        "declared_elements": 16,
+        "element_type": "b8",
+        "ptx_line": 201375,
+        "declared_bytes": 16,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot139",
+        "declared_elements": 760,
+        "element_type": "b8",
+        "ptx_line": 203942,
+        "declared_bytes": 760,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot142",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 220920,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot143",
+        "declared_elements": 8,
+        "element_type": "b8",
+        "ptx_line": 221769,
+        "declared_bytes": 8,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot144",
+        "declared_elements": 512,
+        "element_type": "b8",
+        "ptx_line": 222250,
+        "declared_bytes": 512,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot148",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 226523,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot149",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 228331,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot150",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 229760,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot151",
+        "declared_elements": 24,
+        "element_type": "b8",
+        "ptx_line": 230708,
+        "declared_bytes": 24,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot152",
+        "declared_elements": 80,
+        "element_type": "b8",
+        "ptx_line": 231624,
+        "declared_bytes": 80,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot153",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 234891,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot155",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 236089,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot156",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 237959,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot158",
+        "declared_elements": 116,
+        "element_type": "b8",
+        "ptx_line": 240541,
+        "declared_bytes": 116,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot159",
+        "declared_elements": 60,
+        "element_type": "b8",
+        "ptx_line": 242025,
+        "declared_bytes": 60,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot163",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 247632,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot165",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 248834,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot166",
+        "declared_elements": 80,
+        "element_type": "b8",
+        "ptx_line": 250502,
+        "declared_bytes": 80,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot168",
+        "declared_elements": 8,
+        "element_type": "b8",
+        "ptx_line": 252023,
+        "declared_bytes": 8,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot171",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 252509,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot176",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 255181,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot177",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 255373,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot179",
+        "declared_elements": 1,
+        "element_type": "b8",
+        "ptx_line": 255660,
+        "declared_bytes": 1,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot181",
+        "declared_elements": 1044,
+        "element_type": "b8",
+        "ptx_line": 255925,
+        "declared_bytes": 1044,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot182",
+        "declared_elements": 28,
+        "element_type": "b8",
+        "ptx_line": 256604,
+        "declared_bytes": 28,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot183",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 257120,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot184",
+        "declared_elements": 1,
+        "element_type": "b8",
+        "ptx_line": 257555,
+        "declared_bytes": 1,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot186",
+        "declared_elements": 64,
+        "element_type": "b8",
+        "ptx_line": 257846,
+        "declared_bytes": 64,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot188",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 259034,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot190",
+        "declared_elements": 1,
+        "element_type": "b8",
+        "ptx_line": 259738,
+        "declared_bytes": 1,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot191",
+        "declared_elements": 24,
+        "element_type": "b8",
+        "ptx_line": 259927,
+        "declared_bytes": 24,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot195",
+        "declared_elements": 60,
+        "element_type": "b8",
+        "ptx_line": 262631,
+        "declared_bytes": 60,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot196",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 264669,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot197",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 265049,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot199",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 266188,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot203",
+        "declared_elements": 56,
+        "element_type": "b8",
+        "ptx_line": 267617,
+        "declared_bytes": 56,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot207",
+        "declared_elements": 80,
+        "element_type": "b8",
+        "ptx_line": 269438,
+        "declared_bytes": 80,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot208",
+        "declared_elements": 36,
+        "element_type": "b8",
+        "ptx_line": 271619,
+        "declared_bytes": 36,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot209",
+        "declared_elements": 64,
+        "element_type": "b8",
+        "ptx_line": 272740,
+        "declared_bytes": 64,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot210",
+        "declared_elements": 56,
+        "element_type": "b8",
+        "ptx_line": 273961,
+        "declared_bytes": 56,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot211",
+        "declared_elements": 16,
+        "element_type": "b8",
+        "ptx_line": 274678,
+        "declared_bytes": 16,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot212",
+        "declared_elements": 56,
+        "element_type": "b8",
+        "ptx_line": 275103,
+        "declared_bytes": 56,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot213",
+        "declared_elements": 80,
+        "element_type": "b8",
+        "ptx_line": 276304,
+        "declared_bytes": 80,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot215",
+        "declared_elements": 24,
+        "element_type": "b8",
+        "ptx_line": 278249,
+        "declared_bytes": 24,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot216",
+        "declared_elements": 608,
+        "element_type": "b8",
+        "ptx_line": 278525,
+        "declared_bytes": 608,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot217",
+        "declared_elements": 96,
+        "element_type": "b8",
+        "ptx_line": 290816,
+        "declared_bytes": 96,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot218",
+        "declared_elements": 9784,
+        "element_type": "b8",
+        "ptx_line": 295537,
+        "declared_bytes": 9784,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot222",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 317022,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot223",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 319065,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot225",
+        "declared_elements": 2584,
+        "element_type": "b8",
+        "ptx_line": 320394,
+        "declared_bytes": 2584,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot226",
+        "declared_elements": 176,
+        "element_type": "b8",
+        "ptx_line": 323574,
+        "declared_bytes": 176,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot227",
+        "declared_elements": 96,
+        "element_type": "b8",
+        "ptx_line": 333657,
+        "declared_bytes": 96,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot229",
+        "declared_elements": 72,
+        "element_type": "b8",
+        "ptx_line": 334556,
+        "declared_bytes": 72,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot230",
+        "declared_elements": 728,
+        "element_type": "b8",
+        "ptx_line": 334933,
+        "declared_bytes": 728,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot231",
+        "declared_elements": 2344,
+        "element_type": "b8",
+        "ptx_line": 341505,
+        "declared_bytes": 2344,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot232",
+        "declared_elements": 512,
+        "element_type": "b8",
+        "ptx_line": 358247,
+        "declared_bytes": 512,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot233",
+        "declared_elements": 752,
+        "element_type": "b8",
+        "ptx_line": 360093,
+        "declared_bytes": 752,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot234",
+        "declared_elements": 680,
+        "element_type": "b8",
+        "ptx_line": 371474,
+        "declared_bytes": 680,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot235",
+        "declared_elements": 552,
+        "element_type": "b8",
+        "ptx_line": 385215,
+        "declared_bytes": 552,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot236",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 386214,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot237",
+        "declared_elements": 8,
+        "element_type": "b8",
+        "ptx_line": 386400,
+        "declared_bytes": 8,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot238",
+        "declared_elements": 40,
+        "element_type": "b8",
+        "ptx_line": 386987,
+        "declared_bytes": 40,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot239",
+        "declared_elements": 688,
+        "element_type": "b8",
+        "ptx_line": 388353,
+        "declared_bytes": 688,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot240",
+        "declared_elements": 8,
+        "element_type": "b8",
+        "ptx_line": 390646,
+        "declared_bytes": 8,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot241",
+        "declared_elements": 880,
+        "element_type": "b8",
+        "ptx_line": 391013,
+        "declared_bytes": 880,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot243",
+        "declared_elements": 512,
+        "element_type": "b8",
+        "ptx_line": 401645,
+        "declared_bytes": 512,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot244",
+        "declared_elements": 512,
+        "element_type": "b8",
+        "ptx_line": 402795,
+        "declared_bytes": 512,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot245",
+        "declared_elements": 152,
+        "element_type": "b8",
+        "ptx_line": 408429,
+        "declared_bytes": 152,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot246",
+        "declared_elements": 168,
+        "element_type": "b8",
+        "ptx_line": 416119,
+        "declared_bytes": 168,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot248",
+        "declared_elements": 56,
+        "element_type": "b8",
+        "ptx_line": 418786,
+        "declared_bytes": 56,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot249",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 429389,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot250",
+        "declared_elements": 2068,
+        "element_type": "b8",
+        "ptx_line": 429787,
+        "declared_bytes": 2068,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot251",
+        "declared_elements": 512,
+        "element_type": "b8",
+        "ptx_line": 430220,
+        "declared_bytes": 512,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot252",
+        "declared_elements": 192,
+        "element_type": "b8",
+        "ptx_line": 435444,
+        "declared_bytes": 192,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot253",
+        "declared_elements": 248,
+        "element_type": "b8",
+        "ptx_line": 435708,
+        "declared_bytes": 248,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot254",
+        "declared_elements": 32,
+        "element_type": "b8",
+        "ptx_line": 466250,
+        "declared_bytes": 32,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot257",
+        "declared_elements": 536,
+        "element_type": "b8",
+        "ptx_line": 475542,
+        "declared_bytes": 536,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot261",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 477805,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot263",
+        "declared_elements": 16,
+        "element_type": "b8",
+        "ptx_line": 482181,
+        "declared_bytes": 16,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot265",
+        "declared_elements": 548,
+        "element_type": "b8",
+        "ptx_line": 483228,
+        "declared_bytes": 548,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot269",
+        "declared_elements": 96,
+        "element_type": "b8",
+        "ptx_line": 490915,
+        "declared_bytes": 96,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot270",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 493932,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot271",
+        "declared_elements": 16,
+        "element_type": "b8",
+        "ptx_line": 494743,
+        "declared_bytes": 16,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot278",
+        "declared_elements": 56,
+        "element_type": "b8",
+        "ptx_line": 499061,
+        "declared_bytes": 56,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot279",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 500065,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot280",
+        "declared_elements": 16,
+        "element_type": "b8",
+        "ptx_line": 506027,
+        "declared_bytes": 16,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot281",
+        "declared_elements": 96,
+        "element_type": "b8",
+        "ptx_line": 507158,
+        "declared_bytes": 96,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot282",
+        "declared_elements": 752,
+        "element_type": "b8",
+        "ptx_line": 510121,
+        "declared_bytes": 752,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot285",
+        "declared_elements": 20,
+        "element_type": "b8",
+        "ptx_line": 532871,
+        "declared_bytes": 20,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot287",
+        "declared_elements": 40,
+        "element_type": "b8",
+        "ptx_line": 533520,
+        "declared_bytes": 40,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot288",
+        "declared_elements": 160,
+        "element_type": "b8",
+        "ptx_line": 534293,
+        "declared_bytes": 160,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot289",
+        "declared_elements": 256,
+        "element_type": "b8",
+        "ptx_line": 534645,
+        "declared_bytes": 256,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot291",
+        "declared_elements": 1,
+        "element_type": "b8",
+        "ptx_line": 535545,
+        "declared_bytes": 1,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot292",
+        "declared_elements": 88,
+        "element_type": "b8",
+        "ptx_line": 535654,
+        "declared_bytes": 88,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot293",
+        "declared_elements": 32,
+        "element_type": "b8",
+        "ptx_line": 541973,
+        "declared_bytes": 32,
+        "function_kind": "func"
+      },
+      {
+        "symbol": "__local_depot294",
+        "declared_elements": 44,
+        "element_type": "b8",
+        "ptx_line": 542957,
+        "declared_bytes": 44,
+        "function_kind": "func"
+      }
+    ],
+    "scope": "Static PTX declarations only; actual GPU local reservation and driver allocations are not established.",
+    "entry_local_declarations": "not_recorded",
+    "local_declaration_count": 174
+  },
+  "capacity_comparison": {
+    "old_output_bytes": 9381536,
+    "new_output_bytes_from_mac": 11848928,
+    "output_growth_bytes": 2467392,
+    "old_job_peak_bytes": 2145529856,
+    "old_job_limit_bytes": 2147483648,
+    "old_job_headroom_bytes": 1953792,
+    "growth_exceeds_old_headroom": true,
+    "scope": "Arithmetic comparison only. Device allocation size and Windows Job private commit are different measurements; current-run peak and capacity are not predicted."
+  },
+  "limitations": [
+    "Only recorded allocation and launch boundaries provide memory samples; missing boundaries remain not_recorded.",
+    "Saved checkpoint Job memory limit is null; the separately saved Job report records 2147483648 bytes.",
+    "Samples are non-atomic point observations, and Job peak is historical, not current total Job usage.",
+    "No kernel attribute query results were added; static PTX local declarations do not prove runtime reservation."
+  ],
+  "new_activity": {
+    "cuda_api_calls": 0,
+    "driver_loads": 0,
+    "gpu": 0,
+    "slang": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "sdk_tools": 0,
+    "ram_measurements": 0,
+    "workspace_scans": 0
+  },
+  "inputs_unchanged": true,
+  "compile_ptx_saved_memory_observations": "not_recorded"
+}

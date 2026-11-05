@@ -1,0 +1,117 @@
+{
+  "version": 112,
+  "payload_commit": "740f60fc67f645f7e751bbe984df8b2c66630bc2",
+  "source_commit": "13ac26305ea843829e7c84bb1b9a3afc88e199ca",
+  "package_id": "7e09b1d3640b448aae0a2780fe0ab1dd75fcca78b3f77129c06a07c7fa6eb330",
+  "archive": {
+    "bytes": 4498786,
+    "sha256": "3a6c1c30d35a1e54af039988f0412ffde811d27fb9902bf9c1f330b3cb0655a9",
+    "verified": true
+  },
+  "bootstrap_verified": true,
+  "manifest_verified": true,
+  "cpu_tests": [
+    {
+      "suite": "windows_cleanup",
+      "tests": 4,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "compile_cli",
+      "tests": 7,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "cuda_artifact",
+      "tests": 9,
+      "skip": 0,
+      "exit": 0
+    }
+  ],
+  "cpu_total": 20,
+  "cpu_elapsed_seconds": 3.6450816998258233,
+  "compile": {
+    "attempts": 1,
+    "retries": 0,
+    "budget_seconds": 60,
+    "elapsed_seconds": 40.84685040032491,
+    "timed_out": false,
+    "nvrtc_compile_calls": 1,
+    "nvrtc_compile_seconds": 30.344,
+    "nvrtc_return": 6,
+    "child_exit_code": 1,
+    "last_stage": "shared_cuda_compile_only",
+    "last_state": "raised",
+    "below_normal": true
+  },
+  "artifact": {
+    "kind": "cubin",
+    "completed": false,
+    "bytes": 0,
+    "sha256": null
+  },
+  "cache": {
+    "initially_empty": true,
+    "receipt": null,
+    "completed_artifacts": 0,
+    "hit": false
+  },
+  "job": {
+    "cap_bytes": 2147483648,
+    "pre_peak_bytes": 5763072,
+    "post_peak_bytes": 2148286464,
+    "pre_single_verified": true,
+    "post_empty_verified": true,
+    "inspection_error": null,
+    "cleanup_error": null,
+    "observation_error": null,
+    "cleanup_budget_seconds": 5
+  },
+  "environment": {
+    "missing_count": 0,
+    "termination_cause": null,
+    "service_before": "unverified",
+    "service_after": "unverified",
+    "service_preservation_verified": false,
+    "after_snapshot_delay_seconds": 2.180605,
+    "original_head_status_preserved": true
+  },
+  "compiler_verified": false,
+  "containment_verified": true,
+  "preservation_verified": false,
+  "calculation_verified": false,
+  "audit_calls": 1,
+  "audit_exit": 1,
+  "collect_calls": 1,
+  "collect_exit": 0,
+  "driver_load_calls": 0,
+  "context_calls": 0,
+  "kernel_calls": 0,
+  "gpu_dispatch_calls": 0,
+  "log": {
+    "bytes": 3258,
+    "sha256": "802824fca42cb625ccf84f9b8bf02f25fd00b49778902e6a15645033e00004bd",
+    "head": [
+      "ptxas fatal   : Memory allocation failure",
+      "Traceback (most recent call last):",
+      "  File \"[redacted]\", line 950, in <module>",
+      "    if __name__=='__main__':main()"
+    ],
+    "tail": [
+      "    if code: raise RuntimeError(log.value.decode('utf-8','replace'))",
+      "             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+      "RuntimeError: portable.cu(9): warning: extern declaration of the entity SLANG_globalParams is treated as a static definition",
+      "",
+      "ptxas fatal   : Ptx assembly aborted due to errors",
+      ""
+    ]
+  },
+  "cpu_plus_compile_elapsed_seconds": 44.491932100150734,
+  "memory_improvement_attribution_proven": false,
+  "prior_records_preserved": true,
+  "raw_artifacts_retained_locally": true,
+  "github_push": false,
+  "evidence_scope": "Structured Windows report received through existing chat; raw artifacts remain on Windows; no independent raw audit on Mac."
+}

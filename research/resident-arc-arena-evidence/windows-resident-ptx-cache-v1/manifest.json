@@ -1,0 +1,25 @@
+{
+  "schema": "resident-ptx-cache-v1-shared-manifest",
+  "files": [
+    {
+      "path": "summary.json",
+      "bytes": 22026,
+      "sha256": "754e1bd713145756b6b3d89d74db4483b3d3237f7e2adf33f36942436d7b1832"
+    },
+    {
+      "path": "tests-cpu-receipt.json",
+      "bytes": 4345,
+      "sha256": "07a04e549fc42f4787a413b5b0ec356e906514431ba43a7bc8b01babd5dbeb20"
+    },
+    {
+      "path": "smoke-partial-cpu-receipt.json",
+      "bytes": 7373,
+      "sha256": "e1e55a03b7b362448ed0aeeab8b286b5271ae8fdc29280dca0fb2a55a8164b4f"
+    },
+    {
+      "path": "stage-timeline.json",
+      "bytes": 7841,
+      "sha256": "ea90a9204dca9bcaf22d1fc3a1cc40eb5664acceb9e0dde2ac6a6c90edaac893"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+"""One native oracle and literal input suite for CUDA/Metal critical/core notifications."""
+import argparse,array,datetime,hashlib,importlib.util,json,struct,subprocess,sys
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','scripts','research')]
+from portable_backend import execute,source_hashes
+from portable_specs import LIMITS as L,FIELDS as F
+import engine_worker
+from world_authored_roster import skill_levels
+from world_skill_native import inspect as inspect_native
+import world_team_cases as cases
+s=importlib.util.spec_from_file_location('fraction_spawn','research/verify-world-spawn.py');spawn=importlib.util.module_from_spec(s);s.loader.exec_module(spawn)
+physical=spawn.physical;periodic=spawn.periodic
+
+INPUT=L['WORLD_TEAM_INPUT_WORDS'];SOURCE='gpu/world_team_entry.slang';OUTPUT=L['WORLD_PERIODIC_OUTPUT_WORDS']
+def fixtures():return cases.fixtures()
+from world_team_native import observe as inspect_native
+from portable_team_hit_specs import bound_effects,compile_policy
+from world_frame_native import roster_names,authored_metadata
+import copy
+
+def compile_case(case):
+ from portable_target_counter_program import compiler_effects,patch_program
+ from portable_target_counter_specs import pack_battle
+ from portable_world_schedule_specs import compile_schedule
+ from portable_charge_clock_specs import compile_clock
+ from portable_enemy_specs import damage_plan
+ c=copy.deepcopy(case);c['effects']=compiler_effects(case['effects']);w,m,b=physical.pack.stack.compile_case(c)
+ names=roster_names(case);metadata=authored_metadata(case);chars=[dict(name=n,skill_levels=level,_weapon=metadata[n]) for n,level in zip(names,skill_levels(case))]
+ original=[(e,names[o]) for e,o in zip(case['effects'],case['owners'])]
+ patch_program(w,m,chars,original);bound=bound_effects(original,m,names)
+ _,patterns=compile_schedule(dict(patterns=case['patterns'],clock='accumulated',duration=case['duration']),notice_payload=True)
+ w.extend(pack_battle([(e,names.index(owner)) for e,owner in bound],w[2],names,m['states'],b,patterns,allow_no_counter=True))
+ w.extend(compile_clock(case['combat']['weapons'],case['post_fire_delays']));w.extend(compile_policy(m,case['enemy'].get('has_parts',False)))
+ w[0]=L['WORLD_TEAM_ABI'];w[L['TARGET_COUNTER_INPUT_BASE']+6]=19
+ for i,(e,_) in enumerate(bound):
+  if e.get('type')=='damage' and damage_plan(e)[0]==2:w[L['DAMAGE_DEFINITION_BASE']+i*8+1]=128
+ assert len(w)==INPUT
+ return w,m,b
+
+def expanded_case(case,meta):
+ c=copy.deepcopy(case);c['effects']=[case['effects'][i] for i in meta['binding_source_indices']];c['owners']=meta['binding_owners'];return c
+
+def decoded(block,meta,case,bindings):
+ r=fraction.decoded(block,meta,expanded_case(case,meta),bindings)
+ head=L['WORLD_TEAM_HEAD_BASE'];count=block[head+1];mask=block[head+4];rows=meta.get('_original_team_rows')
+ assert block[head]==0x57544831 and (count<=1024 if rows is None else len(rows)==count) and mask<1024 and not any(block[head+5:head+12])
+ if rows is not None and any(block[L['WORLD_TEAM_TRACE_BASE']:L['WORLD_TEAM_TRACE_BASE']+1024*8]):raise AssertionError('Relocated team trace must leave its old bank empty')
+ number=lambda at:struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
+ notes=[]
+ for i in range(count):
+  at=L['WORLD_TEAM_TRACE_BASE']+i*8;row=list(block[at:at+8]) if rows is None else rows[i];packed=row[1];assert len(row)==8 and row[0] in (44,45) and packed&7<5 and packed<32
+  value=lambda pos:struct.unpack('<d',struct.pack('<II',*row[pos:pos+2]))[0]
+  notes.append(dict(event=row[0],owner=packed&7,time=value(2),fraction=value(4),fired=(packed>>3)&1,created=bool(packed&16),after=value(6)))
+ r['team_hits']=notes;r['team_counts']=list(block[head+2:head+4]);r['team_accumulators']=[dict(event=44+kind,owner=who,value=number(L['WORLD_TEAM_STATE_BASE']+who*4+kind*2)) for who in range(5) for kind in (0,1) if mask&(1<<(who*2+kind))]
+ return r
+
+def skill_trace(block,meta):
+ trace=periodic.skill_trace(block)
+ for r in trace:r['row']=meta['binding_source_indices'][r['row']]
+ return trace
+
+s=importlib.util.spec_from_file_location('team_fraction_decode','research/verify-world-fraction.py');fraction=importlib.util.module_from_spec(s);s.loader.exec_module(fraction)
+def prepare():
+ rows=fixtures();programs=[compile_case(c) for c in rows];seed=programs[0][0];bad=[]
+ for name,at,value in [
+  ('team-counter-marker-zero',L['TARGET_COUNTER_INPUT_BASE'],0),('team-counter-marker-invalid',L['TARGET_COUNTER_INPUT_BASE'],1),('team-old-mode17',L['TARGET_COUNTER_INPUT_BASE']+6,17),
+  ('team-unknown-mode20',L['TARGET_COUNTER_INPUT_BASE']+6,20),('team-without-landings',L['LANDING_META_BASE'],0),
+  ('team-header-magic',L['WORLD_TEAM_INPUT_BASE'],0),('team-header-version',L['WORLD_TEAM_INPUT_BASE']+1,2),
+  ('team-binding-count',L['WORLD_TEAM_INPUT_BASE']+2,4),('team-parts-boolean',L['WORLD_TEAM_INPUT_BASE']+3,2),
+  ('team-reserved',L['WORLD_TEAM_INPUT_BASE']+4,1),('team-source-owner',L['WORLD_TEAM_INPUT_BASE']+8,6),
+  ('team-budget-zero',L['WORLD_TEAM_INPUT_BASE']+9,0),('team-budget-overflow',L['WORLD_TEAM_INPUT_BASE']+9,257),
+  ('team-budget-split',L['WORLD_TEAM_INPUT_BASE']+11,2),('team-attacker-order',L['DEFINITION_BASE']+F['OWNER'],1),
+  ('team-unused-binding',L['WORLD_TEAM_INPUT_BASE']+8+5*2,1),('team-group-inconsistent-source',L['WORLD_TEAM_INPUT_BASE']+10,4),
+  ('team-missing-event-mask',L['EVENT_CANDIDATE_BASE']+44*L['MASK_WORDS'],0)]:
+  w=list(seed);w[at]=value;bad.append((name,w))
+ return rows,programs,bad
+def sha(b):return hashlib.sha256(b).hexdigest()

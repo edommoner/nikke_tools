@@ -1,0 +1,776 @@
+{
+  "schema": "resident-cubin-v2-prerequisite-report",
+  "distribution": {
+    "distribution_commit": "e582cf1f18d49f941aae7f5bf1aa75fddf5cebf6",
+    "archive_bytes": 11706700,
+    "archive_sha256": "4c12d7f9929cc78640158bd04164c1798004accd3013d9fdfabbafaa873a3695",
+    "package_id": "814c08b1ff0d2957b2a027736dcbddb9a5327015516c7095421259da27e64c0c",
+    "archive_members": 3545,
+    "safe_paths_verified": true
+  },
+  "package_verification": {
+    "passed": true,
+    "package_id": "814c08b1ff0d2957b2a027736dcbddb9a5327015516c7095421259da27e64c0c",
+    "suite": "coordinate-resident-arc",
+    "purpose": "sealed",
+    "manifest_files": 3544,
+    "payload_bytes": 63143964,
+    "gpu_calls": 0
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "814c08b1ff0d2957b2a027736dcbddb9a5327015516c7095421259da27e64c0c",
+    "suite": "coordinate-resident-arc",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "plan_comparison": {
+    "passed": true,
+    "exact_plan_equal": true,
+    "package_id": "814c08b1ff0d2957b2a027736dcbddb9a5327015516c7095421259da27e64c0c",
+    "gpu_calls": 0
+  },
+  "dependency_check": {
+    "schema": 1,
+    "passed": true,
+    "dependencies": [],
+    "requirements_file": null,
+    "installation_performed": false,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "scope": "Selected validation tests only; package metadata and import availability, not GPU or numerical correctness",
+    "suite": "coordinate-resident-arc",
+    "package_id": "814c08b1ff0d2957b2a027736dcbddb9a5327015516c7095421259da27e64c0c"
+  },
+  "execution_permission": "require_escalated for plan/dependency/common-CPU stages",
+  "outcome": "Stopped after common CPU smoke error; no compile attempt or new compile claim",
+  "common_cpu_smoke": {
+    "complete": false,
+    "expected_groups": 60,
+    "completed_groups": 41,
+    "tests": 433,
+    "failures": 0,
+    "errors": 1,
+    "skipped": 10,
+    "rows": [
+      {
+        "pattern": "test_package_payload_reuse.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.4236465999856591,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_windows_cleanup.py",
+        "exit_code": 0,
+        "elapsed_seconds": 2.1010040999390185,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_gpu_cli.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.3923909002915025,
+        "tests": 45,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_compile_cache.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.9126271000131965,
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_cuda_artifact.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.27331450022757053,
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_module_check.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.3065189998596907,
+        "tests": 19,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_weapon_phases.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.7245434997603297,
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_offline_assembly.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.7129396996460855,
+        "tests": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_readback_stream.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.8926614997908473,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_regression_compact.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.5531168999150395,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_file_transport.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.644214800093323,
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_cpu_batch.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.697384400293231,
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_query_boundaries.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.9868559003807604,
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_ptx_stats.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.13246469991281629,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_compiler_diagnostic.py",
+        "exit_code": 0,
+        "elapsed_seconds": 2.622769200243056,
+        "tests": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_compiler_certificate.py",
+        "exit_code": 0,
+        "elapsed_seconds": 4.795639100018889,
+        "tests": 24,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_python_dependencies.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.16326670022681355,
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_cuda_cached_profile.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.10607159975916147,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_input_extension.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.31484360015019774,
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_generation_cache.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.677000899799168,
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_metal_cache.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.9200491001829505,
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_metal_cache_probe.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.0742395999841392,
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_generation_separation.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.8613053997978568,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_definition_view.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.9260691995732486,
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_ptx_callgraph.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.7716437997296453,
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_ptx_partition.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.4655079999938607,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_partition_object.py",
+        "exit_code": 0,
+        "elapsed_seconds": 4.9973140000365674,
+        "tests": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_module_object.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.443381099961698,
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_object_recovery.py",
+        "exit_code": 0,
+        "elapsed_seconds": 4.293773300014436,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_device_linker.py",
+        "exit_code": 0,
+        "elapsed_seconds": 6.191396599635482,
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_native_process.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.3945955000817776,
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_job_limits.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.025763300247490406,
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_native_output_probe.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.049708399921655655,
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_jit_link.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.06334930006414652,
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_jit_link_capture.py",
+        "exit_code": 0,
+        "elapsed_seconds": 5.36987160006538,
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_linked_artifact.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.6335189999081194,
+        "tests": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_packet_stage.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.6807046001777053,
+        "tests": 19,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_generation_gate.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.9143373998813331,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_readback_blocks.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.6842677001841366,
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_sparse_raw.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.02998360013589263,
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 10,
+        "runner_pid": 73768
+      },
+      {
+        "pattern": "test_portable_metal_device.py",
+        "exit_code": 1,
+        "elapsed_seconds": 0.29246179992333055,
+        "tests": 8,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0,
+        "runner_pid": 73768
+      }
+    ]
+  },
+  "failure_diagnostic": {
+    "group": "test_portable_metal_device.py",
+    "test": "DeviceTests.test_no_device_stops_before_cpu_native_transport_and_claim",
+    "error_type": "ValueError",
+    "expected_error_type": "RuntimeError",
+    "expected_error_regex": "before CPU preparation",
+    "actual_stage": "Slang executable existence check before Metal device gate",
+    "fixture_source": {
+      "path": "tests/test_portable_metal_device.py",
+      "function": "gate_context",
+      "line": 46,
+      "sha256": "9481390abc0f68650f6cf3c1236572e3f205e2727ae240030096bdd1b1ea0b24",
+      "created_executable_basename": "slangc"
+    },
+    "windows_gate": {
+      "path": "scripts/nikke_gpu.py",
+      "function": "run_capture",
+      "line": 2153,
+      "required_executable_basename": "slangc.exe"
+    },
+    "classification": "Windows fixture executable-name mismatch observed from saved traceback and immutable test source; no actual SDK absence asserted",
+    "raw_error_text_shared": false
+  },
+  "remaining_gates": {
+    "compile_cli_11": "not run; separate group absent from common SMOKE_TESTS; stop after smoke error",
+    "native_job_smoke": "not run",
+    "compile": "not attempted",
+    "offline_resources": "not attempted"
+  },
+  "executions": {
+    "plan": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "elapsed_seconds": 14.00309449993074,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793053497075255300,
+      "below_normal_priority": true,
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    },
+    "deps": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "elapsed_seconds": 14.053599899634719,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793053516886585100,
+      "below_normal_priority": true,
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    },
+    "cpu": {
+      "passed": false,
+      "timed_out": false,
+      "timeout_seconds": 180,
+      "elapsed_seconds": 80.60757440002635,
+      "child_exit_code": 1,
+      "final_child_exit_code": 1,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793053603448347300,
+      "below_normal_priority": true,
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    }
+  },
+  "job_receipts": {
+    "plan": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 107360,
+          "wrapper_pid": 142104,
+          "pre_gate": {
+            "child_pid": 107360,
+            "child_ppid": 142104,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793053483115054200,
+            "wrapper_pid": 142104,
+            "child_creation_filetime_ticks": "134375270830749254",
+            "job_members": [
+              107360
+            ],
+            "job_peak_memory_bytes": 5849088,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 107360,
+            "child_ppid": 142104,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793053497073749200,
+            "wrapper_pid": 142104,
+            "child_creation_filetime_ticks": "134375270830749254",
+            "job_members": [],
+            "job_peak_memory_bytes": 39563264,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    },
+    "deps": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 98636,
+          "wrapper_pid": 71620,
+          "pre_gate": {
+            "child_pid": 98636,
+            "child_ppid": 71620,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793053502872740500,
+            "wrapper_pid": 71620,
+            "child_creation_filetime_ticks": "134375271028357378",
+            "job_members": [
+              98636
+            ],
+            "job_peak_memory_bytes": 5910528,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 98636,
+            "child_ppid": 71620,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793053516885066100,
+            "wrapper_pid": 71620,
+            "child_creation_filetime_ticks": "134375271028357378",
+            "job_members": [],
+            "job_peak_memory_bytes": 40091648,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    },
+    "cpu": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 73768,
+          "wrapper_pid": 77480,
+          "pre_gate": {
+            "child_pid": 73768,
+            "child_ppid": 77480,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793053522880590400,
+            "wrapper_pid": 77480,
+            "child_creation_filetime_ticks": "134375271228430022",
+            "job_members": [
+              73768
+            ],
+            "job_peak_memory_bytes": 6057984,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 73768,
+            "child_ppid": 77480,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793053603446523800,
+            "wrapper_pid": 77480,
+            "child_creation_filetime_ticks": "134375271228430022",
+            "job_members": [],
+            "job_peak_memory_bytes": 192229376,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    }
+  },
+  "preservation_verified": null,
+  "calculation_verified": false,
+  "source_certificate": {
+    "sealed_package": true,
+    "gpu_source_closure_files": 256,
+    "source_closure_map_sha256": "386c3429311f5db2c91a093c0895c434a63e1977d6b271475782d57825c8b92c",
+    "expected_generated_normalized": {
+      "cuda": "b1a97508325194ab98643d2a2c307c99a007aa6d0be17b567dfccdb5fe91efc2",
+      "metal": "c4f8eb68214aee1c999554ef205c55cb31688441e70dd9a0980fda0d51e93f5a"
+    },
+    "actual_source_generation": false
+  },
+  "generated_cuda": null,
+  "cubin": null,
+  "compile_cache_key": null,
+  "original_local_byte_provenance": [
+    {
+      "local_relative_path": "compile-plan.json",
+      "bytes": 592,
+      "sha256": "dded19aa6c51610fadbf2bbe1801fc2d28498c8f158565df1ab5f98d0dd5ba50",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "coordinate-resident-cubin-v2-plan.json",
+      "bytes": 574,
+      "sha256": "3459ae6d7164bc14be016e72744c31f8720a0c6ff3ac9b799851dee792e501ec",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "plan-comparison.json",
+      "bytes": 157,
+      "sha256": "4c5b2e4d23ffcee72a4e04008329f0392c49eed0eb1c3f8fa0610fd4ade3cbe6",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "validation-deps.json",
+      "bytes": 428,
+      "sha256": "0d57c840d7106304a56189a9bcef161b8e3a939eb9b19d6ae69e5203f58d1bf8",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "cpu/cpu-tests.json",
+      "bytes": 8889,
+      "sha256": "13f005cbadc8ef27e9e5271f3fb92a2ef46722e7c1ad528fe16af7012eaae60d",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "cpu/test_portable_metal_device.py.stderr.log",
+      "bytes": 1315,
+      "sha256": "1214b6cf618f1a3398ca9e86048e5a95bc8daee00cca315e415b95e140847821",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "cpu-cli/stdout.log",
+      "bytes": 61,
+      "sha256": "30e1fe91582806d8e1a45a3c317b27c9ada62f0a01f33a7d1f9036ec380b3603",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "cpu-cli/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "plan-cli/execution.json",
+      "bytes": 1091,
+      "sha256": "b980b985683e3b2457543e1d8e8b3c24563293f173d52d007d484fc64244da2b",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "deps-cli/execution.json",
+      "bytes": 1092,
+      "sha256": "d353b6740bb651f3a5b72adf6b7268021270f4e55d53108f5c3f3ec0f612214f",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "cpu-cli/execution.json",
+      "bytes": 1093,
+      "sha256": "d30953e9bb38b0de9ce235eb0080efb6a00c000db1a0b654b29295517a0fff74",
+      "raw_content_shared": false
+    }
+  ],
+  "actions": {
+    "plan_runs": 1,
+    "dependency_checks": 1,
+    "common_cpu_smoke_runs": 1,
+    "compile_cli_11_runs": 0,
+    "native_job_smoke_runs": 0,
+    "compile_attempts": 0,
+    "slang_builds": 0,
+    "nvrtc_calls": 0,
+    "driver_load": 0,
+    "cuda_context": 0,
+    "module_load": 0,
+    "kernel_launch": 0,
+    "claim_creation": 0,
+    "cache_writes": 0,
+    "retries": 0,
+    "packet_edits": 0,
+    "os_wmi_acl_service_changes": 0
+  },
+  "previous_v1_claim_compile_count": 0,
+  "existing_claims_captures_and_cache_retained": true,
+  "shared_path_policy": "Personal paths omitted or replaced by placeholders; raw stderr/SDK not shared; original bytes retained locally"
+}

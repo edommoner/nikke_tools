@@ -1,0 +1,52 @@
+[
+  {
+    "pattern": "test_destructible_target_state.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.05769704096019268,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 38255
+  },
+  {
+    "pattern": "test_portable_damage_accum_core.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.8095312500372529,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 38255
+  },
+  {
+    "pattern": "test_portable_model_gap_audit.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.6324283330468461,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 38255
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.29494425002485514,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 38255
+  },
+  {
+    "pattern": "test_portable_parent_fixed.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.8428928749635816,
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 38255
+  }
+]

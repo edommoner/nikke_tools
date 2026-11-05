@@ -1,0 +1,40 @@
+{
+  "package_id": "14cdb52815159ae31fcf680d08cc2f8194c6aedf68fd1c950269f7256e8b707c",
+  "gpu_calls": 0,
+  "output_sha_reread_verified": true,
+  "baselines": {
+    "old664": {
+      "package_id": "9b476e64ad2e320d0d6c7d600f1fd97f053428dbbb5cc178ff3600c4944fe990",
+      "checked": 663,
+      "input_native_equal": true,
+      "raw_scope": "full output block"
+    },
+    "independent52": {
+      "package_id": "217703199ab684d7554a2a45d09369931b64717e1597ff0186e9c3297cce1b11",
+      "checked": 52,
+      "input_native_equal": true,
+      "raw_scope": "all except dedicated16-word diagnostic tail"
+    }
+  },
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "sets_overlap_do_not_sum": true,
+  "explicit_baseline_migration": {
+    "old_name": "named-magnitude/reject/named-mag-unported-atk-magnitude",
+    "new_name": "named-magnitude/reject/named-mag-unknown-stat",
+    "reason": "stat79 is now supported; replace obsolete negative with an unknown numeric stat; old golden remains unchanged"
+  },
+  "lazy_bank_zero_inputs": 718,
+  "new_real_physical_history": [
+    {
+      "name": "roster/real/이브/favorite-0/3s",
+      "recorded": 116,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/이브/favorite-0/30s",
+      "recorded": 1063,
+      "omitted": 0
+    }
+  ]
+}

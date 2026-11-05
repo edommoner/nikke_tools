@@ -1,0 +1,22 @@
+[
+  {
+    "pattern": "test_coordinate_arcs.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.802256542025134,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31737
+  },
+  {
+    "pattern": "test_coordinate_physical_frontier.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.440950999967754,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31737
+  }
+]

@@ -1,0 +1,32 @@
+.....FFF
+======================================================================
+FAIL: test_saved_hp_healing_and_body_trace_corruptions_are_detected (test_destructible_body_lifesteal.BodyLifestealTests.test_saved_hp_healing_and_body_trace_corruptions_are_detected) (name='destructible-body-lifesteal/3s/hp', offset=21177)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-body-lifesteal-retention31-v2/tests/test_destructible_body_lifesteal.py", line 58, in test_saved_hp_healing_and_body_trace_corruptions_are_detected
+    with self.subTest(name=name,offset=offset),self.assertRaises(AssertionError):a.shared_compare(bad,domain,copy.deepcopy(native))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_saved_hp_healing_and_body_trace_corruptions_are_detected (test_destructible_body_lifesteal.BodyLifestealTests.test_saved_hp_healing_and_body_trace_corruptions_are_detected) (name='destructible-body-lifesteal/3s/break', offset=21177)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-body-lifesteal-retention31-v2/tests/test_destructible_body_lifesteal.py", line 58, in test_saved_hp_healing_and_body_trace_corruptions_are_detected
+    with self.subTest(name=name,offset=offset),self.assertRaises(AssertionError):a.shared_compare(bad,domain,copy.deepcopy(native))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_saved_hp_healing_and_body_trace_corruptions_are_detected (test_destructible_body_lifesteal.BodyLifestealTests.test_saved_hp_healing_and_body_trace_corruptions_are_detected) (name='destructible-body-lifesteal/30s/hp', offset=21177)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-body-lifesteal-retention31-v2/tests/test_destructible_body_lifesteal.py", line 58, in test_saved_hp_healing_and_body_trace_corruptions_are_detected
+    with self.subTest(name=name,offset=offset),self.assertRaises(AssertionError):a.shared_compare(bad,domain,copy.deepcopy(native))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+----------------------------------------------------------------------
+Ran 6 tests in 11.473s
+
+FAILED (failures=3)

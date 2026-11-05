@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "scope": "Original Sakura actual CPU force-skill dispatch only; duration extension and GPU remain pending",
+  "cases": [
+    {
+      "character": "사쿠라 : 블룸 인 서머",
+      "favorite_stage": 0,
+      "prepared_definitions": 74,
+      "original_input_identity": {
+        "definitions": 74,
+        "chars_config_seed_weapon_verified": true,
+        "authored_metadata_overrides": false,
+        "authored_delays_overrides": false
+      },
+      "events": [
+        {
+          "row": 0,
+          "owner": "사쿠라 : 블룸 인 서머",
+          "time": 0.0,
+          "target_skill": "스킬2",
+          "actual_activations": [
+            {
+              "row": 4,
+              "name": "춤추는 꽃",
+              "source": "스킬2",
+              "time": 0.0
+            },
+            {
+              "row": 5,
+              "name": "벚꽃잎",
+              "source": "스킬2",
+              "time": 0.0
+            }
+          ],
+          "before_clocks": [],
+          "after_clocks": []
+        }
+      ],
+      "native_sha256": "ae8a331a2e539d2109fb96a25812813425166ff8db16d36e8339633761728339",
+      "elapsed_seconds": 4.025704165920615
+    }
+  ],
+  "nonempty_periodic_clock_witness": false,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "full_goal_complete": false
+}

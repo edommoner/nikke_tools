@@ -1,0 +1,52 @@
+[
+  {
+    "pattern": "test_portable_squad_stage.py",
+    "exit_code": 0,
+    "elapsed_seconds": 6.382594875060022,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 61885
+  },
+  {
+    "pattern": "test_portable_ally_burst.py",
+    "exit_code": 0,
+    "elapsed_seconds": 5.126746458932757,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 61885
+  },
+  {
+    "pattern": "test_portable_burst_recipients.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.0119227919494733,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 61885
+  },
+  {
+    "pattern": "test_portable_definition_view.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.38226008403580636,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 61885
+  },
+  {
+    "pattern": "test_portable_state_work_routing.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.004296500002965331,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 61885
+  }
+]

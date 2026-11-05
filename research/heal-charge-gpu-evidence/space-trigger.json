@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-trigger-reduction-regression-metal",
+  "raw_bytes": 902823936,
+  "raw_sha256": "2a88a46466d0ff35bf1100abea780c6683e3cadd428b8f62217440ba88f94c92",
+  "evidence_sha256": "6b98370a92c86e140c01d4752581bbb18939b4dc27a8935f0543bced89cfcf3f",
+  "raw_inode": 506655031,
+  "zero_ranges": 2197,
+  "zero_range_bytes": 636551168,
+  "allocated_before": 902823936,
+  "allocated_after": 266272768,
+  "allocated_reclaimed": 636551168,
+  "full_hash_verified": true
+}

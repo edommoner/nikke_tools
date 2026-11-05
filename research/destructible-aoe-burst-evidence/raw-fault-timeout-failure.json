@@ -1,0 +1,4 @@
+{
+  "error": "TimeoutExpired: Command '['/Users/edo/Documents/ChatGPT/nikke_tools/.venv/bin/python', '/private/tmp/nikke-aoe-shield-final-v4/scripts/nikke_gpu.py', '_tests', '--capture', '/private/tmp/nikke-aoe-shield-final-cpu-v4']' timed out after 90 seconds",
+  "gpu_retries": 0
+}

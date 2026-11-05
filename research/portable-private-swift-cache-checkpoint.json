@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "scope": "Metal launch correction before any GPU dispatch",
+  "failed_package_id": "2da654bdc9c71b8f0b8444230678140f0b1a511848267f86c02745fc1182b332",
+  "failed_capture": "/tmp/nikke-scope-rosters-v1-metal",
+  "failure": "Swift default user clang ModuleCache write denied",
+  "readback_present": false,
+  "original_claim_retained": true,
+  "gpu_dispatch_started": false,
+  "private_swift_cache_cpu_probe": {
+    "path": "/tmp/nikke-scope-swift-module-cache-v1",
+    "exit_code": 0,
+    "stdout": "nikke-swift-private-cache-ok",
+    "log_sha256": "916034660d0e90871313f053dad594a26bcfdbd179e1532aecc72e9ef06c779b"
+  },
+  "tests": {
+    "metal_deadline_and_cache": 7,
+    "failures": 0
+  },
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "next": "Fresh corrected source package, reuse task-private CPU module cache; keep original failed claim"
+}

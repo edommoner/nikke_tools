@@ -1,0 +1,50 @@
+{
+  "schema": "portable-prepared-parent-checkpoint-v1",
+  "package_id": "8d72e81ea7fdda5a57a924bb451d50271c0b42e8c5f9bdba1fae3e6e3f2f6dc7",
+  "package_files": 4016,
+  "archive": "research/windows-source-packets/prepared-parent-v1.zip",
+  "archive_bytes": 13526711,
+  "archive_sha256": "468346534ab5ff9d40aee771eeb787d75d9ddaf0c882c8377db9e8f29da6e14d",
+  "controls": {
+    "package_id": "8d72e81ea7fdda5a57a924bb451d50271c0b42e8c5f9bdba1fae3e6e3f2f6dc7",
+    "groups": 72,
+    "tests": 749,
+    "elapsed_seconds": 11.094393833016511,
+    "payload_after_verified": true
+  },
+  "admission": {
+    "package_id": "8d72e81ea7fdda5a57a924bb451d50271c0b42e8c5f9bdba1fae3e6e3f2f6dc7",
+    "groups": 8,
+    "tests": 76,
+    "elapsed_seconds": 1.086426499998197,
+    "payload_after_verified": true
+  },
+  "windows_only_cleanup_skip": 1,
+  "whole_golden_unchanged": true,
+  "calculation_and_protected_records_unchanged": 501,
+  "changed_cli_functions": [
+    "run_job",
+    "main"
+  ],
+  "existing_job_start_gate_and_observation_reused": true,
+  "public_prepared_run_connected": true,
+  "bounded_gpu_prepared_stage_connected": true,
+  "required_generation_preflight_before_claim": true,
+  "exact_frozen_cuda_and_cubin_before_claim": true,
+  "input_readback_storage_budget_before_claim": true,
+  "partial_or_failed_claims_retained": true,
+  "independent_native_groups_required": true,
+  "synthetic_end_to_end_test": true,
+  "actual_windows_execution_verified": false,
+  "actual_cuda_post_audit_completed": false,
+  "production_gpu_claim_created": false,
+  "extra_gpu_calls": 0,
+  "calculation_verified": false,
+  "full_goal_complete": false,
+  "mac_cli_negative": {
+    "exit_code": 1,
+    "parent_output_created": false,
+    "capture_created": false,
+    "claims_created": false
+  }
+}

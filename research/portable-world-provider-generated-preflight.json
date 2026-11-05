@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "normalization": "Existing narrow line-directive and portable-prelude normalization only",
+  "generated": {
+    "cuda": {
+      "baseline": "e1099d39d1720539e49d1ecde4e954a964427ccdd60353d0e70aa584f2144145",
+      "current": "e9c368f169736fc8282845a44ea9d0bc0c5c4ec76c4b5d6bda6ccf121b22f882",
+      "equal": false
+    },
+    "metal": {
+      "baseline": "ff3d4819e6afc9503deed77b5f0e81c129ee4e51ae8f18101efeac1eada70038",
+      "current": "571dd80e5ec6c3d21e011f6e939b02b152f19df4d73c84403f4f23080588dd46",
+      "equal": false
+    }
+  },
+  "scope": "Compilation comparison only;not runtime correctness evidence."
+}

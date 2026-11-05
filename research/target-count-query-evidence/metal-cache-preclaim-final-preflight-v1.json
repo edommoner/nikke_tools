@@ -1,0 +1,61 @@
+{
+  "schema": "metal-cache-preclaim-final-preflight-v1",
+  "packages": [
+    {
+      "suite": "physical-lock-cover",
+      "package_id": "2811e20ef6a3c3e87e55c2ff2f751b83c404e4f350a4cf8867424dfce113bf94",
+      "source_commit": "2b5a1f61bbe095fed507ff0bf9c794d14096070c",
+      "archive_sha256": "e3bc62c87364c329aa86595b7eddf090bbb7f148361245abb16892420c3af421"
+    },
+    {
+      "suite": "lock-packet-bindings",
+      "package_id": "378c39f4460dedb63955b2bc7b9c8c005a4492a3102d6169e202702b0dda244f",
+      "source_commit": "2b5a1f61bbe095fed507ff0bf9c794d14096070c",
+      "archive_sha256": "a22466bebaa24c70e9e2e5dfc1c807cf7801f15926eb0c6c4cb9f628a1edc3f3"
+    },
+    {
+      "suite": "lock-packet-cache-only",
+      "package_id": "285cb08dd186739f6bbc348cd770264efa5ecc0d9c3edf2f1697fa7596b01477",
+      "source_commit": "2b5a1f61bbe095fed507ff0bf9c794d14096070c",
+      "archive_sha256": "5a6286ab6c9caac364360983ce1ce90b1c441f34b897e4b0963fffc697132063"
+    }
+  ],
+  "checks": {
+    "cover": {
+      "groups": 9,
+      "tests": 67,
+      "skipped": 0,
+      "passed": true
+    },
+    "smoke": {
+      "groups": 67,
+      "tests": 652,
+      "skipped": 1,
+      "passed": true
+    },
+    "packet": {
+      "groups": 8,
+      "tests": 49,
+      "skipped": 0,
+      "passed": true
+    },
+    "cuda_cache_profile": {
+      "groups": 9,
+      "tests": 56,
+      "skipped": 0,
+      "passed": true
+    }
+  },
+  "required_miss_stops_before_tests_native_worker_claim": true,
+  "current_identity_cache_file_hit_verified": true,
+  "old_failed_claim_sha256_preserved": "6964653238ccb7c8713e47c1b056d7c01cfa052a97f2ce39eaf2170a97d8b413",
+  "old_failed_capture_artifacts_verified": true,
+  "current_cover23_normal_package_restored": true,
+  "current_cover23_recertified_by_fresh_Metal_and_independent_seal": true,
+  "additional_GPU_calls": 0,
+  "Windows_new_requests": 0,
+  "cuda_calculation_verified": false,
+  "slot_selection_applied_to_landing": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

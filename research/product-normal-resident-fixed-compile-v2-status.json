@@ -1,0 +1,276 @@
+{
+  "schema": "normal-resident-fixed-compile-v2-status",
+  "owner": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+  "source_commit": "a4663e4716f46ba88460531ebfbc017375f242ae",
+  "transport_commit": "c737f936f138d7c797dd39928c3843989cdc6bdd",
+  "zip": {
+    "bytes": 12011407,
+    "sha256": "3d3715d36e742b5d4b426004f27f6a5754905409fe391f3b8cf992dba7d48234"
+  },
+  "path_base": "Documents/Codex",
+  "fresh_zip_all_files_owner_verified": true,
+  "files_checked": 2734,
+  "unpack": {
+    "payload_verified": true,
+    "observation": {
+      "seconds": 17.806149599608034,
+      "peak_bytes": 73347072,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "observation_error": null,
+      "cleanup_error": null,
+      "service": "unverified",
+      "preservation_verified": false,
+      "exit_code": 0
+    }
+  },
+  "cpu_delta": {
+    "selected_groups": [
+      7,
+      8,
+      5
+    ],
+    "tests": 20,
+    "passed": true,
+    "full106_cases_executed": 0,
+    "seconds": 14.73894160008058,
+    "observation": {
+      "seconds": 19.614866799674928,
+      "peak_bytes": 153182208,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "observation_error": null,
+      "cleanup_error": null,
+      "service": "unverified",
+      "preservation_verified": false,
+      "exit_code": 0
+    }
+  },
+  "generation": {
+    "verified": true,
+    "strict_sealed_pair_baseline": true,
+    "observation": {
+      "seconds": 20.11850839992985,
+      "peak_bytes": 575324160,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "observation_error": null,
+      "cleanup_error": null,
+      "service": "unverified",
+      "preservation_verified": false,
+      "exit_code": 0
+    }
+  },
+  "stages": {
+    "ptx": {
+      "capture": "normal-resident-fixed-v2/compile-ptx-v2/proof",
+      "compiler_verified": true,
+      "containment_verified": true,
+      "formal_error": null,
+      "passed": false,
+      "preservation_verified": false,
+      "artifact": {
+        "bytes": 10031597,
+        "sha256": "f1559b007e98a4c830aadad371eb81b4863cc9cadc53c22d972ac768c4145093"
+      },
+      "cache_key": "0f9610d033dcc44dcbeebb707be39aabb3940a9b5ed32bd785936841fd045aee",
+      "options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false",
+        "--split-compile=2"
+      ],
+      "warm_pair_cache_hit": true,
+      "paired_compiler_invocations_during_ptx": 0,
+      "nvrtc_seconds": 16.7497818,
+      "child": {
+        "seconds": 29.44082670006901,
+        "peak_bytes": 311443456,
+        "missing": 0,
+        "timeout": false,
+        "job_empty": true,
+        "observation_error": null,
+        "cleanup_error": null,
+        "service": "unverified",
+        "preservation_verified": false,
+        "exit_code": 0
+      },
+      "outer": {
+        "seconds": 39.313900699838996,
+        "peak_bytes": 346255360,
+        "missing": 0,
+        "timeout": false,
+        "job_empty": true,
+        "observation_error": null,
+        "cleanup_error": null,
+        "service": "unverified",
+        "preservation_verified": false,
+        "exit_code": 2
+      }
+    },
+    "object": {
+      "capture": "normal-resident-fixed-v2/module-object-v2/proof",
+      "verified": true,
+      "containment_verified": true,
+      "strict_origin_post_audit": true,
+      "formal_error": null,
+      "passed": false,
+      "preservation_verified": false,
+      "artifact": {
+        "bytes": 5748400,
+        "sha256": "4723edc5e38c7768561e4602fc47ecb5149c0cce9c774b1ef7efc2578257d7f6"
+      },
+      "options": [
+        "--gpu-name=sm_86",
+        "--opt-level=1",
+        "--fmad=false",
+        "--verbose",
+        "--compile-only"
+      ],
+      "native_seconds": 9.159565899986774,
+      "child": {
+        "seconds": 18.478344299830496,
+        "peak_bytes": 365309952,
+        "missing": 0,
+        "timeout": false,
+        "job_empty": true,
+        "observation_error": null,
+        "cleanup_error": null,
+        "service": "unverified",
+        "preservation_verified": false,
+        "exit_code": 0
+      },
+      "outer": {
+        "seconds": 32.76006430014968,
+        "peak_bytes": 411377664,
+        "missing": 0,
+        "timeout": false,
+        "job_empty": true,
+        "observation_error": null,
+        "cleanup_error": null,
+        "service": "unverified",
+        "preservation_verified": false,
+        "exit_code": 2
+      }
+    },
+    "link": {
+      "capture": "normal-resident-fixed-v2/jit-link-v2/proof",
+      "verified": true,
+      "containment_verified": true,
+      "strict_origin_post_audit": true,
+      "formal_error": null,
+      "passed": false,
+      "preservation_verified": false,
+      "artifact": {
+        "bytes": 5348880,
+        "sha256": "8ad4f6c07f40ee9b1218f08c7c1e95d646824c236d2c6c33573d1d6dcd5356b6"
+      },
+      "options": [
+        "-arch=sm_86",
+        "-verbose"
+      ],
+      "native_seconds": 0.20817340025678277,
+      "child": {
+        "seconds": 21.82939269999042,
+        "peak_bytes": 112246784,
+        "missing": 0,
+        "timeout": false,
+        "job_empty": true,
+        "observation_error": null,
+        "cleanup_error": null,
+        "service": "unverified",
+        "preservation_verified": false,
+        "exit_code": 0
+      },
+      "outer": {
+        "seconds": 50.54641899978742,
+        "peak_bytes": 241033216,
+        "missing": 0,
+        "timeout": false,
+        "job_empty": true,
+        "observation_error": null,
+        "cleanup_error": null,
+        "service": "unverified",
+        "preservation_verified": false,
+        "exit_code": 2
+      }
+    }
+  },
+  "requested_compilation_gates_completed": true,
+  "passed": false,
+  "preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "calculation_verified": false,
+  "physical_memory_reduction_verified": false,
+  "original_records_unchanged": true,
+  "original_records_checked": 831,
+  "original_failures_retained": {
+    "old_e398_unpack": {
+      "missing": 7,
+      "cause": "unknown",
+      "preservation_verified": false
+    },
+    "old_e398_cpu": {
+      "tests_executed": 0,
+      "error": "CPU audit dependency missing",
+      "passed": false
+    },
+    "range_ptx": {
+      "inner_missing": 7,
+      "outer_missing": 7,
+      "cause": "unknown",
+      "preservation_verified": false
+    },
+    "old_claims_and_observations_unchanged": true
+  },
+  "additional_calls": {
+    "selected_cpu_tests": 20,
+    "paired_generation_stages": 1,
+    "nvrtc": 1,
+    "ptxas": 1,
+    "jit_link_transactions": 1,
+    "jit_api_calls": 9,
+    "native_battle": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0,
+    "retry": 0
+  },
+  "unexecuted": [
+    "driver",
+    "context",
+    "GPU battle",
+    "HTTP",
+    "normal Miranda30s API",
+    "range reexecution"
+  ],
+  "resources": {
+    "dispatch": {
+      "stack_frame_bytes": 1920,
+      "spill_store_bytes": 180,
+      "spill_load_bytes": 180,
+      "registers": null,
+      "lmem_bytes": null
+    },
+    "object_entry": {
+      "registers": 24,
+      "stack_frame_bytes": 0,
+      "spill_store_bytes": 0,
+      "spill_load_bytes": 0,
+      "lmem_bytes": null
+    },
+    "linked_entry": {
+      "registers": 254,
+      "stack_bytes": 13288,
+      "lmem_bytes": 0,
+      "spill_store_bytes": null,
+      "spill_load_bytes": null
+    },
+    "unknown_fields": "null means not recorded",
+    "scope": "Static saved compiler resources; no GPU or physical-memory claim"
+  }
+}

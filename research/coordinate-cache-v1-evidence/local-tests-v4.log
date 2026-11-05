@@ -1,0 +1,32 @@
+..E..E.
+======================================================================
+ERROR: test_geometry_identity_not_graph_generation_controls_lifetime (test_coordinate_cache.CacheTests.test_geometry_identity_not_graph_generation_controls_lifetime)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-runtime-resident/tests/test_coordinate_cache.py", line 30, in test_geometry_identity_not_graph_generation_controls_lifetime
+    values={name:a.native_reference((c,None,None,None))['geometry_cache'] for name,c in cases.items()}
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-runtime-resident/research/verify-coordinate-cache-short.py", line 34, in native_reference
+    observed['final_slots']=[next(r['slot'] for r in domain[3]['rows'] if r['label']==name) for name in observed['final_geometry']['target_names']]
+                                                     ~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+======================================================================
+ERROR: test_real_rounded_collisions_reuse_first_values_across_shooters_and_grow_branch (test_coordinate_cache.CacheTests.test_real_rounded_collisions_reuse_first_values_across_shooters_and_grow_branch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-runtime-resident/tests/test_coordinate_cache.py", line 20, in test_real_rounded_collisions_reuse_first_values_across_shooters_and_grow_branch
+    g=observe(label)['geometry_cache'];collisions=[]
+      ^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-runtime-resident/tests/test_coordinate_cache.py", line 18, in observe
+    def observe(label):return a.native_reference((cases[label],None,None,None))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-runtime-resident/research/verify-coordinate-cache-short.py", line 34, in native_reference
+    observed['final_slots']=[next(r['slot'] for r in domain[3]['rows'] if r['label']==name) for name in observed['final_geometry']['target_names']]
+                                                     ~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+----------------------------------------------------------------------
+Ran 7 tests in 5.623s
+
+FAILED (errors=2)

@@ -1,0 +1,8 @@
+{
+  "all_original_native_hashes_retained": true,
+  "cases": 9,
+  "source_definition_unchanged": true,
+  "literal_post_fire_delay_before": 0.2,
+  "native_static_post_fire_delay": 0.215,
+  "gpu_calls": 0
+}

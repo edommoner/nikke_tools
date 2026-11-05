@@ -53,32 +53,3 @@ def real_fixtures():
         if case=='reordered':b['squad']=list(reversed(b['squad']))
         if case=='revival':b['enemy']['patterns']=[v.s.lethal('slot:4',at=2.8)]
         yield 'raw-Tia-capacity-'+case,b,extra
-
-def compare(device,name,b,extra,backend):
-    changes=[];original=BuffManager.sync_cover_hp
-    def sync(self,who,t):
-        before=(self.state['cover_hp'][who],self.state['cover_max_hp'][who]);out=original(self,who,t)
-        after=(self.state['cover_hp'][who],self.state['cover_max_hp'][who])
-        if before!=after:changes.append(dict(time=t,character=who,before=before,after=after,base=self.state['cover_base_hp'][who]))
-        return out
-    with patch.object(BuffManager,'sync_cover_hp',sync):r=v.compare(device,name,b,extra,backend)
-    r['checks']['capacity_change_exercised']=any(c['after'][1]!=c['base'] for c in changes)
-    if name=='capacity-caster-max-expires':r['checks']['capacity_expiry_exercised']=any(c['after'][1]<c['before'][1] for c in changes)
-    if name=='capacity-broken-cover-no-revive':r['checks']['broken_capacity_stays_broken']=all(c['after'][0]==0 for c in changes if c['before'][0]==0)
-    r.update(cpu_capacity_changes=changes,passed=all(r['checks'].values()))
-    print(json.dumps(dict(name=name,passed=r['passed'],failed=[k for k,ok in r['checks'].items() if not ok],capacity_changes=len(changes))),flush=True);return r
-
-if __name__=='__main__':
-    ap=argparse.ArgumentParser();ap.add_argument('--backend',choices=['native','ptx'],required=True);ap.add_argument('--real',action='store_true');ap.add_argument('--output',required=True);ap.add_argument('--fail-fast',action='store_true');args=ap.parse_args()
-    files=['scripts/verify-cover-capacity.py','scripts/verify-survival-scaling.py','scripts/verify-survival-detail.py','scripts/verify-incoming-detail.py','app/engine_worker.py','app/engine_compat.py','app/survival_compat.py','app/survival_scaling_compat.py','app/detail_world.py','app/detail_boss.py','research/upstream/nikke-calc-master/calculator/buff_manager.py','research/upstream/nikke-calc-master/calculator/timeline.py','research/upstream/nikke-calc-master/data/parsed_skills.json']+['app/'+n for n in (['detail_gpu.py','detail_effects.cu','detail_effects.ptx','detail_effects-build.json'] if args.backend=='ptx' else ['detail_gpu.py','detail_effects.cu','detail_effects-sm86.cubin','detail_effects-sm86.json'])]
-    sha=lambda p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest();hashes={p:sha(p) for p in files};planned=list(real_fixtures() if args.real else fixtures());rows=[];device=v.s.v.v.v.Cuda()
-    try:
-        for name,b,extra in planned:
-            try:r=compare(device,name,b,extra,args.backend)
-            except Exception as exc:r=dict(name=name,passed=False,error=repr(exc));print(json.dumps(r),flush=True)
-            rows.append(r)
-            if args.fail_fast and not r['passed']:break
-    finally:device.close()
-    assert hashes=={p:sha(p) for p in files}
-    r=dict(generated_at=datetime.now(timezone.utc).isoformat(),passed=len(rows)==len(planned) and all(x['passed'] for x in rows),stage_only=False,objective_complete=False,abi=g.DETAIL_ABI,backend=args.backend,planned_cases=len(planned),not_run_cases=len(planned)-len(rows),cases=rows,source_sha256=hashes,cpu_trace_used_as_gpu_input=False)
-    (ROOT/args.output).write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if r['passed'] else 1)

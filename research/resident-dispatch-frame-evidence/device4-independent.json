@@ -1,0 +1,15 @@
+{
+  "schema": "independent-metal-audit-v1",
+  "input_count": 4,
+  "native_cases": 4,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 17.404445083993778,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "f807a69c2d426c072a92d7b4ce95c7038e735ad0452a306f96d37f68b5af7b2b",
+  "output_sha256": "d1dc8ecdd94b881503bcc588e34103103dce402fc6adbfaa56924484c0545879",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "original_receipt_sha256": "dad43b1f262ee861906ca1075d9574bded99245df528af6b9032e386ca3f4263",
+  "all_full106_source_and_comparator_preserved": true,
+  "full106_not_replaced": true
+}

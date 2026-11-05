@@ -1,0 +1,2 @@
+#define PORTABLE_HEAL_SHARE_DIAGNOSTIC
+#include "world_entry_reload_resident_entry.slang"

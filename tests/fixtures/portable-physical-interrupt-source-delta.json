@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "scope": "Exact physical interrupt sampling hook and captured amounts, not GPU equivalence proof",
+  "baseline": {
+    "gpu/damage_runtime.slang": "23d9dcac5167468c75e94dc7e362d547e9ff2f985538b4ba1b450ab699d3b63c",
+    "gpu/event_runtime.slang": "2fbd0c184266f29478bb9a5e966784b566f3cf3e1681300ddf2fcd1bc51f55ab",
+    "gpu/counter_landing_runtime.slang": "0875b76cfa003ee1e5c1cd68368b5ac0de3380a27a2dfb4aea3eabc868ccb034",
+    "gpu/world_skill_runtime.slang": "eacd5efbbe5960893aaa3749117759789184b381740b6b00d02edcbeec9a02df",
+    "gpu/weapon_frame_phases.slang": "b0820299f96e1e26e87ce5c11f0f5006dfe5c670fcbfc1ea7b6ebe4647607630"
+  },
+  "current": {
+    "gpu/damage_runtime.slang": "069dc6ea21a49c01353395adeda5d7b886255238536bfae5904d43e9b8b1dcb4",
+    "gpu/event_runtime.slang": "d7bc538f198cb52bcfaa701859fad31e27471425fad7426a60caaef3c5b82dac",
+    "gpu/counter_landing_runtime.slang": "503f3185902080d920f6613f69325e302cdf5a6fdefb839230aecc50059423a4",
+    "gpu/world_skill_runtime.slang": "72efdb2f571c5d6214bb18323d23a1d872d89cf8e9063b7b52718619b5746a56",
+    "gpu/weapon_frame_phases.slang": "84984ebd760f7c1cc532f75d7915c8374d8615385037792924e81df0a8414217"
+  },
+  "event": [
+    {
+      "current": "#ifdef PORTABLE_WORLD_PROJECTILE\n#define COUNTER_DAMAGE(s,who,w,coefficient,when,legacy) (physicalInterruptSources(s)?sampleCounterReachShot(s,who,f64Div(coefficient,f64FromI64(w.pellets)),WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode==1?H_CHARGE|((s.attackContext[who]&4)!=0?H_EXPLOSION:0):0)),w.fullChargeMult,w.optimal!=0,when):(legacy))\n#define COUNTER_SHOT(s,who,w,coefficient,when) if(!physicalInterruptSources(s)) sampleCounterPartShot(s,who,f64Div(coefficient,f64FromI64(w.pellets)),WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode==1 ? H_CHARGE|((s.attackContext[who]&4)!=0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal!=0,when);\n#else\n#define COUNTER_DAMAGE(s,who,w,coefficient,when,legacy) legacy\n#define COUNTER_SHOT(s,who,w,coefficient,when) sampleCounterPartShot(s,who,f64Div(coefficient,f64FromI64(w.pellets)),WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode==1 ? H_CHARGE|((s.attackContext[who]&4)!=0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal!=0,when);\n#endif",
+      "baseline": "#define COUNTER_SHOT(s,who,w,coefficient,when) sampleCounterPartShot(s,who,f64Div(coefficient,f64FromI64(w.pellets)),WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode==1 ? H_CHARGE|((s.attackContext[who]&4)!=0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal!=0,when);"
+    },
+    {
+      "current": "#define COUNTER_DAMAGE(s,who,w,coefficient,when,legacy) legacy\n#define COUNTER_SHOT(s,who,w,coefficient,when)\n",
+      "baseline": "#define COUNTER_SHOT(s,who,w,coefficient,when)\n"
+    }
+  ],
+  "phase": {
+    "current": "    uint64_t amount = COUNTER_DAMAGE(s,who,w,coefficient,when,damageValue(s,who,f64Div(coefficient,f64FromI64(w.pellets)),when,WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode == 1 ? H_CHARGE | ((s.attackContext[who] & 4) != 0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal != 0,true));",
+    "baseline": "    uint64_t amount = damageValue(s,who,f64Div(coefficient,f64FromI64(w.pellets)),when,WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode == 1 ? H_CHARGE | ((s.attackContext[who] & 4) != 0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal != 0,true);"
+  }
+}

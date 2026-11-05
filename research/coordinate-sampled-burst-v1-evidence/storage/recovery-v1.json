@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-pellet-shot-retention-v1-metal",
+  "raw_bytes": 3303014400,
+  "raw_sha256": "f15c38e28bf44052f2e8083d021152cdd9c4802b0aacafe9955806dbf2389814",
+  "evidence_sha256": "0ab5b562b8d5c9b9f4e48fd89fe91e873654ae06253313a27326518c0dafffa2",
+  "raw_inode": 507694294,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 25769,
+  "zero_range_bytes": 3163557888,
+  "allocated_before": 972029952,
+  "allocated_after": 139456512,
+  "allocated_reclaimed": 832573440,
+  "full_hash_verified": true
+}

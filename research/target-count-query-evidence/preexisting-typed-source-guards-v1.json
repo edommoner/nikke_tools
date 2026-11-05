@@ -1,0 +1,35 @@
+{
+  "schema": "preexisting-typed-source-guards-v1",
+  "baseline_commit": "0dc09543e92189a9d98fb7b066674fa43dfa19ad",
+  "baseline_source_archive_sha256": "66a411b9978200d7f692caefcd4832897d5741e9da8eb485856d6b6112ff8cc0",
+  "baseline_guard_failures": [
+    {
+      "fixture": "tests/fixtures/portable-destructible-battle-raw.json",
+      "passed": false,
+      "error": "Retained source differs beyond the exact coexistence delta"
+    },
+    {
+      "fixture": "research/destructible-counter-battle-evidence/prior25-golden.json",
+      "passed": false,
+      "error": "Retained source differs beyond exact shield provider refactor"
+    },
+    {
+      "fixture": "tests/fixtures/portable-destructible-coexist-raw.json",
+      "passed": false,
+      "error": "Retained source differs beyond exact shield provider refactor"
+    },
+    {
+      "fixture": "tests/fixtures/portable-destructible-counter-battle-raw.json",
+      "passed": false,
+      "error": "Retained source differs beyond exact shield provider refactor"
+    }
+  ],
+  "current_test_file": "tests/test_destructible_battle.py",
+  "current_tests": 21,
+  "current_functional_and_other_tests_passed": 17,
+  "current_historical_source_guards_failed": 4,
+  "preexisting_guard_failures_reproduced": true,
+  "calculation_verified": false,
+  "gpu_calls": 0,
+  "no_guards_or_historical_fixtures_weakened": true
+}

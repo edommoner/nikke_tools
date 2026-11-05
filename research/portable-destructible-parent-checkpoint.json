@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "goal_complete": false,
+  "base_commit": "2fcdf7bb44d41b3c6f5686ba3419ec29334eef3f",
+  "stage": "direct common body comparator and existing live-parent preflight reuse",
+  "suite": "destructible-body-heal-share-retention",
+  "package": {
+    "package_id": "b58be3b4359065180727b5c05e57eddf6ad80c57db12cb085369caa695acff31",
+    "root": "/tmp/nikke-parent-reuse61-v1",
+    "files": 1585,
+    "zip_bytes": 7281453,
+    "zip_sha256": "e0408b89b6c9c77c3dacce957cd0a6662dc59e85fd1abad882e1fb6ec74e226b",
+    "all_payload_hashes_verified_after_run": true,
+    "checkout_payload_hashes_equal": true
+  },
+  "proofs": {
+    "metal_inputs": 61,
+    "native_oracles": 52,
+    "reject_inputs": 9,
+    "parent_oracles": {
+      "scope": "live-parent-preflight",
+      "reused_native_cases": 52,
+      "fresh_native_cases": 0,
+      "rejection_cases": 9,
+      "saved_results_used": false,
+      "independent_audit_reuse": false
+    },
+    "normal_comparison_seconds": 2.051858584,
+    "fresh_independent_native_calls": 52,
+    "fresh_independent_seconds": 75.43882870906964,
+    "fresh_independent_gpu_forbidden": true,
+    "fresh_independent_parent_reuse": false,
+    "cpu_tests": 86,
+    "cpu_test_seconds": 91.2862118750345,
+    "cpu_test_budget_seconds": 120,
+    "native_preflight_seconds": 72.63406733307056,
+    "controller_tests": 372,
+    "controller_skipped": 1,
+    "controller_seconds": 5.0603625000221655,
+    "real_saved_fixture_parent_tests": 2,
+    "parent_boundary_tests": 13,
+    "gpu_seconds": 10.282641583238728,
+    "pipeline_seconds": 0.003162980079650879,
+    "all61_raw_input_native_exact": true,
+    "retained_bytes": 255852544,
+    "unchanged_gpu_sources_and_generated_bytes": true,
+    "golden_unchanged": true,
+    "gpu_dispatches": 1,
+    "new_slang_invocations": 0,
+    "same_claim_retries": 0,
+    "normalizer_exclusions_added": 0,
+    "input_sha256": "752734fe1447e85e078ef50aff0c59e3f6c45f9510cc99eb05749058481f3b5d",
+    "output_sha256": "4becd121ab46edf6121a2e93b2f271b68589d77a9bd994634a779eb8d44db179"
+  },
+  "inventory": {
+    "profile_count": 266,
+    "packed_profiles": 245,
+    "packed_base": 185,
+    "blocked_profiles": 21,
+    "remaining_categories": 20,
+    "all_reference_model_gap": true,
+    "forbidden_cpu_battles": 0,
+    "forbidden_gpu": 0,
+    "source_report_sha256": "8d73d36e3f7c27970a626ca04aacaa5790ef8243a830c09fb9465765ef834067"
+  },
+  "scope": {
+    "full_character_verified": 0,
+    "normal_ui": "CPU",
+    "current_full_battle_cuda_verified": false,
+    "windows_commands": 0,
+    "windows_exit_cause": "unknown",
+    "windows_preservation_verified": false
+  },
+  "storage": {
+    "raw_deleted": false,
+    "bytes_sha_inode_retained": true,
+    "allocated_reclaimed_bytes": 435027968
+  },
+  "evidence_manifest_sha256": "c52fc21b7a216420c67f88ad9871756a9738626c096769826490ce78f076f878",
+  "next": [
+    "Native battle producer contract for distinct typed-target multi_hit2/4 attack groups",
+    "connect verified typed projectile/shield producers to remaining model gaps without relaxing normal admission",
+    "shared CUDA compile workload and bounded cached device validation"
+  ],
+  "unit_failure_observed": [
+    {
+      "stage": "parent transport unit",
+      "reason": "Real host disk capacity prevented injected transport failure; isolate only this synthetic gate and assert both gate calls",
+      "production_storage_gate_changed": false,
+      "gpu_calls": 0,
+      "retention_scope": "Recorded tool output and checkpoint description; synthetic temporary fixture uses normal unittest cleanup"
+    }
+  ]
+}

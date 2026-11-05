@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "passed": true,
+  "dependencies": [
+    {
+      "distribution": "gmpy2",
+      "module": "gmpy2",
+      "required_version": "2.2.1",
+      "passed": true,
+      "installed_version": "2.2.1",
+      "importable": true,
+      "module_path": "/Users/edo/Documents/ChatGPT/nikke_tools/.venv/lib/python3.12/site-packages/gmpy2/__init__.py",
+      "loaded_version": "2.2.1",
+      "mpfr_version": "MPFR 4.2.1"
+    }
+  ],
+  "requirements_file": "requirements-validation.txt",
+  "installation_performed": false,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "scope": "Selected validation tests only; package metadata and import availability, not GPU or numerical correctness"
+}

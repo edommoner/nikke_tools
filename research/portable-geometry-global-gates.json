@@ -1,0 +1,245 @@
+{
+  "passed": true,
+  "complete": true,
+  "gates": [
+    {
+      "name": "geometry-native",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8756519999587908,
+      "log": "/tmp/nikke-geometry-gate-geometry-native.log"
+    },
+    {
+      "name": "probability-native",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 1.7150065419264138,
+      "log": "/tmp/nikke-geometry-gate-probability-native.log"
+    },
+    {
+      "name": "element-native",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8655596669996157,
+      "log": "/tmp/nikke-geometry-gate-element-native.log"
+    },
+    {
+      "name": "core",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 19.15220233297441,
+      "log": "/tmp/nikke-geometry-gate-core.log"
+    },
+    {
+      "name": "enemy-code-real",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 70.8812354169786,
+      "log": "/tmp/nikke-geometry-gate-enemy-code-real.log"
+    },
+    {
+      "name": "enemy-code-native",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7455686670728028,
+      "log": "/tmp/nikke-geometry-gate-enemy-code-native.log"
+    },
+    {
+      "name": "named-state-native",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7783846660749987,
+      "log": "/tmp/nikke-geometry-gate-named-state-native.log"
+    },
+    {
+      "name": "instant-list-native",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7731489160796627,
+      "log": "/tmp/nikke-geometry-gate-instant-list-native.log"
+    },
+    {
+      "name": "split-native",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7500475839478895,
+      "log": "/tmp/nikke-geometry-gate-split-native.log"
+    },
+    {
+      "name": "protection-native",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8069578750291839,
+      "log": "/tmp/nikke-geometry-gate-protection-native.log"
+    },
+    {
+      "name": "status-native",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7596796250436455,
+      "log": "/tmp/nikke-geometry-gate-status-native.log"
+    },
+    {
+      "name": "stack-foundation",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 5.067116749938577,
+      "log": "/tmp/nikke-geometry-gate-stack-foundation.log"
+    },
+    {
+      "name": "staged-native",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7280699999537319,
+      "log": "/tmp/nikke-geometry-gate-staged-native.log"
+    },
+    {
+      "name": "source-native",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.03207391605246812,
+      "log": "/tmp/nikke-geometry-gate-source-native.log"
+    },
+    {
+      "name": "native-mode-spec",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7395712089492008,
+      "log": "/tmp/nikke-geometry-gate-native-mode-spec.log"
+    },
+    {
+      "name": "native-mode-input",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7524671249557287,
+      "log": "/tmp/nikke-geometry-gate-native-mode-input.log"
+    },
+    {
+      "name": "reference-rewrite",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.029378167004324496,
+      "log": "/tmp/nikke-geometry-gate-reference-rewrite.log"
+    },
+    {
+      "name": "duration-native",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 2.5356954999733716,
+      "log": "/tmp/nikke-geometry-gate-duration-native.log"
+    },
+    {
+      "name": "definition-input",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0371699170209467,
+      "log": "/tmp/nikke-geometry-gate-definition-input.log"
+    },
+    {
+      "name": "definition-scalar",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 1.058293707901612,
+      "log": "/tmp/nikke-geometry-gate-definition-scalar.log"
+    },
+    {
+      "name": "definition-out",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 1.076963708968833,
+      "log": "/tmp/nikke-geometry-gate-definition-out.log"
+    },
+    {
+      "name": "removal-queue",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8831475409679115,
+      "log": "/tmp/nikke-geometry-gate-removal-queue.log"
+    },
+    {
+      "name": "numeric",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.6892209169454873,
+      "log": "/tmp/nikke-geometry-gate-numeric.log"
+    },
+    {
+      "name": "probe",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 0.35102833295241,
+      "log": "/tmp/nikke-geometry-gate-probe.log"
+    },
+    {
+      "name": "events",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 3.8409829159500077,
+      "log": "/tmp/nikke-geometry-gate-events.log"
+    },
+    {
+      "name": "roster",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 731.2987100000028,
+      "log": "/tmp/nikke-geometry-gate-roster.log"
+    },
+    {
+      "name": "catalog-weapons",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 3.6530779170570895,
+      "log": "/tmp/nikke-geometry-gate-catalog-weapons.log"
+    },
+    {
+      "name": "equipment",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 4.534739374998026,
+      "log": "/tmp/nikke-geometry-gate-equipment.log"
+    },
+    {
+      "name": "real-battle",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 22.2076462500263,
+      "log": "/tmp/nikke-geometry-gate-real-battle.log"
+    },
+    {
+      "name": "api",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 413.70190979202744,
+      "log": "/tmp/nikke-geometry-gate-api.log"
+    },
+    {
+      "name": "pipeline-lock",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 1.3358277919469401,
+      "log": "/tmp/nikke-geometry-gate-pipeline-lock.log"
+    },
+    {
+      "name": "catalog-audit",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 1.066992000094615,
+      "log": "/tmp/nikke-geometry-gate-catalog-audit.log"
+    },
+    {
+      "name": "unit",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 7.762641500099562,
+      "log": "/tmp/nikke-geometry-gate-unit.log"
+    },
+    {
+      "name": "favorite-audit",
+      "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+      "exit_code": 0,
+      "elapsed_seconds": 1.9189499160274863,
+      "log": "/tmp/nikke-geometry-gate-favorite-audit.log"
+    }
+  ],
+  "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f"
+}

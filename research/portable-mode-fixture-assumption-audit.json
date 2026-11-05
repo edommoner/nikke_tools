@@ -1,0 +1,3329 @@
+{
+  "scope": "Fixture authoring assumptions checked against original CPU before GPU execution; not a passing GPU report",
+  "original_cases": [
+    {
+      "name": "mode-entry-is-squad-broadcast",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode A",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 0",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 1",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 2",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 3",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 4",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4,
+                "shots": 1,
+                "mode_index": 1,
+                "mode_shots": 0
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    },
+    {
+      "name": "mode-entry-state-is-installed-before-notice",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode A",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 0",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": [
+              "self_state:Mode A"
+            ]
+          }
+        },
+        {
+          "name": "receiver 1",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": [
+              "self_state:Mode A"
+            ]
+          }
+        },
+        {
+          "name": "receiver 2",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": [
+              "self_state:Mode A"
+            ]
+          }
+        },
+        {
+          "name": "receiver 3",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": [
+              "self_state:Mode A"
+            ]
+          }
+        },
+        {
+          "name": "receiver 4",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": [
+              "self_state:Mode A"
+            ]
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4,
+                "shots": 1,
+                "mode_index": 1,
+                "mode_shots": 0
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    },
+    {
+      "name": "mode-refresh-notifies-without-refill",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode A",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 0",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 1",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 2",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 3",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 4",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.3,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 2,
+                "shots": 2,
+                "mode_shots": 1
+              }
+            ]
+          }
+        },
+        {
+          "attack_buffs": [
+            20,
+            20,
+            20,
+            20,
+            20
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 2,
+                "shots": 2,
+                "mode_shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    },
+    {
+      "name": "mode-toggle-exit-does-not-emit-entry",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode A",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          },
+          "toggle": true
+        },
+        {
+          "name": "receiver 0",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 1",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 2",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 3",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 4",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "end receiver",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 17,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:state_end:Mode A"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            27,
+            10,
+            10,
+            10,
+            10
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 5,
+                "shots": 2,
+                "mode_index": -1,
+                "mode_shots": 0
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    },
+    {
+      "name": "mode-nested-entry-finishes-before-parent-resumes",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode A",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode B",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 7,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 0",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": [
+              "self_state:Mode A"
+            ]
+          }
+        },
+        {
+          "name": "receiver 1",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 2",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 3",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 4",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "B receiver 0",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 20,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode B"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "B receiver 1",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 20,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode B"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "B receiver 2",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 20,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode B"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "B receiver 3",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 20,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode B"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "B receiver 4",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 20,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode B"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3,
+        4,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            20,
+            30,
+            30,
+            30,
+            30
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4,
+                "shots": 1,
+                "mode_index": 2,
+                "mode_shots": 0
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    },
+    {
+      "name": "mode-entry-cancel-keeps-broadcast-and-base-magazine",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode A",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "cancel on entry",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "target": "self",
+          "target_effect": "Mode A",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 0",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 1",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 2",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 3",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 4",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "exit receiver",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 17,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:state_end:Mode A"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            27,
+            10,
+            10,
+            10,
+            10
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4,
+                "shots": 1,
+                "mode_index": -1
+              }
+            ]
+          }
+        },
+        {
+          "attack_buffs": [
+            27,
+            10,
+            10,
+            10,
+            10
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4,
+                "shots": 1,
+                "mode_index": -1
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    },
+    {
+      "name": "mode-transient-entry-cancel-in-on_attack",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode A",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "cancel on entry",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "target": "self",
+          "target_effect": "Mode A",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4,
+                "shots": 1,
+                "mode_index": -1,
+                "mode_shots": 0
+              }
+            ]
+          }
+        },
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 3,
+                "shots": 2,
+                "mode_index": -1
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    },
+    {
+      "name": "mode-transient-entry-cancel-in-last_bullet_fire",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode A",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "last_bullet_fire"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "cancel on entry",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "target": "self",
+          "target_effect": "Mode A",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 1,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 0,
+                "shots": 1,
+                "mode_index": -1,
+                "mode_shots": 0
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    },
+    {
+      "name": "mode-transient-entry-cancel-in-full_charge",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode A",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "full_charge"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "cancel on entry",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "target": "self",
+          "target_effect": "Mode A",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2,
+            "mode": "charge",
+            "charge": 0.4
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.4,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.4,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4,
+                "shots": 1,
+                "mode_index": -1,
+                "mode_shots": 0
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    },
+    {
+      "name": "mode-pending-cancel-preserves-base-charge",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode A",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "cancel on entry",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "target": "self",
+          "target_effect": "Mode A",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2,
+            "mode": "charge",
+            "charge": 0.4
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.4,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.4,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 5,
+                "shots": 0,
+                "charging": true,
+                "mode_index": -1
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4,
+                "shots": 1,
+                "mode_index": -1
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    },
+    {
+      "name": "mode-pending-cancel-preserves-base-reload",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode A",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "cancel on entry",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "target": "self",
+          "target_effect": "Mode A",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 1,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          1.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          1.2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 0,
+                "shots": 1,
+                "reload_until": 3,
+                "mode_index": -1
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 0,
+                "shots": 1,
+                "reload_until": 3,
+                "mode_index": -1
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    },
+    {
+      "name": "mode-entry-delivers-in-squad-order",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode A",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "all attack",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "second attack",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 20,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "third consumes",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "ammo_charge_flat",
+          "fixed_value": -1,
+          "target": "allies_top_atk:1",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "last consumes",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "ammo_charge_flat",
+          "fixed_value": -2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        4
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            10,
+            30,
+            10,
+            10,
+            10
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4
+              },
+              {
+                "ammo": 4
+              },
+              {
+                "ammo": 5
+              },
+              {
+                "ammo": 5
+              },
+              {
+                "ammo": 3
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    },
+    {
+      "name": "mode-entry-force-refresh-is-synchronous-and-budgeted",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode A",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "refresh once",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "force_skill_use",
+          "fixed_value": 0,
+          "target": "self",
+          "target_skill": "스킬2",
+          "max_trigger": 1,
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 0",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 1",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 2",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 3",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 4",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            20,
+            20,
+            20,
+            20,
+            20
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4,
+                "shots": 1,
+                "mode_index": 1,
+                "mode_shots": 0
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    },
+    {
+      "name": "unnamed-mode-does-not-emit-entry",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 0",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 1",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 2",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 3",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 4",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4,
+                "shots": 1,
+                "mode_index": 1,
+                "mode_shots": 0
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    },
+    {
+      "name": "mode-entry-duplicate-descriptor-is-one-activation",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Mode A",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 0",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A",
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 1",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A",
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 2",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A",
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 3",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A",
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver 4",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "max_stack": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:Mode A",
+              "event:Mode A"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4,
+                "shots": 1,
+                "mode_index": 1,
+                "mode_shots": 0
+              }
+            ]
+          }
+        }
+      ],
+      "mode_session_reference": true
+    }
+  ],
+  "findings": [
+    {
+      "assumption": "remove_named_buff cancels a weapon mode",
+      "original_cpu": "The handler removes _active buff/DoT entries; actual weapon-mode cancellation is exercised through toggle reactivation.",
+      "source": "research/upstream/nikke-calc-master/calculator/buff_manager.py:1512"
+    },
+    {
+      "assumption": "duplicate matching named descriptors activate once",
+      "original_cpu": "Matching duplicate descriptors cause repeated activation; preserve multiplicity rather than deduplicating."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "groups": 21,
+  "tests": 120,
+  "skipped": 0,
+  "failures": 0,
+  "errors": 0,
+  "receipt_anchor": {
+    "bytes": 4585,
+    "sha256": "4963bb3e329df4b40d41e4ec399c510c49510363225ad989e151e9bfc9ff69e5"
+  }
+}

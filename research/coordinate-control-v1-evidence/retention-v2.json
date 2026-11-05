@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "old190_input_entries_retained": 190,
+  "old190_native_fingerprints_retained": 166,
+  "old190_full_raw_bytes_retained": 996147200,
+  "native_inputs": 182,
+  "total_frames": 7878,
+  "source_generated_legacy_pairs": 5,
+  "partial_rejection_frames_excluded": true
+}

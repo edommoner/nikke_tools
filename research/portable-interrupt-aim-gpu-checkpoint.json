@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-23T00:36:21.879631+00:00",
+  "full_goal_complete": false,
+  "full_character_certified": 0,
+  "ui_backend": "cpu",
+  "development_only": true,
+  "normal_source_count": 122,
+  "diagnostic_source_count": 123,
+  "normal_inputs": 1385,
+  "native_inputs": 1101,
+  "rejections": 284,
+  "private_interrupt_cases": 24,
+  "private_receipts": 98,
+  "receipt_capacity": 16,
+  "receipt_omissions": 0,
+  "cpu_groups": 95,
+  "cpu_tests": 498,
+  "cpu_batch_seconds": 175.68990837503225,
+  "gpu_seconds": 10.72886649996508,
+  "independent_seals": true,
+  "preservation": {
+    "passed": true,
+    "gpu_calls": 0,
+    "old_cases": 1355,
+    "old_full_byte_equal_cases": 1354,
+    "changed_rejection_cases": 1,
+    "changed_rejection_words": 657,
+    "old_unchanged_bytes": 4262458812,
+    "old_output_sha256": "ca841b58620704952296318d8938af930fb6340d2f886502e43e7704e5cec2c1",
+    "new_output_sha256": "ed1ee9d50bb85c1d38aa0a355db830360505e42dd1768a4183b50e4e3cbe77c2",
+    "diagnostic_output_sha256": "5bc6995524c38ca8d1ab75a050201260c8142fa0a79e659716ee46f2d78e7982",
+    "mixed_cases": 6,
+    "mixed_unchanged_bytes": 18874368,
+    "mixed_output_sha256": "89427719ed576e91fe91d23b0ab9165c36a419dd605925d3925799c5fe59ed5d",
+    "diagnostic_cases": 24,
+    "diagnostic_only_word_range": [
+      785536,
+      786064
+    ],
+    "diagnostic_unchanged_bytes": 75446784,
+    "scope": "Actual old raw bytes, unchanged input/native identities and every byte outside the explicit observer bank"
+  },
+  "raw_deleted": false,
+  "zero_allocation_reclaimed_bytes": 6898974720,
+  "windows": {
+    "additional_operations": 0,
+    "cause": "unknown",
+    "preservation": false,
+    "current_cuda_execution_verified": false
+  },
+  "pending": [
+    "aimed_no_core_intercept_factors",
+    "native_multipacket_shot_observer",
+    "aimed_pierce_explosion_packet_set",
+    "current_source_cuda_validation"
+  ],
+  "next": "Extend actual native multi-packet shot observation and shared no-core/intercept factors, then aimed piercing/explosion body+target/aimed-exclusion delivery; keep development-only until verified",
+  "final_cpu_release": {
+    "passed": true,
+    "groups": 7,
+    "tests": 36,
+    "gpu_calls": 0,
+    "package_id": "59c23ddac3d4e92a0f715fe693491e331b5fb406201ade75b18c894ebb597335"
+  }
+}

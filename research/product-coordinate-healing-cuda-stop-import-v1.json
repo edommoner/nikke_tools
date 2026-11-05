@@ -1,0 +1,93 @@
+{
+  "schema": "product-coordinate-healing-cuda-stop-import-v1",
+  "artifacts": [
+    {
+      "path": "research/product-coordinate-healing-windows-status-v1.json",
+      "commit": "85ea559860d9308f3fcccae429da43e318dea88e",
+      "bytes": 34750,
+      "sha256": "023cf9c6bf276d6660578fbaeee8653223f111200bdda8c79409f9c6ea6b17a0"
+    },
+    {
+      "path": "research/product-coordinate-healing-missing7-diagnostic-v1.json",
+      "commit": "7df65cf934b91a64ca004730e9b861723464bcf4",
+      "bytes": 22198,
+      "sha256": "f4511f126b7379f5aa840336f721367f7245f87e5bc8795386f4876c6097df6c"
+    }
+  ],
+  "hashes_verified": true,
+  "status": "stopped-before-api-static-observation-failure",
+  "stop": {
+    "batch": 0,
+    "stage": "static-preflight",
+    "error_type": "AssertionError",
+    "message": "Missing process or incomplete observation",
+    "retry_allowed": false
+  },
+  "stop_scope": {
+    "stage": "static-preflight",
+    "bounded_child_exit_code": 0,
+    "coordinator_and_checker_exit_code": 1,
+    "static_input_numeric_proof_passed": true,
+    "static_stage_verified": false,
+    "missing_process_count": 7,
+    "ownership_and_termination_cause": "unknown",
+    "harmless_reclassification": false,
+    "external_process_details_exported": false,
+    "first_failure_stopped_further_execution": true,
+    "retry_allowed": false
+  },
+  "diagnostic_conclusion": {
+    "missing_records": 7,
+    "owned_or_observer_owned_confirmed": 0,
+    "unconfirmed": 7,
+    "cause": "unknown",
+    "termination_cause": "unknown",
+    "independent_positive_ownership_evidence_found": false,
+    "no_harmless_or_observer_owned_reclassification": true,
+    "old_stop_and_outer_gate_failure_retained": true,
+    "further_execution_started": false
+  },
+  "separate_outcomes": {
+    "selected11_tests_passed": true,
+    "sdk_artifacts_verified": true,
+    "sdk_outer2_inner0_history_retained": true,
+    "static_input_proof_passed": true,
+    "static_input_sha256": "ea3417dc886d5dbd47278867088d101213dbc03639dacf3e41cb775fcf87fd5a",
+    "static_input_bytes": 480196,
+    "m5_expected_input_equal": true,
+    "static_bounded_child_exit_code": 0,
+    "static_child_error": null,
+    "static_child_timeout": false,
+    "static_child_cleanup_error": null,
+    "static_child_observation_error": null,
+    "outer_missing_gate_passed": false,
+    "outer_missing_count": 7,
+    "pre_gate_fresh_single_owned_child": true,
+    "post_wait_job_empty": true,
+    "enforced_job_memory_limit_bytes": 2147483648,
+    "api_ram_not_started": true,
+    "api_posts": 0,
+    "gpu_dispatches": 0,
+    "saved_audits": 0,
+    "full_readback_or_cpu_gpu_http_comparison_not_performed": true
+  },
+  "import_cpu_battles": 0,
+  "import_gpu_dispatches": 0,
+  "windows_reexecution_requested": false,
+  "new_execution_counts": {
+    "live_pid_queries": 0,
+    "fresh_observations": 0,
+    "ram_samples": 0,
+    "cpu_tests": 0,
+    "cpu_battles": 0,
+    "sdk_calls": 0,
+    "gpu_dispatches": 0,
+    "api_posts": 0,
+    "audit_retries": 0,
+    "os_ssh_or_restarts": 0
+  },
+  "new_composition_cuda_verified": false,
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "full_goal_complete": false
+}

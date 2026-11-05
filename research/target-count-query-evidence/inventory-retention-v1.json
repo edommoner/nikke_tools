@@ -1,0 +1,12 @@
+{
+  "profiles": 266,
+  "packed": 245,
+  "packing_failures": 21,
+  "priority_categories": 20,
+  "all_profile_rows_and_inputs_unchanged": true,
+  "issues_priorities_and_work_lanes_unchanged": true,
+  "GPU_admission_unchanged": true,
+  "full_character_verified": 0,
+  "gpu_calls": 0,
+  "cpu_battle_calls": 0
+}

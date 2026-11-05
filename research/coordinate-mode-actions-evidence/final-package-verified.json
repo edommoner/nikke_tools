@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "package_id": "9954d281dc927fbcfc0aa9cab4640b66eb34d5c4419bfa2dfd03961d4a9559fe",
+  "files": 1856,
+  "all_payload_hashes_verified": true,
+  "all_checkout_bytes_equal": true,
+  "all_original_capture_hashes_verified": true,
+  "source_input_native_match_gpu_packet": true,
+  "gpu_calls": 0,
+  "groups": {
+    "final-selected": {
+      "tests": 30,
+      "skipped": 0,
+      "elapsed_seconds": 8.275006667012349
+    },
+    "final-control": {
+      "tests": 446,
+      "skipped": 1,
+      "elapsed_seconds": 6.76093308464624
+    }
+  },
+  "generation_cache_hit": true,
+  "generation_compiler_invocations": 0,
+  "generated_cuda_and_metal_all_bytes_equal_capture": true
+}

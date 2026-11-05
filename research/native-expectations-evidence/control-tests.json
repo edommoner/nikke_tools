@@ -1,0 +1,9 @@
+{
+  "scope": "All registered bounded controller test groups; not a GPU calculation proof",
+  "package_id": "10d1706d20e86e051b0072c2b309e203ab85374bea835094fd8d216f7178d4cf",
+  "tests": 488,
+  "failures": 0,
+  "skipped": 1,
+  "gpu_calls": 0,
+  "calculation_verified": false
+}

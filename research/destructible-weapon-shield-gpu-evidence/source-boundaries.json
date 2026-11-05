@@ -1,0 +1,32 @@
+{
+  "old_closure_files": 153,
+  "new_closure_files": 155,
+  "existing_shader_changes": [
+    "gpu/weapon_frame_phases.slang",
+    "gpu/combat_runtime.slang",
+    "gpu/destructible_battle_runtime.slang",
+    "gpu/destructible_shield_battle_entry.slang"
+  ],
+  "new_shader_files": [
+    "gpu/destructible_weapon_shield_entry.slang",
+    "gpu/destructible_weapon_runtime.slang"
+  ],
+  "protected_and_shared_files_unchanged": [
+    "app/detail_gpu.py",
+    "app/engine_worker.py",
+    "app/effect_spec.py",
+    "app/engine_compat.py",
+    "gpu/binary64.slang",
+    "gpu/destructible_frame_runtime.slang",
+    "gpu/destructible_target_core.slang",
+    "gpu/destructible_modifier_runtime.slang"
+  ],
+  "historical_source_projection": "exact four reviewed files, only historical fixture checks; never generation/calculation normalization",
+  "normal147_and_scalar119_sources_unchanged": false,
+  "normal_full492_rerun": false,
+  "strict_normalizer_changed": false,
+  "runtime_stride_bytes": 138952,
+  "runtime_fields_changed": false,
+  "final_package_positive_input_native_and_gpu_sources_identical_to_metal_producer": true,
+  "final_host_guard": "Reject undeclared coordinate policy before packing; no accepted fixture changed"
+}

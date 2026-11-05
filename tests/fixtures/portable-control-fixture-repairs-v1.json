@@ -1,0 +1,48 @@
+{
+  "schema": "reviewed-control-fixture-repairs-v1",
+  "base_package_id": "835c8dbd8f9a829a4cffbd5e933de061fa55eca7e969ddab728e69579e97d096",
+  "scope": "Test fixtures and exact historical source audit only; not numerical/runtime/generation transport changes",
+  "changed": {
+    "app/portable_coordinate_resident_arc_source_contract.py": {
+      "before": {
+        "bytes": 2072,
+        "sha256": "00221825b849631fe12599985171d2f9323616729689cc7c8249671056bc3252"
+      },
+      "after": {
+        "bytes": 2337,
+        "sha256": "966c5d9ac11fba13cb6f6f3e64c690705cffb81e54398efe6612bfc6feab82a2"
+      }
+    },
+    "tests/test_portable_generation_separation.py": {
+      "before": {
+        "bytes": 7834,
+        "sha256": "535933785e48d54f581383739a85e8a6e79a89b071742c8f3000d55a30bf856d"
+      },
+      "after": {
+        "bytes": 8399,
+        "sha256": "e9dbf336025a315c421f4288bef589ed04ba3dc04b989d3a69932aebdbc85fe7"
+      }
+    },
+    "tests/test_required_metal_cache_preflight.py": {
+      "before": {
+        "bytes": 7090,
+        "sha256": "0d267e6ebe25f47ec2a48093c28cf3a770119c6742e045f93e698e93eff52380"
+      },
+      "after": {
+        "bytes": 7505,
+        "sha256": "19619e7b548c050dd0bc1331980eff42b1cb4b4366523c17674fa9faf62bec52"
+      }
+    }
+  },
+  "added": {
+    "app/portable_generation_extraction_source_contract.py": {
+      "bytes": 886,
+      "sha256": "7b130852db39065288bdf61365b06152348b2c9855f461c71b1683e3a1e4e0f3"
+    },
+    "tests/fixtures/portable-generation-append-audit-delta.json": {
+      "bytes": 996,
+      "sha256": "ca151c5b660b490d9fe2ac7f034abeb3bc190c208cea559008c5d321067f4302"
+    }
+  },
+  "original_extraction_expected_sha256": "b27126180a75c0d1dccf32c72ce9d0c84eb47b056dc2dbcb8c07a97744fb61a8"
+}

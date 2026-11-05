@@ -1,0 +1,18 @@
+{
+  "calculation_verified": true,
+  "mismatches": [],
+  "input_count": 14045,
+  "native_oracles": 14040,
+  "input_sha256": "98fdf8aa33e98c730e6af39df86249b5b35ba76e4c882043066493dae728536b",
+  "output_sha256": "874d4dedf860ce2b0ab37e59ea328ad9bb51c5c77e220f38e54014bedef0d261",
+  "generated_normalized": {
+    "cuda": "4ae64129d4f91e9f729fd11943f2c30688e89f43b6fec5def2b67789692c0a29",
+    "metal": "6f4dbc645922b9429680f57769fb2a907da834aaf6dbce824779aec892040785"
+  },
+  "audit_gpu_calls": 0,
+  "full_report_local": "/tmp/nikke-packet-ratio-standalone-metal-v1/comparison.json",
+  "full_report_sha256": "8a905837b8af83b8482df58f27504913ea3aade6bf005d1cca9dac5a3adc94e5",
+  "full_report_bytes": 4825505,
+  "entries_count": 14045,
+  "detail_omitted_from_shared_summary": true
+}

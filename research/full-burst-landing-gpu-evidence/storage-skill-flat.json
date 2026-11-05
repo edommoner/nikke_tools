@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-skill-flat-corrected-metal",
+  "raw_bytes": 1321205760,
+  "raw_sha256": "d9c0ffb4bf8c125bb522f5186b7889b67bca3525d029f395825507d1e886275f",
+  "evidence_sha256": "8eb64e1b81ae0e192636afe6e797a3444d378595fd86e16692e9136f7652f671",
+  "raw_inode": 506681292,
+  "zero_ranges": 3215,
+  "zero_range_bytes": 937295872,
+  "allocated_before": 1321205760,
+  "allocated_after": 383909888,
+  "allocated_reclaimed": 937295872,
+  "full_hash_verified": true
+}

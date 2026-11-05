@@ -1,0 +1,24 @@
+{
+  "schema": "readback-recovery-packet-v3",
+  "package_id": "614eefaf9ee125e69bb0268072a1dc5c61c4617a19d1c66f8e99a439e4b6e3d5",
+  "suite": "resident-frames-device",
+  "archive_bytes": 9599014,
+  "archive_sha256": "18b4194749e7b0bdc50549ebc9b01c70b4509c9725bdb003eebc3edd79466436",
+  "source_commit": "09a9467adc49c0a437377631dadd92bed13a34dd",
+  "Mac_selected_tests": 62,
+  "prior_v2_common_tests": 598,
+  "prior_v2_Windows_only_skips": 1,
+  "correction": "Bootstrap verifies original full payload bytes; original CLI owns historical compact registry validation",
+  "historical_bootstrap": {
+    "schema": "historical-readback-package-bootstrap-v1",
+    "source_package_id": "e72cdb496df94fadffac8e5e3bd4e581d20039c571df547a8ab5ba74f904c895",
+    "full_payload_bytes_verified": true,
+    "own_registry_projection_verified": true,
+    "source_selected_test_groups": 6,
+    "new_selected_test_groups": 7,
+    "native_comparison_performed": false,
+    "gpu_calls": 0
+  },
+  "Windows_requested_stage": "recover-readback",
+  "gpu_or_compiler_reexecution": false
+}

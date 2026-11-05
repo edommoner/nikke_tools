@@ -1,0 +1,66 @@
+{
+  "schema": "nikke-burst-control-policy-checkpoint-v1",
+  "suite": "burst-control-policy",
+  "scope": "Isolated shared burst policy; full battle connection remains incomplete",
+  "inputs": 381,
+  "native": 347,
+  "rejections": 34,
+  "device": "Apple M5",
+  "gpu_calls": 1,
+  "gpu_retries": 0,
+  "gpu_seconds": 0.0009175833547487855,
+  "pipeline_compile_seconds": 0.12976598739624023,
+  "development_package_id": "06f2b466a62d4e5fc207031de40038b93edc338ea2fceac3e70bea9cfd6ed18b",
+  "development_archive_sha256": "4292f84cba923b8b8b58ff4bad1f1087c6d7338875c4957269a148de800f1db3",
+  "capture": "/tmp/nikke-burst-policy-metal-v1",
+  "independent_seal_gpu_calls": 0,
+  "golden_sha256": "73dbbd129585c577549410e291ab633cac8c952e297276620dc7244beda4a346",
+  "protected_unchanged": {
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+    "research/summarize-portable-cross-gpu.py": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a",
+    "app/portable_compile_cache.py": "d1dcc7cf1a5c7197b1dd63dd0d6bd1cc90192356eb42ad4a4e6b2f641c5cc505"
+  },
+  "prelaunch_failure": {
+    "reason": "Standalone probe rejects resident generation-cache request",
+    "capture_created": false,
+    "execution_claim_created": false,
+    "gpu_calls": 0
+  },
+  "windows_new_operations": 0,
+  "cuda_execution_verified": false,
+  "all_character_certified": 0,
+  "public_ui": "CPU",
+  "remaining": [
+    "Attach same candidate producer to burstFrame and coordinateAimBurstEnd",
+    "Native full-battle observers for stage-open time and completed cycle count",
+    "Cooldown reduction while delay/wait is pending; end-notice stage override ordering",
+    "Short CUDA execution after Windows chat can start; no cache performance claim"
+  ],
+  "control_tests": {
+    "tests": 443,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "elapsed_seconds": 7.048531163134612
+  },
+  "final_package": {
+    "package_id": "9a08f21293f7ca653c6754cb67a805f7fbba88f882b49e1100882dc71268b3ab",
+    "files": 1819,
+    "archive_sha256": "423938929e3ddab1b29ee62c32e1f48eb8b3e5a18ee2244aedad7a9bb30461be",
+    "all_payload_hashes_verified": true,
+    "checkout_payload_bytes_equal": true,
+    "cpu_capture": "/tmp/nikke-burst-policy-final-cpu-v1",
+    "cpu_result": {
+      "cpu_verified": true,
+      "gpu_calls": 0,
+      "calculation_verified": false,
+      "preservation_verified": null,
+      "status": "cpu-only"
+    }
+  }
+}

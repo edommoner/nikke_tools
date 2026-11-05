@@ -1,0 +1,114 @@
+{
+  "passed": true,
+  "complete": true,
+  "gates": [
+    {
+      "name": "staged-native",
+      "exit_code": 0,
+      "elapsed_seconds": 0.6580969579517841,
+      "log": "/tmp/nikke-v47-gate-staged-native.log"
+    },
+    {
+      "name": "source-native",
+      "exit_code": 0,
+      "elapsed_seconds": 0.0328966670203954,
+      "log": "/tmp/nikke-v47-gate-source-native.log"
+    },
+    {
+      "name": "duration-native",
+      "exit_code": 0,
+      "elapsed_seconds": 2.150963833089918,
+      "log": "/tmp/nikke-v47-gate-duration-native.log"
+    },
+    {
+      "name": "definition-input",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9759566249558702,
+      "log": "/tmp/nikke-v47-gate-definition-input.log"
+    },
+    {
+      "name": "definition-scalar",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9938844999996945,
+      "log": "/tmp/nikke-v47-gate-definition-scalar.log"
+    },
+    {
+      "name": "definition-out",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9984001660486683,
+      "log": "/tmp/nikke-v47-gate-definition-out.log"
+    },
+    {
+      "name": "removal-queue",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8157702920725569,
+      "log": "/tmp/nikke-v47-gate-removal-queue.log"
+    },
+    {
+      "name": "numeric",
+      "exit_code": 0,
+      "elapsed_seconds": 0.6863087499514222,
+      "log": "/tmp/nikke-v47-gate-numeric.log"
+    },
+    {
+      "name": "probe",
+      "exit_code": 0,
+      "elapsed_seconds": 0.32931358308997005,
+      "log": "/tmp/nikke-v47-gate-probe.log"
+    },
+    {
+      "name": "events",
+      "exit_code": 0,
+      "elapsed_seconds": 3.3481722910655662,
+      "log": "/tmp/nikke-v47-gate-events.log"
+    },
+    {
+      "name": "roster",
+      "exit_code": 0,
+      "elapsed_seconds": 332.71085083298385,
+      "log": "/tmp/nikke-v47-gate-roster.log"
+    },
+    {
+      "name": "catalog-weapons",
+      "exit_code": 0,
+      "elapsed_seconds": 3.314129124977626,
+      "log": "/tmp/nikke-v47-gate-catalog-weapons.log"
+    },
+    {
+      "name": "equipment",
+      "exit_code": 0,
+      "elapsed_seconds": 4.049372166977264,
+      "log": "/tmp/nikke-v47-gate-equipment.log"
+    },
+    {
+      "name": "real-battle",
+      "exit_code": 0,
+      "elapsed_seconds": 21.67691004194785,
+      "log": "/tmp/nikke-v47-gate-real-battle.log"
+    },
+    {
+      "name": "api",
+      "exit_code": 0,
+      "elapsed_seconds": 246.0661324170651,
+      "log": "/tmp/nikke-v47-gate-api.log"
+    },
+    {
+      "name": "pipeline-lock",
+      "exit_code": 0,
+      "elapsed_seconds": 1.2626635830383748,
+      "log": "/tmp/nikke-v47-gate-pipeline-lock.log"
+    },
+    {
+      "name": "catalog-audit",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9787091669859365,
+      "log": "/tmp/nikke-v47-gate-catalog-audit.log"
+    },
+    {
+      "name": "unit",
+      "exit_code": 0,
+      "elapsed_seconds": 4.70632629096508,
+      "log": "/tmp/nikke-v47-gate-unit.log"
+    }
+  ]
+}

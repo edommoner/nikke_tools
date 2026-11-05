@@ -1,0 +1,122 @@
+[
+  {
+    "pattern": "test_destructible_weapon_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 10.543975583044812,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 84162
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.12636058300267905,
+    "tests": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 84162
+  },
+  {
+    "pattern": "test_destructible_skill_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.45291791704949,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 84162
+  },
+  {
+    "pattern": "test_destructible_weapon_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 12.470683582942002,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 84162
+  },
+  {
+    "pattern": "test_destructible_skill_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 23.793273083050735,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 84162
+  },
+  {
+    "pattern": "test_destructible_body_lifesteal.py",
+    "exit_code": 0,
+    "elapsed_seconds": 11.535208916990086,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 84162
+  },
+  {
+    "pattern": "test_destructible_aoe_burst_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 16.682822040980682,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 84162
+  },
+  {
+    "pattern": "test_destructible_body_accum.py",
+    "exit_code": 0,
+    "elapsed_seconds": 5.783147833077237,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 84162
+  },
+  {
+    "pattern": "test_destructible_body_heal_share.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.4824516660301015,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 84162
+  },
+  {
+    "pattern": "test_portable_heal_share_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.3194057079963386,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 84162
+  },
+  {
+    "pattern": "test_portable_parent_oracles.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.321553667075932,
+    "tests": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 84162
+  },
+  {
+    "pattern": "test_destructible_parent_oracles.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.6028595420066267,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 84162
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "projectile-chain-real/Rapi-red-hood/3s",
+      "input_sha256": "5ff4388cb48634e67c347a330a8a79a4b829a2a65fbedc64bc0f3847398f59f5",
+      "output_sha256": "c338761f336c6486fc790e01306f9e89347fe933c388902a110d55bcad585868",
+      "native_sha256": "d37427b2f110c28d9c410a6bb0efa1d524532fbcf83fa484ccf3f06c864b3fcc"
+    },
+    {
+      "name": "projectile-chain-real/Rapi-red-hood/30s",
+      "input_sha256": "c376f7ddc970adb83b411d3cd31bdd12ad3b8dc85acef8108b39b442d279075d",
+      "output_sha256": "eba9cb20b97b61267ef26805b98fbc01784884b8705cb6d28b59336ab0f69288",
+      "native_sha256": "53f2081f8f251f611d0c7039b8d85d47a63f0739265919a6bf235072992dcde7"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 2,
+  "native_oracles": 2,
+  "input_sha256": "6c721fed4f471bc1dcdbb6aacf840eceff91cea063b5a15366cbcde3be640162",
+  "output_sha256": "ec29cee70e83f48df8f60c999fea21b08b859ab04b12cf90737b609079f23983",
+  "generated_normalized": {
+    "cuda": "5141e18d3a073fe2bf714ba425a95461f8886f73cbf0f7867bcfeefbdeda99d7",
+    "metal": "d7cb6e429547a4d71b4e94d66dce21be7a2cf7c3a02aedf6f93a1fe622334989"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 2,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

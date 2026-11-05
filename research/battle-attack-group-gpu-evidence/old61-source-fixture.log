@@ -1,0 +1,15 @@
+......F
+======================================================================
+FAIL: test_saved_quantity_credit_and_pool_corruptions_are_detected (test_destructible_body_accum.BodyAccumTests.test_saved_quantity_credit_and_pool_corruptions_are_detected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-ag-retention61-v1/tests/test_destructible_body_accum.py", line 52, in test_saved_quantity_credit_and_pool_corruptions_are_detected
+    self.assertEqual(source_hashes('gpu/destructible_roster_accum_entry.slang'),f['source_sha256']);checked=0
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'gpu[3733 chars]g': '51b2eeca255e158609ed55388aa73d4b5cad331fa[12680 chars]f04'} != {'gpu[3733 chars]g': '081823b3afeacf6dcbcf704c4808f6c517b02434f[12578 chars]f04'}
+Diff is 17856 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.614s
+
+FAILED (failures=1)

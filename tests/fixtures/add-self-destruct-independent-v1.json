@@ -1,0 +1,15 @@
+{
+  "package_id": "c52145ef682ed9157ea9df3081e23c3beef74ee6129c4835c5a41869bd6dd396",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/add-self-destruct-replay-v2-capture",
+  "child_pid": 77695,
+  "input_count": 14,
+  "native_cases": 8,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 126.23799100000178,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "89ac7a0bef7359d015a95b5540b778c415f569f949866532856623f45aaaeacf",
+  "output_sha256": "5bc8c80a62b2d1373fc5178698d03e48e15a9eab6384914f04c0edfee257048d",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1"
+}

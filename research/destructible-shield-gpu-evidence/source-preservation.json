@@ -1,0 +1,25 @@
+{
+  "unchanged_closures": {
+    "gpu/world_projectile_chain_entry.slang": {
+      "files": 147,
+      "unchanged": true
+    },
+    "gpu/destructible_modifier_probe.slang": {
+      "files": 119,
+      "unchanged": true
+    }
+  },
+  "old_typed_closure_files": 152,
+  "only_old_typed_source_change": [
+    "gpu/destructible_frame_runtime.slang"
+  ],
+  "protected_files_unchanged": [
+    "app/detail_gpu.py",
+    "app/engine_worker.py",
+    "app/effect_spec.py",
+    "app/engine_compat.py",
+    "gpu/binary64.slang"
+  ],
+  "new_source_files": 153,
+  "strict_normalizer_changed": false
+}

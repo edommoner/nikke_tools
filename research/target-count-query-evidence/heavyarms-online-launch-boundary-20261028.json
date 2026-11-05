@@ -1,0 +1,48 @@
+{
+  "schema": "heavyarms-online-launch-boundary-v1",
+  "observed_date": "2026-10-28",
+  "evidence_is_instructions": false,
+  "in_game_validation_performed": false,
+  "sources": [
+    {
+      "url": "https://nikke.gg/snow-white-heavy-arms-analysis-should-you-pull/",
+      "access": "search_index_text_direct_open_403",
+      "author": "lzzy",
+      "article_updated_date": "2026-01-08",
+      "kind": "third_party_author_analysis",
+      "claims": [
+        "target_dead_before_sequential_launch_redirects_to_remaining_locks",
+        "target_dead_after_launch_before_impact_wastes_projectile"
+      ],
+      "media_inspected": false
+    },
+    {
+      "url": "https://www.prydwen.gg/nikke/characters/snow-white-heavy-arms",
+      "access": "full_page_text",
+      "kind": "third_party_character_explanation",
+      "claims": [
+        "cycle_in_lock_acquisition_order",
+        "character_specific_taunt_order_exception"
+      ]
+    }
+  ],
+  "decision": {
+    "distance_model": "unresolved",
+    "replacement_order": "unresolved",
+    "separate_launch_and_landing_boundaries": true,
+    "implementation_change_this_record": false,
+    "existing_drop_policy_is_game_certified": false,
+    "promote_to_public_admission": false
+  },
+  "unresolved": [
+    "center_vs_outline_vs_depth",
+    "equal_distance_order",
+    "part_eligibility",
+    "replacement_order_before_launch",
+    "all_locks_dead",
+    "same_frame_launch_death_order",
+    "generation_replacement"
+  ],
+  "gpu_executions": 0,
+  "windows_requests": 0
+}

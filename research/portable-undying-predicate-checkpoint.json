@@ -1,0 +1,1082 @@
+{
+  "schema": 1,
+  "feature": "self_undying live stat predicate",
+  "stage": "shared-metal-native-retention-verified",
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "normal_ui": "CPU",
+  "reports": [
+    {
+      "package_id": "cb22632d6252f3fc2519b0234c0528b0aa5497d85c97088273a3370628cd6e6c",
+      "capture": "/tmp/nikke-undying-gpu-v2-metal",
+      "result": {
+        "sealed": false,
+        "purpose": "development",
+        "calculation_verified": true,
+        "preservation_verified": null,
+        "passed": true,
+        "containment_verified": true,
+        "comparison_error": null,
+        "first_difference": null,
+        "phase": {
+          "events": 9,
+          "last_event": {
+            "monotonic_ns": 796862588262458,
+            "pid": 30449,
+            "stage": "shared_gpu_execute",
+            "state": "returned",
+            "wall_time_ns": 1792697712808402000
+          },
+          "nvrtc_compile_returned_success": false,
+          "cuda_compile_cache_hit_verified": false,
+          "cuda_linked_artifact_observed": false,
+          "cuda_launch_returned_success": false,
+          "cuda_synchronize_returned_success": false,
+          "cuda_readback_returned_success": false,
+          "scope": "Observed API returns only; full output verification requires the shared suite report"
+        },
+        "gpu_retries": 0,
+        "audit_gpu_calls": 0
+      },
+      "transport": {
+        "backend": "metal",
+        "cases": 28,
+        "command_status": "completed",
+        "configured_max_threads_per_threadgroup": 1,
+        "device": "Apple M5",
+        "file_readback_chunk_bytes": 8388608,
+        "gpu_seconds": 0.044491916662082076,
+        "input_bytes": 11692804,
+        "library_compile_seconds": 1.37350594997406,
+        "output_bytes": 88080384,
+        "pipeline_compile_seconds": 6.143844962120056,
+        "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+        "pipeline_max_threads_per_threadgroup": 1,
+        "registry_id": "4294968313",
+        "runtime_buffer_bytes": 3890656,
+        "runtime_element_capacity": 28,
+        "runtime_physical_stride_verified": true,
+        "runtime_stride_bytes": 138952,
+        "threads_per_threadgroup": 1,
+        "compile_timeout_seconds": 300,
+        "gpu_timeout_seconds": 120
+      },
+      "input_sha256": "3506d9477bb2f6247125f653077b7bc5af46679cb62f23c5ec7284b4f39a27b6",
+      "output_sha256": "f723c4865e0f59d7a2dd4184983556ef45a7ce3b25edccc550106a3f0e9a9d1d",
+      "input_count": 28,
+      "native_oracles": 22,
+      "parent_oracles": {
+        "scope": "live-parent-preflight",
+        "reused_native_cases": 22,
+        "fresh_native_cases": 0,
+        "rejection_cases": 6,
+        "saved_results_used": false,
+        "independent_audit_reuse": false
+      },
+      "independent_seal_sha256": "dff7cc6d0d6cee2b55e6f94aec2ed5bbed6eb4a4c6456663169c835782c71b22",
+      "cpu": {
+        "groups": 17,
+        "tests": 111,
+        "errors": 0,
+        "elapsed_seconds": 20.982208502013236
+      }
+    },
+    {
+      "package_id": "1146a76ae432f120a5c797e9fb7be263323be4d75c8107e86eb5094a6bb9ab25",
+      "capture": "/tmp/nikke-undying-rosters-gpu-v1-metal",
+      "result": {
+        "sealed": false,
+        "purpose": "development",
+        "calculation_verified": true,
+        "preservation_verified": null,
+        "passed": true,
+        "containment_verified": true,
+        "comparison_error": null,
+        "first_difference": null,
+        "phase": {
+          "events": 5,
+          "last_event": {
+            "monotonic_ns": 796942939836583,
+            "pid": 30652,
+            "stage": "shared_gpu_execute",
+            "state": "returned",
+            "wall_time_ns": 1792697793159749000
+          },
+          "nvrtc_compile_returned_success": false,
+          "cuda_compile_cache_hit_verified": false,
+          "cuda_linked_artifact_observed": false,
+          "cuda_launch_returned_success": false,
+          "cuda_synchronize_returned_success": false,
+          "cuda_readback_returned_success": false,
+          "scope": "Observed API returns only; full output verification requires the shared suite report"
+        },
+        "gpu_retries": 0,
+        "audit_gpu_calls": 0
+      },
+      "transport": {
+        "backend": "metal",
+        "cases": 3,
+        "command_status": "completed",
+        "configured_max_threads_per_threadgroup": 1,
+        "device": "Apple M5",
+        "file_readback_chunk_bytes": 8388608,
+        "gpu_seconds": 2.254063749918714,
+        "input_bytes": 1252804,
+        "library_compile_seconds": 0.001672983169555664,
+        "output_bytes": 9437184,
+        "pipeline_compile_seconds": 0.0020799636840820312,
+        "pipeline_lock_wait_seconds": 9.5367431640625e-07,
+        "pipeline_max_threads_per_threadgroup": 1,
+        "registry_id": "4294968313",
+        "runtime_buffer_bytes": 416856,
+        "runtime_element_capacity": 3,
+        "runtime_physical_stride_verified": true,
+        "runtime_stride_bytes": 138952,
+        "threads_per_threadgroup": 1,
+        "compile_timeout_seconds": 300,
+        "gpu_timeout_seconds": 120
+      },
+      "input_sha256": "685d3e4d3fd9596dce000a7a030c768ed9bf693fbae4336d7cb2a69751dbf99c",
+      "output_sha256": "cea495a0257b0c70edd16999c2a3cfcf45f292b6ced1b43d4a08b6c25c790b8f",
+      "input_count": 3,
+      "native_oracles": 3,
+      "parent_oracles": {
+        "scope": "live-parent-preflight",
+        "reused_native_cases": 3,
+        "fresh_native_cases": 0,
+        "rejection_cases": 0,
+        "saved_results_used": false,
+        "independent_audit_reuse": false
+      },
+      "independent_seal_sha256": "088b367c28910cc6b10b046c7566cc09936a5446d98d61d6c738020dc9a2cfa4",
+      "cpu": {
+        "groups": 17,
+        "tests": 111,
+        "errors": 0,
+        "elapsed_seconds": 20.93534687720239
+      }
+    },
+    {
+      "package_id": "ab1e5db5e0fd5af65052e137089a85061f00a69cbeb8abef16e3f666997e6db2",
+      "capture": "/tmp/nikke-undying-retention-gpu-v2-metal",
+      "result": {
+        "sealed": false,
+        "purpose": "development",
+        "calculation_verified": true,
+        "preservation_verified": null,
+        "passed": true,
+        "containment_verified": true,
+        "comparison_error": null,
+        "first_difference": null,
+        "phase": {
+          "events": 5,
+          "last_event": {
+            "monotonic_ns": 797628591230916,
+            "pid": 31010,
+            "stage": "shared_gpu_execute",
+            "state": "returned",
+            "wall_time_ns": 1792698478809202000
+          },
+          "nvrtc_compile_returned_success": false,
+          "cuda_compile_cache_hit_verified": false,
+          "cuda_linked_artifact_observed": false,
+          "cuda_launch_returned_success": false,
+          "cuda_synchronize_returned_success": false,
+          "cuda_readback_returned_success": false,
+          "scope": "Observed API returns only; full output verification requires the shared suite report"
+        },
+        "gpu_retries": 0,
+        "audit_gpu_calls": 0
+      },
+      "transport": {
+        "backend": "metal",
+        "cases": 1203,
+        "command_status": "completed",
+        "configured_max_threads_per_threadgroup": 1,
+        "device": "Apple M5",
+        "file_readback_chunk_bytes": 8388608,
+        "gpu_seconds": 10.966636791592464,
+        "input_bytes": 502372804,
+        "library_compile_seconds": 0.002514958381652832,
+        "output_bytes": 3784310784,
+        "pipeline_compile_seconds": 0.0022889375686645508,
+        "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+        "pipeline_max_threads_per_threadgroup": 1,
+        "registry_id": "4294968313",
+        "runtime_buffer_bytes": 167159256,
+        "runtime_element_capacity": 1203,
+        "runtime_physical_stride_verified": true,
+        "runtime_stride_bytes": 138952,
+        "threads_per_threadgroup": 1,
+        "compile_timeout_seconds": 300,
+        "gpu_timeout_seconds": 120
+      },
+      "input_sha256": "9f646358c7689a3d604b7f6120cd24871881a0152b8b658345d1356de5892a7b",
+      "output_sha256": "bab8c100ea038133ba5321dcf877cb57841b1375af51e82852f31dbaa2f761fe",
+      "input_count": 1203,
+      "native_oracles": 955,
+      "parent_oracles": {
+        "scope": "live-parent-preflight",
+        "reused_native_cases": 871,
+        "fresh_native_cases": 84,
+        "rejection_cases": 248,
+        "saved_results_used": false,
+        "independent_audit_reuse": false
+      },
+      "independent_seal_sha256": "833cef5f2d63070d78c51a5a5dd848d7e7b88b2d69662d24ef414efb89389ffb",
+      "cpu": {
+        "groups": 75,
+        "tests": 433,
+        "errors": 0,
+        "elapsed_seconds": 141.5202124636853
+      }
+    }
+  ],
+  "references": {
+    "synthetic": {
+      "path": "/tmp/nikke-undying-reference-v1.json",
+      "sha256": "b59969fca54518cfa30799384af77f74a548f87d2b7b121d558f468e4f78a725",
+      "passed": true,
+      "cases": 22,
+      "totals": {
+        "condition_checks": 66,
+        "live_queries": 66,
+        "activations": 38,
+        "physical_shots": 66
+      },
+      "entries": [
+        {
+          "name": "undying-predicate-absent",
+          "input_sha256": "658327815914c20fc45bfa3cfdb93d686a82ac212eea3493f5fb3d0b29e268b0",
+          "native_sha256": "edb3f333941264ac5f415004a9013e84f667fc8e388c6a8c3e34d31fc159686c",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 0,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-present",
+          "input_sha256": "6bb29689cf8e49cfd8bf9cfa0f8543886d48d2cb3d882640b50f0ea4293d32b1",
+          "native_sha256": "ab6101e9efbe9537e22654b06a6a0637424131a29a859bd9a01a2a25db0030c2",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 3,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-zero-value",
+          "input_sha256": "74eac84e8eccb388da595afe6b187cf4dbfaca46926a0093edcb22407010c64a",
+          "native_sha256": "ab6101e9efbe9537e22654b06a6a0637424131a29a859bd9a01a2a25db0030c2",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 3,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-negative-value",
+          "input_sha256": "6be98e239bb89ef243a19c7215339f3b4ce8d080b6d9c7a100ca5f85841d4e21",
+          "native_sha256": "ab6101e9efbe9537e22654b06a6a0637424131a29a859bd9a01a2a25db0030c2",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 3,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-name-is-not-stat",
+          "input_sha256": "f8830780cbf5370e3ad68f9561eab1ef6771b3d72c7f2f09084939dbf6d1eda4",
+          "native_sha256": "eb92ca924a7ef870aabcd5b99adbed07345afd4bc854d845fcafa56f65e26803",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 0,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-other-stat",
+          "input_sha256": "d271d51b3056ac52b9410cd634e82642de10e554192d4f785a1ca7bb31314f2b",
+          "native_sha256": "72979f7443ab5b8e46e33c2b4fc6bacda81a03d5d34e09cf4a2aaaf5406e8860",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 0,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-expires",
+          "input_sha256": "68f54932d7e9ecf212c03c5921e6b8edc99b76365258fa6c31106cc4f5fff150",
+          "native_sha256": "661c8ba2c4a0c40d3c2fcc32a3e14677bb6f9de9c515d3e12eea3028463da120",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 1,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-arrives",
+          "input_sha256": "66b59117825fabb2c2d4c387758600415e920ac2e08377112f552b1d4a5b011f",
+          "native_sha256": "9dda319c9486c37043a43912fc37a388c158e126ea3a8e6fcb2eaaaf7139db5b",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 2,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-finite-witness",
+          "input_sha256": "7dde857c74bb0f0283e279e86d012ce7dc097ea8d5a486f80b6e3da1f18b68f2",
+          "native_sha256": "5d8da7bda94ae4430f457bc3322378cc7d6fa9bc9e1170107b9de0f63dc84e33",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 3,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-permanent-witness",
+          "input_sha256": "55b36fab56b0a801a03381295977c18bb683d178361f4c2cfc7f7d774795e6a9",
+          "native_sha256": "4bac446303f81288e5869d90f1089a6a11fcc779b9404fb59b5b20dcae4b2179",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 1,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-last-owner",
+          "input_sha256": "816ce636066772181fbe111d3484041c30a38237c8759b601935623b20990dc9",
+          "native_sha256": "1fc1a2488841cb98ef7d0d1138ed02fd386ebf0b81a053de29f9a663be35b97f",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 3,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-foreign-self",
+          "input_sha256": "3149463fabdc51bf2939661921aaf3a67cf624bd1041b78513b319c757c5e280",
+          "native_sha256": "9d959fbfd6c318d474aac2a5481ad73019d9e3bf71e51b8a5bd98a8e6f954184",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 0,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-ally-applies",
+          "input_sha256": "c871a76dfe6409f2284eda0910e2b0dd94382a84e9c17bced3afc9997cc603eb",
+          "native_sha256": "7e5b522342fe73f1347c2f1ebe19603d0b5e4f6bf2d31dba1acfa5404f133339",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 3,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-all-allies",
+          "input_sha256": "9b1abc3f81d03a7d7bc42a2a6568ef481f1d27345bde51aae99a2d643bb13c35",
+          "native_sha256": "d22ad2986b19b8345c0205f7303651c16c9801cf58d46ad7ea81f95a7728a30b",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 3,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-different-recipient",
+          "input_sha256": "544647280c7edc7606f5937154abf0a4bdb9bcffa92ff0d037e4c58fce528ffe",
+          "native_sha256": "745460cbd2c8f729bf3d3ab92c0cbde70003d7e0e74acdb0b5a9b92c7d85db49",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 0,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-stacked-zero-marker",
+          "input_sha256": "3513b7b7f8584b3b6dd68262fcf96a470a2a7c98349412f016222dfb00c1547e",
+          "native_sha256": "4c84158a5603ff81054db3360afebbbd6429d69f3e5d0b4c5b9ec7ffa75a62f1",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 3,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-marker-after-witness",
+          "input_sha256": "7d458d074d8afcc530c9e7219dd48e356336814de12815b216326dc2ce0d3e46",
+          "native_sha256": "1ebb53ff722956695913aff763000574efc6296781a59e9529de357645e0fa2a",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 2,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-runtime-hp-gate",
+          "input_sha256": "59abc8e4f0cf5f3bdf7dbfdfa1130952fa315f05522b5e4f7f89af682eb34f7c",
+          "native_sha256": "050080e2eb2e460081eaa0dbf4e1c771847d7eed34d86c46db95c32040b54e57",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 2,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-finite-gate-snapshot",
+          "input_sha256": "bd70feb4eda2fdc8451dc220a1752811d95476e2aefdef7975fb9652bddc811d",
+          "native_sha256": "e9dd449c6b543b2e227de9ab3ede330dbf4b2199a3f8251725155c9a9c0b916c",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 3,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-first-condition-false",
+          "input_sha256": "eb4793c899cb61eb6152c37393835beb18468b90753e125dd8dd6cf734e17d6a",
+          "native_sha256": "52160fc42796d060d3df9b64692d10eea47971de472cfc887824b2c528b781fd",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 0,
+            "activations": 0,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-last-condition-false",
+          "input_sha256": "50e78220368de661a6213d1d673d23725778053999c5ed5380dda420cfb6c3c2",
+          "native_sha256": "8cd9bd4ae19f5b0c83175800851659711e6acdaa0d7de5fef5958c22916fc263",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 3,
+            "activations": 0,
+            "physical_shots": 3
+          }
+        },
+        {
+          "name": "undying-predicate-two-conditions",
+          "input_sha256": "24680360fa2ffe822749b86b493ead2cf7ff28fc06fee7fb3625da2f5d892720",
+          "native_sha256": "2b61fb4d67b3045521a6d392ad4ed46bce001a23f639f159a97b6a77c259b7ed",
+          "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 3,
+            "live_queries": 6,
+            "activations": 3,
+            "physical_shots": 3
+          }
+        }
+      ]
+    },
+    "rosters": {
+      "path": "/tmp/nikke-undying-rosters-reference-v1.json",
+      "sha256": "17aa29f87770d4239fadef03b7f18494f7b9c39475a423e86fc349b0e22e93dd",
+      "passed": true,
+      "cases": 3,
+      "totals": {
+        "condition_checks": 4,
+        "live_queries": 4,
+        "activations": 1,
+        "physical_shots": 2951
+      },
+      "entries": [
+        {
+          "name": "undying-predicate-real-3s",
+          "input_sha256": "b0e4ccbf78d35460493a6ef10f9d134ffb1670c86e05822c6f065b51ac7c3d56",
+          "native_sha256": "1c07f8cdbef45d8c6bbccfa0b968c99ae64f9bdafbe6a6a36b525e4434660756",
+          "trace_sha256": "9b7ff2d572f18016ebca95cda50407ea29335fae2b18cae386265350207cbd5e",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 0,
+            "live_queries": 0,
+            "activations": 0,
+            "physical_shots": 155,
+            "gpu_supported": false
+          }
+        },
+        {
+          "name": "undying-predicate-real-30s",
+          "input_sha256": "15606fc25778a660ff763b59941112aacb54ec96b1590321ef056e9bd78a8ea2",
+          "native_sha256": "aaf425a9e1fb97dee09310bc2a6cd101fd0d8e3e266284a41848c46c00557c37",
+          "trace_sha256": "84c87eb30e5692588803be7a1c7cb7e63c006fac4910bbb468b37ade5a0b6db5",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 2,
+            "live_queries": 2,
+            "activations": 0,
+            "physical_shots": 1398,
+            "gpu_supported": false
+          }
+        },
+        {
+          "name": "undying-predicate-real-30s-lethal",
+          "input_sha256": "d9cd897bb6fbb79af1ea9224fd370990605eae88490173843a72a513ba755783",
+          "native_sha256": "6cb8f82169d71076c1a5e127aff9c6a864e25e81eaf50ffc76f32287ad6381e5",
+          "trace_sha256": "84c87eb30e5692588803be7a1c7cb7e63c006fac4910bbb468b37ade5a0b6db5",
+          "contract": {
+            "verified": true,
+            "reference_model_gap": false,
+            "condition_checks": 2,
+            "live_queries": 2,
+            "activations": 1,
+            "physical_shots": 1398,
+            "gpu_supported": false
+          }
+        }
+      ]
+    }
+  },
+  "successful_metal_inputs": 1234,
+  "native_inputs": 980,
+  "rejection_inputs": 254,
+  "source_delta_ledger": "tests/fixtures/portable-undying-predicate-source-delta.json",
+  "shared_source_files": 116,
+  "runtime_fields_added": 0,
+  "runtime_stride_bytes": 138952,
+  "protected_cpu_legacy_cuda_numerics_normalizer_changed": false,
+  "retained_raw": {
+    "passed": true,
+    "gpu_calls": 0,
+    "prior_cases": 1203,
+    "retained_raw_bytes": 3784310784,
+    "families": [
+      {
+        "family": "accuracy-predicate-retention",
+        "cases": 1169,
+        "bytes": 3677356032,
+        "sha256": "275517ac20fe52985d2dd062dcbd4f3737af384194f02ff498e7a4ba3d7ba2c3",
+        "entries_equal": true,
+        "all_bytes_equal": true
+      },
+      {
+        "family": "accuracy-predicate",
+        "cases": 32,
+        "bytes": 100663296,
+        "sha256": "98c8cf339078646e0135773fd06d6f59c8e7c1e63bc05b205bf7172b776d451d",
+        "entries_equal": true,
+        "all_bytes_equal": true
+      },
+      {
+        "family": "accuracy-predicate-rosters",
+        "cases": 2,
+        "bytes": 6291456,
+        "sha256": "dd84ce8b18332e9f5803e62aa8461962de44185f2cfa2943ca47c918aa6656a3",
+        "entries_equal": true,
+        "all_bytes_equal": true
+      }
+    ]
+  },
+  "source_projection_updates": {
+    "passed": true,
+    "source": "independent Metal1203 seal + all raw/entry parity",
+    "updates": [
+      {
+        "path": "research/portable-world-accuracy-predicate-retention-short-expected.json",
+        "before_sha256": "669cfa4d0634fce417197947624063c12fa8dc9d3c4fd0236e58d8df4aad8dd4",
+        "after_sha256": "03877034a33d378b0bb483ecfa1dac2d4ebfc86b5c2b0784ffc5a806b3929fd1",
+        "inputs": 1169,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-accuracy-predicate-rosters-short-expected.json",
+        "before_sha256": "38da3669a6bf7f7b6dcf684ce84d1ebe31e09e8cd9c1bcab086430f8c7ba2083",
+        "after_sha256": "bc9b60ad9f3f48a2084b7180b0ca68577f5bafadd6d4dcd9afffb0bbb041a238",
+        "inputs": 2,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-accuracy-predicate-short-expected.json",
+        "before_sha256": "5a23ede6c7045fbe7ec0324a70857c0b73e32b43632e2bb51c9aa9a2c0094894",
+        "after_sha256": "36eb3de2cb3d2a1df1020aca24b7307e6e464ae7730538c1a4b4d06700496558",
+        "inputs": 32,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-ally-burst-rosters-short-expected.json",
+        "before_sha256": "c9b2b0b4bdaae3ec171ad5d94cf32c7f3ca4dd175d82bb9cfb89d0ad646516b4",
+        "after_sha256": "9a3ee658b269cdc801ba80eaed70c3b2bc2d003a3f1231d9a425ed6ef3669033",
+        "inputs": 2,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-ally-burst-short-expected.json",
+        "before_sha256": "cf418f8e25ea88ae49cb0d4b892f676d1a83ec4caa2ea1736965dc72638afe31",
+        "after_sha256": "8eb115c454c9fd450f69c7d0c79c0a78d7c80a306c9d9433e1e6cecf91fe3bda",
+        "inputs": 16,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-ammo-equivalent-catalogue-short-expected.json",
+        "before_sha256": "94db38c8be7a883812e976e0f65f8d04a698bea3f9faf31d5a350fc39d9049d9",
+        "after_sha256": "774afdf64003cef84cb1260dcabeec9633a702dbd5abff8ddfb11aba193d3e8e",
+        "inputs": 1,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-ammo-equivalent-retention-short-expected.json",
+        "before_sha256": "1d3b5ad4020a834dcd04ef38a597ac976993f581db638d08b932eb6994a23384",
+        "after_sha256": "31cc9aa630a86589c0e7163654477aac44dd4c3e5ecd73d6cd5cc1a276999f85",
+        "inputs": 1088,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-ammo-equivalent-rosters-short-expected.json",
+        "before_sha256": "a6812a8df902b15d68c44e83f76a4e47c71a87ac11f5ec2f7315f91d48358b6c",
+        "after_sha256": "008c9170e066e3add8b9e3204b44d5f454925c65dd2c0a739c5d6a3d577c676d",
+        "inputs": 2,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-ammo-equivalent-short-expected.json",
+        "before_sha256": "43dd4829f0b64017d01c872f51d7c90cd950d8f2849c009bc8ae5ba6d64b06f3",
+        "after_sha256": "49b4129664d859865ed72749d2cd7c51bf36a060f96a03c6b5b9f0e67d76669f",
+        "inputs": 46,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-heal-share-regression-short-expected.json",
+        "before_sha256": "f35097f8300baa777dab95ea73ce605213b7b6ae8ddb0fbc318ac83897e0aefa",
+        "after_sha256": "5f242df6ab7dcbabacc48114e5f850c4f678ebb7f3cd5603cc40f491f766c5b1",
+        "inputs": 849,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-heal-share-rosters-short-expected.json",
+        "before_sha256": "010e65f2f949f8953388d8fe9a2722f55ce1148f0484b66b973545ef57b668be",
+        "after_sha256": "fbc346e380e66b17d0aaba09d729203a40cf0c1a73b4a27bee6100a0e457801f",
+        "inputs": 4,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-lost-hp-attack-retention-short-expected.json",
+        "before_sha256": "5e96370c20258adec25b54e5f1abf70d0789c14f2a19ed45aa52c8fb47dd132f",
+        "after_sha256": "fa485aaa325c2781ee8220c5390374b141ec350a6cc408a277489ef1dee6fa03",
+        "inputs": 1016,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-lost-hp-attack-revival-short-expected.json",
+        "before_sha256": "af81520e3bb32279bb0ef061c93b80da1c4fd48348bd2ff0a7e4abb8c9614b59",
+        "after_sha256": "ae887e032f93431884c3f35a95a96400e649cc30b687c1cd5b04c1f41bccbb5d",
+        "inputs": 3,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-lost-hp-attack-rosters-short-expected.json",
+        "before_sha256": "3ce6ab957bf39c0418449437a65afcc9b6a4f54d3ff9a826784655700e029669",
+        "after_sha256": "9bae126542cf060b3fcafbb94353129afe0bbb4b38461e0a2c9cba1dbe77b52e",
+        "inputs": 2,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-lost-hp-attack-short-expected.json",
+        "before_sha256": "fcb9c7895bf03ec0d8834e4ce4af0f9397351f7ebef7509fb01dc96ec13f5ef6",
+        "after_sha256": "64991a3b58029d0eb221c44f90b894bc368e001cffdc20445d9da7c0d9e44507",
+        "inputs": 29,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-manual-swap-retention-short-expected.json",
+        "before_sha256": "b8b8dec775e9d9bd4b627d5b04b568e1e553b88d846b7899956d13e94eb391d7",
+        "after_sha256": "bdad4699bafbdf98518b3b6c2249723e810438ba518ea6c68f113d94d9592f22",
+        "inputs": 1137,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-manual-swap-rosters-short-expected.json",
+        "before_sha256": "78392c9670bf0850038b757cb795699f2655d47c2f7ee0e2e659d08c31a6cb80",
+        "after_sha256": "02ed001009eb03cb764c4e64ffea33aaac60640e3ae80d87524bbff984538a18",
+        "inputs": 2,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-manual-swap-short-expected.json",
+        "before_sha256": "f9b0be6031729d97461812b4b01800caaa5f7f6210f244f56f0536a4ac7b3e1a",
+        "after_sha256": "56a5b99c7aaf61129c2f813fc4559e1cd07334f6bd8234b7009a1cdd8059c835",
+        "inputs": 30,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-mode-capacity-instant-short-expected.json",
+        "before_sha256": "d0dcc425100fd39264ad1b4439c6d076200672587e8d778268ab16fcc422eda8",
+        "after_sha256": "8f4f897daf5258aa1b0c68349d808e2211dbd3690a53db995edd47dab0159c05",
+        "inputs": 3,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-mode-capacity-rosters-short-expected.json",
+        "before_sha256": "25de530ac46185e0c1483fbef41a16b5c45100d049fc08d286c6a22bc584b803",
+        "after_sha256": "3797534cab5211fa760d7a189a18a990c387cb1716729e1645739531654ff8d9",
+        "inputs": 2,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-mode-capacity-short-expected.json",
+        "before_sha256": "2d64d12ea73ec24c8357d7bce319b4ccf0deedde977084611d44d05c1d86c0e8",
+        "after_sha256": "8bca7ec0b0e1917837f18f7ae8530ce3cb94cc664f727e118f369c9d5a68d0c2",
+        "inputs": 32,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-parts-skill-short-expected.json",
+        "before_sha256": "e8af9df8c5199be0e44d0701b4ca9a90605bb44376a80118593a4df9ba278303",
+        "after_sha256": "0c0148a0e3b277b8b7039bf895330672d9e768ddad6dac9dd864fa4bc85985c5",
+        "inputs": 63,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-pellet-shot-retention-short-expected.json",
+        "before_sha256": "49cc7cd4206f72151af1601dc8a543ed3fc16dc1547ae5ec99a7158e7e7b3830",
+        "after_sha256": "69e018d22c22621b00dfacfd36cf5997c045b976d6438eb70769b03b2c6cfd5a",
+        "inputs": 1050,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-pellet-shot-rosters-short-expected.json",
+        "before_sha256": "cb91a8c7dc3d9f6a12fcb03d70db9e7240ca4101b66a583c00c8775ad8f0c7e6",
+        "after_sha256": "d94eaca28843d877cf13dba463763d946b16c72d896f473c50c6affc3e8d77ce",
+        "inputs": 2,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-pellet-shot-short-expected.json",
+        "before_sha256": "b4c69275600ecead5a4ccc8685737046e3fc92f211a5e3e9b2e2f2406fb5d5d1",
+        "after_sha256": "218f2b27bc268240628e93dedbbcad3840b4f983489ae5e4a8ee5db03f06c4f4",
+        "inputs": 36,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-skill-hp-basis-protection-short-expected.json",
+        "before_sha256": "52a9688f0c6200e9420dd5dfdf8b30659cac03f463389a74d34ae0f55232ca61",
+        "after_sha256": "f4bd434cdcff0cd33ff4c08bcdc8b49284bc3ca86dfa360eeb5e92b2a4c06194",
+        "inputs": 4,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-skill-hp-basis-retention-short-expected.json",
+        "before_sha256": "dc62f1a2155044353fdad66dcff4d7fc92e747a30253c692e9657153f0f9fc0f",
+        "after_sha256": "b6f8a8f8b9b41355827643a0d1a6326ca570aca2d8e5f55fdab48db488938131",
+        "inputs": 971,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-skill-hp-basis-rosters-short-expected.json",
+        "before_sha256": "b8d763afda5f6919c873e67e0d10c927e13907ec23058e8f3b898f6d87b67ca6",
+        "after_sha256": "58a4a95f2f4f9013798a875b79cb19654e90b163ef87c0d850a3b74f4511d241",
+        "inputs": 4,
+        "entries_retained": true
+      },
+      {
+        "path": "research/portable-world-skill-hp-basis-short-expected.json",
+        "before_sha256": "9bad884a0c7fda029199f332a85c9294fd702f3300ca592c8a8c5cd0ec30ef36",
+        "after_sha256": "2c34da23c63b12e21cd982ab3abbd81239370c4b1ae190117a3e15b99c2a0b8e",
+        "inputs": 37,
+        "entries_retained": true
+      }
+    ]
+  },
+  "earlier_attempts": [
+    {
+      "capture": "/tmp/nikke-undying-gpu-v1-metal",
+      "gpu_claim_exists": false,
+      "reason": "CPU source boundary mutation test stopped before GPU; new helper moved to file end without changing old audit or native expectations",
+      "preserved": true
+    },
+    {
+      "capture": "/tmp/nikke-undying-retention-gpu-v1-metal",
+      "gpu_claim_exists": false,
+      "reason": "Obsolete unsupported self_undying diagnostic fixture stopped CPU before GPU; replaced by reserved unknown self_future_marker",
+      "preserved": true
+    }
+  ],
+  "storage_budget": {
+    "available_bytes": 21806096384,
+    "required_bytes": 4286683588,
+    "reserve_bytes": 15032385536,
+    "margin_bytes": 2487027260
+  },
+  "inventory": {
+    "profiles": 266,
+    "packed": 227,
+    "base_profiles": 203,
+    "base_packed": 167,
+    "categories": 68,
+    "candidate": 0,
+    "consumer_research": 4,
+    "model_gap": 3,
+    "review": 61
+  },
+  "real_profiles": {
+    "character": "마키마",
+    "whole_original_definitions": true,
+    "physical_history": [
+      155,
+      1398,
+      1398
+    ],
+    "omitted_history": [
+      0,
+      0,
+      0
+    ],
+    "cpu_condition_results": [
+      [],
+      [
+        false,
+        false
+      ],
+      [
+        true,
+        false
+      ]
+    ],
+    "lethal_stimulus": "Literal attack at1s, own slot, atk1e12, ignore_taunt; original profile not edited",
+    "cpu_live_stat_not_value_or_name": true
+  },
+  "codegen": {
+    "report": {
+      "passed": true,
+      "source_sha256": {
+        "gpu/compiler_commands_entry.slang": "8aab548d4efe72ec4ed1e700c8bf894e8a08a16fe4e48dfada0180a8a6c40ef3",
+        "gpu/world_entry_reload_resident_entry.slang": "dae039a720ec42ada66ae731ba23396414f4d4a0301ca89fb7d0651f855afced",
+        "gpu/world_projectile_resident_entry.slang": "a2e20e241c0cd0d5533fd38078672a732bf934f2aa30fd9e1c981e7f402a9ceb",
+        "gpu/world_projectile_entry.slang": "a78c90523a37f973207265c83c7d62c2cabdf1c99023f9e36f8a30e0c1cb3c65",
+        "gpu/world_roster_entry.slang": "7d78135536c330b19acf05b458748e3236450d1281a9c5ac81fb8351c57dbbf4",
+        "gpu/world_reload_entry.slang": "fd7e2e3d64811ee2aecb5e3e517870898104712b4bb719d0b4f543e2d70085f8",
+        "gpu/world_charge_control_entry.slang": "50291edf53d64bfb866c54dfe23e454b6cb45422f4961f56d20c18d125021316",
+        "gpu/world_team_entry.slang": "8ff8496183d9e146d6fb69a8b4e39ebc696e6ced1a72cb2e3e8bacf39e7c1951",
+        "gpu/world_fraction_entry.slang": "d5837bd9edd180433d29aaba476e953d10809b86d6e6850e825d907f9f6f1b76",
+        "gpu/world_spawn_entry.slang": "1b433e98fd906fa7c9af0f100175535e0d669301a174c9df06c2d87f8b644caf",
+        "gpu/world_enemy_attack_entry.slang": "4f86e4b5e616e8149cc47245c5aa31492bcd9f3a739a49501fd7a548bd75740a",
+        "gpu/world_periodic_entry.slang": "87abe82e2142dcd58c4ebab9109efe738800200eae04ed4b72e37f375c0ec7a0",
+        "gpu/world_pending_entry.slang": "d1043328c670ac3a4837414eeb871edf94a1afac2de95d42b646b0d358ba931c",
+        "gpu/world_skill_entry.slang": "433216610c518f8c2c3f122eb1aa886ae53e197d72b4307ded1cb90dfa278a98",
+        "gpu/counter_field_entry.slang": "1147bde65aa343ceb5d3473efb43f86f0a0f0225c6ae3ffa118b62d11ec14745",
+        "gpu/counter_context_entry.slang": "7387fc06a72bc9b984f8b29d46655a549ab56e154cd9f0924dc0533b9f787073",
+        "gpu/counter_landing_entry.slang": "695560a33534df60e9f31359622f6a197d14d2eb4b072371520955c9eacde7bf",
+        "gpu/target_counter_entry.slang": "af78f0f0cc55734578c0a86f48d5cd36750dd3ae4589be405d81d962293a4666",
+        "gpu/event_runtime.slang": "80ad60c7e220c98c1f8975edd281a9889705eb8667edf4de04cfb29c365fe9d1",
+        "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+        "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+        "gpu/portable_schema.slang": "8b2b9facdb90f92d56ad16da6853f83f07be75f94d827d6a8e124e3bae66ff1d",
+        "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+        "gpu/runtime_init.slang": "42138104b72985daa57788ad7ba1ca9b2db86dc208f63a089679895c8e36d1d9",
+        "gpu/definition_runtime.slang": "b51aa866698ffae2aec5e209689a6d98ccda3dd5e1f047ce5a420fb69125abf6",
+        "gpu/enemy_route_runtime.slang": "760548df57fb58921d34332df9b54cf483ef4a0a22cd5e68f08c7faee1b3667c",
+        "gpu/lazy_bank_storage.slang": "f319580696bf1a68792e243bfb39ff64c56d6361d9327d15bb32ebdbaa1733a5",
+        "gpu/world_overlay_runtime.slang": "23a9330cf5558dc0c21675c25d171e4b033108dec19d738653837c043efa745e",
+        "gpu/geometry_runtime.slang": "8e8018af3959fde2f794c147aff2387464d4f486be17088cf260da41d48f8ef5",
+        "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+        "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+        "gpu/reference_runtime.slang": "78ba2636a2b1afb7f13a8ff57d46ba5b9b84a8545d55efeae2d47375f4aac149",
+        "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+        "gpu/bullet_runtime.slang": "2cda4cfed0e7ffd31076ea48050b7be71cd8312779483b13d7c150c4ccd5d23a",
+        "gpu/rank_runtime.slang": "5d9742e04178629890df3a4004bdc097f6b5fdc684287bb8baeff309f5875f1f",
+        "gpu/lazy_runtime.slang": "72a21a8b78a5a8473bf3ef3fe1ac47371c656229851aa0cfcecfc9bc0c581c4b",
+        "gpu/named_magnitude_runtime.slang": "e3ddd915b38ca85be179890034ebde9efd7dd0743e53aeacfb94a46efcc98d7b",
+        "gpu/enemy_buff_runtime.slang": "d45d8af699c45f154acfddf70e8d63c67797331bd504891ee75bd01914dfc45b",
+        "gpu/world_enemy_attack_runtime.slang": "3490a2f4936718c0e40123e3f7d71af7366a55342450ff3e93e4576320c05362",
+        "gpu/carrier_runtime.slang": "b1fc42df64231d85a73d883a510bd1088f2c789ca4ec107bf0a0769ed2f917ee",
+        "gpu/skill_interval_runtime.slang": "cf91792f6f0e0a8e5b5af0abe53273446d4ea88c9d19747035988d60591fa544",
+        "gpu/quantity_runtime.slang": "466651cfff6b929d3e874fdc3a1441b419f6e51e73c8cfd6bc6bf941ff631356",
+        "gpu/base_copy_runtime.slang": "547a45abece616872b49f523e257f9c59e48ce5d04b051dd7ec8561bf2f27f4a",
+        "gpu/health_runtime.slang": "cf5dfb00217854e99f1fdc9371d78220c5703baeb541276e0432e4d4c138bfc6",
+        "gpu/lifesteal_runtime.slang": "2f75f91df647a4d496671253b2f52792032197ef7a0b8d7ea87a92b7408f76f2",
+        "gpu/cover_runtime.slang": "eb1b4a4e7c9683b615a160f3010e0e50a5da9d9a7f0425b471c83b1d625dffe6",
+        "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+        "gpu/hp_attack_runtime.slang": "f3126496cd2660837a36d610b113d3a6ea9fe43c6fc4800a720ecdbce2e648c0",
+        "gpu/recipient_runtime.slang": "311b34522cacb5f31716a643427f4dfc0d60f6d5dee4c9433d09deabc6d846e8",
+        "gpu/skill_clock_runtime.slang": "b7bfcd4457d9e1ac2f11650fe47fabe8c3f196fb7ca2c7dadff3c0d77e0684e4",
+        "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+        "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+        "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
+        "gpu/skill_critical_runtime.slang": "ffab45b7bc55c3d1bbe472d9b590320183281e6aa11370e212c84e56ab218417",
+        "gpu/damage_runtime.slang": "bb8a49770d363eabeef235425fa3bf1d9faf4c35d5e327f049ed9958c33b85db",
+        "gpu/damage_factors.slang": "c806441d5532ccc494e3f9099033378621e95cc248fe1be8826f9864de2ca3de",
+        "gpu/skill_hp_basis_runtime.slang": "f2023fa76b5d932bf847a47d135b939c2bff16770a9788982058106751162830",
+        "gpu/incoming_runtime.slang": "6e4d106fd6b92509394c1b9c0005c824acf79fe67e476fe43fe783632d6ad1fb",
+        "gpu/revival_runtime.slang": "4b38cb85ff3d24375191cabd836283f572a8c2663fccd9c1d31b71bcbb853683",
+        "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
+        "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+        "gpu/enemy_damage_runtime.slang": "94110711ef4f94cf0590b3ac097daaa6f3a8cc5a16ddfc92607a37234b95f82d",
+        "gpu/landing_runtime.slang": "80c3c17e97f20ea64ebaa7fb2f9c4fb426858996883cf7de4595d5f04c67a429",
+        "gpu/skill_part_receipt.slang": "3bb073f46d9f298d693c5aa1d9f5439f0347a98b80498c8ccd03d7ed572ab904",
+        "gpu/interrupt_packet_codec.slang": "a2b98699efb3bc0cb7dde5a958183914930f535a7defcc690be120737f8cfd2c",
+        "gpu/periodic_runtime.slang": "ac1743d8388b147adfd4370e041dc30051bd0e341b536dfc10c38edbd9aff1f4",
+        "gpu/removal_runtime.slang": "e457125116d618de53ca81d78c2f4eabe9e07d7b205a954624c9ae2e3266a694",
+        "gpu/duration_extend_runtime.slang": "22bfef6f3e944dba99ee826d8c3277623828b34b817f0ca5e6999988004d6faa",
+        "gpu/trigger_reduction_runtime.slang": "fd1e8a18a66cce0a9884aed9be42f125c9afb56ad662efecedad21ac6b7124ef",
+        "gpu/stack_runtime.slang": "88719271c2f5ed2772aadae98ff3563439c15344c8e2535e4f8270e490969348",
+        "gpu/status_runtime.slang": "2e7dbbfd9efe39987ddc868c5fd2c73d48a117fdbd6e099f15e4ac7f74f0054a",
+        "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+        "gpu/pending_burst_runtime.slang": "845d1cb38b7ac7fe3496fc3c0bcba5f018d98703c15d4a89ff599a812bd44673",
+        "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+        "gpu/world_frame_addresses.slang": "d1606c64d97393118479cb0c4e75edb84d0a79c37e6f7dbbbdb80107915ec6ae",
+        "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+        "gpu/protection_runtime.slang": "f4e3c7b6efc23980548d0962850b8434840e9471f46ddb1ff34cc0e0e6d47638",
+        "gpu/healing_storage_runtime.slang": "2b34608820115d98133cb7e8048604262cd024ec86897e5cf4f50acccb28d3dc",
+        "gpu/heal_share_runtime.slang": "f3f91269823a7edbb1124df8b8f809c59a00f72f49cb759120701d9ad725bc11",
+        "gpu/heal_share_plan.slang": "0042ea4d64f9a22533b82e2206b90fa0eaba5bd90719002beb5f5cb5f03237a5",
+        "gpu/heal_share_trace.slang": "432863cbd91791a47acf93062d235d7d5d8a08a71f2e2023ef4970916d07c31b",
+        "gpu/dispatch_phases.slang": "02b37a204e65f5db0b5fbf800078a993b0f8ce6599ed20525afab08c2a4fed2c",
+        "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+        "gpu/world_actor_pools.slang": "4b2a9848ad30ddc819e3f3d0d4bf2cfc2377030ad0893f3498e92e127e516162",
+        "gpu/world_actor_fields.slang": "b1b0fade0e1e7d495f46ccdbb26f7dbc4d4cb2694603a8baf10eac363655d666",
+        "gpu/world_actor_state.slang": "fe544032dc4862a7a3689b292f21110674bfb37668e84ffb87d9e78412e629c3",
+        "gpu/world_actor_mutation.slang": "8d807f7800ec72f25caee64d4f6ae7885dba3328773111f117b7ccf6585f0e53",
+        "gpu/world_actor_recipients.slang": "f7eb33cbe737cd6e6c729f6ca8c15d015256c2844f9d9a44fd1f6c646e34cab7",
+        "gpu/world_actor_status.slang": "ae3f88af686392cca06e6ee67c5e059b36032acfc61588fe58417cdba7e18292",
+        "gpu/world_actor_stacks.slang": "38864ac1f81c3f9591f8273b318e37ee31b76a5ddf2de8a2c2a711db29323e8f",
+        "gpu/target_counter_runtime.slang": "5a1605e713aa86f5901fc5e7e6a7a723b5ee902ae4a812c5833084542849c898",
+        "gpu/world_projectile_runtime.slang": "3d3d498386038746f671007d5522ece05c7b82dd09d9d6fee9704aeff0af9e18",
+        "gpu/counter_landing_runtime.slang": "503f3185902080d920f6613f69325e302cdf5a6fdefb839230aecc50059423a4",
+        "gpu/counter_context_runtime.slang": "aa3e9cf52e85feb2146467496954fcb6dd4f4eac8ebf9c1cdacdcaf38b1ea21b",
+        "gpu/counter_field_runtime.slang": "d972af3f7f9fd596a4c3732c79e344ce547532471374066c72dfeba3012153aa",
+        "gpu/world_skill_runtime.slang": "7fbb034db076db80a316296f4ca9ab70cd51972a1dcfeb16f52d39064cc2a31f",
+        "gpu/world_interrupt_runtime.slang": "e3ddc91c7048e382a5548aa8495e603216d40d7a86d92c44f8f96f0037f6a2d3",
+        "gpu/world_periodic_runtime.slang": "a409fada330b1fd3241674af42221e771e666d6474a82249b83c7c4a2f31a990",
+        "gpu/world_spawn_runtime.slang": "6da41aa26d47d47ebb54b6d742f62592f2fbcae50ea2e38a3a7d571771b7a8c3",
+        "gpu/world_fraction_runtime.slang": "6ee8371cee6f0ab559cbfb4c7fe2feb07b126270be9a87339893ea0f55bb3644",
+        "gpu/world_team_runtime.slang": "783e11d298afa785183e1176a9c7cb8b0ae359b9412dfb9b37efead44b7eaceb",
+        "gpu/world_charge_control_runtime.slang": "2c9339c35e4a48eecf16fb4168ed99d829f0bbc11e187cf1e26396c564f48b99",
+        "gpu/world_actor_registry.slang": "dafa4422554269f9b3529aa21ae9542dacedc6c5af32c36842fc3e0d0b7d3d03",
+        "gpu/world_frame_runtime.slang": "c44235d89908844ce3fcd1737ef5b7864f2ce801a80afaa4014865b438848a8b",
+        "gpu/combat_runtime.slang": "0e03fe8f7072d68df13ce826f4185121ebd897d14b1e760a1d0ab838e01c4ee8",
+        "gpu/ammo_instant_runtime.slang": "c42587518bf8a34c08044bc1984d1ee17a210c18688632e907227d1511ba7af4",
+        "gpu/weapon_runtime.slang": "8ba1777d786ae0860f5d64fbe214daabbc4abe0ae137964ebe1f9bf845011b3b",
+        "gpu/mode_entry_runtime.slang": "dbd68df38ea19a6f21f4a41bcd9936fd08a7c4003574b91fb58617538b2fc64a",
+        "gpu/world_reload_runtime.slang": "47889666772f867b246b63ecc2cdea98eda79b6b7e2e4b2bd67d63c3b1818090",
+        "gpu/world_overlay_weapon.slang": "f9f33dcafbdd8f8dbea5acede13461b19a08e7084b7e5aa8f1f14c1959b4d370",
+        "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+        "gpu/pellet_shot_runtime.slang": "b84c7a1a969d0b04e14d08347d2495245bca5ebe98899fe10b1c80d65f901dad",
+        "gpu/weapon_frame_phases.slang": "ff97e8bd2e49dad9c55947d2da2a41ab2fe22f9b05415abe68deea46916aeee4",
+        "gpu/admission_runtime.slang": "2c4520605b5c951d1435634ffaf9507a3c822b54962ae31b2924d940f01de09e",
+        "gpu/portable_mt19937.slang": "6365293f4fe0269fba87b15aa866e617333f5012acef175a13fd7ed27152323a",
+        "gpu/enemy_target_runtime.slang": "830fd22f28d105ea6b4e0ad4d334e774e36eebab698c1096a163cfdb712d9d1f",
+        "gpu/program_phases.slang": "16783d980bcbdc7a7f9759e57fcd0b70765bc386898233d13c7c0b8c39e46846"
+      },
+      "generated_normalized": {
+        "cuda": "83c668227fb601f10913741154f818ead829c7eba082adcd92ddabb9fe0ae19c",
+        "metal": "6946e0b44a05527364446edff558c7519a16a5fbfdeab8bbc0a5c39bdd353659"
+      },
+      "gpu_calls": 0,
+      "nvrtc_calls": 0,
+      "calculation_verified": false,
+      "full_sources": 116,
+      "commands_sources": 117
+    },
+    "certificate_tests": 14,
+    "full_package_id": "1f746c42e6a99cd33c7b2ad315e0cb784d229f41b16bb0027ff53478c9bea99c",
+    "commands_package_id": "4861881a11ea120462e194d28383180c3a679b80499ce49e341358e34b4f2a70"
+  },
+  "release_cpu": {
+    "package_id": "a8e8e69a995af3c0f107bb67aad8ef24d30b7e300207069b9aff7ed49ce89a00",
+    "result": {
+      "cpu_verified": true,
+      "gpu_calls": 0,
+      "calculation_verified": false,
+      "preservation_verified": null,
+      "status": "cpu-only"
+    },
+    "groups": 17,
+    "tests": 111,
+    "errors": 0
+  },
+  "windows": {
+    "additional_operations": 0,
+    "process_exit_cause": "unknown",
+    "preservation_verified": false,
+    "current_source_cuda_verified": false
+  },
+  "next": "Audit and batch unsupported predicates sharing existing state; retain independent audits and bound Windows checks; full catalog/runtime certification remains incomplete",
+  "readiness_route": "Known connected accuracy/undying subsets route old diagnostics to reference_review; no broad admission claim"
+}

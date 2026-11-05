@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "gpu_calls": 0,
+  "input_stride_bytes": 417600,
+  "output_stride_bytes": 3145728,
+  "old_inputs": 398,
+  "new_inputs": 62,
+  "checks": [
+    {
+      "name": "old398-inputs",
+      "bytes": 166204800,
+      "byte_identical": true,
+      "sha256": "9ed23660dda2378202bcb4c7028549f53c2bc535844cff2a08410f18204f5cc1"
+    },
+    {
+      "name": "new62-inputs",
+      "bytes": 25891200,
+      "byte_identical": true,
+      "sha256": "8b5486688bbd5f4656d28d86c7c2f7b43d77681d156e8441c78f0f67dfa0daf9"
+    },
+    {
+      "name": "old398-full-raw",
+      "bytes": 1251999744,
+      "byte_identical": true,
+      "sha256": "03293c512f0eba5f164e6a50d038e95b006d70368b652d687b3b9f3becf1fb25"
+    },
+    {
+      "name": "new62-full-raw",
+      "bytes": 195035136,
+      "byte_identical": true,
+      "sha256": "1af23c4c1c242e4572f6a336c25e3bda53c486869a2a0d0a4d9c329835a1901d"
+    },
+    {
+      "name": "old398-native",
+      "entries": 398,
+      "all_input_native_output_fingerprints_identical": true
+    },
+    {
+      "name": "new62-native",
+      "entries": 62,
+      "all_input_native_output_fingerprints_identical": true
+    }
+  ]
+}

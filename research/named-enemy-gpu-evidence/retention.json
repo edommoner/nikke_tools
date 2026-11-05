@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "old_inputs": 175,
+  "unchanged_input_native_output_fingerprints": 175,
+  "old_output_bytes": 550502400,
+  "old_output_sha256": "8dca74006252e05ffb90137d037e59568ef4cb7896187f0fac77e9b960847ebc",
+  "gpu_calls": 0,
+  "runtime_stride": 138952
+}

@@ -23,11 +23,10 @@ try{
   assert.equal(j.bestByField.atk.value,5000);assert.ok(j.results.some(r=>r.field==='hp'));
   const expanded=await api('/api/demo?expanded=true');
   const raid={...evaluation,profile:expanded.profile,squad:expanded.squad,stat_deltas:{}};
-  j=await api('/api/jobs',{kind:'optimize',selectionBackend:hardware.available?'cuda':'cpu',evaluation:raid,mode:'fast',teamCount:5,excluded:[]});
-  await api(`/api/jobs/${j.id}/pause`,{});j=await until(j.id,['paused','complete']);assert.ok(j.index>0||j.combatAcceleration?.backend==='cuda');
+  j=await api('/api/jobs',{kind:'optimize',selectionBackend:'cpu',evaluation:raid,mode:'fast',teamCount:5,excluded:[]});
+  await api(`/api/jobs/${j.id}/pause`,{});j=await until(j.id,['paused','complete']);assert.ok(j.index>0);
   if(j.status==='paused'){await api(`/api/jobs/${j.id}/resume`,{});j=await until(j.id);}
   assert.ok(j.recommendation,'Expected five-squad recommendation');
-  if(hardware.available){assert.equal(j.acceleration.backend,'cuda');assert.equal(j.combatAcceleration.backend,'cuda');assert.ok(j.combatAcceleration.approximate);assert.ok(j.combatAcceleration.candidates>=j.total);assert.ok(j.results.every(r=>!r.result||r.result.engine_revision));}
   assert.equal(j.recommendation.teams.length,5);assert.equal(new Set(j.recommendation.teams.flatMap(t=>t.squad)).size,25);
   const firstTwenty=JSON.stringify(j.results),fiveDamage=j.recommendation.damage,exclude=j.recommendation.teams[0].squad;
   const optimizerId=j.id;
@@ -41,9 +40,6 @@ try{
   j=await api('/api/jobs',{kind:'optimize',evaluation:raid,mode:'fast',teamCount:1,excluded:exclude});j=await until(j.id);
   assert.ok(j.recommendation);assert.ok(j.recommendation.teams[0].squad.every(n=>!exclude.includes(n)));
   const rejected=await fetch(url+'/api/demo',{headers:{Origin:'https://unrelated.example'}});assert.equal(rejected.status,403);
-  console.log(JSON.stringify({passed:true,gpu:hardware.available,archive_presets:catalog.enemy_presets.length,comparison:damages,strict_target_search:true,multi_field_search:true,five_squad_damage:fiveDamage,unique_members:25,batch_board:true,pause_resume:true,extended_candidates:expandedCount,prior_results_preserved:true,union_exclusions:true,origin_check:true},null,2));
+  console.log(JSON.stringify({passed:true,native:hardware.native?.available,archive_presets:catalog.enemy_presets.length,comparison:damages,strict_target_search:true,multi_field_search:true,five_squad_damage:fiveDamage,unique_members:25,batch_board:true,pause_resume:true,extended_candidates:expandedCount,prior_results_preserved:true,union_exclusions:true,origin_check:true},null,2));
 }catch(error){console.error(error,stderr);process.exitCode=1;}
 finally{child.kill();await once(child,'exit');}
-
-
-

@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "raw_unchanged": true,
+  "raw_sha256": "3360c8c171e0d4fade8db1d41f82420d2683249fcb13a6ef084d5df06bdc25f8",
+  "raw_bytes": 218103808,
+  "faults": [
+    {
+      "name": "circle-boundary-selection",
+      "case": "coordinate-area/circle-touch-False",
+      "word": 978076,
+      "detected": true
+    },
+    {
+      "name": "layer2-center-selection",
+      "case": "coordinate-area/layer2-center",
+      "word": 978076,
+      "detected": true
+    },
+    {
+      "name": "interrupt-amount",
+      "case": "coordinate-skill/pierce_damage/False/False/False",
+      "word": 928938,
+      "detected": true
+    },
+    {
+      "name": "target-generation",
+      "case": "coordinate-area/rectangle-0",
+      "word": 978079,
+      "detected": true
+    },
+    {
+      "name": "unused-tail",
+      "case": "coordinate-area/range-expiry",
+      "word": 1048575,
+      "detected": true
+    }
+  ]
+}

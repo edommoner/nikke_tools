@@ -1,0 +1,80 @@
+{
+  "schema": "selected-entry-final-checks-v1",
+  "source_commit": "f096e7fc5d52bb8c1907a31702d040489b18c5e4",
+  "package_id": "10bb432edb3a4c170d1da709e2f534d7ff0ed00fd672ae7cdf6bece8ac7eb081",
+  "archive_sha256": "918317b1e4522cf7d7961a9b01ff8efb33c98f8c0e7456691198746f0f2fd8d2",
+  "unit_check": {
+    "passed": true,
+    "groups": 24,
+    "tests": 216,
+    "full_native_preflight_executed": false,
+    "calculation_verified": false,
+    "gpu_calls": 0
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "10bb432edb3a4c170d1da709e2f534d7ff0ed00fd672ae7cdf6bece8ac7eb081",
+    "suite": "original-catalogue-incoming-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "payload_delta": {
+    "changed": [
+      "app/portable_original_entry_inventory.py",
+      "app/portable_original_identity_inventory.py",
+      "scripts/nikke_gpu.py"
+    ],
+    "added": [
+      "tests/test_original_entry_selection.py"
+    ],
+    "removed": [],
+    "function_changes": {
+      "app/portable_original_entry_inventory.py": {
+        "changed_existing_functions": [
+          "run"
+        ],
+        "added_functions": [
+          "profile_explanation"
+        ],
+        "all_other_existing_functions_classes_identical": true
+      },
+      "app/portable_original_identity_inventory.py": {
+        "changed_existing_functions": [],
+        "added_functions": [
+          "selected_prepared_profiles",
+          "selected_profile_bodies"
+        ],
+        "all_other_existing_functions_classes_identical": true
+      },
+      "scripts/nikke_gpu.py": {
+        "changed_existing_functions": [
+          "main"
+        ],
+        "added_functions": [],
+        "all_other_existing_functions_classes_identical": true
+      }
+    },
+    "all_other_payload_bytes_identical": true,
+    "golden_all_input_native_gpu_expectations_identical": true,
+    "packet_selected_report_equal_to_checkout": true,
+    "extra_gpu_runs": 0,
+    "full_native_sweep_repeated": false
+  },
+  "selected_report_sha256": "0f2c58de363dbda51db1a5f37cc7c5e689a04ffafef645be533685fb61f07865",
+  "scope": "Immutable static audit and unit validation only; existing calculation proofs retain original provenance",
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "full_native_sweep_repeated": false,
+  "full_goal_complete": false
+}

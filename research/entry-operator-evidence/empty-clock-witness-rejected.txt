@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/nikke-original-force-probe-sakura-v1.py", line 30, in <module>
+    assert events[0]['before_clocks'],'A nonempty original periodic-clock witness is required'
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: A nonempty original periodic-clock witness is required

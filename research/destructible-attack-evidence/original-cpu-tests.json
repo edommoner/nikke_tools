@@ -1,0 +1,42 @@
+[
+  {
+    "pattern": "test_destructible_attack.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7487291669240221,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 44184
+  },
+  {
+    "pattern": "test_destructible_counter.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.35796454094816,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 44184
+  },
+  {
+    "pattern": "test_destructible_world.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.03195558406878263,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 44184
+  },
+  {
+    "pattern": "test_target_counter_runtime.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.010219166986644268,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 44184
+  }
+]

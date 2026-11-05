@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "baseline_commit": "abe330c",
+  "sources": {
+    "gpu/admission_runtime.slang": {
+      "baseline_sha256": "07d993a0876133e5f448574d074942e455b85fdcfd9ce0bffd22a36f05f25000",
+      "current_sha256": "69fabd225d68fe3b1df64fc3bd21bd64a6e770326811dbaee0acfc432ce623b0",
+      "changes": [
+        {
+          "baseline": "        Definition d;loadDefinition(input,j,d); PROJECTILE_ADMIT_ROW(s,j,d)\n",
+          "current": "        Definition d;loadDefinition(input,j,d); PROJECTILE_ADMIT_ROW(s,j,d)\n        if(d.kind==37)\n        {\n            if(s.combat==0 || d.stat!=0 || d.target!=0 || d.enemyBuff!=0 || d.healthScaling!=0 || d.alliedFlags!=0 || d.quantityFlags!=0 || d.damageFlags!=0 || d.queryResolve!=0 || (d.flags&~3U)!=0 || !f64Finite(d.value) || f64Less(f64FromI64(4096),f64Abs(d.value))) { s.error=64;break; }\n            uint recipient=input+P_RECIPIENT_BASE+j*8;\n            if(commands[recipient]!=0 || d.owner>=5 || d.recipients!=(1U<<d.owner)) { s.error=64;break; }\n        }\n"
+        }
+      ]
+    },
+    "gpu/dispatch_phases.slang": {
+      "baseline_sha256": "1e625e6f2ddf707e1cf89c92c9618d0ba58a24e6c28ccf20fa6c18b0faa45644",
+      "current_sha256": "02b37a204e65f5db0b5fbf800078a993b0f8ce6599ed20525afab08c2a4fed2c",
+      "changes": [
+        {
+          "baseline": "        }\n",
+          "current": "        }\n        else if (d.kind == 37)\n        {\n            uint status;int64_t count=int64_t(f64ToI64(d.value,1,status));\n            if(status!=0) { s.error=16;break; }\n            if(count>1) pushFrame(s,frames,depth,32,0,d.owner,0,f.time,uint(count-1));\n        }\n"
+        }
+      ]
+    },
+    "gpu/event_runtime.slang": {
+      "baseline_sha256": "d6acec375135705a332b19311872cc5e2c8e6a68ab1029ce0a84edc228305483",
+      "current_sha256": "863b2097c0ec367fa8d0a415d6d7883930b88486d2076a24a2eec51314d46a85",
+      "changes": [
+        {
+          "baseline": "#define PROJECTILE_COUNTER_ROW(s,row,d) PROJECTILE_DIAGNOSTIC_FIELDS(s,row,d,11)\n",
+          "current": "#define PROJECTILE_COUNTER_ROW(s,row,d) PROJECTILE_DIAGNOSTIC_FIELDS(s,row,d,11)\n#define PROJECTILE_POOL_ROW(s,row,d) PROJECTILE_DIAGNOSTIC_FIELDS(s,row,d,8000)\n"
+        },
+        {
+          "baseline": "#define PROJECTILE_COUNTER_ROW(s,row,d)\n",
+          "current": "#define PROJECTILE_COUNTER_ROW(s,row,d)\n#define PROJECTILE_POOL_ROW(s,row,d)\n"
+        },
+        {
+          "baseline": "#define WORLD_PROJECTILE_KIND(d,legacy) (d.kind==1||d.kind==9||d.kind==10||d.kind==29 ? false : (legacy))\n",
+          "current": "#define WORLD_PROJECTILE_KIND(d,legacy) (d.kind==1||d.kind==9||d.kind==10||d.kind==29||d.kind==37 ? false : (legacy))\n"
+        },
+        {
+          "baseline": "        if (f.mode == 15)\n",
+          "current": "        if (f.mode == 15 || f.mode == 32)\n"
+        },
+        {
+          "baseline": "            logResourceNotification(s,26,f.owner,uint(f.argument),f.time,ONE,output);\n",
+          "current": "            if(f.mode==15) logResourceNotification(s,26,f.owner,uint(f.argument),f.time,ONE,output);\n"
+        }
+      ]
+    },
+    "gpu/world_actor_pools.slang": {
+      "baseline_sha256": "6eb7e9d7c82b0271c7dc35ceb93f63f84c8f4af1b68bfe8f2a47d192e6d68a7c",
+      "current_sha256": "4b2a9848ad30ddc819e3f3d0d4bf2cfc2377030ad0893f3498e92e127e516162",
+      "changes": [
+        {
+          "baseline": "    { Definition d=readDefinition(s.inputBase,row); PROJECTILE_ADMIT_ROW(s,row,d)\n",
+          "current": "    { Definition d=readDefinition(s.inputBase,row); PROJECTILE_POOL_ROW(s,row,d)\n"
+        }
+      ]
+    },
+    "gpu/world_actor_fields.slang": {
+      "baseline_sha256": "274b809f30df7b747283ac81b252ff4158b9a08e46c801e78e41a5ecccb34d58",
+      "current_sha256": "8dde0d7548c4144cefb995abb761b75b59eccc032f2e6ebfff2444594a85e7cf",
+      "changes": [
+        {
+          "baseline": "        { if(s.combat==0 || commands[at+1]!=0 || !f64Zero(arg)) return false;continue; }\n",
+          "current": "        { if(s.combat==0 || commands[at+1]!=0 || !f64Zero(arg)) return false;continue; }\n        if(kind==C_CORE || kind==C_OPTIMAL_RANGE)\n        { if(!hasRangeGeometry(s) || commands[at+1]!=0 || !f64Zero(arg)) return false;continue; }\n"
+        }
+      ]
+    }
+  }
+}

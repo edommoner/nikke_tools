@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "scope": "Versioned interrupt packet codec only; battle not connected",
+  "package_id": "8799152370ef3d393c97d83a0abbbdbf504b0e94d2568942cdf557d9f8b7ca64",
+  "capture": "/tmp/nikke-interrupt-codec-v2-metal",
+  "seal": "/tmp/nikke-interrupt-codec-v2-sealed.json",
+  "inputs": 154,
+  "native": 140,
+  "rejected": 14,
+  "all_output_words_compared": true,
+  "output_words_per_input": 786432,
+  "raw_bytes": 484442112,
+  "input_sha256": "9f1c39368bde6d1a1d262df5516bf0e6d5e86c25c62372675dfcbcb595f70360",
+  "output_sha256": "21a495de564f2470e310b43165e398c8f0eb35885ca3c40377fc5ca87d81276e",
+  "source_sha256": {
+    "gpu/interrupt_packet_codec_probe.slang": "0bf83ce696271ca61d637c403f254b1a0c7335e37dc06ec3ef6a8a2239cfbf31",
+    "gpu/interrupt_packet_codec.slang": "a2b98699efb3bc0cb7dde5a958183914930f535a7defcc690be120737f8cfd2c"
+  },
+  "generated_normalized": {
+    "cuda": "7fae6b9cf34f6f4292e010269b8f646941e624ee3057c4001d7dea3d4eb5f780",
+    "metal": "cad4c90836c47b0fe16b00d5aabae770cad8a483a9c1fd01e615e0568544b1c9"
+  },
+  "gpu_result": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": true,
+    "preservation_verified": null,
+    "passed": true,
+    "containment_verified": true,
+    "comparison_error": null,
+    "first_difference": null,
+    "phase": {
+      "events": 4,
+      "last_event": {
+        "monotonic_ns": 768899412686625,
+        "pid": 94088,
+        "stage": "shared_gpu_execute",
+        "state": "returned",
+        "wall_time_ns": 1792669749619303000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_linked_artifact_observed": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "cpu_tests": [
+    {
+      "pattern": "test_portable_interrupt_packet_codec.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.06741524999961257,
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 94085
+    }
+  ],
+  "legacy_periodic_representation_unchanged": true,
+  "main_runtime_includes_codec": false,
+  "windows_new_runs": 0,
+  "full_character_certifications": 0,
+  "goal_complete": false,
+  "retained_failure": {
+    "capture": "/tmp/nikke-interrupt-codec-v1-metal",
+    "cause": "Probe used256-word stride while shared CLI requires786432; first256 words of first case exact, remaining cases overlapped; corrected source in v2",
+    "original_raw_claim_retained": true
+  },
+  "coverage": [
+    "128 cyclic permutations: every slot in every packed position",
+    "counts0/1/4/5/31/32/33/127/128",
+    "full32-bit birth ordinal including high bit",
+    "reuse full packet to empty/single/direct clears all stale words",
+    "cross-word7-bit fields and final index127 before metadata",
+    "binary64 payload exact bytes, no arithmetic or normalization",
+    "duplicate/out-of-range slot/count/reach/mode rejected before writes",
+    "version/membership/order/padding/direct-birth corruption rejected"
+  ],
+  "unverified": [
+    "battle reach/HP accounting/lifesteal",
+    "random final-tick integration",
+    "actual CUDA execution",
+    "performance"
+  ],
+  "independent_seal_verified": true,
+  "backend": "metal",
+  "gpu_execution_verified": true,
+  "additional_cli_tests": {
+    "tests": 39,
+    "failures": 0,
+    "errors": 0
+  },
+  "sealed_registration_preflight": {
+    "package_id": "d419b17f9ed62c0e9ca4fc1ff54eace3c14861f878c1ac2bc4e5f6c73b9052f2",
+    "capture": "/tmp/nikke-interrupt-codec-sealed-v1-cpu",
+    "cpu_verified": true,
+    "gpu_calls": 0
+  },
+  "cache_followup": {
+    "observed": "saved_linked_provider replaces CUDA compilation only; portable_backend.build still regenerates paired Slang artifacts",
+    "status": "design pending; no cache behavior changed",
+    "required": [
+      "exact full source closure and compiler binary/prelude/module identity",
+      "paired byte integrity plus reflection and scope audits on reuse",
+      "no stale or corrupted entry fallback",
+      "bounded CPU-only cache tests before Windows use"
+    ]
+  }
+}

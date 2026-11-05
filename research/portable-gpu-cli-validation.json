@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "scope": "Reusable common proof CLI, Windows CPU-only orchestration package and installed development skill; no new character certification",
+  "passed": true,
+  "mac_tests": {
+    "cli": 20,
+    "phase": 5,
+    "observer": 11,
+    "existing_cuda_preservation": 8,
+    "total": 44
+  },
+  "mac_isolated_package_cpu": {
+    "passed": true,
+    "input_count": 63,
+    "native_oracles": 52,
+    "input_sha256": "bd72603f1809e58a6788f0f7f4961cbe205de8cadf6c75dfa0fed833a17cb7da",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 2.8150313750375062
+  },
+  "mac_isolated_package_limited_tests": [
+    {
+      "pattern": "test_portable_projectiles.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.1092308330116794
+    },
+    {
+      "pattern": "test_portable_real_binding_proof.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.030781541019678116
+    }
+  ],
+  "mac_control_smoke": {
+    "passed": true,
+    "timed_out": false,
+    "timeout_seconds": 180,
+    "elapsed_seconds": 0.09033920802175999,
+    "child_exit_code": 0,
+    "final_child_exit_code": 0,
+    "error": null,
+    "cleanup_error": null,
+    "cleanup_wait_seconds": 5,
+    "observation_error": null,
+    "wait_completed_unix_ns": 1792568200619230000,
+    "below_normal_priority": false,
+    "phase": {
+      "events": 0,
+      "last_event": null,
+      "nvrtc_compile_returned_success": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retry_count": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false
+  },
+  "saved_metal_replay": {
+    "inputs": 63,
+    "native": 52,
+    "all_full_output_and_native_and_generated_equal": true,
+    "gpu_calls": 0,
+    "input_sha256": "bd72603f1809e58a6788f0f7f4961cbe205de8cadf6c75dfa0fed833a17cb7da",
+    "output_sha256": "289466a5e8ea8935e01d1567d7c04670caa82cd73d1abf0260254d8ec6f96da9"
+  },
+  "legacy_v104_auditor_reused": true,
+  "legacy_v104_calculation_verified": true,
+  "legacy_v104_environment_preservation_verified": false,
+  "windows_fixed_source": "3c44b97e6ff981c2219c3af4428e3349a3cda248",
+  "windows_cpu_tests": 32,
+  "windows_control_smoke_verified": true,
+  "windows_job_evidence_verified": true,
+  "windows_execution_seconds": 5.079336099792272,
+  "windows_after_snapshot_delay_reported_seconds": 2.0734383,
+  "windows_missing_processes_reported": 0,
+  "windows_service_preservation_verified": false,
+  "windows_full_process_snapshots_imported": false,
+  "windows_original_summary_bytes": 1574,
+  "windows_original_summary_sha256": "c256a421345326e2e409d7325b6c58ea4e3a4fa80f440850a5c954ed5217ed30",
+  "windows_results_zip_bytes": 8839,
+  "windows_results_zip_sha256": "311f1689c6d59ad6d887aa8469f4d2550280d0aa65da505dc6840a0f49e3320f",
+  "windows_initial_failure": {
+    "source": "cadd96b552dd46a31f80120c82f3e6031a5c3ca2",
+    "reason": "Missing verify_cpu_gpu_calls import",
+    "retained_on_windows": true,
+    "stopped_before_job": true,
+    "gpu_calls": 0,
+    "fixed_by": "Include current existing auditor in source payload; add helper dependency preflight test"
+  },
+  "runtime_files_equal_to_windows_fixed_source": {
+    "scripts/nikke_gpu.py": "295aee087c2ffbf11945a4db4f15926abd6e88ff7ba83c03fd39a978d27fc626",
+    "research/run-world-bounded.py": "4382257e043afcec7154ada05c920ef98cc5dd76da13f303caa85087e9a23af7",
+    "research/portable_phase_audit.py": "0d119417956ab779a37f362efcf293d945d10b67a5cd8dc2722790be1218aa4b",
+    "research/portable_typed_cuda_proof_audit.py": "0833c4656ad0bfb4cf94e808b4ee43b712927ca834be507dc101f99df9a48180",
+    "app/portable_backend.py": "88b0eec6bddbf89ff59fc70cd6861b892db6ad66aaf01d02357bcf0d9511df0c"
+  },
+  "local_report_export_import": {
+    "files": 8,
+    "zip_bytes": 2314,
+    "zip_sha256": "2ee369404af9bc4d2b9b89715034c4b3a4ac80e971b57bcfd31d746edc815745",
+    "original_bytes_preserved": true
+  },
+  "skill_installed": "/Users/edo/.codex/skills/nikke-shared-gpu-development",
+  "skill_quick_validate_passed": true,
+  "stale_reload_golden_rejected": true,
+  "canonical_references_unchanged": true,
+  "new_gpu_builds": 0,
+  "new_gpu_executions": 0,
+  "limits": [
+    "Historical reload golden has stale source hashes; intentionally rejected in current checkout",
+    "No independent raw audit is claimed from small remote summary alone",
+    "No new GPU kernel dispatch was needed for orchestration changes",
+    "Not a cross-PC cache or automated coverage selector"
+  ]
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "pattern": "test_portable_generation_separation.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.03075037500821054,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 89504
+  },
+  {
+    "pattern": "test_portable_generation_cache.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.09341299999505281,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 89504
+  },
+  {
+    "pattern": "test_portable_resident_build.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.01621974993031472,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 89504
+  },
+  {
+    "pattern": "test_portable_required_cache_preflight.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.038476666901260614,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 89504
+  },
+  {
+    "pattern": "test_portable_cache_probe.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.21380066697020084,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 89504
+  },
+  {
+    "pattern": "test_portable_compile_cache.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.07652037509251386,
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 89504
+  },
+  {
+    "pattern": "test_portable_cuda_artifact.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.012337542022578418,
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 89504
+  },
+  {
+    "pattern": "test_portable_phase_audit.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.0287019159877673,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 89504
+  },
+  {
+    "pattern": "test_portable_gpu_cli.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.2529169999761507,
+    "tests": 39,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 89504
+  },
+  {
+    "pattern": "test_portable_gpu_replay.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.0229318329365924,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 89504
+  },
+  {
+    "pattern": "test_portable_development_generation.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.008038582978770137,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 89504
+  }
+]

@@ -1,0 +1,4227 @@
+{
+  "name": "hit-reference-many-effects-stress",
+  "effects": [
+    {
+      "name": "key0",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key0",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key1:0",
+          "gauge_above:key2:0",
+          "gauge_above:key3:0"
+        ]
+      }
+    },
+    {
+      "name": "key4",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key4",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key5:0",
+          "gauge_above:key6:0",
+          "gauge_above:key7:0"
+        ]
+      }
+    },
+    {
+      "name": "key8",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key8",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key9:0",
+          "gauge_above:key10:0",
+          "gauge_above:key11:0"
+        ]
+      }
+    },
+    {
+      "name": "key12",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key12",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key13:0",
+          "gauge_above:key14:0",
+          "gauge_above:key15:0"
+        ]
+      }
+    },
+    {
+      "name": "key16",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key16",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key17:0",
+          "gauge_above:key18:0",
+          "gauge_above:key19:0"
+        ]
+      }
+    },
+    {
+      "name": "key20",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key20",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key21:0",
+          "gauge_above:key22:0",
+          "gauge_above:key23:0"
+        ]
+      }
+    },
+    {
+      "name": "key24",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key24",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key25:0",
+          "gauge_above:key26:0",
+          "gauge_above:key27:0"
+        ]
+      }
+    },
+    {
+      "name": "key28",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key28",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key29:0",
+          "gauge_above:key30:0",
+          "gauge_above:key31:0"
+        ]
+      }
+    },
+    {
+      "name": "key32",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key32",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key33:0",
+          "gauge_above:key34:0",
+          "gauge_above:key35:0"
+        ]
+      }
+    },
+    {
+      "name": "key36",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key36",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key37:0",
+          "gauge_above:key38:0",
+          "gauge_above:key39:0"
+        ]
+      }
+    },
+    {
+      "name": "key40",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key40",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key41:0",
+          "gauge_above:key42:0",
+          "gauge_above:key43:0"
+        ]
+      }
+    },
+    {
+      "name": "key44",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key44",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key45:0",
+          "gauge_above:key46:0",
+          "gauge_above:key47:0"
+        ]
+      }
+    },
+    {
+      "name": "key48",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key48",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key49:0",
+          "gauge_above:key50:0",
+          "gauge_above:key51:0"
+        ]
+      }
+    },
+    {
+      "name": "key52",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key52",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key53:0",
+          "gauge_above:key54:0",
+          "gauge_above:key55:0"
+        ]
+      }
+    },
+    {
+      "name": "key56",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key56",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key57:0",
+          "gauge_above:key58:0",
+          "gauge_above:key59:0"
+        ]
+      }
+    },
+    {
+      "name": "key60",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key60",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key61:0",
+          "gauge_above:key62:0",
+          "gauge_above:key63:0"
+        ]
+      }
+    },
+    {
+      "name": "key64",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key64",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key65:0",
+          "gauge_above:key66:0",
+          "gauge_above:key67:0"
+        ]
+      }
+    },
+    {
+      "name": "key68",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key68",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key69:0",
+          "gauge_above:key70:0",
+          "gauge_above:key71:0"
+        ]
+      }
+    },
+    {
+      "name": "key72",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key72",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key73:0",
+          "gauge_above:key74:0",
+          "gauge_above:key75:0"
+        ]
+      }
+    },
+    {
+      "name": "key76",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key76",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key77:0",
+          "gauge_above:key78:0",
+          "gauge_above:key79:0"
+        ]
+      }
+    },
+    {
+      "name": "key80",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key80",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key81:0",
+          "gauge_above:key82:0",
+          "gauge_above:key83:0"
+        ]
+      }
+    },
+    {
+      "name": "key84",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key84",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key85:0",
+          "gauge_above:key86:0",
+          "gauge_above:key87:0"
+        ]
+      }
+    },
+    {
+      "name": "key88",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key88",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key89:0",
+          "gauge_above:key90:0",
+          "gauge_above:key91:0"
+        ]
+      }
+    },
+    {
+      "name": "key92",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key92",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key93:0",
+          "gauge_above:key94:0",
+          "gauge_above:key95:0"
+        ]
+      }
+    },
+    {
+      "name": "key96",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key96",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key97:0",
+          "gauge_above:key98:0",
+          "gauge_above:key99:0"
+        ]
+      }
+    },
+    {
+      "name": "key100",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key100",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key101:0",
+          "gauge_above:key102:0",
+          "gauge_above:key103:0"
+        ]
+      }
+    },
+    {
+      "name": "key104",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key104",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key105:0",
+          "gauge_above:key106:0",
+          "gauge_above:key107:0"
+        ]
+      }
+    },
+    {
+      "name": "key108",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key108",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key109:0",
+          "gauge_above:key110:0",
+          "gauge_above:key111:0"
+        ]
+      }
+    },
+    {
+      "name": "key112",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key112",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key113:0",
+          "gauge_above:key114:0",
+          "gauge_above:key115:0"
+        ]
+      }
+    },
+    {
+      "name": "key116",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key116",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key117:0",
+          "gauge_above:key118:0",
+          "gauge_above:key119:0"
+        ]
+      }
+    },
+    {
+      "name": "key120",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key120",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key121:0",
+          "gauge_above:key122:0",
+          "gauge_above:key123:0"
+        ]
+      }
+    },
+    {
+      "name": "key124",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key124",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key125:0",
+          "gauge_above:key126:0",
+          "gauge_above:key127:0"
+        ]
+      }
+    },
+    {
+      "name": "key128",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key128",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key129:0",
+          "gauge_above:key130:0",
+          "gauge_above:key131:0"
+        ]
+      }
+    },
+    {
+      "name": "key132",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key132",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key133:0",
+          "gauge_above:key134:0",
+          "gauge_above:key135:0"
+        ]
+      }
+    },
+    {
+      "name": "key136",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key136",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key137:0",
+          "gauge_above:key138:0",
+          "gauge_above:key139:0"
+        ]
+      }
+    },
+    {
+      "name": "key140",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key140",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key141:0",
+          "gauge_above:key142:0",
+          "gauge_above:key143:0"
+        ]
+      }
+    },
+    {
+      "name": "key144",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key144",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key145:0",
+          "gauge_above:key146:0",
+          "gauge_above:key147:0"
+        ]
+      }
+    },
+    {
+      "name": "key148",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key148",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key149:0",
+          "gauge_above:key150:0",
+          "gauge_above:key151:0"
+        ]
+      }
+    },
+    {
+      "name": "key152",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key152",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key153:0",
+          "gauge_above:key154:0",
+          "gauge_above:key155:0"
+        ]
+      }
+    },
+    {
+      "name": "key156",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key156",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key157:0",
+          "gauge_above:key158:0",
+          "gauge_above:key159:0"
+        ]
+      }
+    },
+    {
+      "name": "key160",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key160",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key161:0",
+          "gauge_above:key162:0",
+          "gauge_above:key163:0"
+        ]
+      }
+    },
+    {
+      "name": "key164",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key164",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key165:0",
+          "gauge_above:key166:0",
+          "gauge_above:key167:0"
+        ]
+      }
+    },
+    {
+      "name": "key168",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key168",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key169:0",
+          "gauge_above:key170:0",
+          "gauge_above:key171:0"
+        ]
+      }
+    },
+    {
+      "name": "key172",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key172",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key173:0",
+          "gauge_above:key174:0",
+          "gauge_above:key175:0"
+        ]
+      }
+    },
+    {
+      "name": "key176",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key176",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key177:0",
+          "gauge_above:key178:0",
+          "gauge_above:key179:0"
+        ]
+      }
+    },
+    {
+      "name": "key180",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key180",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key181:0",
+          "gauge_above:key182:0",
+          "gauge_above:key183:0"
+        ]
+      }
+    },
+    {
+      "name": "key184",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key184",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key185:0",
+          "gauge_above:key186:0",
+          "gauge_above:key187:0"
+        ]
+      }
+    },
+    {
+      "name": "key188",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key188",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key189:0",
+          "gauge_above:key190:0",
+          "gauge_above:key191:0"
+        ]
+      }
+    },
+    {
+      "name": "key192",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key192",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key193:0",
+          "gauge_above:key194:0",
+          "gauge_above:key195:0"
+        ]
+      }
+    },
+    {
+      "name": "key196",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key196",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key197:0",
+          "gauge_above:key198:0",
+          "gauge_above:key199:0"
+        ]
+      }
+    },
+    {
+      "name": "key200",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key200",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key201:0",
+          "gauge_above:key202:0",
+          "gauge_above:key203:0"
+        ]
+      }
+    },
+    {
+      "name": "key204",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key204",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key205:0",
+          "gauge_above:key206:0",
+          "gauge_above:key207:0"
+        ]
+      }
+    },
+    {
+      "name": "key208",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key208",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key209:0",
+          "gauge_above:key210:0",
+          "gauge_above:key211:0"
+        ]
+      }
+    },
+    {
+      "name": "key212",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key212",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key213:0",
+          "gauge_above:key214:0",
+          "gauge_above:key215:0"
+        ]
+      }
+    },
+    {
+      "name": "key216",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key216",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key217:0",
+          "gauge_above:key218:0",
+          "gauge_above:key219:0"
+        ]
+      }
+    },
+    {
+      "name": "key220",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key220",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key221:0",
+          "gauge_above:key222:0",
+          "gauge_above:key223:0"
+        ]
+      }
+    },
+    {
+      "name": "key224",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key224",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key225:0",
+          "gauge_above:key226:0",
+          "gauge_above:key227:0"
+        ]
+      }
+    },
+    {
+      "name": "key228",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key228",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key229:0",
+          "gauge_above:key230:0",
+          "gauge_above:key231:0"
+        ]
+      }
+    },
+    {
+      "name": "key232",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key232",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key233:0",
+          "gauge_above:key234:0",
+          "gauge_above:key235:0"
+        ]
+      }
+    },
+    {
+      "name": "key236",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key236",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key237:0",
+          "gauge_above:key238:0",
+          "gauge_above:key239:0"
+        ]
+      }
+    },
+    {
+      "name": "key240",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key240",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key241:0",
+          "gauge_above:key242:0",
+          "gauge_above:key243:0"
+        ]
+      }
+    },
+    {
+      "name": "key244",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key244",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key245:0",
+          "gauge_above:key246:0",
+          "gauge_above:key247:0"
+        ]
+      }
+    },
+    {
+      "name": "key248",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key248",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key249:0",
+          "gauge_above:key250:0",
+          "gauge_above:key251:0"
+        ]
+      }
+    },
+    {
+      "name": "key252",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key252",
+      "fixed_value": 0,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": [
+          "gauge_above:key253:0",
+          "gauge_above:key254:0"
+        ]
+      }
+    },
+    {
+      "name": "key254",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "key254",
+      "fixed_value": 1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key0",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key1",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key2",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key3",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key4",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key5",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key6",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key7",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key8",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key9",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key10",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key11",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key12",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key13",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key14",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key15",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key16",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key17",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key18",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key19",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key20",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key21",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key22",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key23",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key24",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key25",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key26",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key27",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key28",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key29",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key30",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key31",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key32",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key33",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key34",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key35",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key36",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key37",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key38",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key39",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key40",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key41",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key42",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key43",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key44",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key45",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key46",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key47",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key48",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key49",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key50",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key51",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key52",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key53",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key54",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key55",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key56",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key57",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key58",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key59",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key60",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key61",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key62",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key63",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key64",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key65",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key66",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key67",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key68",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key69",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key70",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key71",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key72",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key73",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key74",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key75",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key76",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key77",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key78",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key79",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key80",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key81",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key82",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key83",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key84",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key85",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key86",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key87",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key88",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key89",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key90",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key91",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key92",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key93",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key94",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key95",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key96",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key97",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key98",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key99",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key100",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key101",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key102",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key103",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key104",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key105",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key106",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key107",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key108",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key109",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key110",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key111",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key112",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key113",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key114",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key115",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key116",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key117",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key118",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key119",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key120",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key121",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key122",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key123",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key124",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key125",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key126",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key127",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key128",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key129",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key130",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key131",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key132",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key133",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key134",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key135",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key136",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key137",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key138",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key139",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key140",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key141",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key142",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key143",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key144",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key145",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key146",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key147",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key148",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key149",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key150",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key151",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key152",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key153",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key154",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key155",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key156",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key157",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key158",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key159",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key160",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key161",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key162",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key163",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key164",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key165",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key166",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key167",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key168",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key169",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key170",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key171",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key172",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key173",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key174",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key175",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key176",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key177",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key178",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key179",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key180",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key181",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key182",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key183",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key184",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key185",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key186",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key187",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key188",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key189",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "key190",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:key254",
+      "fixed_value": 1e-300,
+      "target": "all_enemies",
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    }
+  ],
+  "owners": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "combat": {
+    "weapons": [
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      }
+    ],
+    "targets": [
+      {
+        "hp": 1000000000.0
+      }
+    ],
+    "trace": "summary"
+  },
+  "script": [
+    [
+      3,
+      24,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      3,
+      28,
+      0,
+      1,
+      "key254",
+      0,
+      0,
+      0
+    ]
+  ],
+  "expected_queries": [
+    {
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "active_timer_mask": 1,
+      "timer_clock": 1
+    }
+  ]
+}

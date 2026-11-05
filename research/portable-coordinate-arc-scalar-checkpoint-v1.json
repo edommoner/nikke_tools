@@ -1,0 +1,174 @@
+{
+  "schema": 1,
+  "milestone": "Shared angular wrap, shift, compensated measure and generated-cover topology",
+  "goal_complete": false,
+  "all_character_certification": 0,
+  "gap_categories": 20,
+  "ui_backend": "cpu",
+  "suite": {
+    "name": "coordinate-arc-scalar",
+    "cases": 640,
+    "native": 632,
+    "rejected": 8,
+    "input_words": 2056,
+    "output_words": 4104,
+    "source": "gpu/coordinate_arc_scalar_probe.slang",
+    "input_intervals": 512,
+    "output_intervals": 1024,
+    "whole_geometry_capacity_certified": false,
+    "battle_connected": false
+  },
+  "operations": [
+    "positive-modulo",
+    "arc-wrap",
+    "arc-shift",
+    "compensated-measure",
+    "generated-cover-subtract",
+    "generated-cover-intersect"
+  ],
+  "metal": {
+    "calculation_verified": true,
+    "independent_seal": true,
+    "capture": "/tmp/nikke-coordinate-arc-scalar-metal-v3",
+    "package_id": "038c9d32797676cf10b127c1a569e6141ea710f192f22a5cc47623b082049f00",
+    "transport": {
+      "backend": "metal",
+      "cases": 640,
+      "command_status": "completed",
+      "configured_max_threads_per_threadgroup": 1,
+      "device": "Apple M5",
+      "file_readback_chunk_bytes": 8388608,
+      "gpu_seconds": 2.5163726250175387,
+      "input_bytes": 5263364,
+      "library_compile_seconds": 0.04581403732299805,
+      "output_bytes": 10506240,
+      "pipeline_cache": {
+        "archive_bytes": 77408,
+        "archive_compile_seconds": 0.0533829927444458,
+        "archive_sha256": "bae4cacd47cf88b0e7f268272c6c6514abf8d0c3ec67e336bd2b5528145d97db",
+        "enabled": true,
+        "hit": false,
+        "identity": {
+          "consumer_sha256": "f6acf8d854da2c87db85ccc326879fa4f0706b6d3e063e8799262da958a10714",
+          "device": "Apple M5",
+          "entry": "portableEvents",
+          "math_mode": "safe",
+          "os_build": "Version 26.6.2 (Build 25G83)",
+          "registry_id": "4294968313",
+          "resident_stride": "0",
+          "schema": "1",
+          "source_sha256": "b92689bd665508a3d042bab7d9beadf530af13518b4233495be5b6eef54eb7f7",
+          "threads_per_threadgroup": "1"
+        },
+        "key": "9c6d73befcbd76eff0d44f3d2568a01ed088acb5e79be1bdec886b9eaadbb645",
+        "native_archive_miss_rejected": true,
+        "required": false,
+        "schema": 1
+      },
+      "pipeline_compile_seconds": 0.053566932678222656,
+      "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+      "pipeline_max_threads_per_threadgroup": 1,
+      "pipeline_os_build": "Version 26.6.2 (Build 25G83)",
+      "registry_id": "4294968313",
+      "threads_per_threadgroup": 1,
+      "compile_timeout_seconds": 300,
+      "gpu_timeout_seconds": 120
+    }
+  },
+  "old600": {
+    "retained_cases": 600,
+    "input_and_native_entry_records_exact": true,
+    "raw_bytes_retained": 9849600,
+    "old_order_projected_output_sha256": "d10352866b135d5bcc52c81c139d9c59ae96b0ff8caf4695ec112ef5e24e7b10",
+    "before_output_sha256": "d10352866b135d5bcc52c81c139d9c59ae96b0ff8caf4695ec112ef5e24e7b10",
+    "new_source_and_generated_code_differ": true,
+    "normalizer_changed": false
+  },
+  "numeric_findings": [
+    "Tiny negative modulo may round to the positive period itself",
+    "Width-zero generated arcs remain observable and can split subtraction topology",
+    "Naive length accumulation differs by1ULP; existing Sum/addSum is reused directly"
+  ],
+  "native_sum_contract": "Existing finite Python3.12-compatible Neumaier sum, unchanged event_runtime.slang",
+  "execution_accounting": {
+    "metal_kernels": 3,
+    "successful_kernels": 2,
+    "comparison_failed_kernels": 1,
+    "capacity_before_claim_stops": 1,
+    "consumed_package_retries": 0,
+    "windows_requested_jobs": 0,
+    "windows_gpu_calls": 0
+  },
+  "reserved_opcode_fix": {
+    "old_invalid_opcode_5_retained": true,
+    "new_generated_cover_opcodes": [
+      8,
+      9
+    ],
+    "failed_v2_preserved": true,
+    "fixture_disjointness_cpu_test": true
+  },
+  "tests": {
+    "final-cpu": {
+      "tests": 18,
+      "skipped": 0,
+      "all_passed": true
+    },
+    "final-control": {
+      "tests": 416,
+      "skipped": 1,
+      "all_passed": true
+    }
+  },
+  "final_package": {
+    "full_package_id": "2217110b6d8ba62b63aece8c26c4713780e0332fa955fa123fe4d2e751195f54",
+    "compact_package_id": "39a58d7257b9a37f50307aa2d5821f8c0624ef1167f330ad8cb983800aaddd47",
+    "full_files": 2938,
+    "compact_files": 1611,
+    "retained_records_and_bytes_exact": true,
+    "golden_exact": true
+  },
+  "existing_135_97_88_81_gpu_closures_exact": true,
+  "protected7_and_normalizer_and_compile_cache_unchanged": true,
+  "raw_deleted": 0,
+  "lossless_storage": {
+    "schema": 1,
+    "operation": "sparsify-raw",
+    "apply": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "raw_deleted": false,
+    "passed": true,
+    "capture": "/private/tmp/nikke-squad-stage-retention-v3-capture",
+    "raw_bytes": 4536139776,
+    "raw_sha256": "002eca0ee6ebb2c0dc0ae198c2542f7bb8c63c6b48a884ebbe10231e9281ea54",
+    "evidence_sha256": "aa091b64dd59151030130e242671f945775af7a500bf7573a8bd081d63bb9b3f",
+    "raw_inode": 508189516,
+    "scan_block_bytes": 4096,
+    "filesystem_allocation_unit": 4096,
+    "zero_ranges": 34494,
+    "zero_range_bytes": 4351676416,
+    "allocated_before": 1300627456,
+    "allocated_after": 184463360,
+    "allocated_reclaimed": 1116164096,
+    "full_hash_verified": true
+  },
+  "numeric_policy": {
+    "user_selected": "deterministic-shared-numeric",
+    "choice_explicit": true,
+    "selection_fixture": "tests/fixtures/coordinate-common-numeric-decision.json",
+    "implementation_completed": false,
+    "historical_host_profiles_preserved": true,
+    "public_gpu_admitted": false,
+    "source_audit_classification": "gpu_numeric_implementation_gap"
+  },
+  "remaining": [
+    "Define versioned deterministic common transcendental contract and CPU reference",
+    "Implement common acos/atan2/sin/cos and range reduction",
+    "Generate circle/rectangle geometric arcs, radial quadrature and cache-key rounding",
+    "Expand physical packets and collect receipt groups in common resident executor",
+    "Manual aim, full original mixed-world definitions and public GPU admission",
+    "Bounded CUDA calculation proof and saved-object recovery when Windows messaging is available"
+  ],
+  "evidence_directory": "research/coordinate-arc-scalar-evidence-v1"
+}

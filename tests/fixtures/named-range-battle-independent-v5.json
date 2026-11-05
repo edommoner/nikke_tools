@@ -1,0 +1,107 @@
+{
+  "package_id": "8b5326264e1b71482e842195a1d6ed8f9062d934bc8a2318d81c04d3732fedc3",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/named-range-battle-metal-v5-replay",
+  "schema": "independent-metal-audit-groups-v1",
+  "child_pids": [
+    65814,
+    65841,
+    65863,
+    65865,
+    65866,
+    65868,
+    65869,
+    65871
+  ],
+  "groups": [
+    {
+      "child_pid": 65814,
+      "case_indices": [
+        0,
+        1
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 103.74212095800613
+    },
+    {
+      "child_pid": 65841,
+      "case_indices": [
+        2,
+        3
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 93.33325170799799
+    },
+    {
+      "child_pid": 65863,
+      "case_indices": [
+        4,
+        5
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0714828339987434
+    },
+    {
+      "child_pid": 65865,
+      "case_indices": [
+        6,
+        7
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.07809991700924
+    },
+    {
+      "child_pid": 65866,
+      "case_indices": [
+        8,
+        9
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.109093124992796
+    },
+    {
+      "child_pid": 65868,
+      "case_indices": [
+        10,
+        11
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0883563329989556
+    },
+    {
+      "child_pid": 65869,
+      "case_indices": [
+        12,
+        13
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0839089170040097
+    },
+    {
+      "child_pid": 65871,
+      "case_indices": [
+        14,
+        15
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0673321669892175
+    }
+  ],
+  "input_count": 16,
+  "native_cases": 4,
+  "live_parent_receipt_present": false,
+  "per_group_timeout_seconds": 180,
+  "elapsed_seconds": 216.40274820799823,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "86e3b2f4d45bf5526780f641b3fa12ea48830763451ba29a8c0f2914dedc74fe",
+  "output_sha256": "a016d1b2cc30357a022d9901f63cbc8d6a65b2b0f0f792a3c50fdadcb590db3b",
+  "scope": "Fresh GPU-forbidden child groups, each individually bounded, covering every input once; total elapsed includes all groups"
+}

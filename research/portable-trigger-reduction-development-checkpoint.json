@@ -1,0 +1,58 @@
+{
+  "full_goal_complete": false,
+  "feature": "trigger_count_reduce",
+  "shared_cuda_metal_implementation": true,
+  "canonical_compiler_and_reference_unchanged": true,
+  "software_binary64_and_normalizer_unchanged": true,
+  "wire_strides_unchanged": true,
+  "metal": {
+    "package_id": "113c09c11e3313afdb5b90a4cc22e83db8e26d30b4211bc7fd4a437d092acbcf",
+    "inputs": 287,
+    "native_positive": 232,
+    "raw_reject": 55,
+    "calculation_verified": true,
+    "explicit_seal": true,
+    "device": "Apple M5",
+    "gpu_seconds": 7.904953374993056,
+    "library_compile_seconds": 0.00150299072265625,
+    "pipeline_compile_seconds": 0.0022430419921875,
+    "bounded_elapsed_seconds": 31.041858749929816,
+    "mismatches": [],
+    "retained_previous_inputs_and_raw_outputs": 235,
+    "retained_successful_inputs_and_raw_outputs_from_failed_capture": 285,
+    "first_capture_failures_preserved": true,
+    "corrected_charge_input_count": 2,
+    "native_fingerprints_unchanged_for_clock_fix": true
+  },
+  "cpu": {
+    "tests": 665,
+    "skipped": 1,
+    "passed": true,
+    "log_sha256": "5b10c955b950dbb2048ec0c05ce3af3a4941ee0205901c8bf26fdd9ce2713c27"
+  },
+  "static_inventory": {
+    "profiles": 189,
+    "total_profiles": 266,
+    "base": 132,
+    "total_base": 203,
+    "categories": 114,
+    "cpu_battle_calls": 0,
+    "gpu_calls": 0
+  },
+  "new_real_roster_profiles": [
+    "스노우 화이트 : 이노센트 데이즈",
+    "홍련 : 흑영"
+  ],
+  "real_roster_durations": [
+    3,
+    30
+  ],
+  "windows": {
+    "runs_this_feature": 0,
+    "new_cuda_calculation_verified": false,
+    "last_cold_compile_failure_preserved": true,
+    "same_cold_compile_retried": false
+  },
+  "normal_ui": "CPU",
+  "full_character_verified": 0
+}

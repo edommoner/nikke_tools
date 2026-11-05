@@ -1,0 +1,21 @@
+{
+  "schema": "metal-staged-unit-and-native-v1",
+  "package_id": "e5a04816c893f3d89fbf47116c440cb9c7dd8912aa16159964a1f4ac883943ea",
+  "test_groups": 4,
+  "test_count": 62,
+  "native_preflight_groups": 2,
+  "native_cases": 4,
+  "independent_post_native_groups": 2,
+  "calculation_verified": true,
+  "transport_verified": true,
+  "input_sha256": "f807a69c2d426c072a92d7b4ce95c7038e735ad0452a306f96d37f68b5af7b2b",
+  "output_sha256": "d1dc8ecdd94b881503bcc588e34103103dce402fc6adbfaa56924484c0545879",
+  "gpu_child_seconds": 1.8601028330012923,
+  "generation_cache_hit": true,
+  "compiler_invocations": 0,
+  "GPU_dispatches": 1,
+  "gpu_retry": 0,
+  "ordinary_cpu_json_created": false,
+  "pending_result_preserved": true,
+  "full_goal_complete": false
+}

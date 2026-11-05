@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-duration-scaling-retention-v1-capture",
+  "raw_bytes": 5070913536,
+  "raw_sha256": "5f33b4d07b041a845d47108f55c9d09af673eaf1c989f58fdc3ca9916d4bc028",
+  "evidence_sha256": "316c62f8d8f4caecdbdcc22e07bd95efa66817f2f7574cbf6389af30be14faec",
+  "raw_inode": 508329401,
+  "zero_ranges": 11977,
+  "zero_range_bytes": 3619946496,
+  "allocated_before": 5075107840,
+  "allocated_after": 1455161344,
+  "allocated_reclaimed": 3619946496,
+  "full_hash_verified": true
+}

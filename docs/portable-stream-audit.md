@@ -1,0 +1,11 @@
+# 全件readback監査の分割読取り
+
+共通CLIのfile_records/check_recordsを既存portable_capture_storage.file_digest（8MiB）へ接続し、artifact収集・検査で全rawをbytesへ読まなくしました。compare_readbackも最初に全サイズ/SHAを検査してから、各3,145,728byteのcaseを読み、同じ既存status/拒否/native comparator/strict normalizer/全件goldenを検査します。消費した全caseも逐次SHAし、末尾の短縮・余分byte・途中改変を拒否します。比較件数やfieldは省略しません。
+
+新CPU4件は全量read禁止・最大8MiB read・nativeと拒否の比較回数、初期破損・短縮・余分byteのnative前拒否、2pass間の改変、generator末尾の完全性を検査。fresh immutable package eac46030の全portable809件は808成功・Windows専用1skip・失敗0（55.730秒）でした。
+
+保存Metal796・native633・2,503,999,488byteを新しいfresh packageの監査器で再比較し、旧comparison.jsonと全内容一致しました。output SHA b9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637、GPU0、49.556秒。元captureを変更していません。今回のpackage差分はCLI/testだけでGPU本体・native比較器は不変です。
+
+**プロセス全体のメモリ制限を達成したとは扱いません。** このCPU監査のru_maxrssは2,365,014,016byteで2GiBを超えました。固定read bufferと全体RSSは別です。prepare_entriesは全796のword行・native domain・約317MiB inputを保持し、combineはPython listと集約array/bytesを重ねるため、入力準備も次の測定・改善対象です。今回の観測だけでそこがpeak原因と断定しません。CUDA childの全長zero/output/output.raw、Metal/child保存、export/replayの全量copyもこの変更では解消していません。
+
+次は入力準備のstage別peakを記録し、入力byteとnative domainを保ってcompact化できるか確認します。CUDA転送・child保存のstream接続、chunk native traceの監査、独立sealは別の必要工程です。全キャラ認定0、UI CPU、新版CUDA計算未確認を維持します。

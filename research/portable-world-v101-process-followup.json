@@ -1,0 +1,273 @@
+{
+  "schema": "nikke-v101-process-followup-1",
+  "source_commit": "784762d0f9cb809958107c040dcac7c219889c4c",
+  "scope": "Read-only saved evidence and selected current process metadata. No CUDA/build/service/process operations. Original three JSONs unchanged.",
+  "gpu_execution_in_this_followup": 0,
+  "original_three_json_sha256_unchanged": {
+    "research/windows-portable-world-v101-summary.json": "c4357cf69b2b08fe92d930e38c32753f7aa967e04646747d6a49602a0efeafc1",
+    "research/portable-world-v101-execution.json": "23a63d581d4f3b21012eff26bd20d522c26c705ec2e74085b12f5ad44e3135b1",
+    "research/portable-cross-v101-receipt.json": "b52a786cad5a5dba6c6ba9f4cfa339907e56079e4d2efbd721e904752e0f4e1d"
+  },
+  "timing": {
+    "before_snapshot_file_mtime_utc": "2026-10-21T04:35:00.287593+00:00",
+    "gate_file_mtime_utc": "2026-10-21T04:35:51.314085+00:00",
+    "first_phase_utc": "2026-10-21T04:35:51.774033+00:00",
+    "last_phase_utc": "2026-10-21T04:37:49.815647+00:00",
+    "execution_file_mtime_utc": "2026-10-21T04:37:49.934630+00:00",
+    "post_snapshot_file_mtime_utc": "2026-10-21T04:38:07.628696+00:00",
+    "current_observation_utc": "2026-10-21T04:40:14.5946481Z",
+    "note": "Snapshot times are file mtimes, not process creation/exit events. Missing process creation and exit times were not captured."
+  },
+  "validation": {
+    "observed_phase_pids": [
+      66688
+    ],
+    "child_pid": 66688,
+    "child_ppid": null,
+    "child_creation_time_utc": null,
+    "parent_wrapper_pid": null,
+    "phase_count": 50,
+    "timed_out": false,
+    "child_exit_code": 0,
+    "cleanup_error": null,
+    "residual_count_at_post": 0,
+    "parentage_limit": "Wrapper process and child PPID were not persisted. Popen command is fixed to current Python executable plus v101-bounded-local.py --child."
+  },
+  "missing_processes": [
+    {
+      "pid": 111916,
+      "ppid": 38128,
+      "name": "node.exe",
+      "path": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe",
+      "creation_utc": null,
+      "classification": "Codex cua_node",
+      "present_before": true,
+      "present_at_post_same_pid_path": false,
+      "known_validation_child": false,
+      "created_before_validation": true,
+      "exit_time_utc": null,
+      "exit_interval": {
+        "after_snapshot_utc": "2026-10-21T04:35:00.287593+00:00",
+        "by_post_snapshot_utc": "2026-10-21T04:38:07.628696+00:00"
+      }
+    },
+    {
+      "pid": 46356,
+      "ppid": 38128,
+      "name": "python.exe",
+      "path": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe",
+      "creation_utc": null,
+      "classification": "Blender MCP Python",
+      "present_before": true,
+      "present_at_post_same_pid_path": false,
+      "known_validation_child": false,
+      "created_before_validation": true,
+      "exit_time_utc": null,
+      "exit_interval": {
+        "after_snapshot_utc": "2026-10-21T04:35:00.287593+00:00",
+        "by_post_snapshot_utc": "2026-10-21T04:38:07.628696+00:00"
+      }
+    },
+    {
+      "pid": 18992,
+      "ppid": 46420,
+      "name": "node.exe",
+      "path": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe",
+      "creation_utc": null,
+      "classification": "Codex cua_node",
+      "present_before": true,
+      "present_at_post_same_pid_path": false,
+      "known_validation_child": false,
+      "created_before_validation": true,
+      "exit_time_utc": null,
+      "exit_interval": {
+        "after_snapshot_utc": "2026-10-21T04:35:00.287593+00:00",
+        "by_post_snapshot_utc": "2026-10-21T04:38:07.628696+00:00"
+      }
+    },
+    {
+      "pid": 69288,
+      "ppid": 46356,
+      "name": "python.exe",
+      "path": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+      "creation_utc": null,
+      "classification": "Blender MCP Python",
+      "present_before": true,
+      "present_at_post_same_pid_path": false,
+      "known_validation_child": false,
+      "created_before_validation": true,
+      "exit_time_utc": null,
+      "exit_interval": {
+        "after_snapshot_utc": "2026-10-21T04:35:00.287593+00:00",
+        "by_post_snapshot_utc": "2026-10-21T04:38:07.628696+00:00"
+      }
+    },
+    {
+      "pid": 82112,
+      "ppid": 78500,
+      "name": "node.exe",
+      "path": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe",
+      "creation_utc": null,
+      "classification": "Codex cua_node",
+      "present_before": true,
+      "present_at_post_same_pid_path": false,
+      "known_validation_child": false,
+      "created_before_validation": true,
+      "exit_time_utc": null,
+      "exit_interval": {
+        "after_snapshot_utc": "2026-10-21T04:35:00.287593+00:00",
+        "by_post_snapshot_utc": "2026-10-21T04:38:07.628696+00:00"
+      }
+    },
+    {
+      "pid": 29964,
+      "ppid": 100244,
+      "name": "python.exe",
+      "path": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe",
+      "creation_utc": null,
+      "classification": "uv Python; exact MCP/service role not recorded",
+      "present_before": true,
+      "present_at_post_same_pid_path": false,
+      "known_validation_child": false,
+      "created_before_validation": true,
+      "exit_time_utc": null,
+      "exit_interval": {
+        "after_snapshot_utc": "2026-10-21T04:35:00.287593+00:00",
+        "by_post_snapshot_utc": "2026-10-21T04:38:07.628696+00:00"
+      }
+    },
+    {
+      "pid": 39108,
+      "ppid": 29964,
+      "name": "python.exe",
+      "path": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+      "creation_utc": null,
+      "classification": "uv Python; exact MCP/service role not recorded",
+      "present_before": true,
+      "present_at_post_same_pid_path": false,
+      "known_validation_child": false,
+      "created_before_validation": true,
+      "exit_time_utc": null,
+      "exit_interval": {
+        "after_snapshot_utc": "2026-10-21T04:35:00.287593+00:00",
+        "by_post_snapshot_utc": "2026-10-21T04:38:07.628696+00:00"
+      }
+    }
+  ],
+  "requested_parents": [
+    {
+      "pid": 38128,
+      "before_metadata": null,
+      "current": {
+        "pid": 38128,
+        "ppid": 49432,
+        "name": "codex.exe",
+        "path": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\bin\\896a0166b774037a\\codex.exe",
+        "creation_utc": "2026-10-20T03:44:27.4237090Z",
+        "identification": {
+          "gpu_service_script": false,
+          "server_script": false,
+          "original_workspace_reference": false,
+          "validation_reference": false
+        }
+      },
+      "validation_job_membership_evidence": "none recorded; no historical JobObject member query was captured",
+      "interpretation": "Current creation time predates validation; current executable is Codex. This parent is outside the new validation child tree by launch chronology."
+    },
+    {
+      "pid": 46420,
+      "before_metadata": null,
+      "current": null,
+      "validation_job_membership_evidence": "none recorded; no historical JobObject member query was captured",
+      "interpretation": "Not present in current selected observation; before snapshot recorded only node/python, so parent name/path/creation cannot be reconstructed."
+    },
+    {
+      "pid": 78500,
+      "before_metadata": null,
+      "current": null,
+      "validation_job_membership_evidence": "none recorded; no historical JobObject member query was captured",
+      "interpretation": "Not present in current selected observation; before snapshot recorded only node/python, so parent name/path/creation cannot be reconstructed."
+    },
+    {
+      "pid": 100244,
+      "before_metadata": null,
+      "current": null,
+      "validation_job_membership_evidence": "none recorded; no historical JobObject member query was captured",
+      "interpretation": "Not present in current selected observation; before snapshot recorded only node/python, so parent name/path/creation cannot be reconstructed."
+    }
+  ],
+  "post_new_same_codex_parent_processes": [],
+  "nikke_gpu_service": {
+    "identified_before_pid": null,
+    "identified_before_path": null,
+    "after_same_process_confirmed": null,
+    "reason": "Before snapshot contains only PID/PPID/name/executable path for all node/python processes; no script role, creation time, listener ownership or explicit NIKKE GPU service PID was captured. Generic uv/Python paths cannot establish the service identity retrospectively.",
+    "current_gpu_service_script_match_count": 0,
+    "current_original_workspace_reference_count": 0,
+    "current_4317_4333_listeners": [],
+    "candidate_runtime_node": {
+      "before": {
+        "pid": 22352,
+        "ppid": 49432,
+        "name": "node.exe",
+        "path": "C:\\Users\\owner\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+        "creation_utc": null
+      },
+      "post_same_pid_path": true,
+      "current": {
+        "pid": 22352,
+        "ppid": 49432,
+        "name": "node.exe",
+        "path": "C:\\Users\\owner\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+        "creation_utc": "2026-10-20T03:44:35.9531630Z",
+        "identification": {
+          "gpu_service_script": false,
+          "server_script": false,
+          "original_workspace_reference": false,
+          "validation_reference": false
+        }
+      },
+      "classification": "Codex dependency runtime node; not identified as NIKKE server or gpu_service",
+      "must_not_treat_as_verified_nikke_service": true
+    }
+  },
+  "containment_review": {
+    "source_file": "research/run-world-bounded.py",
+    "source_sha256": "f0ba2e20e1200d7a2875df5c9e9b5be218a36808241ff1e93ba5d0fa4a9a62fc",
+    "wrapper_file": "C:/Users/owner/Documents/Codex/v101-bounded-local.py",
+    "wrapper_sha256": "ed4d2b8b92488ee2ad774941146b0a7314e850704e12208192c7009dc56db048",
+    "assignment_lines": [
+      36,
+      48,
+      52,
+      85,
+      87
+    ],
+    "cleanup_lines": [
+      45,
+      98,
+      106,
+      107
+    ],
+    "assignment": "A fresh unnamed JobObject is created. Only OpenProcess(process.pid), where process is the fresh Popen child, is passed to AssignProcessToJobObject. No process enumeration, existing-PID assignment, parent assignment, taskkill or service control exists in these wrappers.",
+    "cleanup": "KILL_ON_JOB_CLOSE is set. Finally closes this JobObject; process.kill() applies only to that same Popen child if still running. Child returned zero and timeout=false.",
+    "existing_missing_assignment_evidence": false,
+    "requested_parent_assignment_evidence": false,
+    "historical_job_member_list_available": false,
+    "reasoning": "All seven missing processes existed in before snapshot, before the fresh validation child launched. They cannot have been born as descendants of this later child. The reviewed code never assigns them or their parents to its job. Direct targeting by this code is not supported; no historical OS job audit was collected to independently prove membership."
+  },
+  "conclusions": {
+    "missing_seven_exit_cause": "unknown",
+    "mcp_restart_hypothesis": "Possible but unproven. Missing paths identify cua_node, Blender MCP and generic uv Python. Other same-path processes under Codex parent 38128 appear in both snapshots; zero newly observed same-parent processes were found at postcheck. No restart event, exit log, or chat ownership was captured; saved snapshots do not demonstrate a restart.",
+    "other_chat_attribution": "unknown",
+    "nikke_service_preservation": "not verifiable from captured baseline; retain original false flag, do not upgrade strict audit",
+    "strict_audit_status": "calculation passed; service-preservation evidence incomplete",
+    "actions": "No process/service restart or stop, no reconnect, no GPU retry, no build, no original receipt modification."
+  },
+  "evidence_sha256": {
+    "research/windows-v101-process-before.json": "3a64f93f299898cb7fb5fb16432c0c00e2b505bc3e8328a6f4a1aeb7b93e0f0f",
+    "research/windows-v101-postcheck.json": "bc99ad3089a38e641577ace7a70852027b93c570ef9e36fbf4eebbf8fe3c3139",
+    "research/portable-build/v101-cuda-once/execution.json": "23a63d581d4f3b21012eff26bd20d522c26c705ec2e74085b12f5ad44e3135b1",
+    "research/portable-build/v101-cuda-once/phases.jsonl": "0ced3315c9361e0268dd2ac3b413e7a7b3d79a3f243522fbc7dbad9b2f387fa1"
+  }
+}

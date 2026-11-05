@@ -1,0 +1,114 @@
+{
+  "package_id": "9b476e64ad2e320d0d6c7d600f1fd97f053428dbbb5cc178ff3600c4944fe990",
+  "gpu_calls": 0,
+  "output_sha_reread_verified": true,
+  "baselines": {
+    "old588": {
+      "package_id": "2dd84fd94f5d3eedb33034a650062149ec093736ec1da8ea06558c0ef5f4d494",
+      "checked": 588,
+      "input_native_equal": true,
+      "raw_scope": "full output block",
+      "original_calculation_verified": true
+    },
+    "prior662-success661": {
+      "package_id": "96c412b9fcf78bd2b5fe494c4e8b1d390d522127b574c406fb0874bdd50deae4",
+      "checked": 661,
+      "input_native_equal": true,
+      "raw_scope": "full output block",
+      "original_calculation_verified": false
+    },
+    "diagnostic60": {
+      "package_id": "b2eacb58fbf6b92d06c60ac72adf702ac18584bf6bc5f4b9e5c0d734f0bf56e0",
+      "checked": 60,
+      "input_native_equal": true,
+      "raw_scope": "all except dedicated16-word diagnostic tail",
+      "original_calculation_verified": true
+    }
+  },
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "sets_overlap_do_not_sum": true,
+  "lazy_bank_zero_inputs": 664,
+  "new_real_physical_history": [
+    {
+      "name": "roster/real/브리드 : 사일런트 트랙/favorite-0/3s",
+      "recorded": 88,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/브리드 : 사일런트 트랙/favorite-0/30s",
+      "recorded": 792,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/율리아/favorite-3/3s",
+      "recorded": 116,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/율리아/favorite-3/30s",
+      "recorded": 1058,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/미하라 : 본딩 체인/favorite-0/3s",
+      "recorded": 112,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/미하라 : 본딩 체인/favorite-0/30s",
+      "recorded": 2048,
+      "omitted": 32
+    },
+    {
+      "name": "roster/real/소다/favorite-0/3s",
+      "recorded": 45,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/소다/favorite-0/30s",
+      "recorded": 1472,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/마르차나 : 마린 스터디/favorite-0/3s",
+      "recorded": 116,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/마르차나 : 마린 스터디/favorite-0/30s",
+      "recorded": 1063,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/헬름 : 아쿠아마린/favorite-0/3s",
+      "recorded": 119,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/헬름 : 아쿠아마린/favorite-0/30s",
+      "recorded": 1085,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/아인/favorite-0/3s",
+      "recorded": 82,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/아인/favorite-0/30s",
+      "recorded": 747,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/신데렐라/favorite-0/3s",
+      "recorded": 87,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/신데렐라/favorite-0/30s",
+      "recorded": 807,
+      "omitted": 0
+    }
+  ]
+}

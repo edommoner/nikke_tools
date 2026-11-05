@@ -1,0 +1,112 @@
+{
+  "source_commit": "0ae6a14ab1abec9f7c60179f5910c721d7a8d239",
+  "abi": "0x50455671",
+  "last_completed_proof_commit": "ba9015c41157c4fa698422ee3638a1ba4f4fba19",
+  "full_goal_complete": false,
+  "normal_ui": "CPU",
+  "full_character_variant_certification": "0/203",
+  "metal_component": {
+    "passed": true,
+    "positive_inputs": 185,
+    "rejections": 23
+  },
+  "metal_core": {
+    "passed": true,
+    "positive_inputs": 3020,
+    "rejections": 519,
+    "total_inputs": 3539,
+    "prior3331_input_projection_output_words_decoded_native_exact": true,
+    "fresh_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/hp-attack-core-20261020T094855781600Z"
+  },
+  "mac_gates": {
+    "expected": 44,
+    "session": 32880,
+    "status": "terminal-failed-at-roster-admission",
+    "completed_gates": 36,
+    "completed_gate_failures": 0,
+    "passed_gates": 35,
+    "failed_gate": "roster",
+    "session_terminal": true
+  },
+  "windows_current_source": {
+    "requested": false,
+    "verified": false,
+    "reason": "Prior82-file artifact sharing authorization pending;no descendant push or Windows GPU request issued"
+  },
+  "pending_share": {
+    "commit": "ba9015c41157c4fa698422ee3638a1ba4f4fba19",
+    "files": 82,
+    "bytes": 220391894,
+    "branch": "codex/mac-metal",
+    "auto_review_rejected": true,
+    "status": "awaiting-explicit-user-answer",
+    "important": "Authorization for ba9015c must push that exact commit only;0ae6a14 adds21 source files and needs separate export review"
+  },
+  "efficiency_evaluation_performed": false,
+  "own_effect_preflight_passed": 68,
+  "favorite_preflight_contexts": 269,
+  "all_four_stages_preflight_characters": 67,
+  "findings": [
+    "portable-hp-attack-expiry-finding.json",
+    "portable-hp-attack-rank-finding.json"
+  ],
+  "initial_unlocalized_metal_finding_open": true,
+  "additional_physical_component": {
+    "passed": true,
+    "metal_cases": 80,
+    "native_cases": 80,
+    "compute_source_unchanged": true,
+    "scope": "Actual-firing damage totals;separate from3539 core;CUDA not executed"
+  },
+  "unadmitted_effects": 294,
+  "next_family_cpu_study": {
+    "stat": "taunt",
+    "single_carrier_cases": 180,
+    "activation_order_cases": 120,
+    "passed": true,
+    "gpu_admission_enabled": false,
+    "study": "portable-taunt-native-study.json",
+    "original_boss_attack_cases": 420,
+    "boss_attack_study": "portable-taunt-boss-native-study.json",
+    "stealth_modes": [
+      "none",
+      "taunter",
+      "others",
+      "all"
+    ],
+    "requested_boss_seed": 19,
+    "effective_expected_mode_boss_seed": 0
+  },
+  "real_profiles": {
+    "required": 136,
+    "compiled_and_verified": 134,
+    "native_projection_exact": 132,
+    "known_hp_gap_profiles": 2,
+    "compile_admission_gaps": 2,
+    "all_prior130_preserved": true
+  },
+  "blocking_admission_finding": "portable-hp-attack-roster-admission-finding.json",
+  "efficiency_status": "not-started;current-source broad validation incomplete",
+  "mode_entry_gap": {
+    "production_guards_retained": true,
+    "isolated_first_guard_removal_compile_refused": true,
+    "next_guard": "Authored mode entry delays require explicit sampling design",
+    "observed_entry_delay": 0.39,
+    "candidate_gpu_executions": 0,
+    "design": "docs/portable-mode-entry-delay-design.md"
+  },
+  "next_regression_projection_note": {
+    "prior_core_inputs": 3539,
+    "header_exceptions": [
+      {
+        "index": 3525,
+        "abi": "0x50455670",
+        "rejection": {
+          "name": "hp-attack-invalid-old-abi",
+          "status": 64
+        }
+      }
+    ],
+    "rule": "Normalize only current valid headers to71;preserve the authored invalid70 header exactly. Never blindly rewrite all headers."
+  }
+}

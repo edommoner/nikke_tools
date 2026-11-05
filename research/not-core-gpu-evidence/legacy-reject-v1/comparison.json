@@ -1,0 +1,29 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "reject/not-core-old-entry",
+      "input_sha256": "44a24af40fef8dd6c56add1f022c111c8e74428768cdb92e9b446df3f8fe7e53",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 1,
+  "native_oracles": 0,
+  "input_sha256": "e9e8fc6938e39ffff03a1d34dcde44d67e938e1805bb137468b8b0b99cebccd8",
+  "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+  "generated_normalized": {
+    "cuda": "9ee2475b96d1a7f12f68a4525e1e81a37c9292ffd9d8613d5c8a1318e2ec29ee",
+    "metal": "b54b25c2b8d602dd9d93df1e421d40e4fc2cdf3975922d99109e966dcded59a2"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 0,
+    "fresh_native_cases": 0,
+    "rejection_cases": 1,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

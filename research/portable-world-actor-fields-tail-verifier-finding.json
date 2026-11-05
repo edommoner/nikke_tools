@@ -1,0 +1,21 @@
+{
+  "passed": false,
+  "kind": "Verifier-only new output initialization expectation",
+  "source_commit": "c2425e5f7fc3b2c3f899f498d2e3249c3dad22cd",
+  "capture": "/Users/edo/.codex/worktrees/world-overlays/nikke_tools/research/portable-build/world-actor-fields-20261020T200729325707Z",
+  "initial_report_sha256": "8935fd1d3fa486ece5cc1d61144af2a2dcc1f001de81cb90d760a33d5024823a",
+  "new_native52_passed": true,
+  "new_raw20_passed": true,
+  "all285_legacy_prefixes_exact": true,
+  "failed_indices": [
+    37,
+    38,
+    39,
+    40,
+    41,
+    42
+  ],
+  "issue": "Six old raw command failures occur after successful Actor pool initialization, so the new fields region correctly contains its ready magic. The initial verifier incorrectly expected all rejected inputs to leave it zero.",
+  "remedy": "Derive the required new ready marker from the frozen old GPU pool-ready marker,retain exact old253952 words and require every other new word zero. Re-audit identical inputs/source/readback without GPU execution.",
+  "gpu_retries": 0
+}

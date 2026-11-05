@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "all266_profile_records_preserved": true,
+  "packed_input_hashes_preserved": 232,
+  "rejected_profiles_preserved": 34,
+  "priority_codes_and_order_preserved": 50,
+  "changed_routing": [
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "instant",
+        "stat": "gauge_charge",
+        "target": "self",
+        "scaling": null,
+        "operator": {
+          "domain": "condition",
+          "descriptor": "not_core"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"not_core\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"gauge_charge\", \"target\": \"self\"}",
+        "diagnostic_source": "structured_reason",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported predicate: not_core"
+      },
+      "before": "reference_review",
+      "after": "native_contract_extension"
+    }
+  ],
+  "gpu_source_files_unchanged": 123,
+  "existing17_input_native_fingerprints_preserved": true,
+  "existing1533_proof_reused": true,
+  "full1533_reexecution": false
+}

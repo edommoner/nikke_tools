@@ -1,0 +1,2 @@
+#define PORTABLE_ENTRY_RELOAD_DIAGNOSTIC
+#include "world_projectile_resident_entry.slang"

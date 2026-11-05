@@ -1,0 +1,20 @@
+{
+  "source_reuse_verified": true,
+  "paired_cuda_metal_artifacts_equal": true,
+  "candidate_generation_cache_hit": true,
+  "candidate_generation_compiler_invocations": 0,
+  "cuda_compiler_cache_hit_verified": false,
+  "metal_pipeline_cache_hit_verified": false,
+  "calculation_verified": false,
+  "gpu_calls": 0,
+  "scope": "Exact source, code-generation identity, generated pair and transport consumers; backend cache execution must be verified separately",
+  "schema": 1,
+  "reference_package_id": "c93d7efc341d3da737866d2a693d653b48a372ed945aa7af1c476ab3b46e31b5",
+  "candidate_package_id": "9dd7761e708f33546a6b4cc2a476b0b9ef897031753e237f6d1e538e3b6da4a4",
+  "reference_input_count": 4,
+  "candidate_input_count": 4,
+  "input_datasets_differ": false,
+  "auditor_source_sha256": "0478bf893e0ade2ee7c5781df062289a82129d4b9ab3f3d762f1794caac947c4",
+  "reference_generation_report_sha256": "e79c1d4e338b42a75a78bae7dfa326a26a6e68ccbcae5200d3a65158e859df14",
+  "candidate_generation_report_sha256": "1cefa21598cfff78d1a3f313940d1b991561792ed4608f43f7eb7d479b492a22"
+}

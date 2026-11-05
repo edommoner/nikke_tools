@@ -1,0 +1,266 @@
+{
+  "schema": "metal-original-catalogue-incoming-v1",
+  "source_commit": "05cc2d69e57cdaf80554da90dd8495d3bea52783",
+  "package_id": "854ea3ad1fabe6c2b2e5856b6f6ff8945d14ee4bc766b0127afa5880df20315d",
+  "device": "Apple M5",
+  "input_words": 115680,
+  "output_words": 2032000,
+  "resident_stride": 138952,
+  "calculation_verified": true,
+  "independent_gpu_calls": 0,
+  "independent_seconds": 94.50500383300823,
+  "independent_live_parent_receipt_present": false,
+  "independent_receipt_sha256": "2d4c9db26e23b11bbe72f2018661979227bbe62e811a9d1d39cd6582598ca285",
+  "unit_groups": 20,
+  "unit_tests": 178,
+  "unit_errors": 0,
+  "cpu_seconds": 81.72748474999389,
+  "gpu_seconds": 3.8251859583397163,
+  "pipeline_seconds": 0.0031130313873291016,
+  "pipeline_cache": {
+    "archive_compile_seconds": 0,
+    "hit": true,
+    "key": "6465e1882657160283c692687d65deadee4b259dcc58f5503f8f5a3f3275a112",
+    "required": true
+  },
+  "slang_invocations": 0,
+  "generated_raw_equal_to_prior": {
+    "generated.cu": true,
+    "generated.cu.reflection.json": true,
+    "generated.metal": true,
+    "generated.metal.reflection.json": true
+  },
+  "generated_normalized": {
+    "cuda": "1919893a9b5bd492b8a456dc7699eb0ee9d97d21a852c84eb04644d454454d9e",
+    "metal": "6117e656780854798267945640225b4a796ba4c051e605eabc02b985d0f92982"
+  },
+  "input_sha256": "0b58cef5b58affd6ce993b0c42da9219cb67949c6dc0fe0f4e2a05c3bd028e2b",
+  "output_sha256": "51ed3e962570348177cb99fc76673cd37478845f404b842f0590de77acc77328",
+  "readback_bytes": 32512000,
+  "entries": [
+    {
+      "name": "original-catalogue/incoming/Red-Hood-B2/30s",
+      "definitions": 81,
+      "witness": {
+        "family": "Red-Hood",
+        "scenario": "B2"
+      },
+      "skill_rows": 6,
+      "burst_casts": [
+        {
+          "time": 2.416666666666663,
+          "event": 1,
+          "owner": 0
+        },
+        {
+          "time": 2.5166666666666626,
+          "event": 2,
+          "owner": 0
+        },
+        {
+          "time": 2.6166666666666623,
+          "event": 3,
+          "owner": 0
+        },
+        {
+          "time": 16.31666666666702,
+          "event": 1,
+          "owner": 1
+        },
+        {
+          "time": 16.416666666667016,
+          "event": 2,
+          "owner": 2
+        },
+        {
+          "time": 16.51666666666701,
+          "event": 3,
+          "owner": 3
+        }
+      ],
+      "protection_hits": []
+    },
+    {
+      "name": "original-catalogue/incoming/Red-Hood-auto/30s",
+      "definitions": 81,
+      "witness": {
+        "family": "Red-Hood",
+        "scenario": "auto"
+      },
+      "skill_rows": 7,
+      "burst_casts": [
+        {
+          "time": 2.416666666666663,
+          "event": 1,
+          "owner": 1
+        },
+        {
+          "time": 2.5166666666666626,
+          "event": 2,
+          "owner": 2
+        },
+        {
+          "time": 2.6166666666666623,
+          "event": 3,
+          "owner": 0
+        },
+        {
+          "time": 20.60000000000011,
+          "event": 1,
+          "owner": 1
+        },
+        {
+          "time": 20.700000000000106,
+          "event": 2,
+          "owner": 2
+        },
+        {
+          "time": 20.8000000000001,
+          "event": 3,
+          "owner": 3
+        }
+      ],
+      "protection_hits": []
+    },
+    {
+      "name": "original-catalogue/incoming/Cinderella-chipped/30s",
+      "definitions": 74,
+      "witness": {
+        "family": "Cinderella",
+        "scenario": "chipped"
+      },
+      "skill_rows": 102,
+      "burst_casts": [
+        {
+          "time": 4.033333333333324,
+          "event": 1,
+          "owner": 1
+        },
+        {
+          "time": 4.133333333333324,
+          "event": 2,
+          "owner": 2
+        },
+        {
+          "time": 4.233333333333324,
+          "event": 3,
+          "owner": 0
+        },
+        {
+          "time": 22.216666666666686,
+          "event": 1,
+          "owner": 1
+        },
+        {
+          "time": 22.31666666666668,
+          "event": 2,
+          "owner": 2
+        }
+      ],
+      "protection_hits": []
+    },
+    {
+      "name": "original-catalogue/incoming/Cinderella-broken/30s",
+      "definitions": 74,
+      "witness": {
+        "family": "Cinderella",
+        "scenario": "broken"
+      },
+      "skill_rows": 102,
+      "burst_casts": [
+        {
+          "time": 4.033333333333324,
+          "event": 1,
+          "owner": 1
+        },
+        {
+          "time": 4.133333333333324,
+          "event": 2,
+          "owner": 2
+        },
+        {
+          "time": 4.233333333333324,
+          "event": 3,
+          "owner": 0
+        },
+        {
+          "time": 22.216666666666686,
+          "event": 1,
+          "owner": 1
+        },
+        {
+          "time": 22.31666666666668,
+          "event": 2,
+          "owner": 2
+        }
+      ],
+      "protection_hits": []
+    }
+  ],
+  "scope": {
+    "original_effects_owners_weapons_levels_preserved": true,
+    "enemy_attacks": "Literal original body patterns; native and GPU determine all actual casts, victims and incoming layers",
+    "explicit_burst_sequence": "Red Hood B2 case only, applied after original identity verification",
+    "required_witnesses": [
+      "Red Hood middle attack redirected only during original B2, automatic control does not redirect",
+      "Original injured Red Hood subsequently restores HP with actual lifesteal returns",
+      "Cinderella intact decoy absorbs all three incoming hits",
+      "Cinderella broken decoy ends first hit, actual next hit reaches HP, original burst restores decoy for third hit"
+    ],
+    "all_battle_and_skill_history_compared": true,
+    "physical_history": "Existing full ordered semantic SHA plus retained prefix",
+    "game_decoy_layer_rules_independently_verified": false,
+    "cuda_device_verified": false,
+    "full_character_verified": 0,
+    "public_gpu_admission": false,
+    "full_goal_complete": false
+  },
+  "failures": [
+    {
+      "schema": "original-catalogue-incoming-predevice-failure-v1",
+      "source_commit": "2c723648",
+      "failed_case": "original-catalogue/incoming/Cinderella-broken/30s",
+      "completed_native_cases": [
+        "Red-Hood-B2/30s",
+        "Red-Hood-auto/30s",
+        "Cinderella-chipped/30s"
+      ],
+      "failure": "Verifier required HP overflow on the same decoy-breaking hit; canonical _land_squad ends the whole absorbed hit",
+      "correction": "Require first damage greater than decoy storage, first HP delivery zero, and real HP damage with no decoy on the second hit; retain all strict native and GPU comparisons",
+      "correction_commit": "0fe28af1",
+      "canonical_files_changed": false,
+      "gpu_runs": 0,
+      "windows_new_runs": 0
+    },
+    {
+      "schema": "original-catalogue-incoming-predevice-failure-v2",
+      "source_commit": "0fe28af1",
+      "failed_case": "Cinderella-broken/30s",
+      "cause": "Original burst restores decoy at4.2333s before the previous second attack at5s; the verifier incorrectly expected no restored decoy",
+      "observed_hits": [
+        {
+          "time": 3.9999999999999907,
+          "damage": 3478519.0,
+          "decoy": 3153384.0,
+          "hp": 0.0
+        },
+        {
+          "time": 4.999999999999988,
+          "damage": 78519.0,
+          "decoy": 78519.0,
+          "hp": 0.0
+        }
+      ],
+      "saved_prior_gpu_burst_time": 4.233333333333324,
+      "prior_source": "original-catalogue-burst-v2-replay, input3",
+      "correction": "Literal additional enemy attack at4.1s witnesses HP gap, retain5s hit to require original burst decoy restoration",
+      "corrected_commit": "05cc2d69",
+      "gpu_runs": 0,
+      "windows_new_runs": 0,
+      "canonical_source_changes": 0
+    }
+  ],
+  "gpu_executions": 1,
+  "gpu_retries": 0,
+  "windows_new_runs": 0
+}

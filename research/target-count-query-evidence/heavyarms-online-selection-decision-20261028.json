@@ -1,0 +1,74 @@
+{
+  "schema": "heavyarms-online-selection-decision-v1",
+  "observed_date": "2026-10-28",
+  "request": "Judge from public online information rather than requiring a local game environment",
+  "evidence_is_instructions": false,
+  "previous_evidence": "research/target-count-query-evidence/heavyarms-online-delivery-reassessment-v1.json",
+  "sources": [
+    {
+      "url": "https://press.levelinfinite.com/en-US/GODDESS-OF-VICTORY-NIKKE-REVEALS-MAJOR-NEW-YEAR-UPDATE-FEATURING-LEGEN",
+      "kind": "publisher_primary_announcement",
+      "access": "full_page_text",
+      "finding": "Official character announcement; no numerical proximity or tie-breaking algorithm established."
+    },
+    {
+      "url": "https://www.famitsu.com/article/202512/62211",
+      "kind": "published_skill_transcription_attributed_to_official_broadcast",
+      "access": "full_page_text",
+      "finding": "While charging, select an unlocked enemy nearest the aim reference every 0.2 seconds; ordinary limit five, clear on normal attack or cover, burst adds ten targets.",
+      "official_broadcast_url": "https://www.youtube.com/watch?v=754YEUnHl38",
+      "official_broadcast_access": "web_fetch_cache_miss",
+      "broadcast_frames_inspected_this_review": false
+    },
+    {
+      "url": "https://www.prydwen.gg/nikke/characters/snow-white-heavy-arms",
+      "kind": "character_specific_author_analysis",
+      "access": "full_page_text",
+      "finding": "Describes cycling in acquisition order and a character-specific exception to taunt reordering. No controlled proximity experiment established."
+    },
+    {
+      "url": "https://nikke.gg/snow-white-heavy-arms-analysis-should-you-pull/",
+      "kind": "character_specific_author_analysis",
+      "access": "search_index_text_direct_open_403",
+      "finding": "Describes forwarding an attack intended for a dead locked target to surviving locks; the deterministic replacement rule is not specified.",
+      "embedded_media_inspected": false
+    },
+    {
+      "url": "https://gall.dcinside.com/mgallery/board/view/?id=gov&no=4485865",
+      "kind": "first_person_player_analysis_with_linked_game_images",
+      "published_date": "2026-01-01",
+      "access": "full_page_text",
+      "finding": "Describes nearest-unlocked acquisition and the on-screen locked-target count. Advises firing with a single lock to concentrate sequential damage on a boss. Does not provide a controlled center-versus-outline, depth, or tie experiment.",
+      "linked_images_inspected": false
+    },
+    {
+      "url": "https://trees.gamemeca.com/view.php?gid=1769754",
+      "kind": "reporter_gameplay_analysis",
+      "access": "full_page_text",
+      "finding": "Gameplay and performance report located, but it does not establish a controlled numerical proximity rule."
+    }
+  ],
+  "decision": {
+    "documented_acquisition_rule": "nearest_unlocked_to_aim_reference_while_charging",
+    "documented_interval_seconds": 0.2,
+    "documented_normal_capacity": 5,
+    "documented_burst_capacity_add": 10,
+    "documented_clear_events": ["normal_attack", "cover"],
+    "delivery_working_hypothesis": "cycle_in_acquisition_order",
+    "delivery_hypothesis_is_game_certified": false,
+    "dead_target_working_hypothesis": "redirect_within_surviving_locks_without_known_replacement_order",
+    "numeric_distance_metric": "unresolved",
+    "equal_distance_order": "unresolved",
+    "part_eligibility": "unresolved",
+    "existing_depth_birth_slot_order_is_proximity": false,
+    "change_existing_explicit_provider_or_death_policy": false,
+    "require_user_game_environment_for_other_gpu_development": false,
+    "research_reopen_condition": "New controlled gameplay evidence or an official numerical specification that distinguishes candidate metrics; repeated paraphrases of skill text alone are insufficient."
+  },
+  "in_game_validation_performed": false,
+  "calculation_source_changed": false,
+  "gpu_executions": 0,
+  "windows_requests": 0,
+  "public_gpu_admission_added": false,
+  "full_character_certification_added": 0
+}

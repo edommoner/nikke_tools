@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "case_count": 20,
+  "native_baselines_unchanged": true,
+  "changed": {
+    "name": [],
+    "native_sha256": [],
+    "input_sha256": [
+      "coordinate-mode-actions/hold-active-mode",
+      "coordinate-mode-actions/cover-then-hold",
+      "coordinate-mode-actions/hold-then-cover",
+      "coordinate-mode-actions/same-frame-ordered",
+      "coordinate-mode-actions/hold-release-before-ready",
+      "coordinate-mode-actions/hold-none",
+      "coordinate-mode-actions/cover-post-delay-base-charge",
+      "coordinate-mode-actions/cover-post-delay-until-reload",
+      "coordinate-mode-actions/cover-post-delay-zero",
+      "coordinate-mode-actions/cover-post-delay-mode-expires",
+      "coordinate-mode-actions/hold-mode-expires",
+      "coordinate-mode-actions/hold-mode-auto",
+      "coordinate-mode-actions/entry-wait-cover-hold",
+      "coordinate-mode-actions/automatic-reload-post-delay",
+      "coordinate-mode-actions/automatic-reload-cover",
+      "coordinate-mode-actions/tap-mode",
+      "coordinate-mode-actions/tap-mode-cover",
+      "coordinate-mode-actions/base-min-cycle-not-inherited",
+      "coordinate-mode-actions/blocked-cover-keeps-hold"
+    ]
+  },
+  "gpu_calls": 0
+}

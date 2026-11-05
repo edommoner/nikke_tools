@@ -1,0 +1,459 @@
+{
+  "schema": "product-buff-stack-carrier-consumer-v1",
+  "capture": {
+    "index": 5,
+    "profile": "라피 : 레드 후드",
+    "favorite_stage": 0,
+    "capture": "9aad326c4ce341938c7e1af2743835bc",
+    "source": "gpu/product_fixed_battle_entry.slang",
+    "input_sha256": "0246de8eef48e18483d4ef7e4db0dccd5a12e7f4427b533d59e2481672452475",
+    "output_sha256": "8312e640f13a04b9da5ca3fee082cec538703e96e66b587f74d4000eb399cd70",
+    "classification": "gpu_match",
+    "phase": "pilot-v1"
+  },
+  "source_contract": {
+    "verified": true,
+    "handler_sha256": "9966c24a71c080dde253d5531c3578a6f3a16260430dc608e2f237b5e57d1941",
+    "weapon_hit_producers": 1,
+    "weapon_hit_is_handler_completion_not_per_packet": true,
+    "effect_local_weapon_override": false,
+    "buff_kind_uses_regular_activation": true,
+    "instant_kind_uses_stack_mutation": true,
+    "source_sha256": {
+      "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+      "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+    },
+    "gpu_calls": 0
+  },
+  "definition_rows": [
+    10,
+    11,
+    12
+  ],
+  "final_carriers": [
+    {
+      "slot": 10,
+      "definition": 10,
+      "effect": "유탄",
+      "recipients": 32,
+      "stacks": 0,
+      "active": false,
+      "lazy_pending": false,
+      "end": 1e+30,
+      "activated": 176.40000000003252,
+      "order": 140,
+      "hp_snapshot": 0.0,
+      "enemy_generation": 1
+    }
+  ],
+  "final_timers": [
+    {
+      "effect": "유탄",
+      "due": 0.0,
+      "expiry": 0.0,
+      "epoch": 0,
+      "order": 0,
+      "active": false,
+      "stacks": 0,
+      "activations": 50,
+      "target_slot": 0,
+      "target_generation": 0,
+      "trigger_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "every_due": 0.0,
+      "every_interval": 0.0
+    },
+    {
+      "effect": "유탄 폭발",
+      "due": 0.0,
+      "expiry": 0.0,
+      "epoch": 0,
+      "order": 0,
+      "active": false,
+      "stacks": 1,
+      "activations": 6,
+      "target_slot": 0,
+      "target_generation": 0,
+      "trigger_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "every_due": 0.0,
+      "every_interval": 0.0
+    },
+    {
+      "effect": "유탄 제거",
+      "due": 0.0,
+      "expiry": 0.0,
+      "epoch": 0,
+      "order": 0,
+      "active": false,
+      "stacks": 0,
+      "activations": 6,
+      "target_slot": 0,
+      "target_generation": 0,
+      "trigger_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "every_due": 0.0,
+      "every_interval": 0.0
+    }
+  ],
+  "reference_captures": [],
+  "event_trace": [],
+  "trace_total": 170,
+  "trace_retained": 0,
+  "burst_trace_total": 35,
+  "burst_trace": [
+    {
+      "time": 2.9999999999999942,
+      "event": 6,
+      "owner": -1
+    },
+    {
+      "time": 2.9999999999999942,
+      "event": 1,
+      "owner": 1
+    },
+    {
+      "time": 3.099999999999994,
+      "event": 2,
+      "owner": 2
+    },
+    {
+      "time": 3.1999999999999935,
+      "event": 3,
+      "owner": 0
+    },
+    {
+      "time": 3.5833333333333255,
+      "event": 4,
+      "owner": -1
+    },
+    {
+      "time": 13.583333333333588,
+      "event": 5,
+      "owner": -1
+    },
+    {
+      "time": 15.583333333333687,
+      "event": 6,
+      "owner": -1
+    },
+    {
+      "time": 21.18333333333341,
+      "event": 1,
+      "owner": 1
+    },
+    {
+      "time": 21.283333333333406,
+      "event": 2,
+      "owner": 2
+    },
+    {
+      "time": 41.38333333333227,
+      "event": 3,
+      "owner": 0
+    },
+    {
+      "time": 41.76666666666558,
+      "event": 4,
+      "owner": -1
+    },
+    {
+      "time": 51.76666666666501,
+      "event": 5,
+      "owner": -1
+    },
+    {
+      "time": 53.7666666666649,
+      "event": 6,
+      "owner": -1
+    },
+    {
+      "time": 53.7666666666649,
+      "event": 1,
+      "owner": 1
+    },
+    {
+      "time": 53.86666666666489,
+      "event": 2,
+      "owner": 2
+    },
+    {
+      "time": 77.36666666666356,
+      "event": 3,
+      "owner": 0
+    },
+    {
+      "time": 77.74999999999687,
+      "event": 4,
+      "owner": -1
+    },
+    {
+      "time": 87.7499999999963,
+      "event": 5,
+      "owner": -1
+    },
+    {
+      "time": 89.74999999999619,
+      "event": 6,
+      "owner": -1
+    },
+    {
+      "time": 89.74999999999619,
+      "event": 1,
+      "owner": 1
+    },
+    {
+      "time": 89.84999999999619,
+      "event": 2,
+      "owner": 2
+    },
+    {
+      "time": 110.749999999995,
+      "event": 3,
+      "owner": 0
+    },
+    {
+      "time": 111.13333333332831,
+      "event": 4,
+      "owner": -1
+    },
+    {
+      "time": 121.13333333332774,
+      "event": 5,
+      "owner": -1
+    },
+    {
+      "time": 123.13333333332763,
+      "event": 6,
+      "owner": -1
+    },
+    {
+      "time": 123.13333333332763,
+      "event": 1,
+      "owner": 1
+    },
+    {
+      "time": 123.23333333332762,
+      "event": 2,
+      "owner": 2
+    },
+    {
+      "time": 144.13333333334018,
+      "event": 3,
+      "owner": 0
+    },
+    {
+      "time": 144.5166666666738,
+      "event": 4,
+      "owner": -1
+    },
+    {
+      "time": 154.51666666668177,
+      "event": 5,
+      "owner": -1
+    },
+    {
+      "time": 156.51666666668336,
+      "event": 6,
+      "owner": -1
+    },
+    {
+      "time": 156.51666666668336,
+      "event": 1,
+      "owner": 1
+    },
+    {
+      "time": 156.61666666668344,
+      "event": 2,
+      "owner": 2
+    },
+    {
+      "time": 177.51666666670008,
+      "event": 3,
+      "owner": 0
+    },
+    {
+      "time": 177.9000000000337,
+      "event": 4,
+      "owner": -1
+    }
+  ],
+  "skill_header": [
+    1465076529,
+    0,
+    1,
+    170,
+    0,
+    0,
+    0,
+    0
+  ],
+  "skill_rows": [],
+  "old_CPU_public_vs_current_projection_differing_fields": [
+    "evaluator"
+  ],
+  "drift_values": {
+    "evaluator": {
+      "old": {
+        "repo": "Jgaram/nikke-calc",
+        "commit": "4155099d5a51133d8550d9d24f0185f77a295c15",
+        "dirty": false
+      },
+      "current": {
+        "repo": "Jgaram/nikke-calc",
+        "commit": "3d3fe673da1e52fff23113410d097afb85a43c63",
+        "dirty": false
+      }
+    }
+  },
+  "transitions_not_proved": [
+    "A: no timestamped named-carrier before/after history in base decoder",
+    "B: scalar coefficient not present in base event trace",
+    "C: final inactive state is not proof of immediate removal at full_burst_start",
+    "D: final reference capture does not prove different event-time stacks"
+  ],
+  "CPU_battles": 0,
+  "GPU_calls": 0,
+  "Windows_calls": 0,
+  "source_commit": "3d3fe673da1e52fff23113410d097afb85a43c63",
+  "scope": "Rapi Red Hood original named harmful target carrier only; static L3 and retained Metal counters, not temporal stack semantics",
+  "definition_connection": [
+    {
+      "index": 10,
+      "definition": {
+        "effect": {
+          "source": "스킬2",
+          "type": "buff",
+          "name": "유탄",
+          "trigger": {
+            "timing": [
+              "weapon_hit:부착형 유탄 4"
+            ],
+            "condition": [
+              "not_during_full_burst"
+            ]
+          },
+          "target": "target",
+          "stat": "buff_stack_add",
+          "polarity": "harmful",
+          "fixed_value": 1,
+          "max_stack": -1,
+          "duration": -1
+        },
+        "owner": "라피 : 레드 후드"
+      }
+    },
+    {
+      "index": 11,
+      "definition": {
+        "effect": {
+          "source": "스킬2",
+          "type": "damage",
+          "name": "유탄 폭발",
+          "trigger": {
+            "timing": [
+              "full_burst_start"
+            ],
+            "condition": [
+              "self_stack_above:유탄:1"
+            ]
+          },
+          "target": "target",
+          "stat": "projectile_explosion_damage",
+          "fixed_value": 49.71,
+          "scaling": "stack_count",
+          "scaling_ref": "유탄"
+        },
+        "owner": "라피 : 레드 후드"
+      }
+    },
+    {
+      "index": 12,
+      "definition": {
+        "effect": {
+          "source": "스킬2",
+          "type": "instant",
+          "name": "유탄 제거",
+          "trigger": {
+            "timing": [
+              "full_burst_start"
+            ],
+            "condition": []
+          },
+          "target": "target",
+          "stat": "remove_named_buff",
+          "target_effect": "유탄"
+        },
+        "owner": "라피 : 레드 후드"
+      }
+    }
+  ],
+  "accepted_scope": [
+    "Static named carrier -> scaling_ref coefficient -> remove_named_buff connection",
+    "Existing projectile chain source contract",
+    "Observed current-source Metal counters50/6/6 and final inactive stack0 only"
+  ],
+  "L4_handoff": {
+    "A_add_source_condition_target_caster": {
+      "status": "not-proven",
+      "current_capture": "insufficient retained fields; cannot prove this claim"
+    },
+    "B_coefficient_49_71_times_stack": {
+      "status": "not-proven",
+      "current_capture": "insufficient retained fields; cannot prove this claim"
+    },
+    "C_immediate_remove_to_zero": {
+      "status": "not-proven",
+      "current_capture": "insufficient retained fields; cannot prove this claim"
+    },
+    "D_two_different_stack_values": {
+      "status": "not-proven",
+      "current_capture": "insufficient retained fields; cannot prove this claim"
+    }
+  },
+  "counter_values_are_not_inferred_stack_counts": true,
+  "drift_open": true,
+  "drift_comparison_exclusions_added": false,
+  "old_expectations_rewritten": false,
+  "new_CPU_battles": 0,
+  "new_GPU_calls": 0,
+  "CUDA_verified": false,
+  "claude_decision": "accept static L3 and counters as observations; L4 explicit handoff",
+  "claude_review_sha256": "ff058e8010fe8884247af0ebe2e38a5c64a649a1803d6bcd5df0b6054493536f",
+  "claude_review": "# 判定: 推奨案を採用します\n\n**名前付き状態consumerの静的L3接続**と、**current source-matched 実GPU activation counters 50/6/6**までを受理します。L4 A-Dは明示的にhandoffし、新しいGPU/CPU実行なしで次の未接続consumer 1項目へ進んでください。\n\n## 判断理由\n\n- 前回方針の前提は「保存された全native/publicがbit一致」でした。この前提は次の2点で成立しません。\n  - 静的な再projectionだけで、evaluator driftが確定しています。\n  - 保存されているのはcpu-payload.jsonだけで、native dataclassがありません。\n- そのため、CPUを追加で1回実行しても旧native比較は復元できません。180秒の再計算を実行しなかった判断は正しいです。\n- retained trace 0 / skill count 0 / decode_prefix 空なので、このrawからはordered eventを原理的に得られません。A-Dは「未証明」ではなく「このcaptureでは証明不能」と分類するのが正確です。\n\n## 受理範囲（記録時の文言）\n\n| 項目 | 状態 |\n|---|---|\n| row10/11/12 の definition 接続（named carrier / scaling_ref / removal） | L3 static 受理 |\n| projectile_chain_contract.verify（buff型regular / instant型handler） | 受理 |\n| GPU activation counter 50/6/6、最終slot10 stacks0 / inactive | **観測事実としてのみ**受理 |\n| L4 A（0→n、producer+condition） | 未証明、handoff |\n| L4 B（49.71×n） | 未証明、handoff |\n| L4 C（即時除去→0） | 未証明、handoff |\n| L4 D（異なる2つのn） | 未証明、handoff |\n| public evaluator drift | 別のopen項目として保持（差分フィールド/旧値/現値を併記、除外や書換えなし） |\n\ncounterの50/6/6と最終0は、A-Dの代用やstack数nの推定に使わないことを明記してください。\n\n## handoff仕様（将来A-Dを扱う場合の最小条件）\n\n今回は実行しません。条件の定義だけ残します。\n\n1. **trace保持が有効な新規capture**を1本取ります。条件は、skill trace容量が170以上であること、そして各爆発時点のstack snapshotが読めることです。\n2. **同一source上で、CPU 1回 + GPU 1回**を実行し、native dataclass単位で比較します。旧captureとの比較は行いません。\n3. evaluator driftは比較対象から外さず、既知差分として別欄で照合します。正本・期待値・normalizerは変更しません。\n4. 必要なのはD（異なる2つのn）を含むsceneであり、既存のaccepted caseからそれを選びます。definitionやtyped sceneは作りません。\n\n## 維持する前提\n\n- 全効果は未完成です。\n- CUDA/Windowsは現行sourceで未実施です。\n- 今回のGPU証拠はMetalのみです。",
+  "future_gate_not_executed": {
+    "trace_skill_capacity_minimum": 170,
+    "per_explosion_stack_snapshot_required": true,
+    "CPU_runs": 1,
+    "GPU_runs": 1,
+    "same_source_full_native_comparison": true,
+    "select_existing_scene_with_two_different_stack_counts": true,
+    "requires_new_Claude_selection_before_execution": true
+  },
+  "production_changes": 0,
+  "full_goal_complete": false
+}

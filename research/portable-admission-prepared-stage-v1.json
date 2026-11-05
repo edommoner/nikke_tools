@@ -1,0 +1,42 @@
+{
+  "schema": "portable-admission-prepared-stage-checkpoint-v1",
+  "package_id": "cad4086feda77f0e4ffa98d69153959ed2bbb7bdee191182edb8cca7abe7dfa0",
+  "files": 4003,
+  "archive": "research/windows-source-packets/prepared-admission-stage-v1.zip",
+  "bytes": 13482329,
+  "sha256": "1548e7cf10f482a65df3f1a20d2c015a253971d65f0045df576974637f0e9953",
+  "original_owner_package_id": "1e54383d95d39389d10e0bfb8b9d3a037f2fa6f310ac0749da13c10c64b2abc9",
+  "fixed_tests": 76,
+  "control_groups": 69,
+  "control_tests": 719,
+  "windows_only_skip": 1,
+  "payload_after_verified": true,
+  "whole_golden_unchanged": true,
+  "gpu_backend_generator_protected_records_unchanged": 455,
+  "bounds": {
+    "stage_timeout_max_seconds": 180,
+    "gpu_timeout_max_seconds": 60,
+    "memory_limit_mb": 2048,
+    "windows_priority": "BelowNormal",
+    "start_gate": true,
+    "immediate_post_observation": true
+  },
+  "mac_real_negative_stage": {
+    "package_id": "6cc80648de2c9eac5c1206fbd5b5c2fc0357cd02d60b91e1dac36efa088e45f0",
+    "expected_error": "missing transaction",
+    "child_exit_code": 1,
+    "elapsed_seconds": 0.7387880419846624,
+    "timed_out": false,
+    "cleanup_error": null,
+    "claim_retained": true,
+    "preparation_verified": false,
+    "calculation_verified": false
+  },
+  "windows_requested": false,
+  "windows_source_host_preparation_verified": false,
+  "authenticated_execution_claim_connected": false,
+  "gpu_consumer_connected": false,
+  "independent_post_audit_connected": false,
+  "gpu_calls": 0,
+  "full_goal_complete": false
+}

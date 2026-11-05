@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "input_count": 46,
+  "native_oracles": 29,
+  "input_sha256": "de3c60b0c01fb8afc7e7c1766887e633fd2b8806827bad52ef98918fec793413",
+  "gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "elapsed_seconds": 106.73951158416457
+}

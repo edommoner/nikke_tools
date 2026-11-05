@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-typed-geometry-metal-v1",
+  "raw_bytes": 227584000,
+  "raw_sha256": "bdd071a47ea0c76ff23ff69196c9e62851264d5bba7581252579e79de6b35c95",
+  "evidence_sha256": "8268b0850f01246b0f38706541c29870b8922e2c2397c13cb019f8f55abcef3b",
+  "raw_inode": 511526334,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 396,
+  "zero_range_bytes": 183042048,
+  "allocated_before": 227586048,
+  "allocated_after": 44544000,
+  "allocated_reclaimed": 183042048,
+  "full_hash_verified": true
+}

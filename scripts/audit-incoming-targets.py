@@ -27,7 +27,7 @@ for rule in ('all','slot:2,4','random:2','top_atk:2'):
   with v.v.t.p.custom_effects(extra):
    try:sys.settrace(trace);cpu=v.a.evaluate(b)
    finally:sys.settrace(previous)
-   try:v.a.evaluate({**b,'_compile_gpu_detail':True});gpu_accepted=True;issues=[]
+   try:v.a.evaluate({**b,'_compile_detail':True});gpu_accepted=True;issues=[]
    except v.g.UnsupportedDetail as e:gpu_accepted=False;issues=e.issues
   assert len(chosen)==8 and not gpu_accepted
   if rule=='all':assert all(len(r['selected'])==5 for r in chosen)

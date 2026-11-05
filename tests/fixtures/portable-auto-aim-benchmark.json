@@ -1,0 +1,304 @@
+{
+  "name": "bounded-automatic-add-aim-selections",
+  "effects": [
+    {
+      "name": "stacked",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "def_pct",
+      "fixed_value": -1,
+      "target": "enemies_nearest:1",
+      "duration": 1,
+      "max_stack": 2000,
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    }
+  ],
+  "owners": [
+    0
+  ],
+  "combat": {
+    "weapons": [
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      }
+    ],
+    "targets": [
+      {
+        "hp": 1000000000000.0
+      },
+      {
+        "kind": 5,
+        "hp": 1000000000000.0
+      },
+      {
+        "kind": 5,
+        "hp": 1000000000000.0
+      },
+      {
+        "kind": 5,
+        "hp": 1000000000000.0
+      },
+      {
+        "kind": 5,
+        "hp": 1000000000000.0
+      },
+      {
+        "kind": 5,
+        "hp": 1000000000000.0
+      },
+      {
+        "kind": 5,
+        "hp": 1000000000000.0
+      },
+      {
+        "kind": 5,
+        "hp": 1000000000000.0
+      }
+    ],
+    "trace": "summary",
+    "automatic_add_aim": [
+      true,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "script": [
+    [
+      0,
+      21,
+      0,
+      0,
+      7,
+      -1,
+      1000000000000.0,
+      0
+    ],
+    [
+      0,
+      21,
+      0,
+      0,
+      6,
+      -1,
+      1000000000000.0,
+      0
+    ],
+    [
+      0,
+      21,
+      0,
+      0,
+      5,
+      -1,
+      1000000000000.0,
+      0
+    ],
+    [
+      0,
+      21,
+      0,
+      0,
+      4,
+      -1,
+      1000000000000.0,
+      0
+    ],
+    [
+      0,
+      21,
+      0,
+      0,
+      3,
+      -1,
+      1000000000000.0,
+      0
+    ],
+    [
+      0,
+      21,
+      0,
+      0,
+      2,
+      -1,
+      1000000000000.0,
+      0
+    ],
+    [
+      0,
+      21,
+      0,
+      0,
+      1,
+      -1,
+      1000000000000.0,
+      0
+    ],
+    [
+      60,
+      24,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      60,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      60,
+      2,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    [
+      60,
+      2,
+      0,
+      0,
+      2,
+      2,
+      0,
+      0
+    ],
+    [
+      60,
+      2,
+      0,
+      0,
+      3,
+      3,
+      0,
+      0
+    ],
+    [
+      60,
+      2,
+      0,
+      0,
+      4,
+      4,
+      0,
+      0
+    ],
+    [
+      60,
+      2,
+      0,
+      0,
+      5,
+      5,
+      0,
+      0
+    ],
+    [
+      60,
+      2,
+      0,
+      0,
+      6,
+      6,
+      0,
+      0
+    ],
+    [
+      60,
+      2,
+      0,
+      0,
+      7,
+      7,
+      0,
+      0
+    ]
+  ],
+  "expected_queries": [
+    {
+      "enemy_modifiers": {
+        "defense_pct": 0,
+        "defense_flat": 0,
+        "received_damage_pct": 0
+      }
+    },
+    {
+      "enemy_modifiers": {
+        "defense_pct": 0,
+        "defense_flat": 0,
+        "received_damage_pct": 0
+      }
+    },
+    {
+      "enemy_modifiers": {
+        "defense_pct": 0,
+        "defense_flat": 0,
+        "received_damage_pct": 0
+      }
+    },
+    {
+      "enemy_modifiers": {
+        "defense_pct": 0,
+        "defense_flat": 0,
+        "received_damage_pct": 0
+      }
+    },
+    {
+      "enemy_modifiers": {
+        "defense_pct": 0,
+        "defense_flat": 0,
+        "received_damage_pct": 0
+      }
+    },
+    {
+      "enemy_modifiers": {
+        "defense_pct": 0,
+        "defense_flat": 0,
+        "received_damage_pct": 0
+      }
+    },
+    {
+      "enemy_modifiers": {
+        "defense_pct": 0,
+        "defense_flat": 0,
+        "received_damage_pct": 0
+      }
+    },
+    {
+      "enemy_modifiers": {
+        "defense_pct": -1200,
+        "defense_flat": 0,
+        "received_damage_pct": 0
+      }
+    }
+  ]
+}

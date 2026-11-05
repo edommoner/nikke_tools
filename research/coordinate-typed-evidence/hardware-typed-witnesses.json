@@ -1,0 +1,826 @@
+{
+  "schema": 1,
+  "scope": "Decode of actual Metal readbacks using the existing typed decoder; native hash links to the full independent audit, not another CPU/GPU run",
+  "package_id": "a59582acfb38f915cbc1211ed1a23d33e3f764c58b051f36e2fc1cb63c19f67c",
+  "gpu_calls": 0,
+  "rows": [
+    {
+      "name": "coordinate-typed/control/original-Marciana-3s",
+      "original_definitions": 68,
+      "native_sha256": "dca7a371a40f6bbdebe3a2f0ae627dc451595cb948f3831b192b510614f7152a",
+      "output_sha256": "95c661bb63c2960e93c75f700e0d27b5c5615fb1235d7f75c6af6848cfbc8ae9",
+      "status": 0,
+      "typed_enabled": false
+    },
+    {
+      "name": "coordinate-typed/original-modifier-probe/사쿠라/3s",
+      "original_definitions": 72,
+      "native_sha256": "2e938b4c83e63e392532c612cb659e4986d715abddac61a08d96457968021fdd",
+      "output_sha256": "0a174f0f485b716756e15a63705f17c11f12b607cd96908397667c27c3077cd1",
+      "status": 0,
+      "typed_enabled": true,
+      "probe_kind": 2,
+      "probe_source": 72,
+      "typed": {
+        "time": 3.0,
+        "finished": true,
+        "state": [
+          {
+            "handle": [
+              2,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 999999813355.0,
+            "capacity": 1000000000000.0,
+            "expires": -1.0,
+            "owner": null
+          }
+        ],
+        "attacks": [
+          {
+            "attack_id": 1,
+            "owner": 0,
+            "time": 2.0166666666666644,
+            "damage": 186645.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  2,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 186645.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "coordinate-typed/original-modifier-probe/앵커/3s",
+      "original_definitions": 70,
+      "native_sha256": "191ed7aa9688fda4c06b535b94db822a3943803351c24e257cd499c107ebe80c",
+      "output_sha256": "19db2a633f68a3dcec1a1c497364d2676db8ba2c794f18883f76b2d1842985f1",
+      "status": 0,
+      "typed_enabled": true,
+      "probe_kind": 2,
+      "probe_source": 70,
+      "typed": {
+        "time": 3.0,
+        "finished": true,
+        "state": [
+          {
+            "handle": [
+              2,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 999999929344.0,
+            "capacity": 1000000000000.0,
+            "expires": -1.0,
+            "owner": null
+          }
+        ],
+        "attacks": [
+          {
+            "attack_id": 1,
+            "owner": 0,
+            "time": 2.0166666666666644,
+            "damage": 70656.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  2,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 70656.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "coordinate-typed/original-modifier-probe/클레이/3s",
+      "original_definitions": 69,
+      "native_sha256": "6cac6793c7ee64781a3f97cb0bbcdd5bcf3fcd051eca1d4d8bbc182df8bb5f60",
+      "output_sha256": "4bbadd439f5669780e51c945e4a727b74d21d6fb41cdf7fc28dcf79bd7ede1a0",
+      "status": 0,
+      "typed_enabled": true,
+      "probe_kind": 2,
+      "probe_source": 69,
+      "typed": {
+        "time": 3.0,
+        "finished": true,
+        "state": [
+          {
+            "handle": [
+              2,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 999999912771.0,
+            "capacity": 1000000000000.0,
+            "expires": -1.0,
+            "owner": null
+          }
+        ],
+        "attacks": [
+          {
+            "attack_id": 1,
+            "owner": 0,
+            "time": 2.0166666666666644,
+            "damage": 87229.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  2,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 87229.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "coordinate-typed/original-modifier-probe/클레이/12s",
+      "original_definitions": 69,
+      "native_sha256": "98d9be19ca806389f1e07e46737d656f19d79a753d95ff1890f65549b8515814",
+      "output_sha256": "c77eff9b7f3cd25fe58da2c6e619ec94cbf7c21b2918360b6a556ee2f619114c",
+      "status": 0,
+      "typed_enabled": true,
+      "probe_kind": 2,
+      "probe_source": 69,
+      "typed": {
+        "time": 12.0,
+        "finished": true,
+        "state": [
+          {
+            "handle": [
+              2,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 999998992371.0,
+            "capacity": 1000000000000.0,
+            "expires": -1.0,
+            "owner": null
+          }
+        ],
+        "attacks": [
+          {
+            "attack_id": 1,
+            "owner": 0,
+            "time": 2.0166666666666644,
+            "damage": 87229.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  2,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 87229.0
+              }
+            ]
+          },
+          {
+            "attack_id": 2,
+            "owner": 0,
+            "time": 4.016666666666658,
+            "damage": 148152.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  2,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 148152.0
+              }
+            ]
+          },
+          {
+            "attack_id": 3,
+            "owner": 0,
+            "time": 6.016666666666651,
+            "damage": 257416.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  2,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 257416.0
+              }
+            ]
+          },
+          {
+            "attack_id": 4,
+            "owner": 0,
+            "time": 8.016666666666644,
+            "damage": 257416.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  2,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 257416.0
+              }
+            ]
+          },
+          {
+            "attack_id": 5,
+            "owner": 0,
+            "time": 10.000000000000076,
+            "damage": 257416.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  2,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 257416.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "coordinate-typed/original-modifier-probe/HP/아스카/3s",
+      "original_definitions": 74,
+      "native_sha256": "dd54e00cac27668f61723da0aae406f143d2230a8ac88b6a468d1389397b2946",
+      "output_sha256": "84cc37a375790afdb6a706e9aa31fc3feb637e6342ee04b02417adcd9aeacf2d",
+      "status": 0,
+      "typed_enabled": true,
+      "probe_kind": 3,
+      "probe_source": 74,
+      "typed": {
+        "time": 3.0,
+        "finished": true,
+        "state": [
+          {
+            "handle": [
+              3,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 999998462945.0,
+            "capacity": 1000000000000.0,
+            "expires": -1.0,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "attacks": [
+          {
+            "attack_id": 1,
+            "owner": 0,
+            "time": 2.0166666666666644,
+            "damage": 1537055.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 1537055.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "coordinate-typed/original-modifier-probe/HP/레이/3s",
+      "original_definitions": 73,
+      "native_sha256": "94ea70166e2900479791dc20b36919920d96f382cd3f176a7bc9e6afc13c3c16",
+      "output_sha256": "5927da36f18cdb4f569d7477dd67de02f064d6310b9789dd36393b257f9637b7",
+      "status": 0,
+      "typed_enabled": true,
+      "probe_kind": 3,
+      "probe_source": 73,
+      "typed": {
+        "time": 3.0,
+        "finished": true,
+        "state": [
+          {
+            "handle": [
+              3,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 999998244800.0,
+            "capacity": 1000000000000.0,
+            "expires": -1.0,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "attacks": [
+          {
+            "attack_id": 1,
+            "owner": 0,
+            "time": 2.0166666666666644,
+            "damage": 1755200.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 1755200.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "coordinate-typed/original-modifier-probe/HP/마리/3s",
+      "original_definitions": 70,
+      "native_sha256": "7ede2abcc2e7552bead51ee2f03bbde416572e0bcb9f1bca2917a92bf8acb9b4",
+      "output_sha256": "97f51d46c1ea7e9c363018413a1b36bf94e9f5d42272084de57f2d1ca3c45d34",
+      "status": 0,
+      "typed_enabled": true,
+      "probe_kind": 3,
+      "probe_source": 70,
+      "typed": {
+        "time": 3.0,
+        "finished": true,
+        "state": [
+          {
+            "handle": [
+              3,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 999999825464.0,
+            "capacity": 1000000000000.0,
+            "expires": -1.0,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "attacks": [
+          {
+            "attack_id": 1,
+            "owner": 0,
+            "time": 2.0166666666666644,
+            "damage": 174536.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 174536.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "coordinate-typed/original-modifier-probe/HP/미사토/3s",
+      "original_definitions": 71,
+      "native_sha256": "36853aecfe1ec400196fb0b08c7eede7d799c0a095812583278fe301844d7411",
+      "output_sha256": "838a5f0be632652fb608504cd2110c4c5fea02d1d044627386f86152226fe146",
+      "status": 0,
+      "typed_enabled": true,
+      "probe_kind": 3,
+      "probe_source": 71,
+      "typed": {
+        "time": 3.0,
+        "finished": true,
+        "state": [
+          {
+            "handle": [
+              3,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 999999922521.0,
+            "capacity": 1000000000000.0,
+            "expires": -1.0,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "attacks": [
+          {
+            "attack_id": 1,
+            "owner": 0,
+            "time": 2.0166666666666644,
+            "damage": 77479.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 77479.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "coordinate-typed/original-modifier-probe/HP/미사토/30s",
+      "original_definitions": 71,
+      "native_sha256": "49124560fa8993f05fa34a8db1ad6addcaa6d9fec7f858a3c3c1584dadf932d5",
+      "output_sha256": "a4072fa0c7e9d519c3f800f77383aa9fb957e860fa37785cc427c624fb985c1e",
+      "status": 0,
+      "typed_enabled": true,
+      "probe_kind": 3,
+      "probe_source": 71,
+      "typed": {
+        "time": 30.0,
+        "finished": true,
+        "state": [
+          {
+            "handle": [
+              3,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 999996294244.0,
+            "capacity": 1000000000000.0,
+            "expires": -1.0,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "attacks": [
+          {
+            "attack_id": 1,
+            "owner": 0,
+            "time": 2.0166666666666644,
+            "damage": 77479.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 77479.0
+              }
+            ]
+          },
+          {
+            "attack_id": 2,
+            "owner": 0,
+            "time": 4.016666666666658,
+            "damage": 356156.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 356156.0
+              }
+            ]
+          },
+          {
+            "attack_id": 3,
+            "owner": 0,
+            "time": 6.016666666666651,
+            "damage": 356156.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 356156.0
+              }
+            ]
+          },
+          {
+            "attack_id": 4,
+            "owner": 0,
+            "time": 8.016666666666644,
+            "damage": 356156.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 356156.0
+              }
+            ]
+          },
+          {
+            "attack_id": 5,
+            "owner": 0,
+            "time": 10.000000000000076,
+            "damage": 384450.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 384450.0
+              }
+            ]
+          },
+          {
+            "attack_id": 6,
+            "owner": 0,
+            "time": 12.000000000000176,
+            "damage": 384450.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 384450.0
+              }
+            ]
+          },
+          {
+            "attack_id": 7,
+            "owner": 0,
+            "time": 14.000000000000275,
+            "damage": 229816.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 229816.0
+              }
+            ]
+          },
+          {
+            "attack_id": 8,
+            "owner": 0,
+            "time": 16.000000000000373,
+            "damage": 193699.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 193699.0
+              }
+            ]
+          },
+          {
+            "attack_id": 9,
+            "owner": 0,
+            "time": 18.00000000000026,
+            "damage": 290548.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 290548.0
+              }
+            ]
+          },
+          {
+            "attack_id": 10,
+            "owner": 0,
+            "time": 20.000000000000146,
+            "damage": 229816.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 229816.0
+              }
+            ]
+          },
+          {
+            "attack_id": 11,
+            "owner": 0,
+            "time": 22.000000000000032,
+            "damage": 229816.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 229816.0
+              }
+            ]
+          },
+          {
+            "attack_id": 12,
+            "owner": 0,
+            "time": 24.016666666666584,
+            "damage": 229816.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 229816.0
+              }
+            ]
+          },
+          {
+            "attack_id": 13,
+            "owner": 0,
+            "time": 26.01666666666647,
+            "damage": 193699.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 193699.0
+              }
+            ]
+          },
+          {
+            "attack_id": 14,
+            "owner": 0,
+            "time": 28.016666666666357,
+            "damage": 193699.0,
+            "completed": true,
+            "receipts": [
+              {
+                "slot": 0,
+                "handle": [
+                  3,
+                  10,
+                  1
+                ],
+                "delivered": true,
+                "broken": false,
+                "took": 193699.0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

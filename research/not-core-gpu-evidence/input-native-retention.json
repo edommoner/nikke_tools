@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "old1533_input_native_retained": true,
+  "new32_single_full_input_native_identical": true,
+  "full_v1_v2_baseline_identical": true,
+  "short_v1_v2_all27_native_expectations_retained": true,
+  "short_v1_v2_input_changes": [
+    "not-core-partial-charge"
+  ]
+}

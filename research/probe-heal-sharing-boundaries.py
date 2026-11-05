@@ -7,7 +7,7 @@ sp=importlib.util.spec_from_file_location('sharing_definitions',ROOT/'research/h
 class Boundaries(unittest.TestCase):
     def setUp(self):
         b=v.body(1);b['enemy']['patterns']=[]
-        with v.s.v.context('sharing-boundary',{v.N[0]:[v.B('link','heal_split',1,'all_allies')]}):self.compiled=v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True})
+        with v.s.v.context('sharing-boundary',{v.N[0]:[v.B('link','heal_split',1,'all_allies')]}):self.compiled=v.s.v.v.a.evaluate({**b,'_compile_detail':True})
     def reject(self,p,pattern,script=None):
         with patch.object(g,'module_image',side_effect=AssertionError('CUDA must not be reached')),self.assertRaisesRegex(ValueError,pattern):g.run(object(),[p],script or [[0,2,101,0,0,0,0,0]],[self.compiled['enemy']],[self.compiled['base_stats']])
     def test_real_marker_opcode(self):

@@ -1,0 +1,375 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "attack-group-battle/니힐리스타/3s/0adds",
+      "input_sha256": "e11c21c94c02a519ddc37e34ff9a7bc542c077aaec685fdd02d7061221bfe7f1",
+      "output_sha256": "863b18b32772dbaba688de10ddc58f8eeeae49390a4ff7eb854afe35f22009c2",
+      "native_sha256": "196d3862771637b45526e3cf139567e93c25a0cffe5ef322611fdf990f04ed86"
+    },
+    {
+      "name": "attack-group-battle/니힐리스타/3s/1adds",
+      "input_sha256": "1e2d814e1b5938580a8b81cfad85ca2a5ae562ce9be3aa0b621a564a3ad941a0",
+      "output_sha256": "49efe301be3ac8cba69c2109c5703e7cf8fe9218ccf7579c83b3b3d233fd43b3",
+      "native_sha256": "89f03a11aeef9a3fd27a84cb089a31ae772feca55270e9ee5add9783bf0dfd63"
+    },
+    {
+      "name": "attack-group-battle/니힐리스타/3s/3adds",
+      "input_sha256": "7e201a3dc3c5ac8903615dce10082e73777514475ba83dcd21bd33f978347e9d",
+      "output_sha256": "453d34d5dd5bfd9e33545a9a40199f41d88cdb6eb94d6ef8214a728aa588c1d3",
+      "native_sha256": "12e65b49c49befc4ec2c24560f02749eb2cc24f2b2860784621a1704b313ac41"
+    },
+    {
+      "name": "attack-group-battle/니힐리스타/3s/5adds",
+      "input_sha256": "5cb0c512d745b8ddc82957760463337888cd9c0a6b74147db895afabe148a641",
+      "output_sha256": "50a10fce08083bf3dca211e8d977ec891889b1e4c02cd63cfab2ba8806cd5f59",
+      "native_sha256": "9819351b95c33fdc449c72470a49681e5227f05f6bdd515b53e5d50c712b5737"
+    },
+    {
+      "name": "attack-group-battle/니힐리스타/30s/0adds",
+      "input_sha256": "bf3c340e3cf2c265fec9331ffa44c09ce8011069601b018c4858ca615762290a",
+      "output_sha256": "1a6253b6de36b77b049e365a256fa78b6dd0a0e3f08a9c0bbfa356045d5f804e",
+      "native_sha256": "26bd2ec1b8e8f326f7b4d9687926d2f773c729ddd6a0fda815a9f5039930d7ee"
+    },
+    {
+      "name": "attack-group-battle/니힐리스타/30s/1adds",
+      "input_sha256": "23db319c19300fadd922a0df148688771c92378dc03b37ebd91c1b20d72377fa",
+      "output_sha256": "373b7e3433abc076c6e0a822fdd929fd66a258e0ff806b7233029b06da34b656",
+      "native_sha256": "7b35c8b9263e73cfd76927f90c6d57b288e806f47fcb3e66172d8c38f3332ec4"
+    },
+    {
+      "name": "attack-group-battle/니힐리스타/30s/3adds",
+      "input_sha256": "f2b938d91b6f4ec08a3656584678ec5c498083421d333b78add1376f9a0997ff",
+      "output_sha256": "4ee095be8dfa415489f66b610d1cda8bade949aadba4bd20d7d2f630da010905",
+      "native_sha256": "d4992a498c25674969f8e254196c2665ed19d0f199c371fef25642f1199ad1f8"
+    },
+    {
+      "name": "attack-group-battle/니힐리스타/30s/5adds",
+      "input_sha256": "8cc365c7264bb95546d41e47a77cc0e36ac13fbed5d9678324bf662ee25f7e33",
+      "output_sha256": "18f2349f678a4709b05b195b5853a49b786b5c6fba3e33427c3365a469b5a875",
+      "native_sha256": "e33d2e7cfc46c65201e308c6a612297be3d0fa187f320dc2525a4d1e2e5a403a"
+    },
+    {
+      "name": "attack-group-battle/니힐리스타/break",
+      "input_sha256": "6122b2537354a1bd0a88ea19a2fece3bd3d2100e62ed8768bad8f75c546d8910",
+      "output_sha256": "2a7e1f6cf97d12e77b1ce237e0f4694ff0bc23443999aaaf489d617617c7427c",
+      "native_sha256": "c1cddd3961939c43309c0691017bebac6bf69ef7cc4e7e1ebb04d7387b57bfa4"
+    },
+    {
+      "name": "attack-group-battle/니힐리스타/reopened-before-child",
+      "input_sha256": "bf98c60aa220a66609718c2652eda024fc948473af019b8077e4b562f4f40149",
+      "output_sha256": "e14a2c61647e00f30e5999d110eacf7886a310d3c372d6a0ef27d146138b7caa",
+      "native_sha256": "2bf5e10213b522f3ef17a37851762948050cca1cbf1d1d8672fef6de543b0c0a"
+    },
+    {
+      "name": "attack-group-battle/벨로타/3s/0adds",
+      "input_sha256": "72d52631b3bb6e13eb39c4448ba25867c9cc8355d3b414c24ff156ad7978169b",
+      "output_sha256": "484b4e29c2c9d483e1823b74d7825ea6a531e95e477b2c551465609423dcdf95",
+      "native_sha256": "d361dbda960f3dc2e59ca5a74a3a4d776621148637f3ac7b9900d6ba43961935"
+    },
+    {
+      "name": "attack-group-battle/벨로타/3s/1adds",
+      "input_sha256": "7effe66dcb5250e3ebf5234f5528919315aea9b318bbb66d44ee5c3426baf7ea",
+      "output_sha256": "b6319676fe9a58abba060f5671165c4d24dd9974dee9417f4785cbe9b2c4e753",
+      "native_sha256": "3b100e0a7501a782918b5bb5e2aa9b3e79e72df96f6682f31df2861d8cd2ff66"
+    },
+    {
+      "name": "attack-group-battle/벨로타/3s/3adds",
+      "input_sha256": "934e874430c21c62e99390958b0950b729882eeb04097852b515efd22dcebe5f",
+      "output_sha256": "3f2f8fb5f65c37fe647fdb50868f874462194a5e09b5b9a4bf69dba42ffefe94",
+      "native_sha256": "8d3b15611537f87912d6e18fe27b1ad1dfd5502df01efa5e3c0de60eaab8fcf7"
+    },
+    {
+      "name": "attack-group-battle/벨로타/3s/5adds",
+      "input_sha256": "230b987b536e748424cca5e2e207e7902109de01a374ca1d7c86178ec597b623",
+      "output_sha256": "d4171d78c87a88b468090d77557a611633d1230e5e6584b7d017c84af09ac86a",
+      "native_sha256": "496e2314c78e03a3cdb9b1e2058e4b9d0da2aaf8bb6dba64f845be98a2f71f6f"
+    },
+    {
+      "name": "attack-group-battle/벨로타/30s/0adds",
+      "input_sha256": "60fa69f58911beb66d0043d4f0a1cb4648a02e8634388c0e43364512d6d98dc8",
+      "output_sha256": "1aa1a55f029a351739371c20fa99d1f4d2eae02e751f1eb6d53dc76cf0a170ea",
+      "native_sha256": "b8406cba1c2ab63d69823058f85ccdbf946fff844a345358487cd13d7cf86c5b"
+    },
+    {
+      "name": "attack-group-battle/벨로타/30s/1adds",
+      "input_sha256": "5f786c04ff298a6b1f22145c79074c4c5f366b95cd704951e60ae7d13698414c",
+      "output_sha256": "06c6df4a19d022531e3ea92a6c84ec186ff23aff82a5b45397b0cf520035e33b",
+      "native_sha256": "a7fda81e482896d504a12562fc94196367720185bd83d8d02ab9b5b2a05bdd45"
+    },
+    {
+      "name": "attack-group-battle/벨로타/30s/3adds",
+      "input_sha256": "d6aa0ea2d186e5fa911ed13b90493cc4a8ad6652b40b3461e61dac0d56211e48",
+      "output_sha256": "aa51f92c1a6400ae4d8170876cbd3a4410e12f9081e4b5253bf726ec24d895af",
+      "native_sha256": "91a8b6bb2fe02f551793391e9d5bc98facda52d29b085ffd517a8316a7b3cb7d"
+    },
+    {
+      "name": "attack-group-battle/벨로타/30s/5adds",
+      "input_sha256": "dbab9892b2c6490085d329017af6a6ecbbe28ff3b2e3d633d40c620ec5ebeb69",
+      "output_sha256": "50addce63ece3ae8507be7cd470518589f202e107297f4fbb240737903f09f87",
+      "native_sha256": "f8f7f21c734b257418080923dbe89365237b1ce59f35563e0d2ace193cb06731"
+    },
+    {
+      "name": "attack-group-battle/벨로타/break",
+      "input_sha256": "59444817ca7ecb5fab3cccc2da8f990751b7e1c75f76ad920a413716197a0301",
+      "output_sha256": "6f4ba9f773d767238e249a51ab78d80e99fca0bdddb0790d0976d9d1c4abb85c",
+      "native_sha256": "2ebe7750d9b4bb4f3199e628fe947efb25d10d990d0f9f2a4d88f1f744bb07a2"
+    },
+    {
+      "name": "attack-group-battle/벨로타/reopened-before-child",
+      "input_sha256": "de24a61dc9b5c63d5bd73fd34ba93e722aae6fcd4b392093e95ba98fc29eb7db",
+      "output_sha256": "f75f2f3ced3ee8de130c8db1a5218eb23183bff60e6e6ee0688f872d25ff6994",
+      "native_sha256": "8b75fd173255e7cf1e1ee944e5473131627abb8a9a9cc74f49f838819a453a24"
+    },
+    {
+      "name": "attack-group-battle/declared/누아르",
+      "input_sha256": "df15f4a3bdbbc358585e9349e48c084c07ca6e00b3cda154a77ade7be955939a",
+      "output_sha256": "9e70e85485d49e67c29403eb621ca4f257c6a1d6843a7b7e3f8e58480fdc9df5",
+      "native_sha256": "616af64bb72b3e0dcd60b68512423c333a6279e423af4f643a0de22def907b2f"
+    },
+    {
+      "name": "attack-group-battle/declared/츠바이",
+      "input_sha256": "35b936daab3739fd838a1c9a85ebbec4107cdfd215fcb554b948a1c31591a515",
+      "output_sha256": "e41564b636ede226d7e91adad6b3dbb9bf0717c4568a5c9822ed1f5b593fd4c9",
+      "native_sha256": "2f6d8c0bdbfb8b4446d3c8110d2102ca86324d58783f70ca15e7ba06308e3822"
+    },
+    {
+      "name": "reject/attack-group-magic",
+      "input_sha256": "a2a47eb29dcf7a51879d407b891c8d2f529c4e2d9035ee15346cd54f2a017d11",
+      "output_sha256": "6cd57c027d9dc5c99f7c403a9ba56395324a35b58f4b6719f3383066c1142c32",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/attack-group-policy",
+      "input_sha256": "b8cab8f3fd3c33dca17e54995821e802d314c037cee22896fe13fa89aa80592f",
+      "output_sha256": "6cd57c027d9dc5c99f7c403a9ba56395324a35b58f4b6719f3383066c1142c32",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/attack-group-owners-zero",
+      "input_sha256": "1fc0ec5ec6a777e0c4e4bf949cd87765dca44586327cf794ff16cdc937db0d0d",
+      "output_sha256": "6cd57c027d9dc5c99f7c403a9ba56395324a35b58f4b6719f3383066c1142c32",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/attack-group-owners-unknown",
+      "input_sha256": "efdcfd2c871b9e2b37f4f6ce16cd47d8f3e94c55010a6252a0494a5d5999cd66",
+      "output_sha256": "6cd57c027d9dc5c99f7c403a9ba56395324a35b58f4b6719f3383066c1142c32",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/attack-group-zero-threshold",
+      "input_sha256": "29e32633635b6924eaf62b9b7611d715a22b3c001775253210032b4aebc6a888",
+      "output_sha256": "6cd57c027d9dc5c99f7c403a9ba56395324a35b58f4b6719f3383066c1142c32",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/attack-group-too-many-targets",
+      "input_sha256": "808889083e81c797942e659216ac5a68e4c20a7969b6852413b81aa32628dd6c",
+      "output_sha256": "6cd57c027d9dc5c99f7c403a9ba56395324a35b58f4b6719f3383066c1142c32",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/attack-group-threshold-mismatch",
+      "input_sha256": "acf730bba5c5dab037382e9da7478404038fecf4546c19507e95d6fa5932a006",
+      "output_sha256": "6cd57c027d9dc5c99f7c403a9ba56395324a35b58f4b6719f3383066c1142c32",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/attack-group-counting-mode",
+      "input_sha256": "bba59f13d58074578a3c0637e8ee258a93e1658e6764d0c626558fab96e440dd",
+      "output_sha256": "6cd57c027d9dc5c99f7c403a9ba56395324a35b58f4b6719f3383066c1142c32",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/attack-group-payload",
+      "input_sha256": "f522de1594ae2705538b0cc05fc7ab434bda8cccf2ac29bdd94569009c9f32b0",
+      "output_sha256": "6cd57c027d9dc5c99f7c403a9ba56395324a35b58f4b6719f3383066c1142c32",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/attack-group-stage",
+      "input_sha256": "d6cee07af012cc65a17c94658cceb92f8406c6ccef0c856e6a630d2ee38d8ae5",
+      "output_sha256": "6cd57c027d9dc5c99f7c403a9ba56395324a35b58f4b6719f3383066c1142c32",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "attack-group-native-route/니힐리스타/3s/0adds",
+      "input_sha256": "6c6e30ff7ee9d9cc61dea88da3ccbda41672c4cb41064338dc301d096a6c4938",
+      "output_sha256": "ba3aaf05cc8aec7b4a8087a012118a7abdf0b38912b5cbbc7fa9322524680678",
+      "native_sha256": "bf9dc3b02d26b8ccfee2b5e85a195e8e40864cbc8557d2538ad3827d389b2389"
+    },
+    {
+      "name": "attack-group-native-route/니힐리스타/3s/1adds",
+      "input_sha256": "508f15aedaca0f0b069e9b2ee5e70c7e3316b2f4c06523beb274794f95598853",
+      "output_sha256": "74ed4fad8d5b320e2b3a190d131e02c3f45c26bea0ff5429efe3ab95236350fe",
+      "native_sha256": "b169d3d389b12c9df975cdce2b2db6ff02158e0c653f43348055033afa13ea2c"
+    },
+    {
+      "name": "attack-group-native-route/니힐리스타/3s/3adds",
+      "input_sha256": "f7b78772e4a216f4338c172b37964d71001c610d734078ca2400ecd7ee6eebbe",
+      "output_sha256": "149833232459362349ebfad3548c0a75c4a19f4ab81b339e10f637525d12bfe2",
+      "native_sha256": "ae31c937825357d71d2d533553048b03b58eaa972450dd3a376de094149df9ab"
+    },
+    {
+      "name": "attack-group-native-route/니힐리스타/3s/5adds",
+      "input_sha256": "bc7332c851d699167a6945c7e163e85a63b7cb13dea2e965d0ab6c979795de29",
+      "output_sha256": "247e742f7b44e506084d2c077cbe920a4d1fd21bd1884ed5e08a89d2211ea875",
+      "native_sha256": "b3d3377aae8b861732fd61c1c9b45dc54dae51e728756f007b51bb99f9675cad"
+    },
+    {
+      "name": "attack-group-native-route/니힐리스타/30s/0adds",
+      "input_sha256": "627dfd766a429d2d39cb568f7f18719e865c95ed83ac0d2b213c5e833a9a1f35",
+      "output_sha256": "426ba4466354aad8e807a56e086e4985692225c7628d208852af446e268f49da",
+      "native_sha256": "26f6fcea9c14ec05a1a7f7eab41ec6e8cd93866b431b07410d57823680a695ce"
+    },
+    {
+      "name": "attack-group-native-route/니힐리스타/30s/1adds",
+      "input_sha256": "387c24e700522f627a9d50e6d5615941d139265af1a6fc6e272ab272932af0c1",
+      "output_sha256": "df467922de3611693d5a21d9941a46e6a03342a5c59dbd5371505b086944176c",
+      "native_sha256": "33bd9f6a8f56f4e29d4a77d0ce4d28ddeae5a4e1136f29ac91c4af6bba06509b"
+    },
+    {
+      "name": "attack-group-native-route/니힐리스타/30s/3adds",
+      "input_sha256": "57f09a2a61ae2597c6af5cb5207f8974898690a66917e6235087435fedad5535",
+      "output_sha256": "559510b6670b15566c8b558947628be1c77fccbb3f99e3425a7ebca9401aa054",
+      "native_sha256": "41680ff0c9172ce22983ebb4cdb8d6c3c2162e52c8075e50cf6d0f1cf2e9edd7"
+    },
+    {
+      "name": "attack-group-native-route/니힐리스타/30s/5adds",
+      "input_sha256": "ed97e950a19ddbe01be7d6072a31f08b6951abd184e05b4e54c779f479f7b075",
+      "output_sha256": "988de4d4d3094df7e1dd348f1cb4db5d8b44b38c9449bab9d891f3bdf8710e6d",
+      "native_sha256": "2f89fe582bcb19e71e6b26e40ef7a6834b590e8ce35d415c10d628abda259911"
+    },
+    {
+      "name": "attack-group-native-route/벨로타/3s/0adds",
+      "input_sha256": "b3fcfed7a39805e3171654323ee7a8ee0dbd2808624f81970a95318f59d0318c",
+      "output_sha256": "b15a729261dc9fc436f2b948c06cc5b030ae5ac051f56a8bc23c38fb32d0d8dd",
+      "native_sha256": "0b0c584758b51b2c4da1c87b7dbd1de94eea07b4fa1c61a22386e1ee0a8e2009"
+    },
+    {
+      "name": "attack-group-native-route/벨로타/3s/1adds",
+      "input_sha256": "c661fdff12050f5eb46b2dc1760e4365b177544e44f00996926f387df33a9823",
+      "output_sha256": "8085f7811c5743de059f2bc10be1a8fc3ca8134701b0fbaf85467713e7cdaea3",
+      "native_sha256": "ffa736ec55173080cd780cc9c4a7745f252e49e3bf3c2de888aa2210290af172"
+    },
+    {
+      "name": "attack-group-native-route/벨로타/3s/3adds",
+      "input_sha256": "fe03bd4c9d173aeec5d22c003376eea716eadc4f12e63ae68b3a7f480e58af24",
+      "output_sha256": "a1dcf354331b9f4552fefc92dbfb962618244e46f84b8f588cb373638d7d47ce",
+      "native_sha256": "3147ec3b76b3f7b7a77a311dde391237b79b14c2877ff224bc9e20c1a31c146a"
+    },
+    {
+      "name": "attack-group-native-route/벨로타/3s/5adds",
+      "input_sha256": "b9ced1352dcb457e05c2ff387b5ccb2b65ece64f1c5f7b3cc21049b8ff6629ae",
+      "output_sha256": "88239995e208ab042e88f86667872ce711542c7086b8ba6653b329e580b63fd6",
+      "native_sha256": "20f7b0dcece2c6f5e77e1a7a09ee4f3557c74fe53125b50650d92d317aeead0b"
+    },
+    {
+      "name": "attack-group-native-route/벨로타/30s/0adds",
+      "input_sha256": "81f59852ec4ece836784126c8919a8585fbceebfd8eac8321f27dda09fd422e6",
+      "output_sha256": "714d821c534da541d535dbe9243c0a68c1eee5e836a87cc1b8a08746cbc44902",
+      "native_sha256": "211aa5348ad0a0cb17d11b60f8855d5f0ce9722778308654ba281075e0e8e9d2"
+    },
+    {
+      "name": "attack-group-native-route/벨로타/30s/1adds",
+      "input_sha256": "4c380ad5275a1e391a78f8d2f486cc35446d98cd255f74b1880ecb16f29a55b9",
+      "output_sha256": "c523e94ef6111301f18eb0e580c50a69378be03ed1d51b99701b2580ec970361",
+      "native_sha256": "861f3d82e88e66b19a3d58df78b596e2eb0c68cf1773786b7e268e0354fbc1a3"
+    },
+    {
+      "name": "attack-group-native-route/벨로타/30s/3adds",
+      "input_sha256": "51aa3ba2f942a4cc228207ba7df063bdb9fd8813681373ffcaa19a152513e57a",
+      "output_sha256": "5b956cad8357435f2d1f049b41e3cebb9c9a2786c795e1fe9f5e56e3d41f4a91",
+      "native_sha256": "00618c1b0592ef0403f881f809ff7d7401c91e699932c74c21507e6f37ac4472"
+    },
+    {
+      "name": "attack-group-native-route/벨로타/30s/5adds",
+      "input_sha256": "91a24bba764a7c50affd35df4e314037e0210150bb8e484a54fd30a0466f9e27",
+      "output_sha256": "c028951eadc6eb810fbda8e58f829ddd5fe9d88e04a59a97cbaf842d17b8d814",
+      "native_sha256": "21d07b16835079039efc9cb1685bdfd75ccda22489615024bdaf36b2b8ce9060"
+    },
+    {
+      "name": "attack-group-native-route/declared/누아르",
+      "input_sha256": "6fc8b400bedbcd96981f6f52e29a3b7a2461d4bd30b17a16d9d8b4844402d05e",
+      "output_sha256": "52729b5b7381cf2418a73d5bcae7e0108fc5c0687c8316560f232125456d04a9",
+      "native_sha256": "e5e08311ec0076040535eb715cdb122ff376da7e1a3bdb0101f6b743f5769193"
+    },
+    {
+      "name": "attack-group-native-route/declared/누아르/pellet-reselection",
+      "input_sha256": "08f186a6ba0febf1b89d1c16ed376f9401359d272209dd511516eeb3c67b066c",
+      "output_sha256": "f461940ee732057956f88f10827b841d16652e7921a028cd67085b936603e2ca",
+      "native_sha256": "a2b120cee35a4d49d338225f8ed8cabbc32670d50410525fad8f271be3bd67d1"
+    },
+    {
+      "name": "attack-group-native-route/declared/츠바이",
+      "input_sha256": "9207f5741af6e3969b9a95263bbcdb41ff82bcf49628536e4eb10914d9009e9d",
+      "output_sha256": "f1da3d2eab67bdb25fdd0f22f085f662b5630f5b8e2e8b879cde9d6374c05f3f",
+      "native_sha256": "8a0381cbd40ff8aa8c6c2a2ea73a8834cc4bd9c6364441db19b74472be1e823e"
+    },
+    {
+      "name": "attack-group-native-route/declared/츠바이/pellet-reselection",
+      "input_sha256": "4b0b2c51766e6bd7d13a4c57a8e589527c456b85bf9c6d0afb32de9f59156daa",
+      "output_sha256": "f01c3e60481c20e768b002766f3a2124624cb2ad7acb85d86e04e964c88b0aed",
+      "native_sha256": "0158ef78f57ee98348fd8433235a43a6217d5ffba0864f6ceeded93fb705bfc7"
+    },
+    {
+      "name": "reject/attack-group-unknown-routing",
+      "input_sha256": "b15fe50f49944fa2a4ed4a7ae46bbf0eece512cd90f946535eac975bc8c09fef",
+      "output_sha256": "6cd57c027d9dc5c99f7c403a9ba56395324a35b58f4b6719f3383066c1142c32",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "attack-group-long/native/니힐리스타",
+      "input_sha256": "c646e7df6c5d575e3e106b0b1a52b8d344a83ab21053289fa9f82014e0e993b5",
+      "output_sha256": "513fb0d7047efbd8cce2c304f0eade7ccc488f5273f3f72df63c2190f183f1b4",
+      "native_sha256": "391795a41ceeb75b6d9f6bef1728fa449f0ab8e4af2bf989c8ba5401d9c8f923"
+    },
+    {
+      "name": "attack-group-long/native/벨로타",
+      "input_sha256": "1c9b3baeea257eb523e61f76bc16d79dfbc1938e178e022d0e34ae76fa124abf",
+      "output_sha256": "73b616fcdddfec8a14f1e4b4f9b0cee0ac29631155180b9bb64a9713108fa3e7",
+      "native_sha256": "c7b70f81c7da4adba9b06e39d5b6cd140a07018572c593242a8da4370a4cbf85"
+    },
+    {
+      "name": "attack-group-long/all-logical-enemies/니힐리스타",
+      "input_sha256": "585eb068ea2b44f341193a6aa8635d65ca06515324302099006e8cb54e15092f",
+      "output_sha256": "738ff3677c9f90583c1403c43f6eb23295e4075339334d4f4652c536c9eacc70",
+      "native_sha256": "e96a6d1d4af8888455fdae9f6509a05fc3d3c744b3ce6a0268c6247abd6e9f11"
+    },
+    {
+      "name": "attack-group-long/all-logical-enemies/벨로타",
+      "input_sha256": "77690fcd108f9a5fccc35010542e27f416ea7c147026493abc8a9ca4b2594358",
+      "output_sha256": "5024660dcde1557482eeec8362eded954fbd95fc99fd2608a664a6e7e3901d58",
+      "native_sha256": "22df7d212926db1c770286096d5b605d1c7121c779aedd157c8943da60065d5e"
+    },
+    {
+      "name": "attack-group-long/native/누아르",
+      "input_sha256": "33bb96a25fd42d6c69767910235abde22f50834776a80ba11a65d6c119b8135f",
+      "output_sha256": "15e2e3bc12ad70d07b11640a8b8fdec982a993411a3aeca76a90d3b07133dd39",
+      "native_sha256": "4dc6a28eb7a0638875bc131e4a69802d280c70aa92efe3a328a08bedb4673d57"
+    },
+    {
+      "name": "attack-group-long/native/츠바이",
+      "input_sha256": "9cf5299e51db2e20a40d7234b8821975d1911418b37288ad58e112961e74b2a3",
+      "output_sha256": "29f878177244c6414aadbf97ac29e5c4f69cf8b808b1aa78fe2a191fdfc1cfdd",
+      "native_sha256": "e3e0e1131cf0a73945ccae61f8fc28a45d93ef3bab58fb240b0a59ab989d4c92"
+    },
+    {
+      "name": "reject/attack-group-unknown-history",
+      "input_sha256": "463c3a8e4810be1d50190ca165bffccf79c62503f698beeee18116e0f6a2781c",
+      "output_sha256": "6cd57c027d9dc5c99f7c403a9ba56395324a35b58f4b6719f3383066c1142c32",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 60,
+  "native_oracles": 48,
+  "input_sha256": "d86a5392154b4e25db25a4dd53113f9a5552eb9278895a832e5934630a69f674",
+  "output_sha256": "04857cc5694b3541e30d26aa1fe19ddf21f164fc8475731fe3261079c2562a0f",
+  "generated_normalized": {
+    "cuda": "f6d8ca67c30e6ef28c82ae05b4a95a7b1d215317c9cb32198d80eed03e6e97a3",
+    "metal": "6c1bb991df5bd6e085314f1678d29d4b765245ab3570d2457f8610aef3a387c2"
+  },
+  "audit_gpu_calls": 0
+}

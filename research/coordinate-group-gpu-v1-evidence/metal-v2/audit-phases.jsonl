@@ -1,0 +1,2 @@
+{"monotonic_ns": 984988321547458, "pid": 61651, "stage": "shared_native_compare", "state": "entered", "wall_time_ns": 1792885838570557000}
+{"elapsed_seconds": 31.317222708, "monotonic_ns": 985019640582833, "pid": 61651, "stage": "shared_native_compare", "state": "returned", "wall_time_ns": 1792885869888554000}

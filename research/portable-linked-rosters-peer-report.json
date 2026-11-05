@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "scope": "Windows saved CUBIN GPU execution peer report; calculation rejected on saved fingerprint differences",
+  "source": "ab5c17b3f35ae20c6451d9640bae9cd688da40f6",
+  "commands_package": "d30e2d7809a4689e7bd899aa8cad4b2eb3aafb067a24819628070fa7f2b2fda9",
+  "rosters_package": "189c9ff87e6ce4e999b3771d166a4ffcde0f19bc54841c20d9b1482b92438a18",
+  "capture": "C:/Users/owner/Documents/Codex/nikke-linked-rosters-ab5c17b-diagnostic/rosters",
+  "cpu_smoke": "261成功",
+  "cpu_preflight": "4入力・native oracle4件成功、関連19検査成功",
+  "device": "NVIDIA GeForce RTX 3070 Ti",
+  "calculation_verified": false,
+  "containment_verified": true,
+  "comparisons": [
+    {
+      "index": 0,
+      "result": "fingerprint mismatch"
+    },
+    {
+      "index": 1,
+      "result": "fingerprint mismatch"
+    },
+    {
+      "index": 2,
+      "result": "fingerprint mismatch"
+    },
+    {
+      "index": 3,
+      "result": "fingerprint mismatch"
+    }
+  ],
+  "first_difference": {
+    "index": 0,
+    "name": "real/나유타/favorite-0/3s",
+    "reason": "fingerprint mismatch"
+  },
+  "api_returns": {
+    "cuModuleLoadData": 0,
+    "cuLaunchKernel": 0,
+    "cuCtxSynchronize": 0,
+    "cuMemcpyDtoH_v2": [
+      0,
+      0
+    ],
+    "all_19_driver_returns": 0
+  },
+  "source_generated_cuda_prelude_saved_cubin_match": true,
+  "additional_compile_calls": 0,
+  "gpu_runs": 1,
+  "job": {
+    "seconds": 45.6663114996627,
+    "peak_bytes": 1667842048,
+    "cap_bytes": 2147483648,
+    "post_members": [],
+    "cleanup_error": null,
+    "missing_processes": 0
+  },
+  "preservation_verified": false,
+  "service_status": "unverified",
+  "original_files_unchanged": 25637,
+  "exec": "require_escalated",
+  "parent_environment_preserved": true,
+  "display_error": "結果保存後の補助スクリプト表示でcp932例外。全ログ保持",
+  "additional_audit_and_retries": 0,
+  "summary_path": "C:/Users/owner/Documents/Codex/nikke-linked-rosters-ab5c17b-diagnostic/safe-summary-final.json",
+  "summary_sha256": "a318178adf10a1a3fb6174249013340a31ce4af1c3ebfd7e0bc034ef521e1d9a",
+  "mac_raw_independent_audit": false,
+  "next": "CPU-only saved field/hash comparison; no GPU retry"
+}

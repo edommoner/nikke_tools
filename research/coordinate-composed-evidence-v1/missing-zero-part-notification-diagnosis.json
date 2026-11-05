@@ -1,0 +1,33 @@
+{
+  "rows": [
+    {
+      "name": "coordinate-composed/body-groups/0/1/1",
+      "other_fields_match_under_diagnostic_overlay": true
+    },
+    {
+      "name": "coordinate-composed/body-groups/0/3/1",
+      "other_fields_match_under_diagnostic_overlay": true
+    },
+    {
+      "name": "coordinate-composed/body-groups/0/3/2",
+      "other_fields_match_under_diagnostic_overlay": true
+    },
+    {
+      "name": "coordinate-composed/body-groups/3/1/1",
+      "other_fields_match_under_diagnostic_overlay": true
+    },
+    {
+      "name": "coordinate-composed/body-groups/3/3/1",
+      "other_fields_match_under_diagnostic_overlay": true
+    },
+    {
+      "name": "coordinate-composed/body-groups/3/3/2",
+      "other_fields_match_under_diagnostic_overlay": true
+    }
+  ],
+  "diagnostic_overlay_only": true,
+  "original_failed_capture_unchanged": true,
+  "gpu_result_passed": false,
+  "gpu_calls": 0,
+  "fix": "Publish native zero-part observation before existing body fraction in composed body-only shot mode"
+}

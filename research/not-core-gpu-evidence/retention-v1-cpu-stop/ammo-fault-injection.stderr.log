@@ -1,0 +1,14 @@
+.F..
+======================================================================
+FAIL: test_exact_delta_rejects_removed_hooks_broader_bounds_bulk_counts_and_wrong_log (test_portable_ammo_equivalent.AmmoEquivalentTests.test_exact_delta_rejects_removed_hooks_broader_bounds_bulk_counts_and_wrong_log) (name='gpu/world_actor_fields.slang')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-not-core-retention-v1/tests/test_portable_ammo_equivalent.py", line 54, in test_exact_delta_rejects_removed_hooks_broader_bounds_bulk_counts_and_wrong_log
+    with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(change['current'],change['baseline'],1)})
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.917s
+
+FAILED (failures=1)

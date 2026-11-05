@@ -1,0 +1,191 @@
+{
+  "calculation_verified": false,
+  "entries": [
+    {
+      "name": "not-core-real/길로틴 : 윈터 슬레이어/3s",
+      "input_sha256": "9f74ff88e20b1b9906a24c70ff7117fcd25d6d43f60e23fa6a8b2196e10d4c33",
+      "output_sha256": "0b393a8243c0d94ceb53d85be0b9dfa8729cb85e5713911c6d46c4a62f08ba10",
+      "native_sha256": "565b80a9f725acbeaedde01f615cc32771576ed9d9e8a4f948c9487f9e3cb937"
+    },
+    {
+      "name": "not-core-real/길로틴 : 윈터 슬레이어/30s",
+      "input_sha256": "b87b88f19fe8cb3c82074738fe4833d08dfba67ce2a946c1db1fcf129830ba35",
+      "output_sha256": "bebe131fd8a7c51fdd04d3e31dbb75c15d30942b47bcb05e7042b1c679d3366e",
+      "native_sha256": "c6efa91ca7e20ce32ef67e204d344d256d218ade575d72b0bf057d4f75677d78"
+    },
+    {
+      "name": "reject/not-core-name",
+      "input_sha256": "29f895f8aaa4daf271fb305e069ad5a454225485359e652c8e4ec9ba9f20daeb",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/not-core-argument",
+      "input_sha256": "34f819b365a40b74c83ebae761a39c473f3b0b717d0c64eff6f2bb50ce200595",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/not-core-nan",
+      "input_sha256": "29f80a1a86a398be332805835d082a588317f8e4938943bc2e3f1e98311d9e90",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/not-core-no-world",
+      "input_sha256": "7ddab32991fb5bb8f6db2bd647fd69087117bed9b7a62aa42dacb2939fcdb0d6",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/not-core-no-combat",
+      "input_sha256": "5df3d1b7b18ca406120591cf3d8adee43c6e8c058396fc159dae970c77e389ed",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "mismatches": [
+    {
+      "index": 0,
+      "name": "not-core-zero-core",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 1,
+      "name": "not-core-guaranteed-core",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 2,
+      "name": "not-core-fractional-core",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 3,
+      "name": "not-core-small-core",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 4,
+      "name": "not-core-last-owner",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 5,
+      "name": "not-core-pellets3",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 6,
+      "name": "not-core-muzzles2",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 7,
+      "name": "not-core-scatter15-muzzles2",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 8,
+      "name": "not-core-attack-context-absent",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 9,
+      "name": "not-core-battle-context-absent",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 10,
+      "name": "not-core-last-bullet-context-absent",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 11,
+      "name": "not-core-first-condition-false",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 12,
+      "name": "not-core-last-condition-false",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 13,
+      "name": "not-core-duplicate-condition",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 14,
+      "name": "not-core-duplicate-descriptor",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 15,
+      "name": "not-core-probability-first-zero",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 16,
+      "name": "not-core-probability-last-zero",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 17,
+      "name": "not-core-independent-probability",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 18,
+      "name": "not-core-every-second-hit",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 19,
+      "name": "not-core-activation-budget",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 20,
+      "name": "not-core-frozen-before-accuracy-callback",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 21,
+      "name": "not-core-full-charge",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 22,
+      "name": "not-core-partial-charge",
+      "reason": "AssertionError: ('not-core-partial-charge', ['damage', 'fractional_hits', 'fractional_accumulators', 'actor_pools', 'team_hits', 'team_counts', 'team_accumulators', 'projectile_shots'])"
+    },
+    {
+      "index": 23,
+      "name": "not-core-passive-context",
+      "reason": "KeyError: 'healing_storage'"
+    },
+    {
+      "index": 24,
+      "name": "not-core-nested-notify-restores-parent",
+      "reason": "KeyError: 'healing_storage'"
+    }
+  ],
+  "input_count": 32,
+  "native_oracles": 27,
+  "input_sha256": "0575dcfa8f3c6e28b660c7a911998c8f8c0034db34d20760b790f3c277299008",
+  "output_sha256": "3b62916ddbf896ee7ab025f24cc8a467f76085f548e2e3ff8cc4e4626a95f9da",
+  "generated_normalized": {
+    "cuda": "9d0522324d2fd4668d9cbb3d96892426ebe1c4d6fedbfcbaeba9046ac4849694",
+    "metal": "0a6d39ec3294174481776bba02ef5a4c1d3d5f3e0060146c3f6912313beb6bfd"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 2,
+    "fresh_native_cases": 0,
+    "rejection_cases": 5,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

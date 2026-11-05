@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "scope": "Shared Job memory ABI and actual inherited native cap query; CPU proof only",
+  "source_commit": "9e78d59cd8924df423b68ea641bfa94e446d79f8",
+  "working_tree_dirty": true,
+  "package_id": "53a36c5208d58693e7d17da69c4dd0969cacf7a38b51ceb677fb76616d15bc42",
+  "filetable_sha256": "15e8f5d0a7df0a76b3f23cdeb4f3a86c5133d13c002eaaea2295a82e74f53ee3",
+  "cpu": {
+    "tests": 223,
+    "passed": 222,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0,
+    "receipt_sha256": "cadbd53e581520cfc540bc3d9f43841ad5f63cffbdccfab9ed77c413e5293a8e"
+  },
+  "policy": "Actual class9 query for NULL/immediate Job, complete144-byte response, existing memory flag; no inferred2GiB cap from missing snapshot",
+  "original_native_smoke_failure_preserved": true,
+  "new_compile_link_driver_gpu_calls": 0,
+  "windows_native_cap_verified": false,
+  "link_verified": false,
+  "calculation_verified": false,
+  "next": "Fixed Windows CPU223 + bounded native gate smoke; only if successful, one corrected raw-device link with same saved object"
+}

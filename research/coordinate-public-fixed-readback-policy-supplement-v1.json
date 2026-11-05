@@ -1,0 +1,117 @@
+{
+  "schema": "coordinate-public-saved-source-readback-policy-supplement-v1",
+  "owner": "a077d3b3cceff66eed9e7b0a3d80ab8505f89f0b0fce294e13870c1cc6932c12",
+  "source_commit": "170cf08dea2b0c55a3558b4e8ad7358d29d2640a",
+  "original_v2_report": {
+    "commit": "c273f6ad5416407149f3142be6647a536d28473c",
+    "file": "coordinate-public-fixed-normal-api-status-v2.json",
+    "bytes": 31543,
+    "sha256": "686b6d65edd3e388cd2fb0f2f9d76049e0da0920479e0fdb767fa4793175b015",
+    "unchanged": true
+  },
+  "backend": {
+    "file": "app/portable_backend.py",
+    "bytes": 50599,
+    "sha256": "e2aa8b188bc246e4614d1b2d1c755e20d5dd3ee2243e23560b52fe1fd32fea74",
+    "manifest_sha256_match": true,
+    "requested_reference_sha256_match": true,
+    "constant_name": "READBACK_CHUNK_BYTES",
+    "constant_line": 21,
+    "constant_source": "READBACK_CHUNK_BYTES=8*1024*1024",
+    "constant_bytes": 8388608,
+    "validation_first_line": 351,
+    "validation_last_line": 353,
+    "validation_excerpt": "            receipt=transport['readback_stream']\n            if receipt['output_sha256']!=output_digest or receipt['output_bytes']!=count*output_words*4 or receipt['chunk_bytes']!=READBACK_CHUNK_BYTES or receipt['chunks']!=(count*output_words*4+READBACK_CHUNK_BYTES-1)//READBACK_CHUNK_BYTES:raise RuntimeError('CUDA streamed readback digest mismatch')\n        elif transport.get('file_readback_chunk_bytes')!=READBACK_CHUNK_BYTES:raise RuntimeError('Metal did not use the bounded file writer')"
+  },
+  "original_literal_request": {
+    "chunk_bytes": [
+      16777216,
+      7606784
+    ],
+    "mismatch_retained": true,
+    "request_file_sha256": "0634fd3432716314ef7abc6a1a3ca08bf856a322b3fe8ee6fd25304f4c6d1282",
+    "request_not_rewritten": true
+  },
+  "source_defined_saved_policy": {
+    "passed": true,
+    "derived_chunk_bytes": [
+      8388608,
+      8388608,
+      7606784
+    ],
+    "driver_call_count": 3,
+    "driver_calls": [
+      {
+        "index": 0,
+        "source_relative_offset_bytes": 0,
+        "byte_count": 8388608,
+        "return_code": 0,
+        "elapsed_seconds": 0.000905
+      },
+      {
+        "index": 1,
+        "source_relative_offset_bytes": 8388608,
+        "byte_count": 8388608,
+        "return_code": 0,
+        "elapsed_seconds": 0.0008898
+      },
+      {
+        "index": 2,
+        "source_relative_offset_bytes": 16777216,
+        "byte_count": 7606784,
+        "return_code": 0,
+        "elapsed_seconds": 0.0007345
+      }
+    ],
+    "contiguous_offsets": true,
+    "no_overlap_or_gap": true,
+    "all_return_codes_zero": true,
+    "total_bytes": 24384000,
+    "stream_receipt": {
+      "output_bytes": 24384000,
+      "output_sha256": "6338f352b8a36c7817374d65da2ee246cce2bd39a5de278d4a8f749674aac920",
+      "chunk_bytes": 8388608,
+      "chunks": 3
+    },
+    "stream_chunk_count_and_size_match_source": true,
+    "whole_saved_output_m5_sha256_equal": true
+  },
+  "input_pre_sha256": "8d1e0def4770ff3e86e513d82580695fa7ccf5e6be8a73edca3e1b2175ed7744",
+  "input_post_sha256": "8d1e0def4770ff3e86e513d82580695fa7ccf5e6be8a73edca3e1b2175ed7744",
+  "readback_pre_sha256": "6338f352b8a36c7817374d65da2ee246cce2bd39a5de278d4a8f749674aac920",
+  "readback_post_sha256": "6338f352b8a36c7817374d65da2ee246cce2bd39a5de278d4a8f749674aac920",
+  "manifest_file_sha256": "bb7bde0f4bee8b90db462c1cb9ed7e41e4fe1bc1f56f6d57b35ddb38da9dde0b",
+  "saved_events_sha256": "03e1104907d72555fac1ecd4bdc8b2a2f6be0eb4fd906272373a1b1a640afc1a",
+  "saved_evidence_sha256": "42866ee9dcd93a560bfdc36e4113f2620c6f7625ae6a248ba933e920378ebc81",
+  "all_anchor_hashes_unchanged": true,
+  "anchor_count": 15,
+  "old_stop_claims_and_failed_audit_retained": true,
+  "numeric_expected_hashes_unchanged": true,
+  "source_packet_unchanged": true,
+  "source_defined_transfer_policy_verified": true,
+  "original_literal16MiB_declaration_still_mismatch": true,
+  "raw_device_addresses_shared": false,
+  "raw_buffers_shared": false,
+  "additional_compile_calls": 0,
+  "additional_sdk_calls": 0,
+  "additional_posts": 0,
+  "additional_gpu_calls": 0,
+  "additional_cpu_battles": 0,
+  "new_default_profiles_added": 0,
+  "identified_service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "scope": "Separate saved-only verification of the already shipped immutable8MiB rule; original16MiB literal declaration and published v2 result remain unchanged",
+  "bounded_saved_audit": {
+    "child_exit_code": 0,
+    "elapsed_seconds": 8.098529499955475,
+    "timeout_seconds": 60,
+    "enforced_pre_post_job_limit_bytes": 2147483648,
+    "pre_gate_verified": true,
+    "post_wait_empty": true,
+    "missing_processes": 0,
+    "cleanup_error": null,
+    "observation_error": null,
+    "below_normal": true
+  }
+}

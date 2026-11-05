@@ -1,0 +1,555 @@
+{
+  "passed": true,
+  "input_count": 77,
+  "input_sha256": "5f29f1219140da4467ebc3dc19a7910b354b61642aaa959a2fa98e8958d9b2a7",
+  "output_sha256": "9b3bf640771334ac50c5f8e849cf07aa2e254bbe5cb9c831d1f9e9c6202e71d4",
+  "entries": [
+    {
+      "name": "pool/native/hp-clips-overkill-reaims-same-frame",
+      "input_sha256": "4dccbc2280a2be8ef85287dab3723885c35b4a03fd9e836b620a014d194c56ad",
+      "output_sha256": "95bc890763cd1a7779e090f3836d39189c7b11419501548831f1c8950e2a58d4",
+      "native_sha256": "6bdcb717c6df8881abc88693a276c0b869525b5f020c0bf6ead039e26448575c"
+    },
+    {
+      "name": "pool/native/hit-hp-two-hits",
+      "input_sha256": "ffcfb80d3b4eae494226a03281f558b7fe492fe82bc5d3b9ee726719965f04e6",
+      "output_sha256": "0c40d570be5808fae4d452005e46a3240c3e7e7a32c88e95dc1fa356fe33dbaa",
+      "native_sha256": "79f48b3078e635e48b1a6d3a5b6e9a5a6321e5afa3fdeeced7036c64e35b7635"
+    },
+    {
+      "name": "pool/native/hp-switches-to-hit-hp",
+      "input_sha256": "044f48377546e058a45ae2d78c059f8bdb4b62fbbc1e645c2a5d17371a82deb3",
+      "output_sha256": "c8bc47b9683f48f52e6ab642811f2f26d3418732fc596f1ef2eb892beb63a703",
+      "native_sha256": "094d63ca2d8444cfdad7096e0d3333af1234ffacc626f74f8782536eaf7091cb"
+    },
+    {
+      "name": "pool/native/hit-hp-zero-damage-still-counts",
+      "input_sha256": "62786cd3f9f8aae4c76bc3977a8c76d3f705d24d287dafc5117c31db12d1023d",
+      "output_sha256": "3249a2b3ac627947f1671e24a591f03af51372b4d98d41429776261a1fde10b9",
+      "native_sha256": "35d28e5c1b10994c860f1452937ce80d2e79b5aac37e9f695e1f1c4cd8b62f64"
+    },
+    {
+      "name": "pool/native/gpu-cleared-reopens-generations",
+      "input_sha256": "83fe4df0cfbe6c54fe6fbb6ed21542699746275b7504b104e0708cb778429e19",
+      "output_sha256": "acf6cacad3a86cc16d0af2d48df9e75a92a379cb2ee92b9e76575ad07d1037e1",
+      "native_sha256": "22ce186814200fef1df49aaf516b80c22360d6166c43bf74b633d157e30163d9"
+    },
+    {
+      "name": "pool/native/delayed-spawn-and-expiry",
+      "input_sha256": "33be7a9e4310424d17b01d4b349ab08f4421f44ab2cd78722f661c914e6b555f",
+      "output_sha256": "93711a381a041f4edc5f72596b188c10944bcc4788c2c5e442a9b4e7bcc84d7f",
+      "native_sha256": "5b8c76e4560f33959fffc42fb488157a078d68ab635de37f7d27981d25059a88"
+    },
+    {
+      "name": "pool/native/pellets-muzzles-retarget-every-land",
+      "input_sha256": "6803755a7fcb25d6af36bdf4760f032a1afbbd720ed7460b5c1b8096418381a5",
+      "output_sha256": "83d7e64c4cce2dbe149dd21e92f0373a4b61036a49ccbefa294a91ee0e3966e2",
+      "native_sha256": "e11c65feea006b134b95b4450d5593e02d1a290ffe4edc599e1930f4fc9e26b1"
+    },
+    {
+      "name": "pool/native/128-actors-live-127-adds",
+      "input_sha256": "d4e42d93a290b61c02eab04726966c7a74ab559e4cfd30e65efc2305866d0ff0",
+      "output_sha256": "b27ca1a65042e5470ee799ff8261b50e6a78d4c66cb9b2411ff830872b78f504",
+      "native_sha256": "9854e97d2df36ed9a44810928e1fa68b9e4a06e4f0da35d27c91d3f8fd71ca95"
+    },
+    {
+      "name": "pool/native/death-notice-allied-buff-next-frame",
+      "input_sha256": "a13e347db9319f5c228560cca01dbc96f191202987ac92012d735427abb61669",
+      "output_sha256": "903b19b554522ed21a6f2d7a844ebc65d3e2852934ded23d4056f799830538f9",
+      "native_sha256": "721a59e3ea53fac442c1cb972cdd4958a37fc1e5d51e60d1247269b1082c2207"
+    },
+    {
+      "name": "pool/native/shield-adds-bypass-boss-gate",
+      "input_sha256": "8c48bba3fb39497e829e3e43a377018c71c01426750c3f45c82e46565cda00c5",
+      "output_sha256": "0d532d8ff74d98d4f4204dc8b42e05185964d252511a91bdbec023f703f42024",
+      "native_sha256": "8c0dffe0eb4bac2b9858124b395ab76b97f5a3c285a47f4e252b470d0f1533e7"
+    },
+    {
+      "name": "pool/native/vanish-adds-bypass-boss-gate",
+      "input_sha256": "47428c6f36177dc7d52bbbeea70c2bf1687f600731dabf9abea315c5ba4f212a",
+      "output_sha256": "0d532d8ff74d98d4f4204dc8b42e05185964d252511a91bdbec023f703f42024",
+      "native_sha256": "8c0dffe0eb4bac2b9858124b395ab76b97f5a3c285a47f4e252b470d0f1533e7"
+    },
+    {
+      "name": "pool/native/vanish-unobserved-adds-still-pause",
+      "input_sha256": "e8e35ca0c2e98114a7aad8428990810f8e254c0728dd79731fe880d7bd9c9859",
+      "output_sha256": "a18c6f3bb601e33af4a86453f2ec196e9c490b5937b7f244bf5faaf46466568d",
+      "native_sha256": "6aafa9c3caf40d345a853c2f0045b59db4235a8da7735d132d0ffdcb02a8afc9"
+    },
+    {
+      "name": "pool/native/charge-actual-add-landing",
+      "input_sha256": "64e69ca1a2bae3b8dbcf1ed3303bc970284f709a214d716899819087cbaa6bac",
+      "output_sha256": "48cb4b2f08cbe43b1d9c4ccc12af1f7f2eed3aff7045a4dccfcec7b3ecf37b3a",
+      "native_sha256": "6e459a6421fef1e778bda5de5c049e48c286a088c2e43184d0adcb9d1a145552"
+    },
+    {
+      "name": "pool/native/parts-owned-pools-without-physical-aim",
+      "input_sha256": "8e669b2c4637d4db12f25fbdd0091f80063184fa1079c0f4a6adfdb29a314a47",
+      "output_sha256": "a51c773656660f88ba7b24dcd182b09b1d96209698c0fd5b10fae5a1caef8903",
+      "native_sha256": "779dc10c4e42885946e0d4836c6742ed3c84c15bf81d2ae3d7b2156108e60ee8"
+    },
+    {
+      "name": "pool/native/part-overkill-death-notices-and-score",
+      "input_sha256": "6afddc8c36ae04681f403c6a69caf76f8a23a44976cbfdc89d3b5a0097b24cd9",
+      "output_sha256": "d36c690714c287e7dfb8169a23f24f4cc2210fb749bf178ad889fcd431012ea8",
+      "native_sha256": "14c90a91babf045733226c9382bc0cf4952bcce56887972022d3902741abb3cc"
+    },
+    {
+      "name": "pool/native/add-hp-clipped-and-dead-overkill",
+      "input_sha256": "422bcc634c0da14a87ed5959ae2ac96694d17bf24cb91f5da640318a49016696",
+      "output_sha256": "3225ba8795a35068181d97909908fc80878b5ae7f2e5928ec596d6238f731b05",
+      "native_sha256": "a541788626ee524b18ab6cae0716d392caa72b46104f9ffdd9be5638911f95d1"
+    },
+    {
+      "name": "pool/native/add-hit-hp-zero-amount",
+      "input_sha256": "a4f6366bc65891ca1ef1d21fe3fcaef603fe52b30bcb55a1bb8027011b44dc27",
+      "output_sha256": "c890ab0b5de8e4ef27217f415decfffd45ff8b123a2c7cc3d232d9f5feee81a1",
+      "native_sha256": "c950623f498966303e641ccfd1fa3fe25a99e376ffd27b7d07cf27d09b2bd424"
+    },
+    {
+      "name": "pool/native/typed-set-body-parts-adds",
+      "input_sha256": "445f761c6df813838999212784fbfc640f557f44df5023d03c83f13bb15ea199",
+      "output_sha256": "ee03bc9365fb831b772a30f3888e79335c0ce12622eeee3215b1c61acb3b655f",
+      "native_sha256": "4b03be722d52e57bdc02c7c9d75e9866eca97188852e60ae6de08dcf6c284c28"
+    },
+    {
+      "name": "pool/native/frozen-set-rejects-reopened-generation",
+      "input_sha256": "31f246230fe45bb5b74c734fad05db7abd5cda7037f30a6438a20332748fb2c3",
+      "output_sha256": "4befba55b6125a9968b2e7737798a49238dee10a3ba432a58f9d189182656309",
+      "native_sha256": "49fdaf16e7a7b38f73222660565622776282190492d927f34172097b044992f8"
+    },
+    {
+      "name": "pool/native/part-cleared-reopens-unbreakable-excluded",
+      "input_sha256": "7470b48d01983d860a9c671b64998d16ca1df9930b1e06274fc91f5556ef019f",
+      "output_sha256": "016abda752ebb7acce2ff4e7ab8cc546d42e34e4791d3069953ba17502d5bf32",
+      "native_sha256": "7bcfb0da204f72a6f55ce46e2c84c1536f59422f39db640422466219feb50d3b"
+    },
+    {
+      "name": "pool/native/expired-same-generation-overkill",
+      "input_sha256": "1e796039cc8c64be202871828f0012d8d16a44d85bbfd167e9a62effb30c650b",
+      "output_sha256": "b193608744435ce9a10f9970e1a66f04ccafc2dce68a20aef97de1f7ba25e135",
+      "native_sha256": "5a50683214b6476fa3bf5e980a546b8ff04484ec8019c72f6d360ee4174ef02f"
+    },
+    {
+      "name": "pool/native/128bit-set-captures-and-lands-all128",
+      "input_sha256": "2ace4e2c88287fc939ce80eba22c9d353ef1559d306768ed03be8f0c9a104f13",
+      "output_sha256": "8ab385d8829d14841fe207c9349b530118f913d0e4e44cd19400f5f220e3ecc7",
+      "native_sha256": "90734cb0643892dbefa61106cddba93a2a117e667f31c2ee4405bd8a215b7bef"
+    },
+    {
+      "name": "pool/native/set-add-order-follows-birth-not-id",
+      "input_sha256": "61312699943afabd0e38d3a82b41c67c01708b7cb910e04916b1a8406fa8ec54",
+      "output_sha256": "8d511b9824fed6c868115d39529a79bae103c4bc96b9171a481b4dd526990be4",
+      "native_sha256": "9c34920892d760910c8e1ca7000895061782eafc507977222a93b702636f3314"
+    },
+    {
+      "name": "pool/native/query-unknown-notspawned-stale",
+      "input_sha256": "906ab2557073390b1e52907a5f5d3bfcd999a57962ba55b03d9aeb7ab6b418c4",
+      "output_sha256": "bfb73983a3ab595cd4b178caa172cacb2b872956e3780fd910b1532661b6621e",
+      "native_sha256": "c419158443494633d5d592b2d5c141defa3d3bbc8ebc3fbc8617f8a1f7813498"
+    },
+    {
+      "name": "pool/reject/bad-magic",
+      "input_sha256": "4dee79d19aca8ed4931ffe578f9f247a8c78da256cc64779bc546f379cd8cbe9",
+      "output_sha256": "7eadb00026c4a79f79566f174749ff1abfc79efe9d28a2ae6b66adc3e4fec741",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/wrong-count",
+      "input_sha256": "3075f361c843bae08692d6e4c21a9cfcfa8ce278d48d74e06edaeac8d587b4cc",
+      "output_sha256": "7eadb00026c4a79f79566f174749ff1abfc79efe9d28a2ae6b66adc3e4fec741",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/reserved-header",
+      "input_sha256": "d9a08c43c3bce2ccc79237aabc84792d2b53f0eebcf5e5f5f919f125dd8cb74c",
+      "output_sha256": "7eadb00026c4a79f79566f174749ff1abfc79efe9d28a2ae6b66adc3e4fec741",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/invalid-mode",
+      "input_sha256": "70325e55f31476c270d56d2ad48637cb996910238f81d63aef930a2e69c5c9fc",
+      "output_sha256": "7eadb00026c4a79f79566f174749ff1abfc79efe9d28a2ae6b66adc3e4fec741",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/nonfinite-hp",
+      "input_sha256": "cd9c176fb066fe51b3d860889d74b1fa2cd5def00b918fcdbdab54980c346641",
+      "output_sha256": "7eadb00026c4a79f79566f174749ff1abfc79efe9d28a2ae6b66adc3e4fec741",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/zero-hp",
+      "input_sha256": "99d7a200c991bf8a3f379d71d107425777eaaa8bed5060df724b462841d447a1",
+      "output_sha256": "7eadb00026c4a79f79566f174749ff1abfc79efe9d28a2ae6b66adc3e4fec741",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/hit-limit-on-hp",
+      "input_sha256": "b9aa64479bbbd8efc6c98c040369ecac5b46c647a325c042e2959600a4f54c2c",
+      "output_sha256": "7eadb00026c4a79f79566f174749ff1abfc79efe9d28a2ae6b66adc3e4fec741",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/negative-after",
+      "input_sha256": "c0ddd5060f91fbf72f0ecf6b25341a1d6e01ebf6c2d8809f875db084325eaa1c",
+      "output_sha256": "7eadb00026c4a79f79566f174749ff1abfc79efe9d28a2ae6b66adc3e4fec741",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/add-death-custom-notice",
+      "input_sha256": "1275bf83adacd7620eaf0db80db6aef1bb2c5c4c8df807aa5f3b4757d13b7bac",
+      "output_sha256": "7eadb00026c4a79f79566f174749ff1abfc79efe9d28a2ae6b66adc3e4fec741",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/reserved-def",
+      "input_sha256": "1b0c5df242b4dd46af5d0b391bb3a3cacf4b545fe1ba8e2127feceaeeb4ce2ab",
+      "output_sha256": "7eadb00026c4a79f79566f174749ff1abfc79efe9d28a2ae6b66adc3e4fec741",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/unused-def",
+      "input_sha256": "f46fc5bdc90e59b29f426538b04de0fdaa2afc61784e1360dd067266df6c413b",
+      "output_sha256": "7eadb00026c4a79f79566f174749ff1abfc79efe9d28a2ae6b66adc3e4fec741",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/disabled-dirty-tail",
+      "input_sha256": "8cee65bb7d49c723c97c36bca132fefeddc7fd16ae0bff1e70fe64fadb0df1e8",
+      "output_sha256": "7eadb00026c4a79f79566f174749ff1abfc79efe9d28a2ae6b66adc3e4fec741",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/land-negative-amount",
+      "input_sha256": "42513f056126f40dc854fda9e8e7525e608674fc620b3f3b3b60abb22b0be5b3",
+      "output_sha256": "aef11fc3a1b8ae3f144ef2f08c97ed48a7781ca6e450e6eb38171fd72615e9f9",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/land-who-overflow",
+      "input_sha256": "dfe872e55e6af695b5ca06debd187c7f10772d97c910e76a3bbf4674691301b7",
+      "output_sha256": "e6e238367df50f0e9e3b1214a8d2cf023f4bdb93d07fee00c9544f124067f4ec",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/land-generation-zero",
+      "input_sha256": "7418d3a0d948bed1834cc532116027e99c64c1cc55cb617fbda5986720a1810c",
+      "output_sha256": "e6e238367df50f0e9e3b1214a8d2cf023f4bdb93d07fee00c9544f124067f4ec",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/land-output-overflow",
+      "input_sha256": "88c3a9af884f95590eed9280e75319d4de85357d767cbb02f76a8455352f5bc2",
+      "output_sha256": "e6e238367df50f0e9e3b1214a8d2cf023f4bdb93d07fee00c9544f124067f4ec",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/query-generation-zero",
+      "input_sha256": "6d0054b9987c77a728b0a496c5b5a3323a647e0b8d505ab9aa19df0669105cc0",
+      "output_sha256": "37affe90ead41bc911899817a1053f1033a66b2df90d456e24e855c2924d9967",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/set-mask-overflow",
+      "input_sha256": "b8b1a26705d889f0733eb47e139ef4d29d74e47b10b5e0ed7382bc46c6220bde",
+      "output_sha256": "056ba3e27c175a736c78354cb77f7d489aa30e0b3451d666d3822cc3f1858ce0",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "pool/reject/set-capacity-overflow",
+      "input_sha256": "acdecb539ea62efb37e1d67a0faab2769243a8228704cd518bb018bb9a8722d4",
+      "output_sha256": "056ba3e27c175a736c78354cb77f7d489aa30e0b3451d666d3822cc3f1858ce0",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/native/configured-body-part-add-order",
+      "input_sha256": "05a1f55faca559f6060d49b7f6287f619dc20be75e008f6f4e3cd570498aaaec",
+      "output_sha256": "10d727bfdf441eb01570578ed9e4676368f0feb04b0eb81f40ef41762fb23711",
+      "native_sha256": "db58f1f8c314304cfd9f8e2d2531640c212785f9cd32b94f370735f4f59a9171"
+    },
+    {
+      "name": "registry/native/not-spawned-does-not-alias-body",
+      "input_sha256": "385444df0b16964913ac0c482264f1248cc6801bc3e0fb9d222557189a162e01",
+      "output_sha256": "9b35c958f67d2f40d19b492f158b9a8238a49438a80ddb88a327b44eef63939c",
+      "native_sha256": "515ff9d88abba46d0661b841c4dc726f444e3ff40105909346bac412a33e9e05"
+    },
+    {
+      "name": "registry/native/expired-generation-stays-queryable",
+      "input_sha256": "a0b0f653af0a7db87071075ede6cf6e7bc726c4c993e223f788b57455b958905",
+      "output_sha256": "a574c8b6ebba902578497af0445e8c9e740ea59c02cd95e3336fae6af79d0687",
+      "native_sha256": "162440b96fb2f15814d37cde1f8dfc01c8c08a706fdbdaef3c85834984db0122"
+    },
+    {
+      "name": "registry/native/respawn-stale-handles-rejected",
+      "input_sha256": "9343cfdea6f3166b9a0dc43188987a2a4e4b9e976924c0ad230fd0e3f7d5e6cb",
+      "output_sha256": "4afc20c60bee5622ec2e61aa635d8c38c4409d185ec58c1d9f58853761072b44",
+      "native_sha256": "da0c95f1db8d5e0eb370f2d7a9cc6dae29f4a6c6a203b74e4da081a6f71ef1e5"
+    },
+    {
+      "name": "registry/native/part-parent-survives-reopening",
+      "input_sha256": "1e8b61bcfeaaf145df761f736642b6294202cf4c49929ba3a10b3dea53f8962e",
+      "output_sha256": "ce3736a04b8ef387320133e1bd40b2d8f653cd8f98f2ca45eecb21463a4ea708",
+      "native_sha256": "f58f00a2e2e028887feb8fabf22e72141bd1774ea1fead422ca9dfd20bc72338"
+    },
+    {
+      "name": "registry/native/declaration-order-differs-from-type-order",
+      "input_sha256": "fb6e5d9da1e80b381573816921f421f099a9d80b7672b4725b1f9205a1fd84cb",
+      "output_sha256": "215b7852d83537de49921bfd362e9e2c03f5c2f1b047c64563af3b9926577503",
+      "native_sha256": "f60aee96f39bcdc8ca0a8fb9080fb34cfc4946b24cfe2aa063abe3c34d5d1775"
+    },
+    {
+      "name": "registry/native/unknown-kind-and-identity",
+      "input_sha256": "949d9c578471004b8138894d96a82cb713692f966641cc5f47e385222ec167dc",
+      "output_sha256": "8488140f4c6423ed44abdaaa0a347dfb25c29a22136c7f59d9e774838093e01d",
+      "native_sha256": "00c52aa8efbdc0269a5d29c63dcb2bf58db9fa3b89cbe22c11ef50c3653ac8a8"
+    },
+    {
+      "name": "registry/native/body-exact-generation",
+      "input_sha256": "a69702d33dc6d19dbc1a3633021c4edcdf4753fe6c2eb9036374555eca40903a",
+      "output_sha256": "5518c24535484f6086a8ebfa82a86679e841433ba2a9cc109ed1dae722979edb",
+      "native_sha256": "7feea184e5ae0cd10802909ad07350641584fe95fd4ed1ea6a3d44845646e440"
+    },
+    {
+      "name": "registry/native/128-actors-127-adds",
+      "input_sha256": "631c96cb0e995373019f8b4c72129a2e25cc0a33a289d53367d64dd8229c8ea6",
+      "output_sha256": "830620adc7f447b9ed27be44577886c279fbf68405cf9a60e19ebd223d81f5c2",
+      "native_sha256": "da7fdcb9e3eb5b2947e4ba52d701459db7a7288301bf02dcfdf748dc5b690ab3"
+    },
+    {
+      "name": "registry/native/128-actors-127-parts",
+      "input_sha256": "1e4ad16ccae500337e514e711018df7a5f0638c97cd8293c1e61d1ae834b2cba",
+      "output_sha256": "9d92f8cd92d27ae48b53ab1df5e02c5a1682311062c990414eb9bd52e08a149a",
+      "native_sha256": "a406cb0a23155df520638c6ece166eee5bfbdb34344d47d3fef1982d99c0cc74"
+    },
+    {
+      "name": "registry/native/all32-node-bindings",
+      "input_sha256": "8abe4f41719a91aa4a59e8fec73d29e4263d24d1652dab4154d7ef9e14ea14a3",
+      "output_sha256": "d573f5f25344785b91dba87105c8acec28a0df749ccea156e359d08c9dda6f9b",
+      "native_sha256": "6d087f565ef1ef791586fcc8af8aabc606ba7605bfce505b3ff56b42614447ab"
+    },
+    {
+      "name": "registry/native/parent-root-after-expiry",
+      "input_sha256": "99c7d08b190233091b37f2e64828a79baf5b640c103d16eaa90b6b754519e634",
+      "output_sha256": "b4834a30e793ff655d22791fa713db838414690d887e045cca645500385eb28e",
+      "native_sha256": "c0ac4933f6a2db7fbcc5048498cffe11b4993e1c991a552e416769d6accd4411"
+    },
+    {
+      "name": "registry/reject/bad-magic",
+      "input_sha256": "d268dfcc2b1874f3574e5d25296d227664873fbabaf20484385109b61fa53e8a",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/empty-registry",
+      "input_sha256": "86897345a537fa41c3a805deb8d6d2cabcfda5fd0a9f4d010f0124c241dd3fa7",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/capacity129",
+      "input_sha256": "ff228ac9914eee7f2ac9995e008b9a4a22ae87aa5cb4f92c54d3a68e7cf15216",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/wrong-node-count",
+      "input_sha256": "718c3841c30dd9d0c27298129be01c2c3361c291cfc07296984aa20b610b0527",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/reserved-header",
+      "input_sha256": "60a703c9f3c291d75755d28a722d1dc319fbb5ad8b9453d7e55ee451d69b9ea3",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/bad-source-kind",
+      "input_sha256": "a7ba9082e016b8fd9cebae210b390b93e7cf06bad4e40c7d85aa5e221bebedd1",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/empty-source-count",
+      "input_sha256": "a2ac8404a2d1715174cb1cbb9d7632d94835c2495b94a214d247deb04f020e0c",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/unused-node",
+      "input_sha256": "46e9ebd63129c717d55241a64a91b55c930a7fff4415f89825fe11f84812f373",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/bad-body-kind",
+      "input_sha256": "1883c203ec245266058a13cab2f002fe7d60664150ba35d1a3bc863c9d5e5b54",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/bad-body-generation-source",
+      "input_sha256": "55bdad23a0ad3abe98e5c03a1783bbd69ace1dabcfc5cd8428e8725e2aee67cf",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/bad-body-parent",
+      "input_sha256": "08879989209d742709c69980d49120649f72a75c374f0e45a137ecb47bafd1d6",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/noncanonical-part-id",
+      "input_sha256": "10f92353b6962346fbd7f1d4b4e75b74e6291de38bb6ae59931cd84fd7605cd9",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/wrong-source-slot",
+      "input_sha256": "7c32479503d8cb902a8c69c92455e7e7437677d88a526f0c38e15befc3be6571",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/cyclic-part-parent",
+      "input_sha256": "5b091808dc2d2705f63b38d628e385d85549b90ff59e4297938164c7564d9105",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/reserved-binding",
+      "input_sha256": "96ffc30393ad2238dda783278f7c7f6c5bc944d094718625185c640a9067931f",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/unused-binding",
+      "input_sha256": "488b0cf3aff24216aa3bc460251880bf4fc62869f4559b5c224db0f9011ec0c2",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/disabled-nonzero-payload",
+      "input_sha256": "ecc67f288205c6586b54d83a023cb85dafee2118ade8645262676878e83e78be",
+      "output_sha256": "b3093703d5a6f468ea3e3fbbbea7910cbb1f57205ef4f803b9a62bb669170bf7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/query-generation-zero",
+      "input_sha256": "d0c27cb9029e064068917a78e3318666ece35efef0eabc99a8a8b55779a5a1f7",
+      "output_sha256": "bce002a861b35bdcd04310e595155923df46083e561726b82b111afc362f499b",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/query-invalid-kind",
+      "input_sha256": "4016a75a1cd998e300809a63da080eb1e47b4c8d26203478d2051b76492e14d6",
+      "output_sha256": "bce002a861b35bdcd04310e595155923df46083e561726b82b111afc362f499b",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/query-identity-overflow",
+      "input_sha256": "21d5fa0b7b55aebd8d2db2ddcc35ef447094ef4e087d0ae6b2a343df0413fd07",
+      "output_sha256": "bce002a861b35bdcd04310e595155923df46083e561726b82b111afc362f499b",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/query-invalid-root",
+      "input_sha256": "347ca9c54ce7ae526bfac46be3789092f3bf0146ca060f80b7302c7c8915ab2b",
+      "output_sha256": "bce002a861b35bdcd04310e595155923df46083e561726b82b111afc362f499b",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "registry/reject/query-output-overflow",
+      "input_sha256": "ab2363e27d395e1e4c6c56af4d229ba59905065a9af389ea139e7afb4958c06c",
+      "output_sha256": "bce002a861b35bdcd04310e595155923df46083e561726b82b111afc362f499b",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "generated_normalized": {
+    "cuda": "75046934f6e4a17c949a4ffa168487fc97bffbaa8d7b5167de9502bfc62270ef",
+    "metal": "222e93ca783bf97d8133c42d99b9ba161b6f19af8600d56e22cce5f635ac7504"
+  },
+  "evidence": {
+    "transport": {
+      "backend": "cuda",
+      "device": "NVIDIA GeForce RTX 3070 Ti",
+      "cases": 77,
+      "command_status": "completed",
+      "host_dispatch_seconds": 6.427761000115424
+    },
+    "source_sha256": {
+      "gpu/world_actor_pool_entry.slang": "828f8e30575716cd719212efe7e3b71594087c60543ec9a5a405a5c46d99144e",
+      "gpu/event_runtime.slang": "0ec52266aa6b76060885b381145047a6e2f0b2d9a3e262968d5df301aef6ce7f",
+      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+      "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+      "gpu/portable_schema.slang": "6868f84092174d4bf5f00e13dec6b7bf22354ba72535f5b6384584d797f99264",
+      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+      "gpu/runtime_init.slang": "54ad60a47e8c25a48c9e3640d7610e34d5dc968b2136a4944a753d676423a123",
+      "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+      "gpu/world_overlay_runtime.slang": "c212ded55ab5047ffbb7c30b2e6195c467482eb82109b37373b7f483a3fcac6b",
+      "gpu/geometry_runtime.slang": "8e8018af3959fde2f794c147aff2387464d4f486be17088cf260da41d48f8ef5",
+      "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+      "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+      "gpu/reference_runtime.slang": "3ea6e2b3d617728568a4455097ae2f139466127729026b3011dbb3d930b72a05",
+      "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+      "gpu/bullet_runtime.slang": "1b0f0ffb2eaff6778e0fcab801cb7d644b83af2cb9bc8a230b9d33502bc1c324",
+      "gpu/rank_runtime.slang": "6862c849997a111e228286b553b9043a6035fbf150b9c831130da6171d271526",
+      "gpu/lazy_runtime.slang": "cfea04c172c8ee5df11341cbdb746705f7fd99b05200d24ae9e2515aa30aade1",
+      "gpu/enemy_buff_runtime.slang": "5190985f8b9a72b4aa4bbd1e89eb1b7291f4c16652d5f476806168c639ca7dbb",
+      "gpu/carrier_runtime.slang": "d7a14d89cefa0e73fea1a7a096fc26947221b1862ec2a73ae7eab1043c179112",
+      "gpu/quantity_runtime.slang": "843dc4d8246dc2babe7a02db51eb365883551e6aa150cf4ea661b10eb3af5a5e",
+      "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+      "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
+      "gpu/cover_runtime.slang": "eb1b4a4e7c9683b615a160f3010e0e50a5da9d9a7f0425b471c83b1d625dffe6",
+      "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+      "gpu/hp_attack_runtime.slang": "2bb2bdcca7a86353ad8cff2de5908037fd344e4091e07eb92abcaac9093e1a21",
+      "gpu/recipient_runtime.slang": "c9a5acde13e4a7f43dcb3b5ebebdafdce5c6b730e848eeb49e26e35d1cb051bf",
+      "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+      "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+      "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
+      "gpu/damage_runtime.slang": "732187295c6d98090c213dae755442a598b8a16d817272ce371817da8fdac7e7",
+      "gpu/incoming_runtime.slang": "3d32bee084317b63a3c00e8b94a9397196f4a8a39efc6a78a8efd74d90f1985c",
+      "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
+      "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+      "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+      "gpu/landing_runtime.slang": "dcb05d654e47a38980a2d72b9ae056d7d3ec84484fd0cfb72778f205a2cccad6",
+      "gpu/periodic_runtime.slang": "574670587e48ff1bfc0498e2ba7b71a86c1285b2281649e46bd9e5ef877f21b9",
+      "gpu/removal_runtime.slang": "7f96937400b9cd9b59fe750a1cca05d4dd77d310eab2a03a81eb588b8e14832b",
+      "gpu/duration_extend_runtime.slang": "028445e661b12f54a8dc48da3b3438b0c4df7b1da833a4b63a54c84ac18a1081",
+      "gpu/stack_runtime.slang": "b46417666a422f4f9fcdfd15e78295394cc1b9571a6083e46ef18f4f300031e8",
+      "gpu/status_runtime.slang": "648f7355bb38092a53a45c608eb5a95f9dd2ca8b6dc6b906712a22f8fd54e3d4",
+      "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+      "gpu/pending_burst_runtime.slang": "1b3822579499e2641d5296764c133bbbf55df64bf7f4fa3b0b34c00e0315a484",
+      "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+      "gpu/world_frame_addresses.slang": "83c86b78c7e1034b70861085baceede9cf95f1f5e3620b483d6cf032a95028b2",
+      "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+      "gpu/protection_runtime.slang": "768eefaec94ee16a561a471c0400506f2b9c13ac3b8756693be1bbbcafc4bdd2",
+      "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+      "gpu/world_actor_pools.slang": "33f233b5410320b5bc0b138625ca332710b06be3d1df124dccb80c374a23e5d9",
+      "gpu/world_actor_registry.slang": "f803ee00db756eed3edd48586e3fcc94b4f750f0990f97c9ff8732da07f08477",
+      "gpu/world_frame_runtime.slang": "6ff826891eb90e6e26daaf79a047cd887c8a5cc08800b360e386fef76e3bb2b6",
+      "gpu/combat_runtime.slang": "adee81338b7816e4f4f3a1dd28755886622e56decfb884dac416c4ccf5f756ca",
+      "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+      "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+      "gpu/world_overlay_weapon.slang": "111d2f3569a5347e8c61752591fe0e3081be5050a521e549d1956c61e0c056f7",
+      "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+      "gpu/admission_runtime.slang": "c9f16fd54e0c81b4a5de0bbe8d44bf2ef1718d7d0e4a1306d0bc6be3ed4a9b47",
+      "gpu/portable_mt19937.slang": "116f6a7ee3cf8e069db171aace0c06a1b160c3d25b0975451125929b68dd3b61",
+      "gpu/enemy_target_runtime.slang": "bb88cf05d475109cf34e6fca4099ce71096cecc8ba03c72995cce8de15a0b730"
+    },
+    "generated_sha256": {
+      "cuda": "6dc073072624ef8ee879e1bb9a453029aa5dbbff25a07c44a31bcd7021d333d3",
+      "metal": "3ee23b011912ae03e9075ace517fba061613a7cb6b87ab7f1b937c913208f4a7"
+    },
+    "input_sha256": "5f29f1219140da4467ebc3dc19a7910b354b61642aaa959a2fa98e8958d9b2a7",
+    "output_sha256": "9b3bf640771334ac50c5f8e849cf07aa2e254bbe5cb9c831d1f9e9c6202e71d4",
+    "gpu_execution_verified": true,
+    "backend": "cuda"
+  },
+  "normal4682_reexecutions": 0,
+  "old208_reexecutions": 0,
+  "full_character_verified": 0,
+  "canonical_world_admission": false
+}

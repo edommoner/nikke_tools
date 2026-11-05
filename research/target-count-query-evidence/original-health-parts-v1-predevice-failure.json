@@ -1,0 +1,22 @@
+{
+  "schema": "original-health-parts-v1-predevice-failure",
+  "package_id": "718a776aca3e9d61b85eb5954721aedf28959b7c99b115f2e5c0eee7b1cf9255",
+  "source_commit": "212572970a918f12168ec2c59c1fd54941a4fbf9",
+  "failed": true,
+  "gpu_computation_calls": 0,
+  "execution_claim_consumed": true,
+  "claim_retry_count": 0,
+  "preflight_native_cases": 7,
+  "preflight_inputs": 11,
+  "preflight_tests": 74,
+  "error": "Composed stride requires the registered shared entry and complete wire",
+  "fact_sha256": {
+    "result.json": "cbabe2e84abc8cad772062c3183e2a7c1f1dca58fbe12e195e6fa42091f69220",
+    "execution.json": "12f20f894438f28ee700169e2d2a3ddf3f9c980c8133fdfeaa5b637a9eb5f40e",
+    "stderr.log": "343566fa721eb9e0e9671425052461b4d5e383bde9ef83254b9097a72e7f1615",
+    "cpu.json": "4b90875aa9956ab03260547e4f41fadf13975a538c25eea4c18426112667db4c",
+    "cpu-tests.json": "84a9aa82d1422fa9ecffa9653f97ecff76cffb3b83a1a8a4a861dc7fd67e24af",
+    "phases.jsonl": "f8dd5a6f11862b9729304984957af48afcde36c67f8c4d076f8bc6d2db355e8c"
+  },
+  "scope": "Failed before Slang build or Metal compute dispatch; failed capture preserved; next attempt requires corrected source and a new immutable package"
+}

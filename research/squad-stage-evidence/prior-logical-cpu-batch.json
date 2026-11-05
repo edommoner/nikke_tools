@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "mode": "single-process-unittest",
+  "patterns": [
+    "test_portable_aimed_enemy.py",
+    "test_portable_aimed_area.py",
+    "test_portable_interrupt_aim.py",
+    "test_portable_definition_view.py"
+  ],
+  "timeout_seconds": 60,
+  "elapsed_seconds": 9.289072124985978,
+  "timed_out": false,
+  "exit_code": 0,
+  "gpu_calls": 0,
+  "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+}

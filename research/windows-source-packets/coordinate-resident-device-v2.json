@@ -1,0 +1,21 @@
+{
+  "schema": "resident-device-packet-v2",
+  "suite": "coordinate-resident-device",
+  "package_id": "b4a2fbedc15b27f2b6d60d2b95c63c6921390b465f4f0b83155ff20dc641fbfe",
+  "archive_bytes": 9459124,
+  "archive_sha256": "b56a2e57a0ea1b59f65a7faa3cc60e21397c0ffb98409905a9b5f968decba305",
+  "source_commit": "736a6648f1694010e385e21d24954a6ce35d5206",
+  "scope": "Same four original prefix cases and sealed Metal golden; current-root stage identity observation corrected",
+  "only_changed_payload_from_v1": [
+    "scripts/run-gpu-packet.py",
+    "tests/test_portable_packet_stage.py"
+  ],
+  "source_and_golden_preserved": true,
+  "fresh_native_repeated_on_mac": false,
+  "cpu_smoke": {
+    "groups": 60,
+    "tests": 587,
+    "skipped": 1
+  },
+  "cuda_calculation_verified": false
+}

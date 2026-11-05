@@ -1,0 +1,40 @@
+{
+  "schema": "named-generation-locks-sealed-package-v1",
+  "package_id": "19dac1aa6b2767344341b8ab1d6b17f35a6cfed9c13f1b5365aa1906ae4f820d",
+  "source_commit": "49d9a59b965d64a74e3d5abd7bc68348a0f4d511",
+  "archive_sha256": "4985a92185782962ee1454aeb53860360589f35e3966bc043445cd1aa48e1dec",
+  "archive_bytes": 11915051,
+  "own_cpu_preflight": {
+    "passed": true,
+    "input_count": 16,
+    "native_oracles": 10,
+    "input_sha256": "1f006d28b9badcff012c99464b2dc8e560fddc737ad423c741b274f214d9055e",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 0.9269985829887446
+  },
+  "selected_test_groups": [
+    {
+      "pattern": "test_named_generation_locks.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.751214500007336,
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_generation_lock_executor.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.4600348749954719,
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "additional_gpu_calls": 0,
+  "windows_requests": 0
+}

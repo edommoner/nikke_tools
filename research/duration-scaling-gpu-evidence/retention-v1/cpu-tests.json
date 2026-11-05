@@ -1,0 +1,952 @@
+[
+  {
+    "pattern": "test_portable_gpu_cli.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.244569749920629,
+    "tests": 39,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_gpu_replay.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.023477540933527052,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_phase_audit.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.0229783329414204,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_regression_adapter.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.0215864160563797,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_roster_regression.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7186619169078767,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_readiness.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.3308786249253899,
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_stun.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.5221144169336185,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_typed_recipient_delegation.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.005775665980763733,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_skill_cooldown.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.0280330419773236,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_healing_storage.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.4887253330089152,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_trigger_reduction.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.73309529107064,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_skill_critical.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.3568960420088843,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_skill_interval.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.5244047499727458,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_skill_interval_flat.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.2028932499233633,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_lazy_bank.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.781222457997501,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_compiler_stats.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.010840457980521023,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_base_copy.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.9577430000063032,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_seal.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.060331417014822364,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_persona.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.8308784579858184,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_compile_cache.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.10477133293170482,
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_named_magnitude.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.367674250039272,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_enemy_selection.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.1670346250757575,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_capture_storage.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.0213650829391554,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_attack_magnitude.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.8814155840082094,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_revive_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.7158282920718193,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_revival.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.1997931250371039,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_resident_layout.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.0174964580219239,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_resident_transport.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.014142459025606513,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_resident_build.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.02744249999523163,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_module_check.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.06942762504331768,
+    "tests": 19,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_entry_reload_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.31414579099509865,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_entry_reload_full_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.48629145801533,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_weapon_phases.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.08340737491380423,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_offline_assembly.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.10577987495344132,
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_readback_stream.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.08224470796994865,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_regression_compact.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.067340207984671,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_file_transport.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.06986183393746614,
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_cpu_batch.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.026043749996460974,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_query_boundaries.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.04432266706135124,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_ptx_stats.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.0047319160075858235,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_heal_share_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.645992125035264,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_phase_codegen.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.011898042052052915,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_heal_share_extra_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.5065822920296341,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_definition_view.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.4081822079606354,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.3121411669999361,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_heal_share_targets.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.2009037910029292,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_heal_share_lifesteal.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.3554401670116931,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_heal_share_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.2282028750050813,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_heal_share_trace.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.12763341597747058,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_ally_burst.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.932763583958149,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_mode_capacity_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 9.769594166893512,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_mode_capacity.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.4967761249281466,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_skill_hp_basis_retention.py",
+    "exit_code": 0,
+    "elapsed_seconds": 6.134243083070032,
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_skill_hp_basis.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.6319957919185981,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_physical_interrupt.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.4729333749273792,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_lost_hp_attack_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.378238916979171,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_lost_hp_attack.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.46309916593600065,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_lost_hp_attack_retention.py",
+    "exit_code": 0,
+    "elapsed_seconds": 6.827664540964179,
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_pellet_shot_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.6586944999871776,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_pellet_shot.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.1398160409880802,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_pellet_shot_retention.py",
+    "exit_code": 0,
+    "elapsed_seconds": 7.329065875033848,
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_manual_swap_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 5.5595624999841675,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_ammo_equivalent_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 5.511712042032741,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_ammo_equivalent.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.8897137909661978,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_ammo_equivalent_retention.py",
+    "exit_code": 0,
+    "elapsed_seconds": 7.739223707932979,
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_accuracy_predicate_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.9807233340106905,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_parent_oracles.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.4467664579860866,
+    "tests": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_manual_swap.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.3150010829558596,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_manual_swap_retention.py",
+    "exit_code": 0,
+    "elapsed_seconds": 8.764695125049911,
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_accuracy_predicate.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.37916912510991096,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_accuracy_predicate_retention.py",
+    "exit_code": 0,
+    "elapsed_seconds": 8.7928536250256,
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_sparse_raw.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.10760195797774941,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_undying_predicate_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.9252493330277503,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_undying_predicate.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.36469791701529175,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_undying_predicate_retention.py",
+    "exit_code": 0,
+    "elapsed_seconds": 8.989844291936606,
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_state_predicate_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.5599320420296863,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_ally_random_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.0802868750179186,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_state_work_routing.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.06212966702878475,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_ally_random_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.31763770803809166,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_ally_random_retention.py",
+    "exit_code": 0,
+    "elapsed_seconds": 9.4560326669598,
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_state_focus.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.060037957970053,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_state_focus_retention.py",
+    "exit_code": 0,
+    "elapsed_seconds": 10.074453916982748,
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_late_attack_random_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.8097260830691084,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_state_focus_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.8202511670533568,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_real_binding_proof.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.0852356250397861,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_native_query.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.2273013750091195,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_quantity_specs.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.08717625006102026,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_ordered_history.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.17036308394744992,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_generation_request.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.08888058294542134,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_eager_cover_migration.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.4192439999897033,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_query_diagnostic.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.20601412490941584,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_scratch_layout.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.2036387500120327,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_interrupt_aim_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.5086507078958675,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_interrupt_aim.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.24266012501902878,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  },
+  {
+    "pattern": "test_portable_mixed_query.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.5676176249980927,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 77113
+  }
+]

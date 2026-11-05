@@ -1,0 +1,629 @@
+{
+  "schema": "product-standalone-typed-logical-add-v1",
+  "scope": "Normal product API; original Prim roster/profile plus declared projectiles or HP shields and stationary ADD geometry. No Lock On or dummy effect is added.",
+  "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-standalone-typed-add-v2-20261102",
+  "execution_owner": "de5c2c1311dfd9e7e0fab9cadf6f186857208a66fc2b7386fdfb9f38a900c16d",
+  "release_owner": "34309fa64f1f7e456d488da96eda560abb82f90a694f7b365511434d74c230fe",
+  "implementation": {
+    "same_cuda_metal_slang": true,
+    "existing_product_programs_extended": [
+      "typed-accumulate",
+      "typed-fixed"
+    ],
+    "registry_count_unchanged": true,
+    "new_suites": 0,
+    "new_auditors": 0,
+    "new_shader_entry_files": 0,
+    "old_typed_input_words": 115680,
+    "input_words": 121392,
+    "output_words_unchanged": 2032000,
+    "old_complete_input_prefix_byte_equal": true,
+    "all_configured_adds_require_shapes": true,
+    "native_single_world": true,
+    "canonical_cpu_changed": false,
+    "pinned_changed": false,
+    "numeric_rules_changed": false,
+    "tolerances_expanded": false,
+    "effects_ignored": false
+  },
+  "metal_product": {
+    "profiles": 1,
+    "new_distinct_profiles": 0,
+    "conditions": 18,
+    "characters_in_original_roster": [
+      "프림",
+      "도라",
+      "드레이크",
+      "N102",
+      "메어리"
+    ],
+    "physical_gpu_dispatches": 4,
+    "physical_cases": 18,
+    "job_wall_seconds": 34.36117750010453,
+    "rows": [
+      {
+        "variant": "fixed-legacy-empty",
+        "capture_id": "d931c81a271d47d29b060c1e3e4fdfdd",
+        "input_sha256": "83b20093d87310065b59febb10155d4930cc23a541e74693f70ba2ac09db7921",
+        "output_sha256": "e37cc2429785c43f4be916f3ce015dd0723877c2411abd43da30afc19fceb32b",
+        "weapon_packets": 67,
+        "typed_generations": [
+          1,
+          1
+        ],
+        "final_adds": [],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-kind2-front",
+        "capture_id": "9c2b4a9bf4b14bab8f168f9c5e25903c",
+        "input_sha256": "56cf467c45a5a9c14445e0bfba1d403b6c8a507fbf631b11e2cd2e8cdd675fda",
+        "output_sha256": "ac8b7f6121d3354707495f1a3435521ed72f42265dc2dd0691e8bcb7663206cb",
+        "weapon_packets": 42,
+        "typed_generations": [
+          1,
+          1
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 1,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 1,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-kind2-behind",
+        "capture_id": "95aabd80aa1541b5880fe598eb28a6f5",
+        "input_sha256": "74ac6cbee7b2a032b58832bcac0a2bc17613e6e6f4ab85d2261c924df6da4823",
+        "output_sha256": "80daa575f44acd2730d6fc572d32801237907c5073e6f58464bc73bf64eb10ce",
+        "weapon_packets": 106,
+        "typed_generations": [
+          1,
+          1
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 1,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 1,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-kind2-dead",
+        "capture_id": "e25ce5c16dc6420a9d00f2043c712148",
+        "input_sha256": "62da38f8b471c243708b572d5f518e358e18d3009c5a5032c313433615cb0fe1",
+        "output_sha256": "248297ae0fcea84747c6daac4e969388deeb4e63845015d6dfc99212ad2195ff",
+        "weapon_packets": 86,
+        "typed_generations": [
+          1,
+          1
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 1,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 1,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-kind2-renewal",
+        "capture_id": "847a9ecc94014375b8045f679f831371",
+        "input_sha256": "2cc8f27d54848829617da5953fc3ab78ecce1edee779798fc2609e97d943dcc3",
+        "output_sha256": "d9268b606c1ff5768b2bdf364f3263fd734e789a4314e4cede4e576bafd9ace5",
+        "weapon_packets": 44,
+        "typed_generations": [
+          3,
+          3
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 3,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 3,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-kind3-front",
+        "capture_id": "b03a88ffa2c74a72a9a8abd7b5d46d27",
+        "input_sha256": "66612199cf7ec418288335ef438d7832ff5f4f65dc4fc28d09d49c745c9399ae",
+        "output_sha256": "df459824f905b21ec59a4a2e311f865174a80acbe421090b3e72a606af37cd94",
+        "weapon_packets": 42,
+        "typed_generations": [
+          1,
+          1
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 1,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 1,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-kind3-behind",
+        "capture_id": "942076cb43a44c328565e3678e6174e7",
+        "input_sha256": "e80284abddaebbd67c79a71bc5ddf428c4ba50258ecc9382ab52d7e17881ecc7",
+        "output_sha256": "6ecd97f2c96a1f8a15e879646bc0640fb979331a84cb746782217bd6d48bda03",
+        "weapon_packets": 106,
+        "typed_generations": [
+          1,
+          1
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 1,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 1,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-kind3-dead",
+        "capture_id": "a9081d81d81c4554859ef09a598e0af9",
+        "input_sha256": "442d8710333fe6001ce08006d275e4f901aa534e7ac210da60e07b9c978a1a3d",
+        "output_sha256": "6bd45dc029e2a3a02ba7a3e416664a7bceb08a237d73ec828fe7f0a89fb12e26",
+        "weapon_packets": 86,
+        "typed_generations": [
+          1,
+          1
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 1,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 1,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-kind3-renewal",
+        "capture_id": "4b261168d34945fcac85916f6c2d3c9e",
+        "input_sha256": "9160652fabc6cf021576b6e032ec50ef69cae3ec9d12128caec9de048136f773",
+        "output_sha256": "c371185eac44c9aa5692722c1cdbcd758d1dd01a822b75b3583e3f46dd5eafd7",
+        "weapon_packets": 44,
+        "typed_generations": [
+          3,
+          3
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 3,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 3,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-legacy-empty",
+        "capture_id": "48664f03a18c41c4819397d66e126a26",
+        "input_sha256": "fb6e2f95627f51ca2c405b3ee69248f8a93845f8de15171516fce7638c9d1430",
+        "output_sha256": "f2fc50e1d7b0dc793a3868d829a267e7cf9cbc02983913c7ce9492ff7a0e74b4",
+        "weapon_packets": 67,
+        "typed_generations": [
+          1,
+          1
+        ],
+        "final_adds": [],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-kind2-front",
+        "capture_id": "6e3e981d9ffe433d9235fdcb444ef589",
+        "input_sha256": "0e2a177675a3ed46bcea47236a5916d0776082c2f8bf6fe73b13ec942581becd",
+        "output_sha256": "fc05f3a97152d42dbc0b3cfcea59725176daf12690340d5c9662414fa370c177",
+        "weapon_packets": 42,
+        "typed_generations": [
+          1,
+          1
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 1,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 1,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-kind2-behind",
+        "capture_id": "c1636e1266304b3fbf543ef626a771f4",
+        "input_sha256": "95c4eee76e01664aaa6a095810c35899b7ce077c092e0c9227d67481d4e7f66c",
+        "output_sha256": "f76d8f6485c43d1a14580bcd452029efb95bb3ce276b059c06808997393f524e",
+        "weapon_packets": 106,
+        "typed_generations": [
+          1,
+          1
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 1,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 1,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-kind2-dead",
+        "capture_id": "d6a9476fc9d24d28a6dd5099bd8a4530",
+        "input_sha256": "3f3041fb5d8ad0deb9d5ac3c725581c0f35b6e514350a930c691e1ab1d97169f",
+        "output_sha256": "9ccb317f46781183ef4c2fb1a731fc3304ffbb49cf441676da1138bd50feb965",
+        "weapon_packets": 86,
+        "typed_generations": [
+          1,
+          1
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 1,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 1,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-kind2-renewal",
+        "capture_id": "8642dada984546aaba30aa091eefaa3d",
+        "input_sha256": "3944f6a661270cc9ed349eb0d7534ebf17a304dda78b4e1c585d9007be3e7cf3",
+        "output_sha256": "aadf394cd8dfc833b088a1f0c7b2ccb9346eeaf95a355a57721fa7b7d6239047",
+        "weapon_packets": 44,
+        "typed_generations": [
+          3,
+          3
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 3,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 3,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-kind3-front",
+        "capture_id": "59457cf36e0d440093eddf08ad4d5e93",
+        "input_sha256": "0a36c87a1752dc7fe9659b3852540dca3ecdf781e9acc0b87169e2593bc29382",
+        "output_sha256": "2d13979a6e2cd3adfde03f96dbecef8c424738077fc4102bbca229fc2d3234dc",
+        "weapon_packets": 42,
+        "typed_generations": [
+          1,
+          1
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 1,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 1,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-kind3-behind",
+        "capture_id": "5832ee3b576e4055b2dfec62c1a3571e",
+        "input_sha256": "1c224b71dc7ad23bf0c0269775b9df863210a7ca85df77d74ec297b3ffbaeeb2",
+        "output_sha256": "d2d9b086ba19956a6e48978bbb335a90f7e0e3d1cab5bfecc6309f6aedfe73dd",
+        "weapon_packets": 106,
+        "typed_generations": [
+          1,
+          1
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 1,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 1,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-kind3-dead",
+        "capture_id": "e8b238db8e4f41129c3ac672f9f9f27f",
+        "input_sha256": "3aa0f69f2af27eae4606780b0eaaebc2a1a7a38b38d2ee86ad354dc936f4aa4f",
+        "output_sha256": "4bb80c56b99e8b60528b1043210af19e8bccccc809e86a29434256f3565c10f9",
+        "weapon_packets": 86,
+        "typed_generations": [
+          1,
+          1
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 1,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 1,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-kind3-renewal",
+        "capture_id": "800c8cc8a7bf44318904514f0fd26e56",
+        "input_sha256": "612f83ca55f05b86b87c98fe0ec31d5c992252cd6133b5595eddc19e46a827e0",
+        "output_sha256": "05d716be8a37052876fb673865e89ec4965232ac2be7471eeeb496ad90aeb9b7",
+        "weapon_packets": 44,
+        "typed_generations": [
+          3,
+          3
+        ],
+        "final_adds": [
+          {
+            "label": "__enemy__:typed-wave#1",
+            "generation": 3,
+            "alive": false
+          },
+          {
+            "label": "__enemy__:typed-wave#2",
+            "generation": 3,
+            "alive": false
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      }
+    ],
+    "saved_audit_extra_gpu": 0,
+    "saved_audit_extra_battles": 0,
+    "final_projection_extra_gpu": 0,
+    "final_projection_extra_battles": 0,
+    "owned_server_group_absent": true
+  },
+  "cli": {
+    "program": "typed-accumulate",
+    "actual_metal_cases": 2,
+    "independent_gpu_forbidden_audit": {
+      "package_id": "de5c2c1311dfd9e7e0fab9cadf6f186857208a66fc2b7386fdfb9f38a900c16d",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-standalone-typed-add-v2-20261102/metal-v1",
+      "child_pid": 57339,
+      "input_count": 2,
+      "native_cases": 2,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 1.8071488339919597,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "abc4177c191fa80148a6571209d2e592fa1ea4fb5af5abe7ed20a417f9bf78ee",
+      "output_sha256": "e4749261c33e11b8f78c2ada4d87348e31b7a8a091aa364c0d48da1e2a47f5f8",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "golden": "research/portable-product-programs-v60-expected.json",
+    "other41_programs_unchanged": true,
+    "old_first_native_fingerprint_unchanged": true,
+    "old_first_output_raw_equal": false,
+    "old_output_difference": {
+      "old_file": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-typed-v1-20261102/metal-v2/readback.bin",
+      "old_sha256": "d893280ad1b5f0205066a23c867ae1375c04e4f042e9971f2295ff0b46b97efa",
+      "new_file": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-standalone-typed-add-v2-20261102/metal-v1/readback.bin",
+      "case": 0,
+      "difference_words": 3,
+      "rows": [
+        [
+          227352,
+          1,
+          0
+        ],
+        [
+          227353,
+          1,
+          0
+        ],
+        [
+          227361,
+          1,
+          0
+        ]
+      ]
+    },
+    "raw_difference_explanation": "The logical normal-shot path uses coordinateGroupDirectPacket instead of coordinateGroupBodyPacket. The latter captures a temporary actor set and retains count/bitset/generation words after release; direct delivery does not capture it. Only these3 words differ. All raw words are kept and the new full output is independently compared, not masked.",
+    "release_cpu_tests": 175,
+    "release_native_cases": 2
+  },
+  "source_dependency_audit": {
+    "passed": true,
+    "sha256": "359b1165ffffd5a15477c298747c4ec7e2129d9c2c0f57ecb03d7c32d310b0a6",
+    "gpu_calls": 0,
+    "native_battle_calls": 0,
+    "scope": "Source/dependency only; not all product branches"
+  },
+  "compile_policy_plans": {
+    "ptx": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "34309fa64f1f7e456d488da96eda560abb82f90a694f7b365511434d74c230fe",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "ptx",
+      "ptxas_level": null,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    },
+    "cubin": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "34309fa64f1f7e456d488da96eda560abb82f90a694f7b365511434d74c230fe",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "cubin",
+      "ptxas_level": 1,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=sm_86",
+        "--fmad=false",
+        "--ptxas-options",
+        "-O1"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    }
+  },
+  "retained_pre_gpu_correction": {
+    "root": "product-standalone-typed-add-v1-20261102",
+    "cpu_tests_passed": true,
+    "gpu_calls": 0,
+    "reason": "Review found the old per-case shader stride before any GPU launch. New v2 owner adds the complete logical bank stride and a schema guard. Original packet remains unchanged."
+  },
+  "saved_audit_recovery": {
+    "original_failed_before_any_battle": true,
+    "cause": "Scratch JSON Node helper decoded UTF8 chunks individually, splitting Korean bytes in a larger18-request document. Actual sent requests and successful HTTP/CPU/GPU results were intact.",
+    "original_malformed_derived_file_retained": true,
+    "replacement_checked_against_exact_sent_search_request": true,
+    "existing_auditor_reused": true,
+    "extra_gpu": 0,
+    "extra_battles": 0
+  },
+  "windows": {
+    "new_execution_requests": 0,
+    "current_source_cuda_profiles": 0,
+    "latest_available_ram_bytes": 1438969856,
+    "minimum_available_ram_bytes": 4294967296,
+    "ram_remeasurements": 0,
+    "old_stops_and_claims_preserved": true
+  },
+  "coverage": {
+    "last_full_standard_metal_profiles": 263,
+    "standard_total_profiles": 266,
+    "last_full_declared_extra_profiles": 3,
+    "last_full_matrix_owner": "5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622",
+    "full_standard_matrix_recertified_on_this_source": false,
+    "historical_cuda_standard_profiles": 263,
+    "current_source_cuda_profiles": 0,
+    "declared_geometry_game_verified": false,
+    "all_effects_verified": false,
+    "full_goal_complete": false
+  },
+  "remaining": [
+    "Unrestricted consumer compositions, non-BODY typed owners, mixed kinds in one scene and hit shields remain explicit unsupported.",
+    "Original typed skill routes still require their checked consumer; never discard them to admit standalone weapons.",
+    "Current source full standard matrix and CUDA differential verification remain incomplete.",
+    "Default missing-model profiles require explicit policies; no unknown game distances are invented."
+  ]
+}

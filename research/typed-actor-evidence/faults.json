@@ -1,0 +1,16 @@
+{
+  "case": "coordinate-typed-actor/manual-typed-with-adds",
+  "fresh_native_cases": 1,
+  "original_current_skill_events": 5,
+  "expected_logical_recipients": [
+    0
+  ],
+  "retargeted_live_add_slot": 1,
+  "rejected_faults": [
+    "logical-enemy-retarget",
+    "amount-one-ulp",
+    "landing-clock-one-ulp",
+    "source-row"
+  ],
+  "gpu_calls": 0
+}

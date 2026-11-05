@@ -13,7 +13,7 @@ assert accepted(report)-accepted(prior)=={'신데렐라 : 크리스탈 웨이브
 loader=importlib.util.spec_from_file_location('before_mode_input_compiler',old_source);old=importlib.util.module_from_spec(loader);loader.loader.exec_module(old)
 for name in sorted(accepted(prior)):
     names=[name]+[n for n in ['모더니아','루주','마스트 : 로망틱 메이드','도라','얀'] if n!=name][:4];body=body_for(names)
-    current=a.evaluate({**body,'_compile_gpu_detail':True});previous=old.compile_full(current['prepared'],lambda char:current['base_stats'][char['name']],body,current['policy'],current['requested_policy'])
+    current=a.evaluate({**body,'_compile_detail':True});previous=old.compile_full(current['prepared'],lambda char:current['base_stats'][char['name']],body,current['policy'],current['requested_policy'])
     assert current['program']==previous['program'],name
     old_rows=old.weapon_rows(previous['program']['chars'],previous['base_stats']);new_rows=g.weapon_rows(current['program']['chars'],current['base_stats'])
     for i in range(5):assert old_rows[i*168:(i+1)*168]==new_rows[i*169:i*169+168] and new_rows[i*169+168]==0,name

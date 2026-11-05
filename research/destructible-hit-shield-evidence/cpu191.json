@@ -1,0 +1,257 @@
+{
+  "package_id": "bb01ce510b5a68e047f368c607de137652bd87ba4d9722853b9a7e83fa7e1153",
+  "tests": 191,
+  "skipped": 0,
+  "groups": [
+    {
+      "pattern": "test_destructible_frame.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.2201261250302196,
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_skill.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.5035362920025364,
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_attack.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.23900241707451642,
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_counter.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.3802313751075417,
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_world.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.03578637505415827,
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_target_counter_runtime.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.011228916002437472,
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_readiness_semantics.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.1345562080387026,
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_packet_stage.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.03904645808506757,
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_battle.py",
+      "exit_code": 0,
+      "elapsed_seconds": 9.926524415961467,
+      "tests": 21,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_file_transport.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.07757187506649643,
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_resident_transport.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.0034787500044330955,
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_world_reload.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.4348313750233501,
+      "tests": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_seal.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.16730216599535197,
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_readback_blocks.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.28424758301116526,
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_world_authored_roster.py",
+      "exit_code": 0,
+      "elapsed_seconds": 5.006209917017259,
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_damage_policy.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.009771915967576206,
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_storage_budget.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.007181917084380984,
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_modifier_gpu.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.16792470891959965,
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_modifier_battle.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.0313116249162704,
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_shield_battle.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.170103791053407,
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_shield_gpu.py",
+      "exit_code": 0,
+      "elapsed_seconds": 6.928073917049915,
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_hit_shield.py",
+      "exit_code": 0,
+      "elapsed_seconds": 9.5754990830319,
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "native": {
+    "passed": true,
+    "input_count": 111,
+    "native_oracles": 76,
+    "input_sha256": "82c652a55fe5f907665be78fb7714207aaec7da44f4b02da548093c0417e0893",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 5.325038874987513
+  },
+  "batch": {
+    "schema": 1,
+    "mode": "single-process-unittest",
+    "patterns": [
+      "test_destructible_frame.py",
+      "test_destructible_skill.py",
+      "test_destructible_attack.py",
+      "test_destructible_counter.py",
+      "test_destructible_world.py",
+      "test_target_counter_runtime.py",
+      "test_portable_readiness_semantics.py",
+      "test_portable_packet_stage.py",
+      "test_destructible_battle.py",
+      "test_portable_file_transport.py",
+      "test_portable_resident_transport.py",
+      "test_portable_world_reload.py",
+      "test_portable_seal.py",
+      "test_portable_readback_blocks.py",
+      "test_world_authored_roster.py",
+      "test_destructible_damage_policy.py",
+      "test_portable_storage_budget.py",
+      "test_destructible_modifier_gpu.py",
+      "test_destructible_modifier_battle.py",
+      "test_destructible_shield_battle.py",
+      "test_destructible_shield_gpu.py",
+      "test_destructible_hit_shield.py"
+    ],
+    "timeout_seconds": 60,
+    "elapsed_seconds": 39.55691712500993,
+    "timed_out": false,
+    "exit_code": 0,
+    "gpu_calls": 0,
+    "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+  },
+  "result": {
+    "cpu_verified": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "status": "cpu-only"
+  }
+}

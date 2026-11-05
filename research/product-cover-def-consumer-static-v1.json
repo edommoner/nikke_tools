@@ -1,0 +1,343 @@
+{
+  "schema": "product-cover-def-consumer-static-v1",
+  "source_commit": "e1ab55cac8a2ba36a0f824a27ed998792330af8c",
+  "registry": "Product reference_models.cover_defense context via product_reference_models.execution, not lifecycle CATALOG",
+  "same_spec_function_identity": true,
+  "source_sites": [
+    {
+      "source": "app/product_reference_models.py",
+      "line": 116,
+      "function": "execution",
+      "ast_sha256": "ed97f683fdfc46774961e2f580f040bbecc7f76c689726b96a90d3a95b85f5f1",
+      "source_sha256": "9473543ca26dfc0ee3517d34403c3f02869ca5e6b878de7ca982e422c0eef99b"
+    },
+    {
+      "source": "app/cover_defense_battle_model.py",
+      "line": 30,
+      "function": "normalize",
+      "ast_sha256": "f4c3740987f8e05d5c520eacde32face52d0ba5c3280d4e783f5d5c04faa3f92",
+      "source_sha256": "323f97fc9bed575fb9737c2162bcc78805102e6d8ca555da0703fa2279380fc7"
+    },
+    {
+      "source": "app/cover_defense_battle_model.py",
+      "line": 95,
+      "function": "cover_defense",
+      "ast_sha256": "60aa531d35702e4de2d1df22e0fdcb2d36d3d71230f8aba590c64c649c5602a1",
+      "source_sha256": "323f97fc9bed575fb9737c2162bcc78805102e6d8ca555da0703fa2279380fc7"
+    },
+    {
+      "source": "app/cover_defense_battle_model.py",
+      "line": 83,
+      "function": "layer",
+      "ast_sha256": "0949195477e13704310b128ccfbdfdd50446472c9f86ee6e51332ebc0e906a18",
+      "source_sha256": "323f97fc9bed575fb9737c2162bcc78805102e6d8ca555da0703fa2279380fc7"
+    },
+    {
+      "source": "app/cover_defense_model.py",
+      "line": 4,
+      "function": "effective_cover_defense",
+      "ast_sha256": "f336662542e530f9683aea45d73eb3eeeef9e501050c3c746c06ed6d941d4721",
+      "source_sha256": "af0b05a41369123ecd62318133b2c6c137a550f66c367df2237ab0cf7efc8163"
+    },
+    {
+      "source": "app/cover_defense_model.py",
+      "line": 7,
+      "function": "incoming_damage",
+      "ast_sha256": "02688a453ca2c632a0332016655c6b2326f63541396eb1f7ba21fe880f9eca72",
+      "source_sha256": "af0b05a41369123ecd62318133b2c6c137a550f66c367df2237ab0cf7efc8163"
+    },
+    {
+      "source": "app/cover_defense_model.py",
+      "line": 22,
+      "function": "live_defense",
+      "ast_sha256": "61d63b58e74d7315aa6ce0b586e66511a9302863993b35e83a9f33b49b12f52a",
+      "source_sha256": "af0b05a41369123ecd62318133b2c6c137a550f66c367df2237ab0cf7efc8163"
+    },
+    {
+      "source": "app/portable_product_cover.py",
+      "line": 12,
+      "function": "compile_product",
+      "ast_sha256": "71158e88b4e698119a7758ee7291d0d96be46b29dfd46da051a4a2bfb98fdf27",
+      "source_sha256": "3a8773939af02013e3b9df9303b49121c8f7ea7bebe84fcccb6afcc173d37080"
+    },
+    {
+      "source": "app/portable_cover_defense_wire.py",
+      "line": 28,
+      "function": "pack",
+      "ast_sha256": "ccd0539d005c1be369fa650e8bc6850e0f69e9ec9bc39a3d6c7e9a756fc58cc6",
+      "source_sha256": "6ea0f6bdb0c74d31ba138e18c2ac60df025f750d2b90eca1206fc63b0acf75ca"
+    },
+    {
+      "source": "app/portable_cover_defense_wire.py",
+      "line": 33,
+      "function": "validate",
+      "ast_sha256": "c77dc9b448d92506e1823b4396d359252e751b29f724e0cbb64a108ef81921ff",
+      "source_sha256": "6ea0f6bdb0c74d31ba138e18c2ac60df025f750d2b90eca1206fc63b0acf75ca"
+    },
+    {
+      "source": "app/portable_cover_defense_wire.py",
+      "line": 40,
+      "function": "compiler_policy",
+      "ast_sha256": "0abc011538f719a13ae913d6ff0e7c513833848b37ece950fe6f853fe1145de5",
+      "source_sha256": "6ea0f6bdb0c74d31ba138e18c2ac60df025f750d2b90eca1206fc63b0acf75ca"
+    }
+  ],
+  "source_hashes": {
+    "app/product_reference_models.py": "9473543ca26dfc0ee3517d34403c3f02869ca5e6b878de7ca982e422c0eef99b",
+    "app/cover_defense_battle_model.py": "323f97fc9bed575fb9737c2162bcc78805102e6d8ca555da0703fa2279380fc7",
+    "app/cover_defense_model.py": "af0b05a41369123ecd62318133b2c6c137a550f66c367df2237ab0cf7efc8163",
+    "app/portable_product_cover.py": "3a8773939af02013e3b9df9303b49121c8f7ea7bebe84fcccb6afcc173d37080",
+    "app/portable_cover_defense_wire.py": "6ea0f6bdb0c74d31ba138e18c2ac60df025f750d2b90eca1206fc63b0acf75ca",
+    "gpu/cover_defense_runtime.slang": "7a9feb4003a566da0a8d25035b1d0f593958d53badb8100528c775fcbbc46894",
+    "gpu/incoming_damage_numeric.slang": "838ef566299bbfc81d3efeaf893ff71bce519562ef938eb1d8a63f0b4571725c",
+    "gpu/quantity_runtime.slang": "c3d6af87a8f858aff680c8f309c2d7950ea478169e8a4c223e66c129e20fd646",
+    "gpu/product_typed_lock_battle_entry.slang": "607ff21ae1a8d940e93d2cc0a4c6b8aef5514ecb4ad09596042074e30639cfd7"
+  },
+  "input_contract": {
+    "stat": "cover_def_pct",
+    "type": "buff",
+    "unit": "Percentage points, original level10 value128.57 is valid",
+    "cover_specific_percentage_cap": null,
+    "not_fraction": true,
+    "stat_constraint": "unscaled private combat buff: scaling/periodic tick rejected by compiler policy; generic finite numeric lowering retained",
+    "base_declaration": "Five distinct real names, finite independent base0..1e30; reject bool/non-number/duplicates/missing/unknown fields",
+    "defaults": "No inferred cover DEF from body DEF or game level curve; unspecified base consumption rejected"
+  },
+  "consumer": {
+    "registration_to_body": "cover_defense context rewrites native cover landing -> _nikke_cover_layer(runtime.layer) -> live_defense -> _live_sum(name,cover_def_pct,t)",
+    "aggregation": "Ordered active-recipient sum of _get_value; normal per-carrier stack multiplication, original max_stack1",
+    "percentage_conversion": "effective_cover_defense: base*(1+percentage/100), exactly one pct conversion on the cover-DEF axis",
+    "percentage_clamp": null,
+    "damage_clamps": "max(attack-defense,0), coefficient/100, received multiplier clamped0, minimum incoming1, split divisor then min(current_cover_HP,shared)",
+    "declared_model_not_game_verified": true
+  },
+  "wire": {
+    "base_bank_start": 123732,
+    "base_bank_words": 24,
+    "owner_base_value_offset": "8+2*owner uint32 words",
+    "base_numeric_type": "LE binary64",
+    "percent_definition_carriers": [
+      {
+        "definition": 79,
+        "owner": "솔져 O.W.",
+        "value": 128.57,
+        "stat96": 96,
+        "kind0": 0,
+        "unit": "percentage points",
+        "max_stack": 1
+      }
+    ],
+    "simple_stat": 93,
+    "composed_stat": 96,
+    "raw_input_bank_exact": true,
+    "GPU": "liveQuantity(CDF_STAT) -> incomingDefensePercentage(base,percent) -> incomingDefendedQuantity -> divide shared -> min cover HP; same ordered operations"
+  },
+  "existing_current_Metal_evidence": {
+    "label": "cover-disabled16",
+    "index": 8,
+    "source": "gpu/product_typed_lock_battle_entry.slang",
+    "input_words": 128124,
+    "output_words": 2995048,
+    "input_batch_sha256": "e26d6144d900edcfbd774852230c433c54a53994c95256f725a5fbd6c4bcb51a",
+    "readback_batch_sha256": "b8d2de0af2ab1b0ea6ecbe10cede39266b83272d49d6f727786e8e43ee59704d",
+    "case_input_words_exact": true,
+    "source_closure_exact": true,
+    "gpu_execution_verified": true,
+    "saved_calculation_verified": true,
+    "decoded_receipts": [
+      {
+        "name": "스노우 화이트 : 헤비암즈",
+        "divisor": 1,
+        "time": 10.500000000000101,
+        "attack": 100000.0,
+        "coefficient": 100.0,
+        "received_snapshot": 0.0,
+        "base_defense": 1000.0,
+        "effective_defense": 2285.7,
+        "quantity": 97714.3,
+        "shared_quantity": 97714.3,
+        "hp_before": 2000000.0,
+        "applied": 97714.3,
+        "hp_after": 1902285.7
+      },
+      {
+        "name": "스노우 화이트 : 헤비암즈",
+        "divisor": 1,
+        "time": 11.000000000000126,
+        "attack": 100000.0,
+        "coefficient": 100.0,
+        "received_snapshot": 0.0,
+        "base_defense": 1000.0,
+        "effective_defense": 2285.7,
+        "quantity": 97714.3,
+        "shared_quantity": 97714.3,
+        "hp_before": 1902285.7,
+        "applied": 97714.3,
+        "hp_after": 1804571.4
+      },
+      {
+        "name": "스노우 화이트 : 헤비암즈",
+        "divisor": 1,
+        "time": 11.500000000000151,
+        "attack": 100000.0,
+        "coefficient": 100.0,
+        "received_snapshot": 0.0,
+        "base_defense": 1000.0,
+        "effective_defense": 2285.7,
+        "quantity": 97714.3,
+        "shared_quantity": 97714.3,
+        "hp_before": 1804571.4,
+        "applied": 97714.3,
+        "hp_after": 1706857.0999999999
+      },
+      {
+        "name": "스노우 화이트 : 헤비암즈",
+        "divisor": 1,
+        "time": 12.000000000000176,
+        "attack": 100000.0,
+        "coefficient": 100.0,
+        "received_snapshot": 0.0,
+        "base_defense": 1000.0,
+        "effective_defense": 2285.7,
+        "quantity": 97714.3,
+        "shared_quantity": 97714.3,
+        "hp_before": 1706857.0999999999,
+        "applied": 97714.3,
+        "hp_after": 1609142.7999999998
+      },
+      {
+        "name": "스노우 화이트 : 헤비암즈",
+        "divisor": 1,
+        "time": 12.5000000000002,
+        "attack": 100000.0,
+        "coefficient": 100.0,
+        "received_snapshot": 0.0,
+        "base_defense": 1000.0,
+        "effective_defense": 2285.7,
+        "quantity": 97714.3,
+        "shared_quantity": 97714.3,
+        "hp_before": 1609142.7999999998,
+        "applied": 97714.3,
+        "hp_after": 1511428.4999999998
+      }
+    ],
+    "nonzero_receipts": 5,
+    "raw_original_effects": [
+      {
+        "effect": {
+          "source": "스킬2",
+          "type": "buff",
+          "name": "오울 윈드",
+          "trigger": {
+            "timing": [
+              "every:10.0s"
+            ],
+            "condition": []
+          },
+          "target": "allies_top_atk:3",
+          "stat": "cover_def_pct",
+          "polarity": "beneficial",
+          "max_stack": 1,
+          "values": {
+            "1": 32.14,
+            "2": 42.85,
+            "3": 53.57,
+            "4": 64.28,
+            "5": 75.0,
+            "6": 85.71,
+            "7": 96.42,
+            "8": 107.14,
+            "9": 117.85,
+            "10": 128.57
+          },
+          "duration": 5.0,
+          "note": "원문 ■ 블록에 트리거 문구가 없고 CDN 쿨타임도 null — 주기 10초는 **유저 인게임 확인값**(2026-09-24). 외부 자료(게임 테이블 덤프 `CharacterSkillTable`(skill_cooltime) · 나무위키 · 프라이드웬)로 먼저 잡은 값과 같다. CDN roledata `skill2_table`이 `CharacterSkill`(액티브)이다 (PARSING §4-1 「쿨타임만으로 발동하는 스킬」). `cover_def_pct`는 🚫 — 엄폐물 방어력 모델이 없다"
+        },
+        "owner": "솔져 O.W."
+      }
+    ],
+    "CPU_battles": 0,
+    "GPU_calls": 0,
+    "Windows_calls": 0,
+    "scope": "Existing current-source common Metal CLI case, not new normal HTTP proof or arbitrary cover models"
+  },
+  "new_CPU_battles": 0,
+  "new_GPU_calls": 0,
+  "Windows_calls": 0,
+  "current_CUDA_verified": false,
+  "L4_remaining": [
+    "Arbitrary overlap/stack/lifecycle/compositions and undeclared game cover DEF model",
+    "Current ordinary API specific cover case not added by this static/CLI reuse unit"
+  ],
+  "full_goal_complete": false,
+  "bit_comparison": {
+    "method": "struct.pack(<d) equality on decoded raw GPU values and current pure CPU formula results, not decimal display comparison",
+    "receipts": [
+      {
+        "time": 10.500000000000101,
+        "owner": "스노우 화이트 : 헤비암즈",
+        "binary64_LE_hex": {
+          "effective_defense": "6666666666dba140",
+          "quantity": "cdcccccc24dbf740",
+          "shared_quantity": "cdcccccc24dbf740",
+          "applied": "cdcccccc24dbf740",
+          "hp_after": "333333b3cd063d41"
+        },
+        "bit_equal": true
+      },
+      {
+        "time": 11.000000000000126,
+        "owner": "스노우 화이트 : 헤비암즈",
+        "binary64_LE_hex": {
+          "effective_defense": "6666666666dba140",
+          "quantity": "cdcccccc24dbf740",
+          "shared_quantity": "cdcccccc24dbf740",
+          "applied": "cdcccccc24dbf740",
+          "hp_after": "666666661b893b41"
+        },
+        "bit_equal": true
+      },
+      {
+        "time": 11.500000000000151,
+        "owner": "스노우 화이트 : 헤비암즈",
+        "binary64_LE_hex": {
+          "effective_defense": "6666666666dba140",
+          "quantity": "cdcccccc24dbf740",
+          "shared_quantity": "cdcccccc24dbf740",
+          "applied": "cdcccccc24dbf740",
+          "hp_after": "99999919690b3a41"
+        },
+        "bit_equal": true
+      },
+      {
+        "time": 12.000000000000176,
+        "owner": "스노우 화이트 : 헤비암즈",
+        "binary64_LE_hex": {
+          "effective_defense": "6666666666dba140",
+          "quantity": "cdcccccc24dbf740",
+          "shared_quantity": "cdcccccc24dbf740",
+          "applied": "cdcccccc24dbf740",
+          "hp_after": "ccccccccb68d3841"
+        },
+        "bit_equal": true
+      },
+      {
+        "time": 12.5000000000002,
+        "owner": "스노우 화이트 : 헤비암즈",
+        "binary64_LE_hex": {
+          "effective_defense": "6666666666dba140",
+          "quantity": "cdcccccc24dbf740",
+          "shared_quantity": "cdcccccc24dbf740",
+          "applied": "cdcccccc24dbf740",
+          "hp_after": "ffffff7f04103741"
+        },
+        "bit_equal": true
+      }
+    ]
+  },
+  "claude_decision": "accept L3 unit/consumer/wire and source-matched existing CLI5 receipts only",
+  "claude_review_sha256": "774f2943aace2e8390a60287fcc8105f40eb751d62758bd6b6aa56c6f47f6cf7",
+  "claude_review": "## 判定：合格\n\nL3（unit / consumer / wire）と、source-matched な既存CLI 5 receipt の範囲で cover_def_pct の静的単位を受理します。必須修正はありません。\n\n受理の根拠：\n\n- **経路**：CATALOG に追加せず、実経路（reference_models.cover_defense → … → cover_defense_model.live_defense）として記録しています。同一関数であることを AST SHA、source SHA、file:line で固定しています。\n- **単位**：128.57 を有効な pct 入力として扱い、cover 固有の pct clamp を持ちません。`/100` は effective_cover_defense の1回だけです。coefficient と received の `/100` は別単位として分離されています。\n- **数値**：1000×(1+128.57/100)=2285.7 から、100000−2285.7=97714.3、2000000−97714.3=1902285.7 まで整合しています。t=10.5 は every10s / duration5s の発動窓内です。\n- **証拠**：ordinary HTTP の非ゼロ0件を positive に数えていません。input words、source closure、batch SHA の三点一致で保存 capture を再利用しており、追加の戦闘やデバイス実行は0です。\n- **範囲**：max_stack1 で窓が重ならないため、stack / refresh は未証明のまま範囲外としています。CUDA 未検証、Windows 保留、全L4未完了も維持されています。\n\n記録への注記（修正要求ではありません）：「厳密一致」は binary64 のビット比較である旨を一文で明記してください。Metal は fp64 をネイティブに持たないため、表示10進値の一致と区別しておくためです。\n\n## 次の1項目：received_dmg_split\n\ncover consumer の share divisor に直結する隣接軸なので、今回確定した式と演算順をそのまま足場にできます。既存 capture の再利用余地も最も大きい候補です。\n\n### 静的終了条件\n\n1. **registry**：実経路（effect 定義 → model → native landing → runtime layer → consumer）を記録し、関連 FunctionDef の AST SHA、source SHA、file:line を保持すること。CATALOG への無理な追加はしない。\n2. **unit/spec**：原定義の値の単位（pct / 比率 / 人数）、max_stack、発動条件、対象 selector を確認すること。clamp の有無は実コードで判定し、推測で補わない。\n3. **consumer**：以下を確定すること。\n   - 分割対象集合：自身を含むか、死亡や対象外のユニットを除外するか、owner の重複を拒否するか。\n   - 分割の位置：defense と received 補正の前か後か。cover min HP との順序。\n   - 各受領者の HP min。\n   - 分割総和と元の quantity の関係（binary64 として定義された保存則、または非保存であることの明記）。\n4. **wire**：bank、offset、stat ID（simple / typed）、別名衝突の拒否を確認すること。CPU と GPU で同じ式・同じ演算順であることを確認すること。\n5. **証拠**：source closure と input words が一致する既存 immutable capture から、divisor>1 の非ゼロ receipt を ≥1件抽出し、現 pure numeric 関数とビット一致させること。該当する既存証拠がなければ「静的 L3 のみ受理・実証未」と記録して終了する。新規の戦闘、GPU、Windows 実行は行わない。\n6. **範囲外の維持**：任意の stack や合成、ゲーム仕様一致、CUDA、全L4 は未完了のまま維持する。",
+  "next_Claude_priority": "received_dmg_split static audit; identify weighted versus even sharing before reusing divisor receipts",
+  "production_changes": 0
+}

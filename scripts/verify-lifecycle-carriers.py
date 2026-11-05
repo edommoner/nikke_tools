@@ -39,48 +39,14 @@ def context(row,observe):
   return result
  return patch.object(c.BuffManager,'_activate',activate)
 
-def compare(device,name,body,extra,backend,row):
- counts=[]
- with context(row,counts):result=row['oracle'].compare(device,name,body,extra,backend)
- result['checks']['distinct_live_recipient_instances']=any(n>1 for n in counts)
- result['passed']=all(result['checks'].values())
- print(json.dumps(dict(name=name,passed=result['passed'],failed=[k for k,v in result['checks'].items() if not v])),flush=True)
- return result
 
-def continuation_case(device,backend,reference_only=False):
- case=dict(name='removed-HP-parent-cannot-grant-through-replacement',axis='hp',effects=[
-   E('HP loss','instant','current_hp_reduce',50),
-   B('parent','max_hp_from_max_hp_pct',50,event='on_attack',duration=.5),
-   E('remove parent','instant','remove_named_buff',0,event='event:parent',target_effect='parent',max_trigger=1),
-   E('replacement','instant','buff_stack_init',1,event='event:parent',target_effect='parent',max_trigger=1)],
-   steps=[(.1,7,[500,1000],0,0,0),(.2,7,[1000,1500],0,0,0),(1,None,[1000,1000],0,0,0)])
- chars,bs,effects,script,wanted,actual=c.reference_case(case)
- if not reference_only:
-  result=g.run(device,[g.compile_effects(chars,effects)],script,[[0,0]],[bs],module_backend=backend);logs=result['queries'][0]
-  actual=[[logs[2*i][0],logs[2*i][2],logs[2*i][1],logs[2*i+1][1],logs[2*i+1][6],logs[2*i+1][11]] for i in range(len(wanted))]
- result=dict(name=case['name'],passed=actual==wanted,expected=wanted,actual=actual)
- print(json.dumps(result),flush=True);return result
+def continuation_case(device, backend, reference_only=False):
+    case = dict(name='removed-HP-parent-cannot-grant-through-replacement', axis='hp', effects=[E('HP loss', 'instant', 'current_hp_reduce', 50), B('parent', 'max_hp_from_max_hp_pct', 50, event='on_attack', duration=0.5), E('remove parent', 'instant', 'remove_named_buff', 0, event='event:parent', target_effect='parent', max_trigger=1), E('replacement', 'instant', 'buff_stack_init', 1, event='event:parent', target_effect='parent', max_trigger=1)], steps=[(0.1, 7, [500, 1000], 0, 0, 0), (0.2, 7, [1000, 1500], 0, 0, 0), (1, None, [1000, 1000], 0, 0, 0)])
+    (chars, bs, effects, script, wanted, actual) = c.reference_case(case)
+    result = dict(name=case['name'], passed=actual == wanted, expected=wanted, actual=actual)
+    print(json.dumps(result), flush=True)
+    return result
 
-def verify(backend,reference_only=False):
- from verification_session import VerificationSession
- from gpu_selector import Cuda
- session=VerificationSession();results=[]
- try:
-  if not reference_only:session.device=Cuda()
-  results.append(continuation_case(session.device,backend,reference_only))
-  for row in fixtures():
-   if reference_only:
-    counts=[]
-    with context(row,counts),m.s.v.context(row['name'],row['extra']):m.s.v.v.a.evaluate(row['body'])
-    result=dict(name=row['name'],passed=any(n>1 for n in counts),max_instances=max(counts,default=0),scope='CPU activation only')
-   else:
-    # Bind fixture metadata once; no character-specific execution rules.
-    def run(device,name,body,extra,backend,selected=row):return compare(device,name,body,extra,backend,selected)
-    result=session.compare(SimpleNamespace(compare=run),row['name'],row['body'],row['extra'],backend)
-   results.append(result)
-   if not result['passed']:break
- finally:session.close()
- return results
 
 if __name__=='__main__':
  parser=argparse.ArgumentParser();parser.add_argument('--backend',choices=['native','ptx'],default='native');parser.add_argument('--reference-only',action='store_true');args=parser.parse_args()

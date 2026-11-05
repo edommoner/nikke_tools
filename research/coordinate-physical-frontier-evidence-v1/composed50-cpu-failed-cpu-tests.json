@@ -1,0 +1,142 @@
+[
+  {
+    "pattern": "test_coordinate_packets.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.1954402079572901,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31364
+  },
+  {
+    "pattern": "test_coordinate_skill_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.2998216249980032,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31364
+  },
+  {
+    "pattern": "test_impact_runtime.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.004156374954618514,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31364
+  },
+  {
+    "pattern": "test_coordinate_world_pool.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.45257733308244497,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31364
+  },
+  {
+    "pattern": "test_portable_coordinate_scene.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.015226916992105544,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31364
+  },
+  {
+    "pattern": "test_coordinate_dot.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7862723330035806,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31364
+  },
+  {
+    "pattern": "test_coordinate_math.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.0904425410553813,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31364
+  },
+  {
+    "pattern": "test_coordinate_area.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.174787124968134,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31364
+  },
+  {
+    "pattern": "test_coordinate_pending.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.6032601250335574,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31364
+  },
+  {
+    "pattern": "test_coordinate_full_burst.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.8086111249867827,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31364
+  },
+  {
+    "pattern": "test_coordinate_generation.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.4641015420202166,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31364
+  },
+  {
+    "pattern": "test_coordinate_composed.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.1392853329889476,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31364
+  },
+  {
+    "pattern": "test_coordinate_physical_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.09583887504413724,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31364
+  },
+  {
+    "pattern": "test_coordinate_physical_frontier.py",
+    "exit_code": 1,
+    "elapsed_seconds": 1.948826750041917,
+    "tests": 3,
+    "failures": 0,
+    "errors": 2,
+    "skipped": 0,
+    "runner_pid": 31364
+  }
+]

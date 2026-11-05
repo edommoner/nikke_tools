@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "date": "2026-10-30",
+  "scope": "online Lock On selection research; no calculation changes",
+  "decision": "Retain published unmarked/crosshair acquisition contract; do not invent numerical distance or tie rules. No user-provided device required to continue other GPU work.",
+  "sources": [
+    {
+      "url": "https://www.famitsu.com/article/202512/62211",
+      "access": "article text retrieved; official-program reporting, not direct video observation",
+      "supports": [
+        "unmarked enemies",
+        "nearest to aim line",
+        "0.2s charging interval",
+        "5 targets; burst adds 10",
+        "normal attack or cover clears"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=754YEUnHl38",
+      "access": "cache miss; not viewed"
+    },
+    {
+      "url": "https://www.youtube.com/embed/wkfXd8bLi6o?si=RSt-BVXGBWaPVQYM",
+      "access": "cache miss; not viewed"
+    },
+    {
+      "url": "https://nikke.gg/snow-white-heavy-arms-analysis-should-you-pull/",
+      "access": "search index available; direct page 403",
+      "supports": "author describes observed crosshair-first acquisition; not a controlled distance experiment"
+    }
+  ],
+  "unresolved": [
+    "center vs outline",
+    "screen projection vs 3D aim-line distance",
+    "equal-distance ordering",
+    "PART candidate eligibility"
+  ],
+  "new_distance_evidence": false,
+  "gpu_runs": 0,
+  "windows_requests": 0,
+  "public_gpu_admission_changed": false
+}

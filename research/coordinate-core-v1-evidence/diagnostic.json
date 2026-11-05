@@ -1,0 +1,384 @@
+[
+  {
+    "name": "coordinate-core/explosion-under-part",
+    "battle_diff_actual_expected": [
+      [
+        ".damage[0]",
+        4034.0,
+        8033
+      ],
+      [
+        ".shots[0]",
+        2,
+        1
+      ],
+      [
+        ".ammo[0]",
+        28,
+        29
+      ],
+      [
+        ".scope",
+        null,
+        "Actual full native simulate;only authored effects,base stats and weapon metadata are replaced. Scheduler,target selector,layered landing,weapon tick and frame loop are native."
+      ],
+      [
+        ".fractional_hits.length",
+        4,
+        2
+      ],
+      [
+        ".fractional_hits[1].fraction",
+        0.0,
+        0.016505416541446365
+      ],
+      [
+        ".fractional_hits[1].created",
+        false,
+        true
+      ],
+      [
+        ".fractional_hits[1].after",
+        0.0,
+        0.016505416541446365
+      ],
+      [
+        ".fractional_accumulators.length",
+        0,
+        1
+      ],
+      [
+        ".actor_pools.pools[0][3]",
+        2,
+        1
+      ],
+      [
+        ".actor_pools.pools[0][5]",
+        1085193216,
+        1084212224
+      ],
+      [
+        ".actor_pools.pools[0][7]",
+        1085193216,
+        1084212224
+      ],
+      [
+        ".actor_pools.pools[1][3]",
+        2,
+        1
+      ],
+      [
+        ".actor_pools.pools[1][5]",
+        1079574528,
+        1084715008
+      ],
+      [
+        ".actor_pools.pools[1][7]",
+        1079574528,
+        1084715008
+      ],
+      [
+        ".actor_pools.pools[2][3]",
+        0,
+        1
+      ],
+      [
+        ".actor_pools.pools[2][5]",
+        0,
+        1084715008
+      ],
+      [
+        ".actor_pools.pools[2][7]",
+        0,
+        1084715008
+      ],
+      [
+        ".team_hits.length",
+        4,
+        2
+      ],
+      [
+        ".team_counts[1]",
+        1,
+        0
+      ],
+      [
+        ".team_accumulators[0].value",
+        0.03301083308289273,
+        0.016505416541446365
+      ],
+      [
+        ".team_accumulators[1].value",
+        0.9669891669171073,
+        0.9834945834585537
+      ],
+      [
+        ".manual_control.characters[0].phase",
+        "charging",
+        "post_delay"
+      ]
+    ],
+    "trace_diff_actual_expected": [],
+    "expected_trace": [],
+    "actual_trace": [],
+    "weapon": {
+      "enabled": true,
+      "stage": 0,
+      "gauge": 0,
+      "capacity": 30,
+      "interval": 0.1,
+      "reload": 0.4,
+      "pellets": 1,
+      "muzzles": 1,
+      "mode": "charge",
+      "charge": 0.05,
+      "min_cycle": 0.1,
+      "full_charge_mult": 100
+    },
+    "physical_pellets": [
+      {
+        "owner": "리타",
+        "time": 0.05,
+        "aim": [
+          0.0,
+          0.0
+        ],
+        "spread_radius": 10.0,
+        "grow": 10.0,
+        "expected": true,
+        "geometry": [
+          {
+            "name": "front",
+            "kind": "parts"
+          },
+          {
+            "name": "behind",
+            "kind": "parts"
+          }
+        ],
+        "landing": {
+          "front": [
+            0.016505416541446365,
+            0.0
+          ],
+          "core_open": 0.0,
+          "core_under": 0.016505416541446365,
+          "reach": [
+            1.0,
+            1.0
+          ]
+        },
+        "part_fraction": 0.016505416541446365,
+        "body_fraction": 0.9834945834585537,
+        "core_fraction": 0.016505416541446365,
+        "critical_fraction": 0.0,
+        "packets": [
+          {
+            "t": 0.05,
+            "caster": "리타",
+            "damage": 2033,
+            "is_crit": false,
+            "hit_tag": "full_charge_hit",
+            "skill_name": "기본 공격",
+            "rule": "",
+            "split": false,
+            "to": null,
+            "reach": 0,
+            "part_damage": 0,
+            "part": "",
+            "interrupt_reach": 0,
+            "interrupt_damage": 0,
+            "aimed": "",
+            "target": "",
+            "extra": false
+          },
+          {
+            "t": 0.05,
+            "caster": "리타",
+            "damage": 3000,
+            "is_crit": false,
+            "hit_tag": "full_charge_hit",
+            "skill_name": "기본 공격",
+            "rule": "",
+            "split": false,
+            "to": null,
+            "reach": 0,
+            "part_damage": 0,
+            "part": "",
+            "interrupt_reach": 0,
+            "interrupt_damage": 0,
+            "aimed": "",
+            "target": "front",
+            "extra": true
+          },
+          {
+            "t": 0.05,
+            "caster": "리타",
+            "damage": 3000,
+            "is_crit": false,
+            "hit_tag": "full_charge_hit",
+            "skill_name": "기본 공격",
+            "rule": "",
+            "split": false,
+            "to": null,
+            "reach": 0,
+            "part_damage": 0,
+            "part": "",
+            "interrupt_reach": 0,
+            "interrupt_damage": 0,
+            "aimed": "",
+            "target": "behind",
+            "extra": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "coordinate-core/area-skill-default-core-aim",
+    "battle_diff_actual_expected": [
+      [
+        ".scope",
+        null,
+        "Actual full native simulate;only authored effects,base stats and weapon metadata are replaced. Scheduler,target selector,layered landing,weapon tick and frame loop are native."
+      ]
+    ],
+    "trace_diff_actual_expected": [
+      [
+        ".length",
+        1,
+        2
+      ]
+    ],
+    "expected_trace": [
+      {
+        "row": 3,
+        "created": 0.11666666666666665,
+        "landed": 0.11666666666666665,
+        "amount": 2000,
+        "share": 2000,
+        "recipients": [
+          0
+        ],
+        "hit": 1,
+        "hits": 1
+      },
+      {
+        "row": 3,
+        "created": 0.11666666666666665,
+        "landed": 0.11666666666666665,
+        "amount": 3000,
+        "share": 3000,
+        "recipients": [
+          0
+        ],
+        "hit": 1,
+        "hits": 1
+      }
+    ],
+    "actual_trace": [
+      {
+        "row": 3,
+        "hit": 1,
+        "hits": 1,
+        "created": 0.11666666666666665,
+        "landed": 0.11666666666666665,
+        "amount": 2000.0,
+        "share": 2000.0,
+        "recipients": [
+          0
+        ]
+      }
+    ],
+    "weapon": {
+      "enabled": true,
+      "stage": 0,
+      "gauge": 0,
+      "capacity": 30,
+      "interval": 0.1,
+      "reload": 0.4,
+      "pellets": 1,
+      "muzzles": 1,
+      "mode": "auto"
+    },
+    "physical_pellets": [
+      {
+        "owner": "리타",
+        "time": 0.0,
+        "aim": [
+          40.0,
+          0.0
+        ],
+        "spread_radius": 9.0,
+        "grow": 10.0,
+        "expected": true,
+        "geometry": [
+          {
+            "name": "front",
+            "kind": "parts"
+          },
+          {
+            "name": "behind",
+            "kind": "parts"
+          }
+        ],
+        "landing": {
+          "front": [
+            0.0,
+            0.02159275662904252
+          ],
+          "core_open": 0.0,
+          "core_under": 0.02159275662904252,
+          "reach": [
+            0.0,
+            1.0
+          ]
+        },
+        "part_fraction": 0.02159275662904252,
+        "body_fraction": 0.9784072433709575,
+        "core_fraction": 0.02159275662904252,
+        "critical_fraction": 0.0,
+        "packets": [
+          {
+            "t": 0.0,
+            "caster": "리타",
+            "damage": 2043,
+            "is_crit": false,
+            "hit_tag": "normal",
+            "skill_name": "기본 공격",
+            "rule": "",
+            "split": false,
+            "to": null,
+            "reach": 0,
+            "part_damage": 0,
+            "part": "",
+            "interrupt_reach": 0,
+            "interrupt_damage": 0,
+            "aimed": "",
+            "target": "",
+            "extra": false
+          },
+          {
+            "t": 0.0,
+            "caster": "리타",
+            "damage": 3000,
+            "is_crit": false,
+            "hit_tag": "normal",
+            "skill_name": "기본 공격",
+            "rule": "",
+            "split": false,
+            "to": null,
+            "reach": 0,
+            "part_damage": 0,
+            "part": "",
+            "interrupt_reach": 0,
+            "interrupt_damage": 0,
+            "aimed": "",
+            "target": "behind",
+            "extra": true
+          }
+        ]
+      }
+    ]
+  }
+]

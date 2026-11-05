@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-22T23:58:59.342454+00:00",
+  "full_goal_complete": false,
+  "full_character_certified": 0,
+  "ui_backend": "cpu",
+  "baseline_commit": "4436fbf",
+  "source_count": 122,
+  "normal_inputs": 1355,
+  "native_inputs": 1071,
+  "rejections": 284,
+  "cpu_tests": {
+    "groups": 92,
+    "tests": 487,
+    "passed": true
+  },
+  "release_cpu_tests": {
+    "groups": 3,
+    "tests": 10,
+    "passed": true
+  },
+  "output_stride_words": 786432,
+  "runtime_stride_bytes": 138952,
+  "capacities": {
+    "numeric_cache": 64,
+    "focus_cache": 256,
+    "part_receipts": 2048
+  },
+  "normal_gpu_seconds": 11.386783458292484,
+  "migration": {
+    "passed": true,
+    "gpu_calls": 0,
+    "scope": "Full native/input fingerprints and bytes outside explicit scratch relocation; no normalizer changes",
+    "cases": 1355,
+    "full_byte_equal_cases": 1302,
+    "focus_cases": 41,
+    "numeric_cases": 12,
+    "long_history_cases": 3,
+    "full_live_dictionary_cells_verified": 12,
+    "unchanged_fixed_bytes": 4260934400,
+    "before_output_sha256": "5fd726638fcd2987aeda41e288e50e673e5f6884d99cc67f48dc52e816801b52",
+    "after_output_sha256": "ca841b58620704952296318d8938af930fb6340d2f886502e43e7704e5cec2c1",
+    "full_receipt": {
+      "path": "/tmp/nikke-scratch-layout-retention-preservation.json",
+      "bytes": 473941,
+      "sha256": "6f97cc64bc667e4c4973cdac7b0ddaaba0013c14fa7b1af53209bc5d023c253f"
+    }
+  },
+  "checks": {
+    "native_preservation": {
+      "passed": true,
+      "inputs": 1355,
+      "all_input_and_native_fingerprints_unchanged": true,
+      "free_bytes": 20892418048,
+      "required_bytes": 19860694980
+    },
+    "window_neutrality": {
+      "passed": true,
+      "all_bytes_outside_diagnostic_bank_equal": true,
+      "diagnostic_word_range": [
+        770976,
+        775088
+      ],
+      "records": 133,
+      "misses": 26,
+      "omitted": 0,
+      "normal_sha256": "425f5464d76efc952c306227afceb1419611d5a134f31dba1e279c853a1bd69e",
+      "diagnostic_sha256": "f25103bb953d488a3ed66e9f3d3daaee1d78a82a1ab23c31c4e6dbde7f3997c5",
+      "gpu_calls": 0
+    },
+    "exclusive_guard": {
+      "passed": true,
+      "compiler_exit_code": 255,
+      "guard_error_observed": true,
+      "generated_output_absent": true,
+      "gpu_calls": 0,
+      "compiler_calls": 1,
+      "source_root": "/tmp/nikke-scratch-layout-window-v1"
+    },
+    "storage_before": {
+      "schema": 1,
+      "operation": "sparsify-raw",
+      "apply": true,
+      "gpu_calls": 0,
+      "calculation_verified": false,
+      "raw_deleted": false,
+      "passed": true,
+      "capture": "/private/tmp/nikke-interrupt-source-regression-v2-metal",
+      "raw_bytes": 2670723072,
+      "raw_sha256": "89afa4ed803477c6e1d4aa37bc06bb32fb5b9717e29cc7d413f168a8717d92e1",
+      "evidence_sha256": "6763524bd8de65fe3d917f742d13a877da0c66c8ed12fa9139ffa0ece4b1f0eb",
+      "raw_inode": 507446659,
+      "zero_ranges": 6430,
+      "zero_range_bytes": 1898971136,
+      "allocated_before": 2670723072,
+      "allocated_after": 771751936,
+      "allocated_reclaimed": 1898971136,
+      "full_hash_verified": true
+    },
+    "storage_after": {
+      "schema": 1,
+      "operation": "sparsify-raw",
+      "apply": true,
+      "gpu_calls": 0,
+      "calculation_verified": false,
+      "raw_deleted": false,
+      "passed": true,
+      "capture": "/private/tmp/nikke-scratch-layout-retention-v1-metal",
+      "raw_bytes": 4262461440,
+      "raw_sha256": "ca841b58620704952296318d8938af930fb6340d2f886502e43e7704e5cec2c1",
+      "evidence_sha256": "30e528bba0b396402b46fc321a6803c99be08ed68729d41823b675137808d981",
+      "raw_inode": 508042194,
+      "zero_ranges": 10138,
+      "zero_range_bytes": 3039166464,
+      "allocated_before": 4278190080,
+      "allocated_after": 1239023616,
+      "allocated_reclaimed": 3039166464,
+      "full_hash_verified": true
+    },
+    "migration": {
+      "passed": true,
+      "gpu_calls": 0,
+      "scope": "Full native/input fingerprints and bytes outside explicit scratch relocation; no normalizer changes",
+      "cases": 1355,
+      "full_byte_equal_cases": 1302,
+      "focus_cases": 41,
+      "numeric_cases": 12,
+      "long_history_cases": 3,
+      "full_live_dictionary_cells_verified": 12,
+      "unchanged_fixed_bytes": 4260934400,
+      "before_output_sha256": "5fd726638fcd2987aeda41e288e50e673e5f6884d99cc67f48dc52e816801b52",
+      "after_output_sha256": "ca841b58620704952296318d8938af930fb6340d2f886502e43e7704e5cec2c1",
+      "full_receipt": {
+        "path": "/tmp/nikke-scratch-layout-retention-preservation.json",
+        "bytes": 473941,
+        "sha256": "6f97cc64bc667e4c4973cdac7b0ddaaba0013c14fa7b1af53209bc5d023c253f"
+      }
+    }
+  },
+  "packages": {
+    "probe": {
+      "path": "/tmp/nikke-scratch-layout-probe-v1",
+      "package_id": "90ea59ec3073b9f0340102cfed774ab3235d070c474b274da2e7bdb2dcb3bbf7",
+      "archive": {
+        "path": "/tmp/nikke-scratch-layout-probe-v1.zip",
+        "bytes": 5658817,
+        "sha256": "c0e2873052cabbe9241c8488b287c7fcee2a522f24329652bdae1faf0602b269"
+      },
+      "seal": {
+        "path": "/tmp/nikke-scratch-layout-probe-v1-sealed.json",
+        "bytes": 3441,
+        "sha256": "2f4a0758ebf853edd5542a78874e43e9e19629939ff5544c0a4ccaacdd1eae94"
+      }
+    },
+    "main": {
+      "path": "/tmp/nikke-scratch-layout-retention-v1",
+      "package_id": "a03b736f06e9e91d77ccf954657eb728502d5234a9684213f4ee701d3336a2f5",
+      "archive": {
+        "path": "/tmp/nikke-scratch-layout-retention-v1.zip",
+        "bytes": 7139509,
+        "sha256": "2b7c57f9674ee69a10a5ea6edcddd34b4b0368abec9bfbce894e34b0c916fe93"
+      },
+      "seal": {
+        "path": "/tmp/nikke-scratch-layout-retention-v1-sealed.json",
+        "bytes": 752166,
+        "sha256": "5eff83f8d5d26d4b266acc58c6cbe377089a7dbb63d5b6097aa2f7c54cb651dc"
+      }
+    },
+    "window": {
+      "path": "/tmp/nikke-scratch-layout-window-v1",
+      "package_id": "56da9a93f64497da410af872bd9b5e31b605300cd79e937fffa23c470883a019",
+      "archive": {
+        "path": "/tmp/nikke-scratch-layout-window-v1.zip",
+        "bytes": 5673306,
+        "sha256": "7bd5aaa058565ae885fe79dbedf1df705b2d4785a5e6602c4f04f4502c7abe7b"
+      },
+      "seal": {
+        "path": "/tmp/nikke-scratch-layout-window-v1-sealed.json",
+        "bytes": 13636,
+        "sha256": "d16d8f26e21a72bf9600a1ed356d93970dd9d5a96bbafdb0aa5cd6fe73847d48"
+      }
+    }
+  },
+  "evidence_file": "research/portable-scratch-layout-metal-evidence.json",
+  "windows": {
+    "additional_operations": 0,
+    "cause": "unknown",
+    "preservation_verified": false
+  },
+  "remaining": [
+    "Mixed stat-query, focus, healing and part/interrupt consumer battle contracts beyond existing scoped cases",
+    "Explicit physical interrupt typed bridge and GPU connection",
+    "Current-source CUDA validation remains frozen pending unrelated-process investigation",
+    "Broader promotion and all-character certification"
+  ],
+  "private_interrupt_draft": {
+    "path": "/tmp/nikke-private-interrupt-runtime-draft-v1.py",
+    "original_cpu_cases_observed": 18,
+    "contract_certified": false,
+    "gpu_connected": false
+  }
+}

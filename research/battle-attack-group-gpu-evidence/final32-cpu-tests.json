@@ -1,0 +1,32 @@
+[
+  {
+    "pattern": "test_battle_attack_group_runtime.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.2333748750388622,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 91285
+  },
+  {
+    "pattern": "test_attack_group_runtime.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.00787058298010379,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 91285
+  },
+  {
+    "pattern": "test_portable_battle_attack_group.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.4013167079538107,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 91285
+  }
+]

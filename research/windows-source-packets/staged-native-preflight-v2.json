@@ -1,0 +1,21 @@
+{
+  "schema": "staged-native-preflight-packet-v2",
+  "source_commit": "69229c35",
+  "package_id": "300e748d2e90562247ead22c1d2c14157021e530b9e685693d58b53145aecbc1",
+  "suite": "coordinate-resident-frames",
+  "archive_bytes": 9587526,
+  "archive_sha256": "c8ee9232ba99a36bff30c8982a4f8f7872c1ce3154e6979b1310647e1f48f499",
+  "only_payload_difference_from_v1": [
+    "tests/test_portable_comparison_groups.py"
+  ],
+  "GPU_CPU_golden_inputs_and_runtime_unchanged": true,
+  "Mac_smoke": {
+    "groups": 64,
+    "tests": 622,
+    "skips": 1,
+    "errors": 0
+  },
+  "Mac_selected_validation": "v1 selected177 retained byte-identically; not rerun for this smoke-only test correction",
+  "Windows_stage_status": "not yet executed",
+  "scope": "Explicit one-group-per-stage test exercises actual fresh children plus full receipt aggregation on both hosts; no Windows whole-coordinator bypass or test skip"
+}

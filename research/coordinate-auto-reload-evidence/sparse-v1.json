@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-auto-reload-metal-v1",
+  "raw_bytes": 56635392,
+  "raw_sha256": "d34488bdd5a2a3e2fd6c58318457f00ad7bc8247dc7a09de2785668f39282d4c",
+  "evidence_sha256": "fb70aee8a0f561290ca9e189fb0e5433cc4ac0c9f0ec705b9b25520c34a318bb",
+  "raw_inode": 510838230,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 306,
+  "zero_range_bytes": 55222272,
+  "allocated_before": 56635392,
+  "allocated_after": 1413120,
+  "allocated_reclaimed": 55222272,
+  "full_hash_verified": true
+}

@@ -1,0 +1,7 @@
+{
+  "failure": "Legacy coordinate source closure included an inactive full/resident branch and triggered resident reflection validation",
+  "fix": "Move full-chain include to composed root; share hook registration through one guarded header; preserve literal source inventory and strict reflection checks",
+  "relaxed_source_or_layout_checks": false,
+  "postfix_tests": "Both composed resident and legacy local source graphs are explicitly checked",
+  "gpu_calls_before_failure": 0
+}

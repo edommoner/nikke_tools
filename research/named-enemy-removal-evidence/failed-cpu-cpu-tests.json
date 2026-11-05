@@ -1,0 +1,202 @@
+[
+  {
+    "pattern": "test_portable_below_def.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.975481375004165,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_leftmost.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.3415507909376174,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_definition_view.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.44892058393452317,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_duration_scaling_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.44604008295573294,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_leftmost_replay.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7167620420223102,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_gpu_replay.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.0735275000333786,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_development_generation.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.13692966604139656,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_generation_request.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.03727495903149247,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_gpu_cli.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.266961625078693,
+    "tests": 39,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_skill_weapon.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.033765875035897,
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_burst1_ally.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.196254208101891,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.3514381250133738,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_random_cleanse.py",
+    "exit_code": 0,
+    "elapsed_seconds": 6.37285654200241,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_ally_random_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.3897467500064522,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_ally_random_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.1099780841032043,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_named_enemy_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.01935462502297,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_named_enemy_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.029018291970715,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_named_enemy_removal.py",
+    "exit_code": 0,
+    "elapsed_seconds": 7.6684978330740705,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_actor_mutation_input.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.3577600410208106,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  },
+  {
+    "pattern": "test_portable_removal.py",
+    "exit_code": 1,
+    "elapsed_seconds": 0.36524650000501424,
+    "tests": 8,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 95229
+  }
+]

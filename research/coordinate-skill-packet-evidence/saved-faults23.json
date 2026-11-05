@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "case": "coordinate-skill/heal-child-uses-frame-geometry",
+  "offsets": [
+    978079,
+    928962,
+    928981,
+    1048575
+  ],
+  "original_raw_unchanged": true,
+  "raw_sha256": "80101d331e25be00688ef0ec9dd6b819bf5e5186b1f0299fafbaa0512959bc07"
+}

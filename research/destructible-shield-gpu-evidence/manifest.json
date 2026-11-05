@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "cpu184.json",
+      "bytes": 6136,
+      "sha256": "06fb566d1ca0f17e1dcabfea4093f0311102b92ac50b8ef69fad3b5217d81c82"
+    },
+    {
+      "path": "development-history.json",
+      "bytes": 807,
+      "sha256": "d43a66d43155a9d46403b001bc9d857b1651a446ca6a13418408c7b7a11d3fa5"
+    },
+    {
+      "path": "inventory-preservation.json",
+      "bytes": 387,
+      "sha256": "a7661c1062ee14d17d7b6841957d4e6a58b0542cd74f193ec2525394bd4cacc3"
+    },
+    {
+      "path": "metal88.json",
+      "bytes": 33745,
+      "sha256": "c2670f506337adbcefa910c92d996d271a60a3e6ec680c46a38cc049d835f156"
+    },
+    {
+      "path": "retained44.json",
+      "bytes": 8310,
+      "sha256": "25a81090e52fee9f0ca8273ec6c76cc4f88373084a233681dc3ed455b9332213"
+    },
+    {
+      "path": "sealed-generation.json",
+      "bytes": 515,
+      "sha256": "8990dad4a0a5a598130520e4a59fb25780feed0cba6a2a48fa6e46c693aed3bf"
+    },
+    {
+      "path": "source-preservation.json",
+      "bytes": 583,
+      "sha256": "3db3c869c830a4d7e6aadefbe6f1879bb0eb64883e959c468172a74b4c8913ce"
+    },
+    {
+      "path": "sparse492.json",
+      "bytes": 575,
+      "sha256": "6de4d044884ceb63fc1d01e4b94c9f4d3bf5b151d82523ddbfb36414a4cb5ac5"
+    }
+  ],
+  "total_bytes": 51058,
+  "scope": "Shared synthetic battle proof, source identities and byte-preserving storage evidence; no raw, settings or toolchain"
+}

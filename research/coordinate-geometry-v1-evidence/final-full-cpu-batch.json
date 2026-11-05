@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "mode": "single-process-unittest",
+  "patterns": [
+    "test_coordinate_geometry_v1.py",
+    "test_coordinate_numeric_v1.py"
+  ],
+  "timeout_seconds": 60,
+  "elapsed_seconds": 1.2922557080164552,
+  "timed_out": false,
+  "exit_code": 0,
+  "gpu_calls": 0,
+  "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+}

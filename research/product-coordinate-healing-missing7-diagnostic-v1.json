@@ -1,0 +1,479 @@
+{
+  "schema": "coordinate-healing-saved-missing7-diagnostic-v1",
+  "scope": "Saved logs and collector source only; no new process/PID query, snapshot, test, RAM or calculation",
+  "source_status_commit": "85ea559860d9308f3fcccae429da43e318dea88e",
+  "source_status_sha256": "023cf9c6bf276d6660578fbaeee8653223f111200bdda8c79409f9c6ea6b17a0",
+  "owner": "fa22d9b5406ceb73bd8fcf0924267d37835796471ccf4fa60219868ead76c47d",
+  "source_commit": "7fc655646628b41e72cec023fb096ba91b8f0b99",
+  "failed_stage": "static-preflight",
+  "conclusion": {
+    "missing_records": 7,
+    "owned_or_observer_owned_confirmed": 0,
+    "unconfirmed": 7,
+    "cause": "unknown",
+    "termination_cause": "unknown",
+    "independent_positive_ownership_evidence_found": false,
+    "no_harmless_or_observer_owned_reclassification": true,
+    "old_stop_and_outer_gate_failure_retained": true,
+    "further_execution_started": false
+  },
+  "catalog_scope": {
+    "known_validation_roots": [
+      {
+        "root": "product-coordinate-healing-windows-v1",
+        "job_files": 12,
+        "observation_files": 11,
+        "node_ownership_records": 0,
+        "phase_files": 8,
+        "evidence_file_count": 31,
+        "canonical_evidence_file_index_sha256": "8b969c56f2d00529e1c813daea5424d43e11649ecb19266374c10a53f0b850a0"
+      },
+      {
+        "root": "product-coordinate-add-windows-v2",
+        "job_files": 15,
+        "observation_files": 13,
+        "node_ownership_records": 1,
+        "phase_files": 12,
+        "evidence_file_count": 42,
+        "canonical_evidence_file_index_sha256": "2326f45568e0ecd544f3e922df89ea4a3d166a219201c899148e765108f8e52c"
+      },
+      {
+        "root": "product-coordinate-weighted-windows-v1",
+        "job_files": 15,
+        "observation_files": 13,
+        "node_ownership_records": 1,
+        "phase_files": 12,
+        "evidence_file_count": 42,
+        "canonical_evidence_file_index_sha256": "39ad10482d879cdc3378b4cf38eff7119ea39bced39da69580ccb0ba10fb1864"
+      },
+      {
+        "root": "ammo-shared-seven-saved-image-api-windows-v2",
+        "job_files": 8,
+        "observation_files": 6,
+        "node_ownership_records": 2,
+        "phase_files": 10,
+        "evidence_file_count": 28,
+        "canonical_evidence_file_index_sha256": "0078deb5b67abc2d67ac027b2f59558740d7d3e092a665010b51c9ca38aac31f"
+      },
+      {
+        "root": "ammo-shared-seven-windows-v2",
+        "job_files": 14,
+        "observation_files": 12,
+        "node_ownership_records": 0,
+        "phase_files": 9,
+        "evidence_file_count": 35,
+        "canonical_evidence_file_index_sha256": "f283d43f72a15c96d6de8f078ebe193f890827dbeb039e79f39206b510dceb03"
+      },
+      {
+        "root": "heavy-original-lock-windows-v1",
+        "job_files": 13,
+        "observation_files": 13,
+        "node_ownership_records": 1,
+        "phase_files": 12,
+        "evidence_file_count": 40,
+        "canonical_evidence_file_index_sha256": "34f8fedae8fd7d94eb8c3174f361d950d660980233d64369dd53122158b7a03e"
+      },
+      {
+        "root": "heavy-original-lock-api-launch-v5",
+        "job_files": 2,
+        "observation_files": 0,
+        "node_ownership_records": 0,
+        "phase_files": 0,
+        "evidence_file_count": 2,
+        "canonical_evidence_file_index_sha256": "714e26d9936ff7c6e22fc197549bda0d63a33dbf6f2abd59adf47d4e587d1c0c"
+      }
+    ],
+    "real_owned_job_child_records": 79,
+    "owned_wrapper_pid_records": 79,
+    "unique_wrappers_with_saved_creation_identity": 68,
+    "owned_node_records": 5,
+    "unique_phase_pid_records": 63,
+    "fixtures_and_mocks_excluded": true,
+    "entire_immutable_packet_subtrees_excluded_from_runtime_catalog": true,
+    "pid_only_match_would_not_be_identity_proof": true,
+    "node_creation_identity_not_independently_recorded": true,
+    "some_RAM_wrappers_have_no_saved_creation_identity": true,
+    "catalog_is_finite_known_validation_history_not_all_system_history": true
+  },
+  "anonymous_missing_records": [
+    {
+      "anonymous_id": "missing-0",
+      "exact_identity_present_in_before": true,
+      "same_identity_absent_from_after": true,
+      "same_pid_with_different_identity_after": false,
+      "exact_owned_job_child_matches": 0,
+      "exact_owned_wrapper_matches": 0,
+      "owned_child_pid_only_matches": 0,
+      "owned_wrapper_pid_only_matches": 0,
+      "owned_node_pid_only_matches": 0,
+      "owned_phase_pid_only_match": false,
+      "parent_matches_saved_owned_pid": false,
+      "positive_observer_reference": false,
+      "positive_validation_reference": false,
+      "positive_original_workspace_reference": false,
+      "created_before_current_job_child": true,
+      "age_at_before_snapshot_seconds": 3.8514845,
+      "parent_record_retained_in_before": false,
+      "owned_or_observer_owned_established": false,
+      "cause": "unknown",
+      "anonymous_parent": "unattributed-parent-0"
+    },
+    {
+      "anonymous_id": "missing-1",
+      "exact_identity_present_in_before": true,
+      "same_identity_absent_from_after": true,
+      "same_pid_with_different_identity_after": false,
+      "exact_owned_job_child_matches": 0,
+      "exact_owned_wrapper_matches": 0,
+      "owned_child_pid_only_matches": 0,
+      "owned_wrapper_pid_only_matches": 0,
+      "owned_node_pid_only_matches": 0,
+      "owned_phase_pid_only_match": false,
+      "parent_matches_saved_owned_pid": false,
+      "positive_observer_reference": false,
+      "positive_validation_reference": false,
+      "positive_original_workspace_reference": false,
+      "created_before_current_job_child": true,
+      "age_at_before_snapshot_seconds": 3.7474995,
+      "parent_record_retained_in_before": false,
+      "owned_or_observer_owned_established": false,
+      "cause": "unknown",
+      "anonymous_parent": "unattributed-parent-0"
+    },
+    {
+      "anonymous_id": "missing-2",
+      "exact_identity_present_in_before": true,
+      "same_identity_absent_from_after": true,
+      "same_pid_with_different_identity_after": false,
+      "exact_owned_job_child_matches": 0,
+      "exact_owned_wrapper_matches": 0,
+      "owned_child_pid_only_matches": 0,
+      "owned_wrapper_pid_only_matches": 0,
+      "owned_node_pid_only_matches": 0,
+      "owned_phase_pid_only_match": false,
+      "parent_matches_saved_owned_pid": false,
+      "positive_observer_reference": false,
+      "positive_validation_reference": false,
+      "positive_original_workspace_reference": false,
+      "created_before_current_job_child": true,
+      "age_at_before_snapshot_seconds": 3.7277255,
+      "parent_record_retained_in_before": true,
+      "owned_or_observer_owned_established": false,
+      "cause": "unknown",
+      "anonymous_parent": "missing-0"
+    },
+    {
+      "anonymous_id": "missing-3",
+      "exact_identity_present_in_before": true,
+      "same_identity_absent_from_after": true,
+      "same_pid_with_different_identity_after": false,
+      "exact_owned_job_child_matches": 0,
+      "exact_owned_wrapper_matches": 0,
+      "owned_child_pid_only_matches": 0,
+      "owned_wrapper_pid_only_matches": 0,
+      "owned_node_pid_only_matches": 0,
+      "owned_phase_pid_only_match": false,
+      "parent_matches_saved_owned_pid": false,
+      "positive_observer_reference": false,
+      "positive_validation_reference": false,
+      "positive_original_workspace_reference": false,
+      "created_before_current_job_child": true,
+      "age_at_before_snapshot_seconds": 3.6439125,
+      "parent_record_retained_in_before": false,
+      "owned_or_observer_owned_established": false,
+      "cause": "unknown",
+      "anonymous_parent": "unattributed-parent-1"
+    },
+    {
+      "anonymous_id": "missing-4",
+      "exact_identity_present_in_before": true,
+      "same_identity_absent_from_after": true,
+      "same_pid_with_different_identity_after": false,
+      "exact_owned_job_child_matches": 0,
+      "exact_owned_wrapper_matches": 0,
+      "owned_child_pid_only_matches": 0,
+      "owned_wrapper_pid_only_matches": 0,
+      "owned_node_pid_only_matches": 0,
+      "owned_phase_pid_only_match": false,
+      "parent_matches_saved_owned_pid": false,
+      "positive_observer_reference": false,
+      "positive_validation_reference": false,
+      "positive_original_workspace_reference": false,
+      "created_before_current_job_child": true,
+      "age_at_before_snapshot_seconds": 3.6365905,
+      "parent_record_retained_in_before": false,
+      "owned_or_observer_owned_established": false,
+      "cause": "unknown",
+      "anonymous_parent": "unattributed-parent-2"
+    },
+    {
+      "anonymous_id": "missing-5",
+      "exact_identity_present_in_before": true,
+      "same_identity_absent_from_after": true,
+      "same_pid_with_different_identity_after": false,
+      "exact_owned_job_child_matches": 0,
+      "exact_owned_wrapper_matches": 0,
+      "owned_child_pid_only_matches": 0,
+      "owned_wrapper_pid_only_matches": 0,
+      "owned_node_pid_only_matches": 0,
+      "owned_phase_pid_only_match": false,
+      "parent_matches_saved_owned_pid": false,
+      "positive_observer_reference": false,
+      "positive_validation_reference": false,
+      "positive_original_workspace_reference": false,
+      "created_before_current_job_child": true,
+      "age_at_before_snapshot_seconds": 3.5558395,
+      "parent_record_retained_in_before": false,
+      "owned_or_observer_owned_established": false,
+      "cause": "unknown",
+      "anonymous_parent": "unattributed-parent-3"
+    },
+    {
+      "anonymous_id": "missing-6",
+      "exact_identity_present_in_before": true,
+      "same_identity_absent_from_after": true,
+      "same_pid_with_different_identity_after": false,
+      "exact_owned_job_child_matches": 0,
+      "exact_owned_wrapper_matches": 0,
+      "owned_child_pid_only_matches": 0,
+      "owned_wrapper_pid_only_matches": 0,
+      "owned_node_pid_only_matches": 0,
+      "owned_phase_pid_only_match": false,
+      "parent_matches_saved_owned_pid": false,
+      "positive_observer_reference": false,
+      "positive_validation_reference": false,
+      "positive_original_workspace_reference": false,
+      "created_before_current_job_child": true,
+      "age_at_before_snapshot_seconds": 3.4396395,
+      "parent_record_retained_in_before": true,
+      "owned_or_observer_owned_established": false,
+      "cause": "unknown",
+      "anonymous_parent": "missing-5"
+    }
+  ],
+  "contemporaneous_relationships": {
+    "before_after_interval_seconds": 11.0040058,
+    "missing_creation_span_seconds": 0.411845,
+    "all_created_before_current_fresh_job_child": true,
+    "missing_to_missing_parent_edges": [
+      {
+        "parent": "missing-0",
+        "child": "missing-2"
+      },
+      {
+        "parent": "missing-5",
+        "child": "missing-6"
+      }
+    ],
+    "unattributed_parent_groups": 4,
+    "two_records_share_an_unattributed_parent": true,
+    "relationship_does_not_establish_validation_ownership": true,
+    "parent_creation_identity_unavailable_for_unretained_parent": true
+  },
+  "collector_and_job_evidence_limits": {
+    "snapshot_collector_creation_identity_not_retained": true,
+    "normalized_snapshots_filter_out_collector_shell_records": true,
+    "collector_source_queries_processes_and_listeners_without_explicit_battle_worker_spawn": true,
+    "no_exact_collector_identity_evidence_for_missing_records": true,
+    "before_snapshot_runs_after_fresh_job_assignment_and_before_start_gate_release": true,
+    "all_missing_instances_predate_current_bounded_child": true,
+    "therefore_not_process_instances_spawned_by_that_child_after_start_gate": true,
+    "wrapper_and_unrecorded_ancestry_cannot_be_inferred_from_labels": true,
+    "job_membership_observed_only_at_boundaries": true,
+    "current_post_wait_job_empty": true,
+    "current_saved_parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+    "raw_command_lines_not_saved": true
+  },
+  "separate_outcomes": {
+    "selected11_tests_passed": true,
+    "sdk_artifacts_verified": true,
+    "sdk_outer2_inner0_history_retained": true,
+    "static_input_proof_passed": true,
+    "static_input_sha256": "ea3417dc886d5dbd47278867088d101213dbc03639dacf3e41cb775fcf87fd5a",
+    "static_input_bytes": 480196,
+    "m5_expected_input_equal": true,
+    "static_bounded_child_exit_code": 0,
+    "static_child_error": null,
+    "static_child_timeout": false,
+    "static_child_cleanup_error": null,
+    "static_child_observation_error": null,
+    "outer_missing_gate_passed": false,
+    "outer_missing_count": 7,
+    "pre_gate_fresh_single_owned_child": true,
+    "post_wait_job_empty": true,
+    "enforced_job_memory_limit_bytes": 2147483648,
+    "api_ram_not_started": true,
+    "api_posts": 0,
+    "gpu_dispatches": 0,
+    "saved_audits": 0,
+    "full_readback_or_cpu_gpu_http_comparison_not_performed": true
+  },
+  "preservation": {
+    "source_manifest_files_reverified": 2792,
+    "all_source_bytes_and_hashes_unchanged": true,
+    "current_metadata_claim_image_stop_sha256_before": {
+      "stop.json": "b2111f7785c317f8dbe52d76063af4f3bb70e3468f07fa097f39c6ffdf1a24e6",
+      "coordinate-healing-accumulate/stop.json": "b2111f7785c317f8dbe52d76063af4f3bb70e3468f07fa097f39c6ffdf1a24e6",
+      "coordinate-healing-accumulate/program.json": "6771d1740390604c1823c3b2ed3fb4aba9feec5239717b590958df01b8cfb74e",
+      "coordinate-healing-accumulate/sdk-paths.json": "4bc083673eec2a32ddd848dcaf34259a83de4ed361a520b94bd96ac2c6aa02ab",
+      "coordinate-healing-accumulate/jit-link-object-verified.json": "ee1f72603fac99b5badb823d45cda3c17355de1553699baca340ff02e79d640f",
+      "coordinate-healing-accumulate/jit-link-v1/proof/jit-link.json": "d3adc2774c2e4bcf4cd3fc90be8984f33ce097f39aa3ac6f72b61201b219b39c",
+      "coordinate-healing-accumulate/jit-link-v1/proof/jit-linked.cubin": "1023e563d2aef6d41217cef6889a05729a0019f1c5319c033fbabe27289f83c6",
+      "coordinate-healing-accumulate/packet/gpu-package.json": "41428331239605aeba9335bf16d18fa5de4d111d778d84e053872bed3176ecc6",
+      "coordinate-healing-accumulate/packet/compile-claimed-cuda.json": "681bd4561638dff208a649717dedb7809cadf3a49527730a52f794414b101321",
+      "coordinate-healing-accumulate/packet/jit-link-object-claimed-cuda.json": "f6285ff858762c74a8950ad7c159f5fca298e6b8a039683c2f01ab7bee3c4bd9",
+      "coordinate-healing-accumulate/packet/module-object-claimed-cuda.json": "cf592f36b33af54ea695e08e33535c2151b47c6a9c70bd9860f61407beb4c018",
+      "coordinate-healing-accumulate/packet/packet-stage-claimed-compile-ptx-cuda.json": "0a49a432064f374269d910a44c59cc5f5d8a92b7f99ddf37e7f9c791ce99e0c3",
+      "coordinate-healing-accumulate/packet/packet-stage-claimed-generation-cuda.json": "c61346dd41c41fed042680751d2ecb3f7cef0abb9aa6fb909026378a14ef7b52",
+      "coordinate-healing-accumulate/packet/packet-stage-claimed-jit-link-object-cuda.json": "ff1f18c79024b03e843e2bdb59dd2375fd9f64b6caa941e00c49b9c29475077e",
+      "coordinate-healing-accumulate/packet/packet-stage-claimed-module-object-cuda.json": "82c71b2eb9825eac34d7d03a9b9d874fa3764dba1145ca9e994238aabaf19023"
+    },
+    "current_metadata_claim_image_stop_sha256_after": {
+      "stop.json": "b2111f7785c317f8dbe52d76063af4f3bb70e3468f07fa097f39c6ffdf1a24e6",
+      "coordinate-healing-accumulate/stop.json": "b2111f7785c317f8dbe52d76063af4f3bb70e3468f07fa097f39c6ffdf1a24e6",
+      "coordinate-healing-accumulate/program.json": "6771d1740390604c1823c3b2ed3fb4aba9feec5239717b590958df01b8cfb74e",
+      "coordinate-healing-accumulate/sdk-paths.json": "4bc083673eec2a32ddd848dcaf34259a83de4ed361a520b94bd96ac2c6aa02ab",
+      "coordinate-healing-accumulate/jit-link-object-verified.json": "ee1f72603fac99b5badb823d45cda3c17355de1553699baca340ff02e79d640f",
+      "coordinate-healing-accumulate/jit-link-v1/proof/jit-link.json": "d3adc2774c2e4bcf4cd3fc90be8984f33ce097f39aa3ac6f72b61201b219b39c",
+      "coordinate-healing-accumulate/jit-link-v1/proof/jit-linked.cubin": "1023e563d2aef6d41217cef6889a05729a0019f1c5319c033fbabe27289f83c6",
+      "coordinate-healing-accumulate/packet/gpu-package.json": "41428331239605aeba9335bf16d18fa5de4d111d778d84e053872bed3176ecc6",
+      "coordinate-healing-accumulate/packet/compile-claimed-cuda.json": "681bd4561638dff208a649717dedb7809cadf3a49527730a52f794414b101321",
+      "coordinate-healing-accumulate/packet/jit-link-object-claimed-cuda.json": "f6285ff858762c74a8950ad7c159f5fca298e6b8a039683c2f01ab7bee3c4bd9",
+      "coordinate-healing-accumulate/packet/module-object-claimed-cuda.json": "cf592f36b33af54ea695e08e33535c2151b47c6a9c70bd9860f61407beb4c018",
+      "coordinate-healing-accumulate/packet/packet-stage-claimed-compile-ptx-cuda.json": "0a49a432064f374269d910a44c59cc5f5d8a92b7f99ddf37e7f9c791ce99e0c3",
+      "coordinate-healing-accumulate/packet/packet-stage-claimed-generation-cuda.json": "c61346dd41c41fed042680751d2ecb3f7cef0abb9aa6fb909026378a14ef7b52",
+      "coordinate-healing-accumulate/packet/packet-stage-claimed-jit-link-object-cuda.json": "ff1f18c79024b03e843e2bdb59dd2375fd9f64b6caa941e00c49b9c29475077e",
+      "coordinate-healing-accumulate/packet/packet-stage-claimed-module-object-cuda.json": "82c71b2eb9825eac34d7d03a9b9d874fa3764dba1145ca9e994238aabaf19023"
+    },
+    "all_current_protected_records_unchanged": true,
+    "all_prior_protected_records_reverified": true,
+    "original_status_unchanged": true,
+    "guard_whitelist_and_old_claim_changes": 0
+  },
+  "critical_evidence_files": [
+    {
+      "file": "current/coordinate-healing-accumulate/batch-000/static-preflight/observation.json",
+      "bytes": 46652,
+      "sha256": "aa5aab3868c0a29fe7ce363fe8eecfafb0265eeb33523dcf333579dab32fba07"
+    },
+    {
+      "file": "current/coordinate-healing-accumulate/batch-000/static-preflight/job.json",
+      "bytes": 1098,
+      "sha256": "ba9918d9415ec32dbfdd278f0b3f22f0378845510b64c09425211c2cfcf52cc8"
+    },
+    {
+      "file": "current/coordinate-healing-accumulate/batch-000/static-preflight/execution.json",
+      "bytes": 1162,
+      "sha256": "60e430dc321cdd681e68c15f4cd77c97b4a304e95e84e8d335c13907c1b046f5"
+    },
+    {
+      "file": "current/coordinate-healing-accumulate/batch-000/static-preflight/coordinator-result.json",
+      "bytes": 1269,
+      "sha256": "ff6caad84071c62e8137018e5a12e54e787fdb937f61122085c15d65d9edf7f7"
+    },
+    {
+      "file": "current/coordinate-healing-accumulate/batch-000/static-preflight/coordinator-phases.jsonl",
+      "bytes": 912,
+      "sha256": "e331283ddef170a1d8f740b72ed338809b7e87ff78d5ecbde27c888f08aae2a1"
+    },
+    {
+      "file": "current/coordinate-healing-accumulate/batch-000/static-preflight/command-claimed.json",
+      "bytes": 745,
+      "sha256": "da1a81d67e7403e0504ddd1018642be89073ad4962548f13d0e9634f90713a18"
+    },
+    {
+      "file": "current/coordinate-healing-accumulate/batch-000/static-preflight/request.json",
+      "bytes": 273,
+      "sha256": "3e00dae9d860b737cec33c97b012adef748e386f84344ec3c2c1e774ccbdf9d0"
+    },
+    {
+      "file": "current/coordinate-healing-accumulate/batch-000/static-preflight/start.json",
+      "bytes": 4,
+      "sha256": "e3566b3a06430868d71e9287dfd6c6c520a3da027aabea01951d407ee131dc2f"
+    },
+    {
+      "file": "current/coordinate-healing-accumulate/batch-000/static-preflight/coordinator.py",
+      "bytes": 3513,
+      "sha256": "73a922ca660da1ae8724007d6681150f20ad1ed927a230725b5b97f06c4105ab"
+    },
+    {
+      "file": "current/coordinate-healing-accumulate/batch-000/static-preflight/gated.py",
+      "bytes": 531,
+      "sha256": "4599eae1239be2ada2c2a99f1bf3066798d665c43ed71eb55d992f26a784205f"
+    },
+    {
+      "file": "current/coordinate-healing-accumulate/batch-000/static-preflight/stdout.log",
+      "bytes": 101,
+      "sha256": "15bff20fa0f9a7734675863464d3d554a20287e73c32823641aeabff55f357eb"
+    },
+    {
+      "file": "current/coordinate-healing-accumulate/batch-000/static-preflight/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "runtime-source/research/windows_validation_observer.py",
+      "bytes": 14082,
+      "sha256": "97d7405ff8771cf413f5e58c14ebea98037afb8a3691417d12e7b21d2d45fdd3"
+    },
+    {
+      "file": "runtime-source/research/run-world-bounded.py",
+      "bytes": 11086,
+      "sha256": "494df8bc60201989a4e8fb451dc5aa0742d7f93098bc52d5f79722eebb123a88"
+    },
+    {
+      "file": "current/api-templates/static-preflight.py",
+      "bytes": 3749,
+      "sha256": "1a27e8125af326e0e345e4f76595ac964e2b50a5eca51e71dd6222408f27d5e3"
+    },
+    {
+      "file": "current/coordinate-healing-accumulate/check-api-stage.py",
+      "bytes": 8494,
+      "sha256": "daf80c825dcd14d603d19d2b6e4e9410a96d91e4fe553ad3694666955196dba8"
+    },
+    {
+      "file": "current/stop.json",
+      "bytes": 173,
+      "sha256": "b2111f7785c317f8dbe52d76063af4f3bb70e3468f07fa097f39c6ffdf1a24e6"
+    },
+    {
+      "file": "current/coordinate-healing-accumulate/stop.json",
+      "bytes": 173,
+      "sha256": "b2111f7785c317f8dbe52d76063af4f3bb70e3468f07fa097f39c6ffdf1a24e6"
+    },
+    {
+      "file": "current/coordinate-healing-accumulate/batch-000/api-once-v1/static-input-proof.json",
+      "bytes": 808,
+      "sha256": "3784b06a1c847bf1ec9994398456d5fa6157a9f08da37bcc7237a3431fe1db8a"
+    },
+    {
+      "file": "transport/product-coordinate-healing-windows-status-v1.json",
+      "bytes": 34750,
+      "sha256": "023cf9c6bf276d6660578fbaeee8653223f111200bdda8c79409f9c6ea6b17a0"
+    }
+  ],
+  "complete_evidence_index": {
+    "file": "healing-missing7-local-evidence-index-v1.json",
+    "local_only": true,
+    "file_count": 240,
+    "bytes": 53820,
+    "sha256": "ec2046f86fc7af7c252febc91862e68bbaa64f37ae6577eb3206dc64145c900a",
+    "canonical_file_index_sha256": "1c13e8ec8e93a8e58885391ea0998fcff6f48c4e29c39dcd20e3ec22d9bfdaeb"
+  },
+  "new_execution_counts": {
+    "live_pid_queries": 0,
+    "fresh_observations": 0,
+    "ram_samples": 0,
+    "cpu_tests": 0,
+    "cpu_battles": 0,
+    "sdk_calls": 0,
+    "gpu_dispatches": 0,
+    "api_posts": 0,
+    "audit_retries": 0,
+    "os_ssh_or_restarts": 0
+  },
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false
+}

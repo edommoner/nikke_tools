@@ -1,0 +1,16 @@
+{
+  "base_commit": "f7b42e7f95ad47ed033497d08935d1a198fb5f99",
+  "loader_commit": "3b0f227eb05818535ba19d7be5f142b25aabbb1c",
+  "verified": true,
+  "cases": 32,
+  "all_input_native_trace_contracts_identical": true,
+  "source_identity_intentionally_changed": true,
+  "old_report_sha256": "2f9711303c936caf70944e536dbab7035dd7d428022c88df33454ad1da9844ce",
+  "new_report_sha256": "15342f443554f1719306f33fb9581296bdf2028763ffa7354ae88a82c8961582",
+  "elapsed_seconds": 1.7750826249830425,
+  "gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "packing_calls": 0
+}

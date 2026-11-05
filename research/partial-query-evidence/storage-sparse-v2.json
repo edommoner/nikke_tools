@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-file-transfer-v1-metal",
+  "raw_bytes": 2503999488,
+  "raw_sha256": "b9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637",
+  "evidence_sha256": "757ef143a551012e3540dccbf4cf81374dd59c7ee0a35db2022364c8d0a00fee",
+  "raw_inode": 507068971,
+  "zero_ranges": 6063,
+  "zero_range_bytes": 1776156672,
+  "allocated_before": 2503999488,
+  "allocated_after": 727842816,
+  "allocated_reclaimed": 1776156672,
+  "full_hash_verified": true
+}

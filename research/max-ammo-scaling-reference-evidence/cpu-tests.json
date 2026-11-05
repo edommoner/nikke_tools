@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "package_id": "94d21634c055e93ad3ef298add37893b97ed414e4ea3da7208e4a422a846f500",
+  "cwd": "/tmp/nikke-max-ammo-reference-v2",
+  "interpreter": "/Users/edo/Documents/ChatGPT/nikke_tools/.venv/bin/python",
+  "assertions_enabled": true,
+  "gpu_calls": 0,
+  "tests": 37,
+  "skipped": 0,
+  "groups": [
+    {
+      "pattern": "test_portable_max_ammo_scaling_reference.py",
+      "tests": 8,
+      "seconds": 1.388
+    },
+    {
+      "pattern": "test_portable_parent_fixed.py",
+      "tests": 10,
+      "seconds": 1.634
+    },
+    {
+      "pattern": "test_portable_readiness_semantics.py",
+      "tests": 11,
+      "seconds": 1.012
+    },
+    {
+      "pattern": "test_portable_reference_optimization.py",
+      "tests": 3,
+      "seconds": 3.299
+    },
+    {
+      "pattern": "test_portable_revive_reference.py",
+      "tests": 5,
+      "seconds": 2.603
+    }
+  ],
+  "warning": "Unchanged upstream profile_fetch.py unclosed-file ResourceWarning during readiness tests."
+}

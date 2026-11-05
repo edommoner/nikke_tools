@@ -1,0 +1,74 @@
+{
+  "case": "received-count-distinct-thresholds",
+  "original_assumption": "Activate once per individually qualified threshold",
+  "original_expectations": [
+    {
+      "attack_buffs": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "attack_buffs": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "attack_buffs": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "attack_buffs": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "attack_buffs": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "attack_buffs": [
+        5,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "observed_native": [
+    0,
+    2,
+    4,
+    6,
+    6,
+    8
+  ],
+  "decision": "Preserve the existing native/portable normalized-descriptor multiplicity. When one descriptor qualifies, repeated entries for the same normalized event still repeat activation. This optimization does not change that contract.",
+  "sources": {
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "app/effect_runtime.py": "96fd7a8419442021bd6d06070bfd9deb65f43e80a96a8317509ae69c9b269157",
+    "gpu/event_runtime.slang": "c9ecfc88fc8c8cb14404ec70bb25eee67ec2b04df31817f6076dd7b4923cdbb2"
+  }
+}

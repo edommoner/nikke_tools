@@ -1,0 +1,89 @@
+{
+  "version": 116,
+  "provenance": {
+    "type": "Derived summary of Windows peer structured final message; not raw independent audit",
+    "thread_id": "01a140bc-5f3b-7661-b720-50c945596eaa",
+    "turn_id": "01a15f43-fada-7a72-8bfc-3422140f8982",
+    "saved_report_bytes": 3282,
+    "saved_report_sha256": "bcf8b4a9c36070aa4ca41027b40543547860cb769f09d3f15c888129609dcafc"
+  },
+  "source_commit": "f103e50a0c33735077f67e84c593c96c9e59188d",
+  "payload_commit": "894fbcbf483d8bcbe8c913b2cad587f0e5ffaa02",
+  "package_id": "eb1137e976294f6f6000710cbf0849281af910d89f7499a25ac1e5fe4c8bb977",
+  "archive_bootstrap_manifest_verified": true,
+  "elapsed_seconds": 9.13124810019508,
+  "exit": 1,
+  "timed_out": false,
+  "cpu_tests": [
+    {
+      "suite": "windows_cleanup",
+      "count": 4,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "gpu_cli",
+      "count": 27,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "compile_cache",
+      "count": 12,
+      "skip": 0,
+      "exit": 1,
+      "failures": 1
+    },
+    {
+      "suite": "cuda_artifact",
+      "count": 0,
+      "exit": null,
+      "status": "not_reached"
+    }
+  ],
+  "executed_tests": 43,
+  "passed_tests": 42,
+  "failure": {
+    "test": "test_real_competing_process_fails_before_compiler_and_then_reuses_artifact",
+    "assertion": "Lock owner PID differs from subprocess.Popen child PID",
+    "underlying_cause": "unconfirmed"
+  },
+  "cpu_json": {
+    "passed": true,
+    "controller_only": true,
+    "input_count": 0,
+    "native_oracles": 0,
+    "gpu_calls": 0
+  },
+  "result_json": null,
+  "smoke_verified": false,
+  "fresh_smoke_job_started": false,
+  "job_pre_post": null,
+  "residual_count": null,
+  "process_difference_observed": false,
+  "missing_count": null,
+  "service_status": "unverified",
+  "environment_preservation_verified": null,
+  "parent_below_normal": true,
+  "parent_TEMP_TMP_TMPDIR_preserved": true,
+  "dedicated_child_TEMP_configured": true,
+  "outer_finally_cleanup_completed": true,
+  "outer_cleanup_error": null,
+  "original_head_status_preserved": true,
+  "real_operation_counts": {
+    "slang": 0,
+    "nvrtc": 0,
+    "driver": 0,
+    "context": 0,
+    "kernel": 0,
+    "gpu": 0,
+    "native_battle": 0
+  },
+  "operation_count_evidence": "Reviewed controller-only and fake compiler fixture paths; comprehensive DLL guard and runtime API tracing were not applied",
+  "run_attempts": 1,
+  "retries": 0,
+  "calculation_verified": false,
+  "capture_path": "C:/Users/owner/Documents/Codex/nikke-v116-diagnostic/smoke",
+  "prior_records_preserved": true,
+  "full_goal_complete": false
+}

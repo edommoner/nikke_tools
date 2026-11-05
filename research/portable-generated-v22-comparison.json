@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "gpu_rerun": false,
+  "source_commit": "4342fe12b3643e23be3ac81e9a0adafd6fd34e8a",
+  "metal": {
+    "cuda": {
+      "raw_sha256": "fe6212f7827a3774fb371b36bc8fa2c92bef57cbb395ed9df744015c56b7a209",
+      "lf_sha256": "fe6212f7827a3774fb371b36bc8fa2c92bef57cbb395ed9df744015c56b7a209",
+      "no_line_directives_sha256": "e112883ea4893822eb2509f49055931aa25984a52323fe18f088b220df829026",
+      "no_line_directives_portable_prelude_sha256": "7912c79790ac38aa0c90f185ebbfe59021be9fa76e2df0b2e381935d56000371",
+      "lines": 30793,
+      "no_line_directive_lines": 22867,
+      "line_directives": 7926
+    },
+    "metal": {
+      "raw_sha256": "45b6fcbf98f9e60858fd4202c1091cc6628a53b602bdb16cf89aef0afc49ff4e",
+      "lf_sha256": "45b6fcbf98f9e60858fd4202c1091cc6628a53b602bdb16cf89aef0afc49ff4e",
+      "no_line_directives_sha256": "eb4f3e2ebe4193d9bb1c798d3b6214c3482d7de654fabd7ba6e39e6cf039ea86",
+      "no_line_directives_portable_prelude_sha256": "eb4f3e2ebe4193d9bb1c798d3b6214c3482d7de654fabd7ba6e39e6cf039ea86",
+      "lines": 31100,
+      "no_line_directive_lines": 23106,
+      "line_directives": 7994
+    }
+  },
+  "windows": {
+    "cuda": {
+      "available": true,
+      "raw_sha256": "1bd75abe124abc586a7d71747f0185f9d76e64f457b41ff15c841b91102cef7a",
+      "lf_sha256": "70b7658e012472ed460e5dcb2dbf3c252c81173a80b92d6573f9a63e158337c5",
+      "no_line_directives_sha256": "8c431518be319b124568064be5eacf8e82572d843551a65cb975a968f75cafe8",
+      "no_line_directives_portable_prelude_sha256": "7912c79790ac38aa0c90f185ebbfe59021be9fa76e2df0b2e381935d56000371",
+      "lines": 30793,
+      "no_line_directive_lines": 22867,
+      "line_directives": 7926
+    },
+    "metal": {
+      "available": true,
+      "raw_sha256": "109284ef3aa9f38f58ba83dab6ee89b17642b95f96b6e6fe63e09a2a7b2d6d59",
+      "lf_sha256": "ea5fce97a70de736025b25e09af0ad3ca6bbdc8def6d8a54ec5b4c75db18814c",
+      "no_line_directives_sha256": "eb4f3e2ebe4193d9bb1c798d3b6214c3482d7de654fabd7ba6e39e6cf039ea86",
+      "no_line_directives_portable_prelude_sha256": "eb4f3e2ebe4193d9bb1c798d3b6214c3482d7de654fabd7ba6e39e6cf039ea86",
+      "lines": 31100,
+      "no_line_directive_lines": 23106,
+      "line_directives": 7994
+    }
+  },
+  "normalization": "decode UTF-8; CRLF to LF; remove lines matching ^\\s*#line\\b; join with LF and final LF; replace the absolute quoted slang-cuda-prelude.h include with its basename",
+  "scope": "Generated line directives, line endings and CUDA prelude include path differ; normalized CUDA/MSL and full GPU output match",
+  "windows_evidence": "windows-portable-combat-v22.json",
+  "summary_transfer": {
+    "parts": 11,
+    "gpu_verification_repeated": false
+  }
+}

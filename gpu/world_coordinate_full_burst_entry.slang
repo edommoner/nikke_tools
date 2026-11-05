@@ -1,0 +1,3 @@
+#define PORTABLE_COORDINATE_FULL_BURST_PENDING
+#define PORTABLE_FULL_BURST_LANDING
+#include "world_coordinate_pending_entry.slang"

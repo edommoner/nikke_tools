@@ -1,0 +1,29 @@
+{
+  "sealed": false,
+  "purpose": "development",
+  "calculation_verified": true,
+  "preservation_verified": null,
+  "passed": true,
+  "containment_verified": true,
+  "comparison_error": null,
+  "first_difference": null,
+  "phase": {
+    "events": 5,
+    "last_event": {
+      "monotonic_ns": 856419565794833,
+      "pid": 3760,
+      "stage": "shared_gpu_execute",
+      "state": "returned",
+      "wall_time_ns": 1792757269806752000
+    },
+    "nvrtc_compile_returned_success": false,
+    "cuda_compile_cache_hit_verified": false,
+    "cuda_linked_artifact_observed": false,
+    "cuda_launch_returned_success": false,
+    "cuda_synchronize_returned_success": false,
+    "cuda_readback_returned_success": false,
+    "scope": "Observed API returns only; full output verification requires the shared suite report"
+  },
+  "gpu_retries": 0,
+  "audit_gpu_calls": 0
+}

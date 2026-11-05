@@ -1,0 +1,13 @@
+{
+  "schema": "windows-snapshot-check-v1",
+  "snapshot_verified": false,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "preservation_verified": null,
+  "scope": "One read-only process/listener snapshot; not a before/after preservation or CUDA calculation proof",
+  "error": {
+    "type": "RuntimeError",
+    "message": "Windows process capture requires Windows"
+  },
+  "elapsed_seconds": 7.120800000848249e-05
+}

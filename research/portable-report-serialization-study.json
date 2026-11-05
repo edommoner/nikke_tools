@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "production_format_changed": false,
+  "source_report": "research/portable-combat-metal.json",
+  "source_report_sha256": "2ee7d7fad412ea5029088c6a3dbbf7e7330feeb723f382bc55610aa98b494559",
+  "pretty_bytes": 86530415,
+  "lossless_compact_bytes": 37050835,
+  "ratio": 0.4281827956100754,
+  "no_keys_or_values_removed": true,
+  "round_trip_equal": true,
+  "tool_sha256": "1c30d5e8af688a4227b8b37356fb41041e82625249dbb2140fb40c3bacf0032f",
+  "scope": "Offline serialization experiment only;no GPU execution,baseline report mutation or source change"
+}

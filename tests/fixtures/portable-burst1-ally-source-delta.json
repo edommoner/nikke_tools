@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "baseline_commit": "a94679dbc00c465fbc694b7fce4946429c1423fe",
+  "sources": {
+    "gpu/world_actor_fields.slang": {
+      "current_sha256": "ac8b1dc3897a5e3ee51c6d954fc0aa9d9cd6be5e329d89e8d74a929e3291330a",
+      "baseline_sha256": "c7dbc02eedc7e739f22c4bf0e0917e8d75394e34b90afcc51af8278b6e1982b9",
+      "changes": [
+        {
+          "current": "#ifdef PORTABLE_BURST1_ALLY\n        if(kind==C_BURST1_ALLY || kind==C_NO_BURST1_ALLY)\n        { if(s.combat==0 || commands[at+1]!=0 || !f64Zero(arg)) return false;continue; }\n#endif\n",
+          "baseline": ""
+        }
+      ]
+    },
+    "gpu/world_below_def_entry.slang": {
+      "current_sha256": "f77dda756746dce8f30b6571c4fb898e683d1bf3c9acd22e6e2c1305a13cdd96",
+      "baseline_sha256": "f8426962ef84a79c26068f670fb85e6120b5954657d6f746020001c82faef7c3",
+      "changes": [
+        {
+          "current": "#define PORTABLE_BURST1_ALLY\n",
+          "baseline": ""
+        }
+      ]
+    }
+  },
+  "added_sources": {}
+}

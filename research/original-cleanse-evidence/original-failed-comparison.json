@@ -1,0 +1,43 @@
+{
+  "calculation_verified": false,
+  "entries": [],
+  "mismatches": [
+    {
+      "index": 0,
+      "name": "coordinate-original-cleanse/Cocoa-empty",
+      "reason": "AssertionError: ('coordinate-original-cleanse/Cocoa-empty', 0, ['world_nodes'])"
+    },
+    {
+      "index": 1,
+      "name": "coordinate-original-cleanse/Cocoa-partial",
+      "reason": "AssertionError: ('coordinate-original-cleanse/Cocoa-partial', 0, ['world_nodes'])"
+    },
+    {
+      "index": 2,
+      "name": "coordinate-original-cleanse/Mica-all",
+      "reason": "AssertionError: ('coordinate-original-cleanse/Mica-all', 0, ['world_nodes'])"
+    },
+    {
+      "index": 3,
+      "name": "coordinate-original-cleanse/Rosanna-overlays",
+      "reason": "AssertionError: ('coordinate-original-cleanse/Rosanna-overlays', 0, ['world_nodes'])"
+    }
+  ],
+  "input_count": 4,
+  "native_oracles": 4,
+  "input_sha256": "17147fded87cafb1b1aa5b015139b7f45d747fbaa66ed67b6519e4b10700620f",
+  "output_sha256": "eb2a846601f88061844754fdf18aa2ccd2502b39d7ca78a3e94e46ae22054165",
+  "generated_normalized": {
+    "cuda": "dcf789cb7176484396580d9ce73067bda5fb86a01cf378a5d1671e87667381b7",
+    "metal": "d84af21454fe1dd7f38770720292a8b7144f56a0fd08843d5cec6bdf2bdd6b9a"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 0,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

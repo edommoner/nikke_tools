@@ -31,3 +31,18 @@ test('GPU estimates only reorder candidates and preserve a feasible group for fi
   assert.throws(()=>rankCombatPool(pool,groups,[{squad:pool[0],index:3,damage:5}]),/validation/);
   assert.throws(()=>rankCombatPool(pool,groups,[scores[0],scores[0]]),/validation/);
 });
+
+test('unscored candidates retain original order after scored rows; empty scores retain every candidate',async()=>{
+ const {rankCombatPool}=await import('../app/optimizer.mjs');
+ const pool=Array.from({length:6},(_,i)=>[String(i)]);
+ const scores=[{index:2,squad:pool[2],damage:20},{index:0,squad:pool[0],damage:10}];
+ assert.deepEqual(rankCombatPool(pool,[],scores),[2,0,1,3,4,5]);
+ assert.deepEqual(rankCombatPool(pool,[[2,5],[0,1]],[]),[0,1,2,3,4,5]);
+ const order=rankCombatPool(pool,[[0,1],[2,3]],scores);
+ assert.deepEqual(order.slice(0,2),[2,3]);
+ assert.deepEqual(new Set(order),new Set([0,1,2,3,4,5]));
+ // No fully-scored group exists, but an intact partial group still fits the
+ // shortlist, and missing members receive detailed scores there.
+ const results=order.slice(0,2).map(i=>({result:{members:pool[i].map(name=>({name})),total_damage:100+i}}));
+ assert.equal(bestDisjoint(results,2).damage,205);
+});

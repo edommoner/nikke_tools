@@ -1,0 +1,72 @@
+{
+  "schema": "weighted-incoming-metal-v1",
+  "source_commit": "689814a1095fb286628080e1d12395d5c04fbbf8",
+  "package_id": "59e9a50395cdf37a7c17a07adfc906f51227c9a8c6e94e3281330ed387412dab",
+  "input_count": 1192,
+  "native_cases": 1179,
+  "rejected_cases": 13,
+  "transport": {
+    "backend": "metal",
+    "cases": 1192,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 0.0005699582980014384,
+    "input_bytes": 76292,
+    "library_compile_seconds": 0.049844980239868164,
+    "output_bytes": 95360,
+    "pipeline_cache": {
+      "archive_bytes": 43776,
+      "archive_compile_seconds": 0.03761100769042969,
+      "archive_sha256": "00baa79579660b9f42cffdb82e6e6ad7b31873c6c13293d05da603f1f955d14e",
+      "enabled": true,
+      "hit": false,
+      "identity": {
+        "consumer_sha256": "ef52604784c90e4c57cce6ed387fa57bec9a382504987a25a2c017379038fbe9",
+        "device": "Apple M5",
+        "entry": "portableEvents",
+        "math_mode": "safe",
+        "os_build": "Version 27.0.1 (Build 26A434)",
+        "registry_id": "4294968346",
+        "resident_stride": "0",
+        "schema": "1",
+        "source_sha256": "1cd42090fd112c25f6cc84e62a7bd4bc69801363644ab3e7709c115e8d177e1e",
+        "threads_per_threadgroup": "1"
+      },
+      "key": "fed7b19a1339b47a6078724f6bc69058bdfccfc9bb0487018cef853d76197a81",
+      "native_archive_miss_rejected": true,
+      "required": false,
+      "schema": 1
+    },
+    "pipeline_compile_seconds": 0.037770986557006836,
+    "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "pipeline_os_build": "Version 27.0.1 (Build 26A434)",
+    "registry_id": "4294968346",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "source_sha256": {
+    "gpu/incoming_weighted_probe.slang": "7783366de813fe07f91694d4ded873a9e2fe2e612662d048573b906524b2e218",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/incoming_weighted_allocation.slang": "22baf169ddf14f686d2ed77408b524788dd6c8bef48b29eaed6cff16b0927362"
+  },
+  "generated_sha256": {
+    "cuda": "ff963209723582200e53981ca14d1b90cfd0c00ece31bf87539437069c835525",
+    "metal": "1cd42090fd112c25f6cc84e62a7bd4bc69801363644ab3e7709c115e8d177e1e"
+  },
+  "input_sha256": "3a6ffba50847f2495029f6bb27d9578b96cf986174ee233ef85500659d614fdc",
+  "output_sha256": "f3c485926c06e2c858354b9876d45a8a616d47f0ceff557d5b924e3bdb10a351",
+  "gpu_execution_verified": true,
+  "backend": "metal",
+  "independently_audited": true,
+  "independent_receipt_sha256": "1c58b15e3cb51babf8f56b82a7c2c4dd1c8e11fe9518ef3654fd866da7a0fe84",
+  "actual_cuda_verified": false,
+  "carrier_lifecycle_connected": false,
+  "incoming_battle_connected": false,
+  "in_game_rules_verified": false,
+  "public_gpu_admission": false,
+  "full_goal_complete": false
+}

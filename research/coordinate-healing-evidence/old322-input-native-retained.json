@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "reference_inputs": 322,
+  "candidate_inputs": 340,
+  "all_reference_input_and_native_fingerprints_identical": true,
+  "reference_golden_sha256": "8776cdf69ff6263650fb9d0fa3f085f8685f7c93663edf08e8227bad05988d9c",
+  "development_package_id": "ddd3ca4c6a6704250b0525a03fa9dc09e796fdbda5f582693c7dae29c7541524",
+  "gpu_calls": 0,
+  "calculation_verified": false
+}

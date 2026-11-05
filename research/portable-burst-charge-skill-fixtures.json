@@ -1,0 +1,6024 @@
+{
+  "cases": [
+    {
+      "name": "burst-skill-0-initial",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 0,
+        "scenario": "initial"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 10.75
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-0-named-activation",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count:packet:1"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 0,
+        "scenario": "named-activation"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 10
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-0-named-removal",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "remove",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count:packet:1"
+            ],
+            "condition": []
+          },
+          "target_effect": "speed"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 0,
+        "scenario": "named-removal"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 8.75
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-0-mode-skill",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 0,
+        "scenario": "mode-skill"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-0-mode-remove",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "remove-mode",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "mode"
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 0,
+        "scenario": "mode-remove"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-0-mode-limit",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration_bullets": 1
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "event:state_end:mode"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 0,
+        "scenario": "mode-limit"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 19
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-0-mode-switch",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "next-mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 7,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 0,
+        "scenario": "mode-switch"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-0-base-enter-mode",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 0,
+        "scenario": "base-enter-mode"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-1-initial",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        1,
+        1
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 1,
+        "scenario": "initial"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 10.75
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-1-named-activation",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count:packet:1"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        1,
+        1
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 1,
+        "scenario": "named-activation"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 10
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-1-named-removal",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "remove",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count:packet:1"
+            ],
+            "condition": []
+          },
+          "target_effect": "speed"
+        }
+      ],
+      "owners": [
+        1,
+        1,
+        1
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 1,
+        "scenario": "named-removal"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 8.75
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-1-mode-skill",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        1,
+        1,
+        1
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 1,
+        "scenario": "mode-skill"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-1-mode-remove",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "remove-mode",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "mode"
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 1,
+        "scenario": "mode-remove"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-1-mode-limit",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration_bullets": 1
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "event:state_end:mode"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        1,
+        1,
+        1
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 1,
+        "scenario": "mode-limit"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 19
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-1-mode-switch",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "next-mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 7,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 1,
+        "scenario": "mode-switch"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-1-base-enter-mode",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        1,
+        1,
+        1
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 1,
+        "scenario": "base-enter-mode"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-2-initial",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        2,
+        2
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 2,
+        "scenario": "initial"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 10.75
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-2-named-activation",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count:packet:1"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        2,
+        2
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 2,
+        "scenario": "named-activation"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 10
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-2-named-removal",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "remove",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count:packet:1"
+            ],
+            "condition": []
+          },
+          "target_effect": "speed"
+        }
+      ],
+      "owners": [
+        2,
+        2,
+        2
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 2,
+        "scenario": "named-removal"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 8.75
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-2-mode-skill",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        2,
+        2,
+        2
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 2,
+        "scenario": "mode-skill"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-2-mode-remove",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "remove-mode",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "mode"
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 2,
+        "scenario": "mode-remove"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-2-mode-limit",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration_bullets": 1
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "event:state_end:mode"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        2,
+        2,
+        2
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 2,
+        "scenario": "mode-limit"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 19
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-2-mode-switch",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "next-mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 7,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 2,
+        "scenario": "mode-switch"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-2-base-enter-mode",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        2,
+        2,
+        2
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 2,
+        "scenario": "base-enter-mode"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-3-initial",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        3,
+        3
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 3,
+        "scenario": "initial"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 10.75
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-3-named-activation",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count:packet:1"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        3,
+        3
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 3,
+        "scenario": "named-activation"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 10
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-3-named-removal",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "remove",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count:packet:1"
+            ],
+            "condition": []
+          },
+          "target_effect": "speed"
+        }
+      ],
+      "owners": [
+        3,
+        3,
+        3
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 3,
+        "scenario": "named-removal"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 8.75
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-3-mode-skill",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        3,
+        3,
+        3
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 3,
+        "scenario": "mode-skill"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-3-mode-remove",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "remove-mode",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "mode"
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 3,
+        "scenario": "mode-remove"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-3-mode-limit",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration_bullets": 1
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "event:state_end:mode"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        3,
+        3,
+        3
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 3,
+        "scenario": "mode-limit"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 19
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-3-mode-switch",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "next-mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 7,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 3,
+        "scenario": "mode-switch"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-3-base-enter-mode",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        3,
+        3,
+        3
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 3,
+        "scenario": "base-enter-mode"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-4-initial",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4,
+        4
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 4,
+        "scenario": "initial"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 10.75
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-4-named-activation",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count:packet:1"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4,
+        4
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 4,
+        "scenario": "named-activation"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 10
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-4-named-removal",
+      "effects": [
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "remove",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count:packet:1"
+            ],
+            "condition": []
+          },
+          "target_effect": "speed"
+        }
+      ],
+      "owners": [
+        4,
+        4,
+        4
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 4,
+        "scenario": "named-removal"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 8.75
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-4-mode-skill",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4,
+        4,
+        4
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 4,
+        "scenario": "mode-skill"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-4-mode-remove",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "remove-mode",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "mode"
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 4,
+        "scenario": "mode-remove"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-4-mode-limit",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration_bullets": 1
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "event:state_end:mode"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4,
+        4,
+        4
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 4,
+        "scenario": "mode-limit"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 19
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-4-mode-switch",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "next-mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 7,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 4,
+        "scenario": "mode-switch"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "burst-skill-4-base-enter-mode",
+      "effects": [
+        {
+          "name": "mode",
+          "source": "스킬1",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": {
+            "10": 100
+          },
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 5,
+          "core_dmg_mult": 200,
+          "target": "self",
+          "duration": 0.5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "speed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_charge_speed_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "packet",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4,
+        4,
+        4
+      ],
+      "environment": {
+        "burst_references": [
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          },
+          {
+            "burst_energy": 2,
+            "burst_energy_raw": 0.25
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "coefficient": 100,
+            "capacity": 100,
+            "interval": 1,
+            "gauge": 2
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000,
+            "defense": 0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "burst_charge_skill_reference": true,
+      "burst_charge_skill_context": {
+        "owner": 4,
+        "scenario": "base-enter-mode"
+      },
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 16
+          }
+        }
+      ]
+    }
+  ]
+}

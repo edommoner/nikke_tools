@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "source_package_id": "164a2455feb62bb1fdbfc3f2f509a0316b5b1e3ce981e49982f4395c1e35bc9a",
+  "source_commit": "378bf9a0accde8ea20f8cec6fd7a71577949d7bc",
+  "archive_bytes": 13538017,
+  "archive_sha256": "c42185aab68ea62676dea65adfafa8f3fc64c5535497dc5371ae55a4c8795960",
+  "summary_file": "memory-summary-v1.json",
+  "summary_bytes": 4512,
+  "summary_sha256": "00d8120795f00cffde182d4de60e1fa9f94e154e34b67e5685b14253ba075f31",
+  "public_payload": "numeric-availability-summary-and-manifest-only",
+  "sdk_paths_included": false,
+  "nonce_included": false,
+  "binding_included": false,
+  "raw_phases_included": false,
+  "binary_included": false,
+  "private_diagnostics_included": false
+}

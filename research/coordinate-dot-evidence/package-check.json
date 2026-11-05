@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "full_package_id": "1aac903a743605bf48f974a7d17abdfc762fc939b16569fda54d8d462bc81b98",
+  "compact_package_id": "6979def7fb2dbd570105d2b1458fa8337a46e12e62f0d8184bc00c591ba477e9",
+  "full_files": 2875,
+  "compact_files": 1584,
+  "retained_records_exact": true,
+  "retained_bytes_verified": true,
+  "golden_exact": true,
+  "unchanged_legacy_closures": [
+    {
+      "suite": "coordinate-world-pool",
+      "current_source_closure": true,
+      "new_gpu_calls": 0
+    },
+    {
+      "suite": "attack-group-mixed",
+      "current_source_closure": true,
+      "new_gpu_calls": 0
+    }
+  ]
+}

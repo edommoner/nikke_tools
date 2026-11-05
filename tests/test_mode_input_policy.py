@@ -13,7 +13,7 @@ class ModeInputPolicy(unittest.TestCase):
 
     def test_operation_does_not_enter_owned_growth(self):
         body=body_for(NAMES,1);body['weapon_mode_swap']=True;original=copy.deepcopy(body['profile'])
-        compiled=a.evaluate({**body,'_compile_gpu_detail':True})
+        compiled=a.evaluate({**body,'_compile_detail':True})
         self.assertEqual(body['profile'],original)
         self.assertTrue(all(c['weapon_mode_swap'] for c in compiled['prepared'].squad))
         self.assertTrue(all('weapon_mode_swap' not in c for c in body['profile']['chars'].values()))
@@ -21,7 +21,7 @@ class ModeInputPolicy(unittest.TestCase):
     def test_packet_extends_only_the_declared_operation_word(self):
         packets=[]
         for flag in (False,True):
-            compiled=a.evaluate({**body_for(NAMES,1),'weapon_mode_swap':flag,'_compile_gpu_detail':True})
+            compiled=a.evaluate({**body_for(NAMES,1),'weapon_mode_swap':flag,'_compile_detail':True})
             packed=g.weapon_rows(compiled['program']['chars'],compiled['base_stats']);self.assertEqual(len(packed),5*169)
             packets.append([packed[i*169:(i+1)*169] for i in range(5)])
         for off,on in zip(*packets):self.assertEqual(off[:168],on[:168]);self.assertEqual((off[168],on[168]),(0,1))

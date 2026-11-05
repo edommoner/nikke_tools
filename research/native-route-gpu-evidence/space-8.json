@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-base-copy-native-policy-metal",
+  "raw_bytes": 147849216,
+  "raw_sha256": "caaa6fe2987511d703248410db9b8d8cb6359567b3863c8109962b2c354bec03",
+  "evidence_sha256": "11f57cf4c69121f658ae1d67ee0d5354ee4abf64c25c8f12d70db7cc2385b37b",
+  "raw_inode": 506719717,
+  "zero_ranges": 386,
+  "zero_range_bytes": 104202240,
+  "allocated_before": 147849216,
+  "allocated_after": 43646976,
+  "allocated_reclaimed": 104202240,
+  "full_hash_verified": true
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "cover-defense-snapshot-ownership-guard-v1",
+  "trigger": "Observed preliminary Metal mismatch: result snapshots were read through command input loader",
+  "input_read_scope": "Only the two authored cover-base addresses",
+  "output_reader": "Existing protectionNumber for all three captured attack quantities",
+  "fault_injections": [
+    "attack",
+    "coefficient",
+    "received_snapshot"
+  ],
+  "pre_native_preflight": true,
+  "common_dispatch_depth": 32,
+  "tests": 7,
+  "log_sha256": "dc049f0d50c33f22a9e75b765a7c4397328ba2d2e7857821e144e7058a4bb886",
+  "gpu_calls": 0,
+  "changes_calculation": false,
+  "frozen_metal_package_modified": false,
+  "full_goal_complete": false
+}

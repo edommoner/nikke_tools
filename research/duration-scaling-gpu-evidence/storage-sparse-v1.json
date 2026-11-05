@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-not-core-retention-v2-capture",
+  "raw_bytes": 4923064320,
+  "raw_sha256": "ff0a42bd149bc22dc6f80c518b0ac481f50ab9b682ce6ec6fae153df2c0b8193",
+  "evidence_sha256": "4caa25ff4da328393ee34ae494b19b1c9bfb7ce277d83c3cb0aaf4dd227fafe5",
+  "raw_inode": 508303352,
+  "zero_ranges": 11605,
+  "zero_range_bytes": 3517448192,
+  "allocated_before": 4924112896,
+  "allocated_after": 1406664704,
+  "allocated_reclaimed": 3517448192,
+  "full_hash_verified": true
+}

@@ -1,0 +1,63 @@
+[
+  {
+    "version": "v1",
+    "capture": "/tmp/nikke-damage-battle-cpu62-v1",
+    "reason": "Old component test expected private admission to remain closed",
+    "original_preserved": true,
+    "gpu_dispatch": false
+  },
+  {
+    "version": "v2",
+    "capture": "/tmp/nikke-damage-battle-cpu62-v2",
+    "reason": "Required prior source golden missing from package",
+    "original_preserved": true,
+    "gpu_dispatch": false
+  },
+  {
+    "version": "v4-generation",
+    "capture": "/tmp/nikke-damage-battle-generation-v4",
+    "reason": "Preprocessor directive nested in macro argument",
+    "original_preserved": true,
+    "gpu_dispatch": false
+  },
+  {
+    "version": "v5-sandbox",
+    "capture": "/tmp/nikke-damage-battle-metal62-v5",
+    "reason": "No Metal device; kernel0",
+    "original_preserved": true,
+    "gpu_dispatch": false
+  },
+  {
+    "version": "v5-host",
+    "capture": "/tmp/nikke-damage-battle-metal62-v5-host",
+    "reason": "Enemy admission guard and missing activation continuation",
+    "original_preserved": true,
+    "gpu_dispatch": true
+  },
+  {
+    "version": "v6",
+    "capture": "/tmp/nikke-damage-battle-metal62-v6",
+    "reason": "Actor-status override still refused enemy carriers; two allied cases independently matched saved raw",
+    "original_preserved": true,
+    "gpu_dispatch": true
+  },
+  {
+    "version": "rosters-v1",
+    "reason": "Original profile observer lacked row tags",
+    "gpu_dispatch": false,
+    "original_preserved": true
+  },
+  {
+    "version": "rosters-v3",
+    "capture": "/tmp/nikke-damage-rosters-metal4-v3",
+    "reason": "CPU gate found observer row tags persisted in cached original definitions; fixed by restoring prior fields",
+    "gpu_dispatch": false,
+    "original_preserved": true
+  },
+  {
+    "version": "final-replay-v1",
+    "reason": "CLI correctly refused sealed-to-development replay; used a fresh development packet without changing replay guards",
+    "gpu_dispatch": false,
+    "original_preserved": true
+  }
+]

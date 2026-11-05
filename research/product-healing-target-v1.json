@@ -1,0 +1,566 @@
+{
+  "schema": "product-healing-target-v1",
+  "owner": "5d2daf21b88046279c706b6fb6ff00dacbf6d035b92a059abc6b9250d203af58",
+  "package_source_commit": "8fb102fcf4a4c7201d56e1e80203ca1ead62a1ec",
+  "package_dirty_snapshot": true,
+  "program_registry_added": 0,
+  "suites_added": 0,
+  "new_auditors": 0,
+  "new_shader_files": 0,
+  "gpu_arithmetic_changes": 0,
+  "canonical_cpu_changes": 0,
+  "pinned_upstream_changes": 0,
+  "changes": [
+    "Keep stationary finite ADDs with original target carriers in the existing checked ADD prefix",
+    "Reuse existing disjoint magazine/target/ADD/healing executor for healing plus target carriers, with explicit no-magazine stationary admission",
+    "Avoid lowering an already lowered ADD prefix twice"
+  ],
+  "scope": "12 ordinary API conditions, newly supported composed rosters; no standard original-profile count added and no arbitrary composition or game rule claim",
+  "metal_api_cases": 12,
+  "metal_physical_dispatches": 12,
+  "posts": 1,
+  "cuda_new_composition_cases_verified": 0,
+  "rows": [
+    {
+      "index": 0,
+      "variant": "healing-target-fixed",
+      "roster": [
+        "앤 : 미라클 페어리",
+        "아스카",
+        "미란다",
+        "도라",
+        "드레이크"
+      ],
+      "source": "gpu/product_ammo_fixed_target_battle_entry.slang",
+      "input_sha256": "c91f4361de8628df655b5082d7757acc6b539cb12b2b566ec68c9791d1312909",
+      "output_sha256": "3955c57f142d273cc6773830c82b2f13cdef676e3b84727f92fe6e3651742300",
+      "gpu_execution_verified": true,
+      "full_cpu_gpu_http_match": true,
+      "saved_reprojection_verified": true,
+      "active_healing": true,
+      "active_healing_multipliers": [
+        0.2106999999999999
+      ],
+      "gpu_seconds": 1.9235177083755843,
+      "capture": "5ef3ca3a56e548a7935940b8c71c280a"
+    },
+    {
+      "index": 1,
+      "variant": "healing-target-fixed-cover",
+      "roster": [
+        "앤 : 미라클 페어리",
+        "아스카",
+        "미란다",
+        "도라",
+        "드레이크"
+      ],
+      "source": "gpu/product_ammo_cover_fixed_target_battle_entry.slang",
+      "input_sha256": "9adedb921b9592a6a9290dc616d39f7b9c28142bef753d28928eea2d22833dcb",
+      "output_sha256": "88c634534ad067e2bbd37941a1bec59d1143eb0749bac7e062868097c1c28ca5",
+      "gpu_execution_verified": true,
+      "full_cpu_gpu_http_match": true,
+      "saved_reprojection_verified": true,
+      "active_healing": true,
+      "active_healing_multipliers": [
+        0.2106999999999999
+      ],
+      "gpu_seconds": 1.96273749996908,
+      "capture": "a08b9c557c244f8e876cd0082ab3948f"
+    },
+    {
+      "index": 2,
+      "variant": "healing-target-accumulate",
+      "roster": [
+        "앤 : 미라클 페어리",
+        "아스카",
+        "미란다",
+        "도라",
+        "드레이크"
+      ],
+      "source": "gpu/product_ammo_target_battle_entry.slang",
+      "input_sha256": "315199e6e4b7b8d572d1832482bf43f798bfee3f753fbae68a66ab5f7ba00ae1",
+      "output_sha256": "f7abdb9492ff867d64944ebbfc4c698443a645edd05aeb66fca976329ad6a436",
+      "gpu_execution_verified": true,
+      "full_cpu_gpu_http_match": true,
+      "saved_reprojection_verified": true,
+      "active_healing": true,
+      "active_healing_multipliers": [
+        0.2106999999999999
+      ],
+      "gpu_seconds": 1.9127630833536386,
+      "capture": "1d2e8b87f6d54dd59492d0fc0c0e56fd"
+    },
+    {
+      "index": 3,
+      "variant": "healing-target-accumulate-cover",
+      "roster": [
+        "앤 : 미라클 페어리",
+        "아스카",
+        "미란다",
+        "도라",
+        "드레이크"
+      ],
+      "source": "gpu/product_ammo_cover_target_battle_entry.slang",
+      "input_sha256": "4ad3f907ac9bee3755903a9324b5bc3313d4db7f37d7ce7570622b635db3ac25",
+      "output_sha256": "b4f39cc0d0d7bddd6ee7ecc0dd4a888c7e719bf2be5d978dbe677d20ed3a2d24",
+      "gpu_execution_verified": true,
+      "full_cpu_gpu_http_match": true,
+      "saved_reprojection_verified": true,
+      "active_healing": true,
+      "active_healing_multipliers": [
+        0.2106999999999999
+      ],
+      "gpu_seconds": 1.9628840833320282,
+      "capture": "cfe0c6f26e3645b7a0d54fe67ed184bc"
+    },
+    {
+      "index": 4,
+      "variant": "healing-group-fixed",
+      "roster": [
+        "앤 : 미라클 페어리",
+        "사쿠라",
+        "벨로타",
+        "도라",
+        "드레이크"
+      ],
+      "source": "gpu/product_ammo_fixed_group_battle_entry.slang",
+      "input_sha256": "3e92d0a6ab2aa5a69d73014e39b9579702f512dcd516bacb95b171eb3bcb6779",
+      "output_sha256": "0caacc72ebd6732b9e28778000c09f4979570ef884fea484dce7a8ae6f1475fb",
+      "gpu_execution_verified": true,
+      "full_cpu_gpu_http_match": true,
+      "saved_reprojection_verified": true,
+      "active_healing": true,
+      "active_healing_multipliers": [
+        0.2106999999999999
+      ],
+      "gpu_seconds": 1.2303733750013635,
+      "capture": "000014be463e4cdf96c581560040d695"
+    },
+    {
+      "index": 5,
+      "variant": "healing-group-fixed-cover",
+      "roster": [
+        "앤 : 미라클 페어리",
+        "사쿠라",
+        "벨로타",
+        "도라",
+        "드레이크"
+      ],
+      "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+      "input_sha256": "bfd8a20d29f44bc397193b7a70f1f0b2d9acd3d87c0c3c4fe2683c9a5c5b4e24",
+      "output_sha256": "6d78158bb6678147173fc83a96715a3858bb95363ac5686869fa8be713238d4e",
+      "gpu_execution_verified": true,
+      "full_cpu_gpu_http_match": true,
+      "saved_reprojection_verified": true,
+      "active_healing": true,
+      "active_healing_multipliers": [
+        0.2106999999999999
+      ],
+      "gpu_seconds": 1.2706601666286588,
+      "capture": "a792fa7f828448c4bcae68b23fa18d3b"
+    },
+    {
+      "index": 6,
+      "variant": "healing-group-accumulate",
+      "roster": [
+        "앤 : 미라클 페어리",
+        "사쿠라",
+        "벨로타",
+        "도라",
+        "드레이크"
+      ],
+      "source": "gpu/product_ammo_group_battle_entry.slang",
+      "input_sha256": "0c9c4a2c52268dafc3b2d91499d918dd45ad1299274e94495626e3bfde8da914",
+      "output_sha256": "f9d46ac7367fd6fa2568cf0d78c947d14d24b1a1ce22d4917c3f1499b2f62a10",
+      "gpu_execution_verified": true,
+      "full_cpu_gpu_http_match": true,
+      "saved_reprojection_verified": true,
+      "active_healing": true,
+      "active_healing_multipliers": [
+        0.2106999999999999
+      ],
+      "gpu_seconds": 1.2280316667165607,
+      "capture": "fdcd8912c7914d4e8d2035af6151d29f"
+    },
+    {
+      "index": 7,
+      "variant": "healing-group-accumulate-cover",
+      "roster": [
+        "앤 : 미라클 페어리",
+        "사쿠라",
+        "벨로타",
+        "도라",
+        "드레이크"
+      ],
+      "source": "gpu/product_ammo_cover_group_battle_entry.slang",
+      "input_sha256": "1ecd02f50287f4b20df8f06ac073012bee81f3f186b5bdc28c393e9d55634b28",
+      "output_sha256": "d9f9ec9c33fa433298b9a6bc18e0af0cec0ad6314d242925904fc45ebb483b7e",
+      "gpu_execution_verified": true,
+      "full_cpu_gpu_http_match": true,
+      "saved_reprojection_verified": true,
+      "active_healing": true,
+      "active_healing_multipliers": [
+        0.2106999999999999
+      ],
+      "gpu_seconds": 1.2575826666434295,
+      "capture": "31c9244ac3e64206a699863f43fb24d0"
+    },
+    {
+      "index": 8,
+      "variant": "stationary-target-fixed",
+      "roster": [
+        "리타",
+        "아스카",
+        "미란다",
+        "도라",
+        "드레이크"
+      ],
+      "source": "gpu/product_add_fixed_target_battle_entry.slang",
+      "input_sha256": "a7bc664f35b6fa9a5dc4bcabec9a7428a9bdfcacd0dc33b147a50344171b95cf",
+      "output_sha256": "204a7e708cd49a28ad8fa47d620e25dd679a005b67edbf0f403d42c95adc5b43",
+      "gpu_execution_verified": true,
+      "full_cpu_gpu_http_match": true,
+      "saved_reprojection_verified": true,
+      "active_healing": false,
+      "active_healing_multipliers": [],
+      "gpu_seconds": 2.358557874977123,
+      "capture": "fc87a074e8a041d0b4764c3a503f15a8"
+    },
+    {
+      "index": 9,
+      "variant": "stationary-target-accumulate",
+      "roster": [
+        "리타",
+        "아스카",
+        "미란다",
+        "도라",
+        "드레이크"
+      ],
+      "source": "gpu/product_add_target_battle_entry.slang",
+      "input_sha256": "700949e522b0747728db874372def41cf485c5e0699febecf9a9001affc782db",
+      "output_sha256": "f8d8cf94c86616dc6b8f8907c031660372e987c24cbc6c5095d35583205e699f",
+      "gpu_execution_verified": true,
+      "full_cpu_gpu_http_match": true,
+      "saved_reprojection_verified": true,
+      "active_healing": false,
+      "active_healing_multipliers": [],
+      "gpu_seconds": 2.3670688749989495,
+      "capture": "6dbd17fe25974f338b8fa367dde9525b"
+    },
+    {
+      "index": 10,
+      "variant": "stationary-group-fixed",
+      "roster": [
+        "리타",
+        "사쿠라",
+        "벨로타",
+        "도라",
+        "드레이크"
+      ],
+      "source": "gpu/product_add_fixed_group_target_battle_entry.slang",
+      "input_sha256": "bafb911889b1db72ca07652842757cb53c4ba168257e5ec4026c623103ec9a21",
+      "output_sha256": "1fc38e16e9f8c645f8e0126faaf4d37ee1ea45629cf381baeab3d0948d853239",
+      "gpu_execution_verified": true,
+      "full_cpu_gpu_http_match": true,
+      "saved_reprojection_verified": true,
+      "active_healing": false,
+      "active_healing_multipliers": [],
+      "gpu_seconds": 1.633726249972824,
+      "capture": "7e7d468476b74375b71110860b573274"
+    },
+    {
+      "index": 11,
+      "variant": "stationary-group-accumulate",
+      "roster": [
+        "리타",
+        "사쿠라",
+        "벨로타",
+        "도라",
+        "드레이크"
+      ],
+      "source": "gpu/product_add_group_target_battle_entry.slang",
+      "input_sha256": "cf0e54132e5149c033f730c514313b0823e2416f792e44f65492d0c520fa33ea",
+      "output_sha256": "a9ec428e63904867cba3bbe167348e107a3e775c6ccce13ec9fdfcccf9dea67d",
+      "gpu_execution_verified": true,
+      "full_cpu_gpu_http_match": true,
+      "saved_reprojection_verified": true,
+      "active_healing": false,
+      "active_healing_multipliers": [],
+      "gpu_seconds": 1.6277177916490473,
+      "capture": "8f743859045042ff9562a9f9e213e577"
+    }
+  ],
+  "cpu_preflight_cases": 12,
+  "cpu_reference_reused_from_v1": {
+    "source_delta": [
+      "app/portable_product_add_attack.py",
+      "app/portable_weighted_incoming_source_contract.py",
+      "tests/fixtures/portable-product-boss-debuff-source-delta.json",
+      "tests/test_portable_detail.py"
+    ],
+    "all_cpu_calculation_and_declaration_adapters_byte_equal": true,
+    "reuse_cases": 12,
+    "new_battles": 0,
+    "new_gpu": 0,
+    "scope": "Only GPU input lowering/idempotence and its strict source ledger/tests changed. All CPU reference, data, pinned upstream and declaration adapters are byte identical."
+  },
+  "unit_tests": 158,
+  "unit_groups": 4,
+  "registered_seven": {
+    "rows": [
+      {
+        "case_index": 0,
+        "variant": null,
+        "input_sha256": "76e456ef2205e5b8424eb0c8855570e287279df64b30d60ec908e911fd8e6b1d",
+        "source_graph_unchanged": true,
+        "input_bytes_unchanged": true
+      },
+      {
+        "case_index": 1,
+        "variant": "coincident-final-queue",
+        "input_sha256": "456492af68f57f10dcf4f8ace8798a89b17f7fb2e73b7be74ba0b594cd41d38a",
+        "source_graph_unchanged": true,
+        "input_bytes_unchanged": true
+      },
+      {
+        "case_index": 2,
+        "variant": "reload-final-final-queue",
+        "input_sha256": "687541179fcd72b23b95010064c15ece27325c3f40ee1d428bfd62338b374de3",
+        "source_graph_unchanged": true,
+        "input_bytes_unchanged": true
+      },
+      {
+        "case_index": 3,
+        "variant": "target-modifier-carriers",
+        "input_sha256": "2d081125ca9386709ce3052a76a0f8855457dbd6886569d1d108e3e87a1fc903",
+        "source_graph_unchanged": true,
+        "input_bytes_unchanged": true
+      },
+      {
+        "case_index": 4,
+        "variant": "target-modifier-final-queue",
+        "input_sha256": "c690481ea7e091961107a7909b70ad7c5c22ebca06a79058cdf6cbbc0cfe5ced",
+        "source_graph_unchanged": true,
+        "input_bytes_unchanged": true
+      },
+      {
+        "case_index": 5,
+        "variant": "healing-magazines",
+        "input_sha256": "e76e718d28a91a2961d04d2ed6211140cc353f164fff721f14b5ef017481e8b9",
+        "source_graph_unchanged": true,
+        "input_bytes_unchanged": true
+      },
+      {
+        "case_index": 6,
+        "variant": "healing-final-queue",
+        "input_sha256": "ff4cec7215e7bcfc10fd70c5a34c1fc0a8fac4685562ff5db5ec8eb990156b4b",
+        "source_graph_unchanged": true,
+        "input_bytes_unchanged": true
+      }
+    ],
+    "cases": 7,
+    "native_fingerprints_unchanged": true,
+    "new_cpu_battles": 0,
+    "new_gpu": 0,
+    "scope": "Static identity against existing v48; no new GPU calculation claimed"
+  },
+  "existing_baseline_version_unchanged": 48,
+  "saved_audit": {
+    "rows": [
+      {
+        "index": 0,
+        "profile": "앤 : 미라클 페어리",
+        "favorite_stage": 0,
+        "capture": "5ef3ca3a56e548a7935940b8c71c280a",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": false,
+        "old_full_readback_anchor_verified": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 1,
+        "profile": "앤 : 미라클 페어리",
+        "favorite_stage": 0,
+        "capture": "a08b9c557c244f8e876cd0082ab3948f",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": false,
+        "old_full_readback_anchor_verified": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 2,
+        "profile": "앤 : 미라클 페어리",
+        "favorite_stage": 0,
+        "capture": "1d2e8b87f6d54dd59492d0fc0c0e56fd",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": false,
+        "old_full_readback_anchor_verified": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 3,
+        "profile": "앤 : 미라클 페어리",
+        "favorite_stage": 0,
+        "capture": "cfe0c6f26e3645b7a0d54fe67ed184bc",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": false,
+        "old_full_readback_anchor_verified": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 4,
+        "profile": "앤 : 미라클 페어리",
+        "favorite_stage": 0,
+        "capture": "000014be463e4cdf96c581560040d695",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": false,
+        "old_full_readback_anchor_verified": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 5,
+        "profile": "앤 : 미라클 페어리",
+        "favorite_stage": 0,
+        "capture": "a792fa7f828448c4bcae68b23fa18d3b",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": false,
+        "old_full_readback_anchor_verified": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 6,
+        "profile": "앤 : 미라클 페어리",
+        "favorite_stage": 0,
+        "capture": "fdcd8912c7914d4e8d2035af6151d29f",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": false,
+        "old_full_readback_anchor_verified": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 7,
+        "profile": "앤 : 미라클 페어리",
+        "favorite_stage": 0,
+        "capture": "31c9244ac3e64206a699863f43fb24d0",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": false,
+        "old_full_readback_anchor_verified": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 8,
+        "profile": "리타",
+        "favorite_stage": 0,
+        "capture": "fc87a074e8a041d0b4764c3a503f15a8",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": false,
+        "old_full_readback_anchor_verified": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 9,
+        "profile": "리타",
+        "favorite_stage": 0,
+        "capture": "6dbd17fe25974f338b8fa367dde9525b",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": false,
+        "old_full_readback_anchor_verified": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 10,
+        "profile": "리타",
+        "favorite_stage": 0,
+        "capture": "7e7d468476b74375b71110860b573274",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": false,
+        "old_full_readback_anchor_verified": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 11,
+        "profile": "리타",
+        "favorite_stage": 0,
+        "capture": "8f743859045042ff9562a9f9e213e577",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": false,
+        "old_full_readback_anchor_verified": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      }
+    ],
+    "audited": 12,
+    "native_battle_calls": 0,
+    "gpu_calls": 0
+  },
+  "server_cleanup": {
+    "pid": 32610,
+    "exit_code": -15,
+    "process_group_absent": true
+  },
+  "api_seconds": 119.3317923329887,
+  "failures_retained": [
+    "Original static target+healing requests rejected before GPU because stationary ADD actors lacked the checked ADD prefix",
+    "First immutable packet unit-check failed six assertions: four exposed repeated ADD lowering, two retained old stationary-world rejection. Fixed idempotence and checked retained definitions/actors in the accepted world. Original packet and failed unit logs retained; GPU0 in old packet."
+  ],
+  "unsupported_preserved": [
+    "Incoming attacks still require explicit enemy_ammo capacity; no capacity or schedule guessed",
+    "Physical coordinate/movement/Lock On/weighted and typed target worlds remain independently guarded; this change does not admit their arbitrary combinations"
+  ],
+  "standard_metal_profiles": 263,
+  "standard_cuda_recorded_profiles": 263,
+  "configured_original_profile_recorded_metal": 266,
+  "configured_original_profile_recorded_cuda": 266,
+  "standard_profile_delta": 0,
+  "current_whole_cuda_matrix_recertified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false
+}

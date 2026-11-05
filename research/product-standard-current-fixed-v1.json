@@ -1,0 +1,58 @@
+{
+  "schema": "product-standard-current-fixed-v1",
+  "scope": "Refresh existing fixed4 immutable CUDA/Metal proof for one forthcoming ordinary Windows request;no expanded character/effect claims",
+  "final_owner": "30e9e40cc57796226732c0b47db1523e347a4abdd920e32fa781be98042af671",
+  "source_packet": "research/windows-source-packets/product-standard-current-fixed-v1.zip",
+  "source_packet_sha256": "113f9c1f3fa50e4470f8ca51db5ffc7d633fdfa197adfd70f74a444b40ba3c6c",
+  "actual_metal_cli_cases": 4,
+  "independent_seal_verified": true,
+  "all4_old_native_input_full_raw_sha_exact": true,
+  "generated_normalized_exact_to_old": true,
+  "metadata_only_final_release": {
+    "current_owner": "30e9e40cc57796226732c0b47db1523e347a4abdd920e32fa781be98042af671",
+    "source_records_compared": 2806,
+    "metadata_only_delta": [
+      "app/portable_product_programs.py",
+      "app/portable_weighted_incoming_source_contract.py",
+      "tests/fixtures/portable-product-boss-debuff-source-delta.json"
+    ],
+    "all_calculation_input_decoder_cpu_transport_files_exact": true,
+    "reused_cpu_tests": 172,
+    "fresh_registry_ledger_tests": 20,
+    "actual_metal_cases": 4,
+    "all4_native_input_raw_exact_to_old": true,
+    "compile_plan_cubin_o1_passed": true,
+    "compile_plan_ptx_passed": true,
+    "extra_gpu": 0,
+    "extra_native_battles": 0
+  },
+  "standard_metal_profiles": 266,
+  "standard_metal_characters": 203,
+  "current_source_cuda_profiles": 0,
+  "prior_frozen_cuda_limited_cases": 1,
+  "calculation_sources_byte_exact_to_standard266_evidence": true,
+  "golden": "portable-product-programs-v76-expected.json",
+  "golden_scope": "Only fixed4 updated to current shader closure;other43 unchanged historical baselines",
+  "windows_compile_request": "product-standard-current-fixed-windows-request-v1.json",
+  "windows_requested_gpu_dispatches": 0,
+  "windows_first_artifact": "cubin O1",
+  "windows_no_ptx_object_link_fallback_or_retry": true,
+  "compiler_choice": "Current standard kernel generated CUDA2,745,490bytes;direct existing CUBIN O1 avoids multi-stage PTX/object/link pipeline if it succeeds. Compiler success not yet known.",
+  "cpu_preflight_tests": 192,
+  "final_cpu_tests_fresh": 20,
+  "reused_identical_cpu_tests": 172,
+  "archive_private_settings_raw_binaries_sdk_distributions": 0,
+  "preserved_failures": [
+    "release-v1 immutable payload omitted unstaged new registered baseline;stopped at validation-deps before SDK/GPU",
+    "first final check assumed old baseline JSON would remain in compact packet;missing file halted before unit/GPU;corrected check explicitly verifies old-v75 to new-v76 substitution"
+  ],
+  "proof_receipts": {
+    "product-standard-cuda-current-fixed-v1-20261102/independent-audit-v1.json": "1f1f5488b091564282fe1257c21de0c3f1ae80d13b2a3584f0aa24de21478d23",
+    "product-standard-cuda-current-fixed-v1-20261102/old4-exact-v1.json": "0b349dd481a2f9118ebf113dff5322e32cda83c4e7359866c90247a80a090bed",
+    "product-standard-cuda-current-fixed-v1-20261102/release-v2/final-check-v1.json": "05970b383c147330bbe261630c2ccaddc5985aeb229231d6ebed9d37cea7c9d4",
+    "product-standard-cuda-current-fixed-v1-20261102/release-v2/compile-plan-cubin-o1.json": "902ac5cc9263303582bdb29a931606b96e917b0e490a0efee7738c1713a698d6"
+  },
+  "full_goal_complete": false,
+  "windows_compilation_result": "Failed once;NVRTC6,Memory allocation failure and split-compile rejection;no artifact/no GPU/no retries",
+  "windows_result_and_plan_binding_proof": "product-compile-plan-binding-v1.json"
+}

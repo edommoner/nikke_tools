@@ -1,0 +1,70 @@
+{
+  "passed": false,
+  "source_commit": "6be8eb5",
+  "scope": "Initial gate failure retained; no efficiency run or stage completion",
+  "old_profiles_preserved": 82,
+  "new_profiles_failed": [
+    {
+      "character": "민트",
+      "grown": false,
+      "duration": 180,
+      "passed": false,
+      "squad": [
+        "민트",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 78,
+      "cpu_battle_executed_for_gpu_input": false,
+      "differences": [
+        {
+          "path": ".body_damage[0]",
+          "gpu": 48671158.0,
+          "cpu": 51949354
+        },
+        {
+          "path": ".body_damage[3]",
+          "gpu": 46126135.0,
+          "cpu": 48857725
+        }
+      ],
+      "cpu_reference_wall_seconds": 1.1464359590318054
+    },
+    {
+      "character": "민트",
+      "grown": true,
+      "duration": 180,
+      "passed": false,
+      "squad": [
+        "민트",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 98,
+      "cpu_battle_executed_for_gpu_input": false,
+      "differences": [
+        {
+          "path": ".body_damage[0]",
+          "gpu": 55311493.0,
+          "cpu": 58723270
+        },
+        {
+          "path": ".body_damage[3]",
+          "gpu": 52999699.0,
+          "cpu": 55805098
+        }
+      ],
+      "cpu_reference_wall_seconds": 1.1962691249791533
+    }
+  ],
+  "terminal_gate": {
+    "name": "roster",
+    "exit_code": 1
+  },
+  "known_alias_probe": "portable-named-state-alias-probe.json",
+  "next_work": "Use the captured incoming order for stat notice, investigate the two real Mint damage differences, then revalidate the fixed source. Efficiency remains forbidden until every required gate and CUDA transfer is terminal and successful."
+}

@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "package_id": "9fb5ca766a9b85c0d4030333bc50d5f92b6f4d0fe4fc4b8ac44a2e074940946c",
+  "stage": "smoke",
+  "bounded_execution_verified": true,
+  "proof_result": {
+    "smoke_verified": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "status": "smoke"
+  },
+  "calculation_verified": false,
+  "cpu_verified": false,
+  "smoke_verified": true,
+  "whole_stage_process_preservation_verified": null,
+  "whole_stage_environment_preservation_verified": null,
+  "stage_verified": true,
+  "stage_complete": true,
+  "gpu_retries": 0,
+  "full_goal_complete": false
+}

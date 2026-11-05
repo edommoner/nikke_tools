@@ -1,0 +1,341 @@
+{
+  "schema": "product-typed-lock-v1",
+  "implementation": "Single shared coordinate Runtime/WorldSchedule/typed target state for physical weapon interception, original projectile skill damage and generation-frozen Lock On; old common arithmetic and consumers reused",
+  "canonical_cpu_changes": 0,
+  "pinned_changes": 0,
+  "numeric_rules_changed": false,
+  "new_suites": 0,
+  "new_auditors": 0,
+  "registry_count": 82,
+  "cli_family": "product-detail",
+  "programs": [
+    "typed-lock-accumulate",
+    "typed-lock-fixed"
+  ],
+  "input_words": 121392,
+  "output_words": 2558208,
+  "capacities": {
+    "original_definitions": 91,
+    "typed_skill_attacks": 128,
+    "complete_skill_rows": 2048,
+    "weapon_packets": 2048,
+    "lock_shot_snapshots": 31
+  },
+  "arena": {
+    "typed_base": 2032000,
+    "typed_skill_scratch": [
+      153568,
+      170976
+    ],
+    "weapon_history": [
+      170976,
+      220224
+    ],
+    "aim": [
+      220224,
+      220768
+    ],
+    "weapon_scratch": [
+      220768,
+      229104
+    ],
+    "reserved_tail": [
+      229104,
+      262144
+    ]
+  },
+  "separate_worlds_or_cpu_state_as_gpu_input": false,
+  "shared_native_reference_commit": "a657409b",
+  "gpu_proof": {
+    "actual_metal_capture": "gpu-metal-v2",
+    "device": "Apple M5",
+    "physical_cases": 2,
+    "one_dispatch": true,
+    "gpu_seconds": 0.5165812083287165,
+    "source_owner": "8c0a13bc65b3c9e86e34ac1a7ea71810110594c123c95e8bdd3da0f1a20e80f9",
+    "decode_only_replay_owner": "1c8e9e3ee407bef63e799335998b6dcb3a510dfb32310f34c2c42440bca3931c",
+    "replay": "replay-v3",
+    "independent_seal_passed": true,
+    "independent_native_oracles": 2,
+    "additional_gpu_during_replay_and_seal": 0
+  },
+  "baseline": {
+    "version": 57,
+    "new_independently_sealed_program": "typed-lock-accumulate",
+    "entries": 2,
+    "old41_members_preserved": true,
+    "fixed_cli_independently_sealed": false
+  },
+  "normal_api": {
+    "conditions": 8,
+    "distinct_original_profiles": 1,
+    "new_profile_delta": 0,
+    "posts": 1,
+    "physical_dispatches": 2,
+    "seconds": 51.46641004097182,
+    "complete_cpu_gpu_http_equal": true,
+    "rows": [
+      {
+        "variant": "fixed-live",
+        "duration": 4,
+        "capture_id": "0601292f8c0f41259476127c165dfe7b",
+        "input_sha256": "96b83753f965b70af31078c302e2e7970569623b0c64cd7c55b170a1b8cc7da7",
+        "output_sha256": "41ce0167f145981c0f21ea18304813c476fbcba0fa00afadd39ecfdd1797269b",
+        "weapon_packets": 171,
+        "typed_skill_activations": 1,
+        "receipts": 3,
+        "break_notices": 0,
+        "lock_pulses": 16,
+        "lock_shots": 2,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-broken",
+        "duration": 4,
+        "capture_id": "b0d566d224624b1788dea9fc2504303f",
+        "input_sha256": "7ba3eded59f721fd8563d2f496be08d657e4d91da9c16dbc41bca317aac37a75",
+        "output_sha256": "5bbb0a7e5a11b1cf3a522be8fc1309775e14737a289a6600e2c72ce1fc4482ee",
+        "weapon_packets": 12,
+        "typed_skill_activations": 0,
+        "receipts": 0,
+        "break_notices": 0,
+        "lock_pulses": 16,
+        "lock_shots": 2,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-skill-break",
+        "duration": 4,
+        "capture_id": "74f131612aee4ed49618efe07cc04b4d",
+        "input_sha256": "4722ff07753ce6b28309631414ac4050a3b41728890c17c4346b0172e1e697d8",
+        "output_sha256": "cbfc6e573d4d93aa16f34c1653eb9e340d627ad8cb9e7f27295812cc6584ebcd",
+        "weapon_packets": 171,
+        "typed_skill_activations": 1,
+        "receipts": 3,
+        "break_notices": 0,
+        "lock_pulses": 16,
+        "lock_shots": 2,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-long30",
+        "duration": 30,
+        "capture_id": "e322b746c78048ceb820bccbb81b6733",
+        "input_sha256": "0d08578b0085c9271e34eecc171b14aebc1ef9823b14067d5dfc5c531168c89f",
+        "output_sha256": "680b1aa635430643e66794e1fb620e7f5a7be9c09d3e8d393261a872687efe0d",
+        "weapon_packets": 1178,
+        "typed_skill_activations": 1,
+        "receipts": 3,
+        "break_notices": 0,
+        "lock_pulses": 110,
+        "lock_shots": 15,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-live",
+        "duration": 4,
+        "capture_id": "64dd1d1097584a54acbefdec1cc20fb0",
+        "input_sha256": "8b1838a091e87cc52d159637c2194f9bf8af053818fc7123efe49b02f2f030fc",
+        "output_sha256": "a281d014c89830866f8b232777a5063b6dd25d7705a0f93e2b4b11865dfe6b0c",
+        "weapon_packets": 171,
+        "typed_skill_activations": 1,
+        "receipts": 3,
+        "break_notices": 0,
+        "lock_pulses": 16,
+        "lock_shots": 2,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-broken",
+        "duration": 4,
+        "capture_id": "d5a8567b20284a6983be452ec2abb839",
+        "input_sha256": "12517f9a427ade23f595625db0d944f1cc3cde843395685a5d43cda611d5d56e",
+        "output_sha256": "8567d29dd4d754eac2f854afb04f41813ac73a7a16b223e215ff9b592f2772b5",
+        "weapon_packets": 12,
+        "typed_skill_activations": 0,
+        "receipts": 0,
+        "break_notices": 0,
+        "lock_pulses": 16,
+        "lock_shots": 2,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-skill-break",
+        "duration": 4,
+        "capture_id": "5e445d51787e4cc7ac55291d3c09d589",
+        "input_sha256": "88539f6b6ee8554b1b8fb32d7e3d10eb1e32da34b95d69c261859ad1dc44da31",
+        "output_sha256": "1712563aa5eadfb3ddbbbe5e7f78c1384e62983d524559ff4f606c21980a1cad",
+        "weapon_packets": 169,
+        "typed_skill_activations": 1,
+        "receipts": 3,
+        "break_notices": 2,
+        "lock_pulses": 16,
+        "lock_shots": 2,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-long30",
+        "duration": 30,
+        "capture_id": "88f51b9736d147da8c22241410b41f5a",
+        "input_sha256": "bc41278af38805221a8b964fe416b2ea67864fef826ede9f0326a10690e25441",
+        "output_sha256": "2ec9fd7f1154eac7524e05c928c3eb24eda62d6247d00a5da6c1e25cd4e83f0f",
+        "weapon_packets": 1178,
+        "typed_skill_activations": 1,
+        "receipts": 3,
+        "break_notices": 0,
+        "lock_pulses": 110,
+        "lock_shots": 15,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      }
+    ],
+    "actual_nonnull_skill_break_notice_conditions": [
+      "accumulate-skill-break"
+    ],
+    "fixed_same_cap_condition_is_not_claimed_as_skill_break": true,
+    "saved_audit_count": 8,
+    "saved_audit_gpu": 0,
+    "saved_audit_native_battles": 0,
+    "owned_node_process_group_absent": true
+  },
+  "release": {
+    "owner": "7e83b9101a304bbd20fb34732fbf5c67a1167e22e8566363487dcda72c3b404a",
+    "own_cpu_tests": 172,
+    "own_native_oracles": 2,
+    "dependencies_passed": true,
+    "ptx_plan_passed": true,
+    "cubin_o1_plan_passed": true,
+    "current_gpu_hashes_and_all_static_inputs_equal_saved_captures": true,
+    "final_saved_projection_conditions": 8,
+    "final_extra_gpu": 0,
+    "final_extra_battles": 0,
+    "raw_mutations_rejected": [
+      {
+        "mutation": "unowned-prefix",
+        "rejected": true
+      },
+      {
+        "mutation": "unowned-tail",
+        "rejected": true
+      },
+      {
+        "mutation": "weapon-history-amount",
+        "rejected": true
+      },
+      {
+        "mutation": "aim-reserved",
+        "rejected": true
+      },
+      {
+        "mutation": "typed-receipt-slot",
+        "rejected": true
+      },
+      {
+        "mutation": "typed-receipt-identity",
+        "rejected": true
+      },
+      {
+        "mutation": "unused-complete-skill-tail",
+        "rejected": true
+      },
+      {
+        "mutation": "physical-trace-address",
+        "rejected": true
+      },
+      {
+        "mutation": "typed-took-exceeds-attack",
+        "rejected": true
+      },
+      {
+        "mutation": "truncated-complete-wire",
+        "rejected": true
+      }
+    ],
+    "only_reviewed_source_delta": [
+      "app/portable_product_programs.py",
+      "app/portable_product_typed_lock.py",
+      "app/portable_weighted_incoming_source_contract.py"
+    ]
+  },
+  "retained_standalone_decoder": {
+    "conditions": 16,
+    "all_calculation_payload_fields_equal": true,
+    "evaluator_vcs_stamps_differ": true,
+    "current_full_gpu_recertified": false,
+    "gpu_calls": 0,
+    "native_battle_calls": 0
+  },
+  "preserved_failures": [
+    {
+      "capture": "gpu-metal-v1",
+      "phase": "Slang compile",
+      "reason": "Missing DF macros before shared modifier inclusion",
+      "device_dispatch": false
+    },
+    {
+      "capture": "gpu-metal-v2",
+      "phase": "product projection",
+      "reason": "Missing notice field only; fixed decoder and reused exact raw with existing replay",
+      "original_comparison_retained": true
+    },
+    {
+      "proof": "final-projection-v1-notice-scope-diagnostic.json",
+      "reason": "Additional2-notice expectation applied too broadly to fixed mode; report actual0 and require actual2 only for accumulate. CPU/GPU/HTTP comparisons were equal; no payload or raw changed"
+    }
+  ],
+  "standard_profiles": {
+    "metal_last_verified": 263,
+    "cuda_historically_verified": 263,
+    "total": 266,
+    "current_full_matrix_recertified": false,
+    "explicit_models_historical_metal": 266,
+    "explicit_models_historical_cuda": 266
+  },
+  "current_typed_lock_cuda_verified": false,
+  "windows_new_runs": 0,
+  "windows_saved_resource_diagnostic_only_requested": false,
+  "windows_prior_missing7_and_peak_excess_remain_unresolved": true,
+  "limitations": [
+    "Declared shapes/aim/order/owner policies are not verified game rules",
+    "Typed weapons+Lock On combined ADD/cover/ammo/healing/weighted models remain unconnected and reject or fall back explicitly",
+    "Capacity overflow rejects GPU output and falls back; no histories truncated",
+    "Full current all-profile matrix not recertified",
+    "Current composite CUDA pending short bounded verification after resource assessment"
+  ],
+  "proof_hashes": {
+    "sealed-v3.json": "57df8de143eb42099766ce0f1d4450a4ede47cc5d191d5e19e048b6ee2c408f0",
+    "independent-audit-v3.json": "c6ffdbbb0d22bee805be5e515d5f3d5b53bb2836e327d9ab080ad88d53ab4d11",
+    "api-metal-v1/complete.json": "078abae7a7323a7a39b332b90dbc2d8b65bb7b15f6017c8d900c78e6f1cc547c",
+    "api-metal-v1/saved-audit-progress.json": "942f71d3ad927d7a636251e3ab96d7d642f5e7294d1839280384bed827db732c",
+    "final-release-projection-v2.json": "9270db990ed77afb8c49b1e65452faca176ff650fd239d57e0aa285771fe5e29",
+    "standalone-reader-regression-v1.json": "57de9ef4c32f0cf7a028df90bcda1707a779b30b1f25e423ec247d56d5b659a3",
+    "release-v1/cpu/cpu-tests.json": "9d63d5a0bf38783cc2d156af2aa6d09143781cb33675ee011c8b0636c77d5248"
+  },
+  "full_goal_complete": false,
+  "windows_saved_resource_diagnostic_import": {
+    "commit": "1bfe3a3e24671356fecdd8c40292d6721e007863",
+    "file": "research/product-coordinate-lock-resource-timeline-diagnostic-v1.json",
+    "bytes": 31194,
+    "sha256": "76914f79edfccde326c875f50d93aa1336f3a31321ba2c32da5a3376e0a1d3c6",
+    "git_blob_and_hash_verified": true,
+    "observed_interval": "cuLaunchKernel before/after",
+    "private_peak_before": 416358400,
+    "private_peak_after": 2097238016,
+    "private_peak_increase": 1680879616,
+    "maximum_job_peak_in8_saved_samples": 2126282752,
+    "final_outer_job_peak": 2149621760,
+    "configured_job_limit": 2147483648,
+    "exact_excess_time_and_cause": "unknown",
+    "new_queries": 0,
+    "new_samples": 0,
+    "new_sdk_gpu_api_or_native": 0,
+    "old_stops_and_unknowns_unchanged": true
+  }
+}

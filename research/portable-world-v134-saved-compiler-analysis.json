@@ -1,0 +1,174 @@
+{
+  "version": "v134-saved-analysis",
+  "cli_calls": {
+    "ptx_stats": 1,
+    "compiler_stats": 1
+  },
+  "exit_codes": {
+    "ptx_stats": 0,
+    "compiler_stats": 0
+  },
+  "source_integrity_verified": true,
+  "ptx_receipt_match": true,
+  "ptx": {
+    "bytes": 5462428,
+    "sha256": "afcf9d50606e7fd7a88095d28334dd6c9c9914ee810e8f7750d5c45c91ef09a3",
+    "functions": 191,
+    "columns": [
+      "function_short_name",
+      "body_lines",
+      "declared_local_bytes",
+      "virtual_declarations"
+    ],
+    "top_local_12": [
+      [
+        "dispatch_0",
+        7065,
+        8488,
+        3674
+      ],
+      [
+        "quantityTotals_0",
+        3289,
+        5872,
+        2067
+      ],
+      [
+        "tick_0",
+        2729,
+        2296,
+        1522
+      ],
+      [
+        "consumeBulletBuffs_0",
+        371,
+        2296,
+        199
+      ],
+      [
+        "captureWorldPeriodicDefinition_0",
+        611,
+        1272,
+        469
+      ],
+      [
+        "applyDefinitionFrame_0",
+        8841,
+        1256,
+        4663
+      ],
+      [
+        "collectEnemyModifiers_0",
+        5826,
+        1008,
+        3742
+      ],
+      [
+        "collectHPAttack_0",
+        2084,
+        1008,
+        1194
+      ],
+      [
+        "firePendingBursts_0",
+        1650,
+        840,
+        960
+      ],
+      [
+        "advanceSkillDamageFrame_0",
+        3462,
+        760,
+        2255
+      ],
+      [
+        "collectStats_0",
+        6567,
+        752,
+        3701
+      ],
+      [
+        "registerTimer_0",
+        651,
+        752,
+        391
+      ]
+    ],
+    "global_max_virtual": {
+      "function": "basicConditions_0",
+      "virtual_declarations": 5328,
+      "body_lines": 7288,
+      "declared_local_bytes": 512
+    },
+    "global_max_body_lines": {
+      "function": "applyDefinitionFrame_0",
+      "body_lines": 8841,
+      "virtual_declarations": 4663,
+      "declared_local_bytes": 1256
+    }
+  },
+  "generated_cuda": {
+    "sha256": "117aa79eda40ce7284fb89e15a8c40e9c5f7459b5cb8df3ae122a1e2893c20fa",
+    "functions": 573,
+    "noinline_functions": 190,
+    "dispatch_0": {
+      "source_bytes": 37117,
+      "body_lines": 1086,
+      "noinline": true,
+      "known_direct_callees": 49,
+      "lexical_direct_call_occurrences": 103,
+      "direct_noinline_callees": 25,
+      "graph_edges": 129,
+      "visited_functions": 48,
+      "max_depth": 3,
+      "truncated": false,
+      "frequent_direct_calls": {
+        "pushFrame_0": 20,
+        "effectiveMaxHP_0": 5,
+        "f64Mul_0": 5,
+        "f64Zero_0": 5,
+        "syncHealthActor_0": 5,
+        "actorFieldHead_0": 4,
+        "f64Add_0": 4,
+        "f64Div_0": 4,
+        "loadDefinition_0": 4
+      },
+      "major_noinline_boundaries": [
+        "advanceDefinitionFrame_0",
+        "advanceIncomingFrame_0",
+        "advanceProtectionHit_0",
+        "advanceSkillDamageFrame_0",
+        "advanceBuffActivation_0",
+        "applyAmmoInstant_0",
+        "pushFrame_0"
+      ],
+      "scope": "既知の字句呼出し。noinlineまたは深さ3で探索停止。実際のinline結果は未測定"
+    },
+    "frame_scalar_layout_estimate": {
+      "symbol": "Frame_0",
+      "members": 17,
+      "types": {
+        "uint32": 9,
+        "int32": 1,
+        "uint64": 7
+      },
+      "declared_member_bytes": 96,
+      "scalar_aligned_size_estimate_bytes": 104,
+      "cuda_abi_verified": false
+    }
+  },
+  "scope": "物理register・compilerメモリ原因・性能・計算一致の証明ではない",
+  "new_nvrtc_ptxas_driver_gpu_calls": 0,
+  "original_cache_capture_claims_modified": false,
+  "outputs": {
+    "fresh-v134-ptx-stats.json": {
+      "bytes": 5679,
+      "sha256": "2277a1c9de43211da58e1127030aec08b7513edac28d7f7b4cb7fa9a7833005d"
+    },
+    "fresh-v134-frame-stats.json": {
+      "bytes": 36079,
+      "sha256": "09bab674bcaa55dc4a191a08c847c59c40f8abf4ce21875e9f105b87c8896b2c"
+    }
+  },
+  "source_scope": "Windows peer saved-file CPU analysis; not independent original artifact audit on Mac"
+}

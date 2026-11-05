@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "scope": "Create-suspended native launch and existing controller smoke; CPU contract checks only",
+  "source_commit": "e722504bfa132cf54b8adb942c5ad447d782748a",
+  "working_tree_dirty": true,
+  "package_id": "97f6f18578ee7249cb180249899064e6c937cda0fe4ee7167523bb29349d7668",
+  "files": 2013,
+  "filetable_sha256": "f4ca145c0b0bfeabfd0562fa84a141c2c0f0d5cc46257be690f75e54537c47ce",
+  "cpu": {
+    "tests": 217,
+    "passed": 216,
+    "skipped": 1,
+    "errors": 0,
+    "failures": 0,
+    "receipt_sha256": "bdbad0309ee2eca9c29aac00875db6461f024d3947013db7a80334b63177fccf"
+  },
+  "initial_failure": "First immutable commands package omitted full-entry controller-test certificate; preserved CPU-only failure; explicit common fixture whitelist corrected",
+  "new_compile_link_driver_gpu_calls": 0,
+  "windows_native_gate_verified": false,
+  "link_verified": false,
+  "calculation_verified": false,
+  "next": "One Windows CPU test + bounded Job smoke; no compiler or linker run"
+}

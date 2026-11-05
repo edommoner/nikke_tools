@@ -1,0 +1,239 @@
+{
+  "schema": 1,
+  "stage": "shared-logical-actor-runtime-before-device-admission",
+  "passed": true,
+  "new_generation": {
+    "elapsed_seconds": 4.177921458001947,
+    "outputs": {
+      "cuda": {
+        "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/logical-runtime-source-v1/research/portable-build/world_coordinate_logical_actor_entry.cu",
+        "sha256": "82ea6ef5ce331786bdd8d034dc25ec47349ea36c85cf93c34b7457a0599e7204",
+        "bytes": 2544546
+      },
+      "metal": {
+        "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/logical-runtime-source-v1/research/portable-build/world_coordinate_logical_actor_entry.metal",
+        "sha256": "62eda63b22eca1901b2a8237f57896ca67d8edf5f1a37710238d4a5b6928bd52",
+        "bytes": 2702848
+      }
+    },
+    "current_gpu_closure_matches": true,
+    "runtime_stride": 138952,
+    "alignment": 8,
+    "cuda_constant_bytes": 48
+  },
+  "legacy_generation": {
+    "stage": "legacy-paired-generation-retention",
+    "passed": true,
+    "gpu_calls": 0,
+    "files": {
+      "cuda": {
+        "identical": true,
+        "sha256": "b8b699a090d005643896a58c238a3b8e67fe7c9f4a2720026ea68c755a6782b8",
+        "baseline_sha256": "b8b699a090d005643896a58c238a3b8e67fe7c9f4a2720026ea68c755a6782b8"
+      },
+      "cuda.reflection.json": {
+        "identical": true,
+        "sha256": "e8ba84d9985924cb994674784ec6d10760400a18f1996cf53109e6b68de7cf60",
+        "baseline_sha256": "e8ba84d9985924cb994674784ec6d10760400a18f1996cf53109e6b68de7cf60"
+      },
+      "metal": {
+        "identical": true,
+        "sha256": "6117e656780854798267945640225b4a796ba4c051e605eabc02b985d0f92982",
+        "baseline_sha256": "6117e656780854798267945640225b4a796ba4c051e605eabc02b985d0f92982"
+      },
+      "metal.reflection.json": {
+        "identical": true,
+        "sha256": "24267df732b4fda279ba3a76f2c088a448156df36fbe3809a6c5d2cefd8f12b0",
+        "baseline_sha256": "24267df732b4fda279ba3a76f2c088a448156df36fbe3809a6c5d2cefd8f12b0"
+      }
+    },
+    "elapsed_seconds": 4.1475788750103675
+  },
+  "required_generation_cache": {
+    "stage": "required-paired-generation-cache-hit",
+    "passed": true,
+    "audit": {
+      "verified": true,
+      "cache_hit": true,
+      "compiler_invocations": 0,
+      "gpu_calls": 0
+    },
+    "key": "1ad2d7832c6c8350bf3a0efcd57efc01ace445ce954b26a34ab872e38c0c650e",
+    "elapsed_seconds": 0.42972325001028366,
+    "calculation_verified": false,
+    "gpu_calls": 0
+  },
+  "native_retention": {
+    "cases": 6,
+    "complete_original_native_identical": true,
+    "elapsed_seconds": 1.3745448749978095
+  },
+  "full_existing_observer": {
+    "elapsed_seconds": 85.45577016699826,
+    "cases": [
+      {
+        "name": "logical-actor-geometry/Belorta/four-live",
+        "checks": {
+          "groups": true,
+          "physical_group_receipts": true,
+          "children": true,
+          "child_landings": true,
+          "all_points": true,
+          "all_draws": true,
+          "rng_state": true,
+          "logical_shots": true,
+          "logical_packets": true,
+          "pellet_channels": true
+        },
+        "groups": 1,
+        "notices": 1,
+        "child_landings": 4
+      },
+      {
+        "name": "logical-actor-geometry/Belorta/three-enemies",
+        "checks": {
+          "groups": true,
+          "physical_group_receipts": true,
+          "children": true,
+          "child_landings": true,
+          "all_points": true,
+          "all_draws": true,
+          "rng_state": true,
+          "logical_shots": true,
+          "logical_packets": true,
+          "pellet_channels": true
+        },
+        "groups": 1,
+        "notices": 0,
+        "child_landings": 0
+      },
+      {
+        "name": "logical-actor-geometry/Belorta/one-outside",
+        "checks": {
+          "groups": true,
+          "physical_group_receipts": true,
+          "children": true,
+          "child_landings": true,
+          "all_points": true,
+          "all_draws": true,
+          "rng_state": true,
+          "logical_shots": true,
+          "logical_packets": true,
+          "pellet_channels": true
+        },
+        "groups": 1,
+        "notices": 0,
+        "child_landings": 0
+      },
+      {
+        "name": "logical-actor-geometry/Belorta/part-not-enemy",
+        "checks": {
+          "groups": true,
+          "physical_group_receipts": true,
+          "children": true,
+          "child_landings": true,
+          "all_points": true,
+          "all_draws": true,
+          "rng_state": true,
+          "logical_shots": true,
+          "logical_packets": true,
+          "pellet_channels": true
+        },
+        "groups": 1,
+        "notices": 0,
+        "child_landings": 0
+      },
+      {
+        "name": "logical-actor-geometry/Belorta/retirement",
+        "checks": {
+          "groups": true,
+          "physical_group_receipts": true,
+          "children": true,
+          "child_landings": true,
+          "all_points": true,
+          "all_draws": true,
+          "rng_state": true,
+          "logical_shots": true,
+          "logical_packets": true,
+          "pellet_channels": true
+        },
+        "groups": 1,
+        "notices": 1,
+        "child_landings": 1
+      },
+      {
+        "name": "logical-actor-geometry/Belorta/four-live-long",
+        "checks": {
+          "groups": true,
+          "physical_group_receipts": true,
+          "children": true,
+          "child_landings": true,
+          "all_points": true,
+          "all_draws": true,
+          "rng_state": true,
+          "logical_shots": true,
+          "logical_packets": true,
+          "pellet_channels": true
+        },
+        "groups": 15,
+        "notices": 15,
+        "child_landings": 60
+      }
+    ]
+  },
+  "shared_regression": {
+    "stage": "logical-runtime-shared-regression",
+    "groups": [
+      "test_battle_attack_group_runtime",
+      "test_reference_rewrite",
+      "test_portable_arena_specs"
+    ],
+    "tests": 19,
+    "failures": 0,
+    "errors": 0,
+    "passed": true,
+    "elapsed_seconds": 3.272826875007013,
+    "gpu_calls": 0
+  },
+  "tests": {
+    "logical_native": 10,
+    "literal_wire": 8,
+    "runtime_source_arena": 4,
+    "full_observer_composition": 2,
+    "shared_regression": 19
+  },
+  "gpu_calls": 0,
+  "cuda_compiles": 0,
+  "windows_new_requests": 0,
+  "calculation_verified": false,
+  "gpu_wire_connected": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Swift wire admission",
+    "CLI development suite with common complete battle/group/history/scratch comparison",
+    "fixed packet CPU preflight + one Metal run + independent GPU-forbidden seal",
+    "current CUDA device validation after old transaction terminal is known"
+  ],
+  "retained_failures": [
+    "logical-existing-native-integration-v1.json: shot wrapper self local hid character from existing passive profiler",
+    "initial inverse rewrite with group scope already installed: BuffManager annotation namespace unavailable; scope order now explicit and negative-tested",
+    "logical-runtime-shared-regression-v1.json: old source audit chain missing new exact inverse; repaired without weakening hashes"
+  ],
+  "proof_sha256": {
+    "logical-runtime-source-v1/logical-generation-v1.json": "109aff7fca49c4397752cb09eb538672d87f12f10108147af454a1aa5b9ea11d",
+    "logical-runtime-source-v1/legacy-generation-retention-v1.json": "dfab718f784827e41d40ea9ed2198e91b933d195735aece0f9e96133da6e1eea",
+    "logical-runtime-source-v1/logical-generation-cold-receipt-v1.json": "1f873e9d975340a07672ceee76e3a85f7b2da6c2fb96b652a67b6bd6d4341a8e",
+    "logical-runtime-source-v1/logical-generation-required-hit-v1.json": "6d7a5815f380ef770b4aea515a1fe6928c5b599720d7a0b598b463b952f482f4",
+    "logical-shot-observer-native-retention-v1.json": "c62f06af7f79e58f744a3a3ac9e8a37ebcf696dd3623842c2b21958b03a2370c",
+    "logical-full-existing-native-six-v1.json": "5e4dfa6a76dfd942de1cd152e07dfb57b4e8544d03dca58a359ae19114dc29d8",
+    "logical-existing-native-integration-v1.json": "4242bd4d7ce0d2bb7abe91bca2a9da59a0ffa44ccd81ead6a1bbfa8919f222f6",
+    "logical-runtime-shared-regression-v1.json": "22ec13ebc88e753cf1d1144ffa68a97006d2e0142e9f33fb491f89004172ce02",
+    "logical-runtime-shared-regression-v2.json": "0b1fd6418171ff9e644aa0a73d5c763836486b4814f7cb8b9ca1da1ce74bfd73"
+  },
+  "final_cpu_regression": {
+    "passed": true,
+    "tests": 43,
+    "elapsed_seconds": 12.274725625000428,
+    "receipt_sha256": "fae719339ccbcf8e1c9484d69d191f384964b7ab797ebb5a7b43f31b711aead9"
+  }
+}

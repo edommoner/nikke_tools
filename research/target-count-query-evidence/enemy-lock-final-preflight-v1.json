@@ -1,0 +1,40 @@
+{
+  "schema": "enemy-lock-final-preflight-v1",
+  "source_commit": "953a34166d9d5ea22b562c0285fe05493056f006",
+  "packages": [
+    {
+      "kind": "normal",
+      "package_id": "ea713e440f14d314b57ad4009d459597e277f826bce6b6a16301df142cbf7f59",
+      "groups": 7,
+      "tests": 54,
+      "native_cases": 4,
+      "inputs": 7,
+      "receipts": {
+        "result.json": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731",
+        "cpu.json": "0c9ee4992ca17d8630c1c9d206194fae29d89ce06e0d671caaa3279da221879b",
+        "cpu-tests.json": "db9c0c3a2bbaf56980c527d92f85765160f024144b37e08eb155683e2119baa2",
+        "artifacts.json": "afadcc33c50287bde1bfc523f85252efea958d242de59c2c424e47951a8f1f65"
+      }
+    },
+    {
+      "kind": "cache",
+      "package_id": "9443edc179edf5504058903eb6219a94c971d836106a73c08a740fd4a502a5a8",
+      "groups": 8,
+      "tests": 63,
+      "native_cases": 4,
+      "inputs": 7,
+      "receipts": {
+        "result.json": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731",
+        "cpu.json": "12b3da1a1fb7f7e8780ca78b07ebc87b8d694a0ada23a5cb89bc5c7fb94ca141",
+        "cpu-tests.json": "d49b9190b62c0e750ea0d06e4dd612560e323ad46b8bc99bfa8ffeb5dc0c4a7d",
+        "artifacts.json": "aea1dc844e2105a4d30c12a12136db630642181f9dfed66ca37de262c1ac3d6b"
+      }
+    }
+  ],
+  "model_check_sha256": "2ce5ba6273f12578a9e32ab785bb05d9d8228ebe9686f0c5f1abfc20b802eda9",
+  "gpu_calls": 0,
+  "windows_requests": 0,
+  "cuda_hardware_verified": false,
+  "legacy_current_source_gpu_recertification": false,
+  "full_goal_complete": false
+}

@@ -1,0 +1,95 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "aimed-real/비스킷/3s/interrupt",
+      "input_sha256": "11b27394d944238b82d413232d040dff44eda19268a88cfee45e9eea700a6dc4",
+      "output_sha256": "e204728eab841c2a5f159d7672127412f1815834428b73cdc8f04173aa7fadeb",
+      "native_sha256": "bb8c910ca8230d1b909489b29c07c45014bec9ae65828c5f57ea83a0ca86cf60"
+    },
+    {
+      "name": "aimed-real/비스킷/3s/part",
+      "input_sha256": "e56304e0993453facd345397de6fce91e2c08f6f8a915ac090517caf565eb84f",
+      "output_sha256": "477440063063572e72051389a03dc80eec0fd8b7fa3999a4ea1ac97075171fd1",
+      "native_sha256": "7a3cdf08a9a41470d8c318b12282a9b7ef29a3afb1d67f77821c42a68a702fe6"
+    },
+    {
+      "name": "aimed-real/비스킷/30s/interrupt",
+      "input_sha256": "6dd15ae109e605bc6350b8524365d5da6b281582943fb12396259814cd7ec4db",
+      "output_sha256": "ddc84009b7de9ffa8fc5669b9ab211b68033194362d13cdd5a6d8495351c4915",
+      "native_sha256": "ddc5a2ad2cab1d7d80d21ae31e92fe5013e06b6dd174fa1a8ceb10945ff827eb"
+    },
+    {
+      "name": "aimed-real/비스킷/30s/part",
+      "input_sha256": "906405ee3a54236cf4279feefadf1e4dcdf1c99d7fcb24586b82da25b1d9d874",
+      "output_sha256": "4504b35ba2a45f9bb334cd736682fa9daa7aaff54a2ea8be7fda0625b978bac7",
+      "native_sha256": "766aa2037db372605db3e47e5faa8755dd496dffe2f36dbb924394f9055af4fb"
+    },
+    {
+      "name": "aimed-real/리틀 머메이드/3s/interrupt",
+      "input_sha256": "a34d4b98715238c5dd60e5534e66ff2c71f63a37a5d7e4fee1a7837e2e56136e",
+      "output_sha256": "af6f250e507be8d20dbd3156a2cc0af10c4b53bef9e1c5392c75047781a0e659",
+      "native_sha256": "19b80c823732f8e47a2f6cee51d2b1746408d7b40bb5a6b937fa50f9bc42ff94"
+    },
+    {
+      "name": "aimed-real/리틀 머메이드/3s/part",
+      "input_sha256": "32206dfc8e1e0e43596d454f20977a920e269bd4dbdcac0acec678ac8da543a2",
+      "output_sha256": "1d9c6eed83c5c801499d894e36cd0ddf505bcc92aeae0ab118d39caf6ac5ebae",
+      "native_sha256": "1b4fca82009e5a6289899273942c2fce94da5832c00e1b7aab7835fd9a026cb8"
+    },
+    {
+      "name": "aimed-real/리틀 머메이드/30s/interrupt",
+      "input_sha256": "a97e6633561e40a55991100fae4f511f9d274db18698c68df590396a3e63b3a1",
+      "output_sha256": "3f0d3f3d7279a431c743b76001bbc382480898507d3150e019f91cab5884c2d8",
+      "native_sha256": "30b3d1749e378f333ac7d1cc128387ec69852ff38ef68f7b64d88f80d6cb05a7"
+    },
+    {
+      "name": "aimed-real/리틀 머메이드/30s/part",
+      "input_sha256": "1bb21f9b84b5dc7ef89db05d5047142ba72beb034f45f35a22da9f6c6db547fa",
+      "output_sha256": "6d5a4cb4aa907da5370d5fe8d2269b333c3f912e37e1a75f9821e5d928fc159c",
+      "native_sha256": "349080bef8fec3c9f13fdc9ebb383cba24105b3dadf61cdf050cf8fe94844a4f"
+    },
+    {
+      "name": "aimed-real/릴리/3s/interrupt",
+      "input_sha256": "9123bc757e6d0be7c2d5cfc8fbad7f8c175cd845072b39c971b03fd5ceb5ad2c",
+      "output_sha256": "fdb2af1670010d2991d32175981b0f270d893b1f338873526b2421367b791f4e",
+      "native_sha256": "ddccde0fac0692d262c915b90ef815a14f732fef03b7b7261c1139c07ec2f2f6"
+    },
+    {
+      "name": "aimed-real/릴리/3s/part",
+      "input_sha256": "163640360a62c05ffa5caaf0b7711927497495aa2e05fbf58a8ea981ca7ab0b1",
+      "output_sha256": "1500ab29f9d8e83b0f885b746684a793ec3a2c562d609aa32cc82e6247a80b48",
+      "native_sha256": "321acdb2e1959e564c4a53ed17af0d2e6363a9e534635f6a5b14b5ee6cc3bddd"
+    },
+    {
+      "name": "aimed-real/릴리/30s/interrupt",
+      "input_sha256": "ee71c0169ad3989b43927801b294519a1594b6396c94cc87b523b513461d559b",
+      "output_sha256": "c86d5b7c744fc4f97976004b1e3011eaae814ffc86f05c8679f33f3098d298c6",
+      "native_sha256": "c186c31fdf3b10072a1a2cfd3434b850e591565678b0753a043068df60d24d35"
+    },
+    {
+      "name": "aimed-real/릴리/30s/part",
+      "input_sha256": "4689c23479e9ca81b97341b6a3657d578c6f652c256d8e47226365520be42776",
+      "output_sha256": "af1cfc738d159d5628dceddd175747e99914e61b5798b8309aea1c8daa71e011",
+      "native_sha256": "afa6851a8c38735e3efb65648155f29b29ffb306a0ebef4fbb595b82324f9b72"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 12,
+  "native_oracles": 12,
+  "input_sha256": "6166222ba862390167e2160843357c50c8b2142633ab115d2c7c18eacded7a2d",
+  "output_sha256": "a68068dc5d257e09d0e57e9fffd413e10617a3a2db6abec26ac177f260b9c1f7",
+  "generated_normalized": {
+    "cuda": "769514c9caf982bf90983b48178f5cc674c76f507900c41cb2694b97b5d25cee",
+    "metal": "282ad874fb3ae8abb5535b70e3301d462854d1ca184a43a0854bf95c56c64b46"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 12,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schema": "original-ammo-resource-final-cli-v1",
+  "source_commit": "848c51b5",
+  "suites": [
+    {
+      "suite": "coordinate-original-ammo",
+      "package_id": "329e2a8807a602382e090c65be4a7cbe1f2f26ad8b4471b8d5818967c92af597",
+      "source_current": true,
+      "paired_generation_cache_required_hit": true,
+      "slang_compiler_invocations": 0,
+      "sealed_generated_baseline_verified": true,
+      "compile_plan": {
+        "passed": true,
+        "artifact_kind": "cubin",
+        "ptxas_level": 1,
+        "memory_limit_mb": 2048,
+        "timeout_seconds": 60,
+        "gpu_calls": 0,
+        "compiler_calls": 0,
+        "claim_created": false
+      },
+      "gpu_calls": 0
+    },
+    {
+      "suite": "coordinate-original-resources",
+      "package_id": "dd80e03372c9c1a0c891697353220d27e2882c45aacf7278f1645bdaf2fc6e16",
+      "source_current": true,
+      "paired_generation_cache_required_hit": true,
+      "slang_compiler_invocations": 0,
+      "sealed_generated_baseline_verified": true,
+      "compile_plan": {
+        "passed": true,
+        "artifact_kind": "cubin",
+        "ptxas_level": 1,
+        "memory_limit_mb": 2048,
+        "timeout_seconds": 60,
+        "gpu_calls": 0,
+        "compiler_calls": 0,
+        "claim_created": false
+      },
+      "gpu_calls": 0
+    }
+  ],
+  "post_seal_compiler_certificate_tests": 24,
+  "post_seal_current_proof_tests": 4,
+  "windows_run_requests": 0,
+  "cuda_execution_verified": false,
+  "full_goal_complete": false
+}

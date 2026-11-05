@@ -5,7 +5,6 @@ from datetime import datetime,timezone
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
 spec=importlib.util.spec_from_file_location('infinite_control',ROOT/'scripts/verify-control-detail.py');c=importlib.util.module_from_spec(spec);spec.loader.exec_module(c)
 spec=importlib.util.spec_from_file_location('infinite_cpu',ROOT/'scripts/audit-infinite-ammo.py');cpu=importlib.util.module_from_spec(spec);spec.loader.exec_module(cpu)
-from detail_gpu import evaluate_full
 from detail_coverage import coverage
 E=c.E;NAMES=c.NAMES
 
@@ -38,7 +37,7 @@ def scenarios():
  yield 'pellet-callback-does-not-change-charge-ammo-snapshot',{NAMES[2]:[E('one round','buff','max_ammo_flat',-10000),E('three pellets','buff','pellet_count_fixed',3),E('infinite on pellet','buff','infinite_ammo',0,event='pellet_hit',duration=1)]},{},12,False
 
 def compare(d,name,body,backend):
- compiled=c.a.evaluate({**body,'_compile_gpu_detail':True});gpu=evaluate_full(d,compiled,module_backend=backend)
+ compiled=c.a.evaluate({**body,'_compile_detail':True});gpu=evaluate_full(d,compiled,module_backend=backend)
  with cpu.observe() as (states,events):result=c.a.evaluate(body)
  checks={k:result[k]==gpu[k] for k in ('total_damage','members','base_stats','burst_timeline')}
  # Magazine readback is added by the v16 kernel, independent of the CPU run.
@@ -65,11 +64,3 @@ def verify(d,backend):
   who=entry['character'];names=[who]+[n for n in NAMES if n!=who][:4]
   r=compare(d,'real-'+who,c.body_for(names,30,True),backend);out.append(r);print(json.dumps(r,ensure_ascii=True),flush=True)
  return out
-
-if __name__=='__main__':
- d=c.Cuda()
- try:cases=verify(d,'native')+verify(d,'ptx')
- finally:d.close()
- files=['app/detail_gpu.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-build.json','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json','scripts/verify-infinite-detail.py']
- report={'generated_at':datetime.now(timezone.utc).isoformat(),'passed':all(r['passed'] for r in cases),'cpu_trace_used_as_gpu_input':False,'cases':cases,'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files}}
- (ROOT/'research/detail-infinite-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if report['passed'] else 1)

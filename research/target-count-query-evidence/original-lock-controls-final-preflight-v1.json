@@ -1,0 +1,55 @@
+{
+  "schema": "original-lock-controls-final-preflight-v1",
+  "passed": true,
+  "source_commit": "bff94e6197a8378390f7e3bf076cd21a70c4aace",
+  "suite": "original-lock-controls-cache-only",
+  "package_id": "08d237bc76435aaa81eb28ad7fb9a2e87d73f598032f0e0ce244072ba627e069",
+  "package_manifest_sha256": "eb77f9bc75ece94efbe9a8cd0b2cc4f6c02078303ec9b0e6eb75d2cbd7af3ee7",
+  "cpu_only": true,
+  "additional_gpu_calls": 0,
+  "cpu_test_groups": 11,
+  "cpu_tests": 86,
+  "cpu_test_skipped": 0,
+  "cpu_unit_seconds": 67.1777604999952,
+  "native_cases": 9,
+  "inputs": 17,
+  "input_sha256": "56d60315940d53afc2950eb5b8c8d01cb45e7b092f21c1b67aabcdf9e496f60d",
+  "cpu_native_preflight_seconds": 100.5449141249992,
+  "cpu_receipt_sha256": "2a58bb09490d47e64d65a0c1e53d73c4be6724f4039af93bffcc3599512fe85e",
+  "cpu_tests_sha256": "ea9564baaffc7f31f9b57ec89e7fdcb5cd14d8e8caede6aa12fe0ec117543504",
+  "cpu_batch_sha256": "be8c2dccf0a43a69b76585cc0613b006744a316b4ef7cd37a2887d8c031a3e93",
+  "calculation_code_delta": {
+    "schema": "original-lock-controls-final-payload-delta-v1",
+    "gpu_package_id": "2b01f589a8eaf4b43d2628b5f6ca21aa927149f661e94b60276b73106d57a99d",
+    "final_cpu_package_id": "08d237bc76435aaa81eb28ad7fb9a2e87d73f598032f0e0ce244072ba627e069",
+    "changed": [
+      "app/portable_model_gap_audit.py",
+      "scripts/nikke_gpu.py",
+      "tests/test_original_lock_controls.py",
+      "tests/test_portable_model_gap_audit.py"
+    ],
+    "added": [
+      "research/portable-original-lock-controls-v1-expected.json"
+    ],
+    "removed": [],
+    "all_gpu_sources_input_and_native_expectations_unchanged": true,
+    "scope": "Changes are proof registry/model audit/test preparation and the independently sealed golden; no numerical executor, native model, packing or shared comparison implementation changed"
+  },
+  "model_audit_sha256": "99e90519df59412f9f7c4582daf198d2c07156cb985c6472ea6e903273caac53",
+  "model_audit_tests": 13,
+  "controller_dependency_tests": 16,
+  "metal_proof": "metal-original-lock-controls-v3.json",
+  "protected_sources_and_strict_normalizer_unchanged": true,
+  "windows_new_gpu_calls": 0,
+  "cuda_hardware_verified": false,
+  "public_gpu_admitted": false,
+  "full_character_certified": 0,
+  "full_goal_complete": false,
+  "remaining": [
+    "PART and injury/healing branches in full original roster",
+    "Crosshair metric and equal-distance ordering",
+    "Death-time sequential retarget policy",
+    "Other characters and variants and public full admission",
+    "Current CUDA hardware and actual CUBIN cache hit"
+  ]
+}

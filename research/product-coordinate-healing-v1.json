@@ -1,0 +1,588 @@
+{
+  "schema": "product-coordinate-healing-v1",
+  "implementation": {
+    "common_cuda_metal_runtime": true,
+    "new_suites": 0,
+    "new_auditors": 0,
+    "new_calculation_formulas": 0,
+    "canonical_cpu_changes": 0,
+    "pinned_changes": 0,
+    "numeric_rules_or_tolerances_changed": false,
+    "registry_programs": 76,
+    "new_thin_programs": [
+      "coordinate-healing-accumulate",
+      "coordinate-healing-fixed"
+    ],
+    "all_original_character_definitions_preserved": true,
+    "wire_boundary": "Complete coordinate input115680 plus original4368-word literal healing bank; strict existing receipt decoder admits exact original healing bank inside reserved coordinate suffix, combined model envelope without a second decoding pass",
+    "input_has_cpu_health_or_targets_or_schedule": false,
+    "original_gpu_sources_byte_unchanged": true
+  },
+  "normal_api": {
+    "conditions": 12,
+    "posts": 1,
+    "physical_gpu_dispatches": 3,
+    "seconds": 48.42892233398743,
+    "all_full_cpu_gpu_http_equal": true,
+    "preflight_extra_cpu_battles": 0,
+    "saved_audit_additional_battles": 0,
+    "saved_audit_additional_gpu": 0,
+    "release_projection_additional_battles": 0,
+    "release_projection_additional_gpu": 0,
+    "owned_node_process_group_absent": true,
+    "rows": [
+      {
+        "variant": "level10-fixed",
+        "source": "gpu/product_coordinate_healing_fixed_battle_entry.slang",
+        "duration": 56,
+        "definitions": 69,
+        "receipts": 8,
+        "sources": 4,
+        "statuses": [
+          "healed"
+        ],
+        "multipliers": [
+          0.2106999999999999,
+          1
+        ],
+        "actor_generations": [
+          1
+        ],
+        "positive_gain_receipts": 7,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "ff648740e5efe0ac445793be934c8dbec86d726cf623132711723b8637aaf01b",
+        "output_sha256": "c71399b1bede678232ebc0a7d6c8a54d8e86cb4590818b6681758bc364528e3f"
+      },
+      {
+        "variant": "level1-fixed",
+        "source": "gpu/product_coordinate_healing_fixed_battle_entry.slang",
+        "duration": 56,
+        "definitions": 69,
+        "receipts": 8,
+        "sources": 4,
+        "statuses": [
+          "healed"
+        ],
+        "multipliers": [
+          0.5659000000000001,
+          1
+        ],
+        "actor_generations": [
+          1
+        ],
+        "positive_gain_receipts": 7,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "adb2990c7bcd9e6bc7c2b5652726e13fe5c1cd3f14770d0a106e375776f8f4ee",
+        "output_sha256": "61d4ca943036aadfeb0b59eccd24149aa42ebce1f67a8a330cf5da765881671d"
+      },
+      {
+        "variant": "capped-fixed",
+        "source": "gpu/product_coordinate_healing_fixed_battle_entry.slang",
+        "duration": 56,
+        "definitions": 69,
+        "receipts": 8,
+        "sources": 4,
+        "statuses": [
+          "healed"
+        ],
+        "multipliers": [
+          0.2106999999999999,
+          1
+        ],
+        "actor_generations": [
+          1
+        ],
+        "positive_gain_receipts": 7,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "f96b11c102f2953e6e15d8869d31ae16ff3e11cfe8048758f61557a3d4ddd5f2",
+        "output_sha256": "c035d6a7fc970b790fd9bbf4cedf098dde25494f8cbc883a98e4b2bb928f8181"
+      },
+      {
+        "variant": "dead-fixed",
+        "source": "gpu/product_coordinate_healing_fixed_battle_entry.slang",
+        "duration": 56,
+        "definitions": 69,
+        "receipts": 8,
+        "sources": 4,
+        "statuses": [
+          "dead-or-inactive"
+        ],
+        "multipliers": [],
+        "actor_generations": [
+          1
+        ],
+        "positive_gain_receipts": 0,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "2a26ae2000de87ebd6ae5ef2467d2c880dc58726f1c2254bf5367f898d3cf92d",
+        "output_sha256": "998f4154838f7f8d1170b9d6fc767d07942edfd8258cc95fd3d7b31935f7ffb6"
+      },
+      {
+        "variant": "renewal-fixed",
+        "source": "gpu/product_coordinate_healing_fixed_battle_entry.slang",
+        "duration": 36,
+        "definitions": 69,
+        "receipts": 8,
+        "sources": 4,
+        "statuses": [
+          "healed"
+        ],
+        "multipliers": [
+          0.2106999999999999,
+          1
+        ],
+        "actor_generations": [
+          1,
+          2
+        ],
+        "positive_gain_receipts": 5,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "2eb96f161f4a28c47022a422dbeb7873dad4f445c1e13b8ff28904856db24ddf",
+        "output_sha256": "167e074a1849475c5ab270645ea6ad495f84ebc0e268cf4c9f723e63104795a0"
+      },
+      {
+        "variant": "fractional-death-fixed",
+        "source": "gpu/product_coordinate_healing_fixed_battle_entry.slang",
+        "duration": 56,
+        "definitions": 69,
+        "receipts": 8,
+        "sources": 4,
+        "statuses": [
+          "dead-or-inactive",
+          "healed"
+        ],
+        "multipliers": [
+          0.2106999999999999,
+          1
+        ],
+        "actor_generations": [
+          1
+        ],
+        "positive_gain_receipts": 5,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "85faa93ed2d5332a071da637798f82c7a8ea25d8cff6b41e8152568de17043a4",
+        "output_sha256": "da16758688d80cf90f7e4c20e362ea9e6ef75eef0eb12eaa02bad1d8f49255da"
+      },
+      {
+        "variant": "level10-accumulate",
+        "source": "gpu/product_coordinate_healing_battle_entry.slang",
+        "duration": 56,
+        "definitions": 69,
+        "receipts": 8,
+        "sources": 4,
+        "statuses": [
+          "healed"
+        ],
+        "multipliers": [
+          0.2106999999999999,
+          1
+        ],
+        "actor_generations": [
+          1
+        ],
+        "positive_gain_receipts": 7,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "358bf1ecc94443e907d82936919dbcb405d23959823013df2b3dcdd66b011e74",
+        "output_sha256": "fb2d5b1b6ed277e7e920070c9e6968c9a6149384fd8eccd33d344c680309cb89"
+      },
+      {
+        "variant": "level1-accumulate",
+        "source": "gpu/product_coordinate_healing_battle_entry.slang",
+        "duration": 56,
+        "definitions": 69,
+        "receipts": 8,
+        "sources": 4,
+        "statuses": [
+          "healed"
+        ],
+        "multipliers": [
+          0.5659000000000001,
+          1
+        ],
+        "actor_generations": [
+          1
+        ],
+        "positive_gain_receipts": 7,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "a73c712c68f4353861e910856bb73a6c0cc656f1955a9e3f0faac8e79d5667d0",
+        "output_sha256": "80e752b111ede2e2a1c780479524d8815bbeb3126d925d1bb0ecf749a0d8b9e6"
+      },
+      {
+        "variant": "capped-accumulate",
+        "source": "gpu/product_coordinate_healing_battle_entry.slang",
+        "duration": 56,
+        "definitions": 69,
+        "receipts": 8,
+        "sources": 4,
+        "statuses": [
+          "healed"
+        ],
+        "multipliers": [
+          0.2106999999999999,
+          1
+        ],
+        "actor_generations": [
+          1
+        ],
+        "positive_gain_receipts": 7,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "2eed92bdf82e5df40f31f7fc9dd7c13f632dc6ee10bd80a5ca5c28db8a554ecd",
+        "output_sha256": "d090be921dd85b6fdbdbaf326e2afd0c64d81e827457c2a29543482c5f609c2d"
+      },
+      {
+        "variant": "dead-accumulate",
+        "source": "gpu/product_coordinate_healing_battle_entry.slang",
+        "duration": 56,
+        "definitions": 69,
+        "receipts": 8,
+        "sources": 4,
+        "statuses": [
+          "dead-or-inactive"
+        ],
+        "multipliers": [],
+        "actor_generations": [
+          1
+        ],
+        "positive_gain_receipts": 0,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "c427f2ca6c840c50bdb8d572e1907a3f45288dc507e59058fa0f6b6f7097a24e",
+        "output_sha256": "be6e610c467224d61969243ee3c8450f035055a6a1bb18ebfd4a20c4b9203929"
+      },
+      {
+        "variant": "renewal-accumulate",
+        "source": "gpu/product_coordinate_healing_battle_entry.slang",
+        "duration": 36,
+        "definitions": 69,
+        "receipts": 8,
+        "sources": 4,
+        "statuses": [
+          "healed"
+        ],
+        "multipliers": [
+          0.2106999999999999,
+          1
+        ],
+        "actor_generations": [
+          1,
+          2
+        ],
+        "positive_gain_receipts": 5,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "b1bfcab7f9836c9fbe73245d6d831d33417ab11a6ab20622cee50fbcb12f58b2",
+        "output_sha256": "9eecff3f7893c3b564515a23e709ec53c8a59ce53a8f18fd4b9784701e081953"
+      },
+      {
+        "variant": "fractional-death-accumulate",
+        "source": "gpu/product_coordinate_healing_battle_entry.slang",
+        "duration": 56,
+        "definitions": 69,
+        "receipts": 8,
+        "sources": 4,
+        "statuses": [
+          "dead-or-inactive",
+          "healed"
+        ],
+        "multipliers": [
+          0.2106999999999999,
+          1
+        ],
+        "actor_generations": [
+          1
+        ],
+        "positive_gain_receipts": 5,
+        "all_full_cpu_gpu_http_equal": true,
+        "current_release_saved_projection_equal": true,
+        "input_sha256": "0ec95dc38986e8bca4585738f7e8bcb4dcee2fa9e08181fc714e8f7499625375",
+        "output_sha256": "8b8e8d0f527622e9b6ccc9e94b577c1f6279a0f978719495a42a593a696836bd"
+      }
+    ]
+  },
+  "cli": {
+    "program": "coordinate-healing-accumulate",
+    "development_owner": "46f229dd439701d570c1aef3ee96ddf3dfc272cc7187c52f99362dd54e85705a",
+    "independent_native_and_metal_cases": 1,
+    "independent_audit": {
+      "package_id": "46f229dd439701d570c1aef3ee96ddf3dfc272cc7187c52f99362dd54e85705a",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-coordinate-healing-v1-20261101/metal-v2",
+      "child_pid": 41729,
+      "input_count": 1,
+      "native_cases": 1,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 1.9966000000131316,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "ea3417dc886d5dbd47278867088d101213dbc03639dacf3e41cb775fcf87fd5a",
+      "output_sha256": "27730cba3aacdabeafd157051c38553ab246901d7a9e04d631e20ce26141b0a4",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "baseline_version": 52,
+    "old38_members_unchanged": true,
+    "fixed_mode_api_verified": true,
+    "fixed_mode_independent_cli_baseline_registered": false
+  },
+  "release": {
+    "owner": "fa22d9b5406ceb73bd8fcf0924267d37835796471ccf4fa60219868ead76c47d",
+    "own_unit_tests": 164,
+    "own_cpu_deps_ptx_o1_plans_passed": true,
+    "only_calculation_scope_delta_after_gpu": [
+      "app/portable_product_programs.py",
+      "app/portable_weighted_incoming_source_contract.py"
+    ],
+    "all12_saved_raw_reprojected_exact": true
+  },
+  "saved_decoder_negative_guards": [
+    {
+      "variant": "level10-fixed",
+      "mutation": "healing-header-reserved",
+      "word": 1867651,
+      "rejected": true,
+      "original_raw_sha256": "c71399b1bede678232ebc0a7d6c8a54d8e86cb4590818b6681758bc364528e3f"
+    },
+    {
+      "variant": "level10-fixed",
+      "mutation": "healing-receipt-reserved",
+      "word": 1867722,
+      "rejected": true,
+      "original_raw_sha256": "c71399b1bede678232ebc0a7d6c8a54d8e86cb4590818b6681758bc364528e3f"
+    },
+    {
+      "variant": "level10-fixed",
+      "mutation": "unused-healing-receipt",
+      "word": 1867952,
+      "rejected": true,
+      "original_raw_sha256": "c71399b1bede678232ebc0a7d6c8a54d8e86cb4590818b6681758bc364528e3f"
+    },
+    {
+      "variant": "level10-fixed",
+      "mutation": "unowned-coordinate-tail",
+      "word": 1900464,
+      "rejected": true,
+      "original_raw_sha256": "c71399b1bede678232ebc0a7d6c8a54d8e86cb4590818b6681758bc364528e3f"
+    },
+    {
+      "variant": "level10-fixed",
+      "mutation": "unfinished-coordinate-packet",
+      "word": 1867632,
+      "rejected": true,
+      "original_raw_sha256": "c71399b1bede678232ebc0a7d6c8a54d8e86cb4590818b6681758bc364528e3f"
+    },
+    {
+      "variant": "level10-accumulate",
+      "mutation": "healing-header-reserved",
+      "word": 1867651,
+      "rejected": true,
+      "original_raw_sha256": "fb2d5b1b6ed277e7e920070c9e6968c9a6149384fd8eccd33d344c680309cb89"
+    },
+    {
+      "variant": "level10-accumulate",
+      "mutation": "healing-receipt-reserved",
+      "word": 1867722,
+      "rejected": true,
+      "original_raw_sha256": "fb2d5b1b6ed277e7e920070c9e6968c9a6149384fd8eccd33d344c680309cb89"
+    },
+    {
+      "variant": "level10-accumulate",
+      "mutation": "unused-healing-receipt",
+      "word": 1867952,
+      "rejected": true,
+      "original_raw_sha256": "fb2d5b1b6ed277e7e920070c9e6968c9a6149384fd8eccd33d344c680309cb89"
+    },
+    {
+      "variant": "level10-accumulate",
+      "mutation": "unowned-coordinate-tail",
+      "word": 1900464,
+      "rejected": true,
+      "original_raw_sha256": "fb2d5b1b6ed277e7e920070c9e6968c9a6149384fd8eccd33d344c680309cb89"
+    },
+    {
+      "variant": "level10-accumulate",
+      "mutation": "unfinished-coordinate-packet",
+      "word": 1867632,
+      "rejected": true,
+      "original_raw_sha256": "fb2d5b1b6ed277e7e920070c9e6968c9a6149384fd8eccd33d344c680309cb89"
+    }
+  ],
+  "failures_retained": [
+    {
+      "log": "models-v1.log",
+      "reason": "Existing empty healing declaration negative expected the former coordinate-composition rejection. Now rejected by its original explicit-source schema; updated error-category assertion only, no value/tolerance change"
+    },
+    {
+      "log": "cpu-v1.log",
+      "reason": "Attempted workspace test edit did not match source. Original immutable packet1 consequently stopped on same old error assertion before GPU. Applied exact patch, fresh packet2 passed full164"
+    }
+  ],
+  "standard_product_profiles": {
+    "metal": 263,
+    "cuda_recorded": 263,
+    "total": 266,
+    "new_standard_profiles": 0,
+    "configured_original_historical_each": 266,
+    "current_full_cuda_matrix_revalidated": false
+  },
+  "new_composition_cuda_verified": false,
+  "declared_healing_and_colliders_game_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Short CUDA difference verification of this same coordinate healing product entry",
+    "Coordinate healing with ADD attacks/ammo/cover/weighted consumer banks is not yet composed",
+    "Typed projectile/shield public product worlds and other uncovered mixed conditions"
+  ],
+  "previous_coordinate_saved_compatibility": {
+    "scope": "Previous ADD12 and weighted6 exact input/GPU-source/raw/current-decoder compatibility; canonical CPU/dedicated reference adapters unchanged; extra native/GPU0",
+    "owner": "fa22d9b5406ceb73bd8fcf0924267d37835796471ccf4fa60219868ead76c47d",
+    "rows": [
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "alive-fixed",
+        "input_sha256": "2136a969c61792639483ddecd0f6981e1867695d09e29638396d6d1e776b9255",
+        "output_sha256": "fcfe2b8221654c384806c6f43d1a75c6df4f5d63c473f52a4ae1283822414168",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "spaced-fixed",
+        "input_sha256": "adc6e004cb78cbc3c81b133aee7368035d17238bfd53b92fc83ec2ba9c70ceb3",
+        "output_sha256": "4d6943e82f6d94e393d52c6a88e621cf2933e19074c7ee2f55580a7f1a7a595e",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "coincident-fixed",
+        "input_sha256": "9bdc6f26974f211bdd941d9bcb1ef79fce41eabe96a137341f471e8f18d139fa",
+        "output_sha256": "98a512d00fd35846228669be31e53e2df289d6dbe5e08ac0699800a4e5c66eb6",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "renewal-fixed",
+        "input_sha256": "b5599e96cf60e6a0f983a85f70e1f92098bfcb417511b77a888f0ee0ccb350ee",
+        "output_sha256": "2702e5e2f2e37dab0e8ff57781d830f9a5e3be9849c176103b3b0f5c37a38332",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "hp-before-shot-fixed",
+        "input_sha256": "eab12bc25e556bb2f722edba2403826f2179c162c783f1f0a4c2b1aee6217b03",
+        "output_sha256": "53f860f24a3144ced99a1dc7597cf0c827d0eb950fa66f0b3fb7981780e56b45",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "time-close-fixed",
+        "input_sha256": "fd19d0831a468c39dba365f59e4651f00bd79b20fd99f196209dc27996ba1121",
+        "output_sha256": "fbe95c8dc1be70f2179d15de9f125312b59d7e77e3eb89f77e6bda6f33f5edea",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "alive-accumulate",
+        "input_sha256": "aba619d139caeb1058614385d9bf73b6344cde013d9e03572e0e0d3babd4ef45",
+        "output_sha256": "635706e29799bd62e1986664c9753ebf5236f31567487c592f9390f0a16bcd00",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "spaced-accumulate",
+        "input_sha256": "cd142e3ab2ffd0d0a57478e6302f70bbe555965b107aed146b7a3df63a161e48",
+        "output_sha256": "5114999287f33c04ceee4da5d00aacba3e3df0e45bc09421aa554193e26d8aa5",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "coincident-accumulate",
+        "input_sha256": "cbe68e423cfad717de1d84d84e9a9353a7ce6eb9e3be8f69c5c9b35db5335ddf",
+        "output_sha256": "11bd9dfb565a2cd499161e5189db43d1700428168449bd3ac9d00021eabc934f",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "renewal-accumulate",
+        "input_sha256": "363ef21ae6f7faca4f3888db6a77eb11fac34bf4d4524933a70d180012fb7b5a",
+        "output_sha256": "dbbd5e7c2638017486641cb3d6fba98acd29f1c7d0627977fb41a5af92dbad7f",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "hp-before-shot-accumulate",
+        "input_sha256": "b21a9e23b5a1894591531a8d626737061738eaacde6b63724e366c21f61c65dd",
+        "output_sha256": "f341c3108756fc874b1d5b354833e0bc327cde20963f44bf10dfcbeb8f8bfe04",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-add-v1-20261101",
+        "variant": "time-close-accumulate",
+        "input_sha256": "d8c247df841feb5997bbcc648d340a0765a4ab14afb969cfe56a85bc45e6e525",
+        "output_sha256": "eb49d82efd20024a8c5d4f48e2ddfa858f09469625c6eda9308f2c5914d3e195",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-weighted-v1-20261101",
+        "variant": "active-fixed",
+        "input_sha256": "69195ced9a16991579088647ecdf542a584d4d98df704811f015d13c34af4822",
+        "output_sha256": "a3fe9e570cd13be339de21bd917be89f56e355265800dc7202d353d5ea6cbe92",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-weighted-v1-20261101",
+        "variant": "late-expire-fixed",
+        "input_sha256": "0c2267b467ff90ef8ec3e91f23672d313f2296640b8c58843d272f9a9b512103",
+        "output_sha256": "7f9bc7749f2cea077ebf0ac07a704af230b486402215cc90f82309fb85905f90",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-weighted-v1-20261101",
+        "variant": "inactive-fixed",
+        "input_sha256": "450b009fe45f6c8304a5132411a400871d1836f49a90f759e79e9459418f3d64",
+        "output_sha256": "151da6356f5622e121ab41ab65a40a83f456446f5a774065977dca4302295fa8",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-weighted-v1-20261101",
+        "variant": "active-accumulate",
+        "input_sha256": "539e4b6aa6e1567c4fc2f9c3b01e2d098b88bb9f79588621489fe0117cc958ef",
+        "output_sha256": "87a1bb42aa36bcc55f6ae39b1e1bbd748be308bdd3c90eef95856cc8efd3ab8f",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-weighted-v1-20261101",
+        "variant": "late-expire-accumulate",
+        "input_sha256": "d9ab6c4b1d1e37a3e8a9282804af02a572f98c868a0df464d8ba223f5f9e69fa",
+        "output_sha256": "9675a5a83ee6457d3a4a25041fa55bcee25e7c7cf2f88ea241f11bfcf6faf6a4",
+        "full_projection_equal": true
+      },
+      {
+        "origin": "product-coordinate-weighted-v1-20261101",
+        "variant": "inactive-accumulate",
+        "input_sha256": "7ced64302dcbbcca9e764a7fbcc58d614e9399597792690d8d40eb46b2bb6116",
+        "output_sha256": "f980bbc3a9ab274c140644f239676966e2fb616f838294d43c42350519ede020",
+        "full_projection_equal": true
+      }
+    ],
+    "additional_battles": 0,
+    "additional_gpu": 0
+  },
+  "planned_windows_unit_selection": {
+    "tests": 11,
+    "all_registered_tests": 164,
+    "unselected": 153,
+    "mac_packet_own_managed_helper_passed": true,
+    "request_case_ids_derived_from_actual_source_AST": true,
+    "request_selector_owner_ids_hashes_exact": true,
+    "all_registered_group_nonempty_guards_retained": true,
+    "scope": "One equipment-row input invariant, packet exact wire preparation, source contract7, new coordinate healing2; full Windows unit/native proof not claimed"
+  }
+}

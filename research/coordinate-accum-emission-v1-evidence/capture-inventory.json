@@ -1,0 +1,132 @@
+{
+  "research/coordinate-accum-emission-v1-evidence/metal84/result.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-metal-v1/result.json",
+    "bytes": 3970,
+    "sha256": "507fbfa67f797338834b3a6ffaeeb76183c4d0cecd20157bc7f6a0e0a10da5ff"
+  },
+  "research/coordinate-accum-emission-v1-evidence/metal84/execution.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-metal-v1/execution.json",
+    "bytes": 4138,
+    "sha256": "dba16c1f428e60e65c5ced9982e3e71956de4bf1ffe9458425b246a4c6c5427b"
+  },
+  "research/coordinate-accum-emission-v1-evidence/metal84/evidence.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-metal-v1/evidence.json",
+    "bytes": 55821,
+    "sha256": "839f34e20988f5739f1bbdf501235ecb5ef12f7e3c058424696959886eec1563"
+  },
+  "research/coordinate-accum-emission-v1-evidence/metal84/comparison.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-metal-v1/comparison.json",
+    "bytes": 29517,
+    "sha256": "292ab7c9ef7bb6e72e0335a7b1775fc2d0714cc46fc84f0745910c4905acdeae"
+  },
+  "research/coordinate-accum-emission-v1-evidence/metal84/cpu-tests.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-metal-v1/cpu-tests.json",
+    "bytes": 2405,
+    "sha256": "75ccd21600bcfb710a798bfc46f6c521f6ff5153d521dcfdb5775807cb13a6aa"
+  },
+  "research/coordinate-accum-emission-v1-evidence/metal84/cpu.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-metal-v1/cpu.json",
+    "bytes": 544,
+    "sha256": "589172f3829705f76c2bbb1745ce4fe6b589f5b72ab422a561b458d105962856"
+  },
+  "research/coordinate-accum-emission-v1-evidence/metal84/run.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-metal-v1/run.json",
+    "bytes": 267,
+    "sha256": "100c66849d2ef61018979442dbf64e35dd112d8d8fa170888bd23612f7b39dbc"
+  },
+  "research/coordinate-accum-emission-v1-evidence/metal84/storage.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-metal-v1/storage.json",
+    "bytes": 253,
+    "sha256": "3b1bd6ec16e5c3563eac4a4d2c46621a932d05b58ddcc184bc89a2beffe95756"
+  },
+  "research/coordinate-accum-emission-v1-evidence/metal84/generation-cache.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-metal-v1/generation-cache.json",
+    "bytes": 32115,
+    "sha256": "496f8e1022ba0d4b9843ef4a8bed120e97074cebaf2e56ea35cf4d3d8a06e19b"
+  },
+  "research/coordinate-accum-emission-v1-evidence/metal84/phases.jsonl": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-metal-v1/phases.jsonl",
+    "bytes": 39230,
+    "sha256": "2856c34b17822129e7c9d727bb703cb95e421fbbfb91ad40a474a70503b828a2"
+  },
+  "research/coordinate-accum-emission-v1-evidence/final-cpu/result.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-final-cpu-v1/result.json",
+    "bytes": 135,
+    "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+  },
+  "research/coordinate-accum-emission-v1-evidence/final-cpu/cpu-tests.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-final-cpu-v1/cpu-tests.json",
+    "bytes": 2408,
+    "sha256": "1c5af4a1def46df7a132bb78acb015a15c2d19af9605ecc9f2b290d95f454e0a"
+  },
+  "research/coordinate-accum-emission-v1-evidence/final-cpu/cpu.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-final-cpu-v1/cpu.json",
+    "bytes": 247,
+    "sha256": "759232d1e6b3fc4786f5bb249e0d2b56b9ecd035795de3a0c4ce52fa7e168126"
+  },
+  "research/coordinate-accum-emission-v1-evidence/final-cpu/run.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-final-cpu-v1/run.json",
+    "bytes": 237,
+    "sha256": "a3068521cfc8255a37e9c34f8aafe5bf0263fbd2d48a3f8d7aceeecade56ecf3"
+  },
+  "research/coordinate-accum-emission-v1-evidence/final-control/cpu-tests.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-final-control-v1/cpu-tests.json",
+    "bytes": 3266,
+    "sha256": "2a7cff28c3273b6858b7a25e8a93a12248f9825bb45ae5b4e88239709e4963c9"
+  },
+  "research/coordinate-accum-emission-v1-evidence/final-control/run.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-final-control-v1/run.json",
+    "bytes": 192,
+    "sha256": "5575acf1e63c5753ea23374483afe673db8024131c2d52700d67e0130ac8c040"
+  },
+  "research/coordinate-accum-emission-v1-evidence/generation/generation.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-generation-v1/generation.json",
+    "bytes": 19102,
+    "sha256": "f1da84e5b4d830472b750562d31f0aef5640be81c3d5ec4a07e25aec79539451"
+  },
+  "research/coordinate-accum-emission-v1-evidence/generation/generation-cache.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-generation-v1/generation-cache.json",
+    "bytes": 32116,
+    "sha256": "f3cc57760bd1a58dbbb9ed4c3735eabdfc8c33249bf7b84710cae1c68d453c18"
+  },
+  "research/coordinate-accum-emission-v1-evidence/generation/phases.jsonl": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-generation-v1/phases.jsonl",
+    "bytes": 42241,
+    "sha256": "ff6fcbcebae1acb1f94804641626ad0a49db069e2b2d74250f5b496944ce22df"
+  },
+  "research/coordinate-accum-emission-v1-evidence/compiler-certificate/report.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-compiler-certificate-v1/report.json",
+    "bytes": 1100,
+    "sha256": "e7b1bc149d8e23e025ff73454c990019d745f3ad24c90d62a2a71d5c8f10b79d"
+  },
+  "research/coordinate-accum-emission-v1-evidence/compiler-certificate/source-certificate.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-compiler-certificate-v1/source-certificate.json",
+    "bytes": 19255,
+    "sha256": "24f00759f7349117438c09009d700c5180627121080a715f897d81f1a729fe74"
+  },
+  "research/coordinate-accum-emission-v1-evidence/seal.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-seal-v1.json",
+    "bytes": 47982,
+    "sha256": "d0d62369251be1e7ff994f321f7f58d9360decd78c4229df4b428a795fdd7a15"
+  },
+  "research/coordinate-accum-emission-v1-evidence/legacy-generated-retention.json": {
+    "origin": "/tmp/nikke-coordinate-accum-legacy-generated-retention-v1.json",
+    "bytes": 35757,
+    "sha256": "d5c00564bfbc1f5b634ae0acef8b902d8a0b57bb04739e501d5527ed9d856aa7"
+  },
+  "research/coordinate-accum-emission-v1-evidence/previous-failure-storage.json": {
+    "origin": "/tmp/nikke-coordinate-accum-previous-failure-storage-v1.json",
+    "bytes": 698,
+    "sha256": "2ff047193b78d36dfbf358b0956a2f871950494a7eedc2877c8b5c76160677d8"
+  },
+  "research/coordinate-accum-emission-v1-evidence/previous-physical-storage.json": {
+    "origin": "/tmp/nikke-coordinate-accum-previous-physical-storage-v1.json",
+    "bytes": 694,
+    "sha256": "8916ab922d19400d16c2336e87f25b6767739d60f8fd6103342f37586bad8a79"
+  },
+  "research/coordinate-accum-emission-v1-evidence/current-storage.json": {
+    "origin": "/tmp/nikke-coordinate-accum-emission-storage-v1.json",
+    "bytes": 706,
+    "sha256": "c18398e24949f9bb43237144e6266185a365beda70697e1f5c19fe57bff901df"
+  }
+}

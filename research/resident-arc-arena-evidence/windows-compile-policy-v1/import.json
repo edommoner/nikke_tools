@@ -1,0 +1,5 @@
+{
+  "commit": "09e0e0c813ac1e81b378c7476136f1be2c705b5a",
+  "manifest_sha256": "a7a0eaf6d2a0b3d6049851074bdcc4cdf83b83fe3290f8de9f21ec0dec6a1050",
+  "scope": "Original immutable PTX diagnostic correctly stopped incompatible CUBIN request before execution; no claim to retry"
+}

@@ -1,0 +1,212 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "coordinate-sampling-common/occlusion-and-body",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 4,
+      "packets": 4,
+      "physical_rng_words": 24,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/full-front",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 4,
+      "packets": 4,
+      "physical_rng_words": 24,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/interrupt-front",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 4,
+      "packets": 4,
+      "physical_rng_words": 24,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/two-muzzles-three-pellets",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 24,
+      "packets": 24,
+      "physical_rng_words": 144,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/retirement",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 4,
+      "packets": 4,
+      "physical_rng_words": 24,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/body-without-targets",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 4,
+      "packets": 4,
+      "physical_rng_words": 16,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/pierce-reach",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 4,
+      "packets": 12,
+      "physical_rng_words": 24,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/charge-pierce",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 3,
+      "packets": 9,
+      "physical_rng_words": 18,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/core-centered",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 4,
+      "packets": 4,
+      "physical_rng_words": 16,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/core-offset",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 4,
+      "packets": 4,
+      "physical_rng_words": 24,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/rotated-rectangle",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 4,
+      "packets": 4,
+      "physical_rng_words": 24,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/critical-snapshot",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 24,
+      "packets": 24,
+      "physical_rng_words": 144,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/spread-snapshot",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 24,
+      "packets": 24,
+      "physical_rng_words": 144,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/core-snapshot",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 24,
+      "packets": 24,
+      "physical_rng_words": 144,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/muzzle-core-average",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 24,
+      "packets": 24,
+      "physical_rng_words": 146,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/targets-127",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 1,
+      "packets": 128,
+      "physical_rng_words": 6,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/pellets-1024",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 1024,
+      "packets": 1024,
+      "physical_rng_words": 4096,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/condition-prob-0",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 24,
+      "packets": 24,
+      "physical_rng_words": 152,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/condition-prob-50",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 24,
+      "packets": 24,
+      "physical_rng_words": 152,
+      "gpu_supported": false
+    },
+    {
+      "name": "coordinate-sampling-common/condition-prob-100",
+      "verified": true,
+      "reference_model_gap": false,
+      "reference_kind": "deterministic-common-cpu",
+      "pellets": 24,
+      "packets": 24,
+      "physical_rng_words": 152,
+      "gpu_supported": false
+    }
+  ],
+  "total_cases": 20,
+  "totals": {
+    "pellets": 1256,
+    "packets": 1397,
+    "physical_rng_words": 5498
+  },
+  "gpu_calls": 0
+}

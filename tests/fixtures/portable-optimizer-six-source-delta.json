@@ -1,0 +1,198 @@
+{
+  "schema": "optimizer-six-source-history-v1",
+  "baseline_commit": "708f0076bd72f7f4e993d91af85c65c2b3ecc3d1",
+  "normalizer_changed": false,
+  "current_gpu_equivalence_claim": false,
+  "files": {
+    "app/portable_cpu_tests.py": {
+      "before_sha256": "ff8557fdcdacf86318b3f2ee24d4c9812dadd9ebc28119a1f6447a39826478d7",
+      "after_sha256": "509d3c1074c7f8798d2531dffb01559f024bdf995f335cddbe31ff0d6d3b11a7",
+      "hunks": [
+        {
+          "start": 19589,
+          "end": 19989,
+          "before": "",
+          "after": "\n# Unit 6 is an additional exact inverse; all older ledgers stay immutable.\nfor _test in (*_REFERENCE_HISTORY_TESTS,'test_portable_native.py','test_portable_metal_deadlines.py','test_optimizer_six.py'):\n    AUDIT_FILES[_test]=tuple(AUDIT_FILES.get(_test,()))+('tests/fixtures/portable-optimizer-six-source-delta.json',)\nAUDIT_FILES['test_optimizer_six.py']+=('tests/fixtures/optimizer-six-v1.json',)\n"
+        }
+      ]
+    },
+    "app/portable_product_resource_budget.py": {
+      "before_sha256": "643684f18ebe59917d01de71acd80deb35debb79162d04636df1d128e702125c",
+      "after_sha256": "64936f071c27621a54183add74d4c9e8f47f387fc2027740fcb3132c59dc1370",
+      "hunks": [
+        {
+          "start": 2833,
+          "end": 3091,
+          "before": "",
+          "after": "# Unknown mixed producers still use a bounded, fully owned v3 tail.\n    # This raises capacity only; overflow continues to fail closed.\n    mixed_ammo = bound is None and any(r['effect'].get('stat')=='gauge_consume_as_ammo' for r in prepared['effects'])\n    "
+        },
+        {
+          "start": 3093,
+          "end": 3107,
+          "before": "",
+          "after": " mixed_ammo or"
+        }
+      ]
+    },
+    "app/portable_product_ordinary_lock.py": {
+      "before_sha256": "1b1c38473c3fc51c645ee166b56a226b590d660092ba3bda295a5c74d3492597",
+      "after_sha256": "ffa2c39ae4b39d8d6c44887a65d058fe24632632419b4c0472eac248379545ad",
+      "hunks": [
+        {
+          "start": 3140,
+          "end": 3149,
+          "before": "!=",
+          "after": " not in ("
+        },
+        {
+          "start": 3150,
+          "end": 3158,
+          "before": "",
+          "after": ",524288)"
+        },
+        {
+          "start": 3288,
+          "end": 3290,
+          "before": "",
+          "after": " |"
+        },
+        {
+          "start": 3291,
+          "end": 3292,
+          "before": "",
+          "after": " "
+        }
+      ]
+    },
+    "app/portable_product_named_carriers.py": {
+      "before_sha256": "b0255f1a298b6b5ba737258147b6b707c67cb9730d103b34c1591f9b4db9fcfe",
+      "after_sha256": "746f635dcf9d688a83c17ad6f35754cdd12398166160c5000c3d4b597897ea68",
+      "hunks": [
+        {
+          "start": 1454,
+          "end": 1454,
+          "before": "if (iw,ow)!=(104400,786432) or ",
+          "after": ""
+        },
+        {
+          "start": 1460,
+          "end": 1463,
+          "before": " not in (",
+          "after": "s={"
+        },
+        {
+          "start": 1495,
+          "end": 1503,
+          "before": "",
+          "after": ":(104400"
+        },
+        {
+          "start": 1504,
+          "end": 1521,
+          "before": "",
+          "after": "786432),\n        "
+        },
+        {
+          "start": 1559,
+          "end": 1747,
+          "before": "",
+          "after": ":(104400,786432),\n        'gpu/product_group_battle_entry.slang':(104408,1048576),\n        'gpu/product_fixed_group_battle_entry.slang':(104408,1048576)}\n    if sources.get(source)!=(iw,ow"
+        },
+        {
+          "start": 3098,
+          "end": 3110,
+          "before": "",
+          "after": "'fixed_' in "
+        },
+        {
+          "start": 3116,
+          "end": 3128,
+          "before": "=",
+          "after": "\n    grouped"
+        },
+        {
+          "start": 3131,
+          "end": 3131,
+          "before": "pu/p",
+          "after": ""
+        },
+        {
+          "start": 3133,
+          "end": 3133,
+          "before": "d",
+          "after": ""
+        },
+        {
+          "start": 3134,
+          "end": 3145,
+          "before": "",
+          "after": "p_' in sour"
+        },
+        {
+          "start": 3146,
+          "end": 3146,
+          "before": "t_fix",
+          "after": ""
+        },
+        {
+          "start": 3147,
+          "end": 3147,
+          "before": "d_battle_entry.slang'",
+          "after": ""
+        },
+        {
+          "start": 3217,
+          "end": 3247,
+          "before": "",
+          "after": "('group_' if grouped else '')+"
+        }
+      ]
+    },
+    "app/portable_backend.py": {
+      "before_sha256": "f2155d2d99c144f8ee188314ef0781c3f29b7f6d437b0137276f3985f0443aba",
+      "after_sha256": "426a70aa651a18cee2a93b293a47f6ad40a98d54137a125b1662e2b4a2a4f565",
+      "hunks": [
+        {
+          "start": 4550,
+          "end": 4805,
+          "before": "",
+          "after": "\n    if source in ('gpu/product_named_carriers_group_battle_entry.slang','gpu/product_named_carriers_fixed_group_battle_entry.slang'):\n        return validate_composed_stride(source.replace('product_named_carriers_','product_',1),input_words,output_words)"
+        }
+      ]
+    },
+    "gpu/stack_runtime.slang": {
+      "before_sha256": "14b13695a63381423f02c9ae727e9ec96746d3679d8baf80bf4a7d1a70411bd3",
+      "after_sha256": "bbfc6ed5a20a57f573afe1c2f35f27553e0950c347f816a43cb5afc9160c6504",
+      "hunks": [
+        {
+          "start": 9546,
+          "end": 9815,
+          "before": "",
+          "after": "#ifdef PORTABLE_FULL_BURST_LANDING\n            // MODE17..19 is the full-burst landing union, checked by\n            // fullBurstPendingInvalid; it is not stack-reserved padding.\n            if(d.kind==3 && d.damagePending==2 && field>=17 && field<20) continue;\n#endif\n"
+        }
+      ]
+    },
+    "gpu/world_skill_runtime.slang": {
+      "before_sha256": "ed33906b468ce7ea5f725212cf03179fba1ab2862d96c0c891ef4a2e2d6835b7",
+      "after_sha256": "77b0bd85b0adb8dd8b6872b6b5116be4445d421b17395a1ea7b212632b6e5124",
+      "hunks": [
+        {
+          "start": 3461,
+          "end": 3462,
+          "before": "",
+          "after": "("
+        },
+        {
+          "start": 3475,
+          "end": 3485,
+          "before": "",
+          "after": "&~524288U)"
+        }
+      ]
+    }
+  },
+  "added_sources": {
+    "gpu/product_named_carriers_group_battle_entry.slang": "f6a27681715d364ed6a9e14a2497edd27ba54585864a64b33a49aa1803edd09d",
+    "gpu/product_named_carriers_fixed_group_battle_entry.slang": "72abd77f10cec3dc0dd2e0f65176c673c866511c221ebe2f7b1d03e90e6d4300"
+  }
+}

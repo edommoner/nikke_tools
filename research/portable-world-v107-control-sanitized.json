@@ -1,0 +1,117 @@
+{
+  "version": 107,
+  "source_commit": "1e34fe5f31918d5d3cf25f712a4cc6671e347979",
+  "package_id": "a352d4047dc7fac5026b83ea619a06e7dccb08d17aadd66d29a1ea723b7a27b7",
+  "archive": {
+    "bytes": 4388253,
+    "sha256": "35685e8136a612e0fb451b9d1ac2d9b929d8c4ee726f018b03f4243cb673b6db",
+    "verified": true
+  },
+  "bootstrap": {
+    "sha256": "ac541852f8e236635f004ccf14f9140914020da4a34cb5f3ab3651a5302d6534",
+    "verified": true
+  },
+  "unpack_manifest_verified": true,
+  "cpu_preflight": {
+    "passed": true,
+    "inputs": 81,
+    "native": 60,
+    "input_sha256": "d9742cac8fd3ebb345ae85a1a3fdb740462230ecdeae0ee8e742c41ae819b272",
+    "seconds": 10.872332300059497
+  },
+  "cpu_tests": [
+    {
+      "suite": "readiness",
+      "tests": 10,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "burst_recipients",
+      "tests": 5,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "compile_cache",
+      "tests": 7,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "gpu_cli",
+      "tests": 23,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "cuda_artifact",
+      "tests": 5,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "phase_audit",
+      "tests": 5,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "windows_cleanup",
+      "tests": 3,
+      "skip": 0,
+      "exit": 1,
+      "failures": 1
+    },
+    {
+      "suite": "windows_observer",
+      "tests": 0,
+      "skip": 0,
+      "exit": null,
+      "status": "not_reached"
+    }
+  ],
+  "executed_tests": 58,
+  "passed_tests": 57,
+  "failed_tests": 1,
+  "real_windows_timeout_test": {
+    "passed": false,
+    "failed_assertion": "Descendant startup marker does not exist",
+    "test_log_seconds": 0.052,
+    "underlying_cause": "unknown",
+    "detail": "Test stopped before assertions checking timeout, empty Job and peak memory. Temporary integration records were removed by test cleanup."
+  },
+  "smoke": {
+    "status": "failed_during_cpu_tests",
+    "verified": false,
+    "outer_job_started": false,
+    "pre_single_verified": null,
+    "post_empty_verified": null,
+    "peak_memory_bytes": null,
+    "cleanup_error": null,
+    "observation_error": null,
+    "observation_status": "not_reached"
+  },
+  "environment": {
+    "preservation_verified": null,
+    "missing_count": null,
+    "missing_cause": "not_observed",
+    "original_head_status_preserved": true,
+    "services_operated": false
+  },
+  "tracked_cpu_seconds_sum": 25.50687659997493,
+  "run_attempts": 1,
+  "retry_count": 0,
+  "nvrtc_compile_calls": 0,
+  "driver_load_calls": 0,
+  "gpu_dispatch_calls": 0,
+  "calculation_verified": false,
+  "cuda_success": false,
+  "prior_records_and_failure_verdicts_retained": true,
+  "results_saved_locally": true,
+  "results_archive": {
+    "bytes": 4722,
+    "sha256": "3462256e091e75cb83d5aebcd2f55278420ef0f29cef5f5f226b169bccfb09c9"
+  },
+  "github_push": false
+}

@@ -1,0 +1,95 @@
+{
+  "package_id": "4093b5b93097e421816ebf25cc387cd0b6e492f6303b29e640a3768b7154b847",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/logical-dead-overkill-metal-v1",
+  "schema": "independent-metal-audit-groups-v1",
+  "child_pids": [
+    61790,
+    61805,
+    61812,
+    61831,
+    61833,
+    61836,
+    61837
+  ],
+  "groups": [
+    {
+      "child_pid": 61790,
+      "case_indices": [
+        0,
+        1
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 24.42004487500526
+    },
+    {
+      "child_pid": 61805,
+      "case_indices": [
+        2,
+        3
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 24.393938207998872
+    },
+    {
+      "child_pid": 61812,
+      "case_indices": [
+        4,
+        5
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 78.57783945799747
+    },
+    {
+      "child_pid": 61831,
+      "case_indices": [
+        6,
+        7
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.035436790989479
+    },
+    {
+      "child_pid": 61833,
+      "case_indices": [
+        8,
+        9
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0501909580052597
+    },
+    {
+      "child_pid": 61836,
+      "case_indices": [
+        10,
+        11
+      ],
+      "input_count": 2,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0445022500061896
+    },
+    {
+      "child_pid": 61837,
+      "case_indices": [
+        12
+      ],
+      "input_count": 1,
+      "native_cases": 0,
+      "elapsed_seconds": 3.04718504199991
+    }
+  ],
+  "input_count": 13,
+  "native_cases": 6,
+  "live_parent_receipt_present": false,
+  "per_group_timeout_seconds": 180,
+  "elapsed_seconds": 140.3239305419993,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "ca6538e82b5fbb42c92a788cc22e314b07388d1be35e3eaca60b94ee22b85228",
+  "output_sha256": "b3cded4818690ca4b314287a035d96455edeb0b250cc9cff8672eeb7e855900a",
+  "scope": "Fresh GPU-forbidden child groups, each individually bounded, covering every input once; total elapsed includes all groups"
+}

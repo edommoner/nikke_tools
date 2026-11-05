@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "stage": "cpu-native-contract",
+  "parent_commit": "b07c1fd53fd43f4f0996a252ce667299d5386ab8",
+  "package_id": "d29dea53cefada2f27f6979f8bdb2aae57092e32366cf3820250383c3411cf90",
+  "native_cases": 29,
+  "cpu_tests": 27,
+  "reference_seconds": 5.962691624998115,
+  "gpu_calls": 0,
+  "packing_in_reference": 0,
+  "windows_commands": 0,
+  "windows_thread_history_reads": 1,
+  "gpu_supported": false,
+  "in_game_rules_verified": false,
+  "declared_model": true,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "static_profiles": {
+    "packed": 241,
+    "total": 266,
+    "base_packed": 181,
+    "base": 203,
+    "remaining_categories": 33
+  },
+  "work_lanes": {
+    "reference_model_gap": 10,
+    "native_contract_extension": 3,
+    "reference_review": 20
+  },
+  "next": [
+    "shared scalar received-heal resource/retirement/discharge",
+    "fresh current-source compiler package and cache provenance; no stale CUBIN reuse"
+  ]
+}

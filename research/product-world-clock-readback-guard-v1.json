@@ -1,0 +1,40 @@
+{
+  "schema": "saved-standard-world-clock-guard-audit-v2",
+  "metal_saved_cases": 262,
+  "unchanged_input_cases": 262,
+  "fallback_cases": [
+    {
+      "index": 88,
+      "reason": "Movement requires explicit reference_models.enemy_movement geometry and policies; composition is not connected"
+    },
+    {
+      "index": 111,
+      "reason": "Movement requires explicit reference_models.enemy_movement geometry and policies; composition is not connected"
+    },
+    {
+      "index": 210,
+      "reason": "Lock On requires explicit reference_models.lock_on candidate/delivery policies and typed bindings; composition is not connected"
+    },
+    {
+      "index": 251,
+      "reason": "Named range requires explicit reference_models.named_range geometry and rules; composition is not connected"
+    }
+  ],
+  "cpu_battle_calls": 0,
+  "gpu_calls": 0,
+  "seconds": 2.963645208044909,
+  "scope": "Saved historical Metal clocks and unchanged static input only; no current owner/source GPU recertification",
+  "previous_guard_candidate_rejected": "v1 incorrectly treated history count as node count; no GPU runs",
+  "full_saved_guard_audit_sha256": "ddc61bb73fbeab9a3c1830e0cdd18baa5f92b7cee7d0528182dde1c4da960cbd",
+  "guard": "Require bounded history count, mandatory root-start [32,0,0,0], closed node states even in stationary boss requests",
+  "unit_checks": {
+    "test_product_detail_packet": 11,
+    "test_portable_detail": 67,
+    "test_weighted_source_contract": 7
+  },
+  "new_gpu_calls": 0,
+  "runtime_root_cause_fixed": false,
+  "original_gpu_error_status_preserved_before_world_guard": true,
+  "declared_healing_group_saved_clock_guard_passed": 4,
+  "declared_healing_group_reprojection_scope": "Inputs unchanged and clock guard accepted four stored outputs. Full current-root payload comparison is not certified because evaluator git identity differs from the immutable original; original immutable four-case CPU/GPU/API proof is unchanged."
+}

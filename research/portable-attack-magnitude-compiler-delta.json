@@ -1,0 +1,17 @@
+{
+  "baseline_source_sha256": "152d7375a74c71009699af5a1ec346538a02572b95a840a7d4097126eb91755d",
+  "candidate_source_sha256": "d725459d88367578e6c4721636e9025627d2a0011aefc1cd28982ca1aedb8b89",
+  "delta": {
+    "source_bytes": 5044,
+    "functions": 3,
+    "noinline_functions": 0
+  },
+  "runtime_declared_fields_identical": true,
+  "runtime_size_estimate_bytes": 138928,
+  "actorSetCapture_noinline": true,
+  "gpu_calls": 0,
+  "nvrtc_compile_calls": 0,
+  "compiler_memory_improvement_verified": false,
+  "scope": "Saved generated CUDA lexical difference only; not measured compiler memory, registers or execution performance",
+  "explanation": "Named caster-ATK factor scan and explicit raw buff identity guard; no new Runtime arrays; all other late attack families remain unchanged."
+}

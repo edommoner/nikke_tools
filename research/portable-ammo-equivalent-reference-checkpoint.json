@@ -1,0 +1,453 @@
+{
+  "schema": 1,
+  "suite": "ammo-equivalent",
+  "stage": "cpu-native-contract",
+  "passed": true,
+  "cpu_reference_verified": true,
+  "calculation_verified": false,
+  "gpu_supported": false,
+  "case_count": 25,
+  "positive_contract_cases": 25,
+  "reference_model_gap_cases": 0,
+  "gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "packing_calls": 0,
+  "elapsed_seconds": 1.6246287090471014,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "package_id": "973c251ee7b6678dd1c18d41a412e4cea55452e7c357795f86c8f8a137913142",
+  "package_source_commit": "0ca8a41eda4cff36618ee203afe64e6b3f000253",
+  "archive": "/tmp/nikke-ammo-equivalent-reference-v2.zip",
+  "archive_sha256": "8a89c7b3786a4b6ed8145392e92c6b134a54b9deb04c099d2ca020dd0d543ed4",
+  "package": "/tmp/nikke-ammo-equivalent-reference-v2",
+  "native_report": "/tmp/nikke-ammo-equivalent-reference-v2-report.json",
+  "native_report_sha256": "e592001652782258cbcfbac0e245b00838be574d04f260c9152b330bffcf6139",
+  "native_report_bytes": 1581212,
+  "source_sha256": {
+    "app/portable_reference.py": "2a87fa95ec62405c54a2ec21184f08c2253e1742222e6c8511e533b1c666590f",
+    "research/portable_ammo_equivalent_cases.py": "ee299d40d5ad360f3dd42c9e0098ac5eaca8dfeeb05398b02ef56f5021c637dd",
+    "research/portable_ammo_equivalent_contracts.py": "daf96456a804a54dd811b9ae15c18ae5aae09280d562219414ccf09a663f56b0",
+    "research/world_ammo_equivalent_native.py": "44319c3b5d9101f056be845b81bc984f60eb411c61aebc71a734ee232f665a4d",
+    "tests/test_portable_ammo_equivalent_reference.py": "274d7450b83fb741a4aa70c78aa336fe7a2aa44db8c356e7c75a1b01de164847",
+    "app/portable_readiness_semantics.py": "05e33479e25d3733789b051c6100214ecec1047e4107d67e233cae4d1725d5a8",
+    "tests/test_portable_readiness_semantics.py": "9fe2ec3eb649970adbe3390ecc4d2936aa00e7161f9e26b82c6c0f792248e937"
+  },
+  "cases": [
+    {
+      "name": "ammo-equivalent-four",
+      "input_sha256": "e5dd5f87cbc3cbd04872522ed1381337de2fe109f58911f86de1d5b22dce8545",
+      "native_sha256": "51f3ee68137184d60717cf3d5b844400140946278e51a121414b0aa814c1cee0",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 12,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-level-value",
+      "input_sha256": "3795ff938531321f1a9d1a2b4206f89544e7cc0449a21581b43849d404ad0ec9",
+      "native_sha256": "51f3ee68137184d60717cf3d5b844400140946278e51a121414b0aa814c1cee0",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 12,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-zero",
+      "input_sha256": "adc918c89819494ceb4754e5e8492b7a10e4fa2cd15d1214cc6615b8c981bb72",
+      "native_sha256": "115f5bc72918dc56b23c1c88450dfeaa4573c0bc012ba0e0613e6b43cda84c1f",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 3,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-one",
+      "input_sha256": "8f645c9d347f4d3cd11e1d71ee0898ac388822193dc0e61560951ad671e76844",
+      "native_sha256": "d35d4f867f34988f924e8825b75968367f75f5927e8eb05914e1602d1f2493db",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 3,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-negative",
+      "input_sha256": "900602acbb997d6b0f7048ff624cb435636d818b012e1eb0dc43fda1fd3c8286",
+      "native_sha256": "92716740c2e473e7ca51f2f35aed809f3ae1dda5a92d2d5afb2cb9aa38371c9a",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 3,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-fraction",
+      "input_sha256": "ff054dfed011edd1eb044bb920adaa662ff48ab95506784cdece446859db1d03",
+      "native_sha256": "cbd5de60c681c98471c239dcca44dbef145af254cf7da3ac2a60abec1d04f0ec",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 9,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-next-below-five",
+      "input_sha256": "3467608a538d51ae4e672e3883484b6bc7c843beda122c1ae6668907478355f6",
+      "native_sha256": "9994e4400afd99532c7798ea5ad8cae6e36002a7cd4ca6e98157db6ffaf71f62",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 12,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-five",
+      "input_sha256": "dee2533c287b0060a5770cd1f0ed5908316a693cc2badd8db8ff7aa5f50857f3",
+      "native_sha256": "fb357cac18e6b3931b2b6b62cecee386157ea4be3e9b13bfd5842566f14cabba",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 15,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-forty",
+      "input_sha256": "d35b9e50427e0424485309781f9429e879a176747d33fc86afe8288047cb198d",
+      "native_sha256": "33e996ff928517b55a2fd17570ea16d71d9d19985b02d5aab810b1a891aba8ec",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 120,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-maximum",
+      "input_sha256": "344179f4bc467cf3ee020f35b9e6d845aedbb32b931e0512b6722e3e4f30ce6c",
+      "native_sha256": "6f281af99cc15bbef759e525ac9d8fcd383f86e353ba8b8ed76c3820dc4c2593",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 4096,
+        "instant_dispatches": 1,
+        "physical_shots": 1,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-battle-start",
+      "input_sha256": "23849dc416c5c6fadfd4eeae9337ec6c635d6194a4c8730122a15c322bfc83f2",
+      "native_sha256": "d1708c20ec60efb55f9672b38d8b4219a975391844356f76b099edd32c08bcb4",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 6,
+        "instant_dispatches": 1,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-duplicate-descriptor",
+      "input_sha256": "a9d04361e859c0349b329710c78364409f24d3227e07b1c9df96f8bd88309f04",
+      "native_sha256": "417ec81be022a287a8f3dbadca0d9d5922c61581973cbca408a6662feeeb7aa1",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 21,
+        "instant_dispatches": 6,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-limited",
+      "input_sha256": "d3f99a7e9b1b09fecd3eed25bef9a73ff25e9cf5c641d1ed4ca6e3a7985c1c67",
+      "native_sha256": "6b5c53ed181830de85c1dff16e1b193b04052278148ec7de1d65baec03e932d4",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 6,
+        "instant_dispatches": 1,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-false-condition",
+      "input_sha256": "404f9b05d6d7bf1294fe0dd6d3eb71b01d153e68faacccf75ad566c4b8121dc7",
+      "native_sha256": "c9a9e8179a93014ba7a00ec1188b7eb9d14d6b41d2b0c886086ce8fe8953fb7c",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 3,
+        "instant_dispatches": 0,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-last-owner",
+      "input_sha256": "af52e5b231324e6538677e27867562ffe60b7de55ddd4b8d0614da9be72162d8",
+      "native_sha256": "7a9078e016b903db7cd50872daaf83f3726e95b577c0c6676e68405ae063d97b",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 12,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-cross-owner-global-counter",
+      "input_sha256": "e6502d7380bc8d21933410a0ee4a764a29b27941404537cc586f0d0b77d157a6",
+      "native_sha256": "c624f56513912bd9068e62f2bb3c17f1d3b7c86132eceb91b48d0313419ae0cf",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 12,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-scatter",
+      "input_sha256": "08b466dcb0498a6077700ffe6b2eac215adfc1ae48eb5064052b5528bc71f373",
+      "native_sha256": "249e499acfdcf29bb6cfc736981fc4fae7eca14bd2c1a45ce51665e78b5c0fef",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 12,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-muzzles",
+      "input_sha256": "6fe6c960dfc221f73e271391dced4276fe20f160bd04601c7fedba4023f73b03",
+      "native_sha256": "add06d5cd7c9349ffd1f1db3ad3a824f174b6daf85094802910888b5180fe3db",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 12,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-charge",
+      "input_sha256": "8dd6c8c27a4622a811062881c2bd3ef36331d2eb1354d3521189bf8947335f1c",
+      "native_sha256": "855b0344d3042454607cc68f43a552bd6453eb64399b3cf2e6c9ab5ee2281ed4",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 8,
+        "instant_dispatches": 2,
+        "physical_shots": 2,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-every-notice",
+      "input_sha256": "2a4bd91ff59e98d8da073914d51f2a96b8facc338ff426111a23a892e6493d6a",
+      "native_sha256": "9eaa134a74d0b518c03d7431d0fd00527dcfe6c8dd543870dda293d49876a627",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 12,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-charge-every-notice",
+      "input_sha256": "44a9efc7c4c967074e2e9f716b939f070cb1567dc194733e8dc5c3fb57607d8d",
+      "native_sha256": "3e58e4aa4684e2023304df4e4b44d2591aa0577c3d6ea5d75e77765310ce05b1",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 8,
+        "instant_dispatches": 2,
+        "physical_shots": 2,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-infinite-ammo",
+      "input_sha256": "835ec66be1db163941bd2f1ada0c825af14b77327561ec31276d62bba09273a5",
+      "native_sha256": "f6b0da37937920cdedaf5440c0b1c68fc251a65eab6c8fc68c3338650040f612",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 9,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-recursive-bounded",
+      "input_sha256": "5cdd18fa9088f59ff0b709babab26fa11c541ea343e2c3cfae07937274f063c6",
+      "native_sha256": "beedf1b1a79f901fbd5b2b41192bac14c4d4039c6acb6f075e517b6393746ddc",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 5,
+        "instant_dispatches": 2,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-recursive-once",
+      "input_sha256": "0b1854735da62122affe68807f8507979e9daa08ef33d3b361d14eb58ea029b4",
+      "native_sha256": "f57cc4574f4413c6209ffb63827a0282e4978a99c2adbdcbc58b8c81ba543334",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 6,
+        "instant_dispatches": 1,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    },
+    {
+      "name": "ammo-equivalent-periodic",
+      "input_sha256": "559b4bab07290f1d71e615a20b6dd8c1954fadf5e3ba4d1869b8a5fbfc9f0d02",
+      "native_sha256": "ac49b607a82e91b66715bb656fa2fcfa656e8606155a2d6ecf0871c07697e899",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "notices": 9,
+        "instant_dispatches": 3,
+        "physical_shots": 3,
+        "ammo_decrement_notification_independent": true
+      }
+    }
+  ],
+  "tests": {
+    "tests": 30,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "patterns": [
+      "test_portable_ammo_equivalent_reference.py",
+      "test_portable_pellet_shot_reference.py",
+      "test_portable_revive_reference.py",
+      "test_portable_readiness_semantics.py"
+    ],
+    "seconds": 10.442380291060545,
+    "gpu_calls": 0
+  },
+  "source_paths": 430,
+  "gpu_source_changes": 0,
+  "gpu_claim_consumed": false,
+  "new_gpu_admission": false,
+  "static_coverage_changed": false,
+  "existing_consumer": {
+    "character": "신데렐라 : 크리스탈 웨이브",
+    "effect": "저격 모드 탄 소비 집계",
+    "stat": "squad_ammo_consume_as",
+    "value": 40,
+    "timing": "full_charge_fire",
+    "consumer": "calculator/buff_manager.py _dispatch_instant"
+  },
+  "totals": {
+    "shots": 71,
+    "notices": 4426,
+    "instant_dispatches": 64
+  },
+  "windows": {
+    "new_actions": 0,
+    "new_compile": 0,
+    "new_native": 0,
+    "new_gpu": 0,
+    "incident_cause": "unknown",
+    "environment_preservation": false,
+    "services": "unverified",
+    "new_execution_stopped": true
+  },
+  "normal_ui": "CPU",
+  "next": "Connect bounded kind37 notices to the shared synchronous continuation, preserve each child callback; no bulk counter addition",
+  "pre_classification_native_and_trace_preserved": true,
+  "inventory": {
+    "profile_count": 266,
+    "packed_profiles": 224,
+    "packed_base": 164,
+    "categories": 71,
+    "work_lanes": {
+      "gpu_lowering_candidate": 1,
+      "native_contract_extension": 0,
+      "native_consumer_research": 4,
+      "reference_model_gap": 1,
+      "reference_review": 65
+    },
+    "forbidden_calls": {
+      "cpu_battle": 0,
+      "gpu": 0
+    },
+    "gpu_admission_changed": false
+  }
+}

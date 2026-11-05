@@ -1,0 +1,29 @@
+{
+  "package_id": "ee17ea8b624c019eaee1531d270766f4c4bfb19167f241b27da3003454f13a89",
+  "inputs": 184,
+  "calculation_verified": false,
+  "mismatches": [
+    {
+      "index": 155,
+      "name": "roster/real/앵커 : 이노센트 메이드/favorite-0/3s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 156,
+      "name": "roster/real/앵커 : 이노센트 메이드/favorite-0/30s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 157,
+      "name": "roster/real/소라/favorite-0/3s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 158,
+      "name": "roster/real/소라/favorite-0/30s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    }
+  ],
+  "original_capture_retained": true,
+  "original_result_rewritten": false
+}

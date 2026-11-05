@@ -1,0 +1,13 @@
+{
+  "path": "/tmp/nikke-native-route-final53-v2",
+  "package_id": "7e38f81f58323b958108f01ad728adedbdcf3eca0cb1e92f4979909a6b68f15c",
+  "payload_files": 2833,
+  "manifest_sha256": "912b1f3cddb8232ce7d4db213f1dbb741bc211af89491ecd41e498c48c0746be",
+  "archive_bytes": 9263394,
+  "archive_sha256": "852cf95898285ebc228613b08046e8f8f1e042ae97a6103a437000353e3b30d2",
+  "changes_from_executed_producer": [
+    "app/portable_readiness_semantics.py",
+    "research/portable-world-attack-group-native-route-short-expected.json",
+    "scripts/nikke_gpu.py"
+  ]
+}

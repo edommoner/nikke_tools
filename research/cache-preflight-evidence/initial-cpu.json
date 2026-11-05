@@ -1,0 +1,83 @@
+[
+  {
+    "pattern": "test_portable_cache_probe.py",
+    "tests": 9,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.27305066608823836
+  },
+  {
+    "pattern": "test_portable_required_cache_preflight.py",
+    "tests": 6,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.032678999938070774
+  },
+  {
+    "pattern": "test_portable_compile_cache.py",
+    "tests": 12,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.07634125009644777
+  },
+  {
+    "pattern": "test_portable_cuda_artifact.py",
+    "tests": 12,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.015738541958853602
+  },
+  {
+    "pattern": "test_portable_compile_cli.py",
+    "tests": 8,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.02135758299846202
+  },
+  {
+    "pattern": "test_portable_generation_cache.py",
+    "tests": 11,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.0983380830148235
+  },
+  {
+    "pattern": "test_portable_generation_request.py",
+    "tests": 2,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.0033229170367121696
+  },
+  {
+    "pattern": "test_portable_gpu_cli.py",
+    "tests": 39,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 1.2167270419886336
+  },
+  {
+    "pattern": "test_portable_gpu_replay.py",
+    "tests": 6,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.024095291970297694
+  }
+]

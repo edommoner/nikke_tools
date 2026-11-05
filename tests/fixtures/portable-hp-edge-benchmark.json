@@ -1,0 +1,567 @@
+{
+  "combat": {
+    "weapons": [
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      }
+    ],
+    "targets": [
+      {
+        "hp": 1000000000.0
+      }
+    ],
+    "trace": "summary"
+  },
+  "effects": [
+    {
+      "name": "periodic recovery",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "heal_hp_pct",
+      "fixed_value": 100,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "every:0.2s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "periodic spend",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "current_hp_reduce",
+      "fixed_value": 50,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "every:0.1s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 0",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 1",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 2",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 3",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 4",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 5",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 6",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 7",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 8",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 9",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 10",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 11",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 12",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 13",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 14",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 15",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 16",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 17",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 18",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 19",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 20",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 21",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 22",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 23",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 24",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 25",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 26",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 27",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 28",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "listener 29",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "max_stack": 1000,
+      "trigger": {
+        "timing": [
+          "event:ally_hp_below:50"
+        ],
+        "condition": []
+      }
+    }
+  ],
+  "script": [
+    [
+      3,
+      24,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      3,
+      2,
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0
+    ]
+  ],
+  "expected_damage": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "expected_ammo": 1
+}

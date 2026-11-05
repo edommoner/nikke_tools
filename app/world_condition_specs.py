@@ -54,30 +54,11 @@ def validate_target_predicate_policies(rows):
         raise ValueError('Logical target predicates for projectile/shield counters require an explicit actor policy')
 
 
-def render_cuda():
-    inherited = [code for _,code in TARGET_EVENT_PREFIXES]+[47,55,56,57,61]
-    expression = '||'.join(f'event=={code}' for code in inherited)
-    return f'''// Generated from world_condition_specs.py; do not hand-edit.
-#define WORLD_COUNT_ABOVE {ENEMY_COUNT_ABOVE}
-#define WORLD_COUNT_BELOW {ENEMY_COUNT_BELOW}
-#define WORLD_TARGET_BOSS {TARGET_IS_BOSS}
-#define WORLD_TARGET_ADD {TARGET_IS_ADD}
-struct TargetRef {{int kind,identity,generation;}};
-__device__ int world_count_condition(int type,int count,double threshold){{
- return type==WORLD_COUNT_ABOVE?count>=threshold:count<=threshold;
-}}
-__device__ int world_target_condition(int type,TargetRef target){{
- return type==WORLD_TARGET_ADD?target.kind=={int(ActorKind.ADD)}:(target.kind=={int(ActorKind.BODY)}||target.kind=={int(ActorKind.PART)});
-}}
-__device__ int inherits_event_target(int event){{return {expression};}}
-'''
+def target_inheritance_events():
+    return [code for _,code in TARGET_EVENT_PREFIXES]+[47,55,56,57,61]
+
+
 
 
 BEGIN = '// BEGIN GENERATED WORLD CONDITIONS\n'
 END = '// END GENERATED WORLD CONDITIONS\n'
-
-
-def gpu_source_matches():
-    from pathlib import Path
-    source = Path(__file__).with_name('detail_effects.cu').read_text(encoding='utf-8')
-    return source.count(BEGIN) == source.count(END) == 1 and source.split(BEGIN)[1].split(END)[0] == render_cuda()

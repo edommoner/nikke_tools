@@ -1,0 +1,14 @@
+{
+  "first_package": "93a17d563a0ccde0d83c022d8fd5bf7ffa52c83c50c2c56fcc7bd126c156e414",
+  "fixed_package": "884ef54af1dd1bdf3cc5da29067cbe595f2154602506abf7cba5cb080e14683f",
+  "inputs": 59,
+  "changed_raw_indices": [
+    50
+  ],
+  "unchanged_raw_cases": 58,
+  "all59_native_fingerprints_exact": true,
+  "changed_input_indices": [
+    52
+  ],
+  "gpu_calls": 0
+}

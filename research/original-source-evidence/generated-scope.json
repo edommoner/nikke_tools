@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "scope": "Generated buffer-scope order only; not a calculation proof",
+  "targets": {
+    "cuda": {
+      "sha256": "fb4cfadc9c87f13c20758c73e2638887bbed5355ca4436e81befead7d835cf1a",
+      "snapshot_calls": 4,
+      "published_words": 4,
+      "restored_words": 4,
+      "function": "stagedPass_0"
+    },
+    "metal": {
+      "sha256": "0db2bea509004e36a116c34ea5bff8d4068239be309437a0b9c4f829aa3cbad0",
+      "snapshot_calls": 4,
+      "published_words": 4,
+      "restored_words": 4,
+      "function": "stagedPass_0"
+    }
+  },
+  "gpu_calls": 0
+}

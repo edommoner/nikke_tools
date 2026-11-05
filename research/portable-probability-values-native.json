@@ -1,0 +1,375 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "gpu_admission_enabled": false,
+  "skill_value_cases": [
+    {
+      "name": "skill2-level3",
+      "trigger_values": {
+        "3": 50,
+        "10": 100
+      },
+      "skill_levels": {
+        "1": 10,
+        "2": 3
+      },
+      "source": "스킬2",
+      "skill_level": null,
+      "passed": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "accumulators": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ]
+    },
+    {
+      "name": "missing-level-fallback10",
+      "trigger_values": {
+        "10": 20
+      },
+      "skill_levels": {
+        "2": 3
+      },
+      "source": "스킬2",
+      "skill_level": null,
+      "passed": [
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "accumulators": [
+        0.2,
+        0.4,
+        0.6000000000000001,
+        0.8,
+        0.0
+      ]
+    },
+    {
+      "name": "missing-level-in-skill-map-default10",
+      "trigger_values": {
+        "10": 100
+      },
+      "skill_levels": {
+        "1": 4
+      },
+      "source": "스킬2",
+      "skill_level": null,
+      "passed": [
+        true,
+        true,
+        true
+      ],
+      "accumulators": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "skill1-selects-own-level",
+      "trigger_values": {
+        "3": 50,
+        "10": 100
+      },
+      "skill_levels": {
+        "1": 3,
+        "2": 10
+      },
+      "source": "스킬1",
+      "skill_level": null,
+      "passed": [
+        false,
+        true
+      ],
+      "accumulators": [
+        0.5,
+        0.0
+      ]
+    },
+    {
+      "name": "global-skill-level-fallback",
+      "trigger_values": {
+        "5": 50,
+        "10": 100
+      },
+      "skill_levels": {},
+      "source": "unknown",
+      "skill_level": 5,
+      "passed": [
+        false,
+        true
+      ],
+      "accumulators": [
+        0.5,
+        0.0
+      ]
+    },
+    {
+      "name": "empty-values-no-accumulation",
+      "trigger_values": {},
+      "skill_levels": {
+        "2": 10
+      },
+      "source": "스킬2",
+      "skill_level": null,
+      "passed": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "accumulators": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "condition_order_cases": [
+    {
+      "conditions": [
+        "self_stat_above:atk_pct:1",
+        "prob:20"
+      ],
+      "passed": false,
+      "stat_queries": 1,
+      "accumulator": 0,
+      "accumulator_hex": "0x0.0p+0"
+    },
+    {
+      "conditions": [
+        "prob:20",
+        "self_stat_above:atk_pct:1"
+      ],
+      "passed": false,
+      "stat_queries": 0,
+      "accumulator": 0.2,
+      "accumulator_hex": "0x1.999999999999ap-3"
+    },
+    {
+      "conditions": [
+        "self_stat_above:atk_pct:1",
+        "prob:100"
+      ],
+      "passed": false,
+      "stat_queries": 1,
+      "accumulator": 0,
+      "accumulator_hex": "0x0.0p+0"
+    },
+    {
+      "conditions": [
+        "prob:100",
+        "self_stat_above:atk_pct:1"
+      ],
+      "passed": false,
+      "stat_queries": 1,
+      "accumulator": 0.0,
+      "accumulator_hex": "0x0.0p+0"
+    }
+  ],
+  "squad_hit_owner_phase": {
+    "effect_owner": "리타",
+    "attackers": [
+      "리타",
+      "크라운",
+      "앨리스",
+      "모더니아"
+    ],
+    "activated_as": [
+      "크라운",
+      "모더니아"
+    ],
+    "accumulator_owner": "리타",
+    "accumulator": 0.0
+  },
+  "long_binary64_phases": [
+    {
+      "conditions": [
+        "prob:10"
+      ],
+      "events": 4096,
+      "fires": 409,
+      "first_fires": [
+        11,
+        21,
+        31,
+        41,
+        51,
+        61,
+        71,
+        81,
+        91,
+        101,
+        111,
+        121,
+        131,
+        141,
+        151,
+        161
+      ],
+      "last_fires": [
+        4061,
+        4071,
+        4081,
+        4091
+      ],
+      "final_accumulator_hex": "0x1.3333333333332p-1",
+      "final_accumulator_bits": "323333333333e33f",
+      "passed_and_binary64_state_sha256": "d7bf89fd1fd7d8dec71704d57feb6d8c9476b3cc61cb46c68cb52ba87e915725",
+      "digest_layout": "per event: uint8 passed followed by little-endian binary64 accumulator"
+    },
+    {
+      "conditions": [
+        "prob:20"
+      ],
+      "events": 4096,
+      "fires": 819,
+      "first_fires": [
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "last_fires": [
+        4080,
+        4085,
+        4090,
+        4095
+      ],
+      "final_accumulator_hex": "0x1.999999999999ap-3",
+      "final_accumulator_bits": "9a9999999999c93f",
+      "passed_and_binary64_state_sha256": "0d7f61f2edd4930019abf8120d265e2ed568e8a80c9737822194aa579eb776be",
+      "digest_layout": "per event: uint8 passed followed by little-endian binary64 accumulator"
+    },
+    {
+      "conditions": [
+        "prob:33.3333"
+      ],
+      "events": 4096,
+      "fires": 1365,
+      "first_fires": [
+        4,
+        7,
+        10,
+        13,
+        16,
+        19,
+        22,
+        25,
+        28,
+        31,
+        34,
+        37,
+        40,
+        43,
+        46,
+        49
+      ],
+      "last_fires": [
+        4087,
+        4090,
+        4093,
+        4096
+      ],
+      "final_accumulator_hex": "0x1.53ef6b5d45558p-2",
+      "final_accumulator_bits": "5855d4b5f63ed53f",
+      "passed_and_binary64_state_sha256": "c1ea7c84c905ed51e2bc87406862e4728e5f40b9aa16c448beadce79b32a1ded",
+      "digest_layout": "per event: uint8 passed followed by little-endian binary64 accumulator"
+    },
+    {
+      "conditions": [
+        "prob:50",
+        "prob:50"
+      ],
+      "events": 4096,
+      "fires": 0,
+      "first_fires": [],
+      "last_fires": [],
+      "final_accumulator_hex": "0x1.0000000000000p-1",
+      "final_accumulator_bits": "000000000000e03f",
+      "passed_and_binary64_state_sha256": "7ecc0d7d949af830eee65617e58cdb9b30ad5a6ccfeee77e37f070e1a40965d2",
+      "digest_layout": "per event: uint8 passed followed by little-endian binary64 accumulator"
+    },
+    {
+      "conditions": [
+        "prob:10",
+        "prob:100"
+      ],
+      "events": 4096,
+      "fires": 409,
+      "first_fires": [
+        11,
+        21,
+        31,
+        41,
+        51,
+        61,
+        71,
+        81,
+        91,
+        101,
+        111,
+        121,
+        131,
+        141,
+        151,
+        161
+      ],
+      "last_fires": [
+        4061,
+        4071,
+        4081,
+        4091
+      ],
+      "final_accumulator_hex": "0x1.3333333333332p-1",
+      "final_accumulator_bits": "323333333333e33f",
+      "passed_and_binary64_state_sha256": "d7bf89fd1fd7d8dec71704d57feb6d8c9476b3cc61cb46c68cb52ba87e915725",
+      "digest_layout": "per event: uint8 passed followed by little-endian binary64 accumulator"
+    }
+  ],
+  "rules": [
+    "Resolve trigger_values by the effect source skill level; fall back to key10 when that level is absent",
+    "An empty trigger_values mapping returns false without advancing an accumulator",
+    "A failed stat condition before probability prevents its accumulator advance",
+    "A failed probability condition before stat prevents the stat query",
+    "Squad-hit listeners share the source-owner probability phase across actual attackers",
+    "GPU activation must evaluate stateful probability and stat queries in authored order"
+  ],
+  "source_sha256": {
+    "research/characterize-probability-values.py": "4eed9968c58ba480a31c2c5213bd51339687ea320eca432e954cc338eded3409",
+    "tests/test_target_counter_runtime.py": "67aae222254b5e64d7b277dd9ba1336f1fabf08b4e9bd2a029d7bfdf72f3bacb",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

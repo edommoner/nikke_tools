@@ -1,0 +1,133 @@
+{
+  "diagnostic": "v109_tiny_option_syntax",
+  "source_saved": true,
+  "source_bytes": 83,
+  "source_sha256": "c624bce832a404b5842b13263eae4e0ffa91152ef5065f23f7d99b769b21aa05",
+  "script_saved": true,
+  "script_sha256": "c2a60d64e04bcd1a41b2c281e8b6c9a2f36f7a2b81a5bb0667be4a2d85696e78",
+  "nvrtc": {
+    "basename": "nvrtc64_112_0.dll",
+    "sha256": "42ed5db98a985c54dc3a7c0dea6aaa73536ced13fb43016f863ad24f198c89d9",
+    "major": 11,
+    "minor": 3,
+    "version_return": 0
+  },
+  "fixtures": [
+    {
+      "fixture": "A",
+      "options": [
+        "--std=c++17",
+        "--gpu-architecture=sm_86",
+        "--fmad=false",
+        "--ptxas-options",
+        "-O1"
+      ],
+      "calls": [
+        {
+          "api": "CreateProgram",
+          "return": 0,
+          "seconds": 0.0000342000275850296
+        },
+        {
+          "api": "CompileProgram",
+          "return": 0,
+          "seconds": 0.11629980010911822
+        },
+        {
+          "api": "GetProgramLogSize",
+          "return": 0,
+          "seconds": 0.000008500181138515472
+        },
+        {
+          "api": "GetProgramLog",
+          "return": 0,
+          "seconds": 0.0000057998113334178925
+        },
+        {
+          "api": "DestroyProgram",
+          "return": 0,
+          "seconds": 0.000011899974197149277
+        }
+      ],
+      "log": ""
+    },
+    {
+      "fixture": "B",
+      "options": [
+        "--std=c++17",
+        "--gpu-architecture=sm_86",
+        "--fmad=false",
+        "-Xptxas",
+        "-O1"
+      ],
+      "calls": [
+        {
+          "api": "CreateProgram",
+          "return": 0,
+          "seconds": 0.000014299992471933365
+        },
+        {
+          "api": "CompileProgram",
+          "return": 0,
+          "seconds": 0.09344340022653341
+        },
+        {
+          "api": "GetProgramLogSize",
+          "return": 0,
+          "seconds": 0.000007799826562404633
+        },
+        {
+          "api": "GetProgramLog",
+          "return": 0,
+          "seconds": 0.000004699919372797012
+        },
+        {
+          "api": "DestroyProgram",
+          "return": 0,
+          "seconds": 0.000010299962013959885
+        }
+      ],
+      "log": ""
+    }
+  ],
+  "job": {
+    "pre_single_verified": true,
+    "post_empty_verified": true,
+    "pre_limit_bytes": 2147483648,
+    "post_limit_bytes": 2147483648,
+    "pre_peak_memory_bytes": 5799936,
+    "post_peak_memory_bytes": 45527040,
+    "inspection_error": null
+  },
+  "execution": {
+    "passed": true,
+    "timed_out": false,
+    "timeout_seconds": 15,
+    "elapsed_seconds": 4.743573999963701,
+    "child_exit_code": 0,
+    "final_child_exit_code": 0,
+    "cleanup_error": null,
+    "observation_error": null,
+    "cleanup_budget_seconds": 5,
+    "below_normal_priority": true
+  },
+  "environment": {
+    "missing_count": 0,
+    "termination_cause": null,
+    "service_before": "unverified",
+    "service_after": "unverified",
+    "service_preservation_verified": false,
+    "after_observation_delay_seconds": 2.1324726,
+    "original_head_preserved": true,
+    "original_status_preserved": true
+  },
+  "compile_calls": 2,
+  "retry_count": 0,
+  "driver_load_calls": 0,
+  "context_calls": 0,
+  "kernel_calls": 0,
+  "cubin_get_calls": 0,
+  "gpu_calls": 0,
+  "original_v109_unchanged": true,
+  "records_saved_locally": true
+}

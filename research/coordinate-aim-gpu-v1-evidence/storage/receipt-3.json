@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-coordinate-aim-metal-v1",
+  "raw_bytes": 996147200,
+  "raw_sha256": "050001321975a8c96614245db3f0eda06fa874f2135c67659937143c7ac44601",
+  "evidence_sha256": "37c3ccb6c1e8aa9b7c52bdf260914d277cac1a39ab152c8730f329e7c5faa0a8",
+  "raw_inode": 510104345,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 6938,
+  "zero_range_bytes": 960946176,
+  "allocated_before": 996147200,
+  "allocated_after": 35201024,
+  "allocated_reclaimed": 960946176,
+  "full_hash_verified": true
+}

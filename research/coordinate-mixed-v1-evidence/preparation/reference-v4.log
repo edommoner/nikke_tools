@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-mixed-develop-v4/scripts/nikke_gpu.py", line 2849, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/private/tmp/nikke-coordinate-mixed-develop-v4/scripts/nikke_gpu.py", line 2643, in main
+    check_command(load(ROOT/'gpu-package.json').get('payload_projection'),a.command)
+  File "/private/tmp/nikke-coordinate-mixed-develop-v4/app/portable_package_projection.py", line 134, in check_command
+    raise ValueError('Compact package supports its selected suite and saved-result tools; '
+ValueError: Compact package supports its selected suite and saved-result tools; use the full checkout/package for reference

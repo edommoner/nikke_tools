@@ -11,7 +11,7 @@ from calculator.buff_manager import BuffManager
 class ScalingAndCoverBoundaries(unittest.TestCase):
     def setUp(self):
         b=v.v.body(1);b['enemy']['patterns']=[]
-        with v.v.context('controlled',{v.N[0]:[v.B('scaled','atk_pct',1.5,scaling='lost_hp_pct')]}):self.compiled=v.v.v.a.evaluate({**b,'_compile_gpu_detail':True})
+        with v.v.context('controlled',{v.N[0]:[v.B('scaled','atk_pct',1.5,scaling='lost_hp_pct')]}):self.compiled=v.v.v.a.evaluate({**b,'_compile_detail':True})
     def reject(self,program,pattern):
         with patch.object(g,'module_image',side_effect=AssertionError('CUDA must not be reached')):
             with self.assertRaisesRegex(ValueError,pattern):g.run(object(),[program],[[0,2,101,0,0,0,0,0]],[self.compiled['enemy']],[self.compiled['base_stats']])

@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "input_differences": [
+    {
+      "word": 317,
+      "old": 511,
+      "new": 512
+    }
+  ],
+  "shared_live_queue_entries": [
+    512,
+    513
+  ],
+  "native_finite": true,
+  "gpu_status": [
+    0,
+    64
+  ],
+  "gpu_calls": 0,
+  "scope": "Only the loop-child activation budget differs between the two immutable prepared inputs."
+}

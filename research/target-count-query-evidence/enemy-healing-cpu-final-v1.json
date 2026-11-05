@@ -1,0 +1,269 @@
+{
+  "schema": "declared-enemy-healing-cpu-evidence-v1",
+  "source_commit": "5fb6a02c677a9af84f763dce99cc819f5e2b4088",
+  "package_id": "c8d9530538b920c78021f2dc9aabe1b26f39f28496f9750e648c1a948ca72427",
+  "packet_suite": "logical-actor-rosters",
+  "reference_suite": "enemy-healing-common",
+  "reference_elapsed_seconds": 7.109173500008183,
+  "reference_sha256": "3cefe6d9aa9688b36ef380ff21f928a78b26bf2ffd3211efd47294d10cb8c8b6",
+  "units_sha256": "57d7b9ff6487d82098853578a814eecc4fd46f4e8b7a95432849fc62c8e1b579",
+  "model_audit_sha256": "8eb198402e64d4dac487498470afc0673d086915cfa6ebd6fdb56eea219546c2",
+  "cpu_reference_verified": true,
+  "unit_tests": 83,
+  "unit_groups": 11,
+  "cases": [
+    {
+      "name": "enemy-healing/Anne/level10",
+      "input_sha256": "8a2de9818f89a618ae6be27d0ad1d02da48e0e6d8120de98a000127805547ed2",
+      "native_sha256": "4a8497c0505cea8e0a81c841012f1fc61415b7b1a322cdfe5545b5cf8149939d",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 69,
+        "original_heal_reduction_consumed": true,
+        "healing_attempts": 8,
+        "live_queries": 8,
+        "actual_heals": 7,
+        "source_nodes": 4,
+        "existing_HP_and_generations": true,
+        "scored_damage_unchanged_by_heal": true,
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "historical_canonical_equivalence": false,
+        "in_game_rules_verified": false
+      },
+      "multipliers": [
+        0.2106999999999999,
+        1.0
+      ],
+      "raw_scored_damage": {
+        "미란다": 34063678.0,
+        "드레이크": 74983250.0,
+        "메어리": 14564826.0,
+        "앤 : 미라클 페어리": 11600322.0,
+        "N102": 11459658.0
+      },
+      "raw_overkill": 0.0,
+      "public_scored_damage": {
+        "앤 : 미라클 페어리": 11600322,
+        "미란다": 34063678,
+        "드레이크": 74983250,
+        "N102": 11459658,
+        "메어리": 14564826
+      },
+      "public_add_total": 146671734,
+      "public_overkill": 0
+    },
+    {
+      "name": "enemy-healing/Anne/level1",
+      "input_sha256": "39f9a641366ed7759b3909097239ba30b3acb692b255dc2ea7b10279f1e37364",
+      "native_sha256": "55a324d7889ab5ecbe7dae8a84d1cca5be3542651b93be01dfd5aaef138a3f7f",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 69,
+        "original_heal_reduction_consumed": true,
+        "healing_attempts": 8,
+        "live_queries": 8,
+        "actual_heals": 7,
+        "source_nodes": 4,
+        "existing_HP_and_generations": true,
+        "scored_damage_unchanged_by_heal": true,
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "historical_canonical_equivalence": false,
+        "in_game_rules_verified": false
+      },
+      "multipliers": [
+        0.5659000000000001,
+        1.0
+      ],
+      "raw_scored_damage": {
+        "미란다": 34063678.0,
+        "드레이크": 74983250.0,
+        "메어리": 14564826.0,
+        "앤 : 미라클 페어리": 11600322.0,
+        "N102": 11459658.0
+      },
+      "raw_overkill": 0.0,
+      "public_scored_damage": {
+        "앤 : 미라클 페어리": 11600322,
+        "미란다": 34063678,
+        "드레이크": 74983250,
+        "N102": 11459658,
+        "메어리": 14564826
+      },
+      "public_add_total": 146671734,
+      "public_overkill": 0
+    },
+    {
+      "name": "enemy-healing/Anne/capped",
+      "input_sha256": "d6d0c7ee4f54cbb96ec8431c6cff3ce84dbafb980c2ae8407d54ecd6e5aecacd",
+      "native_sha256": "2b32390ae37927e9bc850993128d696141a1bbc54763e7e87fcc3469af815863",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 69,
+        "original_heal_reduction_consumed": true,
+        "healing_attempts": 8,
+        "live_queries": 8,
+        "actual_heals": 7,
+        "source_nodes": 4,
+        "existing_HP_and_generations": true,
+        "scored_damage_unchanged_by_heal": true,
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "historical_canonical_equivalence": false,
+        "in_game_rules_verified": false
+      },
+      "multipliers": [
+        0.2106999999999999,
+        1.0
+      ],
+      "raw_scored_damage": {
+        "미란다": 34063678.0,
+        "드레이크": 74983250.0,
+        "메어리": 14564826.0,
+        "앤 : 미라클 페어리": 11600322.0,
+        "N102": 11459658.0
+      },
+      "raw_overkill": 0.0,
+      "public_scored_damage": {
+        "앤 : 미라클 페어리": 11600322,
+        "미란다": 34063678,
+        "드레이크": 74983250,
+        "N102": 11459658,
+        "메어리": 14564826
+      },
+      "public_add_total": 146671734,
+      "public_overkill": 0
+    },
+    {
+      "name": "enemy-healing/Anne/dead",
+      "input_sha256": "d6f708348fbb075ba6b935eb80608081dff309a0fb1b2c28749641d3202234a5",
+      "native_sha256": "a9e129f062a0198491a84fa465883898d65e8d89daae011545bdf862616d982e",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 69,
+        "original_heal_reduction_consumed": false,
+        "healing_attempts": 8,
+        "live_queries": 0,
+        "actual_heals": 0,
+        "source_nodes": 4,
+        "existing_HP_and_generations": true,
+        "scored_damage_unchanged_by_heal": true,
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "historical_canonical_equivalence": false,
+        "in_game_rules_verified": false
+      },
+      "multipliers": [],
+      "raw_scored_damage": {
+        "미란다": 1.0,
+        "드레이크": 1.0
+      },
+      "raw_overkill": 498896.0,
+      "public_scored_damage": {
+        "앤 : 미라클 페어리": 0,
+        "미란다": 1,
+        "드레이크": 1,
+        "N102": 0,
+        "메어리": 0
+      },
+      "public_add_total": 2,
+      "public_overkill": 498896
+    },
+    {
+      "name": "enemy-healing/Anne/renewal",
+      "input_sha256": "3acd8fb7b6ae84ae9024fe0584581658412c20a4dfeaf6555e14aa10593af624",
+      "native_sha256": "65ae76fc86efd32b1933fd43866ff4505c0b1ab3fcd48a7b69e288a4fd120551",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 69,
+        "original_heal_reduction_consumed": true,
+        "healing_attempts": 8,
+        "live_queries": 8,
+        "actual_heals": 5,
+        "source_nodes": 4,
+        "existing_HP_and_generations": true,
+        "scored_damage_unchanged_by_heal": true,
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "historical_canonical_equivalence": false,
+        "in_game_rules_verified": false
+      },
+      "multipliers": [
+        0.2106999999999999,
+        1.0
+      ],
+      "raw_scored_damage": {
+        "미란다": 23562166.0,
+        "드레이크": 62386616.0,
+        "메어리": 10049326.0,
+        "앤 : 미라클 페어리": 7991014.0,
+        "N102": 7968786.0
+      },
+      "raw_overkill": 0.0,
+      "public_scored_damage": {
+        "앤 : 미라클 페어리": 7991014,
+        "미란다": 23562166,
+        "드레이크": 62386616,
+        "N102": 7968786,
+        "메어리": 10049326
+      },
+      "public_add_total": 111957908,
+      "public_overkill": 0
+    },
+    {
+      "name": "enemy-healing/Anne/fractional-death",
+      "input_sha256": "e5bed79497de6f7d4215a21875d290e5be2340ae9fa8c55369b768346b208b71",
+      "native_sha256": "a008a01b6e3997cb8e743074196192b8f00932bde4c9042e2e13b5760c6616c4",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 69,
+        "original_heal_reduction_consumed": true,
+        "healing_attempts": 8,
+        "live_queries": 6,
+        "actual_heals": 5,
+        "source_nodes": 4,
+        "existing_HP_and_generations": true,
+        "scored_damage_unchanged_by_heal": true,
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "historical_canonical_equivalence": false,
+        "in_game_rules_verified": false
+      },
+      "multipliers": [
+        0.2106999999999999,
+        1.0
+      ],
+      "raw_scored_damage": {
+        "미란다": 34063678.0,
+        "드레이크": 74026925.0,
+        "메어리": 14564826.0,
+        "앤 : 미라클 페어리": 8793082.0,
+        "N102": 8830984.7
+      },
+      "raw_overkill": 135193.30000000075,
+      "public_scored_damage": {
+        "앤 : 미라클 페어리": 8793082,
+        "미란다": 34063678,
+        "드레이크": 74026925,
+        "N102": 8830985,
+        "메어리": 14564826
+      },
+      "public_add_total": 140279496,
+      "public_overkill": 135193
+    }
+  ],
+  "gpu_wire_connected": false,
+  "gpu_execution_verified": false,
+  "default_consumer_connected": false,
+  "full_goal_complete": false,
+  "public_gpu_admitted": false,
+  "windows_requests": 0,
+  "gpu_executions": 0
+}

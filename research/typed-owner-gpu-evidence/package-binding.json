@@ -1,0 +1,16 @@
+{
+  "gpu_execution_package_id": "cf44aa642396474aa712eb9c4b2ed5a2cd6be4892833ef906db3f9666988a6fb",
+  "fresh_replay_package_id": "4754c201f6e8dacb538a75402276b90617520d8e03619684189017df3579eb46",
+  "final_package_id": "93ea25a55247be1f6ba93ef820d37776fcf31ee993a291b62c485a723fba0eaa",
+  "changed_files": [
+    "app/portable_readiness_semantics.py",
+    "research/portable-coordinate-typed-owner-short-expected.json",
+    "scripts/nikke_gpu.py"
+  ],
+  "all_cli_functions_ast_exact": true,
+  "native_producers_and_tests_exact": true,
+  "all80_golden_exact": true,
+  "verified_payload_files": 3477,
+  "new_native_or_gpu_calls": 0,
+  "final_fresh_native_preflight_performed": false
+}

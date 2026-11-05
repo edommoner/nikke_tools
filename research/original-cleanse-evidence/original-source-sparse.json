@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-original-cleanse-metal-v1",
+  "raw_bytes": 28317696,
+  "raw_sha256": "eb2a846601f88061844754fdf18aa2ccd2502b39d7ca78a3e94e46ae22054165",
+  "evidence_sha256": "572851317222a034ffefd3ee97d772a4eb5f3dfdd99f8990e4b965a0f035e382",
+  "raw_inode": 511156915,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 167,
+  "zero_range_bytes": 27115520,
+  "allocated_before": 28319744,
+  "allocated_after": 1204224,
+  "allocated_reclaimed": 27115520,
+  "full_hash_verified": true
+}
