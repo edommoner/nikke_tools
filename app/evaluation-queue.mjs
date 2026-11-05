@@ -1,7 +1,7 @@
 // Shared cache and ordered batch boundary for both direct and job evaluations.
 export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheable=()=>true}) {
   const validate=body=>{
-    if(!['cpu','cuda_detail','metal_detail','cuda_shared_detail'].includes(body.compute_backend||'cpu'))throw Error('未対応の詳細計算方法です。');
+    if(!['cpu','cuda_detail','metal_detail','cuda_shared_detail','native_detail'].includes(body.compute_backend||'cpu'))throw Error('未対応の詳細計算方法です。');
     if(body.verify_detail!==undefined&&typeof body.verify_detail!=='boolean')throw Error('CPU照合の指定が不正です。');
   };
   const save=(key,result,enabled)=>{
@@ -34,13 +34,13 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
     // Each fresh worker owns a bounded batch; Python groups compatible wires
     // while keeping every original row and its CPU comparison independent.
     const shared=new Map();
-    for(const entry of entries.filter(e=>['metal_detail','cuda_shared_detail'].includes(e.body.compute_backend))){
+    for(const entry of entries.filter(e=>['metal_detail','cuda_shared_detail','native_detail'].includes(e.body.compute_backend))){
       const backend=entry.body.compute_backend;
       if(!shared.has(backend))shared.set(backend,[]);
       shared.get(backend).push(entry);
     }
     const batches=[entries.filter(e=>e.body.compute_backend==='cuda_detail')];
-    for(const group of shared.values())for(let i=0;i<group.length;i+=8)batches.push(group.slice(i,i+8));
+    for(const [backend,group] of shared){const cap=backend==='native_detail'?32:8;for(let i=0;i<group.length;i+=cap)batches.push(group.slice(i,i+cap));}
     for(let i=batches.length-1;i>=0;i--)if(!batches[i].length)batches.splice(i,1);
     for(const gpu of batches){
       let outputs;
@@ -59,7 +59,7 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
       }
       gpu.forEach((entry,i)=>publish(entry,outputs[i]));
     }
-    for(const entry of entries.filter(e=>!['cuda_detail','metal_detail','cuda_shared_detail'].includes(e.body.compute_backend))){
+    for(const entry of entries.filter(e=>!['cuda_detail','metal_detail','cuda_shared_detail','native_detail'].includes(e.body.compute_backend))){
       try{publish(entry,{result:await worker({...entry.body,action:'evaluate'},job)});}
       catch(error){publish(entry,{error:error.message});}
     }
@@ -79,7 +79,7 @@ export async function advanceCases(job,evaluator){
       rows=pending.rows;delete job.pendingGpuResults;
     }else{
       const first=job.cases[job.index],backend=first.evaluation.compute_backend;
-      const cap=backend==='cuda_detail'?32:['metal_detail','cuda_shared_detail'].includes(backend)?8:1;
+      const cap=['cuda_detail','native_detail'].includes(backend)?32:['metal_detail','cuda_shared_detail'].includes(backend)?8:1;
       let count=1;
       if(cap>1&&!evaluator.isCached(first.evaluation)){
         while(count<cap&&job.index+count<job.cases.length&&job.cases[job.index+count].evaluation.compute_backend===backend)count++;

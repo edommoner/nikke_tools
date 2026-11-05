@@ -12,6 +12,8 @@ def historical_backend_bytes(root,raw):
     ledger=(Path(root)/'tests/fixtures/portable-metal-work-deadline-source-delta.json').read_bytes()
     if hashlib.sha256(ledger).hexdigest()!=LEDGER_SHA256:raise ValueError('Metal deadline source ledger changed')
     row=json.loads(ledger)
+    from portable_native_backend_source_contract import reviewed_bytes
+    raw=reviewed_bytes(root,'app/portable_backend.py',raw)
     if hashlib.sha256(raw).hexdigest()==AFTER_SHA256:
         calibrated=(Path(root)/'tests/fixtures/portable-metal-calibrated-deadline-source-delta.json').read_bytes()
         if hashlib.sha256(calibrated).hexdigest()!=CALIBRATED_LEDGER_SHA256:raise ValueError('Calibrated Metal deadline ledger changed')

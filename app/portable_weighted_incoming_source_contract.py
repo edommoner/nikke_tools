@@ -26,6 +26,8 @@ def reference_engine_reviewed_bytes(name,raw):
     This does not authorize current detail/GPU parity or alter stored seals.
     Any additional edit remains outside the old historical contract.
     """
+    from portable_native_backend_source_contract import reviewed_bytes
+    raw=reviewed_bytes(Path(__file__).resolve().parents[1],name,raw)
     if name=='app/portable_backend.py':
         from portable_metal_deadline_source_contract import AFTER_SHA256,historical_backend_bytes
         if hashlib.sha256(raw).hexdigest()==AFTER_SHA256:

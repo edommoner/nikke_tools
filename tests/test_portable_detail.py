@@ -874,23 +874,24 @@ class PortableDetail(unittest.TestCase):
                     self.assertEqual({k:os.environ[k] for k in ('NIKKE_CUDA_ARTIFACT','NIKKE_CUDA_CACHE_REQUIRED','NIKKE_CUDA_PTXAS_OPT_LEVEL','NIKKE_SLANG_GENERATION_REQUIRED')},
                         dict(NIKKE_CUDA_ARTIFACT='cubin',NIKKE_CUDA_CACHE_REQUIRED='1',NIKKE_CUDA_PTXAS_OPT_LEVEL='1',NIKKE_SLANG_GENERATION_REQUIRED='1'))
                 raw=self.synthetic_stationary_readback(ow);readback_path.write_bytes(raw)
-                return None,dict(backend=backend,gpu_execution_verified=True,input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),
-                    transport=dict(device='mock transport; not GPU evidence',cases=1,command_status='completed',**{'gpu_seconds' if backend=='metal' else 'host_dispatch_seconds':.1}))
+                return None,dict(backend=backend,gpu_execution_verified=backend!='native',native_execution_verified=backend=='native',input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),
+                    transport=dict(device='mock transport; not GPU evidence',cases=1,command_status='completed',**{'host_seconds' if backend=='native' else 'gpu_seconds' if backend=='metal' else 'host_dispatch_seconds':.1}))
             def cpu(request):
                 self.assertEqual(events,['gpu']);events.append('cpu');return copy.deepcopy(expected)
             with tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,dict(NIKKE_DETAIL_CAPTURE_ROOT=folder,NIKKE_SLANG_GENERATION_CACHE=folder,NIKKE_CUDA_COMPILE_CACHE=folder,
                 NIKKE_CUDA_ARTIFACT='ptx',NIKKE_CUDA_CACHE_REQUIRED='0',NIKKE_CUDA_PTXAS_OPT_LEVEL='3',NIKKE_SLANG_GENERATION_REQUIRED='0')),\
-                patch.object(product.platform,'system',return_value='Windows'),patch.object(product,'prepare',return_value=(prepared,run)),\
+                patch.object(product.platform,'system',return_value='Windows'),patch('portable_native.availability',return_value={'available':True}),patch.object(product,'prepare',return_value=(prepared,run)),\
                 patch.object(product,'decode',return_value=self.fixture['gpu_projection']),patch.object(product,'execute',side_effect=execute),patch.object(product.engine_worker,'evaluate',side_effect=cpu):
                 result=product.evaluate(body);self.assertEqual(events,['gpu','cpu'])
                 self.assertEqual(result['compute']['backend'],requested);self.assertTrue(result['compute']['cpu_verification']['matched'])
-                self.assertIn('gpu_seconds' if backend=='metal' else 'host_dispatch_seconds',result['compute'])
+                self.assertIn('host_seconds' if backend=='native' else 'gpu_seconds' if backend=='metal' else 'host_dispatch_seconds',result['compute'])
                 self.assertNotIn('host_dispatch_seconds' if backend=='metal' else 'gpu_seconds',result['compute'])
                 self.assertEqual(os.environ['NIKKE_CUDA_ARTIFACT'],'ptx')
                 record=json.loads(next(Path(folder).glob('*/result.json')).read_text())
                 self.assertEqual(len(record['request_sha256']),64)
                 self.assertEqual(record['capture_id'],result['compute']['capture_id'])
-        self.assertEqual(wires[0],wires[1])
+        self.assertEqual(len(wires),3)
+        self.assertTrue(all(wire==wires[0] for wire in wires))
     def test_cuda_environment_and_required_cache_failures_remain_cpu_results(self):
         body={**self.fixture['body'],'compute_backend':'cuda_shared_detail'}
         for platform_name,configured,error in [('Darwin',True,'Windows'),('Windows',False,'キャッシュ'),('Windows',True,'required cache miss')]:
@@ -1236,8 +1237,8 @@ class ProductBatchProtocol(unittest.TestCase):
                 marker=struct.unpack_from('<I',packed,4+index*iw*4)[0]
                 words.extend([0,999 if corrupt and index==1 else marker,0,0])
             raw=words.tobytes();readback_path.write_bytes(raw)
-            return None,dict(backend=backend,gpu_execution_verified=True,input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),
-                transport=dict(device='mock protocol transport; no hardware',cases=count,command_status='completed',**{'gpu_seconds' if backend=='metal' else 'host_dispatch_seconds':.1}))
+            return None,dict(backend=backend,gpu_execution_verified=backend!='native',native_execution_verified=backend=='native',input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),
+                transport=dict(device='mock protocol transport; no hardware',cases=count,command_status='completed',**{'host_seconds' if backend=='native' else 'gpu_seconds' if backend=='metal' else 'host_dispatch_seconds':.1}))
         def cpu(body):events.append(('cpu',body['seed']));return dict(marker=body['seed'])
         with patch.dict(os.environ,{'NIKKE_DETAIL_CAPTURE_ROOT':str(folder)}),patch.object(product,'execution_environment',return_value={}),\
              patch.object(product,'prepare',side_effect=prepare),patch.object(product,'compile_product',side_effect=compile_product),\
@@ -1411,3 +1412,28 @@ class ProductBatchProtocol(unittest.TestCase):
             records=[json.loads(p.read_text()) for p in Path(folder).glob('*/result.json')]
             errors=[r for r in records if 'cpu_error' in r];self.assertEqual(len(errors),1)
             self.assertEqual(errors[0]['cpu_error']['error_type'],'IndexError');self.assertNotIn('unsupported',errors[0])
+
+
+    def test_native_32_members_each_receive_fresh_full_cpu_verification(self):
+        for corrupt in (False,True):
+            with self.subTest(corrupt=corrupt),tempfile.TemporaryDirectory() as folder,self.harness(folder,backend='native',corrupt=corrupt) as (calls,events):
+                bodies=self.bodies(32,'native_detail')
+                # Verification remains mandatory even when the request says false.
+                for body in bodies:body['verify_detail']=False
+                rows=product.evaluate_many(bodies)
+                self.assertEqual(len(calls),1);self.assertEqual(calls[0][1],32)
+                self.assertEqual(events,['gpu']+[('cpu',i) for i in range(32)])
+                self.assertEqual([r['result']['marker'] for r in rows],list(range(32)))
+                for index,row in enumerate(rows):
+                    c=row['result']['compute']
+                    if corrupt and index==1:
+                        self.assertEqual(c['backend'],'cpu');self.assertTrue(c['gpu_result_rejected'])
+                    else:
+                        self.assertEqual(c['backend'],'native_detail');self.assertTrue(c['native_execution_verified'])
+                        self.assertFalse(c['gpu_execution_verified']);self.assertTrue(c['cpu_verification']['matched'])
+                        self.assertEqual(c['host_seconds'],.1)
+                record=json.loads((Path(folder)/rows[0]['result']['compute']['batch']['capture_id']/'result.json').read_text())
+                self.assertFalse(record['gpu_execution_verified']);self.assertTrue(record['native_execution_verified'])
+        with self.assertRaises(ValueError):product.evaluate_many(self.bodies(33,'native_detail'))
+        for backend in ('metal_detail','cuda_shared_detail'):
+            with self.assertRaises(ValueError):product.evaluate_many(self.bodies(9,backend))

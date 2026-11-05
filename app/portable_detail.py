@@ -28,11 +28,16 @@ from portable_product_artifact import descriptor_file, saved_program
 
 SOURCE = 'gpu/product_battle_entry.slang'
 ROOT = Path(__file__).resolve().parents[1]
-BACKENDS = {'metal_detail': 'metal', 'cuda_shared_detail': 'cuda'}
+BACKENDS = {'metal_detail': 'metal', 'cuda_shared_detail': 'cuda', 'native_detail': 'native'}
 
 
 def execution_environment(backend):
     """Require warm generation plus an explicit saved image or native cache."""
+    if backend == 'native':
+        from portable_native import availability
+        status=availability(ROOT)
+        if not status['available']:raise UnsupportedPortable(status['reason'])
+        return {}
     if backend == 'metal':
         return {}
     if platform.system() != 'Windows':
@@ -47,10 +52,11 @@ def execution_environment(backend):
 
 
 def verified_transport(evidence, backend, *, cases=1):
-    timing = 'gpu_seconds' if backend == 'metal' else 'host_dispatch_seconds'
+    timing = 'host_seconds' if backend=='native' else 'gpu_seconds' if backend == 'metal' else 'host_dispatch_seconds'
     try:
         transport = evidence['transport']
-        valid = (evidence['backend'] == backend and evidence['gpu_execution_verified'] is True
+        valid = (evidence['backend'] == backend and evidence.get('native_execution_verified' if backend=='native' else 'gpu_execution_verified') is True
+            and (backend!='native' or evidence.get('gpu_execution_verified') is not True)
             and transport['command_status'] == 'completed' and type(transport['cases']) is int and transport['cases'] == cases
             and isinstance(transport['device'], str) and bool(transport['device'])
             and type(transport[timing]) in (int,float) and math.isfinite(transport[timing]) and transport[timing] >= 0
@@ -505,16 +511,18 @@ def _evaluation(body):
         transport, timing = verified_transport(evidence,backend,cases=member['cases'] if member else 1)
         input_hash=member['input_sha256'] if member else evidence['input_sha256']
         output_hash=member['output_sha256'] if member else evidence['output_sha256']
-        record.update(gpu_execution_verified=evidence['gpu_execution_verified'],input_sha256=input_hash,output_sha256=output_hash)
+        record.update(gpu_execution_verified=evidence.get('gpu_execution_verified',False),input_sha256=input_hash,output_sha256=output_hash)
+        if backend=='native':record['native_execution_verified']=True
         if member:record['batch']=member
         block = array.array('I');block.frombytes((folder/'readback.bin').read_bytes())
         if sys.byteorder != 'little':block.byteswap()
         stage='decode'
         payload = decode_payload(body,prepared,run,metadata,block)
         payload['compute'] = dict(requested=requested,backend=requested,capture_id=folder.name,device=evidence['transport']['device'],
-            elapsed_ms=(time.perf_counter()-started)*1000,gpu_execution_verified=True,
+            elapsed_ms=(time.perf_counter()-started)*1000,gpu_execution_verified=backend!='native',
             input_sha256=input_hash,output_sha256=output_hash,source=source,
             scope='shared autonomous battle; CPU verified for this request')
+        if backend=='native':payload['compute'].update(native_execution_verified=True,scope='native CPU execution of the shared kernel; full CPU payload verified for this request')
         payload['compute'][timing] = transport[timing]
         if member:
             payload['compute']['batch']=member
@@ -562,12 +570,17 @@ def _evaluation(body):
 
 
 MAX_PRODUCT_BATCH=8
+NATIVE_PRODUCT_BATCH=32
+
+
+def batch_limit(bodies):
+    return NATIVE_PRODUCT_BATCH if bodies and all(isinstance(b,dict) and b.get("compute_backend")=="native_detail" for b in bodies) else MAX_PRODUCT_BATCH
 
 
 def _execute_prepared(plans):
     """One actual transport for compatible prepared cases, with honest views."""
     first=plans[0];count=len(plans)
-    if not 1<=count<=MAX_PRODUCT_BATCH:raise ValueError('Shared detail batch exceeds its bounded case count')
+    if not 1<=count<=(NATIVE_PRODUCT_BATCH if first["backend"]=="native" else MAX_PRODUCT_BATCH):raise ValueError('Shared detail batch exceeds its bounded case count')
     key=lambda p:(p['source'],p['input_words'],p['output_words'],p['backend'],p['policy'],p['explicit_image'],p['folder'].parent)
     if any(key(p)!=key(first) for p in plans):raise ValueError('Shared detail transport requires identical source, wire, policy and capture root')
     folder=first['folder'] if count==1 else first['folder'].parent/('batch-'+uuid.uuid4().hex)
@@ -617,7 +630,7 @@ def _execute_prepared(plans):
             (p['folder']/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n')
             members.append(dict(member,capture_id=p['folder'].name));returned.append((evidence,receipt,member))
         write('result.json',dict(schema='product-batch-transport-v1',source=first['source'],backend=first['backend'],cases=count,
-            gpu_execution_verified=True,scope='Shared physical transport only; each member has its own complete CPU result check',members=members))
+            gpu_execution_verified=first["backend"]!="native",**(dict(native_execution_verified=True) if first["backend"]=="native" else {}),scope='Shared physical transport only; each member has its own complete CPU result check',members=members))
         return returned
     except Exception as error:
         if count>1:write('result.json',dict(schema='product-batch-transport-v1',source=first['source'],backend=first['backend'],cases=count,
@@ -647,8 +660,8 @@ def evaluate(body):
 
 def evaluate_many(bodies):
     """Preserve row identity and per-case CPU checks in bounded shared dispatches."""
-    if not isinstance(bodies,list) or not 1<=len(bodies)<=MAX_PRODUCT_BATCH:
-        raise ValueError('Shared detail evaluations must contain one to eight requests')
+    if not isinstance(bodies,list) or not 1<=len(bodies)<=batch_limit(bodies):
+        raise ValueError('Shared detail evaluations exceed the backend batch limit')
     results=[None]*len(bodies);groups={};generators=[]
     try:
         for index,body in enumerate(bodies):

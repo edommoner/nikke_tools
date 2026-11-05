@@ -125,3 +125,16 @@ test('paused GPU results cannot be attached to changed inputs',async()=>{
  await advanceCases(j,evaluator);j.cases[1].evaluation.id=999;j.pauseRequested=false;j.status='running';
  await assert.rejects(advanceCases(j,evaluator),/候補が変更/);assert.equal(j.index,1);
 });
+
+test('native detail groups 32 cases in one shared worker and advances 32',async()=>{
+ const calls=[];
+ const evaluator=createEvaluator({keyOf:body=>JSON.stringify(body),worker:async body=>{calls.push(body);return body.evaluations.map(e=>({result:{id:e.id}}));}});
+ const bodies=Array.from({length:32},(_,id)=>({id,compute_backend:'native_detail',verify_detail:true}));
+ const rows=await evaluator.many(bodies);
+ assert.equal(rows.length,32);assert.equal(calls.length,1);assert.equal(calls[0].evaluations.length,32);
+ assert.equal(calls[0].action,'evaluate_portable_detail_batch');
+ const sizes=[];
+ const job={index:0,cases:bodies.map(evaluation=>({evaluation})),status:'running',results:[]};
+ await advanceCases(job,{isCached:()=>false,many:async items=>{sizes.push(items.length);return items.map(()=>({result:{}}));}});
+ assert.deepEqual(sizes,[32]);assert.equal(job.index,32);
+});

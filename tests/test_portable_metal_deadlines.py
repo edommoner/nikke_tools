@@ -123,6 +123,8 @@ class MetalDeadlineSourceHistoryTests(unittest.TestCase):
         from portable_metal_deadline_source_contract import historical_backend_bytes
         root=Path(__file__).resolve().parents[1]
         current=(root/'app/portable_backend.py').read_bytes()
+        from portable_native_backend_source_contract import reviewed_bytes
+        current=reviewed_bytes(root,'app/portable_backend.py',current)
         name='portable-metal-calibrated-deadline-source-delta.json'
         row=json.loads((root/'tests/fixtures'/name).read_text())
         self.assertEqual(hashlib.sha256(current).hexdigest(),row['after_sha256'])

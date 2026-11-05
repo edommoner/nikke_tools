@@ -36,7 +36,10 @@ def validate_generated_outputs(outputs):
         audit_lock_packets(raw['cuda'],raw['metal'])
 
 
-def build(root,source,entry):
+def build(root,source,entry,*,target=None):
+    if target == "cpp":
+        return _build_cpp(root,source,entry)
+    if target is not None:raise ValueError("Unsupported generation target")
     outputs,hashes=_build_unchecked(root,source,entry)
     # Cache hits need the same guard as fresh compiler output.
     validate_generated_outputs(outputs)
@@ -129,3 +132,24 @@ def _build_resident(root,compiler,source,entry,hashes,directory):
                 temporary_path.replace(destination)
             outputs[target]=output
     return outputs,hashes
+
+
+def slang_compiler(root):
+    compiler_root=Path(os.environ.get('NIKKE_SLANG_ROOT',root/f'.tools/slang-2026.20-{platform.system()}-{platform.machine()}')).resolve()
+    return compiler_root/'bin'/('slangc.exe' if os.name=='nt' else 'slangc')
+
+
+def _build_cpp(root,source,entry):
+    hashes=source_hashes(root,source)
+    directory=root/'research/portable-build';directory.mkdir(parents=True,exist_ok=True)
+    process=subprocess.run([str(slang_compiler(root)),str(root/source),'-entry',entry,
+        '-target','cpp','-fp-mode','precise','-line-directive-mode','none'],capture_output=True,timeout=90)
+    if process.returncode:raise RuntimeError(process.stderr.decode('utf-8','replace'))
+    if not process.stdout:raise RuntimeError('Empty Slang C++ output')
+    validate_counter_snapshots(process.stdout.decode('utf-8'))
+    if hashes!=source_hashes(root,source):raise RuntimeError('GPU sources changed during build; discard generated outputs')
+    output=directory/(Path(source).stem+'.cpp')
+    with tempfile.NamedTemporaryFile(dir=directory,delete=False) as temporary:
+        temporary.write(process.stdout);temporary_path=Path(temporary.name)
+    temporary_path.replace(output)
+    return {'cpp':output},hashes

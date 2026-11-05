@@ -41,9 +41,9 @@ def source_hashes(source):
     return generate_hashes(ROOT,source)
 
 
-def build(source,entry):
+def build(source,entry,*,target=None):
     from portable_slang_generation import build as generate
-    return generate(ROOT,source,entry)
+    return generate(ROOT,source,entry,**({"target":target} if target is not None else {}))
 
 
 def _build_resident(compiler,source,entry,hashes,directory):
@@ -397,11 +397,12 @@ def validate_product_ammo_versions(source,packed,input_words,output_words,count)
             raise ValueError('Enemy ammo input version and output stride disagree')
 
 def execute(source, entry, packed, input_words, output_words, backend='metal', *, readback_path=None):
-    if backend not in ('metal', 'cuda'):
-        raise ValueError('Explicit metal or cuda backend required; no CPU fallback')
+    if backend not in ('metal', 'cuda', 'native'):
+        raise ValueError('Explicit metal, cuda or native backend required; no CPU fallback')
     if type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=MAX_INPUT_WORDS or not 1<=output_words<=MAX_OUTPUT_WORDS or output_words>524288 and output_words not in LARGE_OUTPUT_WORDS:
         raise ValueError('Invalid portable word strides')
     validate_composed_stride(source,input_words,output_words)
+    if len(packed)<4:raise ValueError('Invalid portable wire dimensions')
     count, = struct.unpack_from('<I', packed)
     if not 1 <= count <= 65536 or 1+count*input_words>0xffffffff or count*output_words>0xffffffff or len(packed) != (1+count*input_words)*4:
         raise ValueError('Invalid portable wire dimensions')
@@ -411,13 +412,20 @@ def execute(source, entry, packed, input_words, output_words, backend='metal', *
     partial=destination.with_name(destination.name+'.partial') if destination is not None else None
     if destination is not None and (destination.exists() or partial.exists() or partial.is_symlink() or not destination.parent.is_dir()):
         raise ValueError('Fresh readback destination and partial required')
-    outputs, hashes = build(source, entry)
-    resident=resident_plan(source,entry,outputs)
+    outputs, hashes = build(source, entry,**({"target":"cpp"} if backend=="native" else {}))
+    resident=None if backend=="native" else resident_plan(source,entry,outputs)
     directory = ROOT/'research/portable-build'
     with tempfile.TemporaryDirectory(prefix='dispatch-', dir=directory) as tmp:
         input_path, output_path = Path(tmp)/'input.bin', partial if destination is not None else Path(tmp)/'output.bin'
         input_path.write_bytes(packed)
-        if backend == 'metal':
+        if backend == 'native':
+            from portable_native import build_host, run_host
+            if entry!='portableEvents':raise ValueError('Native product host requires portableEvents')
+            host,build_receipt=build_host(ROOT,outputs['cpp'])
+            transport=run_host(host,input_path,output_path,input_words,output_words,count,metal_gpu_timeout_seconds(count))
+            transport['build']=build_receipt
+            raw=None if destination is not None else output_path.read_bytes()
+        elif backend == 'metal':
             if platform.system() != 'Darwin':
                 raise RuntimeError('Metal requires macOS')
             gpu_timeout=metal_gpu_timeout_seconds(count)
@@ -439,7 +447,7 @@ def execute(source, entry, packed, input_words, output_words, backend='metal', *
         if backend=='cuda':
             receipt=transport['readback_stream']
             if receipt['output_sha256']!=output_digest or receipt['output_bytes']!=count*output_words*4 or receipt['chunk_bytes']!=READBACK_CHUNK_BYTES or receipt['chunks']!=(count*output_words*4+READBACK_CHUNK_BYTES-1)//READBACK_CHUNK_BYTES:raise RuntimeError('CUDA streamed readback digest mismatch')
-        elif transport.get('file_readback_chunk_bytes')!=READBACK_CHUNK_BYTES:raise RuntimeError('Metal did not use the bounded file writer')
+        elif backend=='metal' and transport.get('file_readback_chunk_bytes')!=READBACK_CHUNK_BYTES:raise RuntimeError('Metal did not use the bounded file writer')
     else:output_digest=hashlib.sha256(raw).hexdigest()
     if (destination is None and len(raw)!=count*output_words*4) or hashes!=source_hashes(source):
         raise RuntimeError('Invalid GPU output or source changed during execution')
@@ -454,7 +462,7 @@ def execute(source, entry, packed, input_words, output_words, backend='metal', *
     return raw, dict(**(dict(resident_runtime=resident) if resident else {}),transport=transport, source_sha256=hashes,
                     generated_sha256={k:hashlib.sha256(p.read_bytes()).hexdigest() for k,p in outputs.items()},
                     input_sha256=hashlib.sha256(packed).hexdigest(), output_sha256=output_digest,
-                    gpu_execution_verified=True, backend=backend)
+                    **(dict(native_execution_verified=True,gpu_execution_verified=False) if backend=="native" else dict(gpu_execution_verified=True)), backend=backend)
 
 
 def execute_batches(source, entry, batches, input_words, output_words, backend='metal'):

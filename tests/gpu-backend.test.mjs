@@ -26,6 +26,7 @@ test('default detail backend follows CUDA, Metal, shared CUDA, CPU priority',()=
 
 const cases=[
  ['CUDA',{available:true,metal:{available:true},shared_cuda:{available:true}},'cuda_verified','GPU詳細＋CPU照合'],
+ ['native CPU',{available:false,native:{available:true},metal:{available:true},shared_cuda:{available:true}},'native_detail','CPU高速計算＋CPU照合'],
  ['Metal',{available:false,metal:{available:true},shared_cuda:{available:true}},'metal_detail','Metal詳細＋CPU照合'],
  ['shared CUDA',{available:false,metal:{available:false},shared_cuda:{available:true}},'cuda_shared_detail','共通CUDA詳細＋CPU照合'],
  ['CPU',{available:false},'cpu',null],
@@ -45,6 +46,7 @@ for(const [name,availability,backend,label] of cases){
   await Promise.all(pending);
   assert.equal($('detail-backend').value,backend);
   assert.deepEqual(calls,['/api/hardware']);
+  assert.equal($('detail-backend/[value="native_detail"]').disabled,!hardware.native?.available);
   assert.equal($('detail-backend/[value="metal_detail"]').disabled,!hardware.metal?.available);
   assert.equal($('detail-backend/[value="cuda_shared_detail"]').disabled,!hardware.shared_cuda?.available);
   for(const value of ['cuda_detail','cuda_verified'])assert.equal($(`detail-backend/[value="${value}"]`).disabled,!hardware.available);
@@ -55,10 +57,24 @@ for(const [name,availability,backend,label] of cases){
    assert.equal($('detail-backend').value,backend);
    assert.deepEqual(calls,['/api/demo?gpu_detail=true','/api/hardware']);
    const notice=notices.at(-1);
-   if(label){
+   if(backend==='native_detail'){
+    assert.match(notice,/CPU高速計算用/);assert.match(notice,/共通カーネルのCPU実行結果をCPUと照合/);
+   }else if(label){
     assert.ok(notice.includes(label));assert.match(notice,/GPU詳細用の架空育成を読み込みました/);
     assert.match(notice,/「この部隊を計算」.*GPU.*CPUと照合/);assert.doesNotMatch(notice,/GPUを使用できません/);
    }else assert.equal(notice,'GPUを使用できません：legacy CUDA unavailable。デモはCPUで計算できます。');
   }
  });
 }
+
+test('native default follows legacy CUDA and precedes Metal and shared CUDA',()=>{
+ for(let mask=0;mask<16;mask++){
+  const hardware={available:!!(mask&8),native:{available:!!(mask&4)},metal:{available:!!(mask&2)},shared_cuda:{available:!!(mask&1)}};
+  const expected=mask&8?'cuda_verified':mask&4?'native_detail':mask&2?'metal_detail':mask&1?'cuda_shared_detail':'cpu';
+  assert.equal(runInNewContext(helper+'\ndefaultDetailBackend(hardware)',{hardware}),expected);
+ }
+ const line=sourceLine('function computeDetailsCore(');
+ const rendered=runInNewContext(line+'\ncomputeDetailsCore(result)',{result:{compute:{backend:'native_detail',device:'cpu:test',host_seconds:0.125,elapsed_ms:150,cpu_verification:{matched:true}}},e:v=>v});
+ assert.match(rendered,/CPU高速計算 · cpu:test/);assert.match(rendered,/計算 0.125秒/);assert.match(rendered,/CPU照合済み/);
+ assert.ok(readFileSync(new URL('../web/index.html',import.meta.url),'utf8').indexOf('value="native_detail"')<readFileSync(new URL('../web/index.html',import.meta.url),'utf8').indexOf('value="metal_detail"'));
+});
