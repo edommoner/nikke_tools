@@ -8,6 +8,8 @@ AFTER_SHA256={'app/portable_detail.py': '9cb081db502aae45070507bd19f5cf3b588302e
 
 
 def verification_preimage(root,name,raw):
+    from portable_optimizer_throughput_source_contract import reviewed_bytes as throughput_bytes
+    raw=throughput_bytes(root,name,raw)
     ledger=(Path(root)/'tests/fixtures/portable-optimizer-verification-source-delta.json').read_bytes()
     if hashlib.sha256(ledger).hexdigest()!=LEDGER_SHA256:raise ValueError('Optimizer verification source ledger changed')
     data=json.loads(ledger)
@@ -27,5 +29,7 @@ def verification_preimage(root,name,raw):
 
 
 def reviewed_bytes(root,name,raw):
+    from portable_optimizer_throughput_source_contract import reviewed_bytes as throughput_bytes
+    raw=throughput_bytes(root,name,raw)
     if name in AFTER_SHA256 and hashlib.sha256(raw).hexdigest()==AFTER_SHA256[name]:return verification_preimage(root,name,raw)
     return raw

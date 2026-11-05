@@ -117,6 +117,8 @@ class VerificationSourceHistory(unittest.TestCase):
         for changed in (raw+b'\n',raw[:-1],b'!'+raw[1:]):
             with self.assertRaisesRegex(ValueError,'Unreviewed'):history.verification_preimage(root,name,changed)
             self.assertEqual(history.reviewed_bytes(root,name,changed),changed)
+        from portable_optimizer_throughput_source_contract import throughput_preimage
+        raw=throughput_preimage(root,name,raw)
         with tempfile.TemporaryDirectory() as tmp:
             target=Path(tmp)/'tests/fixtures';target.mkdir(parents=True)
             ledger='portable-optimizer-verification-source-delta.json'
@@ -126,6 +128,8 @@ class VerificationSourceHistory(unittest.TestCase):
     def test_inverse_binds_spans_and_historical_digest(self):
         import portable_optimizer_verification_source_contract as history
         root=Path(__file__).resolve().parents[1];name='app/portable_detail.py';raw=(root/name).read_bytes()
+        from portable_optimizer_throughput_source_contract import throughput_preimage
+        raw=throughput_preimage(root,name,raw)
         data=json.loads((root/'tests/fixtures/portable-optimizer-verification-source-delta.json').read_text())
         for field,error in [('after','inverse span changed'),('before','historical preimage changed')]:
             with tempfile.TemporaryDirectory() as tmp:

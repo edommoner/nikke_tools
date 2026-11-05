@@ -1,5 +1,5 @@
 """Paired Slang code generation, independent of CUDA/Metal execution transports."""
-import hashlib,os,platform,re,subprocess,tempfile
+import hashlib,json,os,platform,re,subprocess,tempfile
 from pathlib import Path
 
 
@@ -139,17 +139,40 @@ def slang_compiler(root):
     return compiler_root/'bin'/('slangc.exe' if os.name=='nt' else 'slangc')
 
 
+CPP_FLAGS=('-target','cpp','-fp-mode','precise','-line-directive-mode','none')
+
+
+def cpp_compiler_identity(compiler):
+    return dict(sha256=hashlib.sha256(compiler.read_bytes()).hexdigest(),
+        version=subprocess.check_output([str(compiler),'-version'],stderr=subprocess.STDOUT,timeout=10).decode('utf-8','replace'))
+
+
 def _build_cpp(root,source,entry):
     hashes=source_hashes(root,source)
-    directory=root/'research/portable-build';directory.mkdir(parents=True,exist_ok=True)
-    process=subprocess.run([str(slang_compiler(root)),str(root/source),'-entry',entry,
-        '-target','cpp','-fp-mode','precise','-line-directive-mode','none'],capture_output=True,timeout=90)
-    if process.returncode:raise RuntimeError(process.stderr.decode('utf-8','replace'))
-    if not process.stdout:raise RuntimeError('Empty Slang C++ output')
-    validate_counter_snapshots(process.stdout.decode('utf-8'))
-    if hashes!=source_hashes(root,source):raise RuntimeError('GPU sources changed during build; discard generated outputs')
-    output=directory/(Path(source).stem+'.cpp')
-    with tempfile.NamedTemporaryFile(dir=directory,delete=False) as temporary:
-        temporary.write(process.stdout);temporary_path=Path(temporary.name)
-    temporary_path.replace(output)
+    compiler=slang_compiler(root)
+    identity_data=dict(source_hashes=hashes,source=str(source),compiler=cpp_compiler_identity(compiler),entry=entry,flags=list(CPP_FLAGS))
+    identity=hashlib.sha256(json.dumps(identity_data,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+    directory=root/'research/portable-build/cpp'/identity;directory.mkdir(parents=True,exist_ok=True)
+    output=directory/(Path(source).stem+'.cpp');receipt=directory/'build.json'
+    # Serialize identical builds across fresh processes; publish files atomically.
+    import fcntl
+    with (directory/'build.lock').open('a') as lock:
+        fcntl.flock(lock,fcntl.LOCK_EX)
+        try:
+            saved=json.loads(receipt.read_text());raw=output.read_bytes()
+            hit=bool(raw) and saved==dict(identity=identity,**identity_data,cpp_sha256=hashlib.sha256(raw).hexdigest())
+        except (OSError,ValueError):hit=False
+        if not hit:
+            process=subprocess.run([str(compiler),str(root/source),'-entry',entry,*CPP_FLAGS],capture_output=True,timeout=90)
+            if process.returncode:raise RuntimeError(process.stderr.decode('utf-8','replace'))
+            raw=process.stdout
+            if not raw:raise RuntimeError('Empty Slang C++ output')
+        validate_counter_snapshots(raw.decode('utf-8'))
+        if hashes!=source_hashes(root,source):raise RuntimeError('GPU sources changed during build; discard generated outputs')
+        if not hit:
+            saved=dict(identity=identity,**identity_data,cpp_sha256=hashlib.sha256(raw).hexdigest())
+            for destination,data in ((output,raw),(receipt,(json.dumps(saved,indent=2)+'\n').encode())):
+                with tempfile.NamedTemporaryFile(dir=directory,delete=False) as temporary:
+                    temporary.write(data);temporary_path=Path(temporary.name)
+                temporary_path.replace(destination)
     return {'cpp':output},hashes

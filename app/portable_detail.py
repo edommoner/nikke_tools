@@ -729,14 +729,25 @@ def evaluate_many(bodies, *, verification='full'):
             except Exception as error:results[index]=dict(error=str(error));continue
             key=(plan['source'],plan['input_words'],plan['output_words'],plan['backend'],tuple(sorted(plan['policy'].items())),plan['explicit_image'],str(plan['folder'].parent))
             groups.setdefault(key,[]).append((index,generator,plan))
-        for group in groups.values():
-            try:
-                outcomes=_execute_prepared([p for _,_,p in group]);error=None
-                if len(outcomes)!=len(group):raise RuntimeError('Shared batch result count mismatch')
-            except Exception as failure:outcomes=[None]*len(group);error=failure
-            for (index,generator,_),outcome in zip(group,outcomes):
-                try:results[index]=dict(result=_finish_evaluation(generator,outcome=outcome,error=error))
-                except Exception as failure:results[index]=dict(error=str(failure))
+        from concurrent.futures import ThreadPoolExecutor
+        from portable_native import HOST_THREADS
+        from portable_throughput import split_threads
+        native=[g for g in groups.values() if g[0][2]['backend']=='native' and not g[0][2]['policy'] and not g[0][2]['explicit_image']]
+        budgets=split_threads([len(g) for g in native],HOST_THREADS.get() or os.cpu_count() or 1)
+        def dispatch(group,budget):
+            token=HOST_THREADS.set(budget)
+            try:return _execute_prepared([p for _,_,p in group])
+            finally:HOST_THREADS.reset(token)
+        with ThreadPoolExecutor(max_workers=min(len(native),HOST_THREADS.get() or os.cpu_count() or 1) or 1) as pool:
+            futures={id(g):pool.submit(dispatch,g,b) for g,b in zip(native,budgets)}
+            for group in groups.values():
+                try:
+                    outcomes=futures[id(group)].result() if id(group) in futures else _execute_prepared([p for _,_,p in group]);error=None
+                    if len(outcomes)!=len(group):raise RuntimeError('Shared batch result count mismatch')
+                except Exception as failure:outcomes=[None]*len(group);error=failure
+                for (index,generator,_),outcome in zip(group,outcomes):
+                    try:results[index]=dict(result=_finish_evaluation(generator,outcome=outcome,error=error))
+                    except Exception as failure:results[index]=dict(error=str(failure))
         return results
     finally:
         for generator in generators:generator.close()

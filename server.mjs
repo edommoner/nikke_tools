@@ -1,3 +1,4 @@
+import {ownNativeProcessGroup} from './app/native-worker-process.mjs';
 import {verifyOptimizer,verificationView,recommendationForView} from './app/optimizer-verification.mjs';
 import {attachBrowser,cancelBrowser,acceptBrowserResults,browserWasm} from './app/browser-transport.mjs';
 import {createEvaluator,advanceCases} from './app/evaluation-queue.mjs';
@@ -89,7 +90,9 @@ function worker(body, job) {
   if(body.action==='gpu_probe'||body.action==='evaluate_detail'||body.action==='evaluate_detail_batch'||body.action==='combat_prefilter'||body.action==='select'&&body.backend==='cuda')return gpuWorker(body,job);
   return new Promise((resolve,reject) => {
     const script=['evaluate_portable_detail_batch','prepare_browser_wires','finish_browser','verify_portable_detail'].includes(body.action)?'app/portable_detail_service.py':'app/engine_worker.py';
-    const child = workerTextStreams(spawn(python, [path.join(root,script)], {cwd:root, windowsHide:true, env:{...process.env,PYTHONIOENCODING:'utf-8',PYTHONUTF8:'1'}}));
+    const nativeGroup=body.action==='evaluate_portable_detail_batch'&&body.evaluations?.[0]?.compute_backend==='native_detail'&&process.platform!=='win32';
+    const child = workerTextStreams(spawn(python, [path.join(root,script)], {cwd:root, detached:nativeGroup, windowsHide:true, env:{...process.env,PYTHONIOENCODING:'utf-8',PYTHONUTF8:'1'}}));
+    ownNativeProcessGroup(child,nativeGroup);
     if (job) {job.child=child;(job.children ||= new Set()).add(child);}
     let out='', err='';
     // Cover every possible source group, compilation and bounded GPU phase.

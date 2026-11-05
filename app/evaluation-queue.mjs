@@ -1,3 +1,4 @@
+import os from 'node:os';
 // Shared cache and ordered batch boundary for both direct and job evaluations.
 export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheable=()=>true}) {
   const cleanBody=body=>body&&typeof body==='object'?Object.fromEntries(Object.entries(body).filter(([k])=>k!=='verification'&&!k.startsWith('_'))):body;
@@ -16,11 +17,11 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
     result.compute={requested:body.compute_backend,backend:'cpu',fallback_reason:'GPUを実行できなかったため、CPUで詳細計算しました。',error:error.message};
     return result;
   }
-  async function many(bodies,job){
+  async function many(bodies,job,{hostThreads}={}){
     if(bodies.length>32)throw Error('一度に計算できる候補は32件です。');
     bodies=bodies.map(cleanBody);
     const deferred=job?.kind==='optimize';
-    const options=deferred?{verification:'deferred'}:{};
+    const options={...(deferred?{verification:'deferred'}:{}),...(hostThreads?{host_threads:hostThreads}:{})};
     const rows=new Array(bodies.length),pending=new Map();
     for(const [index,body]of bodies.entries()){
       try{
@@ -75,7 +76,7 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
           }catch(failure){outputs.push({error:failure.message});}
         }
       }
-      gpu.forEach((entry,i)=>publish(entry,outputs[i]));
+      if(job?.status!=='cancelled')gpu.forEach((entry,i)=>publish(entry,outputs[i]));
     }
     for(const entry of entries.filter(e=>!['cuda_detail','metal_detail','cuda_shared_detail','native_detail','browser_detail'].includes(e.body.compute_backend))){
       try{publish(entry,{result:await worker({...entry.body,action:'evaluate'},job)});}
@@ -99,7 +100,10 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
   return {one,many,verify,isCached:body=>cache.has(keyOf(cleanBody(body)))&&cache.get(keyOf(cleanBody(body)))?.compute?.cpu_verification?.status!=='pending'};
 }
 
-export async function advanceCases(job,evaluator){
+export function nativeBatchWorkers(cpus=os.cpus().length){return Math.max(1,Math.min(4,Math.floor(cpus/3)));}
+
+export async function advanceCases(job,evaluator,{nativeBatchSize=32}={}){
+  if(![16,32].includes(nativeBatchSize))throw Error('Invalid native candidate batch size');
   while(job.index<job.cases.length&&job.status==='running'){
     let items,rows;
     if(job.pendingGpuResults){
@@ -109,14 +113,29 @@ export async function advanceCases(job,evaluator){
       rows=pending.rows;delete job.pendingGpuResults;
     }else{
       const first=job.cases[job.index],backend=first.evaluation.compute_backend;
-      const cap=['cuda_detail','native_detail','browser_detail'].includes(backend)?32:['metal_detail','cuda_shared_detail'].includes(backend)?8:1;
+      const cap=job.kind==='optimize'&&backend==='native_detail'?nativeBatchSize:['cuda_detail','native_detail','browser_detail'].includes(backend)?32:['metal_detail','cuda_shared_detail'].includes(backend)?8:1;
       let count=1;
       if(cap>1&&!evaluator.isCached(first.evaluation)){
         while(count<cap&&job.index+count<job.cases.length&&job.cases[job.index+count].evaluation.compute_backend===backend)count++;
       }
+      const concurrent=job.kind==='optimize'&&backend==='native_detail';
+      const cpus=Math.max(1,os.cpus().length),workers=concurrent?nativeBatchWorkers(cpus):1;
+      if(concurrent){
+        count=0;
+        while(count<cap*workers&&job.index+count<job.cases.length&&job.cases[job.index+count].evaluation.compute_backend===backend)count++;
+      }
       items=job.cases.slice(job.index,job.index+count);
       const inputs=JSON.stringify(items.map(item=>item.evaluation));
-      rows=await evaluator.many(items.map(item=>item.evaluation),job);
+      if(concurrent){
+        const batches=[];
+        for(let i=0;i<items.length;i+=cap)batches.push(items.slice(i,i+cap));
+        // All in-flight batches settle before pause; Promise.all preserves order.
+        // Contain failures until siblings have settled, including cancellation.
+        const settled=await Promise.allSettled(batches.map((batch,i)=>evaluator.many(batch.map(item=>item.evaluation),job,{hostThreads:Math.floor(cpus/batches.length)+(i<cpus%batches.length?1:0)})));
+        const failure=settled.find(row=>row.status==='rejected');
+        if(failure){if(job.status==='cancelled')break;throw failure.reason;}
+        rows=settled.flatMap(row=>row.value);
+      }else rows=await evaluator.many(items.map(item=>item.evaluation),job);
       if(JSON.stringify(items.map(item=>item.evaluation))!==inputs)throw Error('計算中に候補が変更されました。');
     }
     if(job.status==='cancelled'){delete job.pendingGpuResults;break;}

@@ -82,12 +82,12 @@ class NativeTests(unittest.TestCase):
         def compiler(command,**kw):
             self.assertEqual(command[2:],['-entry','portableEvents','-target','cpp','-fp-mode','precise','-line-directive-mode','none'])
             return subprocess.CompletedProcess(command,0,b'// generated',b'')
-        with patch.object(generation.subprocess,'run',side_effect=compiler):
+        with patch.object(generation,'cpp_compiler_identity',return_value={'fixture':True}),patch.object(generation.subprocess,'run',side_effect=compiler):
             outputs,hashes=generation.build(self.root,'gpu/product.slang','portableEvents',target='cpp')
         self.assertEqual(set(outputs),{'cpp'});self.assertEqual(hashes,generation.source_hashes(self.root,'gpu/product.slang'))
         def changed(command,**kw):
             (self.root/'gpu/product.slang').write_text('// changed');return compiler(command,**kw)
-        with patch.object(generation.subprocess,'run',side_effect=changed),self.assertRaisesRegex(RuntimeError,'sources changed'):
+        with patch.object(generation,'cpp_compiler_identity',return_value={'fixture':'changed'}),patch.object(generation.subprocess,'run',side_effect=changed),self.assertRaisesRegex(RuntimeError,'sources changed'):
             generation.build(self.root,'gpu/product.slang','portableEvents',target='cpp')
 
 

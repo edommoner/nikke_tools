@@ -8,6 +8,9 @@ import shutil
 import subprocess
 import tempfile
 
+from contextvars import ContextVar
+HOST_THREADS=ContextVar('native_host_threads',default=None)
+
 FLAGS=('-O2','-std=c++17','-ffp-contract=off')
 
 
@@ -67,7 +70,7 @@ def build_host(root,cpp):
 
 
 def run_host(host,input_path,output_path,input_words,output_words,count,timeout):
-    threads=min(count,os.cpu_count() or 1)
+    threads=min(count,HOST_THREADS.get() or os.cpu_count() or 1)
     process=subprocess.run([str(host),str(input_path),str(output_path),str(input_words),str(output_words),str(threads)],
         capture_output=True,text=True,timeout=timeout)
     if process.returncode:raise RuntimeError(process.stderr or process.stdout)
