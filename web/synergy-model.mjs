@@ -57,16 +57,18 @@ export function synergyRelations(basis, candidate, {tiers = ['A', 'B']} = {}) {
   return relations;
 }
 
-export function rankSynergyCandidates(basis, candidates, options) {
+export function rankSynergyCandidates(basis, candidates, {tiers = ['A', 'B'], weights = {A: 3, B: 2, C: 1}} = {}) {
   return candidates.map((character, index) => {
-    const relations = synergyRelations(basis, character, options);
+    const relations = synergyRelations(basis, character, {tiers});
     const involved = new Set();
+    let score = 0;
     for (const relation of relations) {
       if (relation.effect === 'broken') continue;
+      score += weights[relation.tier] ?? 0;
       involved.add(sameCharacter(relation.from, character) ? relation.to.name : relation.from.name);
     }
-    return {character, relations, basisCount: involved.size, index};
+    return {character, relations, basisCount: involved.size, score, index};
   }).filter(entry => entry.basisCount > 0)
-    .sort((a, b) => b.basisCount - a.basisCount || b.relations.length - a.relations.length || a.index - b.index)
-    .map(({index, ...entry}) => entry);
+    .sort((a, b) => b.basisCount - a.basisCount || b.score - a.score || a.index - b.index)
+    .map(({index, score, ...entry}) => entry);
 }

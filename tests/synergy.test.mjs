@@ -88,3 +88,19 @@ test('ranking prioritizes distinct basis members, relation count, then input ord
   assert.equal(entry.relations.filter(r => r.effect === 'broken').length, 2);
   assert.deepEqual(rankSynergyCandidates([], [one]), []);
 });
+
+test('ranking uses tier weights after basis count and ignores broken conditions in score', () => {
+  const basis = character('basis');
+  const candidate = (name, entries, conditions = []) => character(name, {synergy: {provides: entries, conditions}});
+  const a = candidate('a', [provides('A')]);
+  const b = candidate('b', [provides('B')]);
+  const c = candidate('c', [provides('C'), provides('C')]);
+  const broken = candidate('broken', [provides('C')], [condition(true), condition(true), condition(true)]);
+  const rank = options => rankSynergyCandidates([basis], [c, b, broken, a], options).map(e => e.character.name);
+  assert.deepEqual(rank({tiers:['A','B','C']}), ['a','c','b','broken']);
+  assert.deepEqual(rank({tiers:['A','B','C'],weights:{A:1,B:5,C:1}}), ['b','c','broken','a']);
+  assert.deepEqual(rankSynergyCandidates([basis], [a,b]).map(e=>e.character.name), ['a','b']);
+  const second = character('second', {weapon:'AR'});
+  const broad = candidate('broad',[provides('C',{kind:'all'})]);
+  assert.deepEqual(rankSynergyCandidates([basis,second],[a,broad],{tiers:['A','C'],weights:{A:100,C:1}}).map(e=>e.character.name),['broad','a']);
+});
