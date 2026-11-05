@@ -80,25 +80,3 @@ export function bestDisjoint(results,count,groups=[],width=256){
   for(const state of beam)if(state.items.length===count&&(!best||state.score>best.score))best=state;
   return best?{damage:best.score,teams:best.items.map(c=>({squad:c.squad,damage:c.score}))}:null;
 }
-
-
-
-/** Preserve one complete feasible group before adding the highest GPU estimates.
- * Approximate values only change calculation order; never enter final results.
- */
-export function rankCombatPool(pool,groups,scores){
-  const byIndex=new Map();
-  for(const s of scores){
-    if(!Number.isInteger(s.index)||s.index<0||s.index>=pool.length||!Number.isSafeInteger(s.damage)||s.damage<0||JSON.stringify(s.squad)!==JSON.stringify(pool[s.index])||byIndex.has(s.index))throw Error('GPU combat result validation failed');
-    byIndex.set(s.index,s.damage);
-  }
-  // No invented score for preparation failures. Keep original order if none
-  // were scored; otherwise reserve one complete group, including unscored rows.
-  if(!byIndex.size)return pool.map((_,i)=>i);
-  const ranked=[...byIndex.keys()].sort((a,b)=>byIndex.get(b)-byIndex.get(a)||a-b);
-  const rankedGroups=groups.map((group,index)=>({group,index,missing:group.filter(i=>!byIndex.has(i)).length,known:group.reduce((n,i)=>n+(byIndex.get(i)??0),0)}));
-  rankedGroups.sort((a,b)=>a.missing-b.missing||b.known-a.known||a.index-b.index);
-  const first=rankedGroups[0]?.group||[];
-  const unscored=pool.map((_,i)=>i).filter(i=>!byIndex.has(i));
-  return [...new Set([...first,...ranked,...unscored])];
-}

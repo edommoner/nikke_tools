@@ -20,33 +20,6 @@ test('failed evaluations are excluded without changing original candidate indice
   assert.equal(bestDisjoint(results,3,[[0,1,2]]),null);
 });
 
-test('GPU estimates only reorder candidates and preserve a feasible group for final CPU scoring',async()=>{
-  const {rankCombatPool}=await import('../app/optimizer.mjs');
-  const pool=Array.from({length:8},(_,i)=>Array.from({length:5},(_,j)=>`${i}:${j}`));
-  const groups=[[0,1,2,3,4],[2,3,4,5,6]];
-  const scores=pool.map((squad,index)=>({squad,index,damage:index*100}));
-  const order=rankCombatPool(pool,groups,scores);
-  assert.deepEqual(order.slice(0,5),groups[1]);assert.equal(new Set(order).size,8);
-  assert.deepEqual(order.slice(5),[7,1,0]);
-  assert.throws(()=>rankCombatPool(pool,groups,[{squad:pool[0],index:3,damage:5}]),/validation/);
-  assert.throws(()=>rankCombatPool(pool,groups,[scores[0],scores[0]]),/validation/);
-});
-
-test('unscored candidates retain original order after scored rows; empty scores retain every candidate',async()=>{
- const {rankCombatPool}=await import('../app/optimizer.mjs');
- const pool=Array.from({length:6},(_,i)=>[String(i)]);
- const scores=[{index:2,squad:pool[2],damage:20},{index:0,squad:pool[0],damage:10}];
- assert.deepEqual(rankCombatPool(pool,[],scores),[2,0,1,3,4,5]);
- assert.deepEqual(rankCombatPool(pool,[[2,5],[0,1]],[]),[0,1,2,3,4,5]);
- const order=rankCombatPool(pool,[[0,1],[2,3]],scores);
- assert.deepEqual(order.slice(0,2),[2,3]);
- assert.deepEqual(new Set(order),new Set([0,1,2,3,4,5]));
- // No fully-scored group exists, but an intact partial group still fits the
- // shortlist, and missing members receive detailed scores there.
- const results=order.slice(0,2).map(i=>({result:{members:pool[i].map(name=>({name})),total_damage:100+i}}));
- assert.equal(bestDisjoint(results,2).damage,205);
-});
-
 import {swapCandidates} from '../app/optimizer.mjs';
 const swapSquad=['i','ii','iii','extra1','extra2'];
 const swapScored=[...swapSquad.map((name,i)=>({name,burst:['1','2','3','3','3'][i],potential:0})),

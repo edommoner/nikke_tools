@@ -1,0 +1,2112 @@
+{
+  "metadata": {
+    "benchmark": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/claude-product-standard-phase0-v1-20261102/native-backend-v1/unit8/long-bodies.json",
+    "owned": 206,
+    "scored": 206,
+    "skipped": [],
+    "seeds": {
+      "A": 41,
+      "B": 42,
+      "C": 43
+    },
+    "evaluation_seconds": 822.4173084999202,
+    "seconds_per_squad": 0.3343159790650082,
+    "free_bytes_before": 37478400000,
+    "free_bytes_after": 37478400000,
+    "verification": "deferred; never checked",
+    "native_host_threads": 10,
+    "raw_captures_retained": false,
+    "wall_seconds": 824.9728263749275
+  },
+  "correlations": {
+    "B": {
+      "n": 2000,
+      "spearman": 0.0726364171591043,
+      "kendall_tau_b": 0.04945472736368184
+    },
+    "A_union_B": {
+      "n": 2160,
+      "spearman": 0.08648233830449448,
+      "kendall_tau_b": 0.059025097353026953
+    }
+  },
+  "miss_rates": {
+    "20": {
+      "100": {
+        "found": 4,
+        "miss_rate": 0.8
+      },
+      "500": {
+        "found": 5,
+        "miss_rate": 0.75
+      },
+      "1000": {
+        "found": 8,
+        "miss_rate": 0.6
+      },
+      "2000": {
+        "found": 19,
+        "miss_rate": 0.050000000000000044
+      }
+    },
+    "100": {
+      "100": {
+        "found": 5,
+        "miss_rate": 0.95
+      },
+      "500": {
+        "found": 19,
+        "miss_rate": 0.81
+      },
+      "1000": {
+        "found": 39,
+        "miss_rate": 0.61
+      },
+      "2000": {
+        "found": 77,
+        "miss_rate": 0.22999999999999998
+      }
+    }
+  },
+  "true_top100_in_A": 21,
+  "best_disjoint": {
+    "A": {
+      "damage": 22209478879,
+      "teams": [
+        {
+          "squad": [
+            "토브",
+            "아르카나 : 포츈 메이트",
+            "도로시 : 세렌디피티",
+            "드레이크",
+            "솔린 : 프로스트 티켓"
+          ],
+          "damage": 3843495874
+        },
+        {
+          "squad": [
+            "리타",
+            "레이",
+            "아스카",
+            "모더니아",
+            "그레이브"
+          ],
+          "damage": 4439779936
+        },
+        {
+          "squad": [
+            "리틀 머메이드",
+            "크라운",
+            "퀸(마코토)",
+            "유키코",
+            "마스트 : 로망틱 메이드"
+          ],
+          "damage": 5116835480
+        },
+        {
+          "squad": [
+            "브리드 : 사일런트 트랙",
+            "라피 : 레드 후드",
+            "아니스 : 스타",
+            "미하라 : 본딩 체인",
+            "프리바티"
+          ],
+          "damage": 6384984219
+        },
+        {
+          "squad": [
+            "미란다",
+            "블랑",
+            "스노우 화이트 : 헤비암즈",
+            "루주",
+            "디젤 : 윈터 스위츠"
+          ],
+          "damage": 2424383370
+        }
+      ]
+    },
+    "A+B": {
+      "damage": 22679329544,
+      "teams": [
+        {
+          "squad": [
+            "토브",
+            "아르카나 : 포츈 메이트",
+            "도로시 : 세렌디피티",
+            "드레이크",
+            "솔린 : 프로스트 티켓"
+          ],
+          "damage": 3843495874
+        },
+        {
+          "squad": [
+            "리타",
+            "레이",
+            "아스카",
+            "모더니아",
+            "그레이브"
+          ],
+          "damage": 4439779936
+        },
+        {
+          "squad": [
+            "리틀 머메이드",
+            "크라운",
+            "퀸(마코토)",
+            "유키코",
+            "마스트 : 로망틱 메이드"
+          ],
+          "damage": 5116835480
+        },
+        {
+          "squad": [
+            "브리드 : 사일런트 트랙",
+            "라피 : 레드 후드",
+            "아니스 : 스타",
+            "미하라 : 본딩 체인",
+            "프리바티"
+          ],
+          "damage": 6384984219
+        },
+        {
+          "squad": [
+            "2B",
+            "마리안 : 퀸",
+            "팬텀",
+            "나유타",
+            "도로시"
+          ],
+          "damage": 2894234035
+        }
+      ]
+    }
+  },
+  "unconstrained_C": {
+    "n": 300,
+    "without_coverage": 129,
+    "B_median": 694951205.0,
+    "B_p90": 1252826006,
+    "beat_B_median": 115,
+    "beat_B_p90": 23,
+    "lacking_coverage_beat_B_median": 23,
+    "lacking_coverage_beat_B_p90": 0
+  },
+  "backends": {
+    "native_detail": 2406,
+    "cpu": 54
+  },
+  "coverage_issues": [
+    {
+      "id": 177,
+      "cohort": "B",
+      "members": [
+        "파스칼",
+        "홍련",
+        "밀크 : 블루밍 바니",
+        "베이",
+        "앵커"
+      ],
+      "member_potentials": [
+        11945925.0,
+        38363802.72,
+        8202504.32,
+        5612076.3,
+        5388944.3
+      ],
+      "simple_score": 69513252.64,
+      "pool_generator_effective_score": 69513252.64,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 381508352,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Weighted product composition requires a checked plain, actual-shot group or coordinate battle entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 4.746880208025686
+    },
+    {
+      "id": 234,
+      "cohort": "B",
+      "members": [
+        "벨벳",
+        "퀸(마코토)",
+        "레이",
+        "자칼",
+        "클레이"
+      ],
+      "member_potentials": [
+        7019227.760000001,
+        39219960.0,
+        657126.3200000001,
+        5670849.34,
+        23948210.879999995
+      ],
+      "simple_score": 76515374.3,
+      "pool_generator_effective_score": 76515374.3,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 1472132832,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 8 (history capacity exceeded)"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 10.85003762494307
+    },
+    {
+      "id": 241,
+      "cohort": "B",
+      "members": [
+        "미사토",
+        "벨벳",
+        "에이드",
+        "루드밀라",
+        "아스카 : WILLE"
+      ],
+      "member_potentials": [
+        18760766.4,
+        7019227.760000001,
+        19516933.8,
+        20735026.560000002,
+        630510.49
+      ],
+      "simple_score": 66662465.010000005,
+      "pool_generator_effective_score": 66662465.010000005,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 556883930,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 8 (history capacity exceeded)"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 35.044260791968554
+    },
+    {
+      "id": 273,
+      "cohort": "B",
+      "members": [
+        "스노우 화이트",
+        "아크레인저 블랙",
+        "볼륨",
+        "니힐리스타",
+        "벨벳"
+      ],
+      "member_potentials": [
+        21035888.400000002,
+        19422585.0,
+        24946917.84,
+        8604386.16,
+        7019227.760000001
+      ],
+      "simple_score": 81029005.16,
+      "pool_generator_effective_score": 81029005.16,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 887433737,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 8 (history capacity exceeded)"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 12.05772850010544
+    },
+    {
+      "id": 299,
+      "cohort": "B",
+      "members": [
+        "시그널",
+        "iDoll 플라워",
+        "레이",
+        "스노우 화이트 : 이노센트 데이즈",
+        "스노우 화이트 : 헤비암즈"
+      ],
+      "member_potentials": [
+        23836161.599999998,
+        4484156.3,
+        657126.3200000001,
+        20093182.200000003,
+        8604386.16
+      ],
+      "simple_score": 57675012.58,
+      "pool_generator_effective_score": 57675012.58,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 941301755,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 5.959721458959393
+    },
+    {
+      "id": 319,
+      "cohort": "B",
+      "members": [
+        "미사토",
+        "벨벳",
+        "히메노",
+        "누아르",
+        "루주"
+      ],
+      "member_potentials": [
+        18760766.4,
+        7019227.760000001,
+        6509119.8,
+        36336039.3,
+        7359085.289999999
+      ],
+      "simple_score": 75984238.55,
+      "pool_generator_effective_score": 75984238.55,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 461807873,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 8 (history capacity exceeded)"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 18.695138416951522
+    },
+    {
+      "id": 356,
+      "cohort": "B",
+      "members": [
+        "미사토",
+        "람",
+        "라플라스 : 얼티밋 히어로",
+        "솔져 E.G.",
+        "베이"
+      ],
+      "member_potentials": [
+        18760766.4,
+        5347631.28,
+        1563312.5,
+        17866953.0,
+        5612076.3
+      ],
+      "simple_score": 49150739.48,
+      "pool_generator_effective_score": 49150739.48,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 440593673,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Weighted product composition requires a checked plain, actual-shot group or coordinate battle entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 18.269154542009346
+    },
+    {
+      "id": 366,
+      "cohort": "B",
+      "members": [
+        "미사토",
+        "K",
+        "벨벳",
+        "iDoll 썬",
+        "릴리"
+      ],
+      "member_potentials": [
+        18760766.4,
+        13258081.2,
+        7019227.760000001,
+        15095813.879999999,
+        18989964.0
+      ],
+      "simple_score": 73123853.24,
+      "pool_generator_effective_score": 73123853.24,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 446603405,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 8 (history capacity exceeded)"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 20.160439042025246
+    },
+    {
+      "id": 401,
+      "cohort": "B",
+      "members": [
+        "사쿠라 : 블룸 인 서머",
+        "라피 : 레드 후드",
+        "홍련 : 흑영",
+        "자칼",
+        "아이기스"
+      ],
+      "member_potentials": [
+        20058620.4,
+        681277.8400000001,
+        7660417.77,
+        5670849.34,
+        11313350.399999999
+      ],
+      "simple_score": 45384515.75,
+      "pool_generator_effective_score": 45384515.75,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 1156595422,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 64"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 6.076897207996808
+    },
+    {
+      "id": 460,
+      "cohort": "B",
+      "members": [
+        "앵커 : 이노센트 메이드",
+        "사쿠라",
+        "길티",
+        "벨벳",
+        "길로틴 : 윈터 슬레이어"
+      ],
+      "member_potentials": [
+        6560142.1,
+        6965722.0,
+        43798813.5,
+        7019227.760000001,
+        19815868.8
+      ],
+      "simple_score": 84159774.16,
+      "pool_generator_effective_score": 84159774.16,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 761922474,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 8 (history capacity exceeded)"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 6.98195329203736
+    },
+    {
+      "id": 491,
+      "cohort": "B",
+      "members": [
+        "자칼",
+        "클레이",
+        "일레그 : 붐 앤 쇼크",
+        "렘",
+        "스노우 화이트 : 헤비암즈"
+      ],
+      "member_potentials": [
+        5670849.34,
+        23948210.879999995,
+        762388.18,
+        574322.7000000001,
+        8604386.16
+      ],
+      "simple_score": 39560157.26,
+      "pool_generator_effective_score": 39560157.26,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 964308185,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 8.062334749964066
+    },
+    {
+      "id": 515,
+      "cohort": "B",
+      "members": [
+        "벨벳",
+        "아니스 : 스파클링 서머",
+        "니힐리스타",
+        "라푼젤 : 퓨어 그레이스",
+        "레이블"
+      ],
+      "member_potentials": [
+        7019227.760000001,
+        40089168.0,
+        8604386.16,
+        5598936.880000001,
+        13719560.399999999
+      ],
+      "simple_score": 75031279.2,
+      "pool_generator_effective_score": 75031279.2,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 548307336,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 8 (history capacity exceeded)"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 14.929235541028902
+    },
+    {
+      "id": 530,
+      "cohort": "B",
+      "members": [
+        "마나",
+        "베이",
+        "벨벳",
+        "마르차나",
+        "소라"
+      ],
+      "member_potentials": [
+        21043627.44,
+        5612076.3,
+        7019227.760000001,
+        31466643.0,
+        6538380.6
+      ],
+      "simple_score": 71679955.1,
+      "pool_generator_effective_score": 71679955.1,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 551119269,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Enemy magazines require a checked plain, modifier or actual-shot group BODY/ADD product prefix"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 16.03554695798084
+    },
+    {
+      "id": 570,
+      "cohort": "B",
+      "members": [
+        "메어리",
+        "마리",
+        "엠마",
+        "레이 (가칭)",
+        "사쿠라 (SR)"
+      ],
+      "member_potentials": [
+        29802152.25,
+        7021644.160000001,
+        570345.72,
+        24665669.160000004,
+        17845920.0
+      ],
+      "simple_score": 79905731.29,
+      "pool_generator_effective_score": 79905731.29,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 825210017,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Named modifier carriers require their checked ordinary BODY product entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 6.109374583000317
+    },
+    {
+      "id": 597,
+      "cohort": "B",
+      "members": [
+        "노아",
+        "스노우 화이트 : 헤비암즈",
+        "클레어",
+        "일레그",
+        "티아"
+      ],
+      "member_potentials": [
+        2977988.08,
+        8604386.16,
+        5890071.8,
+        561868.18,
+        5131055.2
+      ],
+      "simple_score": 23165369.42,
+      "pool_generator_effective_score": 23165369.42,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 537158796,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 6.3263866669731215
+    },
+    {
+      "id": 653,
+      "cohort": "B",
+      "members": [
+        "프로덕트 08",
+        "솔린 : 프로스트 티켓",
+        "레이",
+        "베이",
+        "아스카 : WILLE"
+      ],
+      "member_potentials": [
+        5768015.840000001,
+        30857609.25,
+        657126.3200000001,
+        5612076.3,
+        630510.49
+      ],
+      "simple_score": 43525338.2,
+      "pool_generator_effective_score": 43525338.2,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 839439049,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Weighted product composition requires a checked plain, actual-shot group or coordinate battle entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 31.8087746250676
+    },
+    {
+      "id": 699,
+      "cohort": "B",
+      "members": [
+        "레이 (가칭)",
+        "릴리",
+        "토브",
+        "아스카",
+        "엠마"
+      ],
+      "member_potentials": [
+        24665669.160000004,
+        18989964.0,
+        17124518.4,
+        30157975.68,
+        570345.72
+      ],
+      "simple_score": 91508472.96000001,
+      "pool_generator_effective_score": 91508472.96000001,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 793850790,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Named modifier carriers require their checked ordinary BODY product entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 7.588506749947555
+    },
+    {
+      "id": 778,
+      "cohort": "B",
+      "members": [
+        "벨벳",
+        "엑시아",
+        "미카 : 스노우 버디",
+        "사쿠라",
+        "A2"
+      ],
+      "member_potentials": [
+        7019227.760000001,
+        7153303.44,
+        28260273.599999998,
+        6965722.0,
+        8257629.600000001
+      ],
+      "simple_score": 57656156.4,
+      "pool_generator_effective_score": 57656156.4,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 528051065,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 8 (history capacity exceeded)"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 7.387790915905498
+    },
+    {
+      "id": 787,
+      "cohort": "B",
+      "members": [
+        "율하",
+        "폴리",
+        "미사토",
+        "벨벳",
+        "토브"
+      ],
+      "member_potentials": [
+        7929690.600000001,
+        24506732.25,
+        18760766.4,
+        7019227.760000001,
+        17124518.4
+      ],
+      "simple_score": 75340935.41,
+      "pool_generator_effective_score": 75340935.41,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 536389291,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 8 (history capacity exceeded)"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 9.156269790953957
+    },
+    {
+      "id": 859,
+      "cohort": "B",
+      "members": [
+        "레드 후드",
+        "벨벳",
+        "파스칼",
+        "클레이",
+        "모더니아"
+      ],
+      "member_potentials": [
+        8387669.600000001,
+        7019227.760000001,
+        11945925.0,
+        23948210.879999995,
+        936687.9
+      ],
+      "simple_score": 52237721.13999999,
+      "pool_generator_effective_score": 52237721.13999999,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 997517196,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 8 (history capacity exceeded)"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 7.228114750003442
+    },
+    {
+      "id": 875,
+      "cohort": "B",
+      "members": [
+        "슈가",
+        "프림",
+        "일레그 : 붐 앤 쇼크",
+        "A2",
+        "도라"
+      ],
+      "member_potentials": [
+        46165291.2,
+        6857678.850000001,
+        762388.18,
+        8257629.600000001,
+        7050295.760000001
+      ],
+      "simple_score": 69093283.59,
+      "pool_generator_effective_score": 69093283.59,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 853793195,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "[{'character': '슈가', 'effect': '블랙 타이푼 5', 'reason': \"[{'reason': 'effect fields: target_code'}]\"}]"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 23.136958291986957
+    },
+    {
+      "id": 912,
+      "cohort": "B",
+      "members": [
+        "레이 (가칭)",
+        "마리",
+        "에밀리아",
+        "도로시",
+        "밀크 : 블루밍 바니"
+      ],
+      "member_potentials": [
+        24665669.160000004,
+        7021644.160000001,
+        7497725.6,
+        16597690.200000001,
+        8202504.32
+      ],
+      "simple_score": 63985233.440000005,
+      "pool_generator_effective_score": 63985233.440000005,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 818506838,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Named modifier carriers require their checked ordinary BODY product entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 6.576705791987479
+    },
+    {
+      "id": 934,
+      "cohort": "B",
+      "members": [
+        "스노우 화이트 : 헤비암즈",
+        "네온",
+        "헬름",
+        "은화 : 택티컬 업",
+        "솔져 O.W."
+      ],
+      "member_potentials": [
+        8604386.16,
+        31652479.5,
+        8145063.040000001,
+        8696623.600000001,
+        19393620.479999997
+      ],
+      "simple_score": 76492172.78,
+      "pool_generator_effective_score": 76492172.78,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 1502858081,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Cover DEF composition requires a connected BODY/PART modifier or shot-group product battle"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 6.936133791925386
+    },
+    {
+      "id": 966,
+      "cohort": "B",
+      "members": [
+        "일레그",
+        "베이",
+        "네로",
+        "얀",
+        "A2"
+      ],
+      "member_potentials": [
+        561868.18,
+        5612076.3,
+        16534072.32,
+        6097817.5,
+        8257629.600000001
+      ],
+      "simple_score": 37063463.9,
+      "pool_generator_effective_score": 37063463.9,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 534386587,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Weighted product composition requires a checked plain, actual-shot group or coordinate battle entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 6.7724551249993965
+    },
+    {
+      "id": 985,
+      "cohort": "B",
+      "members": [
+        "N102",
+        "레이 (가칭)",
+        "모리",
+        "메어리",
+        "앵커"
+      ],
+      "member_potentials": [
+        6058646.8,
+        24665669.160000004,
+        13684671.0,
+        29802152.25,
+        5388944.3
+      ],
+      "simple_score": 79600083.51,
+      "pool_generator_effective_score": 79600083.51,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 424074706,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Named modifier carriers require their checked ordinary BODY product entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 14.597268166951835
+    },
+    {
+      "id": 1015,
+      "cohort": "B",
+      "members": [
+        "2B",
+        "토브",
+        "스노우 화이트 : 헤비암즈",
+        "크러스트",
+        "사쿠라"
+      ],
+      "member_potentials": [
+        6056680.68,
+        17124518.4,
+        8604386.16,
+        6388931.199999999,
+        6965722.0
+      ],
+      "simple_score": 45140238.44,
+      "pool_generator_effective_score": 45140238.44,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 1197320270,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 16.836782624945045
+    },
+    {
+      "id": 1087,
+      "cohort": "B",
+      "members": [
+        "이사벨",
+        "벨로타 : 펌킨 위치",
+        "벨벳",
+        "트리나",
+        "미사토"
+      ],
+      "member_potentials": [
+        37908933.3,
+        6330941.399999999,
+        7019227.760000001,
+        7002558.87,
+        18760766.4
+      ],
+      "simple_score": 77022427.72999999,
+      "pool_generator_effective_score": 77022427.72999999,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 401952072,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 8 (history capacity exceeded)"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 18.21961662499234
+    },
+    {
+      "id": 1218,
+      "cohort": "B",
+      "members": [
+        "루마니",
+        "미하라",
+        "앤 : 미라클 페어리",
+        "프로덕트 08",
+        "스노우 화이트 : 헤비암즈"
+      ],
+      "member_potentials": [
+        4787676.84,
+        19939237.560000002,
+        6999601.8,
+        5768015.840000001,
+        8604386.16
+      ],
+      "simple_score": 46098918.2,
+      "pool_generator_effective_score": 46098918.2,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 418090661,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 12.412282334058546
+    },
+    {
+      "id": 1245,
+      "cohort": "B",
+      "members": [
+        "레이블",
+        "레이 (가칭)",
+        "애드미",
+        "아스카",
+        "아비스타"
+      ],
+      "member_potentials": [
+        13719560.399999999,
+        24665669.160000004,
+        6849440.53,
+        30157975.68,
+        570345.72
+      ],
+      "simple_score": 75962991.49000001,
+      "pool_generator_effective_score": 75962991.49000001,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 1209919902,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Named modifier carriers require their checked ordinary BODY product entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 35.02141558402218
+    },
+    {
+      "id": 1251,
+      "cohort": "B",
+      "members": [
+        "스노우 화이트 : 헤비암즈",
+        "엠마 : 택티컬 업",
+        "블랑",
+        "클레이",
+        "질"
+      ],
+      "member_potentials": [
+        8604386.16,
+        576951.74,
+        13311862.200000001,
+        23948210.879999995,
+        22344120.175
+      ],
+      "simple_score": 68785531.155,
+      "pool_generator_effective_score": 68785531.155,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 1158746223,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 28.802404375048354
+    },
+    {
+      "id": 1258,
+      "cohort": "B",
+      "members": [
+        "iDoll 썬",
+        "아니스 : 스파클링 서머",
+        "앵커",
+        "맥스웰",
+        "베이"
+      ],
+      "member_potentials": [
+        15095813.879999999,
+        40089168.0,
+        5388944.3,
+        8397266.16,
+        5612076.3
+      ],
+      "simple_score": 74583268.64,
+      "pool_generator_effective_score": 74583268.64,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 353013849,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Weighted product composition requires a checked plain, actual-shot group or coordinate battle entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 29.826258916058578
+    },
+    {
+      "id": 1290,
+      "cohort": "B",
+      "members": [
+        "맥스웰",
+        "민트",
+        "벨벳",
+        "앵커",
+        "E.H."
+      ],
+      "member_potentials": [
+        8397266.16,
+        6675263.5,
+        7019227.760000001,
+        5388944.3,
+        29648361.599999998
+      ],
+      "simple_score": 57129063.32,
+      "pool_generator_effective_score": 57129063.32,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 783664854,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 8 (history capacity exceeded)"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 6.638242874993011
+    },
+    {
+      "id": 1328,
+      "cohort": "B",
+      "members": [
+        "벨벳",
+        "도로시",
+        "솔져 F.A.",
+        "프로덕트 23",
+        "레이"
+      ],
+      "member_potentials": [
+        7019227.760000001,
+        16597690.200000001,
+        25595134.799999997,
+        30789019.799999997,
+        657126.3200000001
+      ],
+      "simple_score": 80658198.88,
+      "pool_generator_effective_score": 80658198.88,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 754533885,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 8 (history capacity exceeded)"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 28.749433875083923
+    },
+    {
+      "id": 1445,
+      "cohort": "B",
+      "members": [
+        "드레이크",
+        "폴크방",
+        "벨벳",
+        "파스칼",
+        "니힐리스타"
+      ],
+      "member_potentials": [
+        38058715.650000006,
+        14353561.919999998,
+        7019227.760000001,
+        11945925.0,
+        8604386.16
+      ],
+      "simple_score": 79981816.49000001,
+      "pool_generator_effective_score": 79981816.49000001,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 624181574,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Shared battle status: 8 (history capacity exceeded)"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 11.4884451670805
+    },
+    {
+      "id": 1491,
+      "cohort": "B",
+      "members": [
+        "미사토",
+        "벨로타",
+        "신",
+        "스노우 화이트 : 헤비암즈",
+        "누아르"
+      ],
+      "member_potentials": [
+        18760766.4,
+        6729452.699999999,
+        13632746.399999999,
+        8604386.16,
+        36336039.3
+      ],
+      "simple_score": 84063390.96,
+      "pool_generator_effective_score": 84063390.96,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 671133010,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 7.8181843750644475
+    },
+    {
+      "id": 1511,
+      "cohort": "B",
+      "members": [
+        "밀크 : 블루밍 바니",
+        "앤 : 미라클 페어리",
+        "미카 : 스노우 버디",
+        "레이 (가칭)",
+        "스노우 화이트 : 헤비암즈"
+      ],
+      "member_potentials": [
+        8202504.32,
+        6999601.8,
+        28260273.599999998,
+        24665669.160000004,
+        8604386.16
+      ],
+      "simple_score": 76732435.04,
+      "pool_generator_effective_score": 76732435.04,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 593887076,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 7.371378791984171
+    },
+    {
+      "id": 1512,
+      "cohort": "B",
+      "members": [
+        "사쿠라 : 블룸 인 서머",
+        "클레이",
+        "미사토",
+        "스노우 화이트 : 헤비암즈",
+        "에밀리아"
+      ],
+      "member_potentials": [
+        20058620.4,
+        23948210.879999995,
+        18760766.4,
+        8604386.16,
+        7497725.6
+      ],
+      "simple_score": 78869709.44,
+      "pool_generator_effective_score": 78869709.44,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 619422288,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 9.396838458022103
+    },
+    {
+      "id": 1569,
+      "cohort": "B",
+      "members": [
+        "엠마",
+        "스노우 화이트 : 헤비암즈",
+        "마나",
+        "센티",
+        "니힐리스타"
+      ],
+      "member_potentials": [
+        570345.72,
+        8604386.16,
+        21043627.44,
+        5124128.3,
+        8604386.16
+      ],
+      "simple_score": 43946873.78,
+      "pool_generator_effective_score": 43946873.78,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 848077185,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 5.809850041987374
+    },
+    {
+      "id": 1704,
+      "cohort": "B",
+      "members": [
+        "팬텀",
+        "벨벳",
+        "드레이크 : 그레이트 빌런",
+        "스노우 화이트 : 헤비암즈",
+        "노이즈"
+      ],
+      "member_potentials": [
+        23047005.599999998,
+        7019227.760000001,
+        25268402.25,
+        8604386.16,
+        6825448.5
+      ],
+      "simple_score": 70764470.27,
+      "pool_generator_effective_score": 70764470.27,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 837153053,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 19.67429966700729
+    },
+    {
+      "id": 1765,
+      "cohort": "B",
+      "members": [
+        "프림",
+        "레이 (가칭)",
+        "사쿠라",
+        "마키마",
+        "스노우 화이트"
+      ],
+      "member_potentials": [
+        6857678.850000001,
+        24665669.160000004,
+        6965722.0,
+        18026891.28,
+        21035888.400000002
+      ],
+      "simple_score": 77551849.69000001,
+      "pool_generator_effective_score": 77551849.69000001,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 635087845,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Named modifier carriers require their checked ordinary BODY product entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 17.99750670802314
+    },
+    {
+      "id": 1768,
+      "cohort": "B",
+      "members": [
+        "솔져 E.G.",
+        "베이",
+        "얀",
+        "아스카",
+        "iDoll 플라워"
+      ],
+      "member_potentials": [
+        17866953.0,
+        5612076.3,
+        6097817.5,
+        30157975.68,
+        4484156.3
+      ],
+      "simple_score": 64218978.78,
+      "pool_generator_effective_score": 64218978.78,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 558973908,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Weighted product composition requires a checked plain, actual-shot group or coordinate battle entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 19.205719124991447
+    },
+    {
+      "id": 1778,
+      "cohort": "B",
+      "members": [
+        "벨벳",
+        "사쿠라 (SR)",
+        "이사벨",
+        "스노우 화이트 : 헤비암즈",
+        "프로덕트 12"
+      ],
+      "member_potentials": [
+        7019227.760000001,
+        17845920.0,
+        37908933.3,
+        8604386.16,
+        567839.16
+      ],
+      "simple_score": 71946306.38,
+      "pool_generator_effective_score": 71946306.38,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 858209940,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 21.397671792074107
+    },
+    {
+      "id": 1816,
+      "cohort": "B",
+      "members": [
+        "바이퍼",
+        "베이",
+        "미사토",
+        "블랑",
+        "레이븐"
+      ],
+      "member_potentials": [
+        38470599.6,
+        5612076.3,
+        18760766.4,
+        13311862.200000001,
+        7305121.0
+      ],
+      "simple_score": 83460425.5,
+      "pool_generator_effective_score": 83460425.5,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 497422231,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Weighted product composition requires a checked plain, actual-shot group or coordinate battle entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 14.515906332992017
+    },
+    {
+      "id": 1855,
+      "cohort": "B",
+      "members": [
+        "레이 (가칭)",
+        "도로시",
+        "길로틴",
+        "마리",
+        "아크레인저 블랙"
+      ],
+      "member_potentials": [
+        24665669.160000004,
+        16597690.200000001,
+        679896.48,
+        7021644.160000001,
+        19422585.0
+      ],
+      "simple_score": 68387485.0,
+      "pool_generator_effective_score": 68387485.0,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 956961727,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Named modifier carriers require their checked ordinary BODY product entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 8.755159042077139
+    },
+    {
+      "id": 1902,
+      "cohort": "B",
+      "members": [
+        "리틀 머메이드",
+        "스노우 화이트 : 헤비암즈",
+        "니힐리스타",
+        "홍련 : 흑영",
+        "벨로타 : 펌킨 위치"
+      ],
+      "member_potentials": [
+        25251262.08,
+        8604386.16,
+        8604386.16,
+        7660417.77,
+        6330941.399999999
+      ],
+      "simple_score": 56451393.57,
+      "pool_generator_effective_score": 56451393.57,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 1515320229,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 16.446408250019886
+    },
+    {
+      "id": 1904,
+      "cohort": "B",
+      "members": [
+        "미사토",
+        "프리카",
+        "누아르",
+        "베이",
+        "메이든 : 아이스 로즈"
+      ],
+      "member_potentials": [
+        18760766.4,
+        6837859.680000001,
+        36336039.3,
+        5612076.3,
+        5276213.6
+      ],
+      "simple_score": 72822955.28,
+      "pool_generator_effective_score": 72822955.28,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 531703376,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Weighted product composition requires a checked plain, actual-shot group or coordinate battle entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 26.3284026250476
+    },
+    {
+      "id": 1943,
+      "cohort": "B",
+      "members": [
+        "에이드 : 에이전트 바니",
+        "미사토",
+        "은화 : 택티컬 업",
+        "레이 (가칭)",
+        "레오나"
+      ],
+      "member_potentials": [
+        6858778.800000001,
+        18760766.4,
+        8696623.600000001,
+        24665669.160000004,
+        32925301.5
+      ],
+      "simple_score": 91907139.46000001,
+      "pool_generator_effective_score": 91907139.46000001,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 803374339,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Named modifier carriers require their checked ordinary BODY product entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 6.899043207988143
+    },
+    {
+      "id": 1950,
+      "cohort": "B",
+      "members": [
+        "미사토",
+        "길티 : 마이티 바니",
+        "스노우 화이트 : 헤비암즈",
+        "미카",
+        "백학"
+      ],
+      "member_potentials": [
+        18760766.4,
+        9095122.48,
+        8604386.16,
+        6263511.399999999,
+        5791765.600000001
+      ],
+      "simple_score": 48515552.04,
+      "pool_generator_effective_score": 48515552.04,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 598591520,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 8.628304083016701
+    },
+    {
+      "id": 2043,
+      "cohort": "B",
+      "members": [
+        "스노우 화이트 : 헤비암즈",
+        "밀크 : 블루밍 바니",
+        "비스킷",
+        "율리아",
+        "솔린 : 프로스트 티켓"
+      ],
+      "member_potentials": [
+        8604386.16,
+        8202504.32,
+        6259894.699999999,
+        22293971.28,
+        30857609.25
+      ],
+      "simple_score": 76218365.71000001,
+      "pool_generator_effective_score": 76218365.71000001,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 741233519,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Plain upstream projectile early-return row required"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 15.49799887498375
+    },
+    {
+      "id": 2121,
+      "cohort": "B",
+      "members": [
+        "크라운",
+        "일레그 : 붐 앤 쇼크",
+        "프리카",
+        "슈가",
+        "리타"
+      ],
+      "member_potentials": [
+        474809.08,
+        762388.18,
+        6837859.680000001,
+        46165291.2,
+        21804955.92
+      ],
+      "simple_score": 76045304.06,
+      "pool_generator_effective_score": 76045304.06,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 1776810256,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "[{'character': '슈가', 'effect': '블랙 타이푼 5', 'reason': \"[{'reason': 'effect fields: target_code'}]\"}]"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 41.75324262504
+    },
+    {
+      "id": 2176,
+      "cohort": "C",
+      "members": [
+        "니힐리스타",
+        "람",
+        "앤 : 미라클 페어리",
+        "레이블",
+        "스노우 화이트 : 헤비암즈"
+      ],
+      "member_potentials": [
+        8604386.16,
+        5347631.28,
+        6999601.8,
+        13719560.399999999,
+        8604386.16
+      ],
+      "simple_score": 43275565.8,
+      "pool_generator_effective_score": 43275565.8,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 615432086,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 12.551147917052731
+    },
+    {
+      "id": 2179,
+      "cohort": "C",
+      "members": [
+        "iDoll 오션",
+        "시그널",
+        "벨벳",
+        "솔져 E.G.",
+        "스노우 화이트 : 헤비암즈"
+      ],
+      "member_potentials": [
+        19784764.080000002,
+        23836161.599999998,
+        7019227.760000001,
+        17866953.0,
+        8604386.16
+      ],
+      "simple_score": 77111492.6,
+      "pool_generator_effective_score": 77111492.6,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 832766960,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Ordinary lock markers require their checked BODY/ADD product composition"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 14.623363750055432
+    },
+    {
+      "id": 2387,
+      "cohort": "C",
+      "members": [
+        "마스트 : 로망틱 메이드",
+        "크라운",
+        "베이",
+        "아스카",
+        "렘"
+      ],
+      "member_potentials": [
+        581129.24,
+        474809.08,
+        5612076.3,
+        30157975.68,
+        574322.7000000001
+      ],
+      "simple_score": 37400313.0,
+      "pool_generator_effective_score": 37400313.0,
+      "pool_insertion_index": null,
+      "burst_coverage": false,
+      "total_damage": 835042156,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Weighted product composition requires a checked plain, actual-shot group or coordinate battle entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 7.917276750085875
+    },
+    {
+      "id": 2456,
+      "cohort": "C",
+      "members": [
+        "홍련",
+        "레이",
+        "소다",
+        "레이 (가칭)",
+        "마르차나"
+      ],
+      "member_potentials": [
+        38363802.72,
+        657126.3200000001,
+        566357.6,
+        24665669.160000004,
+        31466643.0
+      ],
+      "simple_score": 95719598.8,
+      "pool_generator_effective_score": 95719598.8,
+      "pool_insertion_index": null,
+      "burst_coverage": true,
+      "total_damage": 1049135438,
+      "backend": "cpu",
+      "fallback_reason": "共通カーネルの未対応条件または実行エラーのため、CPUで計算しました。",
+      "unsupported": [
+        {
+          "reason": "Named modifier carriers require their checked ordinary BODY product entry"
+        }
+      ],
+      "error": null,
+      "cpu_verification": null,
+      "batch_elapsed_seconds": 31.68976333399769
+    }
+  ],
+  "observed_characters": 206,
+  "native_observed_characters": 206,
+  "characters_in_issues": [
+    "2B",
+    "A2",
+    "E.H.",
+    "K",
+    "N102",
+    "iDoll 썬",
+    "iDoll 오션",
+    "iDoll 플라워",
+    "길로틴",
+    "길로틴 : 윈터 슬레이어",
+    "길티",
+    "길티 : 마이티 바니",
+    "네로",
+    "네온",
+    "노아",
+    "노이즈",
+    "누아르",
+    "니힐리스타",
+    "도라",
+    "도로시",
+    "드레이크",
+    "드레이크 : 그레이트 빌런",
+    "라푼젤 : 퓨어 그레이스",
+    "라플라스 : 얼티밋 히어로",
+    "라피 : 레드 후드",
+    "람",
+    "레드 후드",
+    "레오나",
+    "레이",
+    "레이 (가칭)",
+    "레이븐",
+    "레이블",
+    "렘",
+    "루드밀라",
+    "루마니",
+    "루주",
+    "리타",
+    "리틀 머메이드",
+    "릴리",
+    "마나",
+    "마르차나",
+    "마리",
+    "마스트 : 로망틱 메이드",
+    "마키마",
+    "맥스웰",
+    "메어리",
+    "메이든 : 아이스 로즈",
+    "모더니아",
+    "모리",
+    "미사토",
+    "미카",
+    "미카 : 스노우 버디",
+    "미하라",
+    "민트",
+    "밀크 : 블루밍 바니",
+    "바이퍼",
+    "백학",
+    "베이",
+    "벨로타",
+    "벨로타 : 펌킨 위치",
+    "벨벳",
+    "볼륨",
+    "블랑",
+    "비스킷",
+    "사쿠라",
+    "사쿠라 (SR)",
+    "사쿠라 : 블룸 인 서머",
+    "센티",
+    "소다",
+    "소라",
+    "솔린 : 프로스트 티켓",
+    "솔져 E.G.",
+    "솔져 F.A.",
+    "솔져 O.W.",
+    "슈가",
+    "스노우 화이트",
+    "스노우 화이트 : 이노센트 데이즈",
+    "스노우 화이트 : 헤비암즈",
+    "시그널",
+    "신",
+    "아니스 : 스파클링 서머",
+    "아비스타",
+    "아스카",
+    "아스카 : WILLE",
+    "아이기스",
+    "아크레인저 블랙",
+    "애드미",
+    "앤 : 미라클 페어리",
+    "앵커",
+    "앵커 : 이노센트 메이드",
+    "얀",
+    "에밀리아",
+    "에이드",
+    "에이드 : 에이전트 바니",
+    "엑시아",
+    "엠마",
+    "엠마 : 택티컬 업",
+    "율리아",
+    "율하",
+    "은화 : 택티컬 업",
+    "이사벨",
+    "일레그",
+    "일레그 : 붐 앤 쇼크",
+    "자칼",
+    "질",
+    "퀸(마코토)",
+    "크라운",
+    "크러스트",
+    "클레어",
+    "클레이",
+    "토브",
+    "트리나",
+    "티아",
+    "파스칼",
+    "팬텀",
+    "폴리",
+    "폴크방",
+    "프로덕트 08",
+    "프로덕트 12",
+    "프로덕트 23",
+    "프리카",
+    "프림",
+    "헬름",
+    "홍련",
+    "홍련 : 흑영",
+    "히메노"
+  ]
+}
