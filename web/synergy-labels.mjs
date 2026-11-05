@@ -33,6 +33,7 @@ export function conditionLabel(condition) {
   return `${subject}が${condition.negate ? 'いない' : 'いる'}と発動`;
 }
 const stats = {
+  ammo_charge_flat:'弾薬回復（10発ごと）',cover_hp_pct:'遮蔽物の最大HP',outgoing_heal_pct:'与える回復量',
   named_buff_duration_extend:'バフ延長',remove_named_buff:'バフ解除',buff_stack_add:'スタック追加',buff_max_stack_add:'最大スタック増加',
   debuff_immune_count:'デバフ無効',cover_heal_pct:'遮蔽物回復',heal_overcharge_store:'余剰回復の保存',received_dmg_split:'被ダメ分担',received_dmg_split_even:'被ダメ分担',
   heal_split:'回復分配',effect_target_count_add:'対象数増加',effect_range_pct:'効果範囲',optimal_range_max_pct:'有効射程',burst_dmg_aoe_pct:'範囲バーストダメ',burst_dmg_single_pct:'単体バーストダメ',

@@ -54,6 +54,19 @@ test('source labels translate skills and preserve unknown values', () => {
   assert.equal(sourceLabel('other'),'other');
 });
 
+test('all cube stats have Japanese effect labels', () => {
+  const labels = {
+    reload_speed_pct:'リロード速度',ammo_charge_flat:'弾薬回復（10発ごと）',
+    charge_speed_pct:'チャージ速度',burst_charge_speed_pct:'バーストゲージ増加',
+    received_dmg_pct:'被ダメージ',part_dmg_pct:'パーツダメージ',
+    cover_hp_pct:'遮蔽物の最大HP',outgoing_heal_pct:'与える回復量',
+    max_hp_pct:'最大HP',def_pct:'防御力',pierce_dmg_pct:'貫通ダメージ',
+    armor_break_dmg_pct:'装甲破壊ダメージ',split_dmg_pct:'分割ダメージ',
+    accuracy_pct:'命中率',charge_dmg_pct:'チャージダメージ',max_ammo_pct:'最大装弾数',
+  };
+  for (const [stat,label] of Object.entries(labels)) assert.equal(statLabel(stat),label);
+});
+
 test('slot stat labels cover compact Japanese names including shared labels', () => {
   const cases = {
     atk_pct:'攻撃力',atk_caster_based_pct:'攻撃力',atk_dmg_pct:'攻撃ダメ',crit_rate:'会心率',crit_dmg:'会心ダメ',

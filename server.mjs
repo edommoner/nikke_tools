@@ -157,7 +157,7 @@ function view(job) {
 }
 function json(res,value,code=200){res.writeHead(code,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});res.end(JSON.stringify(value));}
 async function body(req){let size=0;const chunks=[];for await(const chunk of req){size+=chunk.length;if(size>12*1024*1024)throw Error('JSONは12MB以内にしてください。');chunks.push(chunk);}return JSON.parse(Buffer.concat(chunks).toString('utf8'));}
-const assets = {'/':'index.html','/app.js':'app.js','/style.css':'style.css','/exporter.js':'exporter.js','/board-model.mjs':'board-model.mjs','/roster-model.mjs':'roster-model.mjs','/enemy-model.mjs':'enemy-model.mjs','/parts-model.mjs':'parts-model.mjs','/phase-model.mjs':'phase-model.mjs','/synergy-model.mjs':'synergy-model.mjs','/synergy-labels.mjs':'synergy-labels.mjs'};
+const assets = {'/growth-model.mjs':'growth-model.mjs','/':'index.html','/app.js':'app.js','/style.css':'style.css','/exporter.js':'exporter.js','/board-model.mjs':'board-model.mjs','/roster-model.mjs':'roster-model.mjs','/enemy-model.mjs':'enemy-model.mjs','/parts-model.mjs':'parts-model.mjs','/phase-model.mjs':'phase-model.mjs','/synergy-model.mjs':'synergy-model.mjs','/synergy-labels.mjs':'synergy-labels.mjs'};
 const server=http.createServer(async(req,res)=>{
   try {
     const url=new URL(req.url,`http://127.0.0.1:${port}`);

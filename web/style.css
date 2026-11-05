@@ -75,6 +75,33 @@
 @media(max-width:880px){.team-row .slot.filled{--slot-main-height:105px}}
 @media(max-width:600px){.team-row .slot.filled{--slot-main-height:83px}.team-row .team-synergy-dots{gap:2px}.team-row .slot-synergy-marks{font-size:9px}.team-row .synergy-dot{width:5px;height:5px}.team-row .synergy-dot.own{width:6px;height:6px}}
 
+#growth-dialog .growth-range-row{display:flex;align-items:center;gap:10px;min-width:0}
+#growth-dialog .growth-range-row output{min-width:5em;font-size:12px;font-variant-numeric:tabular-nums;color:#dceaf7}
+#growth-dialog .growth-range-row output.is-changed{color:var(--amber)}
+#growth-dialog input[type=range]{appearance:none;-webkit-appearance:none;flex:1;min-width:0;width:100%;height:32px;padding:0;border:0;background:transparent;cursor:pointer;--range-color:#79bff2}
+#growth-dialog input[type=range].is-unknown{--range-color:#8e9ca9}
+#growth-dialog input[type=range]:disabled{opacity:.45;cursor:default}
+#growth-dialog input[type=range]::-webkit-slider-runnable-track{height:6px;background:#45576b;border-radius:4px}
+#growth-dialog input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:20px;height:20px;margin-top:-7px;border:2px solid #182635;border-radius:50%;background:var(--range-color)}
+#growth-dialog input[type=range]::-moz-range-track{height:6px;background:#45576b;border-radius:4px}
+#growth-dialog input[type=range]::-moz-range-thumb{width:16px;height:16px;border:2px solid #182635;border-radius:50%;background:var(--range-color)}
+#growth-dialog input[type=range]:focus-visible{outline:2px solid #69bcff;outline-offset:3px;border-radius:5px}
+#growth-dialog .cube-editor{display:grid;gap:12px}
+#growth-dialog .cube-effect{color:#bcdffd;font-size:13px;margin:0;overflow-wrap:anywhere}
+@media(max-width:600px){#growth-dialog .fields:has(#skill1){grid-template-columns:minmax(0,1fr)}#growth-dialog .growth-range-row output{min-width:6em}}
+
+#growth-dialog #overload-parts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#growth-dialog #overload-parts section{min-width:0}
+#growth-dialog #overload-parts h5{font-size:14px;margin:0 0 8px}
+#growth-dialog .overload-line{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;margin-bottom:8px}
+#growth-dialog .overload-line select{min-width:0;width:100%;font-size:12px;padding:8px 4px}
+#growth-dialog #overload-breakdown.is-stale{opacity:.5}
+#growth-dialog #overload-totals{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px}
+#growth-dialog #overload-totals p{margin:0}
+#growth-dialog #overload-warning{font-size:12px;color:var(--amber);overflow-wrap:anywhere}
+#growth-dialog #overload-status{overflow-wrap:anywhere}
+@media(max-width:600px){#growth-dialog #overload-parts{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:340px){#growth-dialog .overload-line{grid-template-columns:minmax(0,1fr)}}
 .team-synergy-legend{font-size:10px;line-height:1.6;overflow-wrap:anywhere;min-width:0}
 .team-synergy-legend[hidden]{display:none}
 .synergy-line-sample{display:inline-block;width:16px;border-top:2px solid #77e3df;vertical-align:middle;margin-right:3px}

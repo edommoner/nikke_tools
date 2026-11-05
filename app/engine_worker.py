@@ -53,8 +53,15 @@ def catalog():
                       'synergy': _SYNERGY_PROFILES.get(name)})
     cube_display_path = ROOT / 'data/cube-display.json'
     cube_display = json.loads(cube_display_path.read_text(encoding='utf-8-sig')) if cube_display_path.exists() else {'cubes': []}
+    cube_effects = {
+        name: {'stat': cube['stat'],
+               'direction': 'down' if cube['template'].rstrip().endswith('▼') else 'up',
+               'unit': '%' if '{0}%' in cube['template'] else '発' if '{0}발' in cube['template'] else '',
+               'values': {str(level): float(values[0]) for level, values in cube['values'].items()}}
+        for name, cube in spec.CUBES.items()
+    }
     return {'characters': chars, 'cubes': list(spec.CUBES), 'cube_labels': {c['name']['ko']: c['name']['ja'] for c in cube_display['cubes']}, 'revision': REVISION,
-            'enemy_presets': enemy_presets(), 'overload': {k: v['values'] for k, v in spec._EQUIP_SKILL_TABLE.items() if not k.startswith('_')}}
+            'cube_effects': cube_effects, 'enemy_presets': enemy_presets(), 'overload': {k: v['values'] for k, v in spec._EQUIP_SKILL_TABLE.items() if not k.startswith('_')}}
 
 
 def enemy_presets():
