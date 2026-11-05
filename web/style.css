@@ -83,3 +83,16 @@
 #growth-dialog .cube-editor{display:grid;gap:12px}
 #growth-dialog .cube-effect{color:#bcdffd;font-size:13px;margin:0;overflow-wrap:anywhere}
 @media(max-width:600px){#growth-dialog .fields:has(#skill1){grid-template-columns:minmax(0,1fr)}#growth-dialog .growth-range-row output{min-width:6em}}
+
+#growth-dialog #overload-parts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#growth-dialog #overload-parts section{min-width:0}
+#growth-dialog #overload-parts h5{font-size:14px;margin:0 0 8px}
+#growth-dialog .overload-line{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;margin-bottom:8px}
+#growth-dialog .overload-line select{min-width:0;width:100%;font-size:12px;padding:8px 4px}
+#growth-dialog #overload-breakdown.is-stale{opacity:.5}
+#growth-dialog #overload-totals{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px}
+#growth-dialog #overload-totals p{margin:0}
+#growth-dialog #overload-warning{font-size:12px;color:var(--amber);overflow-wrap:anywhere}
+#growth-dialog #overload-status{overflow-wrap:anywhere}
+@media(max-width:600px){#growth-dialog #overload-parts{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:340px){#growth-dialog .overload-line{grid-template-columns:minmax(0,1fr)}}

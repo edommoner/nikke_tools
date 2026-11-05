@@ -5,7 +5,7 @@ import {manufacturerLabels,manufacturerIconUrl,elementIconUrl,burstIconUrl,match
 import {emptyTeams,placeCharacter,restoreTeams,completeTeams} from '/board-model.mjs';
 import {rankSynergyCandidates,teamSynergy} from '/synergy-model.mjs';
 import {selectorLabel,conditionLabel,statLabel,sourceLabel} from '/synergy-labels.mjs';
-import {cubeEffectLabel,cubeEffectText,rangeValue,cubeEditorPatch} from '/growth-model.mjs';
+import {cubeEffectLabel,cubeEffectText,rangeValue,cubeEditorPatch,overloadParts,overloadOptionText,partsToEquipSkills,partsMatchEquipSkills,normalizeParts as normalizeOverloadParts,duplicateEffects} from '/growth-model.mjs';
 const $=id=>document.getElementById(id),clone=v=>structuredClone(v);
 const state={catalog:null,snapshot:null,profile:null,patches:{},deltas:{},teams:emptyTeams(),activeTeam:0,activeSlot:0,raidCount:5,excluded:new Set(),excludeMode:false,rosterFilters:{manufacturer:new Set(),element:new Set(),burst:new Set(),weapon:new Set()},synergyBasis:emptyTeams().map(()=>new Set()),synergyOn:false,synergyTiers:new Set(['A','B']),synergyMatches:new Map(),singleMode:false,sortDirection:'desc',customPresets:[],enemyContexts:{},enemyParts:[],enemyPatterns:[],scores:{},comparison:null,reference:null,job:null,lastRequest:null,busy:false};
 const e=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -206,8 +206,73 @@ function updateCubeEditor(){
   $('cube-effect').hidden=!equipped;
   $('cube-effect').textContent=equipped?(level===undefined?`${cubeEffectLabel(effect,statLabel)}：未取得`:cubeEffectText(effect,level,statLabel)):'';
 }
-function loadEditor(){const name=$('edit-character').value;if(!name||!state.profile)return;const entry=growth(name),skills=skillDict(entry.skill_levels),original=skillDict(state.profile.chars[name].skill_levels);$('growth-title').textContent=label(name);$('growth-character-summary').innerHTML=portrait(name)+`<div>${burst(name)}<strong>${e(label(name))}</strong><span>${e(meta(name).weapon)} · ${changed(name)?'計算用の変更あり':'取り込み時の育成'}</span></div>`;for(const[id,slot]of [['skill1','1'],['skill2','2'],['burst','3']]){loadGrowthRange(id,skills[slot],original[slot],5);$('original-'+id).textContent=`取り込み時：${original[slot]??'未取得'}`;}for(const[id,key]of overloadFields)$(id).value=formatOverload(entry.equip_skills?.[key]);$('cube').value=entry.cube?.name||'';loadGrowthRange('cube-level',entry.cube?.level,state.profile.chars[name].cube?.level,1);$('cube-level').dataset.cubeName=entry.cube?.name||'';updateCubeEditor();for(const stat of ['atk','hp','def'])$('delta-'+stat).value=state.deltas[name]?.[stat]||0;$('observed-power').value=entry._observed_combat_power??'';$('growth-json').value=JSON.stringify(entry,null,2);$('patch-summary').textContent=changed(name)?'このキャラは、取り込み時の値から計算用の設定を変更しています。':'取り込み時の値をそのまま使っています。';}
-function applyEditor(){requireEditable();const name=$('edit-character').value;if(!name)throw Error('変更するキャラを選んでください。');const skills={};for(const[id,slot]of [['skill1','1'],['skill2','2'],['burst','3']]){const value=growthRangeValue(id);if(value!==undefined)skills[slot]=value;}const patch={skill_levels:skills,equip_skills:{}};for(const[id,key,label]of overloadFields){const value=parseOverload($(id).value,growth(name).equip_skills?.[key],label);if(value!==undefined)patch.equip_skills[key]=value;}const cubePatch=cubeEditorPatch($('cube').value,$('cube-level').dataset.cubeName,growthRangeValue('cube-level'),num('cube-level'));if(cubePatch)patch.cube=cubePatch;for(const v of Object.values(skills))if(!Number.isInteger(v)||v<1||v>10)throw Error('スキルLvは1〜10の整数で入力してください。');if(patch.cube&&patch.cube.name!=='__none__'&&patch.cube.level!==undefined&&(!Number.isInteger(patch.cube.level)||patch.cube.level<1||patch.cube.level>15))throw Error('キューブLvは1〜15の整数で入力してください。');for(const stat of ['atk','hp','def'])if(!Number.isFinite(num('delta-'+stat))||num('delta-'+stat)<0)throw Error('仮ステータスの加算値は0以上で入力してください。');if($('observed-power').value!==''&&(!Number.isSafeInteger(num('observed-power'))||num('observed-power')<0))throw Error('戦闘力は0以上の整数で入力してください。');patch._observed_combat_power=$('observed-power').value===''?null:num('observed-power');state.patches[name]=merge(state.patches[name],patch);state.deltas[name]=Object.fromEntries(['atk','hp','def'].map(k=>[k,num('delta-'+k)]));renderAll();notice(`${label(name)}の計算用の育成を変更しました。取り込み時のデータは保持しています。`);}
+const overloadStats = overloadFields.map(([, stat]) => stat);
+let overloadEditor = {parts: normalizeOverloadParts(), source: 'untouched'};
+function readOverloadParts(){
+  const parts = normalizeOverloadParts();
+  for(const row of $('overload-parts').querySelectorAll('.overload-line')){
+    const [effect, level] = row.querySelectorAll('select');
+    if(effect.value)parts[row.dataset.part].push([effect.value, Number(level.value)]);
+  }
+  return normalizeOverloadParts(parts);
+}
+function fillOverloadLevels(effect, level, value){
+  level.disabled = !effect.value;
+  level.replaceChildren(...(effect.value
+    ? Array.from({length:15},(_,i)=>option(i+1,overloadOptionText(state.catalog.overload,effect.value,i+1)))
+    : [option('', '')]));
+  level.value = effect.value ? value : '';
+}
+function updateOverloadSummary(){
+  const values = partsToEquipSkills(overloadEditor.parts,state.catalog.overload,overloadStats);
+  $('overload-totals').replaceChildren(...overloadFields.flatMap(([,stat,label])=>{
+    const lines = overloadParts.flatMap(([part])=>overloadEditor.parts[part]).filter(([key])=>key===stat);
+    if(!lines.length)return [];
+    const total = [values[stat]].flat().reduce((a,b)=>a+b,0), node = document.createElement('p');
+    node.textContent = `${label} 合計 +${total.toFixed(2)}%`;
+    return [node];
+  }));
+  const duplicates = duplicateEffects(overloadEditor.parts);
+  $('overload-warning').hidden = !duplicates.length;
+  $('overload-warning').textContent = duplicates.length ? `同じ部位に同じ効果が2つあります（${duplicates.map(({part,stat})=>`${overloadParts.find(([key])=>key===part)[1]}：${overloadFields.find(([,key])=>key===stat)[2]}`).join('、')}）` : '';
+  $('overload-breakdown').classList.toggle('is-stale',overloadEditor.source==='direct');
+}
+function loadOverloadEditor(entry){
+  const parts = normalizeOverloadParts(entry._overload);
+  const loaded = entry._overload != null && partsMatchEquipSkills(parts,entry.equip_skills,state.catalog.overload,overloadStats);
+  overloadEditor = {parts: loaded ? parts : normalizeOverloadParts(), source:'untouched', hadBreakdown: loaded};
+  $('overload-status').textContent = loaded ? '部位ごとの内訳を表示しています' : entry._overload != null ? '取り込み時の部位の内訳が現在の値と一致しないため表示していません' : '部位の内訳なし（直接入力）';
+  $('overload-parts').replaceChildren(...overloadParts.map(([part,label])=>{
+    const section = document.createElement('section'), heading = document.createElement('h5');
+    heading.textContent = label;section.append(heading);
+    for(let i=0;i<3;i++){
+      const row = document.createElement('div'), effect = document.createElement('select'), level = document.createElement('select');
+      row.className='overload-line';row.dataset.part=part;
+      effect.setAttribute('aria-label',`${label} ${i+1}行目 効果`);
+      level.setAttribute('aria-label',`${label} ${i+1}行目 レベル`);
+      effect.append(option('','なし'),...overloadFields.map(([,stat,text])=>option(stat,text)));
+      const line = overloadEditor.parts[part][i];effect.value=line?.[0]??'';
+      fillOverloadLevels(effect,level,line?.[1]??10);
+      effect.addEventListener('change',()=>fillOverloadLevels(effect,level,Number(level.value)||10));
+      row.append(effect,level);section.append(row);
+    }
+    return section;
+  }));
+  updateOverloadSummary();
+}
+function changeOverloadParts(){
+  overloadEditor = {parts:readOverloadParts(),source:'parts',hadBreakdown:overloadEditor.hadBreakdown};
+  const values = partsToEquipSkills(overloadEditor.parts,state.catalog.overload,overloadStats);
+  for(const[id,stat]of overloadFields)$(id).value=formatOverload(values[stat]);
+  $('overload-status').textContent=overloadEditor.hadBreakdown?'部位ごとの入力から計算しています':'部位ごとの入力から計算しています。部位に入れていない能力は0になります';
+  updateOverloadSummary();
+}
+function loadEditor(){const name=$('edit-character').value;if(!name||!state.profile)return;const entry=growth(name),skills=skillDict(entry.skill_levels),original=skillDict(state.profile.chars[name].skill_levels);$('growth-title').textContent=label(name);$('growth-character-summary').innerHTML=portrait(name)+`<div>${burst(name)}<strong>${e(label(name))}</strong><span>${e(meta(name).weapon)} · ${changed(name)?'計算用の変更あり':'取り込み時の育成'}</span></div>`;for(const[id,slot]of [['skill1','1'],['skill2','2'],['burst','3']]){loadGrowthRange(id,skills[slot],original[slot],5);$('original-'+id).textContent=`取り込み時：${original[slot]??'未取得'}`;}for(const[id,key]of overloadFields)$(id).value=formatOverload(entry.equip_skills?.[key]);loadOverloadEditor(entry);$('cube').value=entry.cube?.name||'';loadGrowthRange('cube-level',entry.cube?.level,state.profile.chars[name].cube?.level,1);$('cube-level').dataset.cubeName=entry.cube?.name||'';updateCubeEditor();for(const stat of ['atk','hp','def'])$('delta-'+stat).value=state.deltas[name]?.[stat]||0;$('observed-power').value=entry._observed_combat_power??'';$('growth-json').value=JSON.stringify(entry,null,2);$('patch-summary').textContent=changed(name)?'このキャラは、取り込み時の値から計算用の設定を変更しています。':'取り込み時の値をそのまま使っています。';}
+function applyEditor(){requireEditable();const name=$('edit-character').value;if(!name)throw Error('変更するキャラを選んでください。');const skills={};for(const[id,slot]of [['skill1','1'],['skill2','2'],['burst','3']]){const value=growthRangeValue(id);if(value!==undefined)skills[slot]=value;}const patch={skill_levels:skills,equip_skills:{}};for(const[id,key,label]of overloadFields){const value=parseOverload($(id).value,growth(name).equip_skills?.[key],label);if(value!==undefined)patch.equip_skills[key]=value;}
+  // Loaded breakdowns already survive merge; leave untouched patches unchanged.
+  if(overloadEditor.source==='parts')patch._overload=normalizeOverloadParts(overloadEditor.parts);
+  else if(overloadEditor.source==='direct')patch._overload=null;
+  const cubePatch=cubeEditorPatch($('cube').value,$('cube-level').dataset.cubeName,growthRangeValue('cube-level'),num('cube-level'));if(cubePatch)patch.cube=cubePatch;for(const v of Object.values(skills))if(!Number.isInteger(v)||v<1||v>10)throw Error('スキルLvは1〜10の整数で入力してください。');if(patch.cube&&patch.cube.name!=='__none__'&&patch.cube.level!==undefined&&(!Number.isInteger(patch.cube.level)||patch.cube.level<1||patch.cube.level>15))throw Error('キューブLvは1〜15の整数で入力してください。');for(const stat of ['atk','hp','def'])if(!Number.isFinite(num('delta-'+stat))||num('delta-'+stat)<0)throw Error('仮ステータスの加算値は0以上で入力してください。');if($('observed-power').value!==''&&(!Number.isSafeInteger(num('observed-power'))||num('observed-power')<0))throw Error('戦闘力は0以上の整数で入力してください。');patch._observed_combat_power=$('observed-power').value===''?null:num('observed-power');state.patches[name]=merge(state.patches[name],patch);state.deltas[name]=Object.fromEntries(['atk','hp','def'].map(k=>[k,num('delta-'+k)]));renderAll();notice(`${label(name)}の計算用の育成を変更しました。取り込み時のデータは保持しています。`);}
 function setImport(result){state.synergyBasis=emptyTeams().map(()=>new Set());state.synergyOn=false;state.synergyTiers=new Set(['A','B']);syncSynergyFilters();state.snapshot=clone(result);state.profile=clone(result.profile);state.patches={};state.deltas={};state.teams=emptyTeams();state.teams[0]=[...(result.squad||owned().slice(0,5))];while(state.teams[0].length<5)state.teams[0].push('');state.activeTeam=0;state.activeSlot=0;state.excluded.clear();state.excludeMode=false;for(const selected of Object.values(state.rosterFilters))selected.clear();syncRosterFilters();$('roster-search').value='';state.scores={};state.comparison=null;state.reference=null;state.job=null;state.lastRequest=null;$('job-panel').hidden=true;$('freeze').disabled=true;$('results').className='empty-results';$('results').innerHTML='<span>計算結果はまだありません</span><p>編成画面で「この部隊を計算」を押してください。</p>';$('search-results').className='empty-results';$('search-results').innerHTML='<span>目標と、変更するキャラを指定して探索できます。</span>';$('result-count').hidden=true;for(const id of ['recommendations','optimizer-recommendations'])$(id).innerHTML='<p class="subtle">探索を始めると、おすすめの編成をここに表示します。</p>';$('onboarding').hidden=true;updateAccount(result);renderAll();renderReference();setView(state.singleMode?'single':'formation');$('account-dialog').close();notice(result.is_demo?'デモ用の仮想育成を表示しています。自分の育成データではありません。':'所持・育成データを読み込みました。キャラを選んで編成してください。');}
 function updateAccount(result){const count=Object.keys(result.missing||{}).length;$('account-status').textContent=`${result.is_demo?'デモデータ · ':''}${owned().length}人所持`;$('open-account-shortcut').textContent='データを変更';$('roster-info').textContent=`${owned().length}人を読み込み済み${count?` · 未取得の項目があるキャラ ${count}人`:''}`;const warnings=[...(result.warnings||[]),...Object.entries(result.missing||{}).map(([n,fields])=>`${label(n)}：${fields.join(', ')}`)];$('import-warnings').hidden=!warnings.length;const list=$('import-warnings').querySelector('ul');list.replaceChildren();for(const text of warnings){const li=document.createElement('li');li.textContent=text;list.append(li);}}
 function renderReference(){$('reference').textContent=state.reference?`保存した比較基準：${fmt(state.reference.damage)}（編成・育成・戦闘条件を保存）`:'比較基準はまだ保存していません。計算結果の「目標の基準にする」で保存できます。';$('target').disabled=$('target-mode').value==='reference';}
@@ -260,6 +325,8 @@ for(const id of ['demo-gpu','demo-gpu-start'])$(id).onclick=guarded(async()=>{re
 $('file').onchange=guarded(async()=>{requireEditable();const file=$('file').files[0];if(!file)return;if(file.size>12*1024*1024)throw Error('JSONは12MB以内にしてください。');const raw=JSON.parse(await file.text());if(raw.format==='nikke-tools-session-v1'){const imported=await api('/api/import',raw.snapshot.profile);setImport({...imported,is_demo:raw.snapshot.is_demo});state.snapshot=raw.snapshot;state.profile=(await api('/api/import',raw.profile)).profile;state.patches=raw.patches||{};state.deltas=raw.deltas||{};state.teams=restoreTeams(raw.teams||[raw.squad],new Set(owned()));state.reference=raw.reference||null;if(state.reference?.evaluation)state.reference.battle=battleKey(state.reference.evaluation);state.excluded=new Set((raw.excluded||[]).filter(n=>owned().includes(n)));state.raidCount=raw.raidCount===1?1:5;state.activeTeam=Number.isInteger(raw.activeTeam)&&raw.activeTeam>=0&&raw.activeTeam<5?raw.activeTeam:0;if(state.raidCount===1&&!raw.singleMode)state.activeTeam=0;state.singleMode=!!raw.singleMode;state.enemyContexts=Object.fromEntries(Object.entries(raw.enemyContexts||{}).filter(([scope,value])=>['solo','union','single'].includes(scope)&&validPreset({label:'restore',settings:value?.settings})));$('burst-policy').value=raw.settings?.['burst-policy']||'auto';$('shooting-policy').value=raw.settings?.['shooting-policy']||'auto';$('weapon-mode-swap').value=raw.settings?.['weapon-mode-swap']||'off';state.customPresets=Array.isArray(raw.customPresets)?raw.customPresets.filter(p=>validPreset(p)&&typeof p.id==='string'&&p.id.startsWith('user:')).slice(0,30):state.customPresets;persistPresets();renderPresets();$('burst-gauge-mode').value=raw.settings?.['burst-gauge-mode']||'fixed';$('random-seed').value=raw.settings?.['random-seed']??0;if(raw.settings)for(const[id,value]of Object.entries(raw.settings))if(['duration','level','enemy-def','enemy-code','core','distance','burst-policy','shooting-policy','weapon-mode-swap','burst-gauge-mode','random-seed','detail-backend','target','target-mode','search-kind','search-min','search-max','search-step'].includes(id))$(id).value=value;for(const b of document.querySelectorAll('[data-raid]'))b.classList.toggle('active',Number(b.dataset.raid)===state.raidCount);const savedEnemy=state.enemyContexts[enemyScope(state.singleMode,state.raidCount)];state.enemyPatterns=normalizePatterns(savedEnemy?.patterns||raw.enemyPatterns||[]);state.enemyParts=normalizeParts(savedEnemy?.parts||raw.enemyParts||[]);renderParts();renderPhases();$('enemy-preset').value=savedEnemy?.presetId||'';showPresetMembers(presetList().find(p=>p.id===$('enemy-preset').value));renderAll();setView(state.singleMode?'single':'formation');renderReference();updateSearchInputs(false);notice('保存した編成と育成設定を復元しました。計算・探索は新しく実行してください。');}else setImport(await api('/api/import',raw));$('file').value='';});
 for(const id of ['skill1','skill2','burst','cube-level'])$(id).oninput=()=>{$(id).dataset.touched='true';if(id==='cube-level')updateCubeEditor();else updateGrowthRange(id);};
 $('cube').onchange=updateCubeEditor;
+$('overload-parts').addEventListener('change',changeOverloadParts);
+for(const[id]of overloadFields)$(id).addEventListener('input',()=>{overloadEditor.source='direct';$('overload-status').textContent='部位の内訳なし（直接入力）';updateOverloadSummary();});
 $('edit-character').onchange=loadEditor;$('apply').onclick=guarded(()=>{applyEditor();$('growth-dialog').close();});
 $('reset-character').onclick=guarded(()=>{requireEditable();const name=$('edit-character').value;delete state.patches[name];delete state.deltas[name];loadEditor();renderBoard();renderRoster();});
 $('reset').onclick=guarded(()=>{requireEditable();state.patches={};state.deltas={};renderAll();notice('すべての計算用の育成変更を戻しました。');});
