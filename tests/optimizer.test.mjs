@@ -46,3 +46,43 @@ test('unscored candidates retain original order after scored rows; empty scores 
  const results=order.slice(0,2).map(i=>({result:{members:pool[i].map(name=>({name})),total_damage:100+i}}));
  assert.equal(bestDisjoint(results,2).damage,205);
 });
+
+import {swapCandidates} from '../app/optimizer.mjs';
+const swapSquad=['i','ii','iii','extra1','extra2'];
+const swapScored=[...swapSquad.map((name,i)=>({name,burst:['1','2','3','3','3'][i],potential:0})),
+  {name:'one',burst:'1',potential:10},{name:'two',burst:'2',potential:20},
+  {name:'three',burst:'3',potential:30},{name:'wild',burst:'A',potential:40}];
+test('swap preserves required stages but allows a different stage when coverage remains',()=>{
+  assert.deepEqual(swapCandidates(swapScored,swapSquad,1).names,['wild','two']);
+  assert.deepEqual(swapCandidates(swapScored,swapSquad,3).names,['wild','three','two','one']);
+});
+test('each A fills only one missing stage, and incomplete squads may improve or retain coverage',()=>{
+  const scored=[...swapScored,{name:'a',burst:'A',potential:0}];
+  assert.deepEqual(swapCandidates(scored,['i','a','iii','extra1','extra2'],0).names,['wild','two','one','ii']);
+  const incomplete=['i','iii','extra1','extra2','three'];
+  assert.deepEqual(swapCandidates(scored,incomplete,0).names,['wild','two','one','a','ii']);
+  assert.ok(!swapCandidates(scored,['i','a','iii','extra1','extra2'],0).names.includes('three'));
+});
+test('same stage accepts A on either side',()=>{
+  assert.deepEqual(swapCandidates(swapScored,swapSquad,3,{sameStage:true}).names,['wild','three']);
+  const squad=['i','wild','iii','extra1','extra2'];
+  assert.deepEqual(swapCandidates(swapScored,squad,1,{sameStage:true}).names,['two','ii']);
+});
+test('potential and synergy interleave, dedupe, filter and paginate after skipping',()=>{
+  const scored=[...swapScored,{name:'tie',burst:'3',potential:30}];
+  const options={synergyOrder:['one','unknown','one','wild','two'],limit:4};
+  assert.deepEqual(swapCandidates(scored,swapSquad,3,options),{names:['wild','one','three','tie'],total:5});
+  assert.deepEqual(swapCandidates(scored,swapSquad,3,{...options,skip:['wild','three']}),{names:['tie','one','two'],total:3});
+});
+test('swap rejects invalid and empty slots',()=>{
+  for(const slot of [-1,5,1.5,'1'])assert.throws(()=>swapCandidates(swapScored,swapSquad,slot));
+  assert.throws(()=>swapCandidates(swapScored,['',...swapSquad.slice(1)],0));
+});
+
+test('swap batches default to 20 and skip already calculated candidates',()=>{
+  const scored=[...swapScored,...Array.from({length:42},(_,i)=>({name:`candidate${i}`,burst:'3',potential:100+i}))];
+  const first=swapCandidates(scored,swapSquad,3),second=swapCandidates(scored,swapSquad,3,{skip:first.names});
+  assert.equal(first.names.length,20);assert.equal(first.total,46);
+  assert.equal(second.names.length,20);assert.equal(second.total,26);
+  assert.equal(new Set([...first.names,...second.names]).size,40);
+});

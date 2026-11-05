@@ -1,3 +1,27 @@
+/** Interleave attack potential and synergy while preserving burst coverage. */
+export function swapCandidates(scored,squad,slot,{synergyOrder=[],sameStage=false,skip=[],limit=20}={}){
+  if(!Number.isInteger(slot)||slot<0||slot>4||!squad?.[slot])throw Error('Invalid swap slot');
+  const bursts=new Map(scored.map(c=>[c.name,String(c.burst)]));
+  const missing=team=>{
+    const stages=team.map(n=>bursts.get(n));
+    return Math.max(0,['1','2','3'].filter(s=>!stages.includes(s)).length-stages.filter(s=>s==='A').length);
+  };
+  const currentMissing=missing(squad),outgoing=bursts.get(squad[slot]),excluded=new Set([...squad,...skip]);
+  const eligible=scored.filter(c=>{
+    if(excluded.has(c.name))return false;
+    const stage=String(c.burst);
+    if(sameStage&&stage!==outgoing&&stage!=='A'&&outgoing!=='A')return false;
+    const next=[...squad];next[slot]=c.name;
+    return missing(next)<=currentMissing;
+  }).sort((a,b)=>b.potential-a.potential||(a.name<b.name?-1:a.name>b.name?1:0));
+  const available=new Set(eligible.map(c=>c.name)),p=eligible.map(c=>c.name),s=synergyOrder.filter(n=>available.has(n)),order=new Set();
+  for(let i=0;i<Math.max(p.length,s.length);i++){
+    if(i<p.length)order.add(p[i]);
+    if(i<s.length)order.add(s[i]);
+  }
+  return {names:[...order].slice(0,limit),total:available.size};
+}
+
 /** Candidate-pool search. Bounds the work; never claims a global optimum. */
 export function candidatePool(characters, count, limit=160, seed=41, templates=[]) {
   let randomState=seed>>>0;
