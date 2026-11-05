@@ -34,6 +34,10 @@ export function conditionLabel(condition) {
 }
 const stats = {
   ammo_charge_flat:'弾薬回復（10発ごと）',cover_hp_pct:'遮蔽物の最大HP',outgoing_heal_pct:'与える回復量',
+  named_buff_duration_extend:'バフ延長',remove_named_buff:'バフ解除',buff_stack_add:'スタック追加',buff_max_stack_add:'最大スタック増加',
+  debuff_immune_count:'デバフ無効',cover_heal_pct:'遮蔽物回復',heal_overcharge_store:'余剰回復の保存',received_dmg_split:'被ダメ分担',received_dmg_split_even:'被ダメ分担',
+  heal_split:'回復分配',effect_target_count_add:'対象数増加',effect_range_pct:'効果範囲',optimal_range_max_pct:'有効射程',burst_dmg_aoe_pct:'範囲バーストダメ',burst_dmg_single_pct:'単体バーストダメ',
+  shield_dmg_pct:'シールドへのダメ',charge_dmg_mag_pct:'チャージダメ倍率',atk_from_hp_pct:'HP比例攻撃力',undying:'不屈',stun_immune:'スタン無効',cover_revive:'遮蔽物復活',cover_def_pct:'遮蔽物防御力',gauge_charge:'ゲージ増加',gauge_consume:'ゲージ消費',
   focus_fire:'集中攻撃',
   atk_pct:'攻撃力',atk_caster_based_pct:'攻撃力（発動者基準）',atk_dmg_pct:'攻撃ダメージ',crit_rate:'会心率',crit_dmg:'会心ダメージ',
   normal_atk_crit_rate:'通常攻撃の会心率',normal_atk_dmg_pct:'通常攻撃ダメージ',pierce_dmg_pct:'貫通ダメージ',armor_break_dmg_pct:'装甲破壊ダメージ',
@@ -44,8 +48,12 @@ const stats = {
   heal_hp_pct:'HP回復',heal_received_pct:'被回復量',lifesteal_pct:'吸収',shield_from_max_hp_pct:'シールド',dot_dmg_pct:'持続ダメージ',projectile_explosion_dmg_pct:'飛翔体の爆発ダメージ',split_dmg_pct:'分割ダメージ',
   part_dmg_pct:'パーツダメージ',core_dmg_pct:'コアダメージ',intercept_dmg_pct:'迎撃ダメージ',mg_warmup_speed_pct:'MG予熱速度',pellet_count:'弾数',skill_cooldown_pct:'スキル再使用時間',revive:'復活',debuff_cleanse:'デバフ解除',invincible:'無敵',
 };
-export const statLabel = stat => stats[stat] ?? stat;
+export const statLabel = stat => stats[stat] ?? (stat || '特殊効果');
 const shortStats = {
+  named_buff_duration_extend:'バフ延長',remove_named_buff:'バフ解除',buff_stack_add:'スタック追加',buff_max_stack_add:'最大スタック増加',
+  debuff_immune_count:'デバフ無効',cover_heal_pct:'遮蔽物回復',heal_overcharge_store:'余剰回復の保存',received_dmg_split:'被ダメ分担',received_dmg_split_even:'被ダメ分担',
+  heal_split:'回復分配',effect_target_count_add:'対象数増加',effect_range_pct:'効果範囲',optimal_range_max_pct:'有効射程',burst_dmg_aoe_pct:'範囲バーストダメ',burst_dmg_single_pct:'単体バーストダメ',
+  shield_dmg_pct:'シールドへのダメ',charge_dmg_mag_pct:'チャージダメ倍率',atk_from_hp_pct:'HP比例攻撃力',undying:'不屈',stun_immune:'スタン無効',cover_revive:'遮蔽物復活',cover_def_pct:'遮蔽物防御力',gauge_charge:'ゲージ増加',gauge_consume:'ゲージ消費',
   focus_fire:'集中攻撃',
   atk_pct:'攻撃力',atk_caster_based_pct:'攻撃力',atk_dmg_pct:'攻撃ダメ',crit_rate:'会心率',crit_dmg:'会心ダメ',
   normal_atk_crit_rate:'通常会心率',normal_atk_dmg_pct:'通常ダメ',pierce_dmg_pct:'貫通ダメ',armor_break_dmg_pct:'装甲破壊ダメ',

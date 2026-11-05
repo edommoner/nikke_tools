@@ -3,7 +3,7 @@ import {normalizeParts,reachLabels} from '/parts-model.mjs';
 import {enemyScope,groupPresets} from '/enemy-model.mjs';
 import {manufacturerLabels,manufacturerIconUrl,elementIconUrl,burstIconUrl,matchesRosterFilters,elementLabels,rosterValue,sortRoster,visibleTeams,presetFields,validPreset,overloadFields,formatOverload,parseOverload} from '/roster-model.mjs';
 import {emptyTeams,placeCharacter,restoreTeams,completeTeams} from '/board-model.mjs';
-import {rankSynergyCandidates,teamSynergy} from '/synergy-model.mjs';
+import {rankSynergyCandidates,teamSynergy,selectorMatches} from '/synergy-model.mjs';
 import {selectorLabel,conditionLabel,statLabel,statShortLabel,sourceLabel} from '/synergy-labels.mjs';
 import {cubeEffectLabel,cubeEffectText,rangeValue,cubeEditorPatch,overloadParts,overloadOptionText,partsToEquipSkills,partsMatchEquipSkills,normalizeParts as normalizeOverloadParts,duplicateEffects,inferPartsFromEquipSkills,overloadLevelTotal} from '/growth-model.mjs';
 const $=id=>document.getElementById(id),clone=v=>structuredClone(v);
@@ -69,7 +69,18 @@ function initRosterFilters(){
 const teamSynergyModeKey='nikke-tools-team-synergy-mode-v1';
 let teamSynergyMode='lines',synergyFrame=0;
 try{const saved=localStorage.getItem(teamSynergyModeKey);if(['lines','dots','list','off'].includes(saved))teamSynergyMode=saved;}catch{}
-const boardSynergies=new Map();
+const boardSynergies=new Map(),synergyChipDetails=new Map();
+let activeSynergyChip=null;
+const tierLabels={A:'A 条件一致',B:'B 恩恵が偏る',C:'C 全体'};
+function synergyChip(text,className,owner,entries){
+  const id=String(synergyChipDetails.size);
+  synergyChipDetails.set(id,{owner,entries});
+  return `<span class="${className}" tabindex="0" data-synergy-chip="${id}">${e(text)}</span>`;
+}
+function conditionEntry(condition){
+  const selector={kind:({squad_member:'squad',has_burst:'burst',has_class:'class'}[condition.kind]??condition.kind),value:condition.value,excl_self:true};
+  return {condition,selector,tier:'A',source:condition.source};
+}
 const effectStatus=effect=>({satisfied:'成立',broken:'衝突',unmet:'対象なし'}[effect]);
 const providesDetail=entry=>`${selectorLabel(entry.selector,label)} / ${statLabel(entry.stat)} / ${sourceLabel(entry.source)}`;
 function teamSynergyItems(data,details=false){
@@ -80,21 +91,27 @@ function teamSynergyItems(data,details=false){
     if(!unmatched.has(key))unmatched.set(key,{owner,selector:entry.selector,entries:[]});
     unmatched.get(key).entries.push(entry);
   }
+  if(!details)return [
+    ...data.links.flatMap(link=>link.relations.map(entry=>synergyChip(`${label(link.from.name)} → ${label(link.to.name)}（${entry.tier}）：${statShortLabel(entry.stat)}`,'team-synergy-chip',link.from,[entry]))),
+    ...data.conditions.map(({owner,condition,effect})=>synergyChip(`${label(owner.name)}：${conditionLabel(condition)} … ${effectStatus(effect)}`,`team-synergy-chip ${effect==='broken'?'synergy-conflict':effect==='unmet'?'synergy-unmatched':''}`,owner,[conditionEntry(condition)])),
+    ...data.unmatched.map(({owner,entry})=>synergyChip(`${label(owner.name)}：${selectorLabel(entry.selector,label)} … 対象なし：${statShortLabel(entry.stat)}`,'team-synergy-chip synergy-unmatched',owner,[entry])),
+    ...data.global.flatMap(({owner,entries})=>entries.map(entry=>synergyChip(`${label(owner.name)}：味方全体：${statShortLabel(entry.stat)}`,'team-synergy-chip',owner,[entry]))),
+  ].join('');
   return [
     ...data.links.map(link=>({text:`${label(link.from.name)} → ${label(link.to.name)}（${link.tier}）`,detail:link.relations.map(providesDetail).join('、')})),
     ...data.conditions.map(({owner,condition,effect})=>({text:`${label(owner.name)}：${conditionLabel(condition)} … ${effectStatus(effect)}`,detail:sourceLabel(condition.source),className:effect==='broken'?'synergy-conflict':effect==='unmet'?'synergy-unmatched':''})),
     ...[...unmatched.values()].map(({owner,selector,entries})=>({text:`${label(owner.name)}：${selectorLabel(selector,label)}を強化 … 対象なし`,detail:[...new Set(entries.map(providesDetail))].join('、'),className:'synergy-unmatched'})),
     ...data.global.map(({owner,entries})=>({text:`${label(owner.name)}：味方全体`,detail:entries.map(providesDetail).join('、')})),
-  ].map(item=>details?`<li class="${item.className??''}"><strong>${e(item.text)}</strong><span>${e(item.detail)}</span></li>`:`<span class="team-synergy-chip ${item.className??''}" title="${e(item.detail)}">${e(item.text)}</span>`).join('');
+  ].map(item=>`<li class="${item.className??''}"><strong>${e(item.text)}</strong><span>${e(item.detail)}</span></li>`).join('');
 }
-function slotStatChips(entries){
+function slotStatChips(entries,owner){
   const groups=new Map();
   for(const entry of entries){
     const short=statShortLabel(entry.stat);
     if(!groups.has(short))groups.set(short,[]);
-    groups.get(short).push(providesDetail(entry));
+    groups.get(short).push(entry);
   }
-  return [...groups].map(([short,details])=>`<span class="slot-synergy-chip" title="${e([...new Set(details)].join('、'))}">${e(short)}</span>`).join('');
+  return [...groups].map(([short,entries])=>synergyChip(short,'slot-synergy-chip',owner,entries)).join('');
 }
 function slotSynergyGroup(badge,className,content){
   return `<span class="slot-synergy-group ${className}"><span class="slot-synergy-badge">${badge}</span>${content}</span>`;
@@ -103,7 +120,7 @@ function boardSlotSynergy(name,slot,data,squad){
   if(teamSynergyMode==='off')return '';
   const groups=[];
   const wholeTeam=data.global.filter(item=>item.owner.name===name).flatMap(item=>item.entries);
-  if(wholeTeam.length)groups.push(slotSynergyGroup('全体','synergy-global',slotStatChips(wholeTeam)));
+  if(wholeTeam.length)groups.push(slotSynergyGroup('全体','synergy-global',slotStatChips(wholeTeam,meta(name))));
   const unmatched=new Map();
   for(const {owner,entry} of data.unmatched){
     if(owner.name!==name)continue;
@@ -113,12 +130,12 @@ function boardSlotSynergy(name,slot,data,squad){
   }
   for(const {selector,entries} of unmatched.values()){
     const full=selectorLabel(selector,label),compact=full.replace('（条件で選ばれる対象）','※');
-    groups.push(slotSynergyGroup('対象なし','synergy-unmatched',`<span class="slot-synergy-target" title="${e(full)}">${e(compact)}：</span>${entries.map(entry=>slotStatChips([entry])).join('')}`));
+    groups.push(slotSynergyGroup('対象なし','synergy-unmatched',`<span class="slot-synergy-target" title="${e(full)}">${e(compact)}：</span>${entries.map(entry=>slotStatChips([entry],meta(name))).join('')}`));
   }
   for(const {owner,condition,effect} of data.conditions){
     if(owner.name!==name||!['unmet','broken'].includes(effect))continue;
-    const text=conditionLabel(condition),detail=`${text} / ${sourceLabel(condition.source)}`;
-    groups.push(slotSynergyGroup(effect==='broken'?'⚠ 衝突':'対象なし',effect==='broken'?'synergy-conflict':'synergy-unmatched',`<span class="slot-synergy-chip" title="${e(detail)}">${e(text)}</span>`));
+    const text=conditionLabel(condition);
+    groups.push(slotSynergyGroup(effect==='broken'?'⚠ 衝突':'対象なし',effect==='broken'?'synergy-conflict':'synergy-unmatched',synergyChip(text,'slot-synergy-chip',owner,[conditionEntry(condition)])));
   }
   const dots=teamSynergyMode==='dots'?`<span class="team-synergy-dots"><span class="synergy-dot own synergy-color-${slot}" title="${e(label(name))}の色" aria-label="${e(label(name))}の色"></span>${data.links.filter(link=>link.to.name===name).map(link=>`<span class="synergy-dot synergy-color-${squad.indexOf(link.from.name)} tier-${link.tier}" title="${e(label(link.from.name))} → ${e(label(name))}（${link.tier}）" aria-label="${e(label(link.from.name))}からの強化 ${link.tier}"></span>`).join('')}</span>`:'';
   return `<span class="slot-synergy-marks">${groups.join('')}</span>${dots}`;
@@ -134,17 +151,84 @@ function openTeamSynergy(team){
   $('synergy-reasons').innerHTML=items?`<ul>${items}</ul>`:'<p>部隊内のシナジーはありません。</p>';
   openDialog('synergy-dialog');
 }
+function chipReceivers(chip,entry,owner){
+  const team=Number(chip.closest('.team-row').dataset.team);
+  return state.teams[team].filter(Boolean).map(meta).filter(member=>member.name!==owner.name&&selectorMatches(entry.selector,owner,member));
+}
+function positionSynergyTooltip(){
+  if(!activeSynergyChip)return;
+  const tooltip=$('synergy-tooltip'),anchor=activeSynergyChip.getBoundingClientRect();
+  const width=document.documentElement.clientWidth,height=window.innerHeight,box=tooltip.getBoundingClientRect();
+  const left=Math.max(8,Math.min(anchor.left,width-box.width-8));
+  const below=anchor.bottom+8,top=below+box.height<=height-8?below:Math.max(8,anchor.top-box.height-8);
+  tooltip.style.left=`${left+window.scrollX}px`;
+  tooltip.style.top=`${Math.min(top,Math.max(8,height-box.height-8))+window.scrollY}px`;
+}
+function hideSynergyTooltip(){
+  activeSynergyChip?.removeAttribute('aria-describedby');
+  activeSynergyChip=null;
+  $('synergy-tooltip').hidden=true;
+  highlightTeamSynergy();
+}
+function showSynergyTooltip(chip){
+  if(activeSynergyChip===chip)return;
+  hideSynergyTooltip();
+  const {owner,entries}=synergyChipDetails.get(chip.dataset.synergyChip);
+  const tooltip=$('synergy-tooltip');
+  tooltip.innerHTML=entries.map(entry=>{
+    const receivers=chipReceivers(chip,entry,owner);
+    return `<section><strong>${e(entry.condition?conditionLabel(entry.condition):statLabel(entry.stat))}</strong><div>段階: ${e(tierLabels[entry.tier]??entry.tier)}</div><div>対象: ${e(selectorLabel(entry.selector,label))}</div><div>この部隊で受ける味方: ${e(receivers.map(member=>label(member.name)).join('、')||'いません')}</div><div>出所: ${e(sourceLabel(entry.source)??'—')}</div></section>`;
+  }).join('');
+  activeSynergyChip=chip;
+  chip.setAttribute('aria-describedby','synergy-tooltip');
+  tooltip.hidden=false;
+  positionSynergyTooltip();
+  highlightTeamSynergy();
+}
+const synergyBoard=$('team-board');
+// Delegated enter/leave handling also covers chips rebuilt by renderBoard.
+synergyBoard.addEventListener('pointerover',event=>{
+  if(event.pointerType==='touch')return;
+  const chip=event.target.closest('[data-synergy-chip]');
+  if(chip&&!chip.contains(event.relatedTarget))showSynergyTooltip(chip);
+});
+synergyBoard.addEventListener('pointerout',event=>{
+  if(event.pointerType==='touch')return;
+  const chip=event.target.closest('[data-synergy-chip]');
+  if(chip&&chip===activeSynergyChip&&!chip.contains(event.relatedTarget))hideSynergyTooltip();
+});
+synergyBoard.addEventListener('focusin',event=>{
+  const chip=event.target.closest('[data-synergy-chip]');
+  if(chip)showSynergyTooltip(chip);
+});
+synergyBoard.addEventListener('focusout',event=>{
+  if(event.target.closest('[data-synergy-chip]')===activeSynergyChip)hideSynergyTooltip();
+});
+document.addEventListener('pointerdown',event=>{
+  const chip=event.target.closest('[data-synergy-chip]');
+  if(event.pointerType==='touch'&&chip){
+    event.preventDefault();
+    if(activeSynergyChip===chip)hideSynergyTooltip();else showSynergyTooltip(chip);
+  }else if(!chip)hideSynergyTooltip();
+});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')hideSynergyTooltip();});
+window.addEventListener('scroll',positionSynergyTooltip,true);
+window.addEventListener('resize',positionSynergyTooltip);
 function highlightTeamSynergy(){
   for(const row of $('team-board').querySelectorAll('.team-row')){
-    const focus=document.activeElement?.closest('.slot.filled'),hover=row.querySelector('.slot.filled:hover'),slot=(focus&&row.contains(focus)?focus:null)||hover;
+    const focus=document.activeElement?.closest('.slot.filled'),hover=row.querySelector('.slot.filled:hover'),chip=activeSynergyChip&&row.contains(activeSynergyChip)?activeSynergyChip:null,slot=chip?chip.closest('.slot.filled'):(focus&&row.contains(focus)?focus:null)||hover;
     const name=slot?.dataset.name,data=boardSynergies.get(Number(row.dataset.team)),partners=new Set();
-    for(const link of data?.links??[]){if(link.from.name===name)partners.add(link.to.name);if(link.to.name===name)partners.add(link.from.name);}
+    if(chip){
+      const {owner,entries}=synergyChipDetails.get(chip.dataset.synergyChip);
+      for(const entry of entries)for(const receiver of chipReceivers(chip,entry,owner))partners.add(receiver.name);
+    }else for(const link of data?.links??[]){if(link.from.name===name)partners.add(link.to.name);if(link.to.name===name)partners.add(link.from.name);}
     for(const member of row.querySelectorAll('.slot')){
       member.classList.toggle('synergy-hovered',teamSynergyMode!=='off'&&member===slot);
       member.classList.toggle('synergy-partner',teamSynergyMode!=='off'&&partners.has(member.dataset.name));
-      member.classList.toggle('synergy-dimmed',teamSynergyMode!=='off'&&!!name&&member!==slot&&!partners.has(member.dataset.name));
+      member.classList.toggle('synergy-dimmed',teamSynergyMode!=='off'&&!!(name||chip)&&member!==slot&&!partners.has(member.dataset.name));
     }
     for(const path of row.querySelectorAll('.team-synergy-link'))path.classList.toggle('synergy-dimmed',!!name&&path.dataset.from!==name&&path.dataset.to!==name);
+    for(const text of row.querySelectorAll('.team-synergy-arc-label'))text.style.display=name&&(text.dataset.from===name||text.dataset.to===name)?'':'none';
   }
 }
 function scheduleSynergyLines(){cancelAnimationFrame(synergyFrame);synergyFrame=requestAnimationFrame(drawSynergyLines);}
@@ -174,6 +258,17 @@ function drawSynergyLines(){
       const path=document.createElementNS('http://www.w3.org/2000/svg','path');
       path.setAttribute('d',`M ${x1} ${y} C ${x1} ${curve}, ${x2} ${curve}, ${x2} ${y}`);
       path.setAttribute('class',`team-synergy-link tier-${link.tier}`);path.setAttribute('marker-end',`url(#synergy-arrow-${t}-${link.tier})`);path.dataset.from=link.from.name;path.dataset.to=link.to.name;svg.append(path);
+      const names=[...new Set(link.relations.map(entry=>statShortLabel(entry.stat)))];
+      const text=document.createElementNS('http://www.w3.org/2000/svg','text');
+      text.textContent=names.slice(0,3).join('・')+(names.length>3?'…':'');
+      text.setAttribute('class',`team-synergy-arc-label tier-${link.tier}`);
+      // The cubic's midpoint is its apex; reserve enough lane space for the text.
+      const available=Math.max(1,rect.width-12),estimated=text.textContent.length*8;
+      const textWidth=Math.min(available,estimated);
+      text.setAttribute('x',Math.max(textWidth/2+6,Math.min((x1+x2)/2,rect.width-textWidth/2-6)));
+      text.setAttribute('y',y+(curve-y)*.75);
+      if(estimated>available){text.setAttribute('textLength',available);text.setAttribute('lengthAdjust','spacingAndGlyphs');}
+      text.dataset.from=link.from.name;text.dataset.to=link.to.name;text.style.display='none';svg.append(text);
     }
   }
   highlightTeamSynergy();
@@ -183,6 +278,11 @@ for(const type of ['pointerover','pointerout','focusin','focusout'])$('team-boar
 window.addEventListener('resize',scheduleSynergyLines);
 if(typeof ResizeObserver!=='undefined')new ResizeObserver(scheduleSynergyLines).observe($('team-board'));
 function renderBoard(){
+  hideSynergyTooltip();
+  synergyChipDetails.clear();
+  const legend=$('team-synergy-legend');
+  legend.hidden=!['lines','dots'].includes(teamSynergyMode);
+  legend.innerHTML=teamSynergyMode==='lines'?'矢印：強化する側 → 受ける側　<span class="synergy-line-sample" aria-hidden="true"></span>実線＝A 条件一致　<span class="synergy-line-sample tier-B" aria-hidden="true"></span>点線＝B 恩恵が偏る　全体（C）は線を引かず各キャラの『全体』に表示':teamSynergyMode==='dots'?'丸：強化してくれる味方の色　塗り＝A　輪＝B':'';
   state.teams.forEach((members,t)=>{for(const name of state.synergyBasis[t])if(!members.includes(name))state.synergyBasis[t].delete(name);});
   document.querySelector('.raid-switch').hidden=state.singleMode;
   const mast='마스트 : 로망틱 메이드',present=state.teams[state.activeTeam]?.includes(mast),mastOption=$('burst-policy').querySelector('option[value="mast3"]');mastOption.disabled=!present;$('burst-policy-note').textContent=!present?'選択中の部隊にマスト：ロマンチックメイドがいないため、マスト専用運用は選択できません。保存済み設定で指定された場合は、全員オート扱いとなり結果に警告を表示します。':'マスト専用の3の倍数優先を選択できます。他の部隊にマストがいない場合は、その部隊は全員オート扱いです。';

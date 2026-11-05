@@ -89,3 +89,29 @@ test('slot stat labels fall back to full Japanese labels and preserve unknown st
   assert.equal(statLabel('atk_caster_based_pct'),'攻撃力（発動者基準）');
   assert.equal(statLabel('projectile_explosion_dmg_pct'),'飛翔体の爆発ダメージ');
 });
+
+test('additional effect stats have full and compact Japanese labels', () => {
+  const cases = {
+    named_buff_duration_extend:'バフ延長',remove_named_buff:'バフ解除',buff_stack_add:'スタック追加',buff_max_stack_add:'最大スタック増加',
+    debuff_immune_count:'デバフ無効',cover_heal_pct:'遮蔽物回復',heal_overcharge_store:'余剰回復の保存',
+    received_dmg_split:'被ダメ分担',received_dmg_split_even:'被ダメ分担',heal_split:'回復分配',effect_target_count_add:'対象数増加',
+    effect_range_pct:'効果範囲',optimal_range_max_pct:'有効射程',burst_dmg_aoe_pct:'範囲バーストダメ',burst_dmg_single_pct:'単体バーストダメ',
+    shield_dmg_pct:'シールドへのダメ',charge_dmg_mag_pct:'チャージダメ倍率',atk_from_hp_pct:'HP比例攻撃力',undying:'不屈',
+    stun_immune:'スタン無効',cover_revive:'遮蔽物復活',cover_def_pct:'遮蔽物防御力',gauge_charge:'ゲージ増加',gauge_consume:'ゲージ消費',
+  };
+  for(const [stat,expected] of Object.entries(cases)){
+    assert.equal(statLabel(stat),expected,stat);
+    assert.equal(statShortLabel(stat),expected,stat);
+  }
+});
+
+test('empty and missing stats display special effect in both label lengths', () => {
+  for(const stat of ['',undefined,null]){
+    assert.equal(statLabel(stat),'特殊効果');
+    assert.equal(statShortLabel(stat),'特殊効果');
+  }
+});
+
+test('conditional trait selectors retain their full explanatory suffix', () => {
+  assert.equal(selectorLabel({kind:'trait',value:'explosion',rule:'conditional'}),'爆発の味方（条件で選ばれる対象）');
+});
