@@ -61,10 +61,16 @@
 .team-row .slot.filled{display:flex;flex-direction:column;height:auto;min-height:0;--slot-main-height:99px}
 .team-row .slot-main{flex:none}
 .team-row .slot-footer{order:1;flex:none}
-.team-row .slot-synergy-marks{position:static;order:2;display:flex;flex-direction:column;align-items:flex-start;flex-wrap:nowrap;gap:1px;height:40px;padding:2px;flex:none;font-size:8px;line-height:11px}
+.team-row .slot.empty{height:auto;min-height:103px}
+.team-row .slot-synergy-marks{position:static;order:2;display:flex;flex-direction:column;align-items:stretch;flex-wrap:nowrap;gap:3px;height:auto;min-height:0;min-width:0;padding:3px 2px;flex:1;pointer-events:auto;font-size:9px;line-height:1.5}
+.team-row .slot-synergy-group{display:flex;flex-wrap:wrap;align-content:flex-start;align-items:baseline;gap:2px;min-width:0;padding:2px;border:1px solid currentColor;border-radius:3px;overflow-wrap:anywhere}
+.team-row .slot-synergy-group.synergy-unmatched{color:#a6b7ca;opacity:1;border-color:#536170}
+.slot-synergy-badge{font-weight:650}
+.slot-synergy-chip{min-width:0;max-width:100%;padding:0 2px;background:#ffffff0b;border-radius:2px;overflow-wrap:anywhere}
+.slot-synergy-target{min-width:0;max-width:100%}
 .team-row .team-synergy-dots{position:static;order:3;display:flex;align-items:center;justify-content:center;gap:3px;height:16px;flex:none;padding:2px;margin:0;border-radius:0}
 .team-row .remove-button{bottom:auto;top:calc(var(--slot-main-height) - 18px)}
 @media(min-width:1500px){.team-row .slot.filled{--slot-main-height:113px}}
 @media(max-width:1150px){.team-row .slot.filled{--slot-main-height:90px}}
 @media(max-width:880px){.team-row .slot.filled{--slot-main-height:105px}}
-@media(max-width:600px){.team-row .slot.filled{--slot-main-height:83px}.team-row .team-synergy-dots{gap:2px}.team-row .slot-synergy-marks{font-size:7px}.team-row .synergy-dot{width:5px;height:5px}.team-row .synergy-dot.own{width:6px;height:6px}}
+@media(max-width:600px){.team-row .slot.filled{--slot-main-height:83px}.team-row .team-synergy-dots{gap:2px}.team-row .slot-synergy-marks{font-size:9px}.team-row .synergy-dot{width:5px;height:5px}.team-row .synergy-dot.own{width:6px;height:6px}}

@@ -33,6 +33,7 @@ export function conditionLabel(condition) {
   return `${subject}が${condition.negate ? 'いない' : 'いる'}と発動`;
 }
 const stats = {
+  focus_fire:'集中攻撃',
   atk_pct:'攻撃力',atk_caster_based_pct:'攻撃力（発動者基準）',atk_dmg_pct:'攻撃ダメージ',crit_rate:'会心率',crit_dmg:'会心ダメージ',
   normal_atk_crit_rate:'通常攻撃の会心率',normal_atk_dmg_pct:'通常攻撃ダメージ',pierce_dmg_pct:'貫通ダメージ',armor_break_dmg_pct:'装甲破壊ダメージ',
   charge_dmg_pct:'チャージダメージ',charge_speed_pct:'チャージ速度',charge_speed_caster_based_pct:'チャージ速度（発動者基準）',charge_time_flat:'チャージ時間',
@@ -43,4 +44,17 @@ const stats = {
   part_dmg_pct:'パーツダメージ',core_dmg_pct:'コアダメージ',intercept_dmg_pct:'迎撃ダメージ',mg_warmup_speed_pct:'MG予熱速度',pellet_count:'弾数',skill_cooldown_pct:'スキル再使用時間',revive:'復活',debuff_cleanse:'デバフ解除',invincible:'無敵',
 };
 export const statLabel = stat => stats[stat] ?? stat;
+const shortStats = {
+  focus_fire:'集中攻撃',
+  atk_pct:'攻撃力',atk_caster_based_pct:'攻撃力',atk_dmg_pct:'攻撃ダメ',crit_rate:'会心率',crit_dmg:'会心ダメ',
+  normal_atk_crit_rate:'通常会心率',normal_atk_dmg_pct:'通常ダメ',pierce_dmg_pct:'貫通ダメ',armor_break_dmg_pct:'装甲破壊ダメ',
+  charge_dmg_pct:'チャージダメ',charge_speed_pct:'チャージ速度',charge_speed_caster_based_pct:'チャージ速度',charge_time_flat:'チャージ時間',
+  projectile_explosion_dmg_pct:'飛翔体爆発',projectile_dmg_pct:'飛翔体ダメ',split_dmg_pct:'分割ダメ',dot_dmg_pct:'持続ダメ',
+  element_bonus_pct:'優越コード',accuracy_pct:'命中率',max_ammo_pct:'装弾数',max_ammo_flat:'装弾数',reload_speed_pct:'リロード',ammo_charge_pct:'弾薬回復',attack_speed_pct:'攻撃速度',
+  burst_cooldown_reduce:'バースト短縮',burst_charge_pct:'バーストゲージ',burst_charge_speed_pct:'バーストゲージ',fullburst_duration:'フルバ時間',burst_reentry:'バースト再使用',
+  def_pct:'防御力',def_caster_based_pct:'防御力',max_hp_pct:'最大HP',hp_caster_based_pct:'最大HP',hp_only_caster_based_pct:'最大HP',
+  heal_hp_pct:'回復',heal_received_pct:'被回復',lifesteal_pct:'吸収',shield_from_max_hp_pct:'シールド',received_dmg_pct:'被ダメ',
+  part_dmg_pct:'パーツダメ',core_dmg_pct:'コアダメ',intercept_dmg_pct:'迎撃ダメ',invincible:'無敵',revive:'復活',debuff_cleanse:'デバフ解除',
+};
+export const statShortLabel = stat => shortStats[stat] ?? statLabel(stat);
 export const sourceLabel = source => ({'스킬1':'スキル1','스킬2':'スキル2','스킬3':'バースト'}[source] ?? source);
