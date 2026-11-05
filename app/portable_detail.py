@@ -1,7 +1,10 @@
 """Product battle adapter: original preparation -> shared GPU -> original payload.
 
 No CPU battle, damage or event schedule is used as GPU input. Until broader
-product admission is established every successful GPU result is CPU-checked.
+product admission is established every successful shared-kernel result is CPU-checked.
+Policy 2026-11-05: optimize jobs alone may defer checks to every displayed squad
+plus a reproducible 1/8 sample; any mismatch escalates to the entire job. All
+other job kinds retain fresh CPU full-payload verification of every request.
 """
 import array
 import copy
@@ -467,20 +470,21 @@ def decode_payload(body, prepared, run, metadata, block):
     return payload
 
 
-def _evaluation(body):
+def _evaluation(body, *, verification='full'):
     """Prepare and finish one request around a single deferred GPU boundary."""
     if not isinstance(body,dict) or body.get('compute_backend') not in BACKENDS:
         raise ValueError('Expected an explicit shared GPU detail request')
+    if verification not in ('full', 'deferred'):raise ValueError('Invalid verification policy')
     requested = body['compute_backend']
     backend = BACKENDS[requested]
-    body = copy.deepcopy({k:v for k,v in body.items() if not k.startswith('_')})
+    body = copy.deepcopy({k:v for k,v in body.items() if not k.startswith('_') and k != 'verification'})
     if type(body.get('verify_detail',False)) is not bool:
         raise ValueError('CPU照合の指定が不正です。')
     started = time.perf_counter()
     capture_root = Path(os.environ.get('NIKKE_DETAIL_CAPTURE_ROOT',ROOT/'research/portable-build/product-detail'))
     folder = capture_root / uuid.uuid4().hex
     folder.mkdir(parents=True,exist_ok=False)
-    record = dict(requested=requested, capture_id=folder.name, gpu_execution_verified=False, cpu_battle_used_as_gpu_input=False)
+    record = dict(verification=verification,requested=requested, capture_id=folder.name, gpu_execution_verified=False, cpu_battle_used_as_gpu_input=False)
     explicit_image=backend=='cuda' and 'NIKKE_SHARED_CUDA_ARTIFACTS' in os.environ
     historical_status=dict(saved_cubin_admission='not_admitted') if explicit_image else {}
     record.update(historical_status)
@@ -551,6 +555,12 @@ def _evaluation(body):
         record.update(backend='cpu',error=str(error),error_type=type(error).__name__,stage=stage,
             traceback=traceback.format_exc(),unsupported=[unsupported]);save()
 
+    if unsupported is None and verification == 'deferred':
+        payload['compute'].update(cpu_verification=dict(status='pending'),scope='shared kernel; CPU payload verification pending')
+        (folder/'gpu-payload.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        record.update(backend=requested,cpu_verification=dict(status='pending'),elapsed_seconds=time.perf_counter()-started)
+        save();return payload
+
     # CPU evaluation is outside the GPU exception boundary and runs once per
     # request, after readback or a GPU failure. A CPU error is never retried or
     # misclassified as an unsupported GPU condition.
@@ -566,8 +576,7 @@ def _evaluation(body):
     if unsupported is not None:
         cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=[unsupported],fallback_stage=stage,gpu_execution_verified=record['gpu_execution_verified'],**historical_status)
         return cpu
-    differences = [key for key in payload.keys() | cpu.keys() if key != 'compute' and
-        (key not in payload or key not in cpu or payload[key] != cpu[key])]
+    differences = payload_differences(payload,cpu)
     record.update(cpu_verification=dict(matched=not differences,differing_fields=differences),elapsed_seconds=time.perf_counter()-started)
     (folder/'gpu-payload.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     if differences:
@@ -576,6 +585,44 @@ def _evaluation(body):
         record['backend']='cpu';save();return cpu
     payload['compute']['cpu_verification']=record['cpu_verification']
     record['backend']=requested;save();return payload
+
+
+def payload_differences(payload,cpu):
+    differences = [key for key in payload.keys() | cpu.keys() if key != 'compute' and
+        (key not in payload or key not in cpu or payload[key] != cpu[key])]
+    return differences
+
+
+def verify_portable_detail(bodies_with_capture_ids):
+    """Fresh CPU comparison of saved payloads; no retained preparation state."""
+    if not isinstance(bodies_with_capture_ids,list) or not 1<=len(bodies_with_capture_ids)<=8:
+        raise ValueError('Expected 1..8 verification rows')
+    results=[]
+    for row in bodies_with_capture_ids:
+        body=copy.deepcopy({k:v for k,v in row['body'].items() if not k.startswith('_') and k!='verification'})
+        capture_id=row['capture_id']
+        if not isinstance(capture_id,str) or len(capture_id)!=32 or any(c not in '0123456789abcdef' for c in capture_id):
+            raise ValueError('Invalid capture id')
+        folder=Path(os.environ.get('NIKKE_DETAIL_CAPTURE_ROOT',ROOT/'research/portable-build/product-detail'))/capture_id
+        record=json.loads((folder/'result.json').read_text(encoding='utf-8'))
+        digest=hashlib.sha256(json.dumps(body,ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
+        if record.get('request_sha256')!=digest or record.get('capture_id')!=capture_id:
+            raise ValueError('Verification request does not match capture')
+        payload=json.loads((folder/'gpu-payload.json').read_text(encoding='utf-8'))
+        cpu=engine_worker.evaluate(body)
+        (folder/'cpu-payload.json').write_text(json.dumps(cpu,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        differences=payload_differences(payload,cpu)
+        check=dict(matched=not differences,differing_fields=differences)
+        record.update(cpu_verification=check,verification='deferred-checked')
+        if differences:
+            historical_status={k:v for k,v in record.items() if k=='saved_cubin_admission' or k.startswith('historical_link_')}
+            cpu['compute']=dict(requested=record['requested'],backend='cpu',capture_id=capture_id,
+                fallback_reason='共通GPUとCPUの照合に差があったため、CPUの結果を表示しています。',
+                gpu_result_rejected=True,cpu_verification=check,**historical_status)
+            record['backend']='cpu'
+        (folder/'result.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        results.append(dict(**check,cpu_result=cpu))
+    return results
 
 
 MAX_PRODUCT_BATCH=8
@@ -668,7 +715,7 @@ def evaluate(body):
     finally:generator.close()
 
 
-def evaluate_many(bodies):
+def evaluate_many(bodies, *, verification='full'):
     """Preserve row identity and per-case CPU checks in bounded shared dispatches."""
     if not isinstance(bodies,list) or not 1<=len(bodies)<=batch_limit(bodies):
         raise ValueError('Shared detail evaluations exceed the backend batch limit')
@@ -676,7 +723,7 @@ def evaluate_many(bodies):
     results=[None]*len(bodies);groups={};generators=[]
     try:
         for index,body in enumerate(bodies):
-            generator=_evaluation(body);generators.append(generator)
+            generator=_evaluation(body,verification=verification);generators.append(generator)
             try:plan=next(generator)
             except StopIteration as finished:results[index]=dict(result=finished.value);continue
             except Exception as error:results[index]=dict(error=str(error));continue
@@ -695,7 +742,7 @@ def evaluate_many(bodies):
         for generator in generators:generator.close()
 
 
-def _browser_rows(bodies, uploads=None):
+def _browser_rows(bodies, uploads=None, *, verification='full'):
     """Stateless prepare/finish around the existing single-yield evaluator."""
     import base64
     import gzip
@@ -707,7 +754,7 @@ def _browser_rows(bodies, uploads=None):
         raise ValueError('Browser upload row count mismatch')
     results=[];builds={}
     for index,body in enumerate(bodies):
-        generator=_evaluation(body)
+        generator=_evaluation(body,verification=verification)
         try:
             try:plan=next(generator)
             except StopIteration as done:
@@ -748,10 +795,10 @@ def _browser_rows(bodies, uploads=None):
     return results
 
 
-def prepare_browser_wires(bodies):
-    return _browser_rows(bodies)
+def prepare_browser_wires(bodies, *, verification='full'):
+    return _browser_rows(bodies,verification=verification)
 
 
-def finish_browser(bodies,uploads):
+def finish_browser(bodies,uploads, *, verification='full'):
     if not isinstance(uploads,list):raise ValueError('Browser uploads must be a list')
-    return _browser_rows(bodies,uploads)
+    return _browser_rows(bodies,uploads,verification=verification)

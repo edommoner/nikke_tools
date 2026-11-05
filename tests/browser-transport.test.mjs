@@ -78,7 +78,7 @@ test('UI includes browser backend, verified request flag, reported time and work
  const {readFileSync}=await import('node:fs');const {runInNewContext}=await import('node:vm');
  const source=readFileSync(new URL('../web/app.js',import.meta.url),'utf8');
  const line=source.split('\n').find(line=>line.startsWith('function computeDetailsCore('));
- const rendered=runInNewContext(line+'\ncomputeDetailsCore(result)',{result:{compute:{backend:'browser_detail',device:'UA workers=2',browser_seconds:.1,elapsed_ms:120,cpu_verification:{matched:true}}},e:v=>v});
+ const rendered=runInNewContext(source.split('\n').find(line=>line.startsWith('function verificationLabel('))+'\n'+line+'\ncomputeDetailsCore(result)',{result:{compute:{backend:'browser_detail',device:'UA workers=2',browser_seconds:.1,elapsed_ms:120,cpu_verification:{matched:true}}},e:v=>v});
  assert.match(rendered,/ブラウザ計算 · UA workers=2/);assert.match(rendered,/0.100秒（ブラウザ申告）/);
  assert.match(source,/verify_detail:\[[^\]]*'browser_detail'/);assert.match(source,/hardware.browser\?\.available/);
  assert.match(source,/ブラウザで計算中/);assert.match(source,/new Worker\('\/browser-worker.js'\)/);

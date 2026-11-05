@@ -103,6 +103,8 @@ class BrowserSourceHistory(unittest.TestCase):
     def test_ledger_span_and_before_hash_are_bound(self):
         import portable_browser_backend_source_contract as history
         name='app/portable_detail.py';raw=(ROOT/name).read_bytes()
+        from portable_optimizer_verification_source_contract import verification_preimage
+        raw=verification_preimage(ROOT,name,raw)
         data=json.loads((ROOT/'tests/fixtures/portable-browser-backend-source-delta.json').read_text())
         for mutation,error in [('ledger','ledger changed'),('after','inverse span changed'),('before','historical preimage changed')]:
             with tempfile.TemporaryDirectory() as tmp:

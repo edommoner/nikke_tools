@@ -1,5 +1,6 @@
 // Shared cache and ordered batch boundary for both direct and job evaluations.
 export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheable=()=>true}) {
+  const cleanBody=body=>body&&typeof body==='object'?Object.fromEntries(Object.entries(body).filter(([k])=>k!=='verification'&&!k.startsWith('_'))):body;
   const validate=body=>{
     if(!['cpu','cuda_detail','metal_detail','cuda_shared_detail','native_detail','browser_detail'].includes(body.compute_backend||'cpu'))throw Error('未対応の詳細計算方法です。');
     if(body.verify_detail!==undefined&&typeof body.verify_detail!=='boolean')throw Error('CPU照合の指定が不正です。');
@@ -17,11 +18,14 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
   }
   async function many(bodies,job){
     if(bodies.length>32)throw Error('一度に計算できる候補は32件です。');
+    bodies=bodies.map(cleanBody);
+    const deferred=job?.kind==='optimize';
+    const options=deferred?{verification:'deferred'}:{};
     const rows=new Array(bodies.length),pending=new Map();
     for(const [index,body]of bodies.entries()){
       try{
         validate(body);if(body.compute_backend==='browser_detail'&&!job?.browser)throw Error('ブラウザ計算は画面からジョブとして実行してください。');const enabled=cacheable(body),key=enabled?keyOf(body):Symbol();
-        if(cache.has(key)){rows[index]={result:{...structuredClone(cache.get(key)),cache_hit:true}};continue;}
+        if(cache.has(key)&&(deferred||cache.get(key)?.compute?.cpu_verification?.status!=='pending')){rows[index]={result:{...structuredClone(cache.get(key)),cache_hit:true}};continue;}
         if(!pending.has(key))pending.set(key,{key,body,indices:[],cacheable:enabled});
         pending.get(key).indices.push(index);
       }catch(error){rows[index]={error:error.message};}
@@ -49,18 +53,18 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
         const action=gpu[0].body.compute_backend==='cuda_detail'?'evaluate_detail_batch':'evaluate_portable_detail_batch';
         const evaluations=gpu.map(e=>e.body);
         if(browser){
-          outputs=await worker({action:'prepare_browser_wires',evaluations},job);
+          outputs=await worker({action:'prepare_browser_wires',evaluations,...options},job);
           if(!Array.isArray(outputs)||outputs.length!==gpu.length||outputs.some(r=>!r||!(r.wire||r.result||typeof r.error==='string')))throw Error('ブラウザの入力形式が不正です。');
           if(job.status==='cancelled')throw Error('計算を終了しました。');
           const wires=outputs.flatMap((row,index)=>row.wire?[{index,wire:row.wire}]:[]);
           if(wires.length){
             const uploads=await job.browser.request(wires);
             if(job.status==='cancelled')throw Error('計算を終了しました。');
-            const finished=await worker({action:'finish_browser',evaluations:wires.map(r=>evaluations[r.index]),uploads},job);
+            const finished=await worker({action:'finish_browser',evaluations:wires.map(r=>evaluations[r.index]),uploads,...options},job);
             if(!Array.isArray(finished)||finished.length!==wires.length)throw Error('ブラウザの結果数が一致しません。');
             wires.forEach((row,i)=>outputs[row.index]=finished[i]);
           }
-        }else outputs=await worker({action,evaluations},job);
+        }else outputs=await worker({action,evaluations,...options},job);
         if(!Array.isArray(outputs)||outputs.length!==gpu.length||outputs.some(r=>!r||!(typeof r.error==='string'||r.result&&typeof r.result==='object')))throw Error('GPUの計算結果の形式が不正です。');
       }catch(error){
         outputs=[];
@@ -80,7 +84,19 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
     return rows;
   }
   async function one(body,job){const [row]=await many([body],job);if(row.error)throw Error(row.error);return row.result;}
-  return {one,many,isCached:body=>cache.has(keyOf(body))};
+  async function verify(rows,job){
+    const checks=await worker({action:'verify_portable_detail',evaluations:rows.map(({body,result})=>({body:cleanBody(body),capture_id:result.compute.capture_id}))},job);
+    if(!Array.isArray(checks)||checks.length!==rows.length||checks.some(c=>typeof c?.matched!=='boolean'||!Array.isArray(c.differing_fields)||!c.cpu_result))throw Error('CPU照合の結果形式が不正です。');
+    if(job?.status==='cancelled')return;
+    checks.forEach((check,i)=>{
+      const row=rows[i];
+      if(!check.matched)row.result=check.cpu_result;
+      else {row.result.compute.cpu_verification={matched:true,differing_fields:[]};row.result.compute.scope='shared kernel; full CPU payload verified for this request';}
+      if(cacheable(row.body))save(keyOf(cleanBody(row.body)),row.result,true);
+    });
+    return checks;
+  }
+  return {one,many,verify,isCached:body=>cache.has(keyOf(cleanBody(body)))&&cache.get(keyOf(cleanBody(body)))?.compute?.cpu_verification?.status!=='pending'};
 }
 
 export async function advanceCases(job,evaluator){

@@ -8,6 +8,8 @@ AFTER_SHA256={'app/portable_detail.py': 'a670dedc0faaae03db12cd67ac1c5340d9ba689
 
 
 def browser_preimage(root,name,raw):
+    from portable_optimizer_verification_source_contract import reviewed_bytes as verification_reviewed_bytes
+    raw=verification_reviewed_bytes(root,name,raw)
     ledger=(Path(root)/'tests/fixtures/portable-browser-backend-source-delta.json').read_bytes()
     if hashlib.sha256(ledger).hexdigest()!=LEDGER_SHA256:raise ValueError('Browser backend source ledger changed')
     data=json.loads(ledger)
@@ -27,5 +29,7 @@ def browser_preimage(root,name,raw):
 
 
 def reviewed_bytes(root,name,raw):
+    from portable_optimizer_verification_source_contract import reviewed_bytes as verification_reviewed_bytes
+    raw=verification_reviewed_bytes(root,name,raw)
     if name in AFTER_SHA256 and hashlib.sha256(raw).hexdigest()==AFTER_SHA256[name]:return browser_preimage(root,name,raw)
     return raw

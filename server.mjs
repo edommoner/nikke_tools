@@ -1,8 +1,9 @@
+import {verifyOptimizer,verificationView,recommendationForView} from './app/optimizer-verification.mjs';
 import {attachBrowser,cancelBrowser,acceptBrowserResults,browserWasm} from './app/browser-transport.mjs';
 import {createEvaluator,advanceCases} from './app/evaluation-queue.mjs';
 import {resolvePython} from './app/python-runtime.mjs';
 import {portableEventRequest} from './app/portable_http_policy.mjs';
-import {candidatePool,bestDisjoint,rankCombatPool} from './app/optimizer.mjs';
+import {candidatePool,rankCombatPool} from './app/optimizer.mjs';
 import http from 'node:http';
 import {spawn} from 'node:child_process';
 import {readFileSync, existsSync, statSync, lstatSync} from 'node:fs';
@@ -71,10 +72,11 @@ export function sharedCudaConfigured(platform=process.platform,env=process.env) 
   return directory(env.NIKKE_CUDA_COMPILE_CACHE);
 }
 export function workerTimeoutSeconds(body) {
+  if(body.action==='verify_portable_detail')return 120;
   if(body.action==='evaluate_portable_detail_batch'&&body.evaluations?.[0]?.compute_backend==='cuda_shared_detail')return 120;
   // Each detail case may have its own kernel: 2*90s generation + 300s
   // compilation + 600s GPU + 30s overhead. Compatible cases share this budget.
-  if(['evaluate_portable_detail_batch','prepare_browser_wires','finish_browser'].includes(body.action))return 1110*Math.min(8,Math.max(1,body.evaluations?.length||1));
+  if(['evaluate_portable_detail_batch','prepare_browser_wires','finish_browser','verify_portable_detail'].includes(body.action))return 1110*Math.min(8,Math.max(1,body.evaluations?.length||1));
   // Search uses the same transport, capped at 4800s per command.
   // Selection expands once per team (one or five); prefilter dispatches once.
   if(body.backend==='metal'&&['combat_prefilter','select'].includes(body.action))return 5310*(body.action==='select'&&body.teamCount!==1?5:1);
@@ -86,9 +88,9 @@ function worker(body, job) {
   if(body.backend==='metal'&&['combat_prefilter','select'].includes(body.action)||body.action==='metal_search_probe')return metalSearchWorker(body,job);
   if(body.action==='gpu_probe'||body.action==='evaluate_detail'||body.action==='evaluate_detail_batch'||body.action==='combat_prefilter'||body.action==='select'&&body.backend==='cuda')return gpuWorker(body,job);
   return new Promise((resolve,reject) => {
-    const script=['evaluate_portable_detail_batch','prepare_browser_wires','finish_browser'].includes(body.action)?'app/portable_detail_service.py':'app/engine_worker.py';
+    const script=['evaluate_portable_detail_batch','prepare_browser_wires','finish_browser','verify_portable_detail'].includes(body.action)?'app/portable_detail_service.py':'app/engine_worker.py';
     const child = workerTextStreams(spawn(python, [path.join(root,script)], {cwd:root, windowsHide:true, env:{...process.env,PYTHONIOENCODING:'utf-8',PYTHONUTF8:'1'}}));
-    if (job) job.child=child;
+    if (job) {job.child=child;(job.children ||= new Set()).add(child);}
     let out='', err='';
     // Cover every possible source group, compilation and bounded GPU phase.
     const timeoutSeconds = workerTimeoutSeconds(body);
@@ -96,7 +98,7 @@ function worker(body, job) {
     child.stdout.on('data',b=>out+=b); child.stderr.on('data',b=>err+=b);
     child.on('error',e=>{clearTimeout(timer);reject(e);});
     child.on('close',code=>{
-      clearTimeout(timer); if(job)job.child=null;
+      clearTimeout(timer); if(job){if(job.child===child)job.child=null;job.children?.delete(child);}
       try {const value=JSON.parse(out); if(code || value.error) reject(Error(value.error || err || '計算に失敗しました。')); else resolve(value);}
       catch(e){reject(Error(err || e.message));}
     });
@@ -107,7 +109,7 @@ function metalSearchWorker(body,job){
   return new Promise((resolve,reject) => {
     const script='app/metal_search.py';
     const child = workerTextStreams(spawn(python, [path.join(root,script)], {cwd:root, windowsHide:true, env:{...process.env,PYTHONIOENCODING:'utf-8',PYTHONUTF8:'1'}}));
-    if (job) job.child=child;
+    if (job) {job.child=child;(job.children ||= new Set()).add(child);}
     let out='', err='';
     // Include every bounded shared-transport command in this search request.
     const timeoutSeconds = workerTimeoutSeconds(body);
@@ -115,7 +117,7 @@ function metalSearchWorker(body,job){
     child.stdout.on('data',b=>out+=b); child.stderr.on('data',b=>err+=b);
     child.on('error',e=>{clearTimeout(timer);reject(e);});
     child.on('close',code=>{
-      clearTimeout(timer); if(job)job.child=null;
+      clearTimeout(timer); if(job){if(job.child===child)job.child=null;job.children?.delete(child);}
       try {const value=JSON.parse(out); if(code || value.error) reject(Error(value.error || err || '計算に失敗しました。')); else resolve(value);}
       catch(e){reject(Error(err || e.message));}
     });
@@ -185,6 +187,10 @@ export function boardCases(teams){
   });
 }
 const optimizerWorker=worker,optimizerEvaluator=evaluator;
+export function cancelJob(job){
+  job.status='cancelled';cancelBrowser(job);
+  for(const child of new Set([...(job.children||[]),job.child].filter(Boolean)))child.kill();
+}
 export async function run(job,{worker=optimizerWorker,evaluator=optimizerEvaluator}={}) {
   if(job.running)return;
   attachBrowser(job);
@@ -250,17 +256,16 @@ export async function run(job,{worker=optimizerWorker,evaluator=optimizerEvaluat
         }catch(error){if(job.status!=='cancelled')job.acceleration={backend:'cpu',requested:'cuda',reason:error.message};}
         job.phase=null;
       }
-      if(job.status==='running')job.status='complete';
+      await verifyOptimizer(job,evaluator);
+      if(job.status==='running')job.status=job.pauseRequested?'paused':'complete';
+    }else if(job.kind==='optimize'&&job.status==='paused'){
+      job.status='running';await verifyOptimizer(job,evaluator);
+      if(job.status==='running')job.status='paused';
     }
   } catch(e){if(job.status!=='cancelled'){job.status='failed';job.error=e.message;}}
   finally {job.running=false;}
 }
-function view(job) {
-  if(job.kind==='optimize'&&job.recommendationIndex!==job.index){
-    const found=bestDisjoint(job.results,job.teamCount,job.groups);
-    if(found&&(!job.incumbent||found.damage>job.incumbent.damage))job.incumbent=found;
-    job.recommendationIndex=job.index;
-  }
+export function view(job) {
   if(job.combatAcceleration?.backend==='cuda'){
     const errors=job.results.filter(r=>r.result?.total_damage>0).map(r=>{const estimate=job.combatEstimates?.get(JSON.stringify(r.result.members.map(m=>m.name)));return estimate===undefined?null:Math.abs(estimate-r.result.total_damage)/r.result.total_damage;}).filter(v=>v!==null);
     job.combatAcceleration.validation={samples:errors.length,mean_absolute_relative_error:errors.length?errors.reduce((a,b)=>a+b,0)/errors.length:null,max_absolute_relative_error:errors.length?Math.max(...errors):null};
@@ -270,9 +275,9 @@ function view(job) {
     job.combatAcceleration.validation={samples:errors.length,mean_absolute_relative_error:errors.length?errors.reduce((a,b)=>a+b,0)/errors.length:null,max_absolute_relative_error:errors.length?Math.max(...errors):null};
   }
   const feasible=job.results.filter(r=>r.meets);
-  return {browser_request:job.awaitingBrowser,id:job.id,status:job.status,kind:job.kind,index:job.index,total:job.cases.length,results:job.results,error:job.error,
+  return {verification:verificationView(job),browser_request:job.awaitingBrowser,id:job.id,status:job.status,kind:job.kind,index:job.index,total:job.cases.length,results:job.results,error:job.error,
     target:job.target,strict:job.strict,best:feasible[0]||null,complete:job.status==='complete',updatedAt:job.updatedAt,
-    combatAcceleration:job.combatAcceleration,selectionBackend:job.selectionBackend,phase:job.phase,acceleration:job.acceleration,recommendation:job.incumbent||null,poolSize:job.pool?.length,skipped:job.skipped,mode:job.mode,searchKind:job.searchKind,bestByField:Object.fromEntries([...new Set(feasible.map(r=>r.field).filter(Boolean))].map(f=>[f,feasible.find(r=>r.field===f)]))};
+    combatAcceleration:job.combatAcceleration,selectionBackend:job.selectionBackend,phase:job.phase,acceleration:job.acceleration,recommendation:recommendationForView(job),poolSize:job.pool?.length,skipped:job.skipped,mode:job.mode,searchKind:job.searchKind,bestByField:Object.fromEntries([...new Set(feasible.map(r=>r.field).filter(Boolean))].map(f=>[f,feasible.find(r=>r.field===f)]))};
 }
 function json(res,value,code=200){res.writeHead(code,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});res.end(JSON.stringify(value));}
 async function body(req){let size=0;const chunks=[];for await(const chunk of req){size+=chunk.length;if(size>12*1024*1024)throw Error('JSONは12MB以内にしてください。');chunks.push(chunk);}return JSON.parse(Buffer.concat(chunks).toString('utf8'));}
@@ -332,7 +337,7 @@ const server=http.createServer(async(req,res)=>{
         else if(op==='resume'&&job.status==='paused'){
           if([...jobs.values()].some(j=>j.running))throw Error('別の計算が実行中です。');
           job.pauseRequested=false;void run(job);
-        }else if(op==='cancel'){job.status='cancelled';cancelBrowser(job);job.child?.kill();}
+        }else if(op==='cancel'){cancelJob(job);}
         else throw Error('現在の状態では操作できません。');
       }else if(req.method!=='GET')return json(res,{error:'Method not allowed'},405);
       return json(res,view(job));

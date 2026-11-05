@@ -74,7 +74,7 @@ test('native default follows legacy CUDA and precedes Metal and shared CUDA',()=
   assert.equal(runInNewContext(helper+'\ndefaultDetailBackend(hardware)',{hardware}),expected);
  }
  const line=sourceLine('function computeDetailsCore(');
- const rendered=runInNewContext(line+'\ncomputeDetailsCore(result)',{result:{compute:{backend:'native_detail',device:'cpu:test',host_seconds:0.125,elapsed_ms:150,cpu_verification:{matched:true}}},e:v=>v});
+ const rendered=runInNewContext(sourceLine('function verificationLabel(')+'\n'+line+'\ncomputeDetailsCore(result)',{result:{compute:{backend:'native_detail',device:'cpu:test',host_seconds:0.125,elapsed_ms:150,cpu_verification:{matched:true}}},e:v=>v});
  assert.match(rendered,/CPU高速計算 · cpu:test/);assert.match(rendered,/計算 0.125秒/);assert.match(rendered,/CPU照合済み/);
  assert.ok(readFileSync(new URL('../web/index.html',import.meta.url),'utf8').indexOf('value="native_detail"')<readFileSync(new URL('../web/index.html',import.meta.url),'utf8').indexOf('value="metal_detail"'));
 });
