@@ -63,23 +63,27 @@ class CounterTests(unittest.TestCase):
    self.assertTrue(w.targets.rows[0].alive);self.assertEqual(w.targets.rows[0].remaining,1000.)
    self.assertFalse(state(bm).dead_actors)
  def test_saved_gpu_reader_detects_epoch_actor_and_child_value_corruption(self):
-  from portable_backend import source_hashes
-  from portable_specs import LIMITS as L
-  fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-counter-raw.json').read_text())
-  from portable_destructible_frame_source_contract import verify_retained_sources
-  verify_retained_sources(ROOT,'gpu/destructible_counter_probe.slang',fixture['source_sha256'])
-  rows,_=adapter.prepare()
-  for r in fixture['records']:
-   block=array.array('I',[0])*786432
-   for i,v in r['nonzero']:block[i]=v
-   self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),r['output_sha256'])
-   name,_,c=rows[r['index']];self.assertEqual(name,r['name'])
-   if c is None:
-    adapter.validate_rejection(block,name);block[0]=0
-    with self.assertRaises(AssertionError):adapter.validate_rejection(block,name)
-    continue
-   adapter.compare(block,c)
-   for offset in [L['TARGET_COUNTER_QUERY_BASE']+4,620000+24,620000+32+2,L['TARGET_COUNTER_TRACE_BASE']+6]:
-    corrupt=array.array('I',block);corrupt[offset]^=1
-    with self.subTest(name=name,offset=offset),self.assertRaises(AssertionError):adapter.compare(corrupt,c)
+     from portable_backend import source_hashes
+     from portable_specs import LIMITS as L
+     fixture = json.loads((ROOT / 'tests/fixtures/portable-destructible-counter-raw.json').read_text())
+     (rows, _) = adapter.prepare()
+     for r in fixture['records']:
+         block = array.array('I', [0]) * 786432
+         for (i, v) in r['nonzero']:
+             block[i] = v
+         self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(), r['output_sha256'])
+         (name, _, c) = rows[r['index']]
+         self.assertEqual(name, r['name'])
+         if c is None:
+             adapter.validate_rejection(block, name)
+             block[0] = 0
+             with self.assertRaises(AssertionError):
+                 adapter.validate_rejection(block, name)
+             continue
+         adapter.compare(block, c)
+         for offset in [L['TARGET_COUNTER_QUERY_BASE'] + 4, 620000 + 24, 620000 + 32 + 2, L['TARGET_COUNTER_TRACE_BASE'] + 6]:
+             corrupt = array.array('I', block)
+             corrupt[offset] ^= 1
+             with self.subTest(name=name, offset=offset), self.assertRaises(AssertionError):
+                 adapter.compare(corrupt, c)
 if __name__=='__main__':unittest.main()

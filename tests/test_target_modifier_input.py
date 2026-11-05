@@ -23,14 +23,7 @@ class TargetModifierInputTests(unittest.TestCase):
             s=importlib.util.spec_from_file_location('retained_'+table['adapter'],ROOT/'research'/table['adapter']);a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
             rows,_=a.prepare();self.assertEqual(len(rows),len(table['entries']))
             for (name,words,domain),expected in zip(rows,table['entries'],strict=True):
-                from portable_removed_sources import REMOVED_SOURCES
-                if name in REMOVED_SOURCES:continue
                 self.assertEqual(name,expected['name']);self.assertEqual(domain is not None,expected['native']);self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),expected['sha256'])
-    def test_receipt_copy_historical_inverse_rejects_any_unreviewed_change(self):
-        from portable_coordinate_full_burst_source_contract import project_file,ledger
-        name='gpu/full_burst_landing_runtime.slang';row=ledger(ROOT)['sources'][name]
-        value=project_file(ROOT,name);self.assertEqual(hashlib.sha256(value.encode()).hexdigest(),row['baseline_sha256'])
-        with self.assertRaises(AssertionError):project_file(ROOT,name,(ROOT/name).read_text()+'\n// unreviewed\n')
     def test_axis_identity_and_rejections_without_mutating_definitions(self):
         effects=[dict(type='buff',name='p',stat='projectile_dmg_pct',target='self'),dict(type='buff',name='s',stat='shield_dmg_pct',target='all_allies')];before=copy.deepcopy(effects)
         self.assertEqual([lower_effect(e)['stat'] for e in effects],['atk_dmg_pct']*2);self.assertEqual(effects,before)

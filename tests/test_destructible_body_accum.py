@@ -41,40 +41,44 @@ class BodyAccumTests(unittest.TestCase):
         self.assertGreaterEqual(960000,940000+32*544);self.assertLessEqual(960000+128*16,970000)
         text=(ROOT/'gpu/destructible_accum_landing.slang').read_text()
         for forbidden in ('damageValue(', 'damageFromFactors(', 'daTake(', 'daEmission(', 'sampleDamageFactorsForReach('):self.assertNotIn(forbidden,text)
-    def test_exact_source_inverse_rejects_unreviewed_changes(self):
-        from portable_destructible_accum_source_contract import project_sources
-        f=json.loads((ROOT/'tests/fixtures/portable-destructible-accum-source-delta.json').read_text());project_sources(ROOT)
-        for name,row in f['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n'})
     @historical_reference
     def test_saved_quantity_credit_and_pool_corruptions_are_detected(self):
         from portable_backend import source_hashes
         from portable_specs import LIMITS as L
         from portable_damage_accum_observation import compare_final
-        f=json.loads((ROOT/'tests/fixtures/portable-destructible-body-accum-raw.json').read_text());rows,_=a.prepare()
-        from portable_attack_group_source_contract import retained_source_hashes
-        self.assertEqual(retained_source_hashes(ROOT,'gpu/destructible_roster_accum_entry.slang'),f['source_sha256']);checked=0
+        f = json.loads((ROOT / 'tests/fixtures/portable-destructible-body-accum-raw.json').read_text())
+        (rows, _) = a.prepare()
+        checked = 0
         for r in f['records']:
-            name,w,domain=rows[r['index']];self.assertEqual(name,r['name']);self.assertEqual(hashlib.sha256(array.array('I',w).tobytes()).hexdigest(),r['input_sha256'])
-            block=array.array('I',[0])*f['output_words']
-            for at,value in r['nonzero']:block[at]=value
-            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),r['output_sha256'])
-            n=a.native_reference(domain)
+            (name, w, domain) = rows[r['index']]
+            self.assertEqual(name, r['name'])
+            self.assertEqual(hashlib.sha256(array.array('I', w).tobytes()).hexdigest(), r['input_sha256'])
+            block = array.array('I', [0]) * f['output_words']
+            for (at, value) in r['nonzero']:
+                block[at] = value
+            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(), r['output_sha256'])
+            n = a.native_reference(domain)
+
             def compare(b):
-                a.shared_compare(b,domain,copy.deepcopy(n));compare_final(b,domain[1],n['damage_accumulation'])
-            compare(block);faults=[(0,1),(L['HEALTH_QUERY_BASE']+11,0x40000000)]
+                a.shared_compare(b, domain, copy.deepcopy(n))
+                compare_final(b, domain[1], n['damage_accumulation'])
+            compare(block)
+            faults = [(0, 1), (L['HEALTH_QUERY_BASE'] + 11, 1073741824)]
             for i in range(block[786433]):
-                at=790000+i*1040
-                if block[at+12]==3:
-                    faults.extend([(at+9,0x40000000),(at+12,1),(at+20,1),(at+23,0x40000000)]);break
+                at = 790000 + i * 1040
+                if block[at + 12] == 3:
+                    faults.extend([(at + 9, 1073741824), (at + 12, 1), (at + 20, 1), (at + 23, 1073741824)])
+                    break
             for i in range(L['PROTECTION_OBJECTS']):
-                at=L['PROTECTION_OBJECT_BASE']+i*L['PROTECTION_OBJECT_WORDS']
-                if block[at+22]&255 in (13,14,16):faults.append((at+1,0x40000000));break
-            for offset,mask in faults:
-                bad=array.array('I',block);bad[offset]^=mask
-                with self.subTest(name=name,offset=offset),self.assertRaises(AssertionError):compare(bad)
-                checked+=1
-        self.assertGreaterEqual(checked,20)
+                at = L['PROTECTION_OBJECT_BASE'] + i * L['PROTECTION_OBJECT_WORDS']
+                if block[at + 22] & 255 in (13, 14, 16):
+                    faults.append((at + 1, 1073741824))
+                    break
+            for (offset, mask) in faults:
+                bad = array.array('I', block)
+                bad[offset] ^= mask
+                with self.subTest(name=name, offset=offset), self.assertRaises(AssertionError):
+                    compare(bad)
+                checked += 1
+        self.assertGreaterEqual(checked, 20)
 if __name__=='__main__':unittest.main()

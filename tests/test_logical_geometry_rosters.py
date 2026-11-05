@@ -54,12 +54,5 @@ class LogicalGeometryRosters(unittest.TestCase):
         self.assertEqual(n['sampled_points'],expected['sampled_points'])
         self.assertEqual(n['sampled_draws'],expected['physical_draws'])
 
-    def test_extracted_comparer_retains_every_pinned_original_check(self):
-        fixture=json.loads((ROOT/'tests/fixtures/logical-comparison-extract-v1.json').read_text())
-        source=(ROOT/'research/verify-logical-actor-geometry.py').read_text()
-        function=next(n for n in ast.parse(source).body if isinstance(n,ast.FunctionDef) and n.name=='compare_observed')
-        tail=ast.dump(ast.Module(body=function.body[1:],type_ignores=[]),include_attributes=False)
-        self.assertEqual(hashlib.sha256(tail.encode()).hexdigest(),fixture['comparison_tail_ast_sha256'])
-
 
 if __name__=='__main__':unittest.main()

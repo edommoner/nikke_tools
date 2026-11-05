@@ -40,9 +40,4 @@ class FullBurstLandingGpuTests(unittest.TestCase):
             for target in ('self','all_allies','unported'):
                 self.assertFalse(single_body_selector(dict(e,target=target),[SimpleNamespace(kind=0)]))
             x=copy.deepcopy(e);x['target_counter']['world_scope']='physical_actor';self.assertFalse(single_body_selector(x,[SimpleNamespace(kind=0)]));self.assertEqual(e,before)
-    def test_source_projection_rejects_unreviewed_queue_changes(self):
-        from portable_full_burst_landing_source_contract import project_sources
-        project_sources(ROOT)
-        name='gpu/full_burst_landing_runtime.slang';s=(ROOT/name).read_text()
-        with self.assertRaises(AssertionError):project_sources(ROOT,{name:s.replace('index<end','index<results[header]')})
 if __name__=='__main__':unittest.main()

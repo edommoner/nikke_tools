@@ -20,8 +20,6 @@ class AccumEmissionTests(unittest.TestCase):
         for label,expected in {'dealt-default':[900],'received-default':[4500],'base50-named25':[675],'absent-base-named25':[1125],'zero-base-named25':[225],'split-only-and-int-truncation':[1126],'release-feeds-another-pool':[900,9900],'duplicate-name-last-archive':[4500],'last-owner-cap-snapshot':[2000],'scatter-two-muzzles':[1800],'ordered-baseline-cancellation':[9],'all-pools-full-before-notices':[500,500]}.items():self.assertEqual(emissions(label),expected,label)
         for label in ['fully-occluded','explicit-zero-base','negative-rate','zero-cap','negative-cap','empty-expiry','missing-name','refresh-clears-archive']:self.assertEqual(emissions(label),[],label)
         for name,v in values.items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             events=v['damage_accumulation']['events'];em=[e for e in events if e['kind']=='emission']
             names={e['name'] for e in em};land=[p for p in v['landed_packets'] if p['skill_name'] in names]
             self.assertEqual(len(land),len(em),name)
@@ -50,13 +48,5 @@ class AccumEmissionTests(unittest.TestCase):
             with self.assertRaises(ValueError):a.native_reference((fixtures()[0],None,None,None))
         self.assertEqual(before,(sys.getprofile(),BuffManager.notify,timeline.HitEvent))
 
-    def test_source_inverse_rejects_unregistered_emission_edits(self):
-        from portable_coordinate_accum_emission_source_contract import project_sources
-        data=json.loads((ROOT/'tests/fixtures/portable-coordinate-accum-emission-source-delta.json').read_text());projected=project_sources(ROOT)
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(projected[name],row['baseline'])
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed\n'})
 
 if __name__=='__main__':unittest.main()

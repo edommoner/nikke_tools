@@ -44,15 +44,6 @@ class BurstTests(unittest.TestCase):
     def test_old62_inputs_domains_and_names_unchanged(self):
         rows,data=a.prepare();old,_=a.parent.prepare();self.assertEqual(rows[:62],old)
         self.assertEqual((len(rows),sum(d is not None for _,_,d in rows)),(89,83));self.assertEqual(len(data),4+89*a.INPUT_WORDS*4)
-    def test_source_inverse_rejects_unknown_shader_and_consumer(self):
-        from portable_coordinate_sampled_burst_source_contract import project_sources,project_backend_source
-        from portable_coordinate_sampled_vital_source_contract import project_sources as vital_sources,project_backend_source as vital_backend
-        from portable_coordinate_manual_source_contract import project_sources as manual_sources,project_backend_source as manual_backend
-        project_sources(ROOT,vital_sources(ROOT,manual_sources(ROOT)));project_backend_source(ROOT,vital_backend(ROOT,manual_backend(ROOT)))
-        for name in ('gpu/portable_schema.slang','gpu/pending_burst_runtime.slang','gpu/coordinate_sampled_burst_runtime.slang','scripts/run-metal-probe.swift'):
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// changed\n'})
     def test_persistent_header_is_explicitly_separate_from_shot_scratch(self):
         from portable_sampled_damage_totals import exact_damage,BASE as TOTAL,MAGIC
         from portable_coordinate_sampled_burst_wire import HEAD,ENTRIES

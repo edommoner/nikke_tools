@@ -34,7 +34,6 @@ for _name in (
     'test_outside_exact_scalar_ranges_or_incomplete_wire_is_rejected',
     'test_probe_checks_all32_slots_and_every_output_word_including_guard_errors',
     'test_common_initializer_and_old_array_variant_remain_available',
-    'test_historical_inverse_accepts_only_reviewed_sources_and_retains_all_old_baselines',
 ):
     setattr(SharedFrameStorageTests, _name, getattr(_shared.DispatchFrameStorageTests, _name))
 

@@ -56,12 +56,4 @@ class FullBurstQueryTests(unittest.TestCase):
         self.assertEqual(m.decoded(b,None),[]);self.assertEqual(m.decoded(tuple(b),None),[])
         b[h+3]=1
         with self.assertRaises(AssertionError):m.decoded(b,None)
-    def test_exact_source_proof_rejects_query_order_and_zero_calculation_regressions(self):
-        from portable_full_burst_landing_source_contract import project_sources
-        project_sources(ROOT)
-        for name,old,new in [('gpu/program_phases.slang','initializeNativeQueryDiagnostic(s)','initializeWrongDiagnostic(s)'),('gpu/hp_attack_runtime.slang','if(parentRow<s.count)','if(false)'),('gpu/dispatch_phases.slang','queryOnlyFullBurstLanding','sampleFullBurstLanding'),('gpu/damage_runtime.slang','readFullBurstLandingReference(s,basisRow,when)','fullBurstLandingCount(s,basisRow)'),('gpu/skill_hp_basis_runtime.slang','deferredInvalid && d.damagePending!=2','false')]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            s=(ROOT/name).read_text();self.assertIn(old,s)
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:s.replace(old,new)})
 if __name__=='__main__':unittest.main()

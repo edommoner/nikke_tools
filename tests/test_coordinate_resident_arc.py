@@ -33,17 +33,6 @@ class ResidentArcTests(unittest.TestCase):
    with self.assertRaisesRegex(AssertionError,'scratch leaked'):a.logical(words)
    words[offset]=0
   with self.assertRaisesRegex(AssertionError,'Complete'):a.logical(words[:-1])
- def test_exact_source_inverse_preserves_previous_snapshot(self):
-  from portable_coordinate_resident_arc_source_contract import ledger,project_sources,project_backend_source
-  data=ledger(ROOT);old=project_sources(ROOT)
-  for name,row in data['sources'].items():
-   from portable_removed_sources import REMOVED_SOURCES
-   if name in REMOVED_SOURCES:continue
-   if name.endswith('.slang'):
-    self.assertEqual(old[name],row['baseline'])
-    with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n// unreviewed'})
-  self.assertEqual(project_backend_source(ROOT),data['sources']['app/portable_backend.py']['baseline'])
-  with self.assertRaises(ValueError):project_backend_source(ROOT,(ROOT/'app/portable_backend.py').read_text()+'\n# unreviewed')
  def test_root_clears_tail_even_when_shared_execution_returns_early(self):
   text=(ROOT/'gpu/world_coordinate_area_entry.slang').read_text();needle='for(uint i=0;i<CRA_WORDS;i++)results[arcBase+i]=0;'
   self.assertEqual(text.count(needle),2)

@@ -61,12 +61,4 @@ class DamageAccumReferenceTests(unittest.TestCase):
     def test_installed_native_activation_uses_shared_lifecycle(self):
         from effect_runtime import CATALOG
         self.assertIs(CATALOG.handlers['damage_accumulation'].activate,damage_accum_runtime.activate)
-    def test_prior_metal143_source_files_are_exactly_preserved(self):
-        from portable_backend import source_hashes
-        golden=json.loads((ROOT/'research/portable-world-heal-charge-lifetime-short-expected.json').read_text())
-        from portable_damage_accum_source_contract import project_sources
-        import hashlib
-        projected=project_sources(ROOT)
-        from portable_coordinate_group_source_contract import historical_source_hashes
-        self.assertEqual(historical_source_hashes(ROOT,'gpu/world_heal_charge_entry.slang',projected,legacy_full_burst=True),golden['source_sha256'])
 if __name__=='__main__':unittest.main()

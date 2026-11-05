@@ -21,8 +21,6 @@ class WorldTests(unittest.TestCase):
   rows,packed=adapter.prepare();self.assertEqual((len(rows),sum(c is not None for _,_,c in rows)),(33,21))
   self.assertEqual(len(packed),4*(1+33*5120))
   for name,_,c in rows:
-   from portable_removed_sources import REMOVED_SOURCES
-   if name in REMOVED_SOURCES:continue
    if c is not None:
     with self.subTest(name=name):adapter.native_reference(c)
   with patch.object(DestructibleWorld,'advance',side_effect=AssertionError('CPU schedule must not be packed')):
@@ -70,28 +68,33 @@ class WorldTests(unittest.TestCase):
   c['nodes'][0]['attack']=100
   with self.assertRaisesRegex(ValueError,'unmodelled'):compile_bindings(c['nodes'],c['bindings'])
  def test_saved_gpu_reader_rejects_clock_target_and_notice_corruption(self):
-  from portable_destructible_coexist_source_contract import verify_retained_sources
-  fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-world-raw.json').read_text())
-  verify_retained_sources(ROOT,'gpu/destructible_world_probe.slang',fixture['source_sha256'])
-  rows,_=adapter.prepare()
-  for r in fixture['records']:
-   w=array.array('I',[0])*786432
-   for i,v in r['nonzero']:w[i]=v
-   self.assertEqual(hashlib.sha256(w.tobytes()).hexdigest(),r['output_sha256'])
-   name,_,c=rows[r['index']];self.assertEqual(name,r['name'])
-   if c is None:
-    adapter.validate_rejection(w,name);w[2]=0
-    with self.assertRaises(AssertionError):adapter.validate_rejection(w,name)
-    continue
-   adapter.compare(w,c)
-   # Mutate observed generation, graph generation and history count separately.
-   for at in (20000+32+2,20000+1824+1,20000+21):
-    corrupt=array.array('I',w);corrupt[at]^=1
-    with self.subTest(name=name,offset=at),self.assertRaises(AssertionError):adapter.compare(corrupt,c)
-   for i,op in enumerate(c['ops']):
-    at=20000+i*2640
-    if op[0]==1 and w[at+4]:
-     corrupt=array.array('I',w);corrupt[at+12]^=1
-     with self.assertRaises(AssertionError):adapter.compare(corrupt,c)
-     break
+     fixture = json.loads((ROOT / 'tests/fixtures/portable-destructible-world-raw.json').read_text())
+     (rows, _) = adapter.prepare()
+     for r in fixture['records']:
+         w = array.array('I', [0]) * 786432
+         for (i, v) in r['nonzero']:
+             w[i] = v
+         self.assertEqual(hashlib.sha256(w.tobytes()).hexdigest(), r['output_sha256'])
+         (name, _, c) = rows[r['index']]
+         self.assertEqual(name, r['name'])
+         if c is None:
+             adapter.validate_rejection(w, name)
+             w[2] = 0
+             with self.assertRaises(AssertionError):
+                 adapter.validate_rejection(w, name)
+             continue
+         adapter.compare(w, c)
+         for at in (20000 + 32 + 2, 20000 + 1824 + 1, 20000 + 21):
+             corrupt = array.array('I', w)
+             corrupt[at] ^= 1
+             with self.subTest(name=name, offset=at), self.assertRaises(AssertionError):
+                 adapter.compare(corrupt, c)
+         for (i, op) in enumerate(c['ops']):
+             at = 20000 + i * 2640
+             if op[0] == 1 and w[at + 4]:
+                 corrupt = array.array('I', w)
+                 corrupt[at + 12] ^= 1
+                 with self.assertRaises(AssertionError):
+                     adapter.compare(corrupt, c)
+                 break
 if __name__=='__main__':unittest.main()

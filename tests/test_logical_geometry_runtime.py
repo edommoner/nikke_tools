@@ -3,25 +3,10 @@ import hashlib,json,sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
-from portable_logical_geometry_source_contract import project_sources
 from portable_logical_geometry_wire import check_schema,input_regions,output_regions,SCRATCH
 from portable_arena_specs import audit_regions
 
 class LogicalGeometryRuntime(unittest.TestCase):
-    def test_exact_historical_projection_and_shared_receipt_tail(self):
-        sources=project_sources(ROOT)
-        ledger=json.loads((ROOT/'tests/fixtures/portable-logical-geometry-source-delta.json').read_text())
-        self.assertTrue(set(ledger['files']).issubset(sources))
-        radial=json.loads((ROOT/'tests/fixtures/portable-named-range-battle-source-delta.json').read_text())
-        self.assertEqual(sources['gpu/stack_runtime.slang'],radial['files']['gpu/stack_runtime.slang']['before'])
-        # Later inverse layers retain their checked dependency maps. Only the
-        # original logical layer's files are projected to its before state.
-        for name,row in ledger['files'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.subTest(source=name):
-                self.assertEqual(hashlib.sha256(sources[name].encode()).hexdigest(),row['before_sha256'])
-                self.assertNotIn('PORTABLE_COORDINATE_LOGICAL_ACTORS',sources[name])
 
     def test_full_input_and_output_have_disjoint_owners(self):
         check_schema(ROOT)
@@ -38,13 +23,6 @@ class LogicalGeometryRuntime(unittest.TestCase):
         common=shader_layout().splitlines();logical=(ROOT/'gpu/logical_actor_geometry_history.slang').read_text().splitlines()
         self.assertEqual(common[1:-1],logical[1:-1])
         self.assertIn('0x4c414731U',logical[-1]);self.assertNotIn('+13U',logical[-1])
-
-    def test_modified_or_added_source_poison_cannot_enter_historical_projection(self):
-        for name in ('app/portable_specs.py','gpu/coordinate_sampling_runtime.slang','gpu/logical_actor_geometry_runtime.slang','gpu/coordinate_group_actor_receipt.slang'):
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.subTest(name=name),self.assertRaises(ValueError):
-                project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed source\n'})
 
 
 if __name__=='__main__':unittest.main()

@@ -9,7 +9,6 @@ from portable_below_def_cases import fixtures
 from portable_below_def_contracts import verify
 from world_below_def_native import observe
 from world_projectile_native import observe as plain
-from portable_below_def_source_contract import project_sources
 
 def adapter():
     s=importlib.util.spec_from_file_location('below_def_test',ROOT/'research/verify-world-below-def-short.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
@@ -49,17 +48,7 @@ class BelowDefenseTests(unittest.TestCase):
         s=importlib.util.spec_from_file_location('below_retention_test',ROOT/'research/verify-world-below-def-retention-short.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
         rows,data=m.prepare();self.assertEqual(len(rows),95);self.assertEqual(sum(d is None for _,_,d in rows),23);self.assertEqual(len(data),4+95*104400*4)
         for name,_,domain in rows:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             if domain is None:m.validate_rejection([64],name)
 
-    def test_source_ledger_rejects_base_only_non_strict_wrong_caster_and_scope(self):
-        project_sources(ROOT)
-        name='gpu/below_def_recipient_runtime.slang';s=(ROOT/name).read_text()
-        for before,after in [('f64Less(value,threshold)','!f64Less(threshold,value)'),('scalarValue(s,slot,d.owner)','scalarValue(s,slot,who)'),('s.lazyPending[slot]!=0','false'),('s.baseDefense[who]','s.baseDefense[owner]'),('f64Div(percent,HUNDRED)','f64Div(percent,ONE)')]:
-            self.assertIn(before,s)
-            with self.subTest(before=before),self.assertRaises(AssertionError):project_sources(ROOT,{name:s.replace(before,after,1)})
-        n='gpu/recipient_runtime.slang';s=(ROOT/n).read_text()
-        with self.assertRaises(AssertionError):project_sources(ROOT,{n:s.replace('#ifdef PORTABLE_BELOW_DEF','#if 1',1)})
 
 if __name__=='__main__':unittest.main()

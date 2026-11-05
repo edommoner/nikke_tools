@@ -27,16 +27,10 @@ class AutoReloadTests(unittest.TestCase):
         self.assertEqual(n['manual_actions']['characters'][0]['ammo'],1)
         self.assertFalse(any(e['kind']=='_auto_reload' for e in n['manual_actions']['events']))
 
-    def test_complete_wire_and_exact_historical_source_projection(self):
+    def test_current_wire_and_layout(self):
         from portable_backend import validate_composed_stride
-        from portable_coordinate_auto_reload_source_contract import project_sources
-        validate_composed_stride(a.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS)
-        with self.assertRaises(ValueError):validate_composed_stride(a.SOURCE,a.INPUT_WORDS-1,a.OUTPUT_WORDS)
-        golden=json.loads((ROOT/'research/portable-coordinate-mode-actions-short-expected.json').read_text())
-        projected=project_sources(ROOT)
-        from portable_coordinate_group_source_contract import historical_source_hashes
-        self.assertEqual(historical_source_hashes(ROOT,a.parent.SOURCE,projected),golden['source_sha256'])
-        name='gpu/weapon_frame_phases.slang'
-        with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
+        validate_composed_stride(a.SOURCE, a.INPUT_WORDS, a.OUTPUT_WORDS)
+        with self.assertRaises(ValueError):
+            validate_composed_stride(a.SOURCE, a.INPUT_WORDS - 1, a.OUTPUT_WORDS)
 
 if __name__=='__main__':unittest.main()

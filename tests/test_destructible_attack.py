@@ -45,23 +45,28 @@ class AttackTests(unittest.TestCase):
     def test_saved_gpu_selection_identity_state_and_counter_trace_are_checked(self):
         from portable_backend import source_hashes
         from portable_specs import LIMITS as L
-        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-attack-raw.json').read_text())
-        from portable_destructible_frame_source_contract import verify_retained_sources
-        verify_retained_sources(ROOT,'gpu/destructible_attack_probe.slang',fixture['source_sha256'])
-        rows,_=a.prepare()
+        fixture = json.loads((ROOT / 'tests/fixtures/portable-destructible-attack-raw.json').read_text())
+        (rows, _) = a.prepare()
         for record in fixture['records']:
-            block=array.array('I',[0])*786432
-            for i,v in record['nonzero']:block[i]=v
-            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),record['output_sha256'])
-            name,_,c=rows[record['index']];self.assertEqual(name,record['name'])
+            block = array.array('I', [0]) * 786432
+            for (i, v) in record['nonzero']:
+                block[i] = v
+            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(), record['output_sha256'])
+            (name, _, c) = rows[record['index']]
+            self.assertEqual(name, record['name'])
             if c is None:
-                a.validate_rejection(block,name);block[0]=0
-                with self.assertRaises(AssertionError):a.validate_rejection(block,name)
+                a.validate_rejection(block, name)
+                block[0] = 0
+                with self.assertRaises(AssertionError):
+                    a.validate_rejection(block, name)
                 continue
-            a.compare(block,c)
-            offsets=[710000,616386,705000,L['TARGET_COUNTER_QUERY_BASE']+4]
-            if block[710000]:offsets.extend([710004,710007])
+            a.compare(block, c)
+            offsets = [710000, 616386, 705000, L['TARGET_COUNTER_QUERY_BASE'] + 4]
+            if block[710000]:
+                offsets.extend([710004, 710007])
             for offset in offsets:
-                corrupt=array.array('I',block);corrupt[offset]^=1
-                with self.subTest(name=name,offset=offset),self.assertRaises(AssertionError):a.compare(corrupt,c)
+                corrupt = array.array('I', block)
+                corrupt[offset] ^= 1
+                with self.subTest(name=name, offset=offset), self.assertRaises(AssertionError):
+                    a.compare(corrupt, c)
 if __name__=='__main__':unittest.main()

@@ -52,12 +52,4 @@ class ParentFixedTests(unittest.TestCase):
             with self.assertRaises(ValueError):validate(e,combat={},world_frame=False)
             with self.assertRaises(ValueError):validate(e,combat=None,world_frame=True)
         s=importlib.util.spec_from_file_location('parent_tag_test',ROOT/'research/verify-world-parent-fixed-short.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);rows,_=m.prepare();self.assertEqual((len(rows),sum(d is not None for n,w,d in rows)),(30,23))
-    def test_source_projection_rejects_parent_leak_rounding_and_gauge(self):
-        from portable_full_burst_landing_source_contract import project_sources
-        project_sources(ROOT)
-        for name,old,new in [('gpu/parent_fixed_runtime.slang','raw,1,status','raw,0,status'),('gpu/event_runtime.slang','event==12','event==8'),('gpu/weapon_frame_phases.slang','f64FromI64(w.pellets)','f64FromI64(count)')]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            s=(ROOT/name).read_text();self.assertIn(old,s)
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:s.replace(old,new)})
 if __name__=='__main__':unittest.main()

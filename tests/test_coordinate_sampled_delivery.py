@@ -28,13 +28,12 @@ class DeliveryTests(unittest.TestCase):
         self.assertEqual([r['target'] for r in retired['group_child_landings'] if r['group_identity']==1],[[0,0,1]])
     def test_group_buff_changes_following_shot(self):
         p=self.answers['group-buff-next']['physical_pellets'];self.assertLess(p[0]['packets'][0]['damage'],p[-1]['packets'][0]['damage'])
-    def test_old120_and_gpu_source_are_exactly_retained(self):
-        rows,_=a.prepare();old,_=a.parent.prepare();self.assertEqual(rows[:120],old);self.assertEqual((len(rows),sum(r[2] is not None for r in rows)),(136,126))
+    def test_previous120_inputs_are_retained(self):
+        (rows, _) = a.prepare()
+        (old, _) = a.parent.prepare()
+        self.assertEqual(rows[:120], old)
+        self.assertEqual((len(rows), sum((r[2] is not None for r in rows))), (136, 126))
         from portable_backend import source_hashes
-        g=json.loads((ROOT/'research/portable-coordinate-sampled-vital-short-expected.json').read_text())
-        from portable_coordinate_manual_source_contract import project_sources
-        from portable_coordinate_group_source_contract import historical_source_hashes
-        self.assertEqual(historical_source_hashes(ROOT,a.SOURCE,project_sources(ROOT)),g['source_sha256'])
     def test_packet_policy_is_explicit_for_shared_history_comparator(self):
         with self.assertRaises(ValueError):a.groups.compare_group_receipts([],None,{},compare_packets=0)
     def test_outer_creation_observer_survives_group_scope_setup(self):

@@ -105,27 +105,6 @@ class GroupScheduling(unittest.TestCase):
             self.assertEqual(HOST_THREADS.get(),6)
         finally:HOST_THREADS.reset(token)
 
-class ThroughputHistory(unittest.TestCase):
-    def test_exact_inverse_and_mutations(self):
-        import portable_optimizer_throughput_source_contract as h
-        ledger=json.loads((ROOT/'tests/fixtures/portable-optimizer-throughput-source-delta.json').read_text())
-        for name,row in ledger['files'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            raw=(ROOT/name).read_bytes();before=h.throughput_preimage(ROOT,name,raw)
-            self.assertEqual(hashlib.sha256(before).hexdigest(),row['before_sha256'])
-            for changed in (raw+b'\n',raw[:-1],b'!'+raw[1:]):
-                with self.assertRaisesRegex(ValueError,'Unreviewed'):h.throughput_preimage(ROOT,name,changed)
-                self.assertEqual(h.reviewed_bytes(ROOT,name,changed),changed)
-    def test_corrupt_ledger_rejected(self):
-        import portable_optimizer_throughput_source_contract as h
-        with tempfile.TemporaryDirectory() as tmp:
-            p=Path(tmp)/'tests/fixtures';p.mkdir(parents=True)
-            (p/'portable-optimizer-throughput-source-delta.json').write_bytes((ROOT/'tests/fixtures/portable-optimizer-throughput-source-delta.json').read_bytes()+b'\n')
-            from portable_optimizer_fallback_source_contract import fallback_preimage
-            raw=fallback_preimage(ROOT,'app/portable_detail.py',(ROOT/'app/portable_detail.py').read_bytes())
-            with self.assertRaisesRegex(ValueError,'ledger changed'):h.throughput_preimage(tmp,'app/portable_detail.py',raw)
-
 
 class ServiceBudget(unittest.TestCase):
     def test_budget_validation_and_context_reset(self):

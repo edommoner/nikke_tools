@@ -34,12 +34,5 @@ class ModeActionTests(unittest.TestCase):
         with patch.object(timeline,'simulate',side_effect=AssertionError('No battle in admission')):
             with self.assertRaisesRegex(ValueError,'post-fire delay'):a.compile_case(c)
 
-    def test_exact_historical_source_projection(self):
-        from portable_coordinate_mode_actions_source_contract import project_sources
-        name='gpu/coordinate_manual_control_runtime.slang'
-        expected=json.loads((ROOT/'research/portable-coordinate-burst-control-short-expected.json').read_text())['source_sha256'][name]
-        self.assertEqual(hashlib.sha256(project_sources(ROOT)[name].encode()).hexdigest(),expected)
-        with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
-
 
 if __name__=='__main__':unittest.main()

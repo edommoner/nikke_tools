@@ -41,26 +41,5 @@ class MovingTypedWireTests(unittest.TestCase):
             if variant=='missing':c['typed_attachment']['bindings'][0]['typed_label']='fixed-typed'
             if variant=='unknown':c['typed_attachment']['bindings'][0]['typed_label']='unknown'
             with self.subTest(variant=variant),self.assertRaises(ValueError):compile_battle(p,c)
-    def test_shared_source_inverse_is_exact_and_rejects_unreviewed_source_bytes(self):
-        import hashlib,json
-        from portable_moving_typed_source_contract import project_sources
-        ledger=json.loads((ROOT/'tests/fixtures/portable-moving-typed-source-delta.json').read_text());out=project_sources(ROOT)
-        for name,row in ledger['files'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(hashlib.sha256(out[name].encode()).hexdigest(),row['before_sha256'])
-            with self.subTest(file=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
-        from portable_enemy_movement_source_contract import project_sources as historical
-        self.assertIn('gpu/logical_actor_geometry_runtime.slang',historical(ROOT))
-    def test_old_physical_dependency_guard_checks_exact_projected_bytes(self):
-        import hashlib
-        import portable_coordinate_typed_aim_source_contract as aims
-        import portable_coordinate_typed_weapon_source_contract as physical
-        upstream=aims.project_sources(ROOT);ledger=physical.ledger(ROOT);name='gpu/coordinate_typed_weapon_runtime.slang'
-        self.assertNotEqual(hashlib.sha256((ROOT/name).read_bytes()).hexdigest(),ledger['added_sources'][name])
-        self.assertEqual(hashlib.sha256(upstream[name].encode()).hexdigest(),ledger['added_sources'][name])
-        with patch.object(aims,'project_sources',return_value=upstream):self.assertIn(name,physical.project_sources(ROOT))
-        changed=dict(upstream);changed[name]+='\n'
-        with patch.object(aims,'project_sources',return_value=changed),self.assertRaises(AssertionError):physical.project_sources(ROOT)
 
 if __name__=='__main__':unittest.main()

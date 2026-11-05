@@ -68,13 +68,5 @@ class CompositionTests(unittest.TestCase):
         rows=[r['row'] for r in observed['skill_trace'] if r['row'] in (source,duplicate)]
         self.assertEqual(rows,[source,duplicate])
 
-    def test_source_inverse_requires_every_reviewed_layout_and_schema_byte(self):
-        from portable_lock_typed_source_contract import project_sources
-        ledger=json.loads((ROOT/'tests/fixtures/portable-lock-typed-source-delta.json').read_text());old=project_sources(ROOT)
-        for name,row in ledger['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(old[name],row['baseline'])
-            with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n// mutation'})
 
 if __name__=='__main__':unittest.main()

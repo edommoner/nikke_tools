@@ -38,19 +38,13 @@ class TypedAimInputTests(unittest.TestCase):
         for alias in ('__enemy__','__enemy__:*'):
             boss=SimpleNamespace(target_kinds={},_nikke_typed_world=SimpleNamespace(bindings=[SimpleNamespace(label=alias)]))
             with self.assertRaisesRegex(ValueError,'logical enemy'):scope.validate_namespace(boss)
-    def test_reviewed_inverse_and_arena_reject_overlap(self):
-        from portable_coordinate_typed_aim_source_contract import ledger,project_sources,project_backend_source
-        from portable_coordinate_typed_aim_specs import check_layout,regions
-        from portable_arena_specs import audit_regions,Region
-        data=ledger(ROOT);out=project_sources(ROOT)
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            if name.endswith('.slang'):
-                self.assertEqual(out[name],row['baseline'])
-                with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n// unexpected\n'})
-        self.assertEqual(project_backend_source(ROOT),data['sources']['app/portable_backend.py']['baseline'])
-        plan=check_layout(ROOT);self.assertEqual(plan['focus_id_bits'],9);self.assertEqual(plan['extra_runtime_bytes'],0)
-        rows,iw,ow=regions();self.assertFalse(audit_regions(rows+[Region('output','overlap',1769856+220224,1)],iw,ow)['address_plan_verified'])
+    def test_current_wire_and_layout(self):
+        from portable_coordinate_typed_aim_specs import check_layout, regions
+        from portable_arena_specs import audit_regions, Region
+        plan = check_layout(ROOT)
+        self.assertEqual(plan['focus_id_bits'], 9)
+        self.assertEqual(plan['extra_runtime_bytes'], 0)
+        (rows, iw, ow) = regions()
+        self.assertFalse(audit_regions(rows + [Region('output', 'overlap', 1769856 + 220224, 1)], iw, ow)['address_plan_verified'])
 
 if __name__=='__main__':unittest.main()

@@ -69,20 +69,4 @@ class SelfDestructAmmoTests(unittest.TestCase):
             with self.subTest(kind=kind),self.assertRaises((AssertionError,KeyError)):verify(case,bad)
 
 
-    def test_exact_extension_inverse_rejects_unknown_source_changes(self):
-        import json
-        from portable_enemy_ammo_self_destruct_source_contract import project_sources
-        ledger=json.loads((ROOT/'tests/fixtures/portable-enemy-ammo-self-destruct-source-delta.json').read_text())
-        old=project_sources(ROOT)
-        for name,row in ledger['files'].items():self.assertEqual(old[name],row['before'])
-        from portable_weighted_incoming_source_contract import boss_source_preimages
-        import re
-        stage=boss_source_preimages(ROOT)
-        for name in [*ledger['files'],*ledger['added_sources']]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            changed=dict(stage);changed[name]=stage.get(name,(ROOT/name).read_text())+'\n'
-            with self.subTest(name=name),self.assertRaisesRegex(ValueError,re.escape(name)):project_sources(ROOT,changed)
-
-
 if __name__=='__main__':unittest.main()

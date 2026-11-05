@@ -45,27 +45,30 @@ class SkillTests(unittest.TestCase):
         old=json.loads((ROOT/'research/portable-destructible-attack-short-expected.json').read_text());rows,data=a.attack.prepare()
         self.assertEqual(hashlib.sha256(data).hexdigest(),old['input_sha256'])
         for (name,_,c),saved in zip(rows,old['entries']):
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             self.assertEqual(name,saved['name']);self.assertEqual(a.attack.cross.digest(a.attack.native_reference(c) if c is not None else dict(status=64)),saved['native_sha256'])
     def test_saved_gpu_checks_scalar_context_and_landing_results(self):
         from portable_backend import source_hashes
-        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-skill-raw.json').read_text())
-        from portable_destructible_frame_source_contract import verify_retained_sources
-        verify_retained_sources(ROOT,'gpu/destructible_skill_probe.slang',fixture['source_sha256']);rows,_=a.prepare()
+        fixture = json.loads((ROOT / 'tests/fixtures/portable-destructible-skill-raw.json').read_text())
+        (rows, _) = a.prepare()
         for record in fixture['records']:
-            block=array.array('I',[0])*786432
-            for i,v in record['nonzero']:block[i]=v
-            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),record['output_sha256'])
-            name,_,c=rows[record['index']];self.assertEqual(name,record['name'])
+            block = array.array('I', [0]) * 786432
+            for (i, v) in record['nonzero']:
+                block[i] = v
+            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(), record['output_sha256'])
+            (name, _, c) = rows[record['index']]
+            self.assertEqual(name, record['name'])
             if c is None:
-                a.validate_rejection(block,name);block[0]=0
-                with self.assertRaises(AssertionError):a.validate_rejection(block,name)
+                a.validate_rejection(block, name)
+                block[0] = 0
+                with self.assertRaises(AssertionError):
+                    a.validate_rejection(block, name)
                 continue
-            a.compare(block,c)
-            for offset in [705004,705006,710000,616386,705000]:
-                changed=array.array('I',block);changed[offset]^=1
-                with self.subTest(name=name,offset=offset),self.assertRaises(AssertionError):a.compare(changed,c)
+            a.compare(block, c)
+            for offset in [705004, 705006, 710000, 616386, 705000]:
+                changed = array.array('I', block)
+                changed[offset] ^= 1
+                with self.subTest(name=name, offset=offset), self.assertRaises(AssertionError):
+                    a.compare(changed, c)
     def test_zero_coefficient_still_requires_valid_owned_context(self):
         from destructible_world_runtime import DestructibleWorld
         from destructible_skill_runtime import execute

@@ -44,13 +44,5 @@ class CoordinateGroupTests(unittest.TestCase):
         with patch('portable_runtime.decode',return_value=dict(carriers=carriers)):
             rows=decoder.decoded_storage([],meta,case)
         self.assertEqual(len(rows),1);self.assertEqual((rows[0]['row'],rows[0]['owner']),(1,3))
-    def test_exact_inverse_rejects_runtime_snippet_and_stride_mutation(self):
-        from portable_coordinate_group_source_contract import project_sources,project_backend_source
-        project_sources(ROOT)
-        for name in ['gpu/coordinate_physical_runtime.slang','gpu/attack_group_open.slang','gpu/attack_group_seal.slang','gpu/world_coordinate_group_entry.slang']:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed\n'})
-        with self.assertRaises(ValueError):project_backend_source(ROOT,(ROOT/'app/portable_backend.py').read_text().replace('1507328','1507329',1))
 
 if __name__=='__main__':unittest.main()

@@ -75,25 +75,3 @@ class ProductRevivalStackUnionTests(unittest.TestCase):
         pack_metadata(words,L,effects,double_words)
         self.assertEqual(words[at:at+4],[MAGIC,0x89abcdef,0x12345678,0])
         self.assertEqual(words[at+2*L['MODE_WORDS']],META_MAGIC)
-
-class RevivalUnionSourceHistoryTests(unittest.TestCase):
-    def test_exact_historical_inverse_rejects_extra_source_or_ledger_edits(self):
-        import hashlib,json,tempfile
-        from portable_revival_union_source_contract import preimages
-        ledger=ROOT/'tests/fixtures/portable-revival-stack-union-source-delta.json'
-        data=json.loads(ledger.read_text());old=preimages(ROOT)
-        for name,row in ((n,r) for n,r in data['files'].items() if n not in __import__('portable_removed_sources').REMOVED_SOURCES):self.assertEqual(hashlib.sha256(old[name].encode()).hexdigest(),row['before_sha256'])
-        with tempfile.TemporaryDirectory() as folder:
-            root=Path(folder);(root/'tests/fixtures').mkdir(parents=True)
-            target=root/'tests/fixtures'/ledger.name;target.write_bytes(ledger.read_bytes())
-            for fixture in (ROOT/'tests/fixtures').glob('*source-delta.json'):
-                (root/'tests/fixtures'/fixture.name).write_bytes(fixture.read_bytes())
-            for name in data['files']:
-                from portable_removed_sources import REMOVED_SOURCES
-                if name in REMOVED_SOURCES:continue
-                path=root/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes((ROOT/name).read_bytes())
-            self.assertEqual(preimages(root),old)
-            path=root/'gpu/stack_runtime.slang';path.write_text(path.read_text()+'\n')
-            with self.assertRaisesRegex(ValueError,'Unreviewed'):preimages(root)
-            path.write_bytes((ROOT/'gpu/stack_runtime.slang').read_bytes());target.write_text('{}')
-            with self.assertRaisesRegex(ValueError,'ledger changed'):preimages(root)

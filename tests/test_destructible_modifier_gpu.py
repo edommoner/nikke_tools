@@ -29,28 +29,26 @@ class ModifierGPUTests(unittest.TestCase):
         from portable_destructible_modifier_contracts import verify
         for c in a.fixtures():
             result=verify(c,a.native_reference(c));self.assertTrue(result['reference_model_gap']);self.assertFalse(result['in_game_rules_verified'])
-    def test_previous_battle_sources_match_exact_reviewed_projection(self):
-        from portable_backend import source_hashes
-        from portable_destructible_shield_source_contract import verify_retained_sources
-        for entry,golden in [('gpu/destructible_battle_entry.slang','research/portable-destructible-battle-short-expected.json'),('gpu/world_projectile_chain_entry.slang','research/portable-world-projectile-chain-retention-short-expected.json')]:
-            verify_retained_sources(ROOT,entry,json.loads((ROOT/golden).read_text())['source_sha256'])
     def test_actual_metal_blocks_preserve_bits_and_reject_corruption(self):
         from portable_backend import source_hashes
-        from portable_destructible_weapon_source_contract import verify_retained_sources
-        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-modifier-raw.json').read_text());verify_retained_sources(ROOT,'gpu/destructible_modifier_probe.slang',fixture['source_sha256'])
-        rows,_=a.prepare()
-        for record,(name,words,domain) in zip(fixture['records'],rows):
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(record['name'],name);self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256'])
-            block=array.array('I',[0])*fixture['output_words']
-            for at,value in record['nonzero']:block[at]=value
-            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),record['output_sha256'])
-            if domain is None:a.validate_rejection(block,name);continue
-            a.compare(block,domain)
-            for at in (0,159713,159714,159716,159718,159720,159743):
-                changed=array.array('I',block);changed[at]^=1
-                with self.subTest(name=name,offset=at),self.assertRaises(AssertionError):a.compare(changed,domain)
+        fixture = json.loads((ROOT / 'tests/fixtures/portable-destructible-modifier-raw.json').read_text())
+        (rows, _) = a.prepare()
+        for (record, (name, words, domain)) in zip(fixture['records'], rows):
+            self.assertEqual(record['name'], name)
+            self.assertEqual(hashlib.sha256(array.array('I', words).tobytes()).hexdigest(), record['input_sha256'])
+            block = array.array('I', [0]) * fixture['output_words']
+            for (at, value) in record['nonzero']:
+                block[at] = value
+            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(), record['output_sha256'])
+            if domain is None:
+                a.validate_rejection(block, name)
+                continue
+            a.compare(block, domain)
+            for at in (0, 159713, 159714, 159716, 159718, 159720, 159743):
+                changed = array.array('I', block)
+                changed[at] ^= 1
+                with self.subTest(name=name, offset=at), self.assertRaises(AssertionError):
+                    a.compare(changed, domain)
 
     def test_undefined_modifier_targets_and_scaling_are_rejected_before_packing(self):
         for change in [dict(target='boss'),dict(scaling='stack_count'),dict(type='damage')]:

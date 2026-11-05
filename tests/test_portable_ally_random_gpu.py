@@ -9,9 +9,6 @@ from calculator import timeline
 from portable_runtime import validate_effect
 from portable_ally_random_specs import MAGIC,pack
 from portable_specs import LIMITS as L
-from portable_definition_view_contract import verify
-from portable_ally_random_source_contract import ledger,baseline_source
-from portable_state_focus_source_contract import project_sources as project_focus
 
 
 def adapter():
@@ -46,18 +43,6 @@ class AlliedRandomTests(unittest.TestCase):
             with self.assertRaises(ValueError):pack([0]*8,dict(RECIPIENT_META_BASE=0),[(effect,0)],seed)
         words=[0]*8;pack(words,dict(RECIPIENT_META_BASE=0),[(effect,0)],2**64-1)
         self.assertEqual(words[2:5],[MAGIC,0xffffffff,0xffffffff])
-
-    def test_every_reviewed_shader_delta_rejects_mutation(self):
-        data=ledger(ROOT)
-        self.assertEqual(set(verify(ROOT)['reviewed_ally_random_sources']),set(data['sources']))
-        projected,_=project_focus(ROOT)
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            source=projected.get(name,(ROOT/name).read_text())
-            for change in row['changes']:
-                with self.subTest(name=name),self.assertRaises(AssertionError):
-                    baseline_source(ROOT,name,source.replace(change['current'],change['baseline'],1))
 
 
 if __name__=='__main__':unittest.main()

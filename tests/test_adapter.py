@@ -141,5 +141,3 @@ class ImportAndEvaluationTests(unittest.TestCase):
         self.assertTrue(any('マスト' in v for v in fallback['app_warnings']))
 
 if __name__=='__main__':unittest.main()
-
-

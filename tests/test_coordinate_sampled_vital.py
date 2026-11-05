@@ -35,13 +35,4 @@ class VitalTests(unittest.TestCase):
         validate_composed_stride(a.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS)
         for source,i,o in [(a.SOURCE,a.INPUT_WORDS,1507328),(a.SOURCE,a.INPUT_WORDS-1,a.OUTPUT_WORDS),('gpu/world_coordinate_sampling_skill_entry.slang',a.INPUT_WORDS,a.OUTPUT_WORDS)]:
             with self.assertRaises(ValueError):validate_composed_stride(source,i,o)
-    def test_strict_inverse_rejects_unknown_source_or_transport(self):
-        from portable_coordinate_sampled_vital_source_contract import project_sources,project_backend_source
-        from portable_coordinate_manual_source_contract import project_sources as manual_sources,project_backend_source as manual_backend
-        project_sources(ROOT,manual_sources(ROOT));project_backend_source(ROOT,manual_backend(ROOT))
-        for name in ('gpu/coordinate_sampling_runtime.slang','gpu/world_coordinate_sampling_vital_entry.slang'):
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// changed\n'})
-        with self.assertRaises(ValueError):project_backend_source(ROOT,(ROOT/'app/portable_backend.py').read_text()+'\n')
 if __name__=='__main__':unittest.main()

@@ -4,8 +4,6 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 from portable_skill_hp_basis_specs import validate,MAGIC,OFFSET
 from portable_skill_hp_basis_cases import fixtures
-from portable_skill_hp_basis_source_contract import verify_sources
-from portable_definition_view_contract import verify
 from portable_specs import LIMITS as L
 
 class SkillHPBasisTests(unittest.TestCase):
@@ -37,19 +35,5 @@ class SkillHPBasisTests(unittest.TestCase):
         self.assertEqual(cases,before)
         entries,data=m.prepare();self.assertEqual(len(entries),37);self.assertEqual(sum(e[2] is not None for e in entries),26)
         self.assertEqual(len(data),4+37*m.suite.INPUT*4)
-    def test_source_guards_reject_arithmetic_order_identity_and_admission_faults(self):
-        self.assertEqual(len(verify_sources(ROOT)),8)
-        self.assertEqual(len(verify(ROOT)['reviewed_skill_hp_basis_sources']),8)
-        edits=[('gpu/skill_hp_basis_runtime.slang','f64Div(f64Mul(nativeAttackMaxHP(s,who,when),pct),HUNDRED)','f64Mul(nativeAttackMaxHP(s,who,when),f64Div(pct,HUNDRED))'),('gpu/skill_hp_basis_runtime.slang','flat=f64Add(flat,hp)','base=f64Add(base,hp)'),('gpu/skill_hp_basis_runtime.slang','d.damagePending!=0','false'),('gpu/damage_runtime.slang','who,basisRow,when','who,who,when'),('gpu/world_skill_runtime.slang','false,d._wireRow','false,d.owner'),('gpu/dispatch_phases.slang','false,damage._wireRow','false,damage.owner'),('gpu/program_phases.slang','!validSkillHPBasis(s)','false'),('gpu/stack_runtime.slang','field>=20&&field<24','field>=20&&field<32')]
-        for name,old,new in edits:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            source=(ROOT/name).read_text();self.assertIn(old,source);changed=source.replace(old,new,1)
-            with self.subTest(name=name,old=old),self.assertRaises(AssertionError):verify(ROOT,sources={name:changed})
-        for name,old,new in [('gpu/protection_runtime.slang','(d.stat==S_max_hp_only_pct || d.stat==S_hp_only_caster_based_pct)','(d.stat==S_atk_pct)'),('gpu/event_runtime.slang','d.kind==27||d.kind==31||d.kind==33','d.kind==33')]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            source=(ROOT/name).read_text();self.assertIn(old,source)
-            with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})
 
 if __name__=='__main__':unittest.main()

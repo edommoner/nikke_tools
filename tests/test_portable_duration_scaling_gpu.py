@@ -8,7 +8,6 @@ from portable_specs import LIMITS as L,FIELDS as F
 from portable_runtime import validate_effect,UnsupportedPortable
 from portable_reference_specs import duration_reference
 from portable_scratch_layout import verify
-from portable_duration_scaling_source_contract import project_sources
 
 def adapter():
     s=importlib.util.spec_from_file_location('duration_gpu_test',ROOT/'research/verify-world-duration-scaling-short.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
@@ -27,13 +26,6 @@ class DurationScalingGPUTests(unittest.TestCase):
         for combat,world in ((None,True),({},False)):
             with self.assertRaises(UnsupportedPortable):validate_effect(e,combat=combat,world_frame=world)
         validate_effect(e,combat={},world_frame=True);self.assertEqual(duration_reference(dict(e,duration_scaling_ref='')),'')
-    def test_reviewed_helper_and_expiry_order_reject_mutations(self):
-        project_sources(ROOT)
-        for name,old,new in [('gpu/duration_scaling_runtime.slang','f64Mul(base,present?count:uint64_t(0))','f64Mul(base,ONE)'),('gpu/dispatch_phases.slang','definitionExpiry(s,sourceRow,f.time)','definitionExpiry(s,row,f.time ^ F64_SIGN)'),('gpu/event_runtime.slang','passiveDefinitionExpiry(s,j,when)','definition_duration(s.inputBase,j)')]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            text=(ROOT/name).read_text();self.assertEqual(text.count(old),1)
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:text.replace(old,new,1)})
     def test_diagnostic_decode_accepts_array_and_list_without_masking_fields(self):
         m=adapter();block=[0]*786432;h=L['NATIVE_DIAG_BASE'];block[h:h+3]=[0x44555331,1,0];at=h+16;block[at:at+4]=[0,0,1,0]
         for offset,value in ((4,.5),(6,.25),(8,0.),(10,.5)):block[at+offset:at+offset+2]=struct.unpack('<II',struct.pack('<d',value))

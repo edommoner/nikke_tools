@@ -27,8 +27,6 @@ class AuthoredRosterTests(unittest.TestCase):
     def test_real_burst_clock_uses_original_levels_and_named_completion(self):
         answers={c['name'].split('/')[-1]:a.native_reference(a.battle.compile_case(c)[1]) for c in fixtures()}
         for name,amount in [('level1',240.),('level5',313.),('level10',405.),('defense0',450.),('live-buff',631.),('named-child',405.),('last-owner',240.)]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             with self.subTest(name=name):
                 attacks=answers[name]['typed']['attacks'];self.assertEqual(len(attacks),1);self.assertEqual(attacks[0]['damage'],amount);self.assertAlmostEqual(attacks[0]['time'],.2)
                 self.assertEqual(attacks[0]['owner'],4 if name=='last-owner' else 0)
@@ -37,30 +35,28 @@ class AuthoredRosterTests(unittest.TestCase):
         with patch.object(a,'native_reference',side_effect=AssertionError('No oracle')),patch.object(a.battle,'observe',side_effect=AssertionError('No events')):rows,data=a.prepare()
         self.assertEqual(len(rows),8);self.assertEqual(len(data),4+8*109536*4)
     def test_saved_actual_metal_blocks_check_original_coefficients_and_owner(self):
-        from portable_destructible_shield_source_contract import verify_retained_sources
         from portable_backend import source_hashes
-        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-original-battle-raw.json').read_text())
-        verify_retained_sources(ROOT,'gpu/destructible_battle_entry.slang',fixture['source_sha256'])
-        rows,_=a.prepare()
-        for record,(name,words,domain) in zip(fixture['records'],rows):
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(record['name'],name);self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256'])
-            block=array.array('I',[0])*fixture['output_words']
-            for at,value in record['nonzero']:block[at]=value
-            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),record['output_sha256']);a.compare(block,domain)
+        fixture = json.loads((ROOT / 'tests/fixtures/portable-destructible-original-battle-raw.json').read_text())
+        (rows, _) = a.prepare()
+        for (record, (name, words, domain)) in zip(fixture['records'], rows):
+            self.assertEqual(record['name'], name)
+            self.assertEqual(hashlib.sha256(array.array('I', words).tobytes()).hexdigest(), record['input_sha256'])
+            block = array.array('I', [0]) * fixture['output_words']
+            for (at, value) in record['nonzero']:
+                block[at] = value
+            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(), record['output_sha256'])
+            a.compare(block, domain)
             if name.endswith('/empty-targets'):
-                changed=array.array('I',block);changed[786433]=1
-                with self.assertRaises(AssertionError):a.compare(changed,domain)
+                changed = array.array('I', block)
+                changed[786433] = 1
+                with self.assertRaises(AssertionError):
+                    a.compare(changed, domain)
             else:
-                for offset in (790002,790006,790008,790019):
-                    changed=array.array('I',block);changed[offset]^=1
-                    with self.subTest(name=name,offset=offset),self.assertRaises(AssertionError):a.compare(changed,domain)
+                for offset in (790002, 790006, 790008, 790019):
+                    changed = array.array('I', block)
+                    changed[offset] ^= 1
+                    with self.subTest(name=name, offset=offset), self.assertRaises(AssertionError):
+                        a.compare(changed, domain)
 
-    def test_unchanged_shader_matches_typed44_and_normal492(self):
-        from portable_destructible_shield_source_contract import verify_retained_sources
-        from portable_backend import source_hashes
-        for entry,golden in [('gpu/destructible_battle_entry.slang','research/portable-destructible-battle-short-expected.json'),('gpu/world_projectile_chain_entry.slang','research/portable-world-projectile-chain-retention-short-expected.json')]:
-            verify_retained_sources(ROOT,entry,json.loads((ROOT/golden).read_text())['source_sha256'])
 
 if __name__=='__main__':unittest.main()

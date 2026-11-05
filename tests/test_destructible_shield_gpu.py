@@ -23,41 +23,38 @@ class ShieldGPUTests(unittest.TestCase):
                     domain=by_name[r['name']];value=dict(status=64) if domain is None else a.native_reference(domain)
                     self.assertEqual(a.cross.digest(value),r['native_sha256'])
 
-    def test_shield_provider_uses_shared_frame_and_strict_historical_inverse(self):
-        from portable_destructible_shield_source_contract import project_sources
-        data=json.loads((ROOT/'tests/fixtures/portable-destructible-shield-source-delta.json').read_text());self.assertEqual(len(data['sources']),1)
-        project_sources(ROOT)
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n'})
-        entry=(ROOT/'gpu/destructible_shield_battle_entry.slang').read_text()
-        self.assertEqual(entry.count('#include "destructible_shield_frame_hooks.slang"'),1)
-        self.assertEqual(entry.count('#include "destructible_shield_frame_impl.slang"'),1)
-        implementation=(ROOT/'gpu/destructible_shield_frame_impl.slang').read_text()
-        self.assertEqual(implementation.count('#include "destructible_frame_runtime.slang"'),1)
-        self.assertEqual(implementation.count('#include "destructible_modifier_runtime.slang"'),1)
-        self.assertNotIn('advanceDestructibleSkillFrame(',entry)
+    def test_shield_provider_uses_shared_frame(self):
+        entry = (ROOT / 'gpu/destructible_shield_battle_entry.slang').read_text()
+        self.assertEqual(entry.count('#include "destructible_shield_frame_hooks.slang"'), 1)
+        self.assertEqual(entry.count('#include "destructible_shield_frame_impl.slang"'), 1)
+        implementation = (ROOT / 'gpu/destructible_shield_frame_impl.slang').read_text()
+        self.assertEqual(implementation.count('#include "destructible_frame_runtime.slang"'), 1)
+        self.assertEqual(implementation.count('#include "destructible_modifier_runtime.slang"'), 1)
+        self.assertNotIn('advanceDestructibleSkillFrame(', entry)
 
     def test_actual_metal_shield_blocks_detect_owner_source_scalar_and_receipt_corruption(self):
         from portable_backend import source_hashes
-        f=json.loads((ROOT/'tests/fixtures/portable-destructible-shield-battle-raw.json').read_text())
-        from portable_destructible_hit_shield_source_contract import verify_retained_sources
-        verify_retained_sources(ROOT,'gpu/destructible_shield_battle_entry.slang',f['source_sha256'])
-        rows,_=a.prepare()
+        f = json.loads((ROOT / 'tests/fixtures/portable-destructible-shield-battle-raw.json').read_text())
+        (rows, _) = a.prepare()
         for record in f['records']:
-            name,words,domain=rows[record['index']];self.assertEqual(name,record['name'])
-            self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256'])
-            block=array.array('I',[0])*f['output_words']
-            for at,value in record['nonzero']:block[at]=value
-            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),record['output_sha256'])
+            (name, words, domain) = rows[record['index']]
+            self.assertEqual(name, record['name'])
+            self.assertEqual(hashlib.sha256(array.array('I', words).tobytes()).hexdigest(), record['input_sha256'])
+            block = array.array('I', [0]) * f['output_words']
+            for (at, value) in record['nonzero']:
+                block[at] = value
+            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(), record['output_sha256'])
             if domain is None:
-                a.validate_rejection(block,name);block[0]=0
-                with self.assertRaises(AssertionError):a.validate_rejection(block,name)
+                a.validate_rejection(block, name)
+                block[0] = 0
+                with self.assertRaises(AssertionError):
+                    a.validate_rejection(block, name)
                 continue
-            a.compare(block,domain)
-            for at in (0,787466,789248,790001,790006,790008,790020,790022):
-                changed=array.array('I',block);changed[at]^=1
-                with self.subTest(name=name,offset=at),self.assertRaises(AssertionError):a.compare(changed,domain)
+            a.compare(block, domain)
+            for at in (0, 787466, 789248, 790001, 790006, 790008, 790020, 790022):
+                changed = array.array('I', block)
+                changed[at] ^= 1
+                with self.subTest(name=name, offset=at), self.assertRaises(AssertionError):
+                    a.compare(changed, domain)
 
 if __name__=='__main__':unittest.main()

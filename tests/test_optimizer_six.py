@@ -7,7 +7,6 @@ import portable_detail as product
 from portable_specs import LIMITS as L,FIELDS as F
 from portable_enemy_ammo_wire import LAYOUT as E
 from portable_product_resource_budget import output_words,SUPPLY_OUTPUT_WORDS
-from portable_optimizer_six_source_contract import preimages,historical_bytes,ledger
 
 class OptimizerSixTests(unittest.TestCase):
     @classmethod
@@ -64,17 +63,5 @@ class OptimizerSixTests(unittest.TestCase):
         self.assertTrue(evidence['native_execution_verified'])
         self.assertEqual([raw[i*ow] for i in range(len(cases))],[0,64,64,64])
 
-    def test_exact_source_history_inverse_and_fail_closed_mutation(self):
-        data=ledger(ROOT);old=preimages(ROOT)
-        for name in data['files']:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            text=old[name]
-            self.assertEqual(hashlib.sha256(text.encode()).hexdigest(),data['files'][name]['before_sha256'])
-            with self.assertRaisesRegex(ValueError,'Unreviewed Unit 6'):historical_bytes(ROOT,name,(ROOT/name).read_bytes()+b' ')
-        for name,digest in data['added_sources'].items():self.assertEqual(hashlib.sha256((ROOT/name).read_bytes()).hexdigest(),digest)
-        with tempfile.TemporaryDirectory() as tmp:
-            dest=Path(tmp)/'tests/fixtures';dest.mkdir(parents=True);(dest/'portable-optimizer-six-source-delta.json').write_text('{}')
-            with self.assertRaisesRegex(ValueError,'ledger changed'):ledger(tmp)
 
 if __name__=='__main__':unittest.main()

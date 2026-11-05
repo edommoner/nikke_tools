@@ -108,38 +108,33 @@ class BattleTests(unittest.TestCase):
                 self.assertEqual([r['receipts'][0]['handle'][2] for r in n['typed']['attacks']],[1,2,3])
             if domain[0]['name'].endswith('/empty-retains-budget'):self.assertEqual(len(n['typed']['attacks']),1)
 
-    def test_battle_source_inverse_rejects_unreviewed_changes(self):
-        from portable_destructible_battle_source_contract import project_sources
-        data=json.loads((ROOT/'tests/fixtures/portable-destructible-battle-source-delta.json').read_text())
-        project_sources(ROOT)
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.subTest(source=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n'})
 
     def test_full_battle_uses_the_complete_current_shared_executor(self):
-        from portable_destructible_shield_source_contract import verify_retained_sources as verify_shield_sources
         from portable_backend import source_hashes
         ordinary=set(source_hashes('gpu/world_projectile_chain_entry.slang'))
         typed=set(source_hashes('gpu/destructible_battle_entry.slang'))
         self.assertLessEqual(ordinary,typed)
 
     def test_actual_metal_battle_blocks_reject_state_and_receipt_corruption(self):
-        from portable_destructible_coexist_source_contract import verify_retained_sources
-        s=importlib.util.spec_from_file_location('typed_battle_saved',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
-        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-battle-raw.json').read_text())
-        verify_retained_sources(ROOT,'gpu/destructible_battle_entry.slang',fixture['source_sha256'])
-        rows,_=a.prepare();by_name={n:(w,c) for n,w,c in rows}
+        s = importlib.util.spec_from_file_location('typed_battle_saved', ROOT / 'research/verify-destructible-battle-short.py')
+        a = importlib.util.module_from_spec(s)
+        s.loader.exec_module(a)
+        fixture = json.loads((ROOT / 'tests/fixtures/portable-destructible-battle-raw.json').read_text())
+        (rows, _) = a.prepare()
+        by_name = {n: (w, c) for (n, w, c) in rows}
         for record in fixture['records']:
-            block=array.array('I',[0])*fixture['output_words']
-            for i,v in record['nonzero']:block[i]=v
-            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),record['output_sha256'])
-            words,domain=by_name[record['name']]
-            self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256'])
-            a.compare(block,domain)
-            for offset in (0,786433,789251,787458,790000,790006,790010,790019,790020):
-                changed=array.array('I',block);changed[offset]^=2
-                with self.subTest(name=record['name'],offset=offset),self.assertRaises((AssertionError,ValueError)):a.compare(changed,domain)
+            block = array.array('I', [0]) * fixture['output_words']
+            for (i, v) in record['nonzero']:
+                block[i] = v
+            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(), record['output_sha256'])
+            (words, domain) = by_name[record['name']]
+            self.assertEqual(hashlib.sha256(array.array('I', words).tobytes()).hexdigest(), record['input_sha256'])
+            a.compare(block, domain)
+            for offset in (0, 786433, 789251, 787458, 790000, 790006, 790010, 790019, 790020):
+                changed = array.array('I', block)
+                changed[offset] ^= 2
+                with self.subTest(name=record['name'], offset=offset), self.assertRaises((AssertionError, ValueError)):
+                    a.compare(changed, domain)
 
     def test_ordinary_clear_and_typed_lifetimes_have_distinct_owners(self):
         s=importlib.util.spec_from_file_location('typed_coexist_native',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
@@ -153,31 +148,30 @@ class BattleTests(unittest.TestCase):
         self.assertFalse(any(r['outcome']=='cleared' for r in separate['battle']['boss_log']))
         high=answers['separate-128-typed-and-127-ordinary'];self.assertEqual(len(high['typed']['attacks'][0]['receipts']),128)
 
-    def test_coexistence_source_delta_is_exact(self):
-        from portable_destructible_coexist_source_contract import project_sources
-        data=json.loads((ROOT/'tests/fixtures/portable-destructible-coexist-source-delta.json').read_text());project_sources(ROOT)
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n'})
 
     def test_real_metal_coexistence_blocks_reject_pool_aliasing(self):
-        from portable_destructible_shield_source_contract import verify_retained_sources as verify_shield_sources
         from portable_backend import source_hashes
         from portable_specs import LIMITS as L
-        s=importlib.util.spec_from_file_location('coexist_saved',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
-        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-coexist-raw.json').read_text())
-        verify_shield_sources(ROOT,'gpu/destructible_battle_entry.slang',fixture['source_sha256'])
-        rows,_=a.prepare();by_name={n:(w,c) for n,w,c in rows}
+        s = importlib.util.spec_from_file_location('coexist_saved', ROOT / 'research/verify-destructible-battle-short.py')
+        a = importlib.util.module_from_spec(s)
+        s.loader.exec_module(a)
+        fixture = json.loads((ROOT / 'tests/fixtures/portable-destructible-coexist-raw.json').read_text())
+        (rows, _) = a.prepare()
+        by_name = {n: (w, c) for (n, w, c) in rows}
         for record in fixture['records']:
-            block=array.array('I',[0])*fixture['output_words']
-            for i,v in record['nonzero']:block[i]=v
-            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),record['output_sha256'])
-            words,domain=by_name[record['name']];self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256']);a.compare(block,domain)
-            offsets=(L['WORLD_ACTOR_POOL_STATE_BASE']+16,L['WORLD_ACTOR_POOL_STATE_BASE']+20,L['WORLD_FRAME_OUTPUT_BASE']+16+4,787458,787460,790019)
+            block = array.array('I', [0]) * fixture['output_words']
+            for (i, v) in record['nonzero']:
+                block[i] = v
+            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(), record['output_sha256'])
+            (words, domain) = by_name[record['name']]
+            self.assertEqual(hashlib.sha256(array.array('I', words).tobytes()).hexdigest(), record['input_sha256'])
+            a.compare(block, domain)
+            offsets = (L['WORLD_ACTOR_POOL_STATE_BASE'] + 16, L['WORLD_ACTOR_POOL_STATE_BASE'] + 20, L['WORLD_FRAME_OUTPUT_BASE'] + 16 + 4, 787458, 787460, 790019)
             for offset in offsets:
-                changed=array.array('I',block);changed[offset]^=1
-                with self.subTest(name=record['name'],offset=offset),self.assertRaises((AssertionError,ValueError)):a.compare(changed,domain)
+                changed = array.array('I', block)
+                changed[offset] ^= 1
+                with self.subTest(name=record['name'], offset=offset), self.assertRaises((AssertionError, ValueError)):
+                    a.compare(changed, domain)
 
     def test_counter_battle_contracts_keep_child_order_generation_and_owner(self):
         s=importlib.util.spec_from_file_location('typed_counter_contracts',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
@@ -185,8 +179,6 @@ class BattleTests(unittest.TestCase):
         self.assertEqual(len(answers),17)
         self.assertEqual([r['damage'] for r in answers['live-threshold']['typed']['attacks']],[968.,968.,1086.])
         for name,amount in [('death',1086),('cancel-on-death',968),('refresh-before-death',1204),('siblings-before-refresh-and-death',1322),('owner-ignores-other-attacker',968),('squad-accepts-other-attacker',1086),('predicate-self-marker',968),('predicate-not-self-marker',1086),('predicate-marker-visible-during-child',1086)]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             self.assertEqual(answers[name]['battle']['damage'][0],amount,name)
         trace=answers['siblings-before-refresh-and-death']['battle']['target_counters']['completions']
         self.assertEqual([(r['name'],r['reason'],r['epoch']) for r in trace],[('first','threshold',1),('second','threshold',2),('second','death',3)])
@@ -216,16 +208,16 @@ class BattleTests(unittest.TestCase):
             manager=data['managers'][0];self.assertNotIn('_condition_ok',manager.__dict__);self.assertNotIn('_resolve_target',manager.__dict__)
 
     def test_old25_inputs_native_and_shader_identity_are_retained(self):
-        from portable_destructible_shield_source_contract import verify_retained_sources as verify_shield_sources
         from portable_backend import source_hashes
-        s=importlib.util.spec_from_file_location('typed_counter_retained',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
-        old=json.loads((ROOT/'research/destructible-counter-battle-evidence/prior25-golden.json').read_text());verify_shield_sources(ROOT,'gpu/destructible_battle_entry.slang',old['source_sha256'])
-        rows,_=a.prepare()
-        for (name,words,domain),prior in zip(rows[:25],old['entries'],strict=True):
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(name,prior['name']);self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),prior['input_sha256'])
-            self.assertEqual(a.cross.digest(a.native_reference(domain) if domain is not None else dict(status=64)),prior['native_sha256'])
+        s = importlib.util.spec_from_file_location('typed_counter_retained', ROOT / 'research/verify-destructible-battle-short.py')
+        a = importlib.util.module_from_spec(s)
+        s.loader.exec_module(a)
+        old = json.loads((ROOT / 'research/destructible-counter-battle-evidence/prior25-golden.json').read_text())
+        (rows, _) = a.prepare()
+        for ((name, words, domain), prior) in zip(rows[:25], old['entries'], strict=True):
+            self.assertEqual(name, prior['name'])
+            self.assertEqual(hashlib.sha256(array.array('I', words).tobytes()).hexdigest(), prior['input_sha256'])
+            self.assertEqual(a.cross.digest(a.native_reference(domain) if domain is not None else dict(status=64)), prior['native_sha256'])
 
     def test_real_counter_children_reenter_the_same_typed_producer(self):
         s=importlib.util.spec_from_file_location('typed_counter_reentry',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
@@ -242,19 +234,26 @@ class BattleTests(unittest.TestCase):
             else:self.assertFalse(attacks[0]['receipts'][1]['delivered'])
 
     def test_saved_real_counter_battles_reject_completion_context_corruption(self):
-        from portable_destructible_shield_source_contract import verify_retained_sources as verify_shield_sources
         from portable_backend import source_hashes
         from portable_specs import LIMITS as L
-        s=importlib.util.spec_from_file_location('counter_battle_saved',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
-        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-counter-battle-raw.json').read_text());verify_shield_sources(ROOT,'gpu/destructible_battle_entry.slang',fixture['source_sha256'])
-        rows,_=a.prepare();by_name={n:(w,c) for n,w,c in rows}
+        s = importlib.util.spec_from_file_location('counter_battle_saved', ROOT / 'research/verify-destructible-battle-short.py')
+        a = importlib.util.module_from_spec(s)
+        s.loader.exec_module(a)
+        fixture = json.loads((ROOT / 'tests/fixtures/portable-destructible-counter-battle-raw.json').read_text())
+        (rows, _) = a.prepare()
+        by_name = {n: (w, c) for (n, w, c) in rows}
         for record in fixture['records']:
-            block=array.array('I',[0])*fixture['output_words']
-            for i,v in record['nonzero']:block[i]=v
-            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),record['output_sha256']);words,domain=by_name[record['name']]
-            self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256']);a.compare(block,domain)
-            for offset in (L['TARGET_COUNTER_HEAD']+1,L['TARGET_COUNTER_TRACE_BASE']+2,L['TARGET_COUNTER_TRACE_BASE']+6,L['TARGET_COUNTER_TRACE_BASE']+13,L['TARGET_COUNTER_TRACE_BASE']+14,L['COUNTER_CONTEXT_BASE']+1,790008):
-                changed=array.array('I',block);changed[offset]^=1
-                with self.subTest(name=record['name'],offset=offset),self.assertRaises((AssertionError,ValueError)):a.compare(changed,domain)
+            block = array.array('I', [0]) * fixture['output_words']
+            for (i, v) in record['nonzero']:
+                block[i] = v
+            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(), record['output_sha256'])
+            (words, domain) = by_name[record['name']]
+            self.assertEqual(hashlib.sha256(array.array('I', words).tobytes()).hexdigest(), record['input_sha256'])
+            a.compare(block, domain)
+            for offset in (L['TARGET_COUNTER_HEAD'] + 1, L['TARGET_COUNTER_TRACE_BASE'] + 2, L['TARGET_COUNTER_TRACE_BASE'] + 6, L['TARGET_COUNTER_TRACE_BASE'] + 13, L['TARGET_COUNTER_TRACE_BASE'] + 14, L['COUNTER_CONTEXT_BASE'] + 1, 790008):
+                changed = array.array('I', block)
+                changed[offset] ^= 1
+                with self.subTest(name=record['name'], offset=offset), self.assertRaises((AssertionError, ValueError)):
+                    a.compare(changed, domain)
 
 if __name__=='__main__':unittest.main()

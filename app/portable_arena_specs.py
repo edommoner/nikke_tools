@@ -201,12 +201,10 @@ def audit_live_sources(root):
     check_schema(root)
     if not source_matches(root) or area['BASE_INPUT'] != WORLD_INPUT_WORDS+scene['INPUT']:
         raise ValueError('Coordinate input schema drift')
-    from portable_arena_composed_source_contract import project_sources
-    project_sources(root)
     for name in ('gpu/world_coordinate_composed_entry.slang','gpu/coordinate_area_hooks.slang','gpu/world_team_runtime.slang'):
         hashes[name]=hashlib.sha256((root/name).read_bytes()).hexdigest()
     return dict(schema=1, scope='Static input/output ownership; no battle or GPU proof',
-                legacy_shader_declarations_verified=True, composed_source_contract_verified=True, resident_audit=resident,
+                legacy_shader_declarations_verified=True, resident_audit=resident,
                 source_sha256=hashes, gpu_calls=0)
 
 

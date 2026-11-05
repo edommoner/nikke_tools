@@ -33,16 +33,5 @@ class PhysicalCoverTests(unittest.TestCase):
             self.assertEqual(words[at+7],0x4d435631)
             who=case['cover_contract']['owner'];self.assertEqual(words[at+SEQUENCE_BASE+who*64+4],1)
 
-    def test_source_inverse_is_complete_and_rejects_mutation(self):
-        from portable_physical_lock_cover_source_contract import project_sources,project_backend_source
-        ledger=json.loads((ROOT/'tests/fixtures/portable-physical-lock-cover-source-delta.json').read_text())
-        old=project_sources(ROOT)
-        for name,row in ledger['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(old[name],row['baseline'])
-            with self.subTest(name=name),self.assertRaisesRegex(AssertionError,'Unreviewed'):
-                project_sources(ROOT,{name:row['current']+'\n// mutation'})
-        with self.assertRaisesRegex(ValueError,'Unreviewed'):project_backend_source(ROOT,(ROOT/'app/portable_backend.py').read_text()+'\n# mutation')
 
 if __name__=='__main__':unittest.main()

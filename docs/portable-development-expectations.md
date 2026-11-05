@@ -1,5 +1,7 @@
 # 開発用CPU基準の重複計算を減らす
 
+Unit 10 (2026-11-06): the current development tree is authoritative. Source-history hash ledgers and historical source reconstruction have been removed. Do not add source preimages or reviewed source deltas for ordinary edits. Keep behavioural tests, current schema/layout checks, output goldens, generated-artifact/cache identities, evidence integrity and upstream engine revision pins. The ledger-based workflow described below is retained as historical documentation for old immutable evidence.
+
 `package --develop --native-baseline-package PATH` は、固定済みの同じCPU契約から期待ハッシュだけを引き継ぎます。パッケージ作成時のnative計算を省き、`run` 前の全CPU再計算と、新しいGPU結果の独立 `seal` を維持します。実行時の参照値・CPU結果・GPU出力・コンパイラ成果物をキャッシュする機能ではありません。
 
 CPU契約とテストを先に固定し、その後GPU実装だけを変更する段階で使います。

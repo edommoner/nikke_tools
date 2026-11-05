@@ -17,17 +17,13 @@ class MovingManyWireTests(unittest.TestCase):
         self.assertEqual(len(actors),128);self.assertEqual(len(case['enemy_movement']['actors']),127)
         self.assertEqual(len(p['effects']),71);self.assertEqual(case['duration'],30)
         self.assertFalse(meta['moving_typed_geometry']['precomputed_positions'])
-    def test_excess_actor_and_unreviewed_source_cannot_be_admitted(self):
-        row=fixtures()[0];row['patterns'][0]['spec']['count']=128
-        row['body']['enemy']['patterns']=copy.deepcopy(row['patterns'])
-        with self.assertRaises(ValueError):case,p=prepare_case(row);compile_battle(p,case)
-        from portable_moving_many_source_contract import project_sources
-        ledger=json.loads((ROOT/'tests/fixtures/portable-moving-many-source-delta.json').read_text());out=project_sources(ROOT)
-        for name,r in ledger['files'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(hashlib.sha256(out[name].encode()).hexdigest(),r['before_sha256'])
-            with self.subTest(name=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
+    def test_excess_actor_cannot_be_admitted(self):
+        row = fixtures()[0]
+        row['patterns'][0]['spec']['count'] = 128
+        row['body']['enemy']['patterns'] = copy.deepcopy(row['patterns'])
+        with self.assertRaises(ValueError):
+            (case, p) = prepare_case(row)
+            compile_battle(p, case)
     def test_old_layouts_remain_byte_exact_with_default_capacity(self):
         from portable_enemy_movement_wire import check_schema as old_motion
         from portable_moving_typed_wire import check_schema as old_physical

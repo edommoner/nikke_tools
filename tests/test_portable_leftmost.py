@@ -55,16 +55,6 @@ class LeftmostTests(unittest.TestCase):
         m=adapter();rows,data=m.prepare();self.assertEqual(len(rows),21);self.assertEqual(len(data),4+21*m.suite.INPUT*4)
         for _,w,d in rows[:13]:self.assertTrue(any(w[L['RECIPIENT_BASE']+i*8]==24 for i in range(w[1])))
         for name,_,d in rows[13:]:self.assertIsNone(d);m.validate_rejection([64],name)
-    def test_exact_delta_rejects_gate_order_mask_count_and_arithmetic_edits(self):
-        from portable_leftmost_source_contract import project_sources
-        sources,_=project_sources(ROOT)
-        import hashlib,json
-        ledger=json.loads((ROOT/'tests/fixtures/portable-leftmost-source-delta.json').read_text())
-        self.assertEqual(hashlib.sha256(sources['gpu/recipient_runtime.slang'].encode()).hexdigest(),ledger['sources']['gpu/recipient_runtime.slang']['baseline_sha256'])
-        original=(ROOT/'gpu/recipient_runtime.slang').read_text()
-        for before,after in [('written<count','written<=count'),('s.downMask&(1U<<who)','s.downMask&(1U<<d.owner)'),('#ifdef PORTABLE_LEFTMOST','#if 1'),('count<=5','count<=6'),('kind == 0','kind == 1')]:
-            self.assertIn(before,original)
-            with self.subTest(before=before),self.assertRaises(AssertionError):project_sources(ROOT,{'gpu/recipient_runtime.slang':original.replace(before,after,1)})
 
     def test_comparison_rejects_wrong_recipient_defense_and_instant_hp(self):
         m=adapter()

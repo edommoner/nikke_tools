@@ -9,7 +9,6 @@ from portable_specs import LIMITS as L
 from portable_coordinate_original_cases import prepare_case
 from portable_enemy_ammo_cases import fixtures
 from portable_enemy_ammo_wire import LAYOUT as E,compile_enemy_ammo,pack,check_schema
-from portable_enemy_ammo_source_contract import project_sources
 
 
 class EnemyAmmoWireTests(unittest.TestCase):
@@ -45,15 +44,6 @@ class EnemyAmmoWireTests(unittest.TestCase):
         c=fixtures()[0];_,p=prepare_case(c)
         with self.assertRaisesRegex(ValueError,'Every attacking ADD'):compile_enemy_ammo(p,c['logical_geometry'],c['enemy_ammo'][:1])
 
-    def test_exact_inverse_composes_with_old_add_and_healing_audits(self):
-        ledger=json.loads((ROOT/'tests/fixtures/portable-enemy-ammo-source-delta.json').read_text());old=project_sources(ROOT)
-        for name,row in ledger['files'].items():self.assertEqual(old[name],row['before'])
-        for name in [*ledger['files'],*ledger['added_sources']]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.subTest(path=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
-        from portable_logical_geometry_source_contract import project_sources as logical
-        self.assertIn('gpu/ammo_instant_runtime.slang',logical(ROOT))
 
     def test_resource_arena_starts_after_add_map_and_fits_the_old_output(self):
         from portable_add_attack_battle_wire import LAYOUT as A
@@ -88,7 +78,6 @@ class EnemyAmmoWireTests(unittest.TestCase):
         for at in (tail,tail+8):
             with self.subTest(corrupt_word=at),self.assertRaises(AssertionError):
                 broken=block.copy();broken[at]=99;compare_resources(broken,domain,native)
-
 
 
 if __name__=='__main__':unittest.main()

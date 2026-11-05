@@ -32,17 +32,6 @@ class PhysicalTests(unittest.TestCase):
                                       ('gpu/arbitrary_entry.slang',a.INPUT_WORDS,a.OUTPUT_WORDS)]:
             with self.assertRaises(ValueError):validate_composed_stride(source,inputs,outputs)
 
-    def test_historical_projection_does_not_ignore_any_source_edit(self):
-        from portable_coordinate_physical_source_contract import project_sources
-        import json
-        data=json.loads((ROOT/'tests/fixtures/portable-coordinate-physical-source-delta.json').read_text())
-        projected=project_sources(ROOT)
-        for name,row in data['sources'].items():self.assertEqual(projected[name],row['baseline'])
-        for name in [*data['sources'],*data['added_sources']]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.subTest(name=name),self.assertRaises(AssertionError):
-                project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed edit\n'})
 
     def test_packet_comparison_rejects_damage_extra_and_unused_tail(self):
         rows,_=a.prepare();_,_,domain=rows[1];expected=a.native_reference(domain)

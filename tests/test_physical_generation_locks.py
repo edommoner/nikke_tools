@@ -21,15 +21,6 @@ class PhysicalLockTests(unittest.TestCase):
   self.assertEqual(killed['lock_shots'][1]['handles'],[[0,0,1]])
   self.assertEqual(body['lock_shots'][1]['handles'],[[0,0,1],[5,0,1]])
   self.assertEqual(reborn['lock_shots'][0]['handles'][-1],[5,0,1]);self.assertEqual(reborn['lock_shots'][1]['handles'][-1],[5,0,2])
- def test_transport_guard_changes_are_exactly_reviewed_not_excluded(self):
-  import json
-  from portable_physical_lock_arena_source_contract import project_sources
-  data=json.loads((ROOT/'tests/fixtures/portable-physical-lock-arena-source-delta.json').read_text());out=project_sources(ROOT)
-  for name in ('app/portable_wire_layout.py','scripts/run-metal-probe.swift'):
-   from portable_removed_sources import REMOVED_SOURCES
-   if name in REMOVED_SOURCES:continue
-   self.assertEqual(out[name],data['sources'][name]['baseline'])
-   with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed'})
  def test_no_cpu_period_or_shot_schedule_is_used_for_packing(self):
   import portable_backend
   from calculator import timeline
@@ -38,13 +29,4 @@ class PhysicalLockTests(unittest.TestCase):
    for _,w,domain in entries:
     if domain:
      c,m,b=domain;self.assertTrue(all(w[suite.L['COMMAND_BASE']+i*8] not in (45,46) for i in range(w[2])))
- def test_source_inverse_preserves_old_state_and_weapon_contracts(self):
-  import json
-  from portable_physical_lock_source_contract import project_sources
-  data=json.loads((ROOT/'tests/fixtures/portable-physical-lock-source-delta.json').read_text());old=project_sources(ROOT)
-  for name,row in data['sources'].items():
-   from portable_removed_sources import REMOVED_SOURCES
-   if name in REMOVED_SOURCES:continue
-   self.assertEqual(old[name],row['baseline'])
-   with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n// mutation'})
 if __name__=='__main__':unittest.main()

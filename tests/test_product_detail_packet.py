@@ -7,7 +7,6 @@ sys.path[:0]=[str(ROOT/'app'),str(ROOT/'research')]
 spec=importlib.util.spec_from_file_location('product_packet',ROOT/'research/verify-product-detail.py')
 adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
 
-from historical_engine_reference import historical_compiler
 
 class ProductPacket(unittest.TestCase):
     def test_typed_skill_decoder_uses_exact_static_coefficient_without_research_imports(self):

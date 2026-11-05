@@ -69,8 +69,6 @@ class SkillWeaponTests(unittest.TestCase):
     def test10_wire_cases_keep_original_full_profile_definitions(self):
         m=adapter();rows,data=m.prepare();self.assertEqual(len(rows),10);self.assertEqual(len(data),4+10*104400*4);self.assertTrue(all(d is not None for _,_,d in rows))
         for name,w,d in rows[-2:]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             prepared=d[2];self.assertEqual(len(prepared['effects']),83)
             annotations=[item['effect'] for item in prepared['effects'] if item['effect'].get('stat')=='auto_damage'];self.assertEqual(len(annotations),1);self.assertEqual(annotations[0]['weapon_type'],'RL')
 

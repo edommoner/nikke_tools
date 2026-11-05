@@ -55,23 +55,6 @@ class SharedSkillHistory(unittest.TestCase):
             with self.subTest(capacity=capacity,count=count),self.assertRaises(ValueError):history.require_capacity(dict(skill_trace=[None]*count),capacity)
         history.require_capacity(dict(skill_trace=[None]*2048))
 
-    def test_exact_source_and_transport_inverse_rejects_unreviewed_bytes(self):
-        from portable_skill_history_source_contract import ledger,project_sources,project_backend_source
-        from portable_logical_geometry_source_contract import project_sources as current_sources
-        # History predates the reviewed logical/healing/ADD layers. Validate
-        # those complete inverses before testing this historical layer.
-        data=ledger(ROOT);projected=current_sources(ROOT)
-        historical=project_sources(ROOT,projected);project_backend_source(ROOT)
-        for name,row in data['sources'].items():self.assertEqual(historical[name],row['baseline'])
-        for name in [*data['added_sources'],'gpu/world_skill_runtime.slang']:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            with self.subTest(name=name),self.assertRaises((AssertionError,ValueError)):
-                project_sources(ROOT,current_sources(ROOT,{name:(ROOT/name).read_text()+'\n'}))
-        with self.assertRaises(ValueError):project_backend_source(ROOT,(ROOT/'app/portable_backend.py').read_text()+'\n')
-        from portable_coordinate_typed_source_contract import project_sources as legacy
-        from portable_arena_transport_source_contract import historical_backend_source
-        legacy(ROOT);historical_backend_source(ROOT)
 
     def test_registered_wire_is_exact_and_legacy_entry_does_not_gain_history(self):
         from portable_backend import validate_composed_stride
@@ -80,13 +63,5 @@ class SharedSkillHistory(unittest.TestCase):
             with self.subTest(source=source,iw=iw,ow=ow),self.assertRaises(ValueError):validate_composed_stride(source,iw,ow)
         self.assertNotIn('WORLD_SKILL_TRACE_CAPACITY',(ROOT/'gpu/world_coordinate_typed_owner_entry.slang').read_text())
 
-
-    def test_direct_and_already_projected_transport_use_the_same_exact_inverse(self):
-        from portable_coordinate_resident_arc_source_contract import ledger,project_backend_source
-        row=ledger(ROOT)['sources']['app/portable_backend.py']
-        self.assertEqual(project_backend_source(ROOT),row['baseline'])
-        self.assertEqual(project_backend_source(ROOT,row['current']),row['baseline'])
-        for text in ((ROOT/'app/portable_backend.py').read_text()+'\n',row['current']+'\n'):
-            with self.assertRaises(ValueError):project_backend_source(ROOT,text)
 
 if __name__=='__main__':unittest.main()

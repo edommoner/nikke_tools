@@ -86,35 +86,6 @@ class WasmBuild(unittest.TestCase):
                 for path in (cpp,root/'scripts/wasm-platform.h',root/'scripts/wasm-product-host.cpp'):
                     path.write_bytes(path.read_bytes()+b'\n// identity change\n');changed,_=wasm.build_wasm(root,cpp);self.assertNotEqual(file,changed);file=changed
 
-class BrowserSourceHistory(unittest.TestCase):
-    def test_exact_inverse_and_mutation_rejection(self):
-        import portable_browser_backend_source_contract as history
-        import portable_native_backend_source_contract as native_history
-        name='app/portable_detail.py';raw=(ROOT/name).read_bytes()
-        ledger=json.loads((ROOT/'tests/fixtures/portable-browser-backend-source-delta.json').read_text())
-        before=history.browser_preimage(ROOT,name,raw)
-        self.assertEqual(hashlib.sha256(before).hexdigest(),native_history.AFTER_SHA256[name])
-        self.assertEqual(hashlib.sha256(before).hexdigest(),ledger['files'][name]['before_sha256'])
-        self.assertEqual(history.browser_preimage(ROOT,name,before),before)
-        self.assertEqual(native_history.native_preimage(ROOT,name,raw),native_history.native_preimage(ROOT,name,before))
-        for changed in (raw+b'\n',b'!'+raw[1:],raw[:-1]):
-            with self.assertRaisesRegex(ValueError,'Unreviewed'):history.browser_preimage(ROOT,name,changed)
-            self.assertEqual(history.reviewed_bytes(ROOT,name,changed),changed)
-    def test_ledger_span_and_before_hash_are_bound(self):
-        import portable_browser_backend_source_contract as history
-        name='app/portable_detail.py';raw=(ROOT/name).read_bytes()
-        from portable_optimizer_verification_source_contract import verification_preimage
-        raw=verification_preimage(ROOT,name,raw)
-        data=json.loads((ROOT/'tests/fixtures/portable-browser-backend-source-delta.json').read_text())
-        for mutation,error in [('ledger','ledger changed'),('after','inverse span changed'),('before','historical preimage changed')]:
-            with tempfile.TemporaryDirectory() as tmp:
-                root=Path(tmp);path=root/'tests/fixtures';path.mkdir(parents=True)
-                changed=copy.deepcopy(data)
-                if mutation!='ledger':changed['files'][name]['hunks'][0][mutation]='wrong bytes'
-                ledger=(json.dumps(changed,indent=2)+'\n'+('\n' if mutation=='ledger' else '')).encode()
-                (path/'portable-browser-backend-source-delta.json').write_bytes(ledger)
-                expected=history.LEDGER_SHA256 if mutation=='ledger' else hashlib.sha256(ledger).hexdigest()
-                with patch.object(history,'LEDGER_SHA256',expected),self.assertRaisesRegex(ValueError,error):history.browser_preimage(root,name,raw)
 
 class BrowserBoundaryValidation(unittest.TestCase):
     def test_finish_never_turns_missing_uploads_into_another_prepare(self):

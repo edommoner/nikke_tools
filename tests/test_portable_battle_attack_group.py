@@ -45,15 +45,6 @@ class PortableBattleAttackGroupTests(unittest.TestCase):
         n,_=observe(fixtures()[12]);self.assertTrue(all(not a['alive'] for a in n['adds']))
         self.assertEqual(adapter.native_field_bindings(n,{'그리디'}),[('그리디',(0,0,1)),('그리디',(5,0,1)),('그리디',(5,1,1)),('그리디',(5,2,1))])
         n,_=observe(fixtures()[19]);self.assertEqual(adapter.native_field_bindings(n,{'그리디'}),[('그리디',(0,0,1))])
-    def test_exact_historical_delta_rejects_unreviewed_edits(self):
-        from portable_attack_group_source_contract import project_sources
-        projected=project_sources(ROOT)
-        self.assertNotIn('deliverAttackGroupShot',projected['gpu/combat_runtime.slang'])
-        for name in ('gpu/world_skill_runtime.slang','gpu/event_runtime.slang','gpu/combat_runtime.slang'):
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            changed=(ROOT/name).read_text()+'\n// unreviewed delta\n'
-            with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:changed})
     def test_schema_is_generated_and_storage_is_bounded(self):
         from portable_battle_attack_group_input import HEADER,SLOTS,SLOT_WORDS,LOG,LOG_CAPACITY,PACKETS,OUTPUT_WORDS
         self.assertEqual((ROOT/'gpu/portable_schema.slang').read_text(),shader_schema())

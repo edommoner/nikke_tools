@@ -10,9 +10,6 @@ from calculator.buff_manager import BuffManager
 from portable_specs import LIMITS as L,shader_schema
 from portable_focus_specs import STAT,MAGIC
 from portable_runtime import validate_effect,UnsupportedPortable
-from portable_definition_view_contract import verify
-from portable_state_focus_source_contract import ledger,baseline_source
-from portable_native_query_source_contract import project_sources as project_native
 from portable_focus_aim_cases import fixtures,original_fixtures
 from world_focus_aim_native import observe,plain_observe
 from portable_focus_aim_contracts import verify as verify_aims
@@ -36,12 +33,8 @@ class StateFocusTests(unittest.TestCase):
         self.assertLessEqual(L['FOCUS_STATE_BASE']+L['FOCUS_STATE_WORDS'],786416)
         self.assertEqual(entries[46][1][L['WORLD_ACTOR_POOL_DEF_BASE']+12+11],1)
         for name,words,domain in entries[30:54]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             self.assertIn(words[L['WORLD_META_BASE']+4],(MAGIC,MAGIC|1))
         for name,words,domain in entries[54:]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
             self.assertIsNone(domain);adapter().validate_rejection([64],name)
 
     def test_aim_observation_does_not_add_live_queries_or_ticks(self):
@@ -73,19 +66,12 @@ class StateFocusTests(unittest.TestCase):
         words,metadata,bindings=adapter().suite.compile_case(case)
         self.assertTrue(words);self.assertTrue(any(int(b.kind)==6 for b in bindings))
 
-    def test_host_and_exact_source_delta_guards(self):
-        e=fixtures()[0]['effects'][-1];validate_effect(e,combat={},world_frame=True)
-        for change,combat,world in [({},None,True),({}, {},False),({'scaling':'max_hp'},{},True),({'tick_interval':.1},{},True)]:
-            with self.assertRaises(ValueError):validate_effect(dict(e,**change),combat=combat,world_frame=world)
-        data=ledger(ROOT);self.assertEqual(set(verify(ROOT)['reviewed_state_focus_sources']),set(data['sources']))
-        projected,_=project_native(ROOT)
-        for name,row in data['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            source=projected.get(name,(ROOT/name).read_text())
-            for change in row['changes']:
-                with self.subTest(name=name),self.assertRaises(AssertionError):
-                    baseline_source(ROOT,name,source.replace(change['current'],change['baseline'],1))
+    def test_host_effect_validation(self):
+        e = fixtures()[0]['effects'][-1]
+        validate_effect(e, combat={}, world_frame=True)
+        for (change, combat, world) in [({}, None, True), ({}, {}, False), ({'scaling': 'max_hp'}, {}, True), ({'tick_interval': 0.1}, {}, True)]:
+            with self.assertRaises(ValueError):
+                validate_effect(dict(e, **change), combat=combat, world_frame=world)
 
 
 if __name__=='__main__':unittest.main()

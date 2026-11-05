@@ -39,14 +39,6 @@ class HealingChargeLifetimeTests(unittest.TestCase):
     def test_new_cases_pack_without_cpu_charge_values(self):
         rows,_=adapter().prepare();self.assertEqual(len(rows),12)
         for name,w,domain in rows:self.assertEqual(w[L['PROTECTION_META_BASE']]&64,64)
-    def test_new_source_delta_is_reversible_and_rejects_unreviewed_edits(self):
-        from portable_heal_charge_lifetime_source_contract import project_sources
-        d=json.loads((ROOT/'tests/fixtures/portable-heal-charge-lifetime-source-delta.json').read_text());result=project_sources(ROOT)
-        for name,row in d['sources'].items():
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            self.assertEqual(result[name],row['baseline'])
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n'})
     def test_final_native_lifetime_contract_rejects_hidden_stale_pool(self):
         c=self.cases[9];n=copy.deepcopy(self.answers[9][0]);n['healing_charge']['final']=[dict(row=1,current=1000,active=False,ended=True)]
         with self.assertRaises(AssertionError):verify(c,n)

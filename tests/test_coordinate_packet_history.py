@@ -25,13 +25,8 @@ class PacketHistoryTests(unittest.TestCase):
         rows[-1][4]^=1
         with self.assertRaises(ValueError):h.verify(block,rows)
         with self.assertRaises(ValueError):h.expected([rows[0]]*(h.MAX_RECORDS+1))
-    def test_clear_tail_ownership_schema_and_exact_legacy_inverse(self):
-        self.assertEqual(h.audit_arena()['raw_prefix_capacity'],4096);self.assertLessEqual(h.HEAD+h.WORDS,1310720)
-        self.assertEqual((ROOT/'gpu/coordinate_packet_history_layout.slang').read_text(),h.schema())
-        from portable_coordinate_original_packet_history_source_contract import project_sources
-        data=json.loads((ROOT/'tests/fixtures/portable-coordinate-original-packet-history-source-delta.json').read_text());out=project_sources(ROOT)
-        for name,row in data['sources'].items():self.assertEqual(out[name],row['baseline'])
-        for name in data['added_sources']:self.assertNotIn(name,out)
-        name='gpu/coordinate_skill_runtime.slang'
-        with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
+    def test_clear_tail_ownership_and_current_schema(self):
+        self.assertEqual(h.audit_arena()['raw_prefix_capacity'], 4096)
+        self.assertLessEqual(h.HEAD + h.WORDS, 1310720)
+        self.assertEqual((ROOT / 'gpu/coordinate_packet_history_layout.slang').read_text(), h.schema())
 if __name__=='__main__':unittest.main()

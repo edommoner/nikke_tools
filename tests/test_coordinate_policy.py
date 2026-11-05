@@ -33,11 +33,6 @@ class PolicyTests(unittest.TestCase):
         validate_composed_stride(a.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS)
         for source,i,o in [(a.SOURCE,109528,a.OUTPUT_WORDS),(a.parent.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS),(a.SOURCE,a.INPUT_WORDS,1769472)]:
             with self.assertRaises(ValueError):validate_composed_stride(source,i,o)
-    def test_history_source_and_transport_inverse_is_strict(self):
-        from portable_coordinate_policy_source_contract import project_sources,project_backend_source
-        project_sources(ROOT);project_backend_source(ROOT)
-        with self.assertRaises(AssertionError):project_sources(ROOT,{'gpu/coordinate_aim_runtime.slang':(ROOT/'gpu/coordinate_aim_runtime.slang').read_text()+'\n'})
-        with self.assertRaises(ValueError):project_backend_source(ROOT,(ROOT/'app/portable_backend.py').read_text()+'\n')
 class PolicyStaticValidationTests(unittest.TestCase):
     def test_cooldown_mismatch_stops_before_battle_or_packing(self):
         c=fixtures()[0];c['combat']['weapons'][0]['cooldown']=.5

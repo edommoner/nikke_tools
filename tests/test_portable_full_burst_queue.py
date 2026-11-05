@@ -39,14 +39,6 @@ class FullBurstQueueTests(unittest.TestCase):
             if c['contract']['kind'].startswith(('parts-','interrupt-')):
                 b=copy.deepcopy(n);next(x for x in b['parts_skill_events'] if x['kind']=='packet')['part_damage']=0
                 with self.assertRaises(AssertionError):verify(c,b)
-    def test_exact_source_projection_rejects_queue_and_sidecar_changes(self):
-        from portable_full_burst_landing_source_contract import project_sources
-        project_sources(ROOT)
-        for name,old,new in [('gpu/full_burst_landing_runtime.slang','index<s.pendingCount','index<1'),('gpu/full_burst_landing_runtime.slang','i<38','i<0'),('gpu/pending_burst_runtime.slang','releasePendingBatch(s,count)','releasePendingBatch(s,0)')]:
-            from portable_removed_sources import REMOVED_SOURCES
-            if name in REMOVED_SOURCES:continue
-            text=(ROOT/name).read_text();self.assertIn(old,text)
-            with self.assertRaises(AssertionError):project_sources(ROOT,{name:text.replace(old,new)})
     def test_wire_defaults_preserve_native_and_full_fixture_count(self):
         s=importlib.util.spec_from_file_location('queue_test',ROOT/'research/verify-world-full-burst-queue-short.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
         rows,_=m.prepare();self.assertEqual(len(rows),7)

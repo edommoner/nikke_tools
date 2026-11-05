@@ -8,20 +8,6 @@ s=importlib.util.spec_from_file_location('frame_probe_test',ROOT/'research/verif
 class DispatchFrameStorageTests(unittest.TestCase):
 
 
- def test_historical_inverse_accepts_only_reviewed_sources_and_retains_all_old_baselines(self):
-  from portable_dispatch_frame_source_contract import ledger,project_sources
-  data=ledger(ROOT);old=project_sources(ROOT)
-  for name,row in data['sources'].items():
-   from portable_removed_sources import REMOVED_SOURCES
-   if name in REMOVED_SOURCES:continue
-   self.assertEqual(old[name],row['baseline'])
-   with self.subTest(name=name),self.assertRaisesRegex(AssertionError,'Unreviewed dispatch frame source'):
-    project_sources(ROOT,{name:row['current']+'\n// mutated'})
-  for name in data['added_sources']:
-   from portable_removed_sources import REMOVED_SOURCES
-   if name in REMOVED_SOURCES:continue
-   with self.subTest(name=name),self.assertRaisesRegex(AssertionError,'Unreviewed dispatch frame dependency'):
-    project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// mutated'})
  def test_full_frame_and_generated_storage_match_single_shared_definition(self):
   self.assertEqual(frames.check_frame_type(ROOT),dict(capacity=32,frame_words=32,storage_words=1024))
   self.assertEqual((ROOT/'gpu/dispatch_frame_storage.slang').read_text(),frames.schema())
